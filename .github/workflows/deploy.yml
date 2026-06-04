@@ -32,6 +32,15 @@ jobs:
       - name: Generate Prisma client
         run: npx prisma generate
 
+      - name: Create empty DB for static build
+        # Some pages prerender via getStaticParams + DB reads. Give Prisma an
+        # empty DB so queries return [] instead of throwing during build.
+        run: |
+          mkdir -p prisma
+          npx prisma db push --skip-generate
+        env:
+          DATABASE_URL: file:./prisma/dev.db
+
       - name: Build Next.js (standalone)
         run: npm run build
         env:
