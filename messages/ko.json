@@ -1,0 +1,158 @@
+{
+  "brand": {
+    "name": "SunShine",
+    "label": "Dermatology Clinic."
+  },
+  "nav": {
+    "about": "병원소개",
+    "lifting": "리프팅 · 안티에이징",
+    "whitening": "화이트닝 · 홍조",
+    "acne": "여드름 · 흉터 · 모공",
+    "skinDisease": "피부질환",
+    "community": "커뮤니티",
+    "aboutChildren": {
+      "vision": "병원소개 · 비전",
+      "doctors": "의료진 소개",
+      "tour": "병원 둘러보기",
+      "location": "진료안내 · 오시는 길"
+    },
+    "liftingChildren": {
+      "overview": "Overview",
+      "ulthera": "울쎄라 프라임",
+      "thermage": "써마지 FLX",
+      "shurink": "슈링크 유니버스",
+      "inmode": "인모드",
+      "other": "그 외 시술"
+    },
+    "whiteningChildren": {
+      "overview": "Overview",
+      "melasma": "기미",
+      "freckles": "주근깨 · 흑자 · 검버섯",
+      "resistantPigment": "난치성 색소",
+      "otaCafe": "오타 · 밀크커피반점",
+      "redness": "홍조 · 모세혈관확장",
+      "devices": "사용 장비 안내",
+      "other": "그 외 시술"
+    },
+    "acneChildren": {
+      "overview": "Overview",
+      "acneActive": "청소년 · 성인 여드름",
+      "acnePigment": "여드름 색소침착",
+      "acneScar": "여드름 흉터",
+      "pores": "모공",
+      "devices": "사용 장비 안내",
+      "other": "그 외 시술"
+    },
+    "skinDiseaseChildren": {
+      "overview": "Overview",
+      "athletesFoot": "무좀",
+      "psoriasis": "건선 · 백선",
+      "atopy": "아토피",
+      "burns": "화상",
+      "hairLoss": "탈모"
+    },
+    "communityChildren": {
+      "events": "이벤트",
+      "notices": "공지사항",
+      "prices": "비급여 수가표"
+    }
+  },
+  "header": {
+    "menuOpen": "메뉴 열기",
+    "menuClose": "메뉴 닫기",
+    "switchLanguage": "언어 선택"
+  },
+  "footer": {
+    "quickLinks": "바로가기",
+    "hours": "진료 안내",
+    "privacy": "개인정보처리방침",
+    "terms": "이용약관",
+    "prices": "비급여 진료비용 안내",
+    "disclaimer": "본 사이트의 시술 정보는 의료광고 사전심의를 거쳐 게재되어야 하며, 시술 효과는 개인에 따라 다를 수 있습니다. (프로토타입 — 데이터는 예시입니다.)"
+  },
+  "hero": {
+    "brandHeadlineLine1": "당신의 피부와 일상에",
+    "brandHeadlineHighlight": "따뜻한 빛",
+    "brandHeadlineLine1Suffix": "",
+    "brandHeadlineLine2": "이 되는 병원",
+    "brandDescLine1": "환자 한 분 한 분에게 맞춘 섬세하고 정직한 진료.",
+    "brandDescLine2": "프리미엄 장비로 건강한 변화를 함께 만들어 갑니다.",
+    "ctaBook": "상담 · 예약하기",
+    "ctaTreatments": "시술 둘러보기",
+    "ctaDetail": "자세히 보기",
+    "event": "EVENT"
+  },
+  "chatbot": {
+    "openLabel": "상담 챗봇 열기",
+    "closeLabel": "상담 챗봇 닫기",
+    "clearLabel": "대화 초기화",
+    "headerTitle": "Sunshine 안내 도우미",
+    "headerSubtitle": "무엇이든 편하게 물어보세요",
+    "greeting": "안녕하세요! Sunshine 피부과 안내 도우미예요 ☀️ 궁금하신 점을 골라주시거나 직접 입력해 주세요.",
+    "fallback": "정확한 답변이 어려운 질문이네요. 자세한 내용은 전화나 카카오톡 상담으로 친절하게 도와드릴게요!",
+    "disclaimer": "챗봇 상담 후 내원 예약 시 상담 내용이 함께 전달되어 빠른 응대가 가능합니다.\n정확한 진단·상담은 내원을 권장드립니다.",
+    "attachTranscript": "예약 정보 작성 방식",
+    "attachTranscriptHint": "챗봇과 나눈 대화가 예약 메시지에 첨부됩니다.",
+    "modeUseChat": "대화 내용 활용",
+    "modeWriteDirect": "활용 안 함",
+    "modeUseChatHint": "챗봇과 나눈 대화가 예약 메시지에 자동으로 첨부됩니다.",
+    "modeWriteDirectHint": "대화 내용은 전달되지 않습니다.",
+    "transcriptHeader": "[챗봇 대화 내역]",
+    "transcriptUserMessage": "[추가 메시지]",
+    "transcriptBot": "안내",
+    "transcriptUser": "고객",
+    "faqTitle": "자주 묻는 질문",
+    "faq": [
+      "진료 시간이 어떻게 되나요?",
+      "예약 없이 방문해도 되나요?",
+      "주차할 수 있나요?",
+      "상담 비용이 있나요?",
+      "울쎄라와 써마지는 어떻게 다른가요?",
+      "시술 후 바로 일상생활이 가능한가요?",
+      "시술 가격이 궁금해요"
+    ],
+    "inputPlaceholder": "궁금한 점을 물어보세요",
+    "inputPlaceholderLoading": "답변을 작성 중이에요…",
+    "send": "전송",
+    "ctaBooking": "예약 신청",
+    "ctaKakao": "카카오 상담",
+    "ctaPhone": "전화 {phone}",
+    "ctaBookingShort": "예약",
+    "ctaKakaoShort": "카카오톡",
+    "ctaPhoneShort": "전화",
+    "ctaNaver": "네이버 예약",
+    "ctaNaverShort": "네이버 예약",
+    "ctaBookingDirect": "내원 예약",
+    "booking": {
+      "title": "예약 신청",
+      "subtitle": "확인 후 입력하신 연락처로 빠르게 답변드립니다.",
+      "back": "채팅으로",
+      "name": "이름",
+      "contact": "연락받을 수단",
+      "contactType": "수단 선택",
+      "contactValue": "연락처",
+      "contactHint": "선택한 수단에 맞춰 번호 또는 ID를 입력해 주세요.",
+      "preferred": "희망 일시 (선택)",
+      "preferredDate": "날짜",
+      "preferredTime": "시간",
+      "timeAny": "시간 무관",
+      "interest": "관심 시술 (선택)",
+      "interestNone": "선택 안 함",
+      "message": "메모 (선택)",
+      "messagePlaceholder": "피부 고민, 특이사항 등 자유롭게",
+      "consent": "입력하신 이름·연락처·메모는 예약 응대 목적으로만 사용되며 관련 법령에 따라 보관 후 파기됩니다. (개인정보 수집·이용 동의)",
+      "submit": "신청하기",
+      "submitting": "신청 중…",
+      "success": "예약 신청이 접수됐어요! 확인 후 {contact} 으로 연락드리겠습니다. (영업일 기준 1일 이내)",
+      "errorName": "이름을 입력해 주세요.",
+      "errorContact": "연락받을 수단(전화/이메일/메신저 ID 등)을 입력해 주세요.",
+      "errorConsent": "개인정보 수집·이용에 동의해 주세요.",
+      "errorGeneric": "일시적으로 신청이 어렵습니다. 잠시 후 다시 시도해 주세요."
+    }
+  },
+  "common": {
+    "loading": "불러오는 중…",
+    "viewAll": "전체 보기",
+    "viewDetail": "자세히 보기"
+  }
+}

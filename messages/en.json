@@ -1,0 +1,158 @@
+{
+  "brand": {
+    "name": "SunShine",
+    "label": "Dermatology Clinic."
+  },
+  "nav": {
+    "about": "About",
+    "lifting": "Lifting & Anti-aging",
+    "whitening": "Whitening & Redness",
+    "acne": "Acne · Scar · Pore",
+    "skinDisease": "Skin Disease",
+    "community": "Community",
+    "aboutChildren": {
+      "vision": "Philosophy",
+      "doctors": "Director",
+      "tour": "Tour",
+      "location": "Location · Hours"
+    },
+    "liftingChildren": {
+      "overview": "Overview",
+      "ulthera": "Ulthera Prime",
+      "thermage": "Thermage FLX",
+      "shurink": "Shurink Universe",
+      "inmode": "InMode",
+      "other": "Other Treatments"
+    },
+    "whiteningChildren": {
+      "overview": "Overview",
+      "melasma": "Melasma",
+      "freckles": "Freckles · Lentigines · Age Spots",
+      "resistantPigment": "Resistant Pigmentation",
+      "otaCafe": "Nevus of Ota · Café-au-lait",
+      "redness": "Redness · Telangiectasia",
+      "devices": "Devices",
+      "other": "Other Treatments"
+    },
+    "acneChildren": {
+      "overview": "Overview",
+      "acneActive": "Teen · Adult Acne",
+      "acnePigment": "Post-Acne Pigmentation",
+      "acneScar": "Acne Scars",
+      "pores": "Pores",
+      "devices": "Devices",
+      "other": "Other Treatments"
+    },
+    "skinDiseaseChildren": {
+      "overview": "Overview",
+      "athletesFoot": "Athlete's Foot",
+      "psoriasis": "Psoriasis · Tinea",
+      "atopy": "Atopic Dermatitis",
+      "burns": "Burns",
+      "hairLoss": "Hair Loss"
+    },
+    "communityChildren": {
+      "events": "Events",
+      "notices": "Notices",
+      "prices": "Price List"
+    }
+  },
+  "header": {
+    "menuOpen": "Open menu",
+    "menuClose": "Close menu",
+    "switchLanguage": "Language"
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "hours": "Visit Info",
+    "privacy": "Privacy Policy",
+    "terms": "Terms",
+    "prices": "Non-covered Price List",
+    "disclaimer": "Treatment information published here is subject to Korean medical-advertising review and individual results may vary. (Prototype — sample data.)"
+  },
+  "hero": {
+    "brandHeadlineLine1": "Light for your",
+    "brandHeadlineHighlight": "skin",
+    "brandHeadlineLine1Suffix": "",
+    "brandHeadlineLine2": " and daily life.",
+    "brandDescLine1": "Attentive, honest care tailored to each patient.",
+    "brandDescLine2": "Premium devices for healthy, lasting change.",
+    "ctaBook": "Book Consultation",
+    "ctaTreatments": "Browse Treatments",
+    "ctaDetail": "Details",
+    "event": "EVENT"
+  },
+  "chatbot": {
+    "openLabel": "Open consultation chatbot",
+    "closeLabel": "Close consultation chatbot",
+    "clearLabel": "Clear conversation",
+    "headerTitle": "Sunshine Assistant",
+    "headerSubtitle": "Ask anything — we'll help.",
+    "greeting": "Hi! I'm the Sunshine Dermatology assistant ☀️ Pick a question below or type your own.",
+    "fallback": "I'm not sure I can answer that precisely. Please contact us by phone or KakaoTalk for detailed help.",
+    "disclaimer": "Booking after chat: your conversation is shared for a faster reply.\nVisit the clinic for accurate diagnosis.",
+    "attachTranscript": "Booking input mode",
+    "attachTranscriptHint": "Your chatbot conversation will be attached to the booking message.",
+    "modeUseChat": "Use chat",
+    "modeWriteDirect": "Don't use",
+    "modeUseChatHint": "Your chat with the assistant will be attached to the booking.",
+    "modeWriteDirectHint": "Chat history won't be sent.",
+    "transcriptHeader": "[Chat history]",
+    "transcriptUserMessage": "[Additional message]",
+    "transcriptBot": "Assistant",
+    "transcriptUser": "Guest",
+    "faqTitle": "Frequently asked",
+    "faq": [
+      "What are your opening hours?",
+      "Can I walk in without an appointment?",
+      "Do you have parking?",
+      "Is the consultation free?",
+      "What's the difference between Ulthera and Thermage?",
+      "Can I return to daily life after treatment?",
+      "How much does treatment cost?"
+    ],
+    "inputPlaceholder": "Ask anything",
+    "inputPlaceholderLoading": "Writing a reply…",
+    "send": "Send",
+    "ctaBooking": "Book Appointment",
+    "ctaKakao": "KakaoTalk",
+    "ctaPhone": "Call {phone}",
+    "ctaBookingShort": "Book",
+    "ctaKakaoShort": "KakaoTalk",
+    "ctaPhoneShort": "Call",
+    "ctaNaver": "Naver Booking",
+    "ctaNaverShort": "Naver Booking",
+    "ctaBookingDirect": "Book a visit",
+    "booking": {
+      "title": "Book an Appointment",
+      "subtitle": "We'll reach out to your contact shortly.",
+      "back": "Back to chat",
+      "name": "Name",
+      "contact": "Preferred contact",
+      "contactType": "Method",
+      "contactValue": "Contact",
+      "contactHint": "Enter your number or ID based on the chosen method.",
+      "preferred": "Preferred date/time (optional)",
+      "preferredDate": "Date",
+      "preferredTime": "Time",
+      "timeAny": "Any time",
+      "interest": "Treatment interest (optional)",
+      "interestNone": "Not specified",
+      "message": "Message (optional)",
+      "messagePlaceholder": "Skin concerns, notes, anything you'd like us to know.",
+      "consent": "Your name, contact, and message will be used only for booking and discarded per applicable law. (I agree to data collection.)",
+      "submit": "Submit Request",
+      "submitting": "Submitting…",
+      "success": "Request received! We'll reach out at {contact} within 1 business day.",
+      "errorName": "Please enter your name.",
+      "errorContact": "Please enter a contact method (phone, email, messenger ID).",
+      "errorConsent": "Please consent to data collection.",
+      "errorGeneric": "Could not submit right now. Please try again shortly."
+    }
+  },
+  "common": {
+    "loading": "Loading…",
+    "viewAll": "View all",
+    "viewDetail": "View detail"
+  }
+}

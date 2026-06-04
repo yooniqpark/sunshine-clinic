@@ -1,0 +1,382 @@
+{
+  "clinic": {
+    "name": "Sunshine 皮膚科",
+    "addressLine": "ソウル特別市江南区テヘラン路123, 4階",
+    "addressSub": "2号線江南駅4番出口から徒歩3分 · 建物内駐車可能",
+    "doctorTitle": "院長",
+    "doctorOwnerName": "代表院長 キム・ビョンヒョン",
+    "bizNoLabel": "事業者登録番号",
+    "licenseText": "江南区保健所届出 第0000号",
+    "marketingTagline": "サンシャインで、肌の輝きが再び目覚める。",
+    "clinicNameFull": "サンシャイン皮膚科クリニック"
+  },
+  "hours": [
+    {
+      "day": "平日",
+      "time": "10:00 – 19:00"
+    },
+    {
+      "day": "土曜日",
+      "time": "10:00 – 15:00 (昼休みなし)"
+    },
+    {
+      "day": "昼休み",
+      "time": "13:00 – 14:00"
+    },
+    {
+      "day": "日曜·祝日",
+      "time": "休診"
+    }
+  ],
+  "common": {
+    "viewAll": "すべて表示",
+    "viewDetail": "詳細を見る",
+    "bookConsultation": "相談予約する",
+    "home": "ホーム",
+    "always": "常時開催",
+    "naverMap": "NAVERマップ",
+    "kakaoMap": "カカオマップでの道案内",
+    "slideAria": "{n}番スライドに移動: {title}"
+  },
+  "home": {
+    "categoriesLabel": "TREATMENTS",
+    "categoriesTitle": "お悩み別カスタマイズ施術",
+    "devicesLabel": "SIGNATURE DEVICES",
+    "devicesTitle": "代表機器",
+    "conceptEyebrow": "WHY SUNSHINE",
+    "conceptHeadlineL1": "あなたの日常に自信を与える、",
+    "conceptHeadlineL2": "肌の主治医。",
+    "conceptBody": "肌の悩みは同じに見えても、原因はそれぞれ異なります。Sunshine 皮膚科は、患者一人ひとりの肌の状態や生活パターン、そして望む未来を考慮して、最も適切なソリューションを提案します。",
+    "conceptImageAlt": "透明感のある健康な肌",
+    "eventsLabel": "EVENT",
+    "eventsTitle": "進行中のイベント",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "院長紹介",
+    "philosophyEyebrow": "PHILOSOPHY",
+    "philosophyHeadlineL1": "正確な診断、",
+    "philosophyHeadlineL2": "繊細な治療、満足のいく変化。",
+    "philosophyBody": "過剰診療よりも必要な診療を、華やかな広告よりも検証された結果を、一時的な改善よりも健康的な変化を追求します。肌本来の健康と美しさを取り戻し、日常により大きな自信を贈る主治医でありたいと思います。",
+    "locationLabel": "LOCATION",
+    "locationTitle": "お越しの道",
+    "mapTitle": "Sunshine 皮膚科の位置",
+    "deviceAltSuffix": "機器",
+    "doctorAltSuffix": "院長"
+  },
+  "about": {
+    "metaTitle": "医院紹介",
+    "metaDesc": "Sunshine 皮膚科の診療哲学、医療スタッフ、診療案内と空間を1ページでご案内します。",
+    "breadcrumb": "医院紹介",
+    "heroTitleL1": "肌を治療することを超えて、",
+    "heroTitleL2": "人生の自信を回復します。",
+    "valuesLabel": "PRINCIPLES",
+    "valuesTitle": "Sunshine 皮膚科 4つの原則",
+    "values": [
+      {
+        "title": "カスタマイズ診療",
+        "body": "患者それぞれの異なる肌の特性を考慮した1:1の個別カスタマイズ治療を提供します。"
+      },
+      {
+        "title": "正直な診療",
+        "body": "不必要な施術なしに、必要な治療のみを提案します。"
+      },
+      {
+        "title": "プレミアム医療サービス",
+        "body": "ハイエンドの機器と体系的な医療システムを運営しています。"
+      },
+      {
+        "title": "結果中心の診療",
+        "body": "一時的な改善ではなく、健康で持続可能な変化を追求します。"
+      }
+    ],
+    "spaceImageAlt": "診療空間",
+    "philosophyBody1": "Sunshine 皮膚科は単に肌の悩みを解決する医院ではありません。患者一人一人の肌の状態や生活パターン、そして望む未来を考慮して最も適したソリューションを提案します。",
+    "philosophyBody2": "過剰診療よりも必要な診療を、華やかな広告よりも検証された結果を、一時的な改善よりも健康的な変化を追求します。肌本来の健康と美しさを回復し、顧客の日常により大きな自信と幸福を贈る主治医になりたいと考えています。",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "院長紹介",
+    "doctorMessage": "こんにちは。Sunshine 皮膚科です。肌の悩みは誰にでもありますが、その解決策はそれぞれ異なるべきです。数年間の皮膚および美容分野での豊富な臨床経験を基に、患者一人一人の肌の状態に合わせた繊細で正直な診療をお約束します。あなたの日常に輝く自信を加える温かく頼もしい主治医になります。",
+    "credentialsLabel": "経歴",
+    "credentials": [
+      "OO大学医学部卒業",
+      "OO大学病院インターン修了",
+      "韓国皮膚科学会正会員",
+      "韓国美容整形レーザー医学会正会員",
+      "前 OO皮膚科診療院長"
+    ],
+    "focusLabel": "主要診療分野",
+    "focusItems": [
+      "リフティング · アンチエイジング (Ulthera Prime · Thermage FLX · Shurink Universe)",
+      "色素·赤みレーザートーニング",
+      "ニキビ·傷跡再建",
+      "ボトックス · フィラー · スキンブースター"
+    ],
+    "credentialsNote": "※ 経歴は例示データであり、実際の運営時には院長本人の経歴に置き換えられます。",
+    "tourLabel": "TOUR",
+    "tourTitle": "医院を見学する",
+    "tour": [
+      {
+        "title": "静かな歓迎の空間",
+        "body": "入ると最初に出会うデスク。トーンダウンしたベージュと温かい間接照明で診療前の緊張を和らげます。"
+      },
+      {
+        "title": "ゆったりとした待機スペース",
+        "body": "広い間隔の1人用ラウンジシートと温かい飲み物、十分な自然光。待つ時間も快適に過ごせるよう設計されています。"
+      },
+      {
+        "title": "1:1カスタマイズ施術室",
+        "body": "独立した施術室で1:1で行われます。医療機器と衛生動線を分離し、安全とプライバシーを守ります。"
+      }
+    ],
+    "tourPhotoPlaceholder": "空間写真追加予定",
+    "tourFootnote": "空間ごとの詳細写真は実際の撮影後、順次更新されます。",
+    "locationTitle": "診療案内 · お越しの道",
+    "directions": [
+      "地下鉄: 2号線江南駅 4番出口 徒歩3分",
+      "バス: 江南駅バス停下車後 徒歩2分",
+      "駐車: 建物内駐車場利用可能"
+    ],
+    "ctaTitle": "訪問相談を予約してください",
+    "ctaBody": "1:1診断後、最も適した施術プランをご案内します。訪問相談は無料です。",
+    "ctaSecondary": "施術を見学する",
+    "brandDescription": "患者一人一人の肌の状態に合わせた繊細で正直な診療。豊富な臨床経験とプレミアムハイエンド機器、体系的なシステムで誰もが快適に高水準の医療サービスを受けられるようにします。"
+  },
+  "events": {
+    "metaTitle": "イベント",
+    "metaDesc": "Sunshine 皮膚科で行われている施術イベントやプロモーションの最新情報をご確認ください。",
+    "breadcrumb": "イベント",
+    "heroLabel": "EVENT",
+    "heroTitle": "進行中のイベント",
+    "heroBody": "現在ご利用いただける施術プログラムと特典をご紹介します。詳細はカウンセリングを通じてご案内いたします。",
+    "consultCta": "イベント相談する",
+    "phoneCta": "電話でのお問い合わせ",
+    "disclaimer": "本イベントの内容は医療広告の事前審査を経て掲載される必要があり、施術効果は個人によって異なる場合があります。（プロトタイプ — データは例です。）"
+  },
+  "treatment": {
+    "breadcrumb": "施術",
+    "guideTitle": "施術案内",
+    "devicesTitle": "使用機器案内",
+    "deviceImageAlt": "製品写真は順次追加予定",
+    "ctaTitle": "正確な診断が先です",
+    "ctaBody": "当院の医療スタッフが状態を分析し、最も適した施術を提案いたします。",
+    "ctaSecondary": "他の施術を見る",
+    "deviceDiffTitle": "差別点",
+    "howItWorksTitle": "施術の原理",
+    "recommendedTitle": "このような方におすすめです。",
+    "faqTitle": "よくある質問",
+    "otherTreatmentsLabel": "OTHER TREATMENTS",
+    "otherTreatmentsTitle": "その他の施術",
+    "overviewLabel": "Overview",
+    "approachTitle": "治療アプローチ",
+    "approachLabel": "TREATMENT APPROACH",
+    "concernDevicesLabel": "USED DEVICES",
+    "concernDevicesTitle": "この施術に使用される機器",
+    "viewDeviceDetail": "機器の詳細を見る"
+  },
+  "categories": {
+    "lifting": {
+      "label": "リフティング · アンチエイジング",
+      "eyebrow": "LIFTING & ANTI-AGING",
+      "headlineL1": "時間を逆行させる",
+      "headlineL2": "弾力ソリューション",
+      "description": "たるみとしわの原因を診断し、皮膚層に合った機器を組み合わせて自然な弾力をデザインします。",
+      "treatments": [
+        {
+          "name": "Ulthera Prime",
+          "summary": "超音波(HIFU)で真皮深層(SMAS)を精密に刺激し、根本的なリフティング効果を得る。"
+        },
+        {
+          "name": "Thermage FLX",
+          "summary": "モノポーラ高周波(RF)でコラーゲンを再配置し、表層の弾力と肌の質感を同時に完成。"
+        },
+        {
+          "name": "InMode (Forma · Mini)",
+          "summary": "モノポーラ/バイポーラRFで顔の輪郭と弾力を非侵襲的にケア。"
+        },
+        {
+          "name": "Shurink Universe · Olym",
+          "summary": "部位別カートリッジ(1.5~9mm)で深さに合わせた次世代HIFUリフティング。"
+        },
+        {
+          "name": "Special Skin Booster",
+          "summary": "Skinviveなどの架橋ヒアルロン酸を真皮に直接注入し、輝きと質感を与える。"
+        },
+        {
+          "name": "Rejuran (Healer · HB · Eye)",
+          "summary": "サーモンPN(ポリヌクレオチド)成分の注射でコラーゲン生成・皮膚バリアの回復を誘導。"
+        },
+        {
+          "name": "Ellanse",
+          "summary": "PCL(ポリカプロラクトン)ベースのコラーゲン刺激型フィラーで自然なボリューム回復。"
+        },
+        {
+          "name": "Juvelook · Juvelook Volume",
+          "summary": "PDLLA + ヒアルロン酸の網目構造で4~6ヶ月にわたり自己コラーゲンを誘導。"
+        },
+        {
+          "name": "Letuo · Letuo Fine",
+          "summary": "PNベースのブースターで皮膚再生信号を強化。"
+        },
+        {
+          "name": "Exosomes",
+          "summary": "再生信号タンパク質で皮膚バリアと再生を同時にケア。"
+        },
+        {
+          "name": "Chanel Injection · Cellydium",
+          "summary": "PNとブースター成分を組み合わせて肌の輝きと質感を引き出す人気ブースター。"
+        },
+        {
+          "name": "Botox · Filler",
+          "summary": "国産・外国産のオプションで小じわ、ボリューム、輪郭を繊細に補正。"
+        },
+        {
+          "name": "Sculptra · Radiesse",
+          "summary": "PLLA / CaHAベースのコラーゲン刺激型ボリュームブースターで深い層から満たすリフティング。"
+        }
+      ],
+      "devices": [
+        {
+          "name": "Ulthera Prime",
+          "desc": "Merz Aestheticsの次世代超音波リフティングデバイス。超音波画像で皮膚層を視覚化し、真皮とSMAS層まで精密にターゲティングします。"
+        },
+        {
+          "name": "Thermage FLX",
+          "desc": "4世代モノポーラ高周波(RF)機器。広がったチップ(4.0㎠)で施術時間を短縮し、AccuREPアルゴリズムで出力を自動補正します。"
+        },
+        {
+          "name": "Shurink Universe · Olym",
+          "desc": "Classysの次世代HIFUプラットフォーム。部位別カートリッジ(1.5/3.0/4.5/6.0/9.0mm)で深さに合わせたリフティングが可能です。"
+        },
+        {
+          "name": "InMode (Forma · Mini)",
+          "desc": "イスラエルInMode社のモノポーラ/バイポーラRFシステム。顔の輪郭と肌の質感を非侵襲的にケアします。"
+        }
+      ]
+    },
+    "whitening": {
+      "label": "ホワイトニング · 赤み",
+      "eyebrow": "WHITENING & REDNESS",
+      "headlineL1": "明るく均一な",
+      "headlineL2": "トーンを取り戻す",
+      "description": "シミ・色素の深さと種類を精密分析し、レーザーの組み合わせで再発を減らすカスタマイズ色素治療を提供します。",
+      "treatments": [
+        {
+          "name": "シミ · そばかす",
+          "summary": "表皮・真皮の色素を段階的に分解するカスタマイズトーニング。"
+        },
+        {
+          "name": "そばかす · 黒子 · しみ",
+          "summary": "病変の深さに合わせたレーザーでスッキリ除去。"
+        },
+        {
+          "name": "難治性色素",
+          "summary": "オタ・ミルクコーヒー斑点など厄介な色素の段階的治療。"
+        },
+        {
+          "name": "赤み · 毛細血管",
+          "summary": "血管レーザーで赤みと顔面紅潮を鎮静。"
+        }
+      ],
+      "devices": [
+        {
+          "name": "Fotona StarWalker MAQX",
+          "desc": "Fotona社のNd:YAG(1064㎚) + KTP(532㎚)マルチ波長ハイブリッドレーザー。Qスイッチとロングパルスモードを組み合わせて色素の深さ・種類に合わせて精密分解します。"
+        },
+        {
+          "name": "Clarity II",
+          "desc": "Nd:YAG + Alexandriteデュアル波長レーザー。表皮から真皮深層の色素・血管病変まで幅広くケアします。"
+        },
+        {
+          "name": "VBeam (VBeam)",
+          "desc": "Candela社の595㎚ PDL血管専用レーザー。ヘモグロビンを選択的にターゲティングして赤み・毛細血管拡張を鎮静します。"
+        },
+        {
+          "name": "Secret RF",
+          "desc": "絶縁マイクロニードル + 高周波システム。色素後の再生と肌の質感、微細な傷跡まで補助的に改善します。"
+        }
+      ]
+    },
+    "acne": {
+      "label": "にきび · 傷跡 · 毛穴",
+      "eyebrow": "ACNE & SCAR & PORE",
+      "headlineL1": "トラブルの",
+      "headlineL2": "悪循環を断つ",
+      "description": "原因診断から傷跡・毛穴再建まで、青少年と成人それぞれの肌状態に合わせた段階的プログラム。",
+      "treatments": [
+        {
+          "name": "青少年 · 成人にきび",
+          "summary": "皮脂・炎症・ホルモン要因を一緒に管理する複合プログラム。"
+        },
+        {
+          "name": "にきび色素沈着",
+          "summary": "炎症後に残る赤み・茶色の色素を段階的に改善。"
+        },
+        {
+          "name": "にきび傷跡",
+          "summary": "凹んだ傷跡を再建するレーザー・再生施術の組み合わせ。"
+        },
+        {
+          "name": "毛穴",
+          "summary": "開いた毛穴を引き締めて滑らかな肌質に。"
+        }
+      ],
+      "devices": [
+        {
+          "name": "Capri (CO2)",
+          "desc": "フラクショナルCO2レーザー。凹んだにきび傷跡と開いた毛穴を微細カラム単位で再建します。"
+        },
+        {
+          "name": "Gold PTT",
+          "desc": "光熱治療(Photothermal Therapy)。金ナノ粒子が光源の光を吸収して熱に変換し、皮脂腺とにきび菌を同時にケアします。"
+        },
+        {
+          "name": "CUREJET",
+          "desc": "高圧医療用滅菌食塩水を噴霧して毛穴の皮脂・角質を非侵襲的に洗浄します。"
+        },
+        {
+          "name": "Secret RF",
+          "desc": "絶縁マイクロニードル + 高周波。凹んだ傷跡と開いた毛穴を再建します。"
+        },
+        {
+          "name": "VBeam (VBeam)",
+          "desc": "にきび後に残るPIE(赤み)色素沈着を595㎚ PDLレーザーで選択的に鎮静します。"
+        }
+      ]
+    },
+    "skin-disease": {
+      "label": "皮膚疾患",
+      "eyebrow": "SKIN DISEASE",
+      "headlineL1": "医療スタッフが診療する",
+      "headlineL2": "皮膚の健康",
+      "description": "美容施術に先立ち、皮膚科医療スタッフが疾患の原因を診断し、根拠に基づいて治療します。",
+      "treatments": [
+        {
+          "name": "水虫",
+          "summary": "真菌感染を正確に診断し、再発を減らす治療。"
+        },
+        {
+          "name": "乾癬 · 白癬",
+          "summary": "慢性炎症性疾患の長期管理プラン。"
+        },
+        {
+          "name": "アトピー",
+          "summary": "皮膚バリア回復中心の段階的治療と生活管理。"
+        },
+        {
+          "name": "やけど",
+          "summary": "傷跡最小化を目指したやけど後の管理。"
+        },
+        {
+          "name": "脱毛",
+          "summary": "原因別診断と頭皮・毛髪強化治療。"
+        }
+      ],
+      "devices": []
+    }
+  },
+  "doctors": {
+    "kim": {
+      "name": "キム・ビョンヒョン",
+      "role": "Director",
+      "focus": "リフティング · アンチエイジング"
+    }
+  }
+}

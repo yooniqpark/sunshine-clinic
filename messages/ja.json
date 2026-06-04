@@ -1,0 +1,158 @@
+{
+  "brand": {
+    "name": "SunShine",
+    "label": "Dermatology Clinic."
+  },
+  "nav": {
+    "about": "クリニック紹介",
+    "lifting": "リフティング・アンチエイジング",
+    "whitening": "ホワイトニング・赤み",
+    "acne": "ニキビ・ニキビ跡・毛穴",
+    "skinDisease": "皮膚疾患",
+    "community": "コミュニティ",
+    "aboutChildren": {
+      "vision": "理念・ビジョン",
+      "doctors": "院長紹介",
+      "tour": "院内見学",
+      "location": "診療案内・アクセス"
+    },
+    "liftingChildren": {
+      "overview": "Overview",
+      "ulthera": "Ulthera Prime",
+      "thermage": "Thermage FLX",
+      "shurink": "Shurink Universe",
+      "inmode": "InMode",
+      "other": "その他の施術"
+    },
+    "whiteningChildren": {
+      "overview": "Overview",
+      "melasma": "肝斑",
+      "freckles": "そばかす · 黒子 · 老人性色素斑",
+      "resistantPigment": "難治性色素",
+      "otaCafe": "太田母斑 · カフェオレ斑",
+      "redness": "赤ら顔 · 毛細血管拡張",
+      "devices": "使用機器の紹介",
+      "other": "その他の施術"
+    },
+    "acneChildren": {
+      "overview": "Overview",
+      "acneActive": "思春期 · 成人ニキビ",
+      "acnePigment": "ニキビ後の色素沈着",
+      "acneScar": "ニキビ跡",
+      "pores": "毛穴",
+      "devices": "使用機器の紹介",
+      "other": "その他の施術"
+    },
+    "skinDiseaseChildren": {
+      "overview": "Overview",
+      "athletesFoot": "水虫",
+      "psoriasis": "乾癬 · 白癬",
+      "atopy": "アトピー",
+      "burns": "やけど",
+      "hairLoss": "脱毛症"
+    },
+    "communityChildren": {
+      "events": "イベント",
+      "notices": "お知らせ",
+      "prices": "自由診療料金表"
+    }
+  },
+  "header": {
+    "menuOpen": "メニューを開く",
+    "menuClose": "メニューを閉じる",
+    "switchLanguage": "言語"
+  },
+  "footer": {
+    "quickLinks": "ショートカット",
+    "hours": "診療のご案内",
+    "privacy": "個人情報処理方針",
+    "terms": "利用規約",
+    "prices": "自由診療料金のご案内",
+    "disclaimer": "本サイトに掲載される施術情報は韓国の医療広告審査を経て掲載されます。効果には個人差があります。(プロトタイプ — サンプルデータ)"
+  },
+  "hero": {
+    "brandHeadlineLine1": "肌と日常に、",
+    "brandHeadlineHighlight": "やさしい光",
+    "brandHeadlineLine1Suffix": "",
+    "brandHeadlineLine2": "を。",
+    "brandDescLine1": "お一人おひとりに寄り添う、繊細で正直な診療。",
+    "brandDescLine2": "プレミアム機器で、健やかで持続的な変化を。",
+    "ctaBook": "予約・相談",
+    "ctaTreatments": "施術を見る",
+    "ctaDetail": "詳細を見る",
+    "event": "イベント"
+  },
+  "chatbot": {
+    "openLabel": "相談チャットを開く",
+    "closeLabel": "相談チャットを閉じる",
+    "clearLabel": "会話をリセット",
+    "headerTitle": "Sunshine 案内アシスタント",
+    "headerSubtitle": "何でもお気軽にどうぞ",
+    "greeting": "こんにちは!Sunshine 皮膚科の案内アシスタントです ☀️ 質問を選ぶか自由にご入力ください。",
+    "fallback": "正確にお答えできない内容です。詳しくはお電話または LINE / カカオトークでお問い合わせください。",
+    "disclaimer": "チャット後の予約は会話内容も併せてお伝えします。\n正確な診断は来院をおすすめします。",
+    "attachTranscript": "予約内容の作成方法",
+    "attachTranscriptHint": "チャットボットでの会話内容が予約メッセージに添付されます。",
+    "modeUseChat": "チャット利用",
+    "modeWriteDirect": "利用しない",
+    "modeUseChatHint": "チャットボットとの会話内容が予約に自動添付されます。",
+    "modeWriteDirectHint": "会話内容は送信されません。",
+    "transcriptHeader": "[チャット履歴]",
+    "transcriptUserMessage": "[追加メッセージ]",
+    "transcriptBot": "案内",
+    "transcriptUser": "ゲスト",
+    "faqTitle": "よくある質問",
+    "faq": [
+      "営業時間を教えてください",
+      "予約なしで行けますか？",
+      "駐車場はありますか？",
+      "カウンセリングは無料ですか？",
+      "ウルセラとサーマジの違いは？",
+      "施術後すぐに日常生活に戻れますか？",
+      "施術の費用はいくらですか？"
+    ],
+    "inputPlaceholder": "ご質問をどうぞ",
+    "inputPlaceholderLoading": "回答を作成中…",
+    "send": "送信",
+    "ctaBooking": "予約申し込み",
+    "ctaKakao": "カカオトーク",
+    "ctaPhone": "電話 {phone}",
+    "ctaBookingShort": "予約",
+    "ctaKakaoShort": "カカオ",
+    "ctaPhoneShort": "電話",
+    "ctaNaver": "Naver 予約",
+    "ctaNaverShort": "Naver 予約",
+    "ctaBookingDirect": "来院予約",
+    "booking": {
+      "title": "予約のお申し込み",
+      "subtitle": "確認後、ご連絡先までお返事いたします。",
+      "back": "チャットへ戻る",
+      "name": "お名前",
+      "contact": "ご連絡先",
+      "contactType": "手段を選択",
+      "contactValue": "ご連絡先",
+      "contactHint": "選択した手段に合わせて番号または ID をご入力ください。",
+      "preferred": "ご希望日時 (任意)",
+      "preferredDate": "日付",
+      "preferredTime": "時間",
+      "timeAny": "時間指定なし",
+      "interest": "ご希望の施術 (任意)",
+      "interestNone": "未選択",
+      "message": "メモ (任意)",
+      "messagePlaceholder": "肌のお悩みやご要望をご自由に。",
+      "consent": "入力いただいた情報は予約対応のみに使用し、関係法令に従い保管・廃棄します。(個人情報の収集・利用に同意します)",
+      "submit": "申し込む",
+      "submitting": "送信中…",
+      "success": "受付いたしました!確認のうえ、{contact} へ営業日 1 日以内にご連絡いたします。",
+      "errorName": "お名前をご入力ください。",
+      "errorContact": "ご連絡先 (電話/メール/メッセンジャー ID) をご入力ください。",
+      "errorConsent": "個人情報の取り扱いにご同意ください。",
+      "errorGeneric": "一時的にお申し込みができません。しばらくしてから再度お試しください。"
+    }
+  },
+  "common": {
+    "loading": "読み込み中…",
+    "viewAll": "すべて見る",
+    "viewDetail": "詳細を見る"
+  }
+}

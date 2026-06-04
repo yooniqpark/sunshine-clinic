@@ -1,0 +1,171 @@
+// Prisma schema — local SQLite, can be swapped to PostgreSQL by changing provider + DATABASE_URL.
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Roles: "ADMIN" | "EDITOR" (string because SQLite has no enum)
+model User {
+  id             String          @id @default(cuid())
+  email          String          @unique
+  passwordHash   String
+  name           String?
+  role           String          @default("EDITOR")
+  events         Event[]
+  manualSections ManualSection[]
+  reservations   Reservation[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  tag         String
+  title       String
+  period      String
+  desc        String
+  // longer body, stored as plain text with line breaks; split into paragraphs at render time
+  body        String
+  // hex like "#dfe4ed" — used to extend the photo bg seamlessly into the card
+  bgColor     String
+  // public path to the portrait/세로 photo used in event cards
+  photoUrl    String
+  // optional landscape banner for the hero slider; if null the slider uses split layout with photoUrl
+  bannerUrl   String?
+  // vertical focal point for the banner: "top" | "center" | "bottom"
+  bannerFocus String   @default("center")
+  // optional secondary art (the gradient svg used in some places)
+  imageUrl    String?
+
+  // publishing controls
+  published   Boolean  @default(false)
+  // when the event becomes visible / hidden — null = always
+  startsAt    DateTime?
+  endsAt      DateTime?
+
+  // ordering on listings
+  sortIndex   Int      @default(0)
+
+  // audit
+  author      User?    @relation(fields: [authorId], references: [id])
+  authorId    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // per-locale title/desc/body — ko reads the columns above directly
+  translations EventTranslation[]
+
+  @@index([published, sortIndex])
+}
+
+model EventTranslation {
+  id      String @id @default(cuid())
+  event   Event  @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  eventId String
+  locale  String // "en" | "ja" | "zh"
+  title   String
+  desc    String
+  body    String
+
+  @@unique([eventId, locale])
+}
+
+model Reservation {
+  id           String   @id @default(cuid())
+  // contact
+  name         String
+  // free-form contact handle so we can hold email/phone/WeChat ID/LINE ID/WhatsApp etc.
+  contact      String
+  contactType  String   @default("OTHER") // "EMAIL" | "PHONE" | "WECHAT" | "LINE" | "WHATSAPP" | "OTHER"
+  // request
+  preferredAt  DateTime?
+  interest     String?  // optional treatment category
+  message      String?
+  // routing/UX
+  locale       String   @default("ko") // ko | en | ja | zh
+  source       String   @default("chatbot") // chatbot | form | admin
+  // workflow
+  status       String   @default("NEW") // NEW | CONTACTED | CONFIRMED | CANCELED | COMPLETED
+  internalNote String?
+  handler      User?    @relation(fields: [handlerId], references: [id])
+  handlerId    String?
+  // timestamps
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@index([status, createdAt])
+  @@index([createdAt])
+}
+
+model ManualSection {
+  id           String                     @id @default(cuid())
+  title        String
+  body         String
+  sortIndex    Int                        @default(0)
+  published    Boolean                    @default(true)
+  // audit
+  author       User?                      @relation(fields: [authorId], references: [id])
+  authorId     String?
+  createdAt    DateTime                   @default(now())
+  updatedAt    DateTime                   @updatedAt
+  // per-locale title/body — ko reads the columns above directly
+  translations ManualSectionTranslation[]
+
+  @@index([published, sortIndex])
+}
+
+model ManualSectionTranslation {
+  id        String        @id @default(cuid())
+  section   ManualSection @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  sectionId String
+  locale    String // "en" | "ja" | "zh"
+  title     String
+  body      String
+
+  @@unique([sectionId, locale])
+}
+
+// ===== Settings — key/value runtime configuration editable from admin =====
+model Setting {
+  key       String   @id
+  value     String
+  updatedAt DateTime @updatedAt
+  updatedBy String?  // userId of last editor
+}
+
+// ===== TokenUsage — OpenAI usage log =====
+model TokenUsage {
+  id               String   @id @default(cuid())
+  source           String   // "chat" | "translate" | "other"
+  model            String   // e.g. "gpt-4o-mini"
+  promptTokens     Int      @default(0)
+  completionTokens Int      @default(0)
+  totalTokens      Int      @default(0)
+  costUsd          Float    @default(0)
+  locale           String?
+  meta             String?  // JSON string for extra metadata (truncated)
+  createdAt        DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([source, createdAt])
+}
+
+// ===== SiteContent — editable text content (replaces JSON files) =====
+model SiteContent {
+  id        String   @id @default(cuid())
+  group     String   // "clinic" | "device" | "concern" | "category" | "chatbot"
+  slug      String   // identifier within group (e.g. "ulthera-prime")
+  locale    String   // "ko" | "en" | "ja" | "zh"
+  field     String   // "name" | "tagline" | "intro" | etc.
+  value     String
+  updatedAt DateTime @updatedAt
+  updatedBy String?  // userId of last editor
+
+  @@unique([group, slug, locale, field])
+  @@index([group, locale])
+}

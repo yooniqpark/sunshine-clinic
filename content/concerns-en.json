@@ -1,0 +1,508 @@
+{
+  "melasma": {
+    "slug": "melasma",
+    "category": "whitening",
+    "name": "Melasma",
+    "tagline": "Gradually breaks down chronic pigments located in the epidermis and dermis",
+    "intro": "Melasma is a chronic pigment that does not disappear at once, as melanin is distributed simultaneously in the epidermis and dermis. To reduce recurrence, it is necessary to perform toning tailored to the depth of the pigment along with skin barrier management rather than a single treatment.",
+    "approach": "1) Gradually break down the pigment with Clarity II or Fotona StarWalker toning, 2) Additional care for deep dermal pigments using Long-pulsed or multi-wavelength mode, 3) Suppress recurrence by combining moisturizing and sun protection for skin barrier recovery.",
+    "deviceSlugs": [
+      "clarity-ii",
+      "fotona-starwalker"
+    ],
+    "recommendedFor": [
+      "Individuals with symmetrical brown pigments on both cheeks and forehead",
+      "Individuals whose pigmentation has darkened after pregnancy, childbirth, or hormonal changes",
+      "Individuals who frequently experience recurrence after existing treatments",
+      "Individuals concerned about both epidermal and dermal pigmentation",
+      "Individuals who can receive regular maintenance toning"
+    ],
+    "faq": [
+      {
+        "q": "Does it disappear all at once?",
+        "a": "Melasma is a chronic pigment and does not disappear at once. Typically, it is lightened through gradual toning every 3 weeks for 5 to 10 sessions, after which maintenance treatments are necessary."
+      },
+      {
+        "q": "How can I prevent recurrence?",
+        "a": "Key measures include sun protection (daily SPF 50+), minimizing friction, and regular maintenance toning."
+      },
+      {
+        "q": "What about pain and downtime?",
+        "a": "Pain is alleviated with anesthetic cream. Slight redness lasts for 1 to 2 days."
+      },
+      {
+        "q": "What equipment is used?",
+        "a": "Primarily, Clarity II dual-wavelength toning and Fotona StarWalker multi-wavelength toning are combined according to the depth of the pigment."
+      }
+    ]
+  },
+  "freckles": {
+    "slug": "freckles",
+    "category": "whitening",
+    "name": "Freckles · Dark Spots · Seborrheic Keratosis",
+    "tagline": "Precisely remove with a laser tailored to the depth of the lesions",
+    "intro": "Freckles, dark spots (lentigo), and seborrheic keratosis are pigmented lesions located at the epidermis-dermis boundary. Depending on the depth and type of each lesion, different laser wavelengths and modes are selected for effective removal in one session.",
+    "approach": "1) Precisely decompose epidermal pigments with Q-Switched mode, 2) For raised lesions like seborrheic keratosis, additional care with fractional mode or CO2, 3) Thorough UV protection is implemented after the procedure to prevent pigmentation.",
+    "deviceSlugs": [
+      "fotona-starwalker",
+      "clarity-ii"
+    ],
+    "recommendedFor": [
+      "Individuals with multiple freckles on the face and hands",
+      "Individuals with dark spots that have darkened over the years",
+      "Individuals who want to see results in one treatment",
+      "Individuals with various types of pigmented lesions",
+      "Individuals seeking precise laser treatment"
+    ],
+    "faq": [
+      {
+        "q": "Does it disappear in one session?",
+        "a": "Freckles and small dark spots show results in 1-2 sessions, but seborrheic keratosis may require 3-5 sessions depending on depth."
+      },
+      {
+        "q": "What is the recovery period?",
+        "a": "A fine scab will form on the treated area for about a week and will fall off naturally."
+      },
+      {
+        "q": "Will there be scars?",
+        "a": "The risk is low due to precise output control, but UV protection and moisturizing are essential after the procedure."
+      },
+      {
+        "q": "Will it recur?",
+        "a": "Freckles may recur with UV exposure, while seborrheic keratosis rarely recurs once removed."
+      }
+    ]
+  },
+  "resistant-pigment": {
+    "slug": "resistant-pigment",
+    "category": "whitening",
+    "name": "Resistant Pigment",
+    "tagline": "Step-by-step care for deep dermal pigments such as Ota and ABNOM",
+    "intro": "Resistant pigments located in the deep dermis, such as Ota nevus and ABNOM (Acquired Bilateral Nevus of Ota-like Macules), do not easily fade with regular toning. They are gradually lightened over a long period using a combination of long-wavelength lasers and multi-modes.",
+    "approach": "1) Reach deep dermal pigments with Long-pulsed Nd:YAG, 2) Additional breakdown with Q-Switched mode, 3) Assist dermal regeneration with Secret RF, 4) Proceed with a long-term plan of 10-20 sessions at intervals of 3-5 weeks.",
+    "deviceSlugs": [
+      "clarity-ii",
+      "fotona-starwalker",
+      "secret-rf"
+    ],
+    "recommendedFor": [
+      "Individuals with bluish-gray pigments on the cheeks and temples (Ota nevus, ABNOM)",
+      "Those who have not seen results from regular toning for years",
+      "Individuals who can follow a long-term treatment plan",
+      "Those concerned about deep dermal pigments",
+      "Individuals who can have regular monitoring by medical staff"
+    ],
+    "faq": [
+      {
+        "q": "How many sessions are needed?",
+        "a": "Depending on the depth of the lesions, more than 10-20 sessions may be required, conducted at intervals of 3-5 weeks."
+      },
+      {
+        "q": "Will it completely disappear?",
+        "a": "It will significantly lighten, but complete removal is often difficult. Realistic goals are set during the initial consultation."
+      },
+      {
+        "q": "What about pain?",
+        "a": "Anesthesia cream is applied. There may be a slight sting during treatment of the deeper layers."
+      },
+      {
+        "q": "Can it be combined with other treatments?",
+        "a": "It is effective when combined with moisturizing, sun protection, and skin barrier care."
+      }
+    ]
+  },
+  "ota-cafe": {
+    "slug": "ota-cafe",
+    "category": "whitening",
+    "name": "Ota · Café-au-lait Spot",
+    "tagline": "Precise stepwise treatment of congenital pigment lesions",
+    "intro": "Ota nevus (congenital dermal melanocytosis) and café-au-lait spots are congenital pigment lesions. Unlike regular toning, they require long-term stepwise treatment with a multi-wavelength laser that reaches deep dermal pigments.",
+    "approach": "1) Precisely break down the melanocytes in the dermis with Q-Switched multi-wavelength laser, 2) Care for deeper layers with Long-pulsed mode, 3) Lighten the lesions through stepwise treatment of more than 5-10 sessions at intervals of 1-2 months.",
+    "deviceSlugs": [
+      "clarity-ii",
+      "fotona-starwalker"
+    ],
+    "recommendedFor": [
+      "Individuals with Ota nevus (bluish-gray pigment around the eyes)",
+      "Individuals concerned about the aesthetic appearance of café-au-lait spots",
+      "Individuals seeking stepwise treatment for congenital pigment lesions",
+      "Individuals who can follow a long-term treatment plan",
+      "Individuals wanting treatment after an accurate diagnosis"
+    ],
+    "faq": [
+      {
+        "q": "Can congenital pigments be treated?",
+        "a": "Yes, the Q-Switched laser can gradually break down the melanocytes in the dermis."
+      },
+      {
+        "q": "Can it be done from a young age?",
+        "a": "Infants and children can undergo the procedure, but the timing is determined after consultation with medical staff."
+      },
+      {
+        "q": "How many sessions are needed?",
+        "a": "Depending on the size and depth of the lesions, it is conducted more than 5-15 times at intervals of 1-2 months."
+      },
+      {
+        "q": "Will it completely disappear?",
+        "a": "It will significantly lighten, but complete removal may be difficult. Setting realistic goals is important."
+      }
+    ]
+  },
+  "redness": {
+    "slug": "redness",
+    "category": "whitening",
+    "name": "Redness · Telangiectasia",
+    "tagline": "PDL vascular-specific laser precisely targets only hemoglobin",
+    "intro": "Facial redness and telangiectasia (red spider veins) on the nose and cheeks occur when blood vessels are abnormally dilated. The 595nm PDL laser selectively absorbs hemoglobin, protecting normal tissue while soothing abnormal vessels.",
+    "approach": "1) Selective targeting of hemoglobin with VBeam's 595nm PDL, 2) Epidermal protection with DCD cooling, 3) Pulse width adjustment according to the thickness and depth of the capillaries, 4) 3-5 sessions at intervals of 4-6 weeks to expect cumulative effects.",
+    "deviceSlugs": [
+      "vbeam",
+      "clarity-ii"
+    ],
+    "recommendedFor": [
+      "Those concerned about chronic redness on the nose, cheeks, and chin",
+      "Those with visible telangiectasia (red spider veins)",
+      "Those whose faces often turn red due to stress or temperature changes",
+      "Those seeking a safe treatment for sensitive skin",
+      "Those who can receive regular maintenance care"
+    ],
+    "faq": [
+      {
+        "q": "When will I see results?",
+        "a": "You will feel a soothing effect immediately after the treatment, and permanent changes will appear cumulatively over sessions."
+      },
+      {
+        "q": "Is there any pain?",
+        "a": "It feels cool and slightly prickly due to DCD cooling. Anesthesia cream is not mandatory."
+      },
+      {
+        "q": "Will it come back?",
+        "a": "The blood vessels themselves are removed, but new capillaries may form, so maintenance treatments every 1-2 years are recommended."
+      },
+      {
+        "q": "What care is needed after treatment?",
+        "a": "Avoid saunas, intense exercise, and UV exposure for one week, and ensure thorough moisturizing and sun protection."
+      }
+    ]
+  },
+  "acne-active": {
+    "slug": "acne-active",
+    "category": "acne",
+    "name": "Teenage and Adult Acne",
+    "tagline": "Light and heat treatment that cares for both sebaceous glands and acne bacteria",
+    "intro": "Teenage acne is primarily caused by hormones and excess sebum, while adult acne is influenced by a combination of stress, lifestyle habits, and hormonal imbalances. Both medication and antibiotics, as well as light and heat treatment combined with pore cleansing, can reduce recurrence.",
+    "approach": "1) Cleansing sebum and dead skin cells in the pores with CUREJET, 2) Calming P. acnes bacteria and sebaceous glands simultaneously with Gold PTT, 3) Concurrent medication prescription, 4) Cumulative effect with 3-5 treatments at 6-week intervals + lifestyle management.",
+    "deviceSlugs": [
+      "gold-ptt",
+      "curajet"
+    ],
+    "recommendedFor": [
+      "Those struggling with chronic and recurrent acne",
+      "Those who feel burdened relying solely on medication",
+      "Those with excessive sebum and clogged pores",
+      "Those who prefer treatments with no downtime",
+      "Those who want to prevent recurrence with regular care"
+    ],
+    "faq": [
+      {
+        "q": "Should I combine it with medication?",
+        "a": "When the activity is severe, combining medication (topical agents or oral medication) can lead to faster results."
+      },
+      {
+        "q": "How long does the treatment take?",
+        "a": "CUREJET takes about 30-40 minutes + Gold PTT takes about 50 minutes. Both treatments can be performed on the same day."
+      },
+      {
+        "q": "What about pain and downtime?",
+        "a": "Both treatments have minimal pain and almost no downtime."
+      },
+      {
+        "q": "How can I prevent recurrence?",
+        "a": "Regular maintenance treatments + lifestyle habits (sleep, diet, stress management) are key."
+      }
+    ]
+  },
+  "acne-pigment": {
+    "slug": "acne-pigment",
+    "category": "acne",
+    "name": "Acne Pigmentation",
+    "tagline": "Step-by-step care for PIE (red spots) and PIH (brown spots) left after acne",
+    "intro": "There are two types of pigmentation that remain after acne subsides. PIE (red spots, post-inflammatory erythema) is vascular, while PIH (brown pigmentation, post-inflammatory hyperpigmentation) is melanogenic. Each requires separate care with different lasers for effective treatment.",
+    "approach": "1) PIE (red spots) is treated with VBeam 595nm PDL for vascular calming, 2) PIH (brown spots) is treated with Clarity II or Fotona StarWalker toning for pigment breakdown, 3) Step-by-step improvement with 3-5 sessions at intervals of 4-6 weeks.",
+    "deviceSlugs": [
+      "vbeam",
+      "clarity-ii",
+      "fotona-starwalker"
+    ],
+    "recommendedFor": [
+      "Those whose acne has subsided but have lingering red marks",
+      "Those concerned about brown pigmentation after acne",
+      "Those who have visible marks but not scars",
+      "Those with marks that show even with makeup",
+      "Those who can receive step-by-step improvement"
+    ],
+    "faq": [
+      {
+        "q": "How can I distinguish between PIE and PIH?",
+        "a": "Medical professionals accurately diagnose using glass plate pressure tests and Wood's lamp examinations. PIE fades when pressed, while PIH remains unchanged."
+      },
+      {
+        "q": "Should I receive both treatments together?",
+        "a": "If both are present, the two treatments will be distributed across sessions."
+      },
+      {
+        "q": "What is the downtime?",
+        "a": "Both treatments have almost no downtime."
+      },
+      {
+        "q": "Will it recur?",
+        "a": "If new acne forms, pigmentation may return, so managing active acne is a priority."
+      }
+    ]
+  },
+  "acne-scar": {
+    "slug": "acne-scar",
+    "category": "acne",
+    "name": "Acne Scars",
+    "tagline": "Stepwise reconstruction of depressed scars — combination of fractional and microneedling",
+    "intro": "Acne scars require different treatments depending on their type (ice pick, boxcar, rolling). Deep scars need stepwise reconstruction with fractional CO2 laser, while moderate scars require insulated microneedling RF, among other combinations.",
+    "approach": "1) Diagnosis of scar type and establishment of treatment plan, 2) Reconstruction of depressed scars with Capri (CO2) fractional, 3) Dermal regeneration assistance with Secret RF microneedling, 4) Stepwise progress with 3-5 sessions at intervals of 1-2 months.",
+    "deviceSlugs": [
+      "carpri-co2",
+      "secret-rf"
+    ],
+    "recommendedFor": [
+      "Individuals with acne scars (ice pick, boxcar, rolling)",
+      "Those who can undergo multiple treatments stepwise",
+      "Those who can tolerate a recovery period of 5-10 days",
+      "Individuals who want to improve skin texture as a long-term plan",
+      "Those whose active acne has settled"
+    ],
+    "faq": [
+      {
+        "q": "What is the recovery period?",
+        "a": "Capri CO2 takes about 5-10 days, while Secret RF has redness and scabbing for about 2-3 days."
+      },
+      {
+        "q": "Will the scars completely disappear?",
+        "a": "With stepwise treatments, improvement of about 70-80% can be expected, but complete removal is often difficult."
+      },
+      {
+        "q": "What about pain and anesthesia?",
+        "a": "Numbing cream is essential. There will be a prickly and warm sensation during the procedure."
+      },
+      {
+        "q": "Can I receive treatment if I have active acne?",
+        "a": "It is safer to receive treatment after the active acne has settled. We first calm it down with medication and light therapy."
+      }
+    ]
+  },
+  "pores": {
+    "slug": "pores",
+    "category": "acne",
+    "name": "Pores",
+    "tagline": "Shrink and rebuild enlarged pores + Cleansing inside the pores",
+    "intro": "There are various reasons for enlarged pores. Excess sebum, decreased collagen, aging, and repeated irritation work together. By cleansing inside the pores and regenerating the dermis, you can achieve a smooth texture.",
+    "approach": "1) Cleansing sebum and dead skin cells inside the pores with CUREJET, 2) Shrinking pore walls and regenerating the dermis with Carpri (CO2) or Secret RF, 3) Cumulative effects with regular care every 3-5 sessions at 1-month intervals.",
+    "deviceSlugs": [
+      "carpri-co2",
+      "secret-rf",
+      "curajet"
+    ],
+    "recommendedFor": [
+      "Those with enlarged pores on the nose and cheeks",
+      "Those prone to clogged pores due to excess sebum",
+      "Those whose makeup settles into the pores",
+      "Those with enlarged pores due to decreased collagen",
+      "Those who need regular texture management"
+    ],
+    "faq": [
+      {
+        "q": "Will the pores completely disappear?",
+        "a": "The pores themselves will not disappear, but we can improve their appearance by tightening enlarged pores."
+      },
+      {
+        "q": "Is there any effect from just receiving CUREJET?",
+        "a": "There is immediate texture improvement, but fundamental improvement of enlarged pores requires dermal regeneration treatments."
+      },
+      {
+        "q": "What is the downtime?",
+        "a": "CUREJET 0 days, Secret RF 2-3 days, Carpri CO2 5-10 days."
+      },
+      {
+        "q": "What is the regular care cycle?",
+        "a": "CUREJET once or twice a month, dermal regeneration treatments every 1-2 months followed by maintenance treatments."
+      }
+    ]
+  },
+  "athletes-foot": {
+    "slug": "athletes-foot",
+    "category": "skin-disease",
+    "name": "Athlete's foot",
+    "tagline": "Accurate diagnosis and treatment of fungal infections without recurrence",
+    "intro": "Athlete's foot (tinea pedis) is a skin fungal infection that can lead to recurrence and chronicity if self-treatment is repeated without an accurate diagnosis. Treatment with antifungal medication begins after confirming the fungus through tests such as KOH examination.",
+    "approach": "1) Diagnosis by confirming the fungus with KOH examination, 2) Prescription of antifungal topical agents and oral medications tailored to the area and symptoms, 3) Guidance on lifestyle habits to prevent recurrence (ventilation, foot hygiene, management of socks and shoes).",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those with itching, cracking, or scaling between the toes",
+      "Those who do not improve with over-the-counter medications",
+      "Those with frequent recurrences",
+      "Those who want an accurate diagnosis",
+      "Those who want to prevent transmission to family or cohabitants"
+    ],
+    "faq": [
+      {
+        "q": "What is the difference from over-the-counter medications?",
+        "a": "Using medications without an accurate diagnosis can lead to using the wrong medication or causing irritation. The prescribed antifungal medication is safer and more effective."
+      },
+      {
+        "q": "What is the treatment duration?",
+        "a": "Depending on the area and severity, it can take 2 weeks to several months. Even after improvement, continuing the medication for a certain period is necessary to reduce recurrence."
+      },
+      {
+        "q": "Is it contagious?",
+        "a": "It can be transmitted through sharing towels or shoes. Hygiene management within the family is important."
+      },
+      {
+        "q": "How can I prevent recurrence?",
+        "a": "Make sure to dry your feet well, manage socks and shoes to ensure good ventilation, and cleanse after using public baths or swimming pools."
+      }
+    ]
+  },
+  "psoriasis": {
+    "slug": "psoriasis",
+    "category": "skin-disease",
+    "name": "Psoriasis · Tinea",
+    "tagline": "Long-term management plan for chronic inflammatory diseases",
+    "intro": "Psoriasis is a chronic inflammatory disease caused by immune system abnormalities, while tinea is a fungal infection. The two conditions may appear similar, making accurate diagnosis important, and each requires different treatment approaches.",
+    "approach": "1) Accurate diagnosis (KOH test, biopsy, etc.), 2) Psoriasis is treated with topical agents, phototherapy, and systemic medications in a stepwise manner, 3) Tinea is treated with antifungal therapy, 4) As a chronic condition, it requires a long-term management plan to prevent recurrence.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Individuals with recurring scaly rashes on the scalp, elbows, knees, etc.",
+      "Individuals whose condition worsens due to stress or seasonal changes",
+      "Individuals needing accurate diagnosis and long-term management",
+      "Individuals who have not improved with existing topical agents",
+      "Individuals with accompanying systemic symptoms"
+    ],
+    "faq": [
+      {
+        "q": "Can it be cured?",
+        "a": "Psoriasis is difficult to cure and is a chronic condition that requires long-term management. Symptoms can be managed to a level where they are almost absent."
+      },
+      {
+        "q": "Is it hereditary?",
+        "a": "If there is a family history, the likelihood of occurrence is higher, but environmental and stress factors also play a significant role."
+      },
+      {
+        "q": "What are the exacerbating factors?",
+        "a": "Stress, infections, medications, trauma, alcohol and smoking, and dry climates are exacerbating factors."
+      },
+      {
+        "q": "Is it contagious?",
+        "a": "Psoriasis is not contagious. Tinea, being a fungal infection, can be contagious."
+      }
+    ]
+  },
+  "atopy": {
+    "slug": "atopy",
+    "category": "skin-disease",
+    "name": "Atopy",
+    "tagline": "Step-by-step treatment and lifestyle management focused on skin barrier recovery",
+    "intro": "Atopic dermatitis is a chronic inflammatory disease that occurs due to a weakened skin barrier. It is characterized by recurring itching, rashes, and dryness, and both medication and skin barrier recovery along with environmental and lifestyle management are important.",
+    "approach": "1) Daily care focused on moisturizing and skin barrier recovery, 2) Prescription of topical steroids and immunosuppressants tailored to the stage of inflammation, 3) Antihistamines for itch control, 4) Guidance on environmental, dietary, and stress management.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those who have experienced recurring itching and rashes since childhood",
+      "Individuals with chronically dry and rough skin",
+      "Those who experience cycles of improvement and worsening with existing topical steroids",
+      "Individuals who need comprehensive management rather than simple prescriptions",
+      "Those with a family history of allergic diseases"
+    ],
+    "faq": [
+      {
+        "q": "Does it not go away even when you become an adult?",
+        "a": "Atopy that started in childhood can continue into adulthood, but with step-by-step management, symptoms can be maintained at a nearly absent level."
+      },
+      {
+        "q": "Are steroids dangerous?",
+        "a": "When used under medical supervision for a short period and at appropriate strength, they are safe. Self-judgment to discontinue or overuse should be avoided."
+      },
+      {
+        "q": "How often should I moisturize?",
+        "a": "At least 1-2 times a day, immediately after bathing is most effective."
+      },
+      {
+        "q": "Is food restriction necessary?",
+        "a": "Generally, excessive restriction is not needed except for allergy foods confirmed by testing."
+      }
+    ]
+  },
+  "burns": {
+    "slug": "burns",
+    "category": "skin-disease",
+    "name": "Burns",
+    "tagline": "Post-burn care aimed at minimizing scars",
+    "intro": "Burns are treated differently depending on their depth (1st, 2nd, 3rd degree). Even after first aid, scars and pigmentation may remain, making care and treatments at each recovery stage important. Early intervention before the scar hardens greatly influences the outcome.",
+    "approach": "1) For urgent burns, go to the emergency room, then proceed with scar and pigmentation care after recovery, 2) For pigmentation, use toning, 3) For depressed scars, use fractional CO2, 4) For raised hypertrophic scars, use steroid injections, etc., in a stepwise approach.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those with scars or pigmentation remaining after burns",
+      "Those who have recovered but are concerned about appearance",
+      "Those struggling with hypertrophic or keloid scars",
+      "Those who want to reduce scars with early intervention",
+      "Those who can receive stepwise care"
+    ],
+    "faq": [
+      {
+        "q": "What to do for urgent burns?",
+        "a": "Run cool water for more than 15 minutes, then go to the emergency room or dermatology. Self-treatment (such as with soybean paste or toothpaste) is strictly prohibited."
+      },
+      {
+        "q": "Will there be scars?",
+        "a": "It varies depending on the depth, area, and recovery process. Early intervention can minimize scars."
+      },
+      {
+        "q": "When can I start treatment?",
+        "a": "After the wound has completely healed. Usually, scar care starts 6 weeks to 3 months later."
+      },
+      {
+        "q": "What about hypertrophic scars?",
+        "a": "They are treated stepwise with steroid injections, silicone sheets, and compression therapy."
+      }
+    ]
+  },
+  "hair-loss": {
+    "slug": "hair-loss",
+    "category": "skin-disease",
+    "name": "Hair Loss",
+    "tagline": "Diagnosis by Cause and Scalp & Hair Strengthening Treatment",
+    "intro": "Hair loss is caused by a combination of various factors such as genetics, hormones, stress, and nutrition. A comprehensive approach involving accurate diagnosis of the cause, medication, injections, scalp care, and lifestyle adjustments is necessary for effectiveness.",
+    "approach": "1) Hair examination and scalp condition analysis, 2) For androgenetic alopecia, medications (finasteride, minoxidil), 3) Follicle stimulation with mesotherapy, PRP, and exosome injections, 4) Concurrent scalp care and nutritional management.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Individuals whose hairline and crown appear to be thinning",
+      "Those with a family history of androgenetic alopecia",
+      "Individuals experiencing temporary hair loss after childbirth, dieting, or stress",
+      "Those who want to actively manage in the early stages",
+      "Individuals who can undergo medication and procedures together"
+    ],
+    "faq": [
+      {
+        "q": "When will I see the effects of the medication?",
+        "a": "Changes are usually seen after 3 to 6 months, and consistent use for over a year is required."
+      },
+      {
+        "q": "Are there side effects of the medication?",
+        "a": "Medications related to male hormones should be used under medical supervision. Decisions are made after consulting about potential side effects."
+      },
+      {
+        "q": "Is injection treatment effective?",
+        "a": "Mesotherapy, PRP, and exosomes can help stimulate hair follicles, and synergy is expected when combined with medication."
+      },
+      {
+        "q": "Can female hair loss be treated?",
+        "a": "A separate diagnosis is needed as the causes differ. Hormone tests and iron tests are conducted to identify the causes."
+      }
+    ]
+  }
+}

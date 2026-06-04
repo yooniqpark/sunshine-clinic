@@ -1,0 +1,672 @@
+{
+  "ulthera-prime": {
+    "slug": "ulthera-prime",
+    "category": "lifting",
+    "name": "Ulthera Prime",
+    "tagline": "Lifting that elevates from the root, reaching the SMAS with ultrasound",
+    "intro": "This treatment precisely stimulates the SMAS layer (the deepest fascia of the skin) with ultrasound to induce collagen regeneration. As the next-generation model of the Ulthera, a leading HIFU device approved by the FDA, the procedure is conducted while monitoring the treatment area and depth in real-time.",
+    "manufacturer": "Merz Aesthetics",
+    "tech": [
+      "HIFU",
+      "SMAS",
+      "ultrasound imaging guidance"
+    ],
+    "highlightStat": {
+      "value": "1.5/3.0/4.5mm",
+      "label": "Precision cartridge"
+    },
+    "features": [
+      {
+        "title": "Ultrasound Imaging Guidance",
+        "body": "Visualizes skin layers in real-time during the procedure, accurately targeting the dermis and SMAS layers."
+      },
+      {
+        "title": "Fundamental Layer Stimulation",
+        "body": "Stimulates the SMAS layer, which is lifted in surgical procedures, non-invasively to create a natural lifting effect."
+      },
+      {
+        "title": "Collagen Regeneration Induction",
+        "body": "The ultrasound coagulation points gradually reconstruct collagen over time, with results completing over 2 to 3 months post-treatment."
+      },
+      {
+        "title": "One-Time Treatment",
+        "body": "Results can be expected from a single session, making it suitable for those with limited time."
+      }
+    ],
+    "howItWorks": "High-Intensity Focused Ultrasound (HIFU) forms coagulation points at depths of 1.5mm (dermis), 3.0mm (deep dermis), and 4.5mm (SMAS) without damaging the skin surface. These coagulation points stimulate the natural healing process, producing new collagen and elastin, thereby tightening the skin from within.",
+    "recommendedFor": [
+      "Those concerned about sagging jawlines and V-lines",
+      "Individuals with deep nasolabial folds and wrinkles",
+      "People whose faces appear sagging due to decreased elasticity",
+      "Those seeking fundamental lifting without surgery",
+      "Individuals wanting to see changes from a single treatment"
+    ],
+    "faq": [
+      {
+        "q": "How long does the treatment take?",
+        "a": "It varies depending on the area and number of shots, but typically takes about 30 to 60 minutes."
+      },
+      {
+        "q": "Is there any pain?",
+        "a": "Pain is alleviated with a numbing cream, and there may be slight tingling during deeper treatments. The level of discomfort varies by individual."
+      },
+      {
+        "q": "When will I see results?",
+        "a": "You may feel immediate firmness right after the treatment, but the full effects from collagen regeneration will gradually appear over 2 to 3 months."
+      },
+      {
+        "q": "Is there any downtime?",
+        "a": "Most patients can return to their daily activities immediately after the treatment, and any slight swelling typically subsides naturally within 1 to 3 days."
+      }
+    ]
+  },
+  "thermage-flx": {
+    "slug": "thermage-flx",
+    "category": "lifting",
+    "name": "Thermage FLX",
+    "tagline": "A 4th generation lifting treatment that enhances skin texture and elasticity with radiofrequency.",
+    "intro": "Radiofrequency (RF) energy is delivered throughout the dermis to rearrange and strengthen collagen. The 4th generation Thermage FLX features a wider tip, faster treatment time, and automatic output adjustment (AccuREP) for improved safety and comfort compared to previous generations.",
+    "manufacturer": "Solta Medical",
+    "tech": [
+      "Monopolar RF",
+      "AccuREP",
+      "4th generation"
+    ],
+    "highlightStat": {
+      "value": "16%",
+      "label": "Wider tip"
+    },
+    "features": [
+      {
+        "title": "Monopolar Radiofrequency",
+        "body": "Delivers RF energy uniformly from the skin surface to the entire dermis, rearranging collagen."
+      },
+      {
+        "title": "AccuREP Automatic Adjustment",
+        "body": "Real-time measurement of skin impedance changes allows for automatic output adjustment, resulting in stable and uniform results."
+      },
+      {
+        "title": "Wider Tip, Shorter Time",
+        "body": "The tip has been widened by 16% compared to previous generations, reducing treatment time and discomfort during the procedure."
+      },
+      {
+        "title": "Vibration Pain Relief",
+        "body": "The built-in vibration feature of the tip naturally disperses discomfort during the treatment."
+      }
+    ],
+    "howItWorks": "Monopolar RF energy is delivered simultaneously throughout the dermis, causing immediate collagen contraction, followed by the formation of new collagen over the next 6 months. You can expect elasticity changes that last for more than 6 months to a year with just one treatment.",
+    "recommendedFor": [
+      "Those concerned about overall skin elasticity decline",
+      "Individuals wanting to improve fine lines and skin texture simultaneously",
+      "Those seeking smooth contours without surgery",
+      "Individuals who prefer a lifting treatment with minimal pain",
+      "Those wanting to care for both superficial and deep layers simultaneously with Ulthera"
+    ],
+    "faq": [
+      {
+        "q": "How do Thermage and Ulthera differ?",
+        "a": "Ulthera uses ultrasound to target deeper layers like SMAS, while Thermage stimulates the entire dermis and surface with radiofrequency. Receiving both can provide synergistic effects at different depths, so we offer them as a package."
+      },
+      {
+        "q": "What is the treatment time?",
+        "a": "Thanks to the wider tip, treatments are typically completed within 30 to 50 minutes."
+      },
+      {
+        "q": "How much pain can I expect?",
+        "a": "The cooling and vibration features of the tip help alleviate pain, making it tolerable for most patients, and additional numbing cream is not recommended."
+      },
+      {
+        "q": "How long do the effects last?",
+        "a": "Collagen regeneration occurs over 6 months, and effects can last for 1 to 2 years or more (individual variations apply)."
+      }
+    ]
+  },
+  "shurink-universe": {
+    "slug": "shurink-universe",
+    "category": "lifting",
+    "name": "Shurink Universe",
+    "tagline": "Precision tailored for each area with depth-specific cartridges",
+    "intro": "A next-generation HIFU lifting developed by Classys. Various depth cartridges ranging from 1.5mm to 13mm are combined based on the area and skin condition. High output and fast treatment speed lead to high satisfaction.",
+    "manufacturer": "Classys",
+    "tech": [
+      "HIFU",
+      "MMFU",
+      "area-specific"
+    ],
+    "highlightStat": {
+      "value": "5 types",
+      "label": "depth-specific cartridges"
+    },
+    "features": [
+      {
+        "title": "1.5~13mm cartridges",
+        "body": "Treatment can be customized for different depths using 5 types of cartridges (1.5/3.0/4.5/6.0/9.0/13mm) from the superficial layer to SMAS."
+      },
+      {
+        "title": "MMFU technology",
+        "body": "Combining micro and macro-focused ultrasound targets both immediate contraction and long-term collagen regeneration."
+      },
+      {
+        "title": "Fast shot speed",
+        "body": "Shortened intervals between shots reduce treatment time and minimize cumulative pain."
+      },
+      {
+        "title": "Wide area care",
+        "body": "Treats various areas such as the entire face, neck, and double chin in a single session."
+      }
+    ],
+    "howItWorks": "High-intensity focused ultrasound energy forms coagulation points at the precise layer corresponding to the cartridge depth, and as these points heal naturally, new collagen fills in and lifts the skin. The 13mm cartridge stimulates the fat layer for contouring purposes.",
+    "recommendedFor": [
+      "Those needing different depths for various areas",
+      "Those concerned about double chin and jawline",
+      "Those who are apprehensive about painful treatments",
+      "Those wanting to care for the entire face in one session",
+      "Those looking for a more affordable option than Ulthera"
+    ],
+    "faq": [
+      {
+        "q": "How do Ulthera and Shurink differ?",
+        "a": "Both are HIFU, but Ulthera excels in video guidance and precise targeting of SMAS, while Shurink offers a wider variety of cartridges and faster treatment speeds. You can choose based on the area and skin condition or use them together."
+      },
+      {
+        "q": "What about pain?",
+        "a": "Pain is alleviated with numbing cream, and the short shot intervals and precise output adjustments make it relatively tolerable."
+      },
+      {
+        "q": "When can I expect to see results?",
+        "a": "Immediate effects can be felt right after treatment, but results will fully develop over 1 to 3 months as collagen regenerates."
+      },
+      {
+        "q": "What is the recommended interval for re-treatment?",
+        "a": "Typically, 1 to 2 times a year is appropriate, and adjustments can be made after consulting with our medical staff based on skin condition and goals."
+      }
+    ]
+  },
+  "inmode": {
+    "slug": "inmode",
+    "category": "lifting",
+    "name": "InMode (Forma · Mini)",
+    "tagline": "Simultaneous skin elasticity and contouring with RF",
+    "intro": "A monopolar/bipolar RF system from InMode (Israel). Forma is a handpiece for comprehensive facial elasticity care, while Mini is a compact handpiece for narrow areas and delicate lines. When used together, they can refine both contour and texture at the same time.",
+    "manufacturer": "InMode (Israel)",
+    "tech": [
+      "Monopolar/Bipolar RF",
+      "Multiple handpieces"
+    ],
+    "highlightStat": {
+      "value": "Non-invasive",
+      "label": "Non-invasive RF"
+    },
+    "features": [
+      {
+        "title": "Two handpieces",
+        "body": "Forma is for larger areas, while Mini is for precise treatment of smaller areas. Using both handpieces in one session allows for simultaneous contouring and texture care."
+      },
+      {
+        "title": "Real-time temperature control",
+        "body": "Monitors skin temperature in real-time and automatically adjusts RF output to maintain safety."
+      },
+      {
+        "title": "Minimal downtime",
+        "body": "Aside from slight redness immediately after treatment, there is almost no trace left, allowing for a quick return to daily activities."
+      },
+      {
+        "title": "Repeat treatments possible",
+        "body": "You can feel immediate elasticity after one session, and effects accumulate with 4-6 repeat treatments at 1-2 week intervals."
+      }
+    ],
+    "howItWorks": "Monopolar/bipolar RF energy heats and contracts collagen in the dermis layer, creating immediate elasticity. With repeated treatments, collagen regeneration accumulates, gradually improving skin texture and contour. The procedure is performed without incisions or strong stimulation.",
+    "recommendedFor": [
+      "Those concerned about fine lines and slight sagging",
+      "Those seeking a procedure with minimal downtime",
+      "Those who prefer repeated care over a single strong treatment",
+      "Those wanting to refine both facial contour and skin texture",
+      "Those without implants or metal (RF treatment is generally recommended)"
+    ],
+    "faq": [
+      {
+        "q": "How is it different from Thermage?",
+        "a": "Thermage is a one-time package that provides strong stimulation, while InMode aims for gradual improvement through repeated treatments at 1-2 week intervals. It has less downtime and is generally more comfortable."
+      },
+      {
+        "q": "How many sessions are needed to see results?",
+        "a": "You can feel elasticity after just one session, but 4-6 sessions at 1-2 week intervals are recommended. After that, maintenance treatments every 1-2 months are advised."
+      },
+      {
+        "q": "Is there pain?",
+        "a": "Most people find it comfortable, feeling like a warm massage, and it can be done without anesthetic cream."
+      },
+      {
+        "q": "Is it effective for fat care as well?",
+        "a": "Separate InMode BodyTite/EvolveX lines are specialized for fat and cellulite, while Forma and Mini are primarily for elasticity and contour care."
+      }
+    ]
+  },
+  "clarity-ii": {
+    "slug": "clarity-ii",
+    "category": "whitening",
+    "name": "Clarity II",
+    "tagline": "Nd:YAG + Alexandrite dual wavelength, from the epidermis to the deep dermis",
+    "intro": "A dual wavelength laser from Lutronic. It operates 1064nm Nd:YAG and 755nm Alexandrite in one device to address superficial pigmentation to stubborn pigment and vascular lesions deep within the dermis in a single treatment.",
+    "manufacturer": "Lutronic",
+    "tech": [
+      "Nd:YAG 1064nm",
+      "Alexandrite 755nm",
+      "dual wavelength"
+    ],
+    "highlightStat": {
+      "value": "1064 + 755㎚",
+      "label": "Dual wavelength operation"
+    },
+    "features": [
+      {
+        "title": "Nd:YAG (1064nm)",
+        "body": "Reaches deep pigmentation and vascular lesions safely with its long wavelength."
+      },
+      {
+        "title": "Alexandrite (755nm)",
+        "body": "Demonstrates strong absorption of melanin in the epidermis, effective for breaking down spots and pigmentation."
+      },
+      {
+        "title": "IntelliTrak system",
+        "body": "Automatically recognizes handpiece speed to deliver uniform energy, reducing variability by the practitioner."
+      },
+      {
+        "title": "Multiple modes",
+        "body": "Combines Q-switched, Long-pulsed, and Photothermolysis modes according to the type of pigmentation."
+      }
+    ],
+    "howItWorks": "The two wavelengths selectively absorb melanin (pigmentation) and hemoglobin (vascular) to generate photothermal effects. The Q-switched mode finely breaks down pigmentation, while the Long-pulsed mode reliably coagulates deep vascular lesions.",
+    "recommendedFor": [
+      "Individuals with deep and complex pigmentation issues",
+      "Those wanting to address both epidermal and dermal pigmentation in one treatment",
+      "Individuals concerned about redness and vascular lesions",
+      "Those who have not seen sufficient results from previous toning treatments",
+      "Individuals seeking safe dual wavelength treatments"
+    ],
+    "faq": [
+      {
+        "q": "How is it different from StarWalker?",
+        "a": "Clarity uses a dual wavelength, while StarWalker utilizes a multi-wavelength. Clarity balances superficial and deep pigmentation, whereas StarWalker excels in treating a wider range of pigmentation depths."
+      },
+      {
+        "q": "What about pain and recovery?",
+        "a": "After applying a numbing cream, you may feel a slight sting. Any redness immediately after the treatment typically subsides within 1-2 days."
+      },
+      {
+        "q": "How many sessions are needed?",
+        "a": "Depending on the type and depth of pigmentation, 3-10 sessions are usually recommended, typically spaced 3-4 weeks apart."
+      },
+      {
+        "q": "What types of pigmentation are effective?",
+        "a": "Effectively addresses a wide range of issues including melasma, spots, freckles, seborrheic keratosis, stubborn pigmentation, and facial redness."
+      }
+    ]
+  },
+  "fotona-starwalker": {
+    "slug": "fotona-starwalker",
+    "category": "whitening",
+    "name": "Fotona StarWalker MAQX",
+    "tagline": "4-wavelength multi-mode, precise toning by pigment depth",
+    "intro": "A multi-wavelength laser from Slovenia's Fotona. It allows for precise disintegration tailored to the type, depth, and color of pigments by freely combining four wavelengths: 1064nm, 532nm, 585nm, and 650nm, along with Q-switched and Long-pulsed modes.",
+    "manufacturer": "Fotona",
+    "tech": [
+      "Q-Switched",
+      "TMD",
+      "4-wavelength hybrid"
+    ],
+    "highlightStat": {
+      "value": "4 wavelengths",
+      "label": "Multi-mode operation"
+    },
+    "features": [
+      {
+        "title": "4-wavelength operation",
+        "body": "Targets pigments optimally by using wavelengths of 1064 / 532 / 585 / 650nm based on type and depth."
+      },
+      {
+        "title": "VERSA pulse",
+        "body": "Uses ultra-short pulse width to precisely disintegrate pigments while minimizing damage to surrounding healthy tissue."
+      },
+      {
+        "title": "TMD uniform beam",
+        "body": "With Transverse Mode Discrimination technology, the beam distribution is uniform, ensuring consistent treatment results."
+      },
+      {
+        "title": "Premium Toning",
+        "body": "Offers a premium toning mode that simultaneously cares for both epidermal and dermal pigments."
+      }
+    ],
+    "howItWorks": "Selects the most efficient wavelength for each type of pigment (melanin, hemoglobin) to induce photothermal absorption. The Q-Switched mode shatters pigments into tiny fragments in nanoseconds, while the Long-pulsed mode heats deeper layers stably for gradual disintegration.",
+    "recommendedFor": [
+      "Those who want to address multiple pigments at once",
+      "Those who have not seen sufficient results from previous toning treatments",
+      "Individuals with stubborn pigments deep in the dermis",
+      "Those who want to brighten overall skin tone as well",
+      "Those seeking precise and safe treatments"
+    ],
+    "faq": [
+      {
+        "q": "Which pigments are most effectively treated?",
+        "a": "Effectively addresses a wide range of stubborn pigments, including melasma, spots, freckles, seborrheic keratosis, and Ota and café-au-lait spots."
+      },
+      {
+        "q": "What about pain and recovery?",
+        "a": "Topical anesthetic cream is applied. After treatment, mild redness subsides within 24 hours, allowing for a return to daily activities."
+      },
+      {
+        "q": "How many sessions are needed?",
+        "a": "Typically 5-10 sessions at intervals of 3-4 weeks. The number of sessions is determined after consultation with our medical staff based on the type and depth of the pigment."
+      },
+      {
+        "q": "Can those with sensitive skin undergo treatment?",
+        "a": "Yes, the VERSA pulse causes less irritation, but output will be adjusted through prior consultation."
+      }
+    ]
+  },
+  "vbeam": {
+    "slug": "vbeam",
+    "category": "whitening",
+    "name": "VBeam",
+    "tagline": "595nm PDL vascular-specific laser, hemoglobin selective targeting",
+    "intro": "Candela's 595nm Pulsed Dye Laser. This vascular-specific laser selectively absorbs only hemoglobin, protecting normal tissue while soothing facial redness, telangiectasia, and post-acne PIE pigmentation.",
+    "manufacturer": "Candela",
+    "tech": [
+      "595nm PDL",
+      "vascular selectivity",
+      "DCD cooling"
+    ],
+    "highlightStat": {
+      "value": "595㎚",
+      "label": "Pulsed Dye Laser"
+    },
+    "features": [
+      {
+        "title": "595nm wavelength",
+        "body": "Precisely targets only abnormal blood vessels with optimal absorption for hemoglobin."
+      },
+      {
+        "title": "DCD cooling system",
+        "body": "The Dynamic Cooling Device immediately cools the epidermis just before treatment, alleviating pain and irritation."
+      },
+      {
+        "title": "Multipulse mode",
+        "body": "Safely and gradually treats small capillaries to larger vessels."
+      },
+      {
+        "title": "Non-invasive",
+        "body": "Acts on dermal vessels without damaging the epidermis, resulting in minimal downtime."
+      }
+    ],
+    "howItWorks": "The 595nm wavelength selectively absorbs into hemoglobin, causing photothermal coagulation to close abnormal blood vessels. Adjacent normal tissue is protected by DCD cooling, ensuring both safety and rapid recovery.",
+    "recommendedFor": [
+      "Individuals who are chronically concerned about facial redness and flushing",
+      "Those wanting to address telangiectasia (red spider veins)",
+      "Individuals with post-acne PIE redness",
+      "Those with chronic redness on the nose and cheeks",
+      "Individuals wishing to care for both pigmentation and redness"
+    ],
+    "faq": [
+      {
+        "q": "When can I expect to see results?",
+        "a": "Immediate soothing effects are felt right after treatment, while permanent changes accumulate over multiple sessions."
+      },
+      {
+        "q": "How many sessions do I need?",
+        "a": "Depending on the area and severity, 3 to 5 sessions are recommended, spaced 4 to 6 weeks apart."
+      },
+      {
+        "q": "What level of pain should I expect?",
+        "a": "A cool sensation with slight tingling due to DCD cooling. Anesthesia cream is not mandatory."
+      },
+      {
+        "q": "What post-treatment care is needed?",
+        "a": "Moisturizing and sun protection are essential. It's advisable to avoid saunas and intense exercise for about a week."
+      }
+    ]
+  },
+  "secret-rf": {
+    "slug": "secret-rf",
+    "category": "whitening",
+    "name": "Secret RF",
+    "tagline": "Insulated microneedles + radiofrequency, dermal regeneration support",
+    "intro": "Insulated microneedles penetrate the epidermis and release radiofrequency (RF) energy at precise depths in the dermis. This is a widely used supportive treatment for skin regeneration after pigmentation procedures, improving fine scars and pores, and refining skin texture.",
+    "manufacturer": "Ilooda",
+    "tech": [
+      "Insulated microneedles",
+      "Bipolar RF",
+      "Depth adjustment"
+    ],
+    "highlightStat": {
+      "value": "0.5~3.5mm",
+      "label": "Precise depth adjustment"
+    },
+    "features": [
+      {
+        "title": "Insulated coating needles",
+        "body": "Releases energy precisely at the target depth in the dermis without causing damage while passing through the epidermis."
+      },
+      {
+        "title": "Fine depth adjustment",
+        "body": "Allows for stepwise precise adjustments from 0.5 to 3.5mm, enabling treatments tailored to specific areas and purposes."
+      },
+      {
+        "title": "Bipolar RF",
+        "body": "Energy is evenly distributed from both ends of the needle, enhancing consistency of results."
+      },
+      {
+        "title": "Combination care support",
+        "body": "A representative supportive device that creates synergy when used in conjunction with pigmentation toning and scar treatments."
+      }
+    ],
+    "howItWorks": "Insulated microneedles pass through the epidermis and release radiofrequency energy at the target depth in the dermis, inducing collagen and elastin regeneration. Newly formed dermal tissue gradually improves fine scars and pores.",
+    "recommendedFor": [
+      "Those who want to actively promote skin regeneration after pigmentation procedures",
+      "Those concerned about fine scars and pores",
+      "Those who prefer combination care over single treatments",
+      "Those seeking gradual improvement in skin texture",
+      "Those who prefer treatments with short downtime"
+    ],
+    "faq": [
+      {
+        "q": "How much pain can I expect?",
+        "a": "The procedure is performed after applying a numbing cream, and there may be slight prickling sensations depending on the area."
+      },
+      {
+        "q": "What is the recovery time?",
+        "a": "Mild redness and swelling may last for about 2-3 days, but you can return to daily activities immediately after the procedure."
+      },
+      {
+        "q": "Can it be done alongside other treatments?",
+        "a": "It is not recommended to perform on the same day as toning; a gap of 1-2 weeks is safer."
+      },
+      {
+        "q": "How long do the effects last?",
+        "a": "Effects accumulate over 3-6 months depending on collagen regeneration, and regular re-treatment is recommended."
+      }
+    ]
+  },
+  "carpri-co2": {
+    "slug": "carpri-co2",
+    "category": "acne",
+    "name": "Carpri (CO2)",
+    "tagline": "Fractional CO2 laser, the standard for reconstructing depressed scars and pores",
+    "intro": "The 10,600nm CO2 laser delivers precise micro-damage to the dermis in a fractional manner, inducing collagen regeneration. It is a representative device for gradually reconstructing depressed acne scars and enlarged pores.",
+    "manufacturer": "Lumenis / Various",
+    "tech": [
+      "CO2 10,600nm",
+      "Fractional",
+      "Scar Reconstruction"
+    ],
+    "highlightStat": {
+      "value": "10,600㎚",
+      "label": "CO2 Fractional"
+    },
+    "features": [
+      {
+        "title": "Fractional Method",
+        "body": "Delivers treatment in fine points to achieve rapid recovery and strong regenerative effects."
+      },
+      {
+        "title": "Customized Depth Adjustment",
+        "body": "Adjusts penetration depth and density precisely according to the type of scar (ice pick, boxcar, rolling)."
+      },
+      {
+        "title": "Collagen Regeneration",
+        "body": "Normal tissue surrounding the micro-columns sends healing signals, allowing new collagen to fill in the scars."
+      },
+      {
+        "title": "Pore Reconstruction",
+        "body": "The walls of enlarged pores contract, creating a smoother skin texture."
+      }
+    ],
+    "howItWorks": "The 10,600nm CO2 wavelength is absorbed by the skin's moisture, forming thermal damage in a micro-columnar shape. The surrounding undamaged tissue quickly sends healing signals, producing new collagen to fill in the scars and smooth the skin surface.",
+    "recommendedFor": [
+      "Individuals with depressed acne scars (ice pick, boxcar, rolling)",
+      "Those concerned about enlarged pores",
+      "Individuals who want to see relatively strong effects quickly",
+      "Those who can tolerate a recovery period of 5 to 10 days",
+      "Individuals planning regular care for scar reconstruction"
+    ],
+    "faq": [
+      {
+        "q": "What is the recovery period?",
+        "a": "There will be redness and scabbing for about 5 to 10 days, and makeup can be applied after 1 to 2 weeks."
+      },
+      {
+        "q": "What about pain?",
+        "a": "Numbing cream is essential. There will be a tingling and warm sensation during the procedure."
+      },
+      {
+        "q": "How many sessions are needed?",
+        "a": "Depending on the depth of the scars, 3 to 5 sessions are recommended at intervals of 1 to 2 months."
+      },
+      {
+        "q": "I'm concerned about downtime; what are the alternatives?",
+        "a": "There are non-invasive alternatives such as Secret RF and Gold PTT, and options can be selected after consulting with our medical staff based on the type of scar."
+      }
+    ]
+  },
+  "gold-ptt": {
+    "slug": "gold-ptt",
+    "category": "acne",
+    "name": "Gold PTT",
+    "tagline": "Gold nanoparticle photothermal therapy, soothing sebaceous glands and acne bacteria simultaneously",
+    "intro": "A tonic containing gold nanoparticles penetrates the pores and is activated by an 800nm light source. The gold particles convert light energy into heat, providing photothermal therapy that soothes both P. acnes bacteria and sebaceous glands.",
+    "manufacturer": "Sebacia / Various",
+    "tech": [
+      "Photothermal Therapy (PTT)",
+      "Gold nanoparticles",
+      "Non-absorbent"
+    ],
+    "highlightStat": {
+      "value": "Photothermal Therapy",
+      "label": "Photothermal Therapy"
+    },
+    "features": [
+      {
+        "title": "Selective photothermal effect",
+        "body": "Heat is generated only from the gold particles within the pores without irritating the epidermis, precisely targeting the sebaceous glands."
+      },
+      {
+        "title": "Simultaneous bacteria and sebum treatment",
+        "body": "Addresses the two main causes of acne in a single treatment, reducing the likelihood of recurrence."
+      },
+      {
+        "title": "Minimal downtime",
+        "body": "After slight redness subsides immediately post-treatment, you can return to your daily activities."
+      },
+      {
+        "title": "Low risk of scarring",
+        "body": "The non-invasive photothermal method poses almost no risk of scarring after treatment."
+      }
+    ],
+    "howItWorks": "After gold nanoparticles penetrate deep into the pores, exposure to the 800nm light source allows the gold particles to efficiently convert light energy into heat. This heat soothes P. acnes bacteria and overactive sebaceous glands, addressing the causes of acne simultaneously.",
+    "recommendedFor": [
+      "Individuals with chronic recurring acne",
+      "Those with enlarged pores due to excess sebum",
+      "Individuals concerned about downtime",
+      "Those who wish to manage without antibiotics or isotretinoin",
+      "Individuals needing regular maintenance treatments"
+    ],
+    "faq": [
+      {
+        "q": "What type of acne is it effective for?",
+        "a": "It is effective for pustular and inflammatory acne, while scar stages may require additional treatments."
+      },
+      {
+        "q": "How long does the treatment take?",
+        "a": "The total time is approximately 50 minutes, consisting of 30 minutes for tonic penetration and 20 minutes for light exposure."
+      },
+      {
+        "q": "Is there any pain?",
+        "a": "There is little to no pain, just a cool or slightly warm sensation."
+      },
+      {
+        "q": "How many sessions are needed?",
+        "a": "Three sessions are recommended at six-week intervals, followed by maintenance care to continue the effects."
+      }
+    ]
+  },
+  "curajet": {
+    "slug": "curajet",
+    "category": "acne",
+    "name": "CUREJET",
+    "tagline": "High-pressure sterilized saline spray for non-invasive pore cleansing",
+    "intro": "Medical-grade high-pressure sterilized saline penetrates deeply into the pores to non-invasively cleanse sebum, dead skin cells, and impurities. It soothes trouble spots and provides immediate skin texture improvement, making it a regular care treatment that is easy to receive frequently.",
+    "manufacturer": "CUREJET",
+    "tech": [
+      "Saline spray",
+      "Non-invasive",
+      "Pore cleansing"
+    ],
+    "highlightStat": {
+      "value": "0 pain",
+      "label": "Non-invasive treatment"
+    },
+    "features": [
+      {
+        "title": "Medical-grade sterilized saline",
+        "body": "Uses highly pure cleansing solution with minimal skin irritation."
+      },
+      {
+        "title": "High-pressure fine spray",
+        "body": "Gently washes away impurities deep within the pores with high-pressure spraying."
+      },
+      {
+        "title": "Immediate texture improvement",
+        "body": "Skin texture becomes smooth immediately after treatment, enhancing makeup application."
+      },
+      {
+        "title": "0 downtime",
+        "body": "No epidermal damage allows for immediate return to daily activities after treatment."
+      }
+    ],
+    "howItWorks": "The high-pressure fine saline spray reaches deep into the pores to gently cleanse sebum, dead skin cells, and impurities. At the same time, moisture is supplied to soothe the skin, resulting in immediate texture refinement.",
+    "recommendedFor": [
+      "Those concerned about clogged pores and blackheads",
+      "Those who find downtime after treatment burdensome",
+      "Those seeking regular skin care",
+      "Those needing pore cleansing before acne treatment",
+      "Those wanting immediate results right before makeup application"
+    ],
+    "faq": [
+      {
+        "q": "How long does the treatment take?",
+        "a": "It takes about 30-40 minutes, making it a quick procedure."
+      },
+      {
+        "q": "Is there any pain?",
+        "a": "There is only a cool spraying sensation, with minimal pain."
+      },
+      {
+        "q": "Can I receive it frequently?",
+        "a": "It is fine to receive regular care once or twice a month without burden."
+      },
+      {
+        "q": "Can it be done with other treatments?",
+        "a": "Performing pore cleansing before treatments like toning or RF can enhance absorption and effectiveness."
+      }
+    ]
+  }
+}

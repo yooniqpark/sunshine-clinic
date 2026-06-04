@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f9eddd"/>
+      <stop offset=".5" stop-color="#e7a16f"/>
+      <stop offset="1" stop-color="#c5703c"/>
+    </linearGradient>
+    <radialGradient id="r1" cx=".74" cy=".26" r=".72">
+      <stop offset="0" stop-color="#fff6e8" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#fff6e8" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="bl1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="72"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1000" fill="url(#g1)"/>
+  <g filter="url(#bl1)">
+    <circle cx="300" cy="790" r="210" fill="#df8849" opacity=".7"/>
+    <circle cx="985" cy="235" r="175" fill="#fff1dc" opacity=".85"/>
+    <circle cx="675" cy="520" r="120" fill="#ffd8ad" opacity=".6"/>
+    <circle cx="1085" cy="830" r="150" fill="#f3b07c" opacity=".55"/>
+    <circle cx="140" cy="320" r="90" fill="#fff4e2" opacity=".5"/>
+  </g>
+  <rect width="1200" height="1000" fill="url(#r1)"/>
+</svg>

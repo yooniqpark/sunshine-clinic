@@ -1,0 +1,382 @@
+{
+  "clinic": {
+    "name": "Sunshine Dermatology Clinic",
+    "addressLine": "4F, 123 Teheran-ro, Gangnam-gu, Seoul",
+    "addressSub": "3 minutes on foot from Gangnam Station Exit 4 (Line 2) · Parking available in the building",
+    "doctorTitle": "Director",
+    "doctorOwnerName": "Director Kim Byeong-hyeon",
+    "bizNoLabel": "Business Registration Number",
+    "licenseText": "Registered with Gangnam-gu Health Center No. 0000",
+    "marketingTagline": "At Sunshine, your skin's light awakens again.",
+    "clinicNameFull": "Sunshine Dermatology Clinic"
+  },
+  "hours": [
+    {
+      "day": "Weekdays",
+      "time": "10:00 – 19:00"
+    },
+    {
+      "day": "Saturday",
+      "time": "10:00 – 15:00 (Lunch break unavailable)"
+    },
+    {
+      "day": "Lunch break",
+      "time": "13:00 – 14:00"
+    },
+    {
+      "day": "Sun & holidays",
+      "time": "Closed"
+    }
+  ],
+  "common": {
+    "viewAll": "View All",
+    "viewDetail": "View Details",
+    "bookConsultation": "Book Consultation",
+    "home": "Home",
+    "always": "Year-round",
+    "naverMap": "Naver Map",
+    "kakaoMap": "KakaoMap Directions",
+    "slideAria": "Move to slide {n}: {title}"
+  },
+  "home": {
+    "categoriesLabel": "TREATMENTS",
+    "categoriesTitle": "Customized Procedures by Concern",
+    "devicesLabel": "SIGNATURE DEVICES",
+    "devicesTitle": "Signature Devices",
+    "conceptEyebrow": "WHY SUNSHINE",
+    "conceptHeadlineL1": "Confidence for your daily life,",
+    "conceptHeadlineL2": "your personal skin doctor.",
+    "conceptBody": "While skin concerns may seem similar, the causes are all different. Sunshine Dermatology Clinic proposes the most suitable solutions by considering each patient's skin condition, lifestyle patterns, and desired future.",
+    "conceptImageAlt": "Clear and Healthy Skin",
+    "eventsLabel": "EVENT",
+    "eventsTitle": "Ongoing Events",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "Introduction of the Director",
+    "philosophyEyebrow": "PHILOSOPHY",
+    "philosophyHeadlineL1": "Accurate Diagnosis,",
+    "philosophyHeadlineL2": "Delicate Treatment, Satisfactory Change.",
+    "philosophyBody": "We pursue necessary treatments over excessive ones, verified results over flashy advertisements, and healthy changes over temporary improvements. We aim to be your personal skin doctor who restores the natural health and beauty of your skin, giving you greater confidence in your daily life.",
+    "locationLabel": "LOCATION",
+    "locationTitle": "How to Get Here",
+    "mapTitle": "Location of Sunshine Dermatology Clinic",
+    "deviceAltSuffix": "Equipment",
+    "doctorAltSuffix": "Director"
+  },
+  "about": {
+    "metaTitle": "About Us",
+    "metaDesc": "Learn about the treatment philosophy, our medical staff, treatment guidance, and space of Sunshine Dermatology Clinic all on one page.",
+    "breadcrumb": "About Us",
+    "heroTitleL1": "Beyond treating skin,",
+    "heroTitleL2": "we restore confidence in life.",
+    "valuesLabel": "PRINCIPLES",
+    "valuesTitle": "Four Principles of Sunshine Dermatology Clinic",
+    "values": [
+      {
+        "title": "Customized Treatment",
+        "body": "We provide 1:1 personalized treatment considering the unique skin characteristics of each patient."
+      },
+      {
+        "title": "Honest Care",
+        "body": "We only suggest necessary treatments without unnecessary procedures."
+      },
+      {
+        "title": "Premium Medical Service",
+        "body": "We operate high-end equipment and a systematic medical system."
+      },
+      {
+        "title": "Results-Oriented Care",
+        "body": "We pursue healthy and sustainable changes rather than temporary improvements."
+      }
+    ],
+    "spaceImageAlt": "Treatment Space",
+    "philosophyBody1": "Sunshine Dermatology Clinic is not just a place to solve skin concerns. We propose the most suitable solutions by considering each patient's skin condition, lifestyle patterns, and desired future.",
+    "philosophyBody2": "We prioritize necessary treatments over excessive care, verified results over flashy advertisements, and healthy changes over temporary improvements. We aim to be your personal skin doctor who restores the inherent health and beauty of the skin, gifting greater confidence and happiness to our clients' daily lives.",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "Director Introduction",
+    "doctorMessage": "Hello, this is Sunshine Dermatology Clinic. Everyone has skin concerns, but the solutions should be different for each individual. Based on years of rich clinical experience in the field of dermatology and aesthetics, I promise to provide delicate and honest care tailored to each patient's skin condition. I will be a warm and reliable personal skin doctor who adds brilliant confidence to your daily life.",
+    "credentialsLabel": "Credentials",
+    "credentials": [
+      "Graduated from OO University College of Medicine",
+      "Completed internship at OO University Hospital",
+      "Regular member of the Korean Dermatological Association",
+      "Regular member of the Korean Society for Aesthetic Plastic Surgery and Laser Medicine",
+      "Former Director of OO Dermatology Clinic"
+    ],
+    "focusLabel": "Main Treatment Areas",
+    "focusItems": [
+      "Lifting & Anti-Aging (Ulthera Prime · Thermage FLX · Shurink Universe)",
+      "Pigmentation & Redness Laser Toning",
+      "Acne & Scar Reconstruction",
+      "Botox · Filler · Skin Booster"
+    ],
+    "credentialsNote": "※ The credentials are example data and will be replaced with the actual credentials of the director during operation.",
+    "tourLabel": "TOUR",
+    "tourTitle": "Take a Tour of Our Clinic",
+    "tour": [
+      {
+        "title": "A Calm Welcoming Space",
+        "body": "The first thing you encounter upon entering is the reception desk. The toned-down beige and warm indirect lighting gently ease your tension before treatment."
+      },
+      {
+        "title": "Spacious Waiting Area",
+        "body": "With wide individual lounge seats, warm beverages, and ample natural light, we designed the waiting time to be comfortable."
+      },
+      {
+        "title": "1:1 Customized Treatment Room",
+        "body": "Treatments are conducted 1:1 in independent treatment rooms. We separate medical devices and hygiene pathways to ensure safety and privacy."
+      }
+    ],
+    "tourPhotoPlaceholder": "Space photos to be added",
+    "tourFootnote": "Detailed photos of each space will be updated sequentially after actual shooting.",
+    "locationTitle": "Treatment Guidance · Directions",
+    "directions": [
+      "Subway: 3 minutes on foot from Gangnam Station, Exit 4, Line 2",
+      "Bus: 2 minutes on foot after getting off at Gangnam Station",
+      "Parking: Parking available in the building"
+    ],
+    "ctaTitle": "Schedule a Consultation",
+    "ctaBody": "We will guide you to the most suitable treatment plan after a 1:1 diagnosis. The consultation is free.",
+    "ctaSecondary": "Explore Treatments",
+    "brandDescription": "Delicate and honest care tailored to each patient's skin condition. With rich clinical experience, premium high-end equipment, and a systematic system, we ensure that everyone can comfortably receive high-quality medical services."
+  },
+  "events": {
+    "metaTitle": "Events",
+    "metaDesc": "Check out the treatment events and promotions currently happening at Sunshine Dermatology Clinic.",
+    "breadcrumb": "Events",
+    "heroLabel": "EVENT",
+    "heroTitle": "Ongoing Events",
+    "heroBody": "Here are the treatment programs and benefits you can experience now. For more details, please consult with us.",
+    "consultCta": "Consult about Events",
+    "phoneCta": "Call for Inquiries",
+    "disclaimer": "The content of this event must be published after prior review of medical advertising, and treatment effects may vary by individual. (Prototype — Data is for example.)"
+  },
+  "treatment": {
+    "breadcrumb": "Treatments",
+    "guideTitle": "Treatment Guide",
+    "devicesTitle": "Device Information",
+    "deviceImageAlt": "Product photo coming soon",
+    "ctaTitle": "Accurate Diagnosis Comes First",
+    "ctaBody": "Our medical staff will analyze your condition and suggest the most suitable treatment.",
+    "ctaSecondary": "View Other Treatments",
+    "deviceDiffTitle": "Differentiation",
+    "howItWorksTitle": "How It Works",
+    "recommendedTitle": "Recommended For",
+    "faqTitle": "Frequently Asked Questions",
+    "otherTreatmentsLabel": "OTHER TREATMENTS",
+    "otherTreatmentsTitle": "Other Treatments",
+    "overviewLabel": "Overview",
+    "approachTitle": "Treatment Approach",
+    "approachLabel": "TREATMENT APPROACH",
+    "concernDevicesLabel": "USED DEVICES",
+    "concernDevicesTitle": "Devices Used for This Treatment",
+    "viewDeviceDetail": "View device detail"
+  },
+  "categories": {
+    "lifting": {
+      "label": "LIFTING · ANTI-AGING",
+      "eyebrow": "LIFTING & ANTI-AGING",
+      "headlineL1": "Defying Time",
+      "headlineL2": "Elasticity Solutions",
+      "description": "We diagnose the causes of sagging and wrinkles, combining equipment suitable for skin layers to design natural elasticity.",
+      "treatments": [
+        {
+          "name": "Ulthera Prime",
+          "summary": "Precise stimulation of the deep dermis (SMAS) with ultrasound (HIFU) for fundamental lifting effects."
+        },
+        {
+          "name": "Thermage FLX",
+          "summary": "Rearranging collagen with monopolar radiofrequency (RF) to enhance surface elasticity and skin texture."
+        },
+        {
+          "name": "InMode (Forma · Mini)",
+          "summary": "Non-invasive care of facial contours and elasticity with monopolar/bipolar RF."
+        },
+        {
+          "name": "Shurink Universe · Olym",
+          "summary": "Next-generation HIFU lifting tailored to depth with area-specific cartridges (1.5~9mm)."
+        },
+        {
+          "name": "Special Skin Booster",
+          "summary": "Directly infusing cross-linked hyaluronic acid like Skinvive into the dermis for radiance and texture."
+        },
+        {
+          "name": "Rejuran (Healer · HB · Eye)",
+          "summary": "Injecting salmon PN (Polynucleotide) components to induce collagen production and restore the skin barrier."
+        },
+        {
+          "name": "Ellanse",
+          "summary": "Collagen-stimulating filler based on PCL (Polycaprolactone) for natural volume restoration."
+        },
+        {
+          "name": "Juvelook · Juvelook Volume",
+          "summary": "Inducing self-collagen over 4~6 months with a PDLLA + hyaluronic acid mesh structure."
+        },
+        {
+          "name": "Letuo · Letuo Fine",
+          "summary": "PN-based booster to enhance skin regeneration signals."
+        },
+        {
+          "name": "Exosomes",
+          "summary": "Simultaneously caring for skin barriers and regeneration with regenerative signaling proteins."
+        },
+        {
+          "name": "Chanel Injection · Cellydium",
+          "summary": "A popular booster combining PN and booster ingredients to enhance skin radiance and texture."
+        },
+        {
+          "name": "Botox · Filler",
+          "summary": "Options for domestic and foreign products to delicately correct fine lines, volume, and contours."
+        },
+        {
+          "name": "Sculptra · Radiesse",
+          "summary": "Volume booster based on PLLA / CaHA that fills from deep layers for lifting."
+        }
+      ],
+      "devices": [
+        {
+          "name": "Ulthera Prime",
+          "desc": "Next-generation ultrasound lifting device from Merz Aesthetics. Visualizes skin layers with ultrasound imaging and precisely targets the dermis and SMAS layers."
+        },
+        {
+          "name": "Thermage FLX",
+          "desc": "4th generation monopolar radiofrequency (RF) equipment. Shortens treatment time with an enlarged tip (4.0㎠) and automatically adjusts output with the AccuREP algorithm."
+        },
+        {
+          "name": "Shurink Universe · Olym",
+          "desc": "Next-generation HIFU platform from Classys. Allows for depth-customized lifting with area-specific cartridges (1.5/3.0/4.5/6.0/9.0mm)."
+        },
+        {
+          "name": "InMode (Forma · Mini)",
+          "desc": "Monopolar/bipolar RF system from Israel's InMode. Non-invasively cares for facial contours and skin texture."
+        }
+      ]
+    },
+    "whitening": {
+      "label": "WHITENING · REDNESS",
+      "eyebrow": "WHITENING & REDNESS",
+      "headlineL1": "Regaining Clear and Even",
+      "headlineL2": "Skin Tone",
+      "description": "We provide customized pigment treatments that analyze the depth and type of melasma and pigmentation precisely, reducing recurrence through laser combinations.",
+      "treatments": [
+        {
+          "name": "Melasma · Spots",
+          "summary": "Customized toning that breaks down epidermal and dermal pigments step by step."
+        },
+        {
+          "name": "Freckles · Dark Spots · Liver Spots",
+          "summary": "Neatly removing lesions with lasers tailored to the depth of the lesions."
+        },
+        {
+          "name": "Recalcitrant Pigmentation",
+          "summary": "Stepwise treatment of tricky pigments like Ota and milk coffee spots."
+        },
+        {
+          "name": "Redness · Capillaries",
+          "summary": "Calming redness and facial flushing with vascular lasers."
+        }
+      ],
+      "devices": [
+        {
+          "name": "Fotona StarWalker MAQX",
+          "desc": "Multi-wavelength hybrid laser from Fotona, combining Nd:YAG (1064㎚) + KTP (532㎚). Precisely breaks down pigments according to depth and type using Q-switched and Long-pulsed modes."
+        },
+        {
+          "name": "Clarity II",
+          "desc": "Dual-wavelength laser with Nd:YAG + Alexandrite. Broadly cares for pigments and vascular lesions from the epidermis to deep dermis."
+        },
+        {
+          "name": "VBeam (VBeam)",
+          "desc": "595㎚ PDL vascular-specific laser from Candela. Selectively targets hemoglobin to calm redness and capillary expansion."
+        },
+        {
+          "name": "Secret RF",
+          "desc": "Insulated microneedle + radiofrequency system. Assists in improving skin texture, regeneration after pigmentation, and fine scars."
+        }
+      ]
+    },
+    "acne": {
+      "label": "ACNE · SCAR · PORE",
+      "eyebrow": "ACNE & SCAR & PORE",
+      "headlineL1": "Breaking the",
+      "headlineL2": "Cycle of Trouble",
+      "description": "From cause diagnosis to scar and pore reconstruction, we offer step-by-step programs tailored to the skin conditions of adolescents and adults.",
+      "treatments": [
+        {
+          "name": "Adolescent · Adult Acne",
+          "summary": "A comprehensive program managing sebum, inflammation, and hormonal factors together."
+        },
+        {
+          "name": "Acne Pigmentation",
+          "summary": "Stepwise improvement of remaining redness and brown pigmentation after inflammation."
+        },
+        {
+          "name": "Acne Scars",
+          "summary": "Combination of laser and regenerative treatments to reconstruct depressed scars."
+        },
+        {
+          "name": "Pores",
+          "summary": "Tightening enlarged pores for smooth skin texture."
+        }
+      ],
+      "devices": [
+        {
+          "name": "Capri (CO2)",
+          "desc": "Fractional CO2 laser. Reconstructs depressed acne scars and enlarged pores at a micro-column level."
+        },
+        {
+          "name": "Gold PTT",
+          "desc": "Photothermal Therapy. Gold nanoparticles absorb light from the light source and convert it into heat, simultaneously caring for sebaceous glands and acne bacteria."
+        },
+        {
+          "name": "CUREJET",
+          "desc": "Sprays high-pressure medical saline to non-invasively cleanse sebum and dead skin cells from pores."
+        },
+        {
+          "name": "Secret RF",
+          "desc": "Insulated microneedle + radiofrequency. Reconstructs depressed scars and enlarged pores."
+        },
+        {
+          "name": "VBeam (VBeam)",
+          "desc": "Selectively calms PIE (redness) pigmentation remaining after acne with a 595㎚ PDL laser."
+        }
+      ]
+    },
+    "skin-disease": {
+      "label": "SKIN DISEASE",
+      "eyebrow": "SKIN DISEASE",
+      "headlineL1": "Skin Health Treated by",
+      "headlineL2": "Our Medical Staff",
+      "description": "Before cosmetic procedures, our medical staff diagnoses the causes of skin diseases and treats them based on evidence.",
+      "treatments": [
+        {
+          "name": "Athlete's Foot",
+          "summary": "Accurately diagnosing fungal infections and providing treatment to reduce recurrence."
+        },
+        {
+          "name": "Psoriasis · Tinea Versicolor",
+          "summary": "Long-term management plan for chronic inflammatory diseases."
+        },
+        {
+          "name": "Atopic Dermatitis",
+          "summary": "Stepwise treatment and lifestyle management focused on restoring the skin barrier."
+        },
+        {
+          "name": "Burns",
+          "summary": "Post-burn care aimed at minimizing scarring."
+        },
+        {
+          "name": "Hair Loss",
+          "summary": "Diagnosis by cause and treatment to strengthen the scalp and hair."
+        }
+      ],
+      "devices": []
+    }
+  },
+  "doctors": {
+    "kim": {
+      "name": "Kim Byeong-hyeon",
+      "role": "Director",
+      "focus": "Lifting · Anti-aging"
+    }
+  }
+}

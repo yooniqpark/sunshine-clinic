@@ -1,0 +1,382 @@
+{
+  "clinic": {
+    "name": "Sunshine 皮肤科",
+    "addressLine": "4F, 123 Teheran-ro, Gangnam-gu, Seoul",
+    "addressSub": "步行3分钟到达2号线江南站4号出口 · 建筑内可停车",
+    "doctorTitle": "院长",
+    "doctorOwnerName": "首席院长 金炳贤",
+    "bizNoLabel": "营业执照号码",
+    "licenseText": "江南区保健所登记第0000号",
+    "marketingTagline": "在Sunshine，唤醒您肌肤的光彩。",
+    "clinicNameFull": "Sunshine 皮肤科诊所"
+  },
+  "hours": [
+    {
+      "day": "平日",
+      "time": "10:00 – 19:00"
+    },
+    {
+      "day": "周六",
+      "time": "10:00 – 15:00 (无午休)"
+    },
+    {
+      "day": "午休",
+      "time": "13:00 – 14:00"
+    },
+    {
+      "day": "周日·公共假日",
+      "time": "休诊"
+    }
+  ],
+  "common": {
+    "viewAll": "查看全部",
+    "viewDetail": "查看详情",
+    "bookConsultation": "预约咨询",
+    "home": "首页",
+    "always": "常年进行",
+    "naverMap": "Naver 地图",
+    "kakaoMap": "Kakao 地图导航",
+    "slideAria": "{n}号幻灯片: {title}"
+  },
+  "home": {
+    "categoriesLabel": "TREATMENTS",
+    "categoriesTitle": "根据烦恼定制的治疗",
+    "devicesLabel": "SIGNATURE DEVICES",
+    "devicesTitle": "代表设备",
+    "conceptEyebrow": "WHY SUNSHINE",
+    "conceptHeadlineL1": "为您的日常生活增添自信，",
+    "conceptHeadlineL2": "您的皮肤主治医。",
+    "conceptBody": "皮肤问题看似相同，但原因各不相同。Sunshine 皮肤科会考虑每位患者的皮肤状态、生活模式以及期望的未来，提供最合适的解决方案。",
+    "conceptImageAlt": "清澈健康的皮肤",
+    "eventsLabel": "EVENT",
+    "eventsTitle": "进行中的活动",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "院长介绍",
+    "philosophyEyebrow": "PHILOSOPHY",
+    "philosophyHeadlineL1": "准确的诊断，",
+    "philosophyHeadlineL2": "细致的治疗，令人满意的变化。",
+    "philosophyBody": "我们追求必要的治疗而非过度治疗，追求经过验证的结果而非华丽的广告，追求健康的变化而非暂时的改善。我们将成为恢复皮肤本质健康与美丽的主治医，为您的日常生活带来更大的自信。",
+    "locationLabel": "LOCATION",
+    "locationTitle": "前往路线",
+    "mapTitle": "Sunshine 皮肤科位置",
+    "deviceAltSuffix": "设备",
+    "doctorAltSuffix": "院长"
+  },
+  "about": {
+    "metaTitle": "医院介绍",
+    "metaDesc": "Sunshine 皮肤科的诊疗哲学、医务人员、诊疗指南和空间在一页中介绍。",
+    "breadcrumb": "医院介绍",
+    "heroTitleL1": "超越皮肤治疗，",
+    "heroTitleL2": "恢复生活的自信。",
+    "valuesLabel": "PRINCIPLES",
+    "valuesTitle": "Sunshine 皮肤科的四大原则",
+    "values": [
+      {
+        "title": "个性化诊疗",
+        "body": "根据每位患者不同的皮肤特性提供1:1个性化治疗。"
+      },
+      {
+        "title": "诚实的诊疗",
+        "body": "只建议必要的治疗，不进行不必要的手术。"
+      },
+      {
+        "title": "优质医疗服务",
+        "body": "运营高端设备和系统化的医疗体系。"
+      },
+      {
+        "title": "结果导向的诊疗",
+        "body": "追求健康和可持续的变化，而非暂时的改善。"
+      }
+    ],
+    "spaceImageAlt": "诊疗空间",
+    "philosophyBody1": "Sunshine 皮肤科不仅仅是解决皮肤问题的医院。我们考虑每位患者的皮肤状态、生活模式以及期望的未来，提供最合适的解决方案。",
+    "philosophyBody2": "我们追求必要的诊疗而非过度治疗，追求经过验证的结果而非华丽的广告，追求健康的变化而非暂时的改善。希望成为恢复皮肤本质健康与美丽的主治医师，为客户的日常生活带来更大的自信与幸福。",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "院长介绍",
+    "doctorMessage": "您好，欢迎来到Sunshine 皮肤科。每个人都有皮肤问题，但解决方案应因人而异。基于多年的皮肤和美容领域的丰富临床经验，我承诺为每位患者提供细致而诚实的诊疗。我将成为您温暖而可靠的主治医师，为您的日常生活增添耀眼的自信。",
+    "credentialsLabel": "履历",
+    "credentials": [
+      "OO大学医学院毕业",
+      "OO大学医院实习完成",
+      "韩国皮肤科学会正式会员",
+      "韩国美容整形激光医学会正式会员",
+      "前OO皮肤科诊疗院长"
+    ],
+    "focusLabel": "主要诊疗领域",
+    "focusItems": [
+      "提升 · 抗衰老 (Ulthera Prime · Thermage FLX · Shurink Universe)",
+      "色素·红斑激光调理",
+      "痤疮·疤痕重建",
+      "Botox · Filler · Skin Booster"
+    ],
+    "credentialsNote": "※ 履历为示例数据，实际运营时将替换为院长本人的履历。",
+    "tourLabel": "TOUR",
+    "tourTitle": "医院参观",
+    "tour": [
+      {
+        "title": "宁静的欢迎空间",
+        "body": "一进门就能看到的接待台。柔和的米色和温暖的间接照明缓解就诊前的紧张。"
+      },
+      {
+        "title": "宽敞的等待空间",
+        "body": "宽敞的单人休息座椅和温暖的饮品，充足的自然光。等待的时间也经过舒适设计。"
+      },
+      {
+        "title": "1:1个性化治疗室",
+        "body": "在独立的治疗室进行1:1治疗。医疗设备和卫生动线分开，确保安全和隐私。"
+      }
+    ],
+    "tourPhotoPlaceholder": "空间照片即将添加",
+    "tourFootnote": "各空间的详细照片将在实际拍摄后逐步更新。",
+    "locationTitle": "诊疗指南 · 来访路线",
+    "directions": [
+      "地铁：2号线江南站4号出口步行3分钟",
+      "公交：在江南站下车后步行2分钟",
+      "停车：可使用建筑内停车场"
+    ],
+    "ctaTitle": "预约访问咨询",
+    "ctaBody": "经过1:1诊断后，将为您提供最合适的治疗计划。访问咨询是免费的。",
+    "ctaSecondary": "查看治疗",
+    "brandDescription": "根据每位患者的皮肤状态提供细致而诚实的诊疗。通过丰富的临床经验、高端设备和系统化的体系，让每个人都能舒适地享受高水平的医疗服务。"
+  },
+  "events": {
+    "metaTitle": "活动",
+    "metaDesc": "请查看Sunshine 皮肤科正在进行的治疗活动和促销消息。",
+    "breadcrumb": "活动",
+    "heroLabel": "EVENT",
+    "heroTitle": "进行中的活动",
+    "heroBody": "介绍现在可以体验的治疗项目和优惠。详细信息请通过咨询获取。",
+    "consultCta": "咨询活动",
+    "phoneCta": "电话咨询",
+    "disclaimer": "本活动内容需经过医疗广告事前审查后发布，治疗效果因人而异。（原型 — 数据仅供参考。）"
+  },
+  "treatment": {
+    "breadcrumb": "治疗",
+    "guideTitle": "治疗指南",
+    "devicesTitle": "使用设备指南",
+    "deviceImageAlt": "产品照片即将添加",
+    "ctaTitle": "准确的诊断是第一步",
+    "ctaBody": "我们的医务人员将分析您的状态，并为您提供最合适的治疗建议。",
+    "ctaSecondary": "查看其他治疗",
+    "deviceDiffTitle": "差异点",
+    "howItWorksTitle": "施术原理",
+    "recommendedTitle": "推荐给以下人群。",
+    "faqTitle": "常见问题",
+    "otherTreatmentsLabel": "OTHER TREATMENTS",
+    "otherTreatmentsTitle": "其他治疗",
+    "overviewLabel": "Overview",
+    "approachTitle": "治疗方案",
+    "approachLabel": "TREATMENT APPROACH",
+    "concernDevicesLabel": "USED DEVICES",
+    "concernDevicesTitle": "本治疗使用的设备",
+    "viewDeviceDetail": "查看设备详情"
+  },
+  "categories": {
+    "lifting": {
+      "label": "提升 · 抗衰老",
+      "eyebrow": "LIFTING & ANTI-AGING",
+      "headlineL1": "逆转时间",
+      "headlineL2": "弹力解决方案",
+      "description": "诊断松弛和皱纹的原因，结合适合皮肤层的设备设计自然的弹性。",
+      "treatments": [
+        {
+          "name": "Ulthera Prime",
+          "summary": "通过超声波(HIFU)精确刺激真皮深层(SMAS)，实现根本的提升效果。"
+        },
+        {
+          "name": "Thermage FLX",
+          "summary": "通过单极射频(RF)重新排列胶原蛋白，完成表层弹性和皮肤纹理。"
+        },
+        {
+          "name": "InMode (Forma · Mini)",
+          "summary": "通过单极/双极RF非侵入性地护理面部轮廓和弹性。"
+        },
+        {
+          "name": "Shurink Universe · Olym",
+          "summary": "通过区域专用 cartridge(1.5~9mm)进行深度定制的下一代HIFU提升。"
+        },
+        {
+          "name": "Special Skin Booster",
+          "summary": "将交联透明质酸如Skinvive直接注入真皮，赋予光泽和纹理。"
+        },
+        {
+          "name": "Rejuran (Healer · HB · Eye)",
+          "summary": "通过注射鲑鱼PN(多核苷酸)成分，诱导胶原蛋白生成和皮肤屏障恢复。"
+        },
+        {
+          "name": "Ellanse",
+          "summary": "基于PCL(聚己内酯)的胶原刺激型填充剂，恢复自然的体积。"
+        },
+        {
+          "name": "Juvelook · Juvelook Volume",
+          "summary": "通过PDLLA + 透明质酸网状结构，诱导自体胶原蛋白，持续4~6个月。"
+        },
+        {
+          "name": "Letuo · Letuo Fine",
+          "summary": "基于PN的增强剂，强化皮肤再生信号。"
+        },
+        {
+          "name": "Exosomes",
+          "summary": "通过再生信号蛋白同时护理皮肤屏障和再生。"
+        },
+        {
+          "name": "Chanel Injection · Cellydium",
+          "summary": "结合PN和增强成分，提升皮肤光泽和纹理的人气增强剂。"
+        },
+        {
+          "name": "Botox · Filler",
+          "summary": "提供国产和进口选项，精细修正细纹、体积和轮廓。"
+        },
+        {
+          "name": "Sculptra · Radiesse",
+          "summary": "基于PLLA / CaHA的胶原刺激型体积增强剂，从深层开始填充提升。"
+        }
+      ],
+      "devices": [
+        {
+          "name": "Ulthera Prime",
+          "desc": "Merz Aesthetics的下一代超声波提升设备。通过超声波影像可视化皮肤层，并精确定位真皮和SMAS层。"
+        },
+        {
+          "name": "Thermage FLX",
+          "desc": "第四代单极射频(RF)设备。通过扩大的探头(4.0㎠)缩短治疗时间，并通过AccuREP算法自动校正输出。"
+        },
+        {
+          "name": "Shurink Universe · Olym",
+          "desc": "Classys的下一代HIFU平台。通过区域专用cartridge(1.5/3.0/4.5/6.0/9.0mm)实现深度定制提升。"
+        },
+        {
+          "name": "InMode (Forma · Mini)",
+          "desc": "以色列InMode公司的单极/双极RF系统。非侵入性地护理面部轮廓和皮肤纹理。"
+        }
+      ]
+    },
+    "whitening": {
+      "label": "美白 · 红斑",
+      "eyebrow": "WHITENING & REDNESS",
+      "headlineL1": "找回清晰均匀的",
+      "headlineL2": "肤色",
+      "description": "精确分析色斑的深度和种类，提供通过激光组合减少复发的定制色素治疗。",
+      "treatments": [
+        {
+          "name": "色斑 · 斑点",
+          "summary": "逐步分解表皮·真皮色素的定制调理。"
+        },
+        {
+          "name": "雀斑 · 黑斑 · 老年斑",
+          "summary": "通过针对病变深度的激光干净地去除。"
+        },
+        {
+          "name": "顽固色素",
+          "summary": "对难以处理的色素如太田痣·牛奶咖啡斑进行分阶段治疗。"
+        },
+        {
+          "name": "红斑 · 毛细血管",
+          "summary": "通过血管激光舒缓红肿和面部红斑。"
+        }
+      ],
+      "devices": [
+        {
+          "name": "Fotona StarWalker MAQX",
+          "desc": "Fotona公司的Nd:YAG(1064㎚) + KTP(532㎚)多波长混合激光。结合Q-switched和长脉冲模式，精确分解色素的深度和种类。"
+        },
+        {
+          "name": "Clarity II",
+          "desc": "Nd:YAG + Alexandrite双波长激光。广泛护理从表皮到真皮深层的色素·血管病变。"
+        },
+        {
+          "name": "VBeam (VBeam)",
+          "desc": "Candela公司的595㎚ PDL血管专用激光。选择性地靶向血红蛋白，舒缓红斑·毛细血管扩张。"
+        },
+        {
+          "name": "Secret RF",
+          "desc": "绝缘微针 + 射频系统。辅助改善色素后的再生、皮肤纹理和微小疤痕。"
+        }
+      ]
+    },
+    "acne": {
+      "label": "痤疮 · 疤痕 · 毛孔",
+      "eyebrow": "ACNE & SCAR & PORE",
+      "headlineL1": "打破烦恼的",
+      "headlineL2": "恶性循环",
+      "description": "从原因诊断到疤痕·毛孔重建，提供针对青少年和成人皮肤状态的分阶段程序。",
+      "treatments": [
+        {
+          "name": "青少年 · 成人痤疮",
+          "summary": "综合管理皮脂·炎症·激素因素的复合程序。"
+        },
+        {
+          "name": "痤疮色素沉着",
+          "summary": "逐步改善炎症后残留的红肿·棕色色素。"
+        },
+        {
+          "name": "痤疮疤痕",
+          "summary": "通过激光·再生治疗组合重建凹陷疤痕。"
+        },
+        {
+          "name": "毛孔",
+          "summary": "收紧扩大的毛孔，打造光滑的皮肤纹理。"
+        }
+      ],
+      "devices": [
+        {
+          "name": "Capri (CO2)",
+          "desc": "分段CO2激光。逐微列单元重建凹陷的痤疮疤痕和扩大的毛孔。"
+        },
+        {
+          "name": "Gold PTT",
+          "desc": "光热治疗(Photothermal Therapy)。金纳米颗粒吸收光源的光并转化为热，同时护理皮脂腺和痤疮菌。"
+        },
+        {
+          "name": "CUREJET",
+          "desc": "高压医疗用灭菌盐水喷射，非侵入性清洁毛孔内的皮脂·角质。"
+        },
+        {
+          "name": "Secret RF",
+          "desc": "绝缘微针 + 射频。重建凹陷疤痕和扩大的毛孔。"
+        },
+        {
+          "name": "VBeam (VBeam)",
+          "desc": "通过595㎚ PDL激光选择性舒缓痤疮后残留的PIE(红肿)色素沉着。"
+        }
+      ]
+    },
+    "skin-disease": {
+      "label": "皮肤疾病",
+      "eyebrow": "SKIN DISEASE",
+      "headlineL1": "由医疗人员诊治的",
+      "headlineL2": "皮肤健康",
+      "description": "在美容治疗之前，由皮肤科医疗人员诊断疾病的原因，并进行基于证据的治疗。",
+      "treatments": [
+        {
+          "name": "脚气",
+          "summary": "准确诊断真菌感染并减少复发的治疗。"
+        },
+        {
+          "name": "银屑病 · 白癜风",
+          "summary": "慢性炎症性疾病的长期管理计划。"
+        },
+        {
+          "name": "特应性皮炎",
+          "summary": "以恢复皮肤屏障为中心的分阶段治疗和生活管理。"
+        },
+        {
+          "name": "烧伤",
+          "summary": "以最小化疤痕为目标的烧伤后管理。"
+        },
+        {
+          "name": "脱发",
+          "summary": "根据原因进行诊断和头皮·毛发强化治疗。"
+        }
+      ],
+      "devices": []
+    }
+  },
+  "doctors": {
+    "kim": {
+      "name": "金炳贤",
+      "role": "Director",
+      "focus": "提升 · 抗衰老"
+    }
+  }
+}

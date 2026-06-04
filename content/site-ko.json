@@ -1,0 +1,253 @@
+{
+  "clinic": {
+    "name": "Sunshine 피부과",
+    "addressLine": "서울특별시 강남구 테헤란로 123, 4층",
+    "addressSub": "2호선 강남역 4번 출구 도보 3분 · 건물 내 주차 가능",
+    "doctorTitle": "원장",
+    "doctorOwnerName": "대표원장 김병현",
+    "bizNoLabel": "사업자등록번호",
+    "licenseText": "강남구보건소 신고 제0000호",
+    "marketingTagline": "선샤인에서, 피부의 빛이 다시 깨어나다",
+    "clinicNameFull": "선샤인피부과의원"
+  },
+  "hours": [
+    { "day": "평일", "time": "10:00 – 19:00" },
+    { "day": "토요일", "time": "10:00 – 15:00 (점심시간 없음)" },
+    { "day": "점심시간", "time": "13:00 – 14:00" },
+    { "day": "일요일·공휴일", "time": "휴진" }
+  ],
+  "common": {
+    "viewAll": "전체 보기",
+    "viewDetail": "자세히 보기",
+    "bookConsultation": "상담 예약하기",
+    "home": "홈",
+    "always": "상시 진행",
+    "naverMap": "네이버 지도",
+    "kakaoMap": "카카오맵 길찾기",
+    "slideAria": "{n}번 슬라이드로 이동: {title}"
+  },
+  "home": {
+    "categoriesLabel": "TREATMENTS",
+    "categoriesTitle": "고민별 맞춤 시술",
+    "devicesLabel": "SIGNATURE DEVICES",
+    "devicesTitle": "대표 장비",
+    "conceptEyebrow": "WHY SUNSHINE",
+    "conceptHeadlineL1": "당신의 일상에 자신감을 더하는",
+    "conceptHeadlineL2": "피부 주치의",
+    "conceptBody": "피부 고민은 같아 보여도 원인은 모두 다릅니다. 선샤인의원은 환자 한 분 한 분의 피부 상태와 생활 패턴, 그리고 원하는 미래까지 고려하여 가장 적합한 솔루션을 제안합니다.",
+    "conceptImageAlt": "맑고 건강한 피부",
+    "eventsLabel": "EVENT",
+    "eventsTitle": "진행 중인 이벤트",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "원장 소개",
+    "philosophyEyebrow": "PHILOSOPHY",
+    "philosophyHeadlineL1": "정확한 진단,",
+    "philosophyHeadlineL2": "섬세한 치료, 만족스러운 변화.",
+    "philosophyBody": "과잉진료보다 필요한 진료를, 화려한 광고보다 검증된 결과를, 일시적인 개선보다 건강한 변화를 추구합니다. 피부 본연의 건강과 아름다움을 회복하여 일상에 더 큰 자신감을 선물하는 주치의가 되겠습니다.",
+    "locationLabel": "LOCATION",
+    "locationTitle": "오시는 길",
+    "mapTitle": "Sunshine 피부과 위치",
+    "deviceAltSuffix": "장비",
+    "doctorAltSuffix": "원장"
+  },
+  "about": {
+    "metaTitle": "병원소개",
+    "metaDesc": "Sunshine 피부과의 진료 철학, 의료진, 진료 안내와 공간을 한 페이지에 안내합니다.",
+    "breadcrumb": "병원소개",
+    "heroTitleL1": "피부를 치료하는 것을 넘어,",
+    "heroTitleL2": "삶의 자신감을 회복합니다.",
+    "valuesLabel": "PRINCIPLES",
+    "valuesTitle": "선샤인의원 4가지 원칙",
+    "values": [
+      {
+        "title": "맞춤 진료",
+        "body": "환자마다 다른 피부 특성을 고려한 1:1 개인 맞춤 치료를 제공합니다."
+      },
+      {
+        "title": "정직한 진료",
+        "body": "불필요한 시술 없이 꼭 필요한 치료만 제안합니다."
+      },
+      {
+        "title": "프리미엄 의료 서비스",
+        "body": "하이엔드 장비와 체계적인 의료 시스템을 운영합니다."
+      },
+      {
+        "title": "결과 중심 진료",
+        "body": "일시적인 개선이 아닌 건강하고 지속 가능한 변화를 추구합니다."
+      }
+    ],
+    "spaceImageAlt": "진료 공간",
+    "philosophyBody1": "선샤인의원은 단순히 피부 고민을 해결하는 병원이 아닙니다. 환자 한 분 한 분의 피부 상태와 생활 패턴, 그리고 원하는 미래까지 고려하여 가장 적합한 솔루션을 제안합니다.",
+    "philosophyBody2": "과잉진료보다 필요한 진료를, 화려한 광고보다 검증된 결과를, 일시적인 개선보다 건강한 변화를 추구합니다. 피부 본연의 건강과 아름다움을 회복하여 고객의 일상에 더 큰 자신감과 행복을 선물하는 주치의가 되고자 합니다.",
+    "directorLabel": "DIRECTOR",
+    "directorTitle": "원장 소개",
+    "doctorMessage": "안녕하세요. 선샤인의원입니다. 피부 고민은 누구에게나 있지만, 그 해결책은 저마다 달라야 합니다. 수년간 피부 및 미용 분야에서 쌓아온 풍부한 임상 경험을 바탕으로, 환자 한 분 한 분의 피부 상태에 맞춘 섬세하고 정직한 진료를 약속드립니다. 당신의 일상에 눈부신 자신감을 더해드리는 따뜻하고 든든한 주치의가 되겠습니다.",
+    "credentialsLabel": "약력",
+    "credentials": [
+      "OO대학교 의과대학 졸업",
+      "OO대학교병원 인턴 수료",
+      "대한피부과학회 정회원",
+      "대한미용성형레이저의학회 정회원",
+      "前 OO피부과 진료원장"
+    ],
+    "focusLabel": "주요 진료 분야",
+    "focusItems": [
+      "리프팅 · 안티에이징 (울쎄라 · 써마지 · 슈링크)",
+      "색소·홍조 레이저 토닝",
+      "여드름·흉터 재건",
+      "보톡스 · 필러 · 스킨부스터"
+    ],
+    "credentialsNote": "※ 약력은 예시 데이터이며, 실제 운영 시 원장님 본인의 약력으로 교체됩니다.",
+    "tourLabel": "TOUR",
+    "tourTitle": "병원 둘러보기",
+    "tour": [
+      {
+        "title": "고요한 환영의 공간",
+        "body": "들어서면 가장 먼저 마주하는 데스크. 톤다운된 베이지와 따뜻한 간접 조명으로 진료 전 긴장을 부드럽게 풉니다."
+      },
+      {
+        "title": "여유로운 대기 공간",
+        "body": "넓은 간격의 1인 라운지 시트와 따뜻한 음료, 충분한 자연광. 기다리는 시간도 편안하도록 설계했습니다."
+      },
+      {
+        "title": "1:1 맞춤 시술실",
+        "body": "독립된 시술실에서 1:1로 진행됩니다. 의료기기와 위생 동선을 분리해 안전과 프라이버시를 함께 지킵니다."
+      }
+    ],
+    "tourPhotoPlaceholder": "공간 사진 추가 예정",
+    "tourFootnote": "공간별 상세 사진은 실제 촬영 후 순차적으로 업데이트됩니다.",
+    "locationTitle": "진료안내 · 오시는 길",
+    "directions": [
+      "지하철: 2호선 강남역 4번 출구 도보 3분",
+      "버스: 강남역 정류장 하차 후 도보 2분",
+      "주차: 건물 내 주차장 이용 가능"
+    ],
+    "ctaTitle": "방문 상담을 예약하세요",
+    "ctaBody": "1:1 진단 후 가장 적합한 시술 플랜을 안내드립니다. 방문 상담은 무료입니다.",
+    "ctaSecondary": "시술 둘러보기",
+    "brandDescription": "환자 한 분 한 분의 피부 상태에 맞춘 섬세하고 정직한 진료. 풍부한 임상 경험과 프리미엄 하이엔드 장비, 체계적인 시스템으로 누구나 편안하게 수준 높은 의료 서비스를 받을 수 있도록 합니다."
+  },
+  "events": {
+    "metaTitle": "이벤트",
+    "metaDesc": "Sunshine 피부과에서 진행 중인 시술 이벤트와 프로모션 소식을 확인하세요.",
+    "breadcrumb": "이벤트",
+    "heroLabel": "EVENT",
+    "heroTitle": "진행 중인 이벤트",
+    "heroBody": "지금 만나볼 수 있는 시술 프로그램과 혜택을 소개합니다. 자세한 내용은 상담을 통해 안내해 드립니다.",
+    "consultCta": "이벤트 상담하기",
+    "phoneCta": "전화 문의",
+    "disclaimer": "본 이벤트 내용은 의료광고 사전심의 후 게재되어야 하며, 시술 효과는 개인에 따라 다를 수 있습니다. (프로토타입 — 데이터는 예시입니다.)"
+  },
+  "treatment": {
+    "breadcrumb": "시술",
+    "guideTitle": "시술 안내",
+    "devicesTitle": "사용 장비 안내",
+    "deviceImageAlt": "제품 사진 추가 예정",
+    "ctaTitle": "정확한 진단이 먼저입니다",
+    "ctaBody": "피부과 의료진이 상태를 분석하고, 가장 적합한 시술을 제안해 드립니다.",
+    "ctaSecondary": "다른 시술 보기",
+    "deviceDiffTitle": "차별점",
+    "howItWorksTitle": "시술 원리",
+    "recommendedTitle": "이런 분께 추천드립니다.",
+    "faqTitle": "자주 묻는 질문",
+    "otherTreatmentsLabel": "OTHER TREATMENTS",
+    "otherTreatmentsTitle": "그 외 시술",
+    "overviewLabel": "Overview",
+    "approachTitle": "시술 접근법",
+    "approachLabel": "TREATMENT APPROACH",
+    "concernDevicesLabel": "USED DEVICES",
+    "concernDevicesTitle": "이 시술에 사용되는 장비",
+    "viewDeviceDetail": "장비 자세히 보기"
+  },
+  "categories": {
+    "lifting": {
+      "label": "리프팅 · 안티에이징",
+      "eyebrow": "LIFTING & ANTI-AGING",
+      "headlineL1": "시간을 거스르는",
+      "headlineL2": "탄력 솔루션",
+      "description": "처짐과 주름의 원인을 진단하고, 피부층에 맞는 장비를 조합해 자연스러운 탄력을 디자인합니다.",
+      "treatments": [
+        { "name": "울쎄라 프라임", "summary": "초음파(HIFU)로 진피 깊은 층(SMAS)을 정밀 자극해 근본적인 리프팅 효과." },
+        { "name": "써마지 FLX", "summary": "모노폴라 고주파(RF)로 콜라겐을 재배열, 표층 탄력과 피부결을 함께 완성." },
+        { "name": "인모드 (포마 · 미니)", "summary": "모노폴라/바이폴라 RF로 얼굴 윤곽과 탄력을 비침습적으로 케어." },
+        { "name": "슈링크 유니버스 · 올림", "summary": "부위별 카트리지(1.5~9mm)로 깊이 맞춤 차세대 HIFU 리프팅." },
+        { "name": "스페셜 스킨부스터", "summary": "스킨바이브 등 가교 히알루론산을 진피에 직접 채워 광채와 결을 부여." },
+        { "name": "리쥬란 (힐러 · HB · 아이)", "summary": "연어 PN(Polynucleotide) 성분 주사로 콜라겐 생성·피부 장벽 회복을 유도." },
+        { "name": "엘란쎄", "summary": "PCL(폴리카프로락톤) 기반 콜라겐 자극형 필러로 자연스러운 볼륨 회복." },
+        { "name": "쥬베룩 · 쥬베룩 볼륨", "summary": "PDLLA + 히알루론산 망상 구조로 4~6개월에 걸쳐 자가 콜라겐을 유도." },
+        { "name": "리투오 · 리투오 파인", "summary": "PN 기반 부스터로 피부 재생 신호를 강화." },
+        { "name": "엑소좀", "summary": "재생 신호 단백질로 피부 장벽과 재생을 동시에 케어." },
+        { "name": "샤넬주사 · 셀르디엠", "summary": "PN과 부스터 성분을 조합해 피부 광채와 결을 살리는 인기 부스터." },
+        { "name": "보톡스 · 필러", "summary": "국산·외산 옵션으로 잔주름, 볼륨, 윤곽을 섬세하게 보정." },
+        { "name": "스컬트라 · 레디어스", "summary": "PLLA / CaHA 기반 콜라겐 자극형 볼륨 부스터로 깊은 층부터 채우는 리프팅." }
+      ],
+      "devices": [
+        { "name": "울쎄라 프라임", "desc": "Merz Aesthetics의 차세대 초음파 리프팅 디바이스. 초음파 영상으로 피부층을 시각화하며 진피와 SMAS층까지 정밀 타겟팅합니다." },
+        { "name": "써마지 FLX", "desc": "4세대 모노폴라 고주파(RF) 장비. 넓어진 팁(4.0㎠)으로 시술 시간을 단축하고 AccuREP 알고리즘으로 출력을 자동 보정합니다." },
+        { "name": "슈링크 유니버스 · 올림", "desc": "클래시스의 차세대 HIFU 플랫폼. 부위별 카트리지(1.5/3.0/4.5/6.0/9.0mm)로 깊이 맞춤 리프팅이 가능합니다." },
+        { "name": "인모드 (포마 · 미니)", "desc": "이스라엘 InMode사의 모노폴라/바이폴라 RF 시스템. 얼굴 윤곽과 피부 결을 비침습적으로 케어합니다." }
+      ]
+    },
+    "whitening": {
+      "label": "화이트닝 · 홍조",
+      "eyebrow": "WHITENING & REDNESS",
+      "headlineL1": "맑고 균일한",
+      "headlineL2": "톤을 되찾다",
+      "description": "기미·색소의 깊이와 종류를 정밀 분석하고, 레이저 조합으로 재발을 줄이는 맞춤 색소 치료를 제공합니다.",
+      "treatments": [
+        { "name": "기미 · 잡티", "summary": "표피·진피 색소를 단계별로 분해하는 맞춤 토닝." },
+        { "name": "주근깨 · 흑자 · 검버섯", "summary": "병변 깊이에 맞춘 레이저로 깔끔하게 제거." },
+        { "name": "난치성 색소", "summary": "오타·밀크커피반점 등 까다로운 색소의 단계적 치료." },
+        { "name": "홍조 · 모세혈관", "summary": "혈관 레이저로 붉은기와 안면홍조를 진정." }
+      ],
+      "devices": [
+        { "name": "포토나 스타워커 MAQX", "desc": "Fotona사의 Nd:YAG(1064㎚) + KTP(532㎚) 멀티 파장 하이브리드 레이저. Q-switched와 Long-pulsed 모드를 조합해 색소 깊이·종류에 맞춰 정밀 분해합니다." },
+        { "name": "클라리티 II", "desc": "Nd:YAG + Alexandrite 듀얼 파장 레이저. 표피부터 진피 깊은 색소·혈관 병변까지 폭넓게 케어합니다." },
+        { "name": "브이빔 (VBeam)", "desc": "Candela사의 595㎚ PDL 혈관 전용 레이저. 헤모글로빈을 선택적으로 타겟팅해 홍조·모세혈관확장을 진정합니다." },
+        { "name": "시크릿 RF", "desc": "절연 마이크로니들 + 고주파 시스템. 색소 후 재생과 피부 결, 미세 흉터까지 보조적으로 개선합니다." }
+      ]
+    },
+    "acne": {
+      "label": "여드름 · 흉터 · 모공",
+      "eyebrow": "ACNE & SCAR & PORE",
+      "headlineL1": "트러블의",
+      "headlineL2": "악순환을 끊다",
+      "description": "원인 진단부터 흉터·모공 재건까지, 청소년과 성인 각각의 피부 상태에 맞춘 단계별 프로그램.",
+      "treatments": [
+        { "name": "청소년 · 성인 여드름", "summary": "피지·염증·호르몬 요인을 함께 관리하는 복합 프로그램." },
+        { "name": "여드름 색소침착", "summary": "염증 후 남은 붉은기·갈색 색소를 단계적으로 개선." },
+        { "name": "여드름 흉터", "summary": "패인 흉터를 재건하는 레이저·재생 시술 조합." },
+        { "name": "모공", "summary": "늘어진 모공을 조여 매끈한 피부결로." }
+      ],
+      "devices": [
+        { "name": "카프리 (CO2)", "desc": "프락셔널 CO2 레이저. 패인 여드름 흉터와 늘어진 모공을 미세 컬럼 단위로 재건합니다." },
+        { "name": "골드 PTT", "desc": "광열 치료(Photothermal Therapy). 금 나노입자가 광원의 빛을 흡수해 열로 전환, 피지선과 여드름균을 동시에 케어합니다." },
+        { "name": "큐어젯 (CUREJET)", "desc": "고압 의료용 멸균 식염수를 분사해 모공 속 피지·각질을 비침습적으로 세정합니다." },
+        { "name": "시크릿 RF", "desc": "절연 마이크로니들 + 고주파. 패인 흉터와 늘어진 모공을 재건합니다." },
+        { "name": "브이빔 (VBeam)", "desc": "여드름 후 남은 PIE(붉은기) 색소침착을 595㎚ PDL 레이저로 선택적으로 진정합니다." }
+      ]
+    },
+    "skin-disease": {
+      "label": "피부질환",
+      "eyebrow": "SKIN DISEASE",
+      "headlineL1": "의료진이 진료하는",
+      "headlineL2": "피부 건강",
+      "description": "미용 시술에 앞서, 피부과 의료진이 질환의 원인을 진단하고 근거 중심으로 치료합니다.",
+      "treatments": [
+        { "name": "무좀", "summary": "곰팡이 감염을 정확히 진단하고 재발을 줄이는 치료." },
+        { "name": "건선 · 백선", "summary": "만성 염증성 질환의 장기 관리 플랜." },
+        { "name": "아토피", "summary": "피부 장벽 회복 중심의 단계적 치료와 생활 관리." },
+        { "name": "화상", "summary": "흉터 최소화를 목표로 한 화상 후 관리." },
+        { "name": "탈모", "summary": "원인별 진단과 두피·모발 강화 치료." }
+      ],
+      "devices": []
+    }
+  },
+  "doctors": {
+    "kim": {
+      "name": "김병현",
+      "role": "대표원장",
+      "focus": "리프팅 · 안티에이징"
+    }
+  }
+}

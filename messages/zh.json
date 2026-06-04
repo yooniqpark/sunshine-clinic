@@ -1,0 +1,158 @@
+{
+  "brand": {
+    "name": "SunShine",
+    "label": "Dermatology Clinic."
+  },
+  "nav": {
+    "about": "诊所介绍",
+    "lifting": "提拉 · 抗衰",
+    "whitening": "美白 · 红润",
+    "acne": "痘痘 · 痘印 · 毛孔",
+    "skinDisease": "皮肤疾病",
+    "community": "动态",
+    "aboutChildren": {
+      "vision": "理念 · 愿景",
+      "doctors": "院长介绍",
+      "tour": "院内参观",
+      "location": "诊疗信息 · 来院方式"
+    },
+    "liftingChildren": {
+      "overview": "Overview",
+      "ulthera": "Ulthera Prime",
+      "thermage": "Thermage FLX",
+      "shurink": "Shurink Universe",
+      "inmode": "InMode",
+      "other": "其他治疗"
+    },
+    "whiteningChildren": {
+      "overview": "Overview",
+      "melasma": "黄褐斑",
+      "freckles": "雀斑 · 黑子 · 老年斑",
+      "resistantPigment": "顽固性色素",
+      "otaCafe": "太田痣 · 咖啡牛奶斑",
+      "redness": "潮红 · 毛细血管扩张",
+      "devices": "使用设备介绍",
+      "other": "其他治疗"
+    },
+    "acneChildren": {
+      "overview": "Overview",
+      "acneActive": "青少年 · 成人痤疮",
+      "acnePigment": "痤疮后色素沉着",
+      "acneScar": "痤疮疤痕",
+      "pores": "毛孔",
+      "devices": "使用设备介绍",
+      "other": "其他治疗"
+    },
+    "skinDiseaseChildren": {
+      "overview": "Overview",
+      "athletesFoot": "脚气",
+      "psoriasis": "银屑病 · 癣",
+      "atopy": "特应性皮炎",
+      "burns": "烧伤",
+      "hairLoss": "脱发"
+    },
+    "communityChildren": {
+      "events": "活动",
+      "notices": "公告",
+      "prices": "自费项目价格表"
+    }
+  },
+  "header": {
+    "menuOpen": "打开菜单",
+    "menuClose": "关闭菜单",
+    "switchLanguage": "语言"
+  },
+  "footer": {
+    "quickLinks": "快速链接",
+    "hours": "诊疗信息",
+    "privacy": "个人信息处理方针",
+    "terms": "使用条款",
+    "prices": "自费诊疗费用说明",
+    "disclaimer": "本网站刊载的项目信息须经韩国医疗广告事前审议后发布,效果因人而异。(原型 — 示例数据。)"
+  },
+  "hero": {
+    "brandHeadlineLine1": "为您的肌肤与日常",
+    "brandHeadlineHighlight": "送上温暖光芒",
+    "brandHeadlineLine1Suffix": "",
+    "brandHeadlineLine2": "",
+    "brandDescLine1": "为每位患者带来细致而真诚的诊疗。",
+    "brandDescLine2": "高端设备，共同打造健康持续的改变。",
+    "ctaBook": "咨询·预约",
+    "ctaTreatments": "项目一览",
+    "ctaDetail": "查看详情",
+    "event": "活动"
+  },
+  "chatbot": {
+    "openLabel": "打开咨询机器人",
+    "closeLabel": "关闭咨询机器人",
+    "clearLabel": "清空对话",
+    "headerTitle": "Sunshine 智能助手",
+    "headerSubtitle": "有任何问题都可以问我",
+    "greeting": "您好!我是 Sunshine 皮肤科咨询助手 ☀️ 可以选择常见问题或直接输入提问。",
+    "fallback": "这个问题我可能无法准确回答,详情请通过电话或微信/卡卡通联系我们。",
+    "disclaimer": "在线咨询后预约到院时,咨询内容会一同共享,有助于更快的接待。\n准确诊断·咨询请到院咨询。",
+    "attachTranscript": "预约填写方式",
+    "attachTranscriptHint": "您与机器人的对话将附加到预约消息中。",
+    "modeUseChat": "使用对话",
+    "modeWriteDirect": "不使用",
+    "modeUseChatHint": "您与机器人的对话内容将自动附加到预约信息中。",
+    "modeWriteDirectHint": "对话内容将不会发送。",
+    "transcriptHeader": "[咨询记录]",
+    "transcriptUserMessage": "[补充消息]",
+    "transcriptBot": "助手",
+    "transcriptUser": "客人",
+    "faqTitle": "常见问题",
+    "faq": [
+      "营业时间是几点？",
+      "可以不预约直接到诊吗？",
+      "有停车场吗？",
+      "咨询费用是免费的吗？",
+      "Ulthera 和 Thermage 有什么区别？",
+      "治疗后能立即恢复日常生活吗？",
+      "治疗费用是多少？"
+    ],
+    "inputPlaceholder": "有什么想问的？",
+    "inputPlaceholderLoading": "正在生成回复…",
+    "send": "发送",
+    "ctaBooking": "预约申请",
+    "ctaKakao": "Kakao 咨询",
+    "ctaPhone": "电话 {phone}",
+    "ctaBookingShort": "预约",
+    "ctaKakaoShort": "Kakao",
+    "ctaPhoneShort": "电话",
+    "ctaNaver": "Naver 预约",
+    "ctaNaverShort": "Naver 预约",
+    "ctaBookingDirect": "到院预约",
+    "booking": {
+      "title": "预约申请",
+      "subtitle": "确认后我们会尽快与您联系。",
+      "back": "返回对话",
+      "name": "姓名",
+      "contact": "联系方式",
+      "contactType": "选择方式",
+      "contactValue": "联系方式",
+      "contactHint": "请根据所选方式输入号码或 ID。",
+      "preferred": "希望时间 (选填)",
+      "preferredDate": "日期",
+      "preferredTime": "时间",
+      "timeAny": "时间不限",
+      "interest": "感兴趣的项目 (选填)",
+      "interestNone": "未选择",
+      "message": "备注 (选填)",
+      "messagePlaceholder": "皮肤问题、特殊需求等可自由填写。",
+      "consent": "您填写的信息仅用于预约对应用途,依法保管及销毁。(我同意收集和使用个人信息)",
+      "submit": "提交申请",
+      "submitting": "提交中…",
+      "success": "申请已提交!我们会在 1 个工作日内通过 {contact} 与您联系。",
+      "errorName": "请输入姓名。",
+      "errorContact": "请输入联系方式 (电话/邮箱/即时通讯 ID)。",
+      "errorConsent": "请同意个人信息收集。",
+      "errorGeneric": "暂时无法提交,请稍后再试。"
+    }
+  },
+  "common": {
+    "loading": "加载中…",
+    "viewAll": "查看全部",
+    "viewDetail": "查看详情"
+  }
+}
