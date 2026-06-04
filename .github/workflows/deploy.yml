@@ -25,7 +25,9 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        # npm install (not ci) — Next.js 16 has loose @swc/helpers constraint
+        # that our locally-pinned lock doesn't perfectly satisfy under newer npm.
+        run: npm install --no-audit --no-fund
 
       - name: Generate Prisma client
         run: npx prisma generate
