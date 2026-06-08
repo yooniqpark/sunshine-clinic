@@ -6,7 +6,7 @@ import type { Locale } from "@/lib/site-content";
 
 export type Concern = {
   slug: string;
-  category: "lifting" | "whitening" | "acne" | "skin-disease";
+  category: "lifting" | "whitening" | "acne" | "skin-disease" | "filler-skinbooster";
   name: string;
   tagline: string;
   intro: string;
@@ -28,6 +28,7 @@ const ORDER_BY_CATEGORY: Record<string, string[]> = {
   whitening: ["melasma", "freckles", "resistant-pigment", "ota-cafe", "redness"],
   acne: ["acne-active", "acne-pigment", "acne-scar", "pores"],
   "skin-disease": ["athletes-foot", "psoriasis", "atopy", "burns", "hair-loss"],
+  "filler-skinbooster": ["filler", "skinbooster", "skin-air", "rejuran", "juvelook", "ellanse"],
 };
 
 export function getConcernsByCategory(
