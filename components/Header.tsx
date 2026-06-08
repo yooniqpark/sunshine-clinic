@@ -32,6 +32,21 @@ const NAV = [
     ] as const,
   },
   {
+    key: "fillerSkinbooster" as const,
+    href: "/treatments/filler-skinbooster" as const,
+    childrenGroup: "fillerSkinboosterChildren" as const,
+    children: [
+      { key: "overview", href: "/treatments/filler-skinbooster#overview" },
+      { key: "filler", href: "/treatments/filler-skinbooster#filler" },
+      { key: "skinbooster", href: "/treatments/filler-skinbooster#skinbooster" },
+      { key: "skinAir", href: "/treatments/filler-skinbooster#skin-air" },
+      { key: "rejuran", href: "/treatments/filler-skinbooster#rejuran" },
+      { key: "juvelook", href: "/treatments/filler-skinbooster#juvelook" },
+      { key: "ellanse", href: "/treatments/filler-skinbooster#ellanse" },
+      { key: "other", href: "/treatments/filler-skinbooster#other-treatments" },
+    ] as const,
+  },
+  {
     key: "whitening" as const,
     href: "/treatments/whitening" as const,
     childrenGroup: "whiteningChildren" as const,

@@ -124,10 +124,6 @@ export const categories: Record<string, Category> = {
       { name: "써마지 FLX", summary: "고주파(RF)로 콜라겐을 재배열, 탄탄한 피부결을 완성.", tags: ["고주파", "탄력"] },
       { name: "인모드", summary: "RF + 진공 흡입으로 얼굴 윤곽과 탄력을 동시에 케어.", tags: ["윤곽", "탄력"] },
       { name: "슈링크 유니버스", summary: "부위별 깊이 조절이 가능한 차세대 초음파 리프팅.", tags: ["HIFU"] },
-      { name: "스페셜 스킨부스터", summary: "피부 속 수분과 영양을 채워 광채를 부여.", tags: ["수분", "광채"] },
-      { name: "리쥬란 · 엘란쎄 · 쥬베룩", summary: "콜라겐 생성을 유도하는 재생·볼륨 주사 라인업.", tags: ["재생", "볼륨"] },
-      { name: "리투오 · 엑소좀", summary: "피부 재생 신호를 강화하는 최신 부스터 시술.", tags: ["재생"] },
-      { name: "샤넬주사 · 보톡스 · 필러", summary: "잔주름·볼륨·윤곽을 섬세하게 보정.", tags: ["주름", "윤곽"] },
     ],
     devices: [
       {
@@ -145,6 +141,21 @@ export const categories: Record<string, Category> = {
         desc: "깊이별 카트리지로 부위 맞춤 리프팅이 가능한 차세대 초음파 장비입니다.",
         image: "/devices/shurink.png",
       },
+    ],
+  },
+  "filler-skinbooster": {
+    slug: "filler-skinbooster",
+    label: "필러 · 스킨부스터",
+    eyebrow: "FILLER & SKIN BOOSTER",
+    headline: "채우고 되살리는\n볼륨과 광채",
+    description:
+      "필러·콜라겐 부스터로 꺼진 볼륨을 채우고, 스킨부스터·재생 주사로 피부 속부터 수분과 탄력을 되살립니다.",
+    image: "/models/concept.png",
+    treatments: [
+      { name: "필러", summary: "히알루론산으로 꺼진 볼륨과 윤곽을 즉각적으로 보정.", tags: ["볼륨", "윤곽"] },
+      { name: "스킨부스터", summary: "피부 속 수분·영양을 채워 속부터 차오르는 광채.", tags: ["수분", "광채"] },
+      { name: "리쥬란 · 쥬베룩 · 엘란세", summary: "콜라겐 생성을 유도하는 재생·볼륨 부스터 라인업.", tags: ["재생", "볼륨"] },
+      { name: "스킨에어 · 엑소좀", summary: "무바늘·재생 부스터로 부담 없이 피부 결을 케어.", tags: ["재생", "무바늘"] },
     ],
   },
   whitening: {

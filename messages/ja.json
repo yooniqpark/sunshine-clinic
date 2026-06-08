@@ -6,6 +6,7 @@
   "nav": {
     "about": "クリニック紹介",
     "lifting": "リフティング・アンチエイジング",
+    "fillerSkinbooster": "フィラー · スキンブースター",
     "whitening": "ホワイトニング・赤み",
     "acne": "ニキビ・ニキビ跡・毛穴",
     "skinDisease": "皮膚疾患",
@@ -22,6 +23,16 @@
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
+      "other": "その他の施術"
+    },
+    "fillerSkinboosterChildren": {
+      "overview": "Overview",
+      "filler": "フィラー",
+      "skinbooster": "スキンブースター",
+      "skinAir": "スキンエア",
+      "rejuran": "Rejuran",
+      "juvelook": "Juvelook",
+      "ellanse": "Ellanse",
       "other": "その他の施術"
     },
     "whiteningChildren": {

@@ -504,5 +504,209 @@
         "a": "A separate diagnosis is needed as the causes differ. Hormone tests and iron tests are conducted to identify the causes."
       }
     ]
+  },
+  "filler": {
+    "slug": "filler",
+    "category": "filler-skinbooster",
+    "name": "Filler",
+    "tagline": "Hyaluronic acid injection that instantly fills lost volume and contours",
+    "intro": "Filler is a procedure that injects hyaluronic acid (HA) into the skin to fill lost volume and refine contours. Different products with varying viscosities are selected based on the area and depth, and designed in small amounts step by step for a natural line.",
+    "approach": "1) Diagnose facial asymmetry and areas of volume loss to design the necessary dosage, 2) Select HA fillers with different viscosities and particles for each area to form natural contours, 3) Use cannula techniques and post-care to reduce bruising and swelling.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those whose face looks tired due to nasolabial folds and volume loss in the cheeks",
+      "Those who want to add dimension to the contours of the forehead and chin",
+      "Those who want immediate volume improvement without surgery",
+      "Those who need correction in delicate areas like lips and under the eyes",
+      "Those who want natural line correction"
+    ],
+    "faq": [
+      {
+        "q": "How long does the effect last?",
+        "a": "It varies depending on the area and product, but typically lasts more than 6 months to 1 year, and since HA is absorbed, it naturally disappears over time. The duration may vary from person to person."
+      },
+      {
+        "q": "Can I return to daily life right after the procedure?",
+        "a": "Most people can return to daily life on the same day, and any slight swelling or bruising will subside within a few days."
+      },
+      {
+        "q": "Does it look natural?",
+        "a": "By varying the viscosity for each area and designing in small amounts, we aim for a natural volume that is not excessive."
+      },
+      {
+        "q": "Can it be reversed if necessary?",
+        "a": "HA fillers can be adjusted and corrected with an enzyme (hyaluronidase)."
+      }
+    ]
+  },
+  "skinbooster": {
+    "slug": "skinbooster",
+    "category": "filler-skinbooster",
+    "name": "Skin Booster",
+    "tagline": "Filling the skin with moisture and nutrients for a radiant glow from within",
+    "intro": "Skin Booster is a treatment that directly injects hyaluronic acid and nutrients into the dermis to fill the skin with moisture and smooth its texture. It delivers moisturizing and regenerative factors to depths that surface cosmetics cannot reach, improving dryness, fine lines, and dull tone simultaneously.",
+    "approach": "1) Diagnose skin moisture levels and texture/pores, 2) Design ingredients and injection depth according to moisture and regeneration goals, 3) Gradually enhance skin barrier and radiance through periodic treatments.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those who feel tight and rough skin due to dryness",
+      "Those who are concerned about makeup settling and fine lines",
+      "Those who want to add inner glow to a dull tone",
+      "Those who want to improve skin condition before an event",
+      "Those looking for low-stimulation maintenance treatments"
+    ],
+    "faq": [
+      {
+        "q": "How many sessions do I need?",
+        "a": "Typically, after a basic program of 3-4 sessions at intervals of 2-4 weeks, it continues with regular maintenance, and the number of sessions may vary depending on skin condition."
+      },
+      {
+        "q": "Is there any downtime?",
+        "a": "There may be slight injection marks and swelling, but recovery usually occurs within 1-2 days."
+      },
+      {
+        "q": "How is it different from fillers?",
+        "a": "Fillers focus on adding volume and contour, while Skin Booster focuses on enhancing moisture and texture within the skin."
+      },
+      {
+        "q": "Can it be combined with other treatments?",
+        "a": "It is often combined with lasers, lifting, etc., to manage skin condition together."
+      }
+    ]
+  },
+  "skin-air": {
+    "slug": "skin-air",
+    "category": "filler-skinbooster",
+    "name": "Skin Air",
+    "tagline": "Delivers active ingredients into the skin without needles using jet injection",
+    "intro": "Skin Air is a needle-free skin booster method that injects active ingredients into the skin using fine jet pressure. It is ideal for those who are apprehensive about needle procedures or want to evenly care for large areas while minimizing pain and marks, delivering hydration and regeneration ingredients evenly.",
+    "approach": "1) Assess the suitability of the needle-free method considering skin condition and pain sensitivity, 2) Choose a solution that matches the purpose such as hydration, whitening, or regeneration, 3) Quickly care for large areas with uniform spraying while providing immediate soothing.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those who are afraid of needle procedures or are sensitive to pain",
+      "Those who want to receive treatment quickly without marks or downtime",
+      "Those who want to manage large areas evenly",
+      "Those who want to receive treatment lightly in a short time",
+      "Those who want to start treatment without burden as a beginner"
+    ],
+    "faq": [
+      {
+        "q": "Is it really painless?",
+        "a": "Since no needles are used, there is minimal pain, bleeding, or marks, making it less burdensome. However, the sensation may vary from person to person."
+      },
+      {
+        "q": "Is the effect weaker than needle procedures?",
+        "a": "The depth of delivery may differ, so it is appropriate to choose and combine needle methods according to the purpose."
+      },
+      {
+        "q": "Can I wear makeup right after?",
+        "a": "Most people can engage in light daily activities and apply makeup shortly after the procedure."
+      },
+      {
+        "q": "How often should I receive treatment?",
+        "a": "Receiving treatment consistently every 1-2 weeks helps maintain skin condition."
+      }
+    ]
+  },
+  "rejuran": {
+    "slug": "rejuran",
+    "category": "filler-skinbooster",
+    "name": "Rejuran",
+    "tagline": "Awakening the skin's own regenerative power with salmon DNA (PN·PDRN) ingredients",
+    "intro": "Rejuran is a regenerative treatment that injects polydeoxyribonucleotide (PN·PDRN) extracted and purified from salmon into the skin to restore the damaged skin barrier and dermis. It focuses on improving fine lines, enlarged pores, decreased elasticity, and sensitive skin texture from within.",
+    "approach": "1) Diagnose skin regeneration and texture/elasticity status, 2) Select the appropriate Rejuran line (Healer, Eye, HB, etc.) for the area, 3) Gradually perform treatments at intervals of 2-4 weeks to enhance skin barrier and elasticity.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those concerned about fine lines, enlarged pores, and decreased elasticity",
+      "Those wanting to restore sensitive skin texture caused by irritation",
+      "Those wishing to improve thin and delicate areas such as around the eyes",
+      "Those seeking fundamental skin regeneration",
+      "Those wanting to aid recovery after laser or lifting treatments"
+    ],
+    "faq": [
+      {
+        "q": "How many sessions do I need?",
+        "a": "Typically, 3-4 sessions at intervals of 2-4 weeks are recommended as a basic treatment, with the number of sessions varying based on skin condition."
+      },
+      {
+        "q": "Will there be bruising or swelling?",
+        "a": "There may be temporary swelling or bruising at the injection site, but it will subside within a few days."
+      },
+      {
+        "q": "Is it different from skin boosters?",
+        "a": "Rejuran focuses on PN·PDRN regenerative ingredients, while general skin boosters focus on HA hydration."
+      },
+      {
+        "q": "Which areas can I receive treatment on?",
+        "a": "Treatment can be performed on the entire face as well as specific areas such as around the eyes and neck with dedicated products."
+      }
+    ]
+  },
+  "juvelook": {
+    "slug": "juvelook",
+    "category": "filler-skinbooster",
+    "name": "Juvelook",
+    "tagline": "A PLLA collagen booster that naturally fills over time",
+    "intro": "Juvelook is a biodegradable PLLA (poly-L-lactic acid) ingredient that induces collagen production, serving as a collagen booster that fills the skin from within. Unlike immediate fillers, it gradually enhances volume and elasticity over time, and is used to improve fine lines and skin sagging.",
+    "approach": "1) Diagnose the degree of volume loss and elasticity decline, 2) Design the dilution and injection depth of PLLA to induce natural collagen formation, 3) Plan sessions to gradually fill over weeks to months.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those who want natural volume without artificiality",
+      "Those who wish to improve overall skin elasticity and texture",
+      "Those who prefer gradual changes over the immediate volume of fillers",
+      "Those whose faces appear sunken due to collagen loss",
+      "Those who want continuous elasticity management"
+    ],
+    "faq": [
+      {
+        "q": "When will the effects appear?",
+        "a": "Collagen is generated and typically appears gradually from a few weeks, filling over several months. The response rate varies by individual."
+      },
+      {
+        "q": "How long does it last?",
+        "a": "It is relatively long-lasting depending on the generated collagen, and maintenance treatments can continue the effects."
+      },
+      {
+        "q": "What is the difference from fillers?",
+        "a": "Fillers provide immediate volume, while Juvelook is characterized by gradual and natural volume through collagen induction."
+      },
+      {
+        "q": "How many sessions are needed?",
+        "a": "Typically, 2-3 sessions at intervals of 4-6 weeks are followed by maintenance based on the condition."
+      }
+    ]
+  },
+  "ellanse": {
+    "slug": "ellanse",
+    "category": "filler-skinbooster",
+    "name": "Ellanse",
+    "tagline": "Long-lasting elasticity and contour with PCL collagen stimulation",
+    "intro": "Ellanse is a collagen booster filler that stimulates collagen production for an extended period with PCL (polycaprolactone) ingredients. It is suitable for those who want to maintain lost volume and contour relatively long-term, as collagen builds up over time along with immediate volume.",
+    "approach": "1) Diagnose the areas of volume loss and contour lines, 2) Select PCL products based on duration (type) to design immediate volume and collagen stimulation simultaneously, 3) Administer in small amounts gradually for a natural line.",
+    "deviceSlugs": [],
+    "recommendedFor": [
+      "Those who want to maintain volume improvement for a long time",
+      "Those who want immediate contour correction and elasticity at the same time",
+      "Those who find frequent re-treatments cumbersome",
+      "Those who need contour volume in areas like nasolabial folds, cheeks, and forehead",
+      "Those who want fundamental elasticity through collagen stimulation"
+    ],
+    "faq": [
+      {
+        "q": "How long does it last?",
+        "a": "It lasts relatively long depending on the product type, and the collagen stimulation effect adds to it. The duration varies from person to person."
+      },
+      {
+        "q": "Is the effect immediate?",
+        "a": "There is immediate volume from the PCL itself, and the effect continues as collagen is generated."
+      },
+      {
+        "q": "Is it different from Juvelook?",
+        "a": "Both are collagen boosters, but they differ in ingredients (PCL vs PLLA) and duration/volume characteristics, so choose according to your purpose."
+      },
+      {
+        "q": "Can it be corrected?",
+        "a": "Unlike HA fillers, it is difficult to dissolve with enzymes, so it is designed carefully in small amounts with skilled treatment."
+      }
+    ]
   }
 }

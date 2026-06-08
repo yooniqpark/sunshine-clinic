@@ -6,6 +6,7 @@
   "nav": {
     "about": "About",
     "lifting": "Lifting & Anti-aging",
+    "fillerSkinbooster": "Filler · Skin Booster",
     "whitening": "Whitening & Redness",
     "acne": "Acne · Scar · Pore",
     "skinDisease": "Skin Disease",
@@ -22,6 +23,16 @@
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
+      "other": "Other Treatments"
+    },
+    "fillerSkinboosterChildren": {
+      "overview": "Overview",
+      "filler": "Filler",
+      "skinbooster": "Skin Booster",
+      "skinAir": "Skin Air",
+      "rejuran": "Rejuran",
+      "juvelook": "Juvelook",
+      "ellanse": "Ellanse",
       "other": "Other Treatments"
     },
     "whiteningChildren": {

@@ -194,42 +194,6 @@
         {
           "name": "Shurink Universe · Olym",
           "summary": "部位別カートリッジ(1.5~9mm)で深さに合わせた次世代HIFUリフティング。"
-        },
-        {
-          "name": "Special Skin Booster",
-          "summary": "Skinviveなどの架橋ヒアルロン酸を真皮に直接注入し、輝きと質感を与える。"
-        },
-        {
-          "name": "Rejuran (Healer · HB · Eye)",
-          "summary": "サーモンPN(ポリヌクレオチド)成分の注射でコラーゲン生成・皮膚バリアの回復を誘導。"
-        },
-        {
-          "name": "Ellanse",
-          "summary": "PCL(ポリカプロラクトン)ベースのコラーゲン刺激型フィラーで自然なボリューム回復。"
-        },
-        {
-          "name": "Juvelook · Juvelook Volume",
-          "summary": "PDLLA + ヒアルロン酸の網目構造で4~6ヶ月にわたり自己コラーゲンを誘導。"
-        },
-        {
-          "name": "Letuo · Letuo Fine",
-          "summary": "PNベースのブースターで皮膚再生信号を強化。"
-        },
-        {
-          "name": "Exosomes",
-          "summary": "再生信号タンパク質で皮膚バリアと再生を同時にケア。"
-        },
-        {
-          "name": "Chanel Injection · Cellydium",
-          "summary": "PNとブースター成分を組み合わせて肌の輝きと質感を引き出す人気ブースター。"
-        },
-        {
-          "name": "Botox · Filler",
-          "summary": "国産・外国産のオプションで小じわ、ボリューム、輪郭を繊細に補正。"
-        },
-        {
-          "name": "Sculptra · Radiesse",
-          "summary": "PLLA / CaHAベースのコラーゲン刺激型ボリュームブースターで深い層から満たすリフティング。"
         }
       ],
       "devices": [
@@ -250,6 +214,36 @@
           "desc": "イスラエルInMode社のモノポーラ/バイポーラRFシステム。顔の輪郭と肌の質感を非侵襲的にケアします。"
         }
       ]
+    },
+    "filler-skinbooster": {
+      "label": "フィラー · スキンブースター",
+      "eyebrow": "FILLER & SKIN BOOSTER",
+      "headlineL1": "満たして蘇らせる",
+      "headlineL2": "ボリュームと輝き",
+      "description": "失われたボリュームはフィラー・コラーゲンブースターで満たし、肌内部の水分とハリはスキンブースター・再生注射で蘇らせます。部位と目的に合わせて自然にデザインします。",
+      "treatments": [
+        {
+          "name": "Botox",
+          "summary": "小じわやエラ・輪郭を繊細に整える注射です。"
+        },
+        {
+          "name": "Sculptra · Radiesse",
+          "summary": "コラーゲン生成を促し、全体的なボリュームとハリを満たすブースターです。"
+        },
+        {
+          "name": "Letuo · Letuo Fine",
+          "summary": "肌内部の水分とキメを満たすスキンブースターのラインナップです。"
+        },
+        {
+          "name": "Exosome Booster",
+          "summary": "肌の再生シグナルを強化する最新のブースター施術です。"
+        },
+        {
+          "name": "Chanel Injection · Cellydium",
+          "summary": "水光・再生成分で内側のツヤとキメを整える注射です。"
+        }
+      ],
+      "devices": []
     },
     "whitening": {
       "label": "ホワイトニング · 赤み",

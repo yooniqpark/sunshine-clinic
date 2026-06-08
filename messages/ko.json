@@ -6,6 +6,7 @@
   "nav": {
     "about": "병원소개",
     "lifting": "리프팅 · 안티에이징",
+    "fillerSkinbooster": "필러 · 스킨부스터",
     "whitening": "화이트닝 · 홍조",
     "acne": "여드름 · 흉터 · 모공",
     "skinDisease": "피부질환",
@@ -22,6 +23,16 @@
       "thermage": "써마지 FLX",
       "shurink": "슈링크 유니버스",
       "inmode": "인모드",
+      "other": "그 외 시술"
+    },
+    "fillerSkinboosterChildren": {
+      "overview": "Overview",
+      "filler": "필러",
+      "skinbooster": "스킨부스터",
+      "skinAir": "스킨에어",
+      "rejuran": "리쥬란",
+      "juvelook": "쥬베룩",
+      "ellanse": "엘란세",
       "other": "그 외 시술"
     },
     "whiteningChildren": {
