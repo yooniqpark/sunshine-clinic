@@ -6,6 +6,7 @@
   "nav": {
     "about": "诊所介绍",
     "lifting": "提拉 · 抗衰",
+    "fillerSkinbooster": "填充 · 水光针",
     "whitening": "美白 · 红润",
     "acne": "痘痘 · 痘印 · 毛孔",
     "skinDisease": "皮肤疾病",
@@ -22,6 +23,16 @@
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
+      "other": "其他治疗"
+    },
+    "fillerSkinboosterChildren": {
+      "overview": "Overview",
+      "filler": "填充",
+      "skinbooster": "水光针",
+      "skinAir": "Skin Air",
+      "rejuran": "Rejuran",
+      "juvelook": "Juvelook",
+      "ellanse": "Ellanse",
       "other": "其他治疗"
     },
     "whiteningChildren": {

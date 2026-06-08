@@ -194,42 +194,6 @@
         {
           "name": "Shurink Universe · Olym",
           "summary": "通过区域专用 cartridge(1.5~9mm)进行深度定制的下一代HIFU提升。"
-        },
-        {
-          "name": "Special Skin Booster",
-          "summary": "将交联透明质酸如Skinvive直接注入真皮，赋予光泽和纹理。"
-        },
-        {
-          "name": "Rejuran (Healer · HB · Eye)",
-          "summary": "通过注射鲑鱼PN(多核苷酸)成分，诱导胶原蛋白生成和皮肤屏障恢复。"
-        },
-        {
-          "name": "Ellanse",
-          "summary": "基于PCL(聚己内酯)的胶原刺激型填充剂，恢复自然的体积。"
-        },
-        {
-          "name": "Juvelook · Juvelook Volume",
-          "summary": "通过PDLLA + 透明质酸网状结构，诱导自体胶原蛋白，持续4~6个月。"
-        },
-        {
-          "name": "Letuo · Letuo Fine",
-          "summary": "基于PN的增强剂，强化皮肤再生信号。"
-        },
-        {
-          "name": "Exosomes",
-          "summary": "通过再生信号蛋白同时护理皮肤屏障和再生。"
-        },
-        {
-          "name": "Chanel Injection · Cellydium",
-          "summary": "结合PN和增强成分，提升皮肤光泽和纹理的人气增强剂。"
-        },
-        {
-          "name": "Botox · Filler",
-          "summary": "提供国产和进口选项，精细修正细纹、体积和轮廓。"
-        },
-        {
-          "name": "Sculptra · Radiesse",
-          "summary": "基于PLLA / CaHA的胶原刺激型体积增强剂，从深层开始填充提升。"
         }
       ],
       "devices": [
@@ -250,6 +214,36 @@
           "desc": "以色列InMode公司的单极/双极RF系统。非侵入性地护理面部轮廓和皮肤纹理。"
         }
       ]
+    },
+    "filler-skinbooster": {
+      "label": "填充 · 水光针",
+      "eyebrow": "FILLER & SKIN BOOSTER",
+      "headlineL1": "填充并唤醒",
+      "headlineL2": "丰盈与光采",
+      "description": "用填充剂与胶原蛋白促进剂填补流失的容积，用水光针与再生注射从肌底唤回水分与弹性，依据部位与需求自然设计。",
+      "treatments": [
+        {
+          "name": "Botox",
+          "summary": "细致改善细纹与方下颌、轮廓的注射。"
+        },
+        {
+          "name": "Sculptra · Radiesse",
+          "summary": "促进胶原蛋白生成、填补整体容积与弹性的促进剂。"
+        },
+        {
+          "name": "Letuo · Letuo Fine",
+          "summary": "为肌底补充水分与肤质的水光针系列。"
+        },
+        {
+          "name": "Exosome Booster",
+          "summary": "强化肌肤再生信号的新一代促进剂疗程。"
+        },
+        {
+          "name": "Chanel Injection · Cellydium",
+          "summary": "以水光、再生成分养护肌底光采与肤质的注射。"
+        }
+      ],
+      "devices": []
     },
     "whitening": {
       "label": "美白 · 红斑",

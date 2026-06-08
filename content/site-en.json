@@ -194,42 +194,6 @@
         {
           "name": "Shurink Universe · Olym",
           "summary": "Next-generation HIFU lifting tailored to depth with area-specific cartridges (1.5~9mm)."
-        },
-        {
-          "name": "Special Skin Booster",
-          "summary": "Directly infusing cross-linked hyaluronic acid like Skinvive into the dermis for radiance and texture."
-        },
-        {
-          "name": "Rejuran (Healer · HB · Eye)",
-          "summary": "Injecting salmon PN (Polynucleotide) components to induce collagen production and restore the skin barrier."
-        },
-        {
-          "name": "Ellanse",
-          "summary": "Collagen-stimulating filler based on PCL (Polycaprolactone) for natural volume restoration."
-        },
-        {
-          "name": "Juvelook · Juvelook Volume",
-          "summary": "Inducing self-collagen over 4~6 months with a PDLLA + hyaluronic acid mesh structure."
-        },
-        {
-          "name": "Letuo · Letuo Fine",
-          "summary": "PN-based booster to enhance skin regeneration signals."
-        },
-        {
-          "name": "Exosomes",
-          "summary": "Simultaneously caring for skin barriers and regeneration with regenerative signaling proteins."
-        },
-        {
-          "name": "Chanel Injection · Cellydium",
-          "summary": "A popular booster combining PN and booster ingredients to enhance skin radiance and texture."
-        },
-        {
-          "name": "Botox · Filler",
-          "summary": "Options for domestic and foreign products to delicately correct fine lines, volume, and contours."
-        },
-        {
-          "name": "Sculptra · Radiesse",
-          "summary": "Volume booster based on PLLA / CaHA that fills from deep layers for lifting."
         }
       ],
       "devices": [
@@ -250,6 +214,36 @@
           "desc": "Monopolar/bipolar RF system from Israel's InMode. Non-invasively cares for facial contours and skin texture."
         }
       ]
+    },
+    "filler-skinbooster": {
+      "label": "Filler · Skin Booster",
+      "eyebrow": "FILLER & SKIN BOOSTER",
+      "headlineL1": "Replenish and revive",
+      "headlineL2": "volume and glow",
+      "description": "Fillers and collagen boosters restore lost volume, while skin boosters and regenerative injections replenish moisture and elasticity from within — designed naturally for each area and goal.",
+      "treatments": [
+        {
+          "name": "Botox",
+          "summary": "Injection that softens fine lines and refines a square jaw and contour."
+        },
+        {
+          "name": "Sculptra · Radiesse",
+          "summary": "Boosters that stimulate collagen to restore overall volume and elasticity."
+        },
+        {
+          "name": "Letuo · Letuo Fine",
+          "summary": "A skin booster lineup that replenishes moisture and texture deep in the skin."
+        },
+        {
+          "name": "Exosome Booster",
+          "summary": "The latest booster treatment that amplifies skin-regeneration signals."
+        },
+        {
+          "name": "Chanel Injection · Cellydium",
+          "summary": "Injections that nurture inner glow and texture with hydrating, regenerative ingredients."
+        }
+      ],
+      "devices": []
     },
     "whitening": {
       "label": "WHITENING · REDNESS",
