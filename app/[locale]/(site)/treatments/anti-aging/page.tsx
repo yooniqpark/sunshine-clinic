@@ -15,7 +15,7 @@ import {
 } from "@/lib/devices";
 import { getSiteContent, type Locale } from "@/lib/site-content";
 
-const CATEGORY = "filler-skinbooster";
+const CATEGORY = "anti-aging";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return { title: c.label, description: c.description };
 }
 
-export default async function FillerSkinboosterPage({ params }: Props) {
+export default async function AntiAgingPage({ params }: Props) {
   const { locale } = await params;
   const content = getSiteContent(locale);
   const cat = content.categories[CATEGORY];

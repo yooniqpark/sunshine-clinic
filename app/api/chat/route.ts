@@ -14,10 +14,10 @@ const LOCALE_LANG: Record<Locale, string> = {
 };
 
 const FALLBACK_BY_LOCALE: Record<Locale, string> = {
-  ko: "정확한 내용은 내원 상담, 전화(02-1234-5678) 또는 카카오톡으로 안내드립니다.",
-  en: "For accurate details please visit the clinic, call +82-2-1234-5678, or message us on KakaoTalk.",
-  ja: "正確な内容は来院相談、お電話（+82-2-1234-5678）またはKakaoTalkでご案内いたします。",
-  zh: "详细信息请到院咨询、致电 +82-2-1234-5678 或通过 KakaoTalk 联系我们。",
+  ko: "정확한 내용은 내원 상담, 전화(02-421-7588) 또는 카카오톡으로 안내드립니다.",
+  en: "For accurate details please visit the clinic, call +82-2-421-7588, or message us on KakaoTalk.",
+  ja: "正確な内容は来院相談、お電話（+82-2-421-7588）またはKakaoTalkでご案内いたします。",
+  zh: "详细信息请到院咨询、致电 +82-2-421-7588 或通过 KakaoTalk 联系我们。",
 };
 
 const ERROR_BY_LOCALE: Record<Locale, string> = {

@@ -1,23 +1,23 @@
 {
   "clinic": {
     "name": "Sunshine 皮肤科",
-    "addressLine": "4F, 123 Teheran-ro, Gangnam-gu, Seoul",
-    "addressSub": "步行3分钟到达2号线江南站4号出口 · 建筑内可停车",
+    "addressLine": "10F, Seoil Bldg, 102 Olympic-ro, Songpa-gu, Seoul",
+    "addressSub": "步行3分钟到达2号线蚕室新川站4号出口 · 建筑内可停车",
     "doctorTitle": "院长",
     "doctorOwnerName": "首席院长 金炳贤",
     "bizNoLabel": "营业执照号码",
-    "licenseText": "江南区保健所登记第0000号",
+    "licenseText": "松坡区保健所登记第0000号",
     "marketingTagline": "在Sunshine，唤醒您肌肤的光彩。",
     "clinicNameFull": "Sunshine 皮肤科诊所"
   },
   "hours": [
     {
       "day": "平日",
-      "time": "10:00 – 19:00"
+      "time": "10:00 – 20:00"
     },
     {
       "day": "周六",
-      "time": "10:00 – 15:00 (无午休)"
+      "time": "10:00 – 16:00 (无午休)"
     },
     {
       "day": "午休",
@@ -130,8 +130,8 @@
     "tourFootnote": "各空间的详细照片将在实际拍摄后逐步更新。",
     "locationTitle": "诊疗指南 · 来访路线",
     "directions": [
-      "地铁：2号线江南站4号出口步行3分钟",
-      "公交：在江南站下车后步行2分钟",
+      "地铁：2号线蚕室新川站4号出口步行3分钟",
+      "公交：在蚕室新川站下车后步行2分钟",
       "停车：可使用建筑内停车场"
     ],
     "ctaTitle": "预约访问咨询",
@@ -215,32 +215,16 @@
         }
       ]
     },
-    "filler-skinbooster": {
-      "label": "填充 · 水光针",
-      "eyebrow": "FILLER & SKIN BOOSTER",
+    "anti-aging": {
+      "label": "抗衰",
+      "eyebrow": "ANTI-AGING",
       "headlineL1": "填充并唤醒",
-      "headlineL2": "丰盈与光采",
-      "description": "用填充剂与胶原蛋白促进剂填补流失的容积，用水光针与再生注射从肌底唤回水分与弹性，依据部位与需求自然设计。",
+      "headlineL2": "抗衰老解决方案",
+      "description": "以Rejuran、Juvelook、Rituo、Exosome等再生与丰盈促进剂，搭配肉毒与填充，从肌底唤回流失的容积与弹性。",
       "treatments": [
         {
-          "name": "Botox",
-          "summary": "细致改善细纹与方下颌、轮廓的注射。"
-        },
-        {
           "name": "Sculptra · Radiesse",
-          "summary": "促进胶原蛋白生成、填补整体容积与弹性的促进剂。"
-        },
-        {
-          "name": "Letuo · Letuo Fine",
-          "summary": "为肌底补充水分与肤质的水光针系列。"
-        },
-        {
-          "name": "Exosome Booster",
-          "summary": "强化肌肤再生信号的新一代促进剂疗程。"
-        },
-        {
-          "name": "Chanel Injection · Cellydium",
-          "summary": "以水光、再生成分养护肌底光采与肤质的注射。"
+          "summary": "以PLLA·CaHA为基础的胶原刺激型容积促进剂。"
         }
       ],
       "devices": []

@@ -1,23 +1,23 @@
 {
   "clinic": {
     "name": "Sunshine 皮膚科",
-    "addressLine": "ソウル特別市江南区テヘラン路123, 4階",
-    "addressSub": "2号線江南駅4番出口から徒歩3分 · 建物内駐車可能",
+    "addressLine": "ソウル特別市松坡区オリンピック路102, ソイルビル10階",
+    "addressSub": "2号線チャムシルセネ駅4番出口から徒歩3分 · 建物内駐車可能",
     "doctorTitle": "院長",
     "doctorOwnerName": "代表院長 キム・ビョンヒョン",
     "bizNoLabel": "事業者登録番号",
-    "licenseText": "江南区保健所届出 第0000号",
+    "licenseText": "松坡区保健所届出 第0000号",
     "marketingTagline": "サンシャインで、肌の輝きが再び目覚める。",
     "clinicNameFull": "サンシャイン皮膚科クリニック"
   },
   "hours": [
     {
       "day": "平日",
-      "time": "10:00 – 19:00"
+      "time": "10:00 – 20:00"
     },
     {
       "day": "土曜日",
-      "time": "10:00 – 15:00 (昼休みなし)"
+      "time": "10:00 – 16:00 (昼休みなし)"
     },
     {
       "day": "昼休み",
@@ -130,8 +130,8 @@
     "tourFootnote": "空間ごとの詳細写真は実際の撮影後、順次更新されます。",
     "locationTitle": "診療案内 · お越しの道",
     "directions": [
-      "地下鉄: 2号線江南駅 4番出口 徒歩3分",
-      "バス: 江南駅バス停下車後 徒歩2分",
+      "地下鉄: 2号線チャムシルセネ駅 4番出口 徒歩3分",
+      "バス: チャムシルセネ駅バス停下車後 徒歩2分",
       "駐車: 建物内駐車場利用可能"
     ],
     "ctaTitle": "訪問相談を予約してください",
@@ -215,32 +215,16 @@
         }
       ]
     },
-    "filler-skinbooster": {
-      "label": "フィラー · スキンブースター",
-      "eyebrow": "FILLER & SKIN BOOSTER",
+    "anti-aging": {
+      "label": "アンチエイジング",
+      "eyebrow": "ANTI-AGING",
       "headlineL1": "満たして蘇らせる",
-      "headlineL2": "ボリュームと輝き",
-      "description": "失われたボリュームはフィラー・コラーゲンブースターで満たし、肌内部の水分とハリはスキンブースター・再生注射で蘇らせます。部位と目的に合わせて自然にデザインします。",
+      "headlineL2": "アンチエイジングソリューション",
+      "description": "Rejuran・Juvelook・Rituo・Exosomeなどの再生・ボリュームブースターとボトックス・フィラーで、失われたボリュームとハリを内側から蘇らせます。",
       "treatments": [
         {
-          "name": "Botox",
-          "summary": "小じわやエラ・輪郭を繊細に整える注射です。"
-        },
-        {
           "name": "Sculptra · Radiesse",
-          "summary": "コラーゲン生成を促し、全体的なボリュームとハリを満たすブースターです。"
-        },
-        {
-          "name": "Letuo · Letuo Fine",
-          "summary": "肌内部の水分とキメを満たすスキンブースターのラインナップです。"
-        },
-        {
-          "name": "Exosome Booster",
-          "summary": "肌の再生シグナルを強化する最新のブースター施術です。"
-        },
-        {
-          "name": "Chanel Injection · Cellydium",
-          "summary": "水光・再生成分で内側のツヤとキメを整える注射です。"
+          "summary": "PLLA・CaHAベースのコラーゲン刺激型ボリュームブースター。"
         }
       ],
       "devices": []

@@ -1,23 +1,23 @@
 {
   "clinic": {
     "name": "Sunshine Dermatology Clinic",
-    "addressLine": "4F, 123 Teheran-ro, Gangnam-gu, Seoul",
-    "addressSub": "3 minutes on foot from Gangnam Station Exit 4 (Line 2) · Parking available in the building",
+    "addressLine": "10F, Seoil Bldg, 102 Olympic-ro, Songpa-gu, Seoul",
+    "addressSub": "3 minutes on foot from Jamsillaenae Station Exit 4 (Line 2) · Parking available in the building",
     "doctorTitle": "Director",
     "doctorOwnerName": "Director Kim Byeong-hyeon",
     "bizNoLabel": "Business Registration Number",
-    "licenseText": "Registered with Gangnam-gu Health Center No. 0000",
+    "licenseText": "Registered with Songpa-gu Health Center No. 0000",
     "marketingTagline": "At Sunshine, your skin's light awakens again.",
     "clinicNameFull": "Sunshine Dermatology Clinic"
   },
   "hours": [
     {
       "day": "Weekdays",
-      "time": "10:00 – 19:00"
+      "time": "10:00 – 20:00"
     },
     {
       "day": "Saturday",
-      "time": "10:00 – 15:00 (Lunch break unavailable)"
+      "time": "10:00 – 16:00 (Lunch break unavailable)"
     },
     {
       "day": "Lunch break",
@@ -130,8 +130,8 @@
     "tourFootnote": "Detailed photos of each space will be updated sequentially after actual shooting.",
     "locationTitle": "Treatment Guidance · Directions",
     "directions": [
-      "Subway: 3 minutes on foot from Gangnam Station, Exit 4, Line 2",
-      "Bus: 2 minutes on foot after getting off at Gangnam Station",
+      "Subway: 3 minutes on foot from Jamsillaenae Station, Exit 4, Line 2",
+      "Bus: 2 minutes on foot after getting off at Jamsillaenae Station",
       "Parking: Parking available in the building"
     ],
     "ctaTitle": "Schedule a Consultation",
@@ -215,32 +215,16 @@
         }
       ]
     },
-    "filler-skinbooster": {
-      "label": "Filler · Skin Booster",
-      "eyebrow": "FILLER & SKIN BOOSTER",
+    "anti-aging": {
+      "label": "Anti-aging",
+      "eyebrow": "ANTI-AGING",
       "headlineL1": "Replenish and revive",
-      "headlineL2": "volume and glow",
-      "description": "Fillers and collagen boosters restore lost volume, while skin boosters and regenerative injections replenish moisture and elasticity from within — designed naturally for each area and goal.",
+      "headlineL2": "an anti-aging solution",
+      "description": "Regenerative and volumizing boosters like Rejuran, Juvelook, Rituo and Exosome, together with Botox and filler, revive lost volume and elasticity from within.",
       "treatments": [
         {
-          "name": "Botox",
-          "summary": "Injection that softens fine lines and refines a square jaw and contour."
-        },
-        {
           "name": "Sculptra · Radiesse",
-          "summary": "Boosters that stimulate collagen to restore overall volume and elasticity."
-        },
-        {
-          "name": "Letuo · Letuo Fine",
-          "summary": "A skin booster lineup that replenishes moisture and texture deep in the skin."
-        },
-        {
-          "name": "Exosome Booster",
-          "summary": "The latest booster treatment that amplifies skin-regeneration signals."
-        },
-        {
-          "name": "Chanel Injection · Cellydium",
-          "summary": "Injections that nurture inner glow and texture with hydrating, regenerative ingredients."
+          "summary": "PLLA·CaHA-based collagen-stimulating volume boosters."
         }
       ],
       "devices": []
