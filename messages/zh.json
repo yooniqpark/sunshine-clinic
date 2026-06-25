@@ -42,7 +42,6 @@
       "melasma": "黄褐斑",
       "freckles": "雀斑 · 黑子 · 老年斑",
       "resistantPigment": "顽固性色素",
-      "otaCafe": "太田痣 · 咖啡牛奶斑",
       "redness": "潮红 · 毛细血管扩张",
       "devices": "使用设备介绍",
       "other": "其他治疗"
@@ -53,6 +52,7 @@
       "acnePigment": "痤疮后色素沉着",
       "acneScar": "痤疮疤痕",
       "pores": "毛孔",
+      "generalScar": "一般疤痕",
       "devices": "使用设备介绍",
       "other": "其他治疗"
     },

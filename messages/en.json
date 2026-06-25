@@ -42,7 +42,6 @@
       "melasma": "Melasma",
       "freckles": "Freckles · Lentigines · Age Spots",
       "resistantPigment": "Resistant Pigmentation",
-      "otaCafe": "Nevus of Ota · Café-au-lait",
       "redness": "Redness · Telangiectasia",
       "devices": "Devices",
       "other": "Other Treatments"
@@ -53,6 +52,7 @@
       "acnePigment": "Post-Acne Pigmentation",
       "acneScar": "Acne Scars",
       "pores": "Pores",
+      "generalScar": "General Scar",
       "devices": "Devices",
       "other": "Other Treatments"
     },

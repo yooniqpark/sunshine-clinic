@@ -25,8 +25,8 @@ const BY_LOCALE: Record<Locale, Record<string, Concern>> = {
 
 // concern ordering per category — tab/section order
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
-  whitening: ["melasma", "freckles", "resistant-pigment", "ota-cafe", "redness"],
-  acne: ["acne-active", "acne-pigment", "acne-scar", "pores"],
+  whitening: ["melasma", "freckles", "resistant-pigment", "redness"],
+  acne: ["acne-active", "acne-pigment", "acne-scar", "pores", "general-scar"],
   "skin-disease": ["athletes-foot", "psoriasis", "atopy", "burns", "hair-loss"],
   "anti-aging": ["rejuran", "juvelook", "rituo", "exosome", "chanel", "botox", "filler"],
 };

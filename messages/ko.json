@@ -42,7 +42,6 @@
       "melasma": "기미",
       "freckles": "주근깨 · 흑자 · 검버섯",
       "resistantPigment": "난치성 색소",
-      "otaCafe": "오타 · 밀크커피반점",
       "redness": "홍조 · 모세혈관확장",
       "devices": "사용 장비 안내",
       "other": "그 외 시술"
@@ -53,6 +52,7 @@
       "acnePigment": "여드름 색소침착",
       "acneScar": "여드름 흉터",
       "pores": "모공",
+      "generalScar": "일반 흉터",
       "devices": "사용 장비 안내",
       "other": "그 외 시술"
     },

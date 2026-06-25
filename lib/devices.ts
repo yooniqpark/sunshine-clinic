@@ -39,7 +39,11 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
   },
   inmode: {
     englishName: "INMODE FORMA MINI",
-    featureKeywords: ["TIGHTEN", "CONTOUR", "REVITAL", "COMFORT"],
+    featureKeywords: ["TIGHTEN", "CONTOUR", "FAT-CARE", "HPV"],
+  },
+  ellanse: {
+    englishName: "ELLANSÉ",
+    featureKeywords: ["VOLUME", "COLLAGEN", "LONG-LASTING", "NATURAL"],
   },
   "clarity-ii": {
     englishName: "CLARITY II",
@@ -100,7 +104,7 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
 };
 
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
-  lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode"],
+  lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode", "ellanse"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam", "secret-rf"],
   acne: ["carpri-co2", "gold-ptt", "curajet", "secret-rf"],
 };
