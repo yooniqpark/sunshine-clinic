@@ -18,7 +18,6 @@
       "location": "诊疗信息 · 来院方式"
     },
     "liftingChildren": {
-      "overview": "Overview",
       "ulthera": "Ulthera Prime",
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
@@ -27,7 +26,6 @@
       "other": "其他治疗"
     },
     "antiAgingChildren": {
-      "overview": "Overview",
       "rejuran": "Rejuran",
       "juvelook": "Juvelook",
       "rituo": "Rituo",
@@ -38,7 +36,6 @@
       "other": "其他治疗"
     },
     "whiteningChildren": {
-      "overview": "Overview",
       "melasma": "黄褐斑",
       "freckles": "雀斑 · 黑子 · 老年斑",
       "resistantPigment": "顽固性色素",
@@ -47,7 +44,6 @@
       "other": "其他治疗"
     },
     "acneChildren": {
-      "overview": "Overview",
       "acneActive": "青少年 · 成人痤疮",
       "acnePigment": "痤疮后色素沉着",
       "acneScar": "痤疮疤痕",
@@ -57,7 +53,6 @@
       "other": "其他治疗"
     },
     "skinDiseaseChildren": {
-      "overview": "Overview",
       "athletesFoot": "脚气",
       "psoriasis": "银屑病 · 癣",
       "atopy": "特应性皮炎",

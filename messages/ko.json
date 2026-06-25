@@ -18,7 +18,6 @@
       "location": "진료안내 · 오시는 길"
     },
     "liftingChildren": {
-      "overview": "Overview",
       "ulthera": "울쎄라 프라임",
       "thermage": "써마지 FLX",
       "shurink": "슈링크 유니버스",
@@ -27,7 +26,6 @@
       "other": "그 외 시술"
     },
     "antiAgingChildren": {
-      "overview": "Overview",
       "rejuran": "리쥬란",
       "juvelook": "쥬베룩",
       "rituo": "리투오",
@@ -38,7 +36,6 @@
       "other": "그 외 시술"
     },
     "whiteningChildren": {
-      "overview": "Overview",
       "melasma": "기미",
       "freckles": "주근깨 · 흑자 · 검버섯",
       "resistantPigment": "난치성 색소",
@@ -47,7 +44,6 @@
       "other": "그 외 시술"
     },
     "acneChildren": {
-      "overview": "Overview",
       "acneActive": "청소년 · 성인 여드름",
       "acnePigment": "여드름 색소침착",
       "acneScar": "여드름 흉터",
@@ -57,7 +53,6 @@
       "other": "그 외 시술"
     },
     "skinDiseaseChildren": {
-      "overview": "Overview",
       "athletesFoot": "무좀",
       "psoriasis": "건선 · 백선",
       "atopy": "아토피",

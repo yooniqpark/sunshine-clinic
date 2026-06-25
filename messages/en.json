@@ -18,7 +18,6 @@
       "location": "Location · Hours"
     },
     "liftingChildren": {
-      "overview": "Overview",
       "ulthera": "Ulthera Prime",
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
@@ -27,7 +26,6 @@
       "other": "Other Treatments"
     },
     "antiAgingChildren": {
-      "overview": "Overview",
       "rejuran": "Rejuran",
       "juvelook": "Juvelook",
       "rituo": "Rituo",
@@ -38,7 +36,6 @@
       "other": "Other Treatments"
     },
     "whiteningChildren": {
-      "overview": "Overview",
       "melasma": "Melasma",
       "freckles": "Freckles · Lentigines · Age Spots",
       "resistantPigment": "Resistant Pigmentation",
@@ -47,7 +44,6 @@
       "other": "Other Treatments"
     },
     "acneChildren": {
-      "overview": "Overview",
       "acneActive": "Teen · Adult Acne",
       "acnePigment": "Post-Acne Pigmentation",
       "acneScar": "Acne Scars",
@@ -57,7 +53,6 @@
       "other": "Other Treatments"
     },
     "skinDiseaseChildren": {
-      "overview": "Overview",
       "athletesFoot": "Athlete's Foot",
       "psoriasis": "Psoriasis · Tinea",
       "atopy": "Atopic Dermatitis",

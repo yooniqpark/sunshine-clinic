@@ -23,7 +23,6 @@ const NAV = [
     href: "/treatments/lifting" as const,
     childrenGroup: "liftingChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/lifting#overview" },
       { key: "ulthera", href: "/treatments/lifting#ulthera-prime" },
       { key: "thermage", href: "/treatments/lifting#thermage-flx" },
       { key: "shurink", href: "/treatments/lifting#shurink-universe" },
@@ -37,7 +36,6 @@ const NAV = [
     href: "/treatments/anti-aging" as const,
     childrenGroup: "antiAgingChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/anti-aging#overview" },
       { key: "rejuran", href: "/treatments/anti-aging#rejuran" },
       { key: "juvelook", href: "/treatments/anti-aging#juvelook" },
       { key: "rituo", href: "/treatments/anti-aging#rituo" },
@@ -53,7 +51,6 @@ const NAV = [
     href: "/treatments/whitening" as const,
     childrenGroup: "whiteningChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/whitening#overview" },
       { key: "melasma", href: "/treatments/whitening#melasma" },
       { key: "freckles", href: "/treatments/whitening#freckles" },
       { key: "resistantPigment", href: "/treatments/whitening#resistant-pigment" },
@@ -67,7 +64,6 @@ const NAV = [
     href: "/treatments/acne" as const,
     childrenGroup: "acneChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/acne#overview" },
       { key: "acneActive", href: "/treatments/acne#acne-active" },
       { key: "acnePigment", href: "/treatments/acne#acne-pigment" },
       { key: "acneScar", href: "/treatments/acne#acne-scar" },
@@ -82,7 +78,6 @@ const NAV = [
     href: "/treatments/skin-disease" as const,
     childrenGroup: "skinDiseaseChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/skin-disease#overview" },
       { key: "athletesFoot", href: "/treatments/skin-disease#athletes-foot" },
       { key: "psoriasis", href: "/treatments/skin-disease#psoriasis" },
       { key: "atopy", href: "/treatments/skin-disease#atopy" },
