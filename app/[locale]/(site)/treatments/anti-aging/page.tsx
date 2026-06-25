@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
+import { ApproachSteps } from "@/components/ApproachSteps";
 import { ScrollSpyTabs } from "@/components/ScrollSpyTabs";
 import { RightRail, type RailSection } from "@/components/RightRail";
 import { DeviceMarketingCard } from "@/components/DeviceMarketingCard";
@@ -186,9 +187,10 @@ export default async function AntiAgingPage({ params }: Props) {
                   </p>
                   <h3 className="mt-2 text-xl font-bold lg:text-2xl">{tt.approachTitle}</h3>
                 </div>
-                <p className="text-sm leading-relaxed text-cream/85 lg:text-base">
-                  {concern.approach}
-                </p>
+                <ApproachSteps
+                  text={concern.approach}
+                  className="text-sm leading-relaxed text-cream/85 lg:text-base"
+                />
               </div>
             </Reveal>
 
