@@ -22,8 +22,7 @@
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
-      "ellanse": "Ellanse",
-      "other": "Other Treatments"
+      "ellanse": "Ellanse"
     },
     "antiAgingChildren": {
       "rejuran": "Rejuran",
@@ -32,16 +31,14 @@
       "exosome": "Exosome",
       "chanel": "Chanel Injection",
       "botox": "Botox",
-      "filler": "Filler",
-      "other": "Other Treatments"
+      "filler": "Filler"
     },
     "whiteningChildren": {
       "melasma": "Melasma",
       "freckles": "Freckles · Lentigines · Age Spots",
       "resistantPigment": "Resistant Pigmentation",
       "redness": "Redness · Telangiectasia",
-      "devices": "Devices",
-      "other": "Other Treatments"
+      "devices": "Devices"
     },
     "acneChildren": {
       "acneActive": "Teen · Adult Acne",
@@ -49,15 +46,13 @@
       "acneScar": "Acne Scars",
       "pores": "Pores",
       "generalScar": "General Scar",
-      "devices": "Devices",
-      "other": "Other Treatments"
+      "devices": "Devices"
     },
     "skinDiseaseChildren": {
-      "athletesFoot": "Athlete's Foot",
-      "psoriasis": "Psoriasis · Tinea",
-      "atopy": "Atopic Dermatitis",
-      "burns": "Burns",
-      "hairLoss": "Hair Loss"
+      "athletesFoot": "Athlete’s Foot",
+      "psoriasis": "Psoriasis · Atopy",
+      "herpes": "Shingles · Herpes",
+      "burns": "Burns"
     },
     "communityChildren": {
       "events": "Events",

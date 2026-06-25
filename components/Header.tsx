@@ -28,7 +28,6 @@ const NAV = [
       { key: "shurink", href: "/treatments/lifting#shurink-universe" },
       { key: "inmode", href: "/treatments/lifting#inmode" },
       { key: "ellanse", href: "/treatments/lifting#ellanse" },
-      { key: "other", href: "/treatments/lifting#other-treatments" },
     ] as const,
   },
   {
@@ -43,7 +42,6 @@ const NAV = [
       { key: "chanel", href: "/treatments/anti-aging#chanel" },
       { key: "botox", href: "/treatments/anti-aging#botox" },
       { key: "filler", href: "/treatments/anti-aging#filler" },
-      { key: "other", href: "/treatments/anti-aging#other-treatments" },
     ] as const,
   },
   {
@@ -56,7 +54,6 @@ const NAV = [
       { key: "resistantPigment", href: "/treatments/whitening#resistant-pigment" },
       { key: "redness", href: "/treatments/whitening#redness" },
       { key: "devices", href: "/treatments/whitening#devices" },
-      { key: "other", href: "/treatments/whitening#other-treatments" },
     ] as const,
   },
   {
@@ -70,7 +67,6 @@ const NAV = [
       { key: "pores", href: "/treatments/acne#pores" },
       { key: "generalScar", href: "/treatments/acne#general-scar" },
       { key: "devices", href: "/treatments/acne#devices" },
-      { key: "other", href: "/treatments/acne#other-treatments" },
     ] as const,
   },
   {
@@ -80,9 +76,8 @@ const NAV = [
     children: [
       { key: "athletesFoot", href: "/treatments/skin-disease#athletes-foot" },
       { key: "psoriasis", href: "/treatments/skin-disease#psoriasis" },
-      { key: "atopy", href: "/treatments/skin-disease#atopy" },
+      { key: "herpes", href: "/treatments/skin-disease#herpes" },
       { key: "burns", href: "/treatments/skin-disease#burns" },
-      { key: "hairLoss", href: "/treatments/skin-disease#hair-loss" },
     ] as const,
   },
   {

@@ -22,8 +22,7 @@
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
-      "ellanse": "Ellanse",
-      "other": "其他治疗"
+      "ellanse": "Ellanse"
     },
     "antiAgingChildren": {
       "rejuran": "Rejuran",
@@ -32,16 +31,14 @@
       "exosome": "Exosome",
       "chanel": "香奈儿针",
       "botox": "Botox",
-      "filler": "填充",
-      "other": "其他治疗"
+      "filler": "填充"
     },
     "whiteningChildren": {
       "melasma": "黄褐斑",
       "freckles": "雀斑 · 黑子 · 老年斑",
       "resistantPigment": "顽固性色素",
       "redness": "潮红 · 毛细血管扩张",
-      "devices": "使用设备介绍",
-      "other": "其他治疗"
+      "devices": "使用设备介绍"
     },
     "acneChildren": {
       "acneActive": "青少年 · 成人痤疮",
@@ -49,15 +46,13 @@
       "acneScar": "痤疮疤痕",
       "pores": "毛孔",
       "generalScar": "一般疤痕",
-      "devices": "使用设备介绍",
-      "other": "其他治疗"
+      "devices": "使用设备介绍"
     },
     "skinDiseaseChildren": {
       "athletesFoot": "脚气",
-      "psoriasis": "银屑病 · 癣",
-      "atopy": "特应性皮炎",
-      "burns": "烧伤",
-      "hairLoss": "脱发"
+      "psoriasis": "银屑病 · 特应性皮炎",
+      "herpes": "带状疱疹 · 单纯疱疹",
+      "burns": "烧伤"
     },
     "communityChildren": {
       "events": "活动",
