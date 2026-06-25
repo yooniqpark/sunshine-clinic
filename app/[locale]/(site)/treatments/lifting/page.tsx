@@ -28,7 +28,6 @@ export default async function LiftingPage({ params }: Props) {
   const tabItems = [
     { id: "overview", label: tt.overviewLabel },
     ...devices.map((d) => ({ id: d.slug, label: d.name })),
-    { id: "other-treatments", label: tt.otherTreatmentsTitle },
   ];
 
   const subLabels = {
@@ -46,7 +45,6 @@ export default async function LiftingPage({ params }: Props) {
       { id: `${d.slug}-rec`, label: subLabels.rec, parent: d.slug },
       { id: `${d.slug}-faq`, label: subLabels.faq, parent: d.slug },
     ]),
-    { id: "other-treatments", label: tt.otherTreatmentsTitle },
   ];
 
   return (
@@ -267,36 +265,6 @@ export default async function LiftingPage({ params }: Props) {
         </section>
       ))}
 
-      {/* OTHER TREATMENTS */}
-      <section id="other-treatments" className="scroll-mt-40 border-t border-line bg-cream pb-20 pt-6 lg:pb-28 lg:pt-8">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">
-              {tt.otherTreatmentsLabel}
-            </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-              {tt.otherTreatmentsTitle}
-            </h2>
-          </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {cat.treatments
-              .filter(
-                (t) =>
-                  !devices.some(
-                    (d) => d.name === t.name || t.name.includes(d.name.replace(/ \(.+\)/, ""))
-                  )
-              )
-              .map((t, i) => (
-                <Reveal key={i} delay={i * 60}>
-                  <div className="flex h-full flex-col rounded-3xl border border-line bg-white p-6">
-                    <h3 className="text-lg font-bold">{t.name}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{t.summary}</p>
-                  </div>
-                </Reveal>
-              ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">

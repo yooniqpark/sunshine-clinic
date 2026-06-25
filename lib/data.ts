@@ -45,7 +45,7 @@ export const nav: NavItem[] = [
     ],
   },
   {
-    label: "리프팅 · 안티에이징",
+    label: "리프팅",
     href: "/treatments/lifting",
     children: [
       { label: "울쎄라 · 써마지 · 슈링크", href: "/treatments/lifting" },
@@ -113,8 +113,8 @@ export type Category = {
 export const categories: Record<string, Category> = {
   lifting: {
     slug: "lifting",
-    label: "리프팅 · 안티에이징",
-    eyebrow: "LIFTING & ANTI-AGING",
+    label: "리프팅",
+    eyebrow: "LIFTING",
     headline: "시간을 거스르는\n탄력 솔루션",
     description:
       "처짐과 주름의 원인을 진단하고, 피부층에 맞는 장비를 조합해 자연스러운 탄력을 디자인합니다.",

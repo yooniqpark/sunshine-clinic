@@ -27,7 +27,7 @@ const BY_LOCALE: Record<Locale, Record<string, Concern>> = {
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   whitening: ["melasma", "freckles", "resistant-pigment", "redness"],
   acne: ["acne-active", "acne-pigment", "acne-scar", "pores", "general-scar"],
-  "skin-disease": ["athletes-foot", "psoriasis", "atopy", "burns", "hair-loss"],
+  "skin-disease": ["athletes-foot", "psoriasis", "herpes", "burns"],
   "anti-aging": ["rejuran", "juvelook", "rituo", "exosome", "chanel", "botox", "filler"],
 };
 

@@ -5,7 +5,7 @@
   },
   "nav": {
     "about": "About",
-    "lifting": "Lifting & Anti-aging",
+    "lifting": "Lifting",
     "antiAging": "Anti-aging",
     "whitening": "Whitening & Redness",
     "acne": "Acne · Scar · Pore",
@@ -18,51 +18,41 @@
       "location": "Location · Hours"
     },
     "liftingChildren": {
-      "overview": "Overview",
       "ulthera": "Ulthera Prime",
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
-      "ellanse": "Ellanse",
-      "other": "Other Treatments"
+      "ellanse": "Ellanse"
     },
     "antiAgingChildren": {
-      "overview": "Overview",
       "rejuran": "Rejuran",
       "juvelook": "Juvelook",
       "rituo": "Rituo",
       "exosome": "Exosome",
       "chanel": "Chanel Injection",
       "botox": "Botox",
-      "filler": "Filler",
-      "other": "Other Treatments"
+      "filler": "Filler"
     },
     "whiteningChildren": {
-      "overview": "Overview",
       "melasma": "Melasma",
       "freckles": "Freckles · Lentigines · Age Spots",
       "resistantPigment": "Resistant Pigmentation",
       "redness": "Redness · Telangiectasia",
-      "devices": "Devices",
-      "other": "Other Treatments"
+      "devices": "Devices"
     },
     "acneChildren": {
-      "overview": "Overview",
       "acneActive": "Teen · Adult Acne",
       "acnePigment": "Post-Acne Pigmentation",
       "acneScar": "Acne Scars",
       "pores": "Pores",
       "generalScar": "General Scar",
-      "devices": "Devices",
-      "other": "Other Treatments"
+      "devices": "Devices"
     },
     "skinDiseaseChildren": {
-      "overview": "Overview",
-      "athletesFoot": "Athlete's Foot",
-      "psoriasis": "Psoriasis · Tinea",
-      "atopy": "Atopic Dermatitis",
-      "burns": "Burns",
-      "hairLoss": "Hair Loss"
+      "athletesFoot": "Athlete’s Foot",
+      "psoriasis": "Psoriasis · Atopy",
+      "herpes": "Shingles · Herpes",
+      "burns": "Burns"
     },
     "communityChildren": {
       "events": "Events",

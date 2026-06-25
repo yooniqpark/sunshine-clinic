@@ -5,7 +5,7 @@
   },
   "nav": {
     "about": "병원소개",
-    "lifting": "리프팅 · 안티에이징",
+    "lifting": "리프팅",
     "antiAging": "안티에이징",
     "whitening": "화이트닝 · 홍조",
     "acne": "여드름 · 흉터 · 모공",
@@ -18,51 +18,41 @@
       "location": "진료안내 · 오시는 길"
     },
     "liftingChildren": {
-      "overview": "Overview",
       "ulthera": "울쎄라 프라임",
       "thermage": "써마지 FLX",
       "shurink": "슈링크 유니버스",
       "inmode": "인모드",
-      "ellanse": "엘란쎄",
-      "other": "그 외 시술"
+      "ellanse": "엘란쎄"
     },
     "antiAgingChildren": {
-      "overview": "Overview",
       "rejuran": "리쥬란",
       "juvelook": "쥬베룩",
       "rituo": "리투오",
       "exosome": "엑소좀",
       "chanel": "샤넬주사",
       "botox": "보톡스",
-      "filler": "필러",
-      "other": "그 외 시술"
+      "filler": "필러"
     },
     "whiteningChildren": {
-      "overview": "Overview",
       "melasma": "기미",
       "freckles": "주근깨 · 흑자 · 검버섯",
       "resistantPigment": "난치성 색소",
       "redness": "홍조 · 모세혈관확장",
-      "devices": "사용 장비 안내",
-      "other": "그 외 시술"
+      "devices": "사용 장비 안내"
     },
     "acneChildren": {
-      "overview": "Overview",
       "acneActive": "청소년 · 성인 여드름",
       "acnePigment": "여드름 색소침착",
       "acneScar": "여드름 흉터",
       "pores": "모공",
       "generalScar": "일반 흉터",
-      "devices": "사용 장비 안내",
-      "other": "그 외 시술"
+      "devices": "사용 장비 안내"
     },
     "skinDiseaseChildren": {
-      "overview": "Overview",
       "athletesFoot": "무좀",
-      "psoriasis": "건선 · 백선",
-      "atopy": "아토피",
-      "burns": "화상",
-      "hairLoss": "탈모"
+      "psoriasis": "건선 · 아토피",
+      "herpes": "대상포진 · 단순포진",
+      "burns": "화상"
     },
     "communityChildren": {
       "events": "이벤트",

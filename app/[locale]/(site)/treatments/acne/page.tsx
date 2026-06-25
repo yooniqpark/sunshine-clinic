@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
+import { ApproachSteps } from "@/components/ApproachSteps";
 import { ScrollSpyTabs } from "@/components/ScrollSpyTabs";
 import { RightRail, type RailSection } from "@/components/RightRail";
 import { DeviceMarketingCard } from "@/components/DeviceMarketingCard";
-import { ArrowIcon, ArrowUpRightIcon, CalendarIcon } from "@/components/icons";
+import { ArrowIcon, CalendarIcon } from "@/components/icons";
 import { clinic } from "@/lib/data";
-import { getConcernsByCategory, getCategoryDeviceSlugs } from "@/lib/concerns";
+import { getConcernsByCategory } from "@/lib/concerns";
 import {
   getDevicesByCategory,
   getDeviceImage,
@@ -31,20 +31,14 @@ export default async function AcnePage({ params }: Props) {
   const common = content.common;
   const concerns = getConcernsByCategory(locale, "acne");
   const allDevices = getDevicesByCategory(locale, "acne");
-  const usedDeviceSlugs = getCategoryDeviceSlugs(locale, "acne");
-  const usedDevices = usedDeviceSlugs
-    .map((s) => allDevices.find((d) => d.slug === s))
-    .filter((d): d is NonNullable<typeof d> => Boolean(d));
 
   const tabItems = [
     { id: "overview", label: tt.overviewLabel },
     ...concerns.map((c) => ({ id: c.slug, label: c.name })),
     { id: "devices", label: tt.devicesTitle },
-    { id: "other-treatments", label: tt.otherTreatmentsTitle },
   ];
 
   const subLabels = {
-    devices: tt.concernDevicesLabel,
     approach: tt.approachLabel,
     rec: "RECOMMENDED",
     faq: "FAQ",
@@ -53,15 +47,11 @@ export default async function AcnePage({ params }: Props) {
     { id: "overview", label: cat.label },
     ...concerns.flatMap((c) => [
       { id: c.slug, label: c.name },
-      ...(c.deviceSlugs.length > 0
-        ? [{ id: `${c.slug}-devices`, label: subLabels.devices, parent: c.slug }]
-        : []),
       { id: `${c.slug}-approach`, label: subLabels.approach, parent: c.slug },
       { id: `${c.slug}-rec`, label: subLabels.rec, parent: c.slug },
       { id: `${c.slug}-faq`, label: subLabels.faq, parent: c.slug },
     ]),
     { id: "devices", label: tt.devicesTitle },
-    { id: "other-treatments", label: tt.otherTreatmentsTitle },
   ];
 
   const brand = {
@@ -123,56 +113,6 @@ export default async function AcnePage({ params }: Props) {
               </p>
             </Reveal>
 
-            {/* USED DEVICES */}
-            {concern.deviceSlugs.length > 0 && (
-              <div id={`${concern.slug}-devices`} className="mt-14 scroll-mt-40">
-                <Reveal>
-                  <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">
-                    {tt.concernDevicesLabel}
-                  </p>
-                  <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                    {tt.concernDevicesTitle}
-                  </h3>
-                </Reveal>
-                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {concern.deviceSlugs.map((slug, j) => {
-                    const d = allDevices.find((x) => x.slug === slug);
-                    if (!d) return null;
-                    const img = getDeviceImage(slug);
-                    const meta = getDeviceMarketing(slug);
-                    return (
-                      <Reveal key={slug} delay={j * 80}>
-                        <Link
-                          href={`#device-${slug}`}
-                          className="group flex h-full items-center gap-4 rounded-3xl border border-line bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/10"
-                        >
-                          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-sand/60">
-                            {img && (
-                              <Image
-                                src={img}
-                                alt={d.name}
-                                fill
-                                sizes="80px"
-                                className="object-cover object-center"
-                              />
-                            )}
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <p className="text-[9px] font-bold tracking-[0.2em] text-brand">
-                              {meta?.englishName}
-                            </p>
-                            <p className="mt-1 text-base font-bold text-ink">{d.name}</p>
-                            <p className="mt-0.5 text-[11px] text-ink-soft">{d.manufacturer}</p>
-                          </div>
-                          <ArrowUpRightIcon className="h-4 w-4 shrink-0 text-ink-soft transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand" />
-                        </Link>
-                      </Reveal>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
             {/* APPROACH */}
             <Reveal className="mt-14 scroll-mt-40" id={`${concern.slug}-approach`}>
               <div className="grid gap-6 rounded-3xl bg-ink p-8 text-cream lg:grid-cols-[auto_1fr] lg:items-center lg:p-12">
@@ -182,9 +122,10 @@ export default async function AcnePage({ params }: Props) {
                   </p>
                   <h3 className="mt-2 text-xl font-bold lg:text-2xl">{tt.approachTitle}</h3>
                 </div>
-                <p className="text-sm leading-relaxed text-cream/85 lg:text-base">
-                  {concern.approach}
-                </p>
+                <ApproachSteps
+                  text={concern.approach}
+                  className="text-sm leading-relaxed text-cream/85 lg:text-base"
+                />
               </div>
             </Reveal>
 
@@ -247,8 +188,8 @@ export default async function AcnePage({ params }: Props) {
         </section>
       ))}
 
-      {/* DEVICES — full marketing cards */}
-      {usedDevices.length > 0 && (
+      {/* DEVICES — full marketing cards (전체 시술 장비 리스트) */}
+      {allDevices.length > 0 && (
         <section id="devices" className="scroll-mt-40 border-t border-line bg-cream pb-20 pt-6 lg:pb-28 lg:pt-8">
           <div className="mx-auto max-w-7xl px-5 lg:px-8">
             <Reveal>
@@ -258,7 +199,7 @@ export default async function AcnePage({ params }: Props) {
               </h2>
             </Reveal>
             <div className="mt-12 space-y-20 lg:space-y-28">
-              {usedDevices.map((d, i) => {
+              {allDevices.map((d, i) => {
                 const img = getDeviceImage(d.slug);
                 const meta = getDeviceMarketing(d.slug);
                 return (
@@ -315,39 +256,6 @@ export default async function AcnePage({ params }: Props) {
         </section>
       )}
 
-      {/* OTHER TREATMENTS */}
-      <section
-        id="other-treatments"
-        className="scroll-mt-40 border-t border-line bg-sand/40 pb-20 pt-6 lg:pb-28 lg:pt-8"
-      >
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">
-              {tt.otherTreatmentsLabel}
-            </p>
-            <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-              {tt.otherTreatmentsTitle}
-            </h2>
-          </Reveal>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {cat.treatments
-              .filter(
-                (t) =>
-                  !concerns.some(
-                    (c) => c.name === t.name || t.name.includes(c.name.split(" ")[0])
-                  )
-              )
-              .map((t, i) => (
-                <Reveal key={i} delay={i * 60}>
-                  <div className="flex h-full flex-col rounded-3xl border border-line bg-white p-6">
-                    <h3 className="text-lg font-bold">{t.name}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{t.summary}</p>
-                  </div>
-                </Reveal>
-              ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">

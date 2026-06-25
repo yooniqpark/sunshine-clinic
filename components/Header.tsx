@@ -23,13 +23,11 @@ const NAV = [
     href: "/treatments/lifting" as const,
     childrenGroup: "liftingChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/lifting#overview" },
       { key: "ulthera", href: "/treatments/lifting#ulthera-prime" },
       { key: "thermage", href: "/treatments/lifting#thermage-flx" },
       { key: "shurink", href: "/treatments/lifting#shurink-universe" },
       { key: "inmode", href: "/treatments/lifting#inmode" },
       { key: "ellanse", href: "/treatments/lifting#ellanse" },
-      { key: "other", href: "/treatments/lifting#other-treatments" },
     ] as const,
   },
   {
@@ -37,7 +35,6 @@ const NAV = [
     href: "/treatments/anti-aging" as const,
     childrenGroup: "antiAgingChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/anti-aging#overview" },
       { key: "rejuran", href: "/treatments/anti-aging#rejuran" },
       { key: "juvelook", href: "/treatments/anti-aging#juvelook" },
       { key: "rituo", href: "/treatments/anti-aging#rituo" },
@@ -45,7 +42,6 @@ const NAV = [
       { key: "chanel", href: "/treatments/anti-aging#chanel" },
       { key: "botox", href: "/treatments/anti-aging#botox" },
       { key: "filler", href: "/treatments/anti-aging#filler" },
-      { key: "other", href: "/treatments/anti-aging#other-treatments" },
     ] as const,
   },
   {
@@ -53,13 +49,11 @@ const NAV = [
     href: "/treatments/whitening" as const,
     childrenGroup: "whiteningChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/whitening#overview" },
       { key: "melasma", href: "/treatments/whitening#melasma" },
       { key: "freckles", href: "/treatments/whitening#freckles" },
       { key: "resistantPigment", href: "/treatments/whitening#resistant-pigment" },
       { key: "redness", href: "/treatments/whitening#redness" },
       { key: "devices", href: "/treatments/whitening#devices" },
-      { key: "other", href: "/treatments/whitening#other-treatments" },
     ] as const,
   },
   {
@@ -67,14 +61,12 @@ const NAV = [
     href: "/treatments/acne" as const,
     childrenGroup: "acneChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/acne#overview" },
       { key: "acneActive", href: "/treatments/acne#acne-active" },
       { key: "acnePigment", href: "/treatments/acne#acne-pigment" },
       { key: "acneScar", href: "/treatments/acne#acne-scar" },
       { key: "pores", href: "/treatments/acne#pores" },
       { key: "generalScar", href: "/treatments/acne#general-scar" },
       { key: "devices", href: "/treatments/acne#devices" },
-      { key: "other", href: "/treatments/acne#other-treatments" },
     ] as const,
   },
   {
@@ -82,12 +74,10 @@ const NAV = [
     href: "/treatments/skin-disease" as const,
     childrenGroup: "skinDiseaseChildren" as const,
     children: [
-      { key: "overview", href: "/treatments/skin-disease#overview" },
       { key: "athletesFoot", href: "/treatments/skin-disease#athletes-foot" },
       { key: "psoriasis", href: "/treatments/skin-disease#psoriasis" },
-      { key: "atopy", href: "/treatments/skin-disease#atopy" },
+      { key: "herpes", href: "/treatments/skin-disease#herpes" },
       { key: "burns", href: "/treatments/skin-disease#burns" },
-      { key: "hairLoss", href: "/treatments/skin-disease#hair-loss" },
     ] as const,
   },
   {
@@ -226,24 +216,36 @@ export function Header() {
                 return (
                   <div key={item.key} className="border-b border-line/60 last:border-0">
                     {children ? (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setExpanded((e) => (e === item.key ? null : item.key))
-                        }
-                        className={`flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-[15px] font-semibold transition ${
+                      <div
+                        className={`flex w-full items-center rounded-xl text-[15px] font-semibold transition ${
                           isExpanded
                             ? "bg-brand/20 text-brand-dark ring-1 ring-brand/30"
-                            : "text-ink hover:text-brand-dark active:bg-brand/10"
+                            : "text-ink"
                         }`}
                       >
-                        {t(item.key)}
-                        <ChevronDownIcon
-                          className={`h-5 w-5 transition ${
-                            isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
-                          }`}
-                        />
-                      </button>
+                        <Link
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="flex-1 rounded-xl px-3 py-3.5 text-left transition hover:text-brand-dark active:bg-brand/10"
+                        >
+                          {t(item.key)}
+                        </Link>
+                        <button
+                          type="button"
+                          aria-label={`${t(item.key)} 하위 메뉴 펼치기`}
+                          aria-expanded={isExpanded}
+                          onClick={() =>
+                            setExpanded((e) => (e === item.key ? null : item.key))
+                          }
+                          className="grid h-12 w-12 shrink-0 place-items-center rounded-xl active:bg-brand/10"
+                        >
+                          <ChevronDownIcon
+                            className={`h-5 w-5 transition ${
+                              isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
+                            }`}
+                          />
+                        </button>
+                      </div>
                     ) : (
                       <Link
                         href={item.href}

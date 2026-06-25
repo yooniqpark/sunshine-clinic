@@ -5,7 +5,7 @@
   },
   "nav": {
     "about": "クリニック紹介",
-    "lifting": "リフティング・アンチエイジング",
+    "lifting": "リフティング",
     "antiAging": "アンチエイジング",
     "whitening": "ホワイトニング・赤み",
     "acne": "ニキビ・ニキビ跡・毛穴",
@@ -18,51 +18,41 @@
       "location": "診療案内・アクセス"
     },
     "liftingChildren": {
-      "overview": "Overview",
       "ulthera": "Ulthera Prime",
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
-      "ellanse": "Ellanse",
-      "other": "その他の施術"
+      "ellanse": "Ellanse"
     },
     "antiAgingChildren": {
-      "overview": "Overview",
       "rejuran": "Rejuran",
       "juvelook": "Juvelook",
       "rituo": "Rituo",
       "exosome": "Exosome",
       "chanel": "シャネル注射",
       "botox": "Botox",
-      "filler": "フィラー",
-      "other": "その他の施術"
+      "filler": "フィラー"
     },
     "whiteningChildren": {
-      "overview": "Overview",
       "melasma": "肝斑",
       "freckles": "そばかす · 黒子 · 老人性色素斑",
       "resistantPigment": "難治性色素",
       "redness": "赤ら顔 · 毛細血管拡張",
-      "devices": "使用機器の紹介",
-      "other": "その他の施術"
+      "devices": "使用機器の紹介"
     },
     "acneChildren": {
-      "overview": "Overview",
       "acneActive": "思春期 · 成人ニキビ",
       "acnePigment": "ニキビ後の色素沈着",
       "acneScar": "ニキビ跡",
       "pores": "毛穴",
       "generalScar": "一般的な傷跡",
-      "devices": "使用機器の紹介",
-      "other": "その他の施術"
+      "devices": "使用機器の紹介"
     },
     "skinDiseaseChildren": {
-      "overview": "Overview",
       "athletesFoot": "水虫",
-      "psoriasis": "乾癬 · 白癬",
-      "atopy": "アトピー",
-      "burns": "やけど",
-      "hairLoss": "脱毛症"
+      "psoriasis": "乾癬 · アトピー",
+      "herpes": "帯状疱疹 · 単純ヘルペス",
+      "burns": "やけど"
     },
     "communityChildren": {
       "events": "イベント",
