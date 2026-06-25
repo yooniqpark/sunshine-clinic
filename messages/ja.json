@@ -6,7 +6,7 @@
   "nav": {
     "about": "クリニック紹介",
     "lifting": "リフティング・アンチエイジング",
-    "fillerSkinbooster": "フィラー · スキンブースター",
+    "antiAging": "アンチエイジング",
     "whitening": "ホワイトニング・赤み",
     "acne": "ニキビ・ニキビ跡・毛穴",
     "skinDisease": "皮膚疾患",
@@ -23,16 +23,18 @@
       "thermage": "Thermage FLX",
       "shurink": "Shurink Universe",
       "inmode": "InMode",
+      "ellanse": "Ellanse",
       "other": "その他の施術"
     },
-    "fillerSkinboosterChildren": {
+    "antiAgingChildren": {
       "overview": "Overview",
-      "filler": "フィラー",
-      "skinbooster": "スキンブースター",
-      "skinAir": "スキンエア",
       "rejuran": "Rejuran",
       "juvelook": "Juvelook",
-      "ellanse": "Ellanse",
+      "rituo": "Rituo",
+      "exosome": "Exosome",
+      "chanel": "シャネル注射",
+      "botox": "Botox",
+      "filler": "フィラー",
       "other": "その他の施術"
     },
     "whiteningChildren": {
@@ -40,7 +42,6 @@
       "melasma": "肝斑",
       "freckles": "そばかす · 黒子 · 老人性色素斑",
       "resistantPigment": "難治性色素",
-      "otaCafe": "太田母斑 · カフェオレ斑",
       "redness": "赤ら顔 · 毛細血管拡張",
       "devices": "使用機器の紹介",
       "other": "その他の施術"
@@ -51,6 +52,7 @@
       "acnePigment": "ニキビ後の色素沈着",
       "acneScar": "ニキビ跡",
       "pores": "毛穴",
+      "generalScar": "一般的な傷跡",
       "devices": "使用機器の紹介",
       "other": "その他の施術"
     },

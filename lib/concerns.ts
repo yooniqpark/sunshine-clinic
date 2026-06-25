@@ -6,7 +6,7 @@ import type { Locale } from "@/lib/site-content";
 
 export type Concern = {
   slug: string;
-  category: "lifting" | "whitening" | "acne" | "skin-disease" | "filler-skinbooster";
+  category: "lifting" | "whitening" | "acne" | "skin-disease" | "anti-aging";
   name: string;
   tagline: string;
   intro: string;
@@ -25,10 +25,10 @@ const BY_LOCALE: Record<Locale, Record<string, Concern>> = {
 
 // concern ordering per category — tab/section order
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
-  whitening: ["melasma", "freckles", "resistant-pigment", "ota-cafe", "redness"],
-  acne: ["acne-active", "acne-pigment", "acne-scar", "pores"],
+  whitening: ["melasma", "freckles", "resistant-pigment", "redness"],
+  acne: ["acne-active", "acne-pigment", "acne-scar", "pores", "general-scar"],
   "skin-disease": ["athletes-foot", "psoriasis", "atopy", "burns", "hair-loss"],
-  "filler-skinbooster": ["filler", "skinbooster", "skin-air", "rejuran", "juvelook", "ellanse"],
+  "anti-aging": ["rejuran", "juvelook", "rituo", "exosome", "chanel", "botox", "filler"],
 };
 
 export function getConcernsByCategory(
@@ -37,12 +37,14 @@ export function getConcernsByCategory(
 ): Concern[] {
   const all = BY_LOCALE[locale] ?? BY_LOCALE.ko;
   const order = ORDER_BY_CATEGORY[category] ?? [];
-  return order.map((slug) => all[slug]).filter(Boolean);
+  // fall back to KO when a concern has not been translated yet, so the
+  // section still renders instead of silently disappearing.
+  return order.map((slug) => all[slug] ?? BY_LOCALE.ko[slug]).filter(Boolean);
 }
 
 export function getConcern(locale: Locale, slug: string): Concern | null {
   const all = BY_LOCALE[locale] ?? BY_LOCALE.ko;
-  return all[slug] ?? null;
+  return all[slug] ?? BY_LOCALE.ko[slug] ?? null;
 }
 
 // collect all device slugs referenced by a category's concerns (deduped, order-preserved)
