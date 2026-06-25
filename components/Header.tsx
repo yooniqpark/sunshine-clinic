@@ -216,24 +216,36 @@ export function Header() {
                 return (
                   <div key={item.key} className="border-b border-line/60 last:border-0">
                     {children ? (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setExpanded((e) => (e === item.key ? null : item.key))
-                        }
-                        className={`flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-[15px] font-semibold transition ${
+                      <div
+                        className={`flex w-full items-center rounded-xl text-[15px] font-semibold transition ${
                           isExpanded
                             ? "bg-brand/20 text-brand-dark ring-1 ring-brand/30"
-                            : "text-ink hover:text-brand-dark active:bg-brand/10"
+                            : "text-ink"
                         }`}
                       >
-                        {t(item.key)}
-                        <ChevronDownIcon
-                          className={`h-5 w-5 transition ${
-                            isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
-                          }`}
-                        />
-                      </button>
+                        <Link
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="flex-1 rounded-xl px-3 py-3.5 text-left transition hover:text-brand-dark active:bg-brand/10"
+                        >
+                          {t(item.key)}
+                        </Link>
+                        <button
+                          type="button"
+                          aria-label={`${t(item.key)} 하위 메뉴 펼치기`}
+                          aria-expanded={isExpanded}
+                          onClick={() =>
+                            setExpanded((e) => (e === item.key ? null : item.key))
+                          }
+                          className="grid h-12 w-12 shrink-0 place-items-center rounded-xl active:bg-brand/10"
+                        >
+                          <ChevronDownIcon
+                            className={`h-5 w-5 transition ${
+                              isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
+                            }`}
+                          />
+                        </button>
+                      </div>
                     ) : (
                       <Link
                         href={item.href}
