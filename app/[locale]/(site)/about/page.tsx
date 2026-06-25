@@ -128,42 +128,17 @@ export default async function AboutPage({ params }: Props) {
 
             <Reveal delay={120}>
               <div className="space-y-8">
-                <div>
-                  <p className="text-xs font-semibold tracking-[0.22em] text-brand">MESSAGE</p>
-                  <p className="mt-3 text-base leading-relaxed text-ink-soft">
-                    {a.doctorMessage}
-                  </p>
-                  <p className="mt-3 text-sm font-semibold text-ink">
-                    — {doc.name} {content.clinic.doctorTitle}
-                  </p>
+                <div className="rounded-2xl border border-line bg-white p-6">
+                  <p className="text-xs font-semibold tracking-[0.2em] text-brand">CAREER</p>
+                  <ul className="mt-4 space-y-2 text-sm text-ink-soft">
+                    {a.credentials.map((c, i) => (
+                      <li key={i} className="flex gap-2">
+                        <span className="text-brand">·</span>
+                        <span>{c}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="rounded-2xl border border-line bg-white p-6">
-                    <p className="text-xs font-semibold tracking-[0.2em] text-brand">CAREER</p>
-                    <ul className="mt-4 space-y-2 text-sm text-ink-soft">
-                      {a.credentials.map((c, i) => (
-                        <li key={i} className="flex gap-2">
-                          <span className="text-brand">·</span>
-                          <span>{c}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="rounded-2xl border border-line bg-white p-6">
-                    <p className="text-xs font-semibold tracking-[0.2em] text-brand">FOCUS</p>
-                    <ul className="mt-4 space-y-2 text-sm text-ink-soft">
-                      {a.focusItems.map((f, i) => (
-                        <li key={i} className="flex gap-2">
-                          <span className="text-brand">·</span>
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-                <p className="rounded-2xl bg-white/70 px-5 py-3 text-xs leading-relaxed text-ink-soft">
-                  {a.credentialsNote}
-                </p>
               </div>
             </Reveal>
           </div>

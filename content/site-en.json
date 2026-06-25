@@ -93,23 +93,17 @@
     "philosophyBody2": "We prioritize necessary treatments over excessive care, verified results over flashy advertisements, and healthy changes over temporary improvements. We aim to be your personal skin doctor who restores the inherent health and beauty of the skin, gifting greater confidence and happiness to our clients' daily lives.",
     "directorLabel": "DIRECTOR",
     "directorTitle": "Director Introduction",
-    "doctorMessage": "Hello, this is Sunshine Dermatology Clinic. Everyone has skin concerns, but the solutions should be different for each individual. Based on years of rich clinical experience in the field of dermatology and aesthetics, I promise to provide delicate and honest care tailored to each patient's skin condition. I will be a warm and reliable personal skin doctor who adds brilliant confidence to your daily life.",
     "credentialsLabel": "Credentials",
     "credentials": [
-      "Graduated from OO University College of Medicine",
-      "Completed internship at OO University Hospital",
-      "Regular member of the Korean Dermatological Association",
-      "Regular member of the Korean Society for Aesthetic Plastic Surgery and Laser Medicine",
-      "Former Director of OO Dermatology Clinic"
+      "Graduated, Keimyung University College of Medicine",
+      "Completed residency, National Medical Center",
+      "Member, Korean Academy of Aesthetic Plastic Laser Medicine",
+      "Member, Korean Academy of Laser Dermatology and Trichology",
+      "Former Director, Apgujeong Y&T Plastic Surgery",
+      "Former Director, A-Top Plastic Surgery",
+      "Former Director, Prima Dermatology",
+      "Former Director, The One Clinic"
     ],
-    "focusLabel": "Main Treatment Areas",
-    "focusItems": [
-      "Lifting & Anti-Aging (Ulthera Prime · Thermage FLX · Shurink Universe)",
-      "Pigmentation & Redness Laser Toning",
-      "Acne & Scar Reconstruction",
-      "Botox · Filler · Skin Booster"
-    ],
-    "credentialsNote": "※ The credentials are example data and will be replaced with the actual credentials of the director during operation.",
     "tourLabel": "TOUR",
     "tourTitle": "Take a Tour of Our Clinic",
     "tour": [

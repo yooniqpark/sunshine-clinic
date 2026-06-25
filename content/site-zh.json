@@ -93,23 +93,17 @@
     "philosophyBody2": "我们追求必要的诊疗而非过度治疗，追求经过验证的结果而非华丽的广告，追求健康的变化而非暂时的改善。希望成为恢复皮肤本质健康与美丽的主治医师，为客户的日常生活带来更大的自信与幸福。",
     "directorLabel": "DIRECTOR",
     "directorTitle": "院长介绍",
-    "doctorMessage": "您好，欢迎来到Sunshine 皮肤科。每个人都有皮肤问题，但解决方案应因人而异。基于多年的皮肤和美容领域的丰富临床经验，我承诺为每位患者提供细致而诚实的诊疗。我将成为您温暖而可靠的主治医师，为您的日常生活增添耀眼的自信。",
     "credentialsLabel": "履历",
     "credentials": [
-      "OO大学医学院毕业",
-      "OO大学医院实习完成",
-      "韩国皮肤科学会正式会员",
-      "韩国美容整形激光医学会正式会员",
-      "前OO皮肤科诊疗院长"
+      "毕业于启明大学医学院",
+      "国立中央医疗院 住院医师培训结业",
+      "大韩美容整形激光医学会 正会员",
+      "大韩激光皮肤毛发学会 正会员",
+      "前 狎鸥亭Y&T整形外科 院长",
+      "前 A-Top整形外科 院长",
+      "前 Prima皮肤科 院长",
+      "前 The One医院 院长"
     ],
-    "focusLabel": "主要诊疗领域",
-    "focusItems": [
-      "提升 · 抗衰老 (Ulthera Prime · Thermage FLX · Shurink Universe)",
-      "色素·红斑激光调理",
-      "痤疮·疤痕重建",
-      "Botox · Filler · Skin Booster"
-    ],
-    "credentialsNote": "※ 履历为示例数据，实际运营时将替换为院长本人的履历。",
     "tourLabel": "TOUR",
     "tourTitle": "医院参观",
     "tour": [
