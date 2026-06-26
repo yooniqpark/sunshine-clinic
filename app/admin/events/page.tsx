@@ -51,13 +51,15 @@ export default async function AdminEventsList() {
                       className="relative h-14 w-20 overflow-hidden rounded-md"
                       style={{ backgroundColor: e.bgColor }}
                     >
-                      <Image
-                        src={e.photoUrl}
-                        alt=""
-                        fill
-                        sizes="80px"
-                        className="object-cover object-top"
-                      />
+                      {e.photoUrl && (
+                        <Image
+                          src={e.photoUrl}
+                          alt=""
+                          fill
+                          sizes="80px"
+                          className="object-cover object-top"
+                        />
+                      )}
                     </div>
                   </td>
                   <td className="py-3 pr-3">

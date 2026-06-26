@@ -111,18 +111,23 @@ export default async function Home({
             <Reveal key={c.slug} delay={i * 80}>
               <Link
                 href={`/${locale}/treatments/${c.slug}`}
-                className="group relative block aspect-[3/4] overflow-hidden rounded-3xl"
+                className="group relative block aspect-[3/4] overflow-hidden rounded-3xl bg-gradient-to-br from-brand/80 via-brand to-brand-dark transition-transform duration-500 hover:-translate-y-1"
               >
-                <Image
-                  src={c.image}
-                  alt={c.label}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-110"
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-brand-soft/40 blur-3xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/25 to-transparent" />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-cream/20 blur-3xl"
+                />
+                <div className="absolute inset-x-0 top-0 p-6">
+                  <p className="text-[10px] font-semibold tracking-[0.22em] text-cream/85">
+                    0{i + 1}
+                  </p>
+                </div>
                 <div className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="text-[11px] font-semibold tracking-[0.18em] text-brand-soft">
+                  <p className="text-[11px] font-semibold tracking-[0.18em] text-cream/80">
                     {c.eyebrow}
                   </p>
                   <h3 className="mt-2 text-xl font-bold text-cream lg:text-2xl">{c.label}</h3>
@@ -173,13 +178,15 @@ export default async function Home({
                   className="group relative block aspect-[3/4] overflow-hidden rounded-3xl"
                   style={{ backgroundColor: e.bgColor }}
                 >
-                  <Image
-                    src={e.photo}
-                    alt={e.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 33vw"
-                    className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
+                  {e.photo && (
+                    <Image
+                      src={e.photo}
+                      alt={e.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                  )}
                   {/* fade the photo into the matching background color */}
                   <div
                     className="absolute inset-x-0 bottom-0 h-3/5"
@@ -206,17 +213,17 @@ export default async function Home({
       </section>
 
       {/* CONCEPT BAND */}
-      <section className="relative h-[460px] overflow-hidden lg:h-[560px]">
-        <Image
-          src="/models/concept.png"
-          alt={t.conceptImageAlt}
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
+      <section className="relative overflow-hidden bg-gradient-to-br from-cream via-blush/40 to-sand">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -right-24 -top-32 h-96 w-96 rounded-full bg-brand-soft/40 blur-3xl"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/70 to-transparent" />
-        <div className="relative mx-auto flex h-full max-w-7xl items-center px-5 lg:px-8">
-          <Reveal className="max-w-xl">
+        <span
+          aria-hidden
+          className="pointer-events-none absolute -left-32 -bottom-32 h-[28rem] w-[28rem] rounded-full bg-brand/20 blur-3xl"
+        />
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start px-5 py-20 lg:px-8 lg:py-28">
+          <Reveal className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.22em] text-brand">{t.conceptEyebrow}</p>
             <h2 className="mt-4 text-balance text-2xl font-bold leading-[1.2] tracking-tight text-ink sm:text-3xl lg:text-4xl">
               {t.conceptHeadlineL1}

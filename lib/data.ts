@@ -118,7 +118,7 @@ export const categories: Record<string, Category> = {
     headline: "시간을 거스르는\n탄력 솔루션",
     description:
       "처짐과 주름의 원인을 진단하고, 피부층에 맞는 장비를 조합해 자연스러운 탄력을 디자인합니다.",
-    image: "/models/lifting.png",
+    image: "",
     treatments: [
       { name: "울쎄라 프라임", summary: "초음파(HIFU)로 SMAS층까지 자극해 근본적인 리프팅 효과.", tags: ["HIFU", "리프팅"] },
       { name: "써마지 FLX", summary: "고주파(RF)로 콜라겐을 재배열, 탄탄한 피부결을 완성.", tags: ["고주파", "탄력"] },
@@ -150,7 +150,7 @@ export const categories: Record<string, Category> = {
     headline: "채우고 되살리는\n안티에이징 솔루션",
     description:
       "리쥬란·쥬베룩·리투오·엑소좀 등 재생·볼륨 부스터와 보톡스·필러로, 꺼진 볼륨과 무너진 탄력을 속에서부터 되살립니다.",
-    image: "/models/concept.png",
+    image: "",
     treatments: [
       { name: "리쥬란", summary: "연어 PN 성분으로 피부 장벽과 진피 재생을 유도.", tags: ["재생"] },
       { name: "쥬베룩 · 리투오", summary: "콜라겐 생성을 유도하는 재생·볼륨 부스터.", tags: ["재생", "볼륨"] },
@@ -165,7 +165,7 @@ export const categories: Record<string, Category> = {
     headline: "맑고 균일한\n톤을 되찾다",
     description:
       "기미·색소의 깊이와 종류를 정밀 분석하고, 레이저 조합으로 재발을 줄이는 맞춤 색소 치료를 제공합니다.",
-    image: "/models/whitening.png",
+    image: "",
     treatments: [
       { name: "기미 · 잡티", summary: "표피·진피 색소를 단계별로 분해하는 맞춤 토닝.", tags: ["색소"] },
       { name: "주근깨 · 흑자 · 검버섯", summary: "병변 깊이에 맞춘 레이저로 깔끔하게 제거.", tags: ["색소"] },
@@ -185,7 +185,7 @@ export const categories: Record<string, Category> = {
     headline: "트러블의\n악순환을 끊다",
     description:
       "원인 진단부터 흉터·모공 재건까지, 청소년과 성인 각각의 피부 상태에 맞춘 단계별 프로그램.",
-    image: "/models/acne.png",
+    image: "",
     treatments: [
       { name: "청소년 · 성인 여드름", summary: "피지·염증·호르몬 요인을 함께 관리하는 복합 프로그램.", tags: ["여드름"] },
       { name: "여드름 색소침착", summary: "염증 후 남은 붉은기·갈색 색소를 단계적으로 개선.", tags: ["색소"] },
@@ -204,7 +204,7 @@ export const categories: Record<string, Category> = {
     headline: "전문의가 진료하는\n피부 건강",
     description:
       "미용 시술에 앞서, 피부과 전문의가 질환의 원인을 진단하고 근거 중심으로 치료합니다.",
-    image: "/models/skin-disease.png",
+    image: "",
     treatments: [
       { name: "무좀", summary: "곰팡이 감염을 정확히 진단하고 재발을 줄이는 치료." },
       { name: "건선 · 백선", summary: "만성 염증성 질환의 장기 관리 플랜." },
@@ -249,7 +249,7 @@ export const events: EventItem[] = [
     period: "~ 2026.05.31",
     desc: "울쎄라 + 써마지를 함께, 탄력의 깊이를 더하는 한정 프로그램",
     image: "/events/event-1.svg",
-    photo: "/models/lifting.png",
+    photo: "",
     bgColor: "#dfe4ed",
     body: [
       "처짐과 주름이 신경 쓰이는 분들을 위해, 대표 리프팅 장비인 울쎄라와 써마지를 함께 받는 5월 한정 패키지를 준비했습니다.",
@@ -264,7 +264,7 @@ export const events: EventItem[] = [
     period: "상시 진행",
     desc: "피부과 전문의가 1:1로 분석하고 맞춤 플랜을 제안해 드립니다",
     image: "/events/event-2.svg",
-    photo: "/models/concept.png",
+    photo: "",
     bgColor: "#ede7e2",
     body: [
       "처음 방문하시는 분들을 위한 1:1 피부 진단 프로그램입니다.",
@@ -279,7 +279,7 @@ export const events: EventItem[] = [
     period: "~ 2026.06.15",
     desc: "포토나 스타워커 토닝으로 맑고 균일한 톤을 되찾는 시간",
     image: "/events/event-3.svg",
-    photo: "/models/whitening.png",
+    photo: "",
     bgColor: "#a9bed2",
     body: [
       "기미·잡티로 칙칙해진 피부톤을 위한 색소 집중 케어 프로그램입니다.",

@@ -106,7 +106,7 @@ export async function createEvent(formData: FormData) {
   const slug = slugInput || slugify(title);
 
   const photoFile = formData.get("photo") as File | null;
-  const photoUrl = (await savePhoto(photoFile)) ?? "/models/lifting.png";
+  const photoUrl = (await savePhoto(photoFile)) ?? "";
 
   const bannerFile = formData.get("banner") as File | null;
   const bannerUrl = await savePhoto(bannerFile);
