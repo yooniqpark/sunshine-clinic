@@ -110,15 +110,20 @@ export default async function EventPreviewPage({
                 </h2>
                 <p className="mt-3 text-sm text-ink/75">{e.desc}</p>
               </div>
-              <div className="relative h-[85%] overflow-hidden rounded-2xl">
-                <Image
-                  src={e.photoUrl}
-                  alt=""
-                  fill
-                  sizes="50vw"
-                  className="object-cover object-top"
-                  style={{ objectPosition: "center 18%" }}
-                />
+              <div
+                className="relative h-[85%] overflow-hidden rounded-2xl"
+                style={{ backgroundColor: e.bgColor }}
+              >
+                {e.photoUrl && (
+                  <Image
+                    src={e.photoUrl}
+                    alt=""
+                    fill
+                    sizes="50vw"
+                    className="object-cover object-top"
+                    style={{ objectPosition: "center 18%" }}
+                  />
+                )}
               </div>
             </div>
           )}
@@ -137,13 +142,15 @@ export default async function EventPreviewPage({
               }`}
               style={{ backgroundColor: e.bgColor }}
             >
-              <Image
-                src={e.photoUrl}
-                alt=""
-                fill
-                sizes="33vw"
-                className="object-cover object-top"
-              />
+              {e.photoUrl && (
+                <Image
+                  src={e.photoUrl}
+                  alt=""
+                  fill
+                  sizes="33vw"
+                  className="object-cover object-top"
+                />
+              )}
               <div
                 className="absolute inset-x-0 bottom-0 h-3/5"
                 style={{

@@ -48,14 +48,21 @@ export default async function EventsPage({ params }: Props) {
           {events.map((e, i) => (
             <Reveal key={e.slug} delay={i * 80}>
               <article className="grid overflow-hidden rounded-[2rem] border border-line bg-white lg:grid-cols-2">
-                <div className="relative aspect-[16/10] lg:aspect-auto">
-                  <Image
-                    src={e.photo}
-                    alt={e.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-top"
-                  />
+                <div
+                  className="relative aspect-[16/10] lg:aspect-auto"
+                  style={{ backgroundColor: e.bgColor }}
+                >
+                  {e.photo ? (
+                    <Image
+                      src={e.photo}
+                      alt={e.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover object-top"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-brand-soft/30 via-blush/40 to-sand" />
+                  )}
                 </div>
                 <div className="flex flex-col justify-center p-7 lg:p-10">
                   <div className="flex items-center gap-3">
