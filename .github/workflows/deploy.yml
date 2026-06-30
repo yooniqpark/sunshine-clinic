@@ -120,10 +120,10 @@ jobs:
       - name: Smoke test
         run: |
           for i in 1 2 3 4 5; do
-            code=$(curl -sS -m 10 -o /dev/null -w "%{http_code}" http://${{ secrets.LIGHTSAIL_HOST }}/ko)
+            code=$(curl -sSL -m 15 -o /dev/null -w "%{http_code}" https://mysunshineclinic.com/)
             echo "Attempt $i: HTTP $code"
-            if [ "$code" = "200" ] || [ "$code" = "307" ]; then exit 0; fi
+            if [ "$code" = "200" ]; then exit 0; fi
             sleep 3
           done
-          echo "Site did not respond with 200/307 — check pm2 logs"
+          echo "Site did not respond with 200 — check pm2 logs"
           exit 1
