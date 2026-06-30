@@ -93,7 +93,7 @@
     "headerSubtitle": "Ask anything — we'll help.",
     "greeting": "Hi! I'm the Sunshine Dermatology assistant ☀️ Pick a question below or type your own.",
     "fallback": "I'm not sure I can answer that precisely. Please contact us by phone or KakaoTalk for detailed help.",
-    "disclaimer": "Booking after chat: your conversation is shared for a faster reply.\nVisit the clinic for accurate diagnosis.",
+    "disclaimer": "Use the menu above to book or contact us.\nFor accurate diagnosis, please visit the clinic.",
     "attachTranscript": "Booking input mode",
     "attachTranscriptHint": "Your chatbot conversation will be attached to the booking message.",
     "modeUseChat": "Use chat",
