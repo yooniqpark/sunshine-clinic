@@ -5,10 +5,9 @@ import { Reveal } from "@/components/Reveal";
 import { ApproachSteps } from "@/components/ApproachSteps";
 import { ScrollSpyTabs } from "@/components/ScrollSpyTabs";
 import { RightRail, type RailSection } from "@/components/RightRail";
-import { DeviceMarketingCard } from "@/components/DeviceMarketingCard";
 import { ArrowIcon, ArrowUpRightIcon, CalendarIcon } from "@/components/icons";
 import { clinic } from "@/lib/data";
-import { getConcernsByCategory, getCategoryDeviceSlugs } from "@/lib/concerns";
+import { getConcernsByCategory } from "@/lib/concerns";
 import {
   getDevicesByCategory,
   getDeviceImage,
@@ -32,21 +31,15 @@ export default async function SkinDiseasePage({ params }: Props) {
   const common = content.common;
   const concerns = getConcernsByCategory(locale, "skin-disease");
   const allDevices = getDevicesByCategory(locale, "skin-disease");
-  const usedDeviceSlugs = getCategoryDeviceSlugs(locale, "skin-disease");
-  const usedDevices = usedDeviceSlugs
-    .map((s) => allDevices.find((d) => d.slug === s))
-    .filter((d): d is NonNullable<typeof d> => Boolean(d));
 
   const tabItems = [
     { id: "overview", label: tt.overviewLabel },
     ...concerns.map((c) => ({ id: c.slug, label: c.name })),
-    { id: "devices", label: tt.devicesTitle },
   ];
 
   const subLabels = {
     devices: tt.concernDevicesLabel,
     approach: tt.approachLabel,
-    rec: "RECOMMENDED",
     faq: "FAQ",
   };
   const railSections: RailSection[] = [
@@ -57,17 +50,9 @@ export default async function SkinDiseasePage({ params }: Props) {
         ? [{ id: `${c.slug}-devices`, label: subLabels.devices, parent: c.slug }]
         : []),
       { id: `${c.slug}-approach`, label: subLabels.approach, parent: c.slug },
-      { id: `${c.slug}-rec`, label: subLabels.rec, parent: c.slug },
       { id: `${c.slug}-faq`, label: subLabels.faq, parent: c.slug },
     ]),
-    { id: "devices", label: tt.devicesTitle },
   ];
-
-  const brand = {
-    tagline: content.clinic.marketingTagline,
-    clinicName: content.clinic.clinicNameFull,
-    englishName: "SUNSHINE DERMATOLOGY CLINIC",
-  };
 
   return (
     <>
@@ -188,43 +173,6 @@ export default async function SkinDiseasePage({ params }: Props) {
               </div>
             </Reveal>
 
-            {/* RECOMMENDED FOR */}
-            <div
-              id={`${concern.slug}-rec`}
-              className="mt-14 grid gap-10 scroll-mt-40 lg:grid-cols-[1fr_1.2fr] lg:items-start"
-            >
-              <Reveal>
-                <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">
-                  RECOMMENDED FOR
-                </p>
-                <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                  {tt.recommendedTitle}
-                </h3>
-                <a
-                  href={clinic.bookingHref}
-                  className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
-                >
-                  <CalendarIcon className="h-4 w-4" />
-                  {common.bookConsultation}
-                </a>
-              </Reveal>
-              <Reveal delay={120}>
-                <ul className="grid gap-3 sm:grid-cols-2">
-                  {concern.recommendedFor.map((r, j) => (
-                    <li
-                      key={j}
-                      className="flex items-start gap-3 rounded-2xl border border-line bg-white p-4"
-                    >
-                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand/10 text-xs font-bold text-brand">
-                        {j + 1}
-                      </span>
-                      <span className="text-sm leading-relaxed text-ink">{r}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </div>
-
             {/* FAQ */}
             <Reveal className="mt-14 scroll-mt-40" id={`${concern.slug}-faq`}>
               <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">FAQ</p>
@@ -246,75 +194,6 @@ export default async function SkinDiseasePage({ params }: Props) {
           </div>
         </section>
       ))}
-
-      {/* DEVICES — full marketing cards */}
-      {usedDevices.length > 0 && (
-        <section id="devices" className="scroll-mt-40 border-t border-line bg-cream pb-20 pt-6 lg:pb-28 lg:pt-8">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <Reveal>
-              <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">DEVICES</p>
-              <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                {tt.devicesTitle}
-              </h2>
-            </Reveal>
-            <div className="mt-12 space-y-20 lg:space-y-28">
-              {usedDevices.map((d, i) => {
-                const img = getDeviceImage(d.slug);
-                const meta = getDeviceMarketing(d.slug);
-                return (
-                  <div
-                    key={d.slug}
-                    id={`device-${d.slug}`}
-                    className="scroll-mt-40 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center"
-                  >
-                    <Reveal>
-                      <p className="text-xs font-semibold tracking-[0.2em] text-brand">
-                        0{i + 1} · {d.manufacturer.toUpperCase()}
-                      </p>
-                      <h3 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                        {d.name}
-                      </h3>
-                      <p className="mt-3 text-lg leading-snug text-ink-soft">{d.tagline}</p>
-                      <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft">
-                        {d.intro}
-                      </p>
-                      <div className="mt-7 flex flex-wrap gap-2">
-                        {d.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-full border border-line bg-white px-3 py-1.5 text-xs font-semibold text-ink"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </Reveal>
-                    <Reveal delay={120}>
-                      {img && meta ? (
-                        <DeviceMarketingCard
-                          variant="detail"
-                          device={{
-                            englishName: meta.englishName,
-                            localizedName: d.name,
-                            description: d.tagline,
-                            image: img,
-                            features: d.features.slice(0, 4).map((f, idx) => ({
-                              title: meta.featureKeywords[idx] ?? f.title,
-                              body: f.body,
-                            })),
-                          }}
-                          brand={brand}
-                        />
-                      ) : null}
-                    </Reveal>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
 
       {/* CTA */}
       <section className="mx-auto max-w-7xl px-5 py-16 lg:px-8 lg:py-20">

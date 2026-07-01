@@ -13,6 +13,7 @@ const NAV = [
     childrenGroup: "aboutChildren" as const,
     children: [
       { key: "vision", href: "/about#vision" },
+      { key: "devices", href: "/about#devices" },
       { key: "doctors", href: "/about#doctors" },
       { key: "tour", href: "/about#tour" },
       { key: "location", href: "/about#location" },
@@ -53,7 +54,6 @@ const NAV = [
       { key: "freckles", href: "/treatments/whitening#freckles" },
       { key: "resistantPigment", href: "/treatments/whitening#resistant-pigment" },
       { key: "redness", href: "/treatments/whitening#redness" },
-      { key: "devices", href: "/treatments/whitening#devices" },
     ] as const,
   },
   {
@@ -66,7 +66,6 @@ const NAV = [
       { key: "acneScar", href: "/treatments/acne#acne-scar" },
       { key: "pores", href: "/treatments/acne#pores" },
       { key: "generalScar", href: "/treatments/acne#general-scar" },
-      { key: "devices", href: "/treatments/acne#devices" },
     ] as const,
   },
   {
@@ -144,7 +143,7 @@ export function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[13px] font-medium transition lg:px-3.5 lg:text-sm ${
+                  className={`flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-[15px] font-medium transition lg:px-3.5 lg:text-base ${
                     active ? "bg-brand/15 text-brand-dark" : "text-ink/80"
                   }`}
                 >
@@ -168,7 +167,7 @@ export function Header() {
                         <Link
                           key={c.key}
                           href={c.href}
-                          className="block rounded-xl px-3 py-2 text-sm text-ink-soft transition hover:bg-brand/10 hover:text-brand-dark"
+                          className="block rounded-xl px-3 py-2 text-base text-ink-soft transition hover:bg-brand/10 hover:text-brand-dark"
                         >
                           {t(`${item.childrenGroup}.${c.key}`)}
                         </Link>
@@ -217,7 +216,7 @@ export function Header() {
                   <div key={item.key} className="border-b border-line/60 last:border-0">
                     {children ? (
                       <div
-                        className={`flex w-full items-center rounded-xl text-[15px] font-semibold transition ${
+                        className={`flex w-full items-center rounded-xl text-[17px] font-semibold transition ${
                           isExpanded
                             ? "bg-brand/20 text-brand-dark ring-1 ring-brand/30"
                             : "text-ink"
@@ -250,7 +249,7 @@ export function Header() {
                       <Link
                         href={item.href}
                         onClick={() => setOpen(false)}
-                        className="flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-[15px] font-semibold text-ink transition hover:text-brand-dark active:bg-brand/10"
+                        className="flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-[17px] font-semibold text-ink transition hover:text-brand-dark active:bg-brand/10"
                       >
                         {t(item.key)}
                       </Link>
@@ -262,7 +261,7 @@ export function Header() {
                             key={c.key}
                             href={c.href}
                             onClick={() => setOpen(false)}
-                            className="block rounded-lg px-3 py-2.5 text-sm text-ink-soft transition hover:text-brand-dark active:bg-brand/10 active:text-brand-dark"
+                            className="block rounded-lg px-3 py-2.5 text-base text-ink-soft transition hover:text-brand-dark active:bg-brand/10 active:text-brand-dark"
                           >
                             {t(`${childrenGroup}.${c.key}`)}
                           </Link>

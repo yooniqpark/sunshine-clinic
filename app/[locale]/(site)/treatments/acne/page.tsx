@@ -4,15 +4,9 @@ import { Reveal } from "@/components/Reveal";
 import { ApproachSteps } from "@/components/ApproachSteps";
 import { ScrollSpyTabs } from "@/components/ScrollSpyTabs";
 import { RightRail, type RailSection } from "@/components/RightRail";
-import { DeviceMarketingCard } from "@/components/DeviceMarketingCard";
 import { ArrowIcon, CalendarIcon } from "@/components/icons";
 import { clinic } from "@/lib/data";
 import { getConcernsByCategory } from "@/lib/concerns";
-import {
-  getDevicesByCategory,
-  getDeviceImage,
-  getDeviceMarketing,
-} from "@/lib/devices";
 import { getSiteContent, type Locale } from "@/lib/site-content";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -30,12 +24,10 @@ export default async function AcnePage({ params }: Props) {
   const tt = content.treatment;
   const common = content.common;
   const concerns = getConcernsByCategory(locale, "acne");
-  const allDevices = getDevicesByCategory(locale, "acne");
 
   const tabItems = [
     { id: "overview", label: tt.overviewLabel },
     ...concerns.map((c) => ({ id: c.slug, label: c.name })),
-    { id: "devices", label: tt.devicesTitle },
   ];
 
   const subLabels = {
@@ -51,14 +43,7 @@ export default async function AcnePage({ params }: Props) {
       { id: `${c.slug}-rec`, label: subLabels.rec, parent: c.slug },
       { id: `${c.slug}-faq`, label: subLabels.faq, parent: c.slug },
     ]),
-    { id: "devices", label: tt.devicesTitle },
   ];
-
-  const brand = {
-    tagline: content.clinic.marketingTagline,
-    clinicName: content.clinic.clinicNameFull,
-    englishName: "SUNSHINE DERMATOLOGY CLINIC",
-  };
 
   return (
     <>
@@ -187,74 +172,6 @@ export default async function AcnePage({ params }: Props) {
           </div>
         </section>
       ))}
-
-      {/* DEVICES — full marketing cards (전체 시술 장비 리스트) */}
-      {allDevices.length > 0 && (
-        <section id="devices" className="scroll-mt-40 border-t border-line bg-cream pb-20 pt-6 lg:pb-28 lg:pt-8">
-          <div className="mx-auto max-w-7xl px-5 lg:px-8">
-            <Reveal>
-              <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">DEVICES</p>
-              <h2 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                {tt.devicesTitle}
-              </h2>
-            </Reveal>
-            <div className="mt-12 space-y-20 lg:space-y-28">
-              {allDevices.map((d, i) => {
-                const img = getDeviceImage(d.slug);
-                const meta = getDeviceMarketing(d.slug);
-                return (
-                  <div
-                    key={d.slug}
-                    id={`device-${d.slug}`}
-                    className="scroll-mt-40 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center"
-                  >
-                    <Reveal>
-                      <p className="text-xs font-semibold tracking-[0.2em] text-brand">
-                        0{i + 1} · {d.manufacturer.toUpperCase()}
-                      </p>
-                      <h3 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                        {d.name}
-                      </h3>
-                      <p className="mt-3 text-lg leading-snug text-ink-soft">{d.tagline}</p>
-                      <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft">
-                        {d.intro}
-                      </p>
-                      <div className="mt-7 flex flex-wrap gap-2">
-                        {d.tech.map((t) => (
-                          <span
-                            key={t}
-                            className="rounded-full border border-line bg-white px-3 py-1.5 text-xs font-semibold text-ink"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </Reveal>
-                    <Reveal delay={120}>
-                      {img && meta ? (
-                        <DeviceMarketingCard
-                          variant="detail"
-                          device={{
-                            englishName: meta.englishName,
-                            localizedName: d.name,
-                            description: d.tagline,
-                            image: img,
-                            features: d.features.slice(0, 4).map((f, idx) => ({
-                              title: meta.featureKeywords[idx] ?? f.title,
-                              body: f.body,
-                            })),
-                          }}
-                          brand={brand}
-                        />
-                      ) : null}
-                    </Reveal>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
 
 
       {/* CTA */}

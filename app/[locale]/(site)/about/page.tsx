@@ -12,6 +12,7 @@ import {
   SparkleIcon,
 } from "@/components/icons";
 import { clinic } from "@/lib/data";
+import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
 import { getSiteContent, type Locale } from "@/lib/site-content";
 
 type Props = { params: Promise<{ locale: Locale }> };
@@ -27,12 +28,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 const SPOT_EYEBROWS = ["RECEPTION", "WAITING LOUNGE", "TREATMENT ROOM"];
 
+const DEVICE_CATEGORIES = ["lifting", "whitening", "acne"] as const;
+
 export default async function AboutPage({ params }: Props) {
   const { locale } = await params;
   const content = getSiteContent(locale);
   const a = content.about;
   const common = content.common;
   const doc = content.doctors.kim;
+
+  const deviceGroups = DEVICE_CATEGORIES.map((cat) => ({
+    key: cat,
+    label: content.categories[cat as keyof typeof content.categories].label,
+    devices: getDevicesByCategory(locale, cat),
+  })).filter((g) => g.devices.length > 0);
 
   return (
     <>
@@ -92,11 +101,73 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 02 DIRECTOR */}
+      {/* 02 DEVICES — 사용 장비 안내 (inline, grouped by category) */}
+      <section
+        id="devices"
+        className="scroll-mt-24 border-t border-line bg-cream py-20 lg:py-28"
+      >
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal>
+            <SectionHeading index="02" label="DEVICES" title="사용 장비 안내" />
+          </Reveal>
+          <div className="mt-12 space-y-12 lg:space-y-16">
+            {deviceGroups.map((group) => (
+              <Reveal key={group.key}>
+                <div>
+                  <p className="text-[11px] font-semibold tracking-[0.22em] text-brand">
+                    {group.key.toUpperCase()}
+                  </p>
+                  <h3 className="mt-1.5 text-xl font-bold tracking-tight sm:text-2xl">
+                    {group.label}
+                  </h3>
+                  <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.devices.map((d) => {
+                      const img = getDeviceImage(d.slug);
+                      return (
+                        <Link
+                          key={d.slug}
+                          href={`/${locale}/treatments/${group.key}`}
+                          className="group flex h-full items-center gap-4 rounded-3xl border border-line bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/10"
+                        >
+                          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-sand/60">
+                            {img && (
+                              <Image
+                                src={img}
+                                alt={d.name}
+                                fill
+                                sizes="80px"
+                                className="object-cover object-center"
+                              />
+                            )}
+                          </div>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-[10px] font-bold tracking-[0.2em] text-brand">
+                              {d.manufacturer.toUpperCase()}
+                            </p>
+                            <p className="mt-1 truncate text-base font-bold text-ink">
+                              {d.name}
+                            </p>
+                            <p className="mt-0.5 line-clamp-2 text-xs leading-relaxed text-ink-soft">
+                              {d.tagline}
+                            </p>
+                          </div>
+                          <ArrowIcon className="h-4 w-4 shrink-0 text-ink-soft transition group-hover:translate-x-0.5 group-hover:text-brand" />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 03 DIRECTOR */}
       <section id="doctors" className="scroll-mt-24 bg-sand/40 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
-            <SectionHeading index="02" label={a.directorLabel} title={a.directorTitle} />
+            <SectionHeading index="03" label={a.directorLabel} title={a.directorTitle} />
           </Reveal>
           <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-stretch">
             <Reveal>
@@ -145,11 +216,11 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 03 TOUR */}
+      {/* 04 TOUR */}
       <section id="tour" className="scroll-mt-24 bg-sand/40 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
-            <SectionHeading index="03" label={a.tourLabel} title={a.tourTitle} />
+            <SectionHeading index="04" label={a.tourLabel} title={a.tourTitle} />
           </Reveal>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
             {a.tour.map((s, i) => (
@@ -177,10 +248,10 @@ export default async function AboutPage({ params }: Props) {
         </div>
       </section>
 
-      {/* 04 LOCATION */}
+      {/* 05 LOCATION */}
       <section id="location" className="mx-auto max-w-7xl scroll-mt-24 px-5 py-20 lg:px-8 lg:py-28">
         <Reveal>
-          <SectionHeading index="04" label="LOCATION" title={a.locationTitle} />
+          <SectionHeading index="05" label="LOCATION" title={a.locationTitle} />
         </Reveal>
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <Reveal>
