@@ -116,7 +116,7 @@ export function Header() {
           href="/"
           aria-label={tBrand("name")}
           onClick={() => setOpen(false)}
-          className="group flex items-center gap-2.5"
+          className="group -my-2 -mx-1 flex items-center gap-2.5 py-2 pl-1 pr-2 touch-manipulation"
         >
           <SunMarkIcon className="h-8 w-8 text-brand transition-transform duration-500 group-hover:rotate-45 lg:h-9 lg:w-9" />
           <span className="flex flex-col leading-none">
