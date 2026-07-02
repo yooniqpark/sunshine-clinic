@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { ScrollSpyTabs } from "@/components/ScrollSpyTabs";
 import { RightRail, type RailSection } from "@/components/RightRail";

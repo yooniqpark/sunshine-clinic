@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { ApproachSteps } from "@/components/ApproachSteps";
 import { ScrollSpyTabs } from "@/components/ScrollSpyTabs";

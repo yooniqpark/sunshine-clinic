@@ -106,32 +106,39 @@ export default async function Home({
         <Reveal>
           <SectionHeading index="01" label={t.categoriesLabel} title={t.categoriesTitle} />
         </Reveal>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 lg:gap-4">
           {categoryList.map((c, i) => (
             <Reveal key={c.slug} delay={i * 80}>
               <Link
                 href={`/${locale}/treatments/${c.slug}`}
-                className="group relative block aspect-[3/4] overflow-hidden rounded-3xl bg-gradient-to-br from-brand/80 via-brand to-brand-dark transition-transform duration-500 hover:-translate-y-1"
+                className="group relative block aspect-[3/4] overflow-hidden rounded-3xl bg-gradient-to-br from-brand-dark via-brand to-brand-soft transition-transform duration-500 hover:-translate-y-1"
               >
+                {c.image ? (
+                  <Image
+                    src={c.image}
+                    alt={c.label}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : null}
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-brand-soft/40 blur-3xl"
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/25 to-transparent"
                 />
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -bottom-16 -left-10 h-48 w-48 rounded-full bg-cream/20 blur-3xl"
-                />
-                <div className="absolute inset-x-0 top-0 p-6">
-                  <p className="text-[10px] font-semibold tracking-[0.22em] text-cream/85">
+                <div className="absolute inset-x-0 top-0 p-5 lg:p-6">
+                  <p className="text-[10px] font-semibold tracking-[0.22em] text-cream/90">
                     0{i + 1}
                   </p>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <p className="text-[11px] font-semibold tracking-[0.18em] text-cream/80">
+                <div className="absolute inset-x-0 bottom-0 p-5 lg:p-6">
+                  <p className="text-[11px] font-semibold tracking-[0.18em] text-cream/85">
                     {c.eyebrow}
                   </p>
-                  <h3 className="mt-2 text-xl font-bold text-cream lg:text-2xl">{c.label}</h3>
-                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-cream/90">
+                  <h3 className="mt-2 text-lg font-bold leading-tight text-cream lg:text-xl">
+                    {c.label}
+                  </h3>
+                  <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-cream/95">
                     {common.viewDetail}
                     <ArrowUpRightIcon className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </span>
