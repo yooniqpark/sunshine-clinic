@@ -97,6 +97,83 @@ export function BreadcrumbJsonLd({
   );
 }
 
+type Device = {
+  slug: string;
+  name: string;
+  manufacturer: string;
+  tagline: string;
+  intro: string;
+};
+
+type ConcernFaq = { q: string; a: string };
+type Concern = { slug: string; name: string; faq: ConcernFaq[] };
+
+export function MedicalProceduresJsonLd({
+  category,
+  categoryLabel,
+  devices,
+}: {
+  category: string;
+  categoryLabel: string;
+  devices: Device[];
+}) {
+  if (devices.length === 0) return null;
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${categoryLabel} 시술 장비`,
+    itemListElement: devices.map((d, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "MedicalProcedure",
+        "@id": `${SITE_URL}/treatments/${category}#device-${d.slug}`,
+        name: d.name,
+        alternateName: d.manufacturer,
+        description: d.tagline,
+        procedureType: "PercutaneousProcedure",
+        howPerformed: d.intro,
+        bodyLocation: "Skin",
+      },
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function FaqPageJsonLd({
+  concerns,
+  items,
+}: {
+  concerns?: Concern[];
+  items?: ConcernFaq[];
+}) {
+  const pairs = (items ?? concerns?.flatMap((c) => c.faq ?? []) ?? []).slice(0, 12);
+  if (pairs.length === 0) return null;
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: pairs.map((qa) => ({
+      "@type": "Question",
+      name: qa.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: qa.a,
+      },
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
 export function WebSiteJsonLd() {
   const data = {
     "@context": "https://schema.org",

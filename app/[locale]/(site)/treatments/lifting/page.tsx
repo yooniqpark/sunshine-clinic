@@ -9,6 +9,7 @@ import { ArrowIcon, CalendarIcon } from "@/components/icons";
 import { clinic } from "@/lib/data";
 import { getDevicesByCategory, getDeviceImage, getDeviceMarketing } from "@/lib/devices";
 import { getSiteContent, type Locale } from "@/lib/site-content";
+import { MedicalProceduresJsonLd, FaqPageJsonLd } from "@/components/JsonLd";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -48,8 +49,17 @@ export default async function LiftingPage({ params }: Props) {
     ]),
   ];
 
+  const deviceFaq = devices.flatMap((d) => d.faq ?? []);
+
   return (
     <>
+      <MedicalProceduresJsonLd
+        category="lifting"
+        categoryLabel={cat.label}
+        devices={devices}
+      />
+      <FaqPageJsonLd items={deviceFaq} />
+
       {/* CATEGORY HERO */}
       <section id="overview" className="scroll-mt-40 relative overflow-hidden border-b border-line bg-sand/40">
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-blush blur-3xl" />

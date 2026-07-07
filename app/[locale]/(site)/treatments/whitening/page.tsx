@@ -9,6 +9,8 @@ import { ArrowIcon, CalendarIcon } from "@/components/icons";
 import { clinic } from "@/lib/data";
 import { getConcernsByCategory } from "@/lib/concerns";
 import { getSiteContent, type Locale } from "@/lib/site-content";
+import { getDevicesByCategory } from "@/lib/devices";
+import { MedicalProceduresJsonLd, FaqPageJsonLd } from "@/components/JsonLd";
 
 type Props = { params: Promise<{ locale: Locale }> };
 
@@ -25,6 +27,7 @@ export default async function WhiteningPage({ params }: Props) {
   const tt = content.treatment;
   const common = content.common;
   const concerns = getConcernsByCategory(locale, "whitening");
+  const devices = getDevicesByCategory(locale, "whitening");
 
   const tabItems = [
     { id: "overview", label: tt.overviewLabel },
@@ -48,6 +51,13 @@ export default async function WhiteningPage({ params }: Props) {
 
   return (
     <>
+      <MedicalProceduresJsonLd
+        category="whitening"
+        categoryLabel={cat.label}
+        devices={devices}
+      />
+      <FaqPageJsonLd concerns={concerns} />
+
       {/* CATEGORY HERO */}
       <section id="overview" className="scroll-mt-40 relative overflow-hidden border-b border-line bg-sand/40">
         <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-blush blur-3xl" />

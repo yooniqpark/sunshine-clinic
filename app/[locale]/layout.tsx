@@ -60,11 +60,20 @@ export async function generateMetadata({
       alternateLocale: Object.values(OG_LOCALE).filter(
         (v) => v !== OG_LOCALE[locale as Locale]
       ),
+      images: [
+        {
+          url: "/hero-clinic.png",
+          width: 1478,
+          height: 766,
+          alt: brand,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: brand,
       description,
+      images: ["/hero-clinic.png"],
     },
     robots: { index: true, follow: true },
   };
