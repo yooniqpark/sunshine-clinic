@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { HeroSlider } from "@/components/HeroSlider";
+import { ClinicJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { DeviceCarousel, type CarouselItem } from "@/components/DeviceCarousel";
@@ -98,6 +99,9 @@ export default async function Home({
   })();
   return (
     <>
+      <ClinicJsonLd locale={locale} />
+      <WebSiteJsonLd />
+
       {/* HERO SLIDER */}
       <HeroSlider events={events} />
 

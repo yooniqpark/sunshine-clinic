@@ -1,0 +1,116 @@
+import { getSettings } from "@/lib/settings";
+
+const SITE_URL = "https://mysunshineclinic.com";
+
+const OPENING_HOURS_SPEC = [
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "10:00",
+    closes: "20:00",
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: "Saturday",
+    opens: "10:00",
+    closes: "16:00",
+  },
+];
+
+const MEDICAL_SPECIALTIES = [
+  { name: "리프팅", eng: "Skin Lifting" },
+  { name: "안티에이징", eng: "Anti-aging Treatment" },
+  { name: "화이트닝 · 홍조", eng: "Whitening & Redness" },
+  { name: "여드름 · 흉터 · 모공", eng: "Acne, Scar, Pore" },
+  { name: "피부질환", eng: "Skin Disease Treatment" },
+];
+
+export async function ClinicJsonLd({ locale }: { locale: string }) {
+  const s = await getSettings();
+  const url = `${SITE_URL}${locale === "ko" ? "" : `/${locale}`}`;
+
+  const data = {
+    "@context": "https://schema.org",
+    "@type": ["MedicalClinic", "LocalBusiness"],
+    "@id": `${SITE_URL}/#clinic`,
+    name: s.clinicName,
+    alternateName: s.clinicNameEn,
+    url,
+    telephone: s.phone,
+    description:
+      "송파구 잠실 위치, 리프팅·안티에이징·화이트닝·여드름·피부질환을 전문의가 진료하는 피부과 의원.",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "올림픽로 102 서일빌딩 10층",
+      addressLocality: "송파구",
+      addressRegion: "서울특별시",
+      postalCode: "05540",
+      addressCountry: "KR",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 37.5115,
+      longitude: 127.0821,
+    },
+    openingHoursSpecification: OPENING_HOURS_SPEC,
+    medicalSpecialty: "Dermatology",
+    availableService: MEDICAL_SPECIALTIES.map((m) => ({
+      "@type": "MedicalTherapy",
+      name: m.name,
+      alternateName: m.eng,
+    })),
+    sameAs: [s.blogHref, s.instagramHref, s.naverBookingHref].filter(
+      (u) => u && !u.endsWith("/")
+    ),
+    inLanguage: ["ko", "en", "ja", "zh"],
+    priceRange: "₩₩",
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function BreadcrumbJsonLd({
+  items,
+}: {
+  items: { name: string; url: string }[];
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: item.url.startsWith("http") ? item.url : `${SITE_URL}${item.url}`,
+    })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function WebSiteJsonLd() {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: "Sunshine 피부과",
+    inLanguage: ["ko", "en", "ja", "zh"],
+    publisher: { "@id": `${SITE_URL}/#clinic` },
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}

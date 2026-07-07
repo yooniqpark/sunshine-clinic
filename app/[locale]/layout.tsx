@@ -23,6 +23,12 @@ const KEYWORDS_BY_LOCALE: Record<Locale, string[]> = {
   zh: ["皮肤科", "提升", "Ulthera", "Thermage", "色斑", "痘痘"],
 };
 
+const SITE_URL = "https://mysunshineclinic.com";
+
+function localeUrl(locale: string) {
+  return locale === routing.defaultLocale ? SITE_URL : `${SITE_URL}/${locale}`;
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -33,16 +39,34 @@ export async function generateMetadata({
   const content = getSiteContent(locale as Locale);
   const brand = `${content.clinic.name}`;
   const description = content.about.brandDescription;
+  const canonical = localeUrl(locale);
+  const languages: Record<string, string> = {};
+  for (const l of routing.locales) languages[l] = localeUrl(l);
+  languages["x-default"] = localeUrl(routing.defaultLocale);
+
   return {
+    metadataBase: new URL(SITE_URL),
     title: { default: brand, template: `%s | ${brand}` },
     description,
     keywords: [...KEYWORDS_BY_LOCALE[locale as Locale], brand],
+    alternates: { canonical, languages },
     openGraph: {
       title: brand,
       description,
       type: "website",
+      url: canonical,
+      siteName: brand,
       locale: OG_LOCALE[locale as Locale],
+      alternateLocale: Object.values(OG_LOCALE).filter(
+        (v) => v !== OG_LOCALE[locale as Locale]
+      ),
     },
+    twitter: {
+      card: "summary_large_image",
+      title: brand,
+      description,
+    },
+    robots: { index: true, follow: true },
   };
 }
 
