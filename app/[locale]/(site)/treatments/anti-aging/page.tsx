@@ -119,20 +119,40 @@ export default async function AntiAgingPage({ params }: Props) {
         >
           <div className="mx-auto max-w-7xl px-5 pb-20 pt-6 lg:px-8 lg:pb-28 lg:pt-8">
             {/* CONCERN HERO */}
-            <Reveal>
-              <p className="text-xs font-semibold tracking-[0.2em] text-brand">
-                0{i + 1} · {cat.eyebrow}
-              </p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-                {concern.name}
-              </h2>
-              <p className="mt-3 max-w-3xl text-lg leading-snug text-ink-soft">
-                {concern.tagline}
-              </p>
-              <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink-soft">
-                {concern.intro}
-              </p>
-            </Reveal>
+            <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-start">
+              <Reveal>
+                <p className="text-xs font-semibold tracking-[0.2em] text-brand">
+                  0{i + 1} · {cat.eyebrow}
+                </p>
+                <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+                  {concern.name}
+                </h2>
+                {concern.manufacturer && (
+                  <p className="mt-2 text-sm font-semibold tracking-wide text-ink-soft">
+                    {concern.manufacturer}
+                  </p>
+                )}
+                <p className="mt-3 max-w-3xl text-lg leading-snug text-ink-soft">
+                  {concern.tagline}
+                </p>
+                <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink-soft">
+                  {concern.intro}
+                </p>
+              </Reveal>
+              {concern.image && (
+                <Reveal delay={120}>
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-line bg-white">
+                    <Image
+                      src={concern.image}
+                      alt={concern.name}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40rem"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                </Reveal>
+              )}
+            </div>
 
             {/* USED DEVICES */}
             {concern.deviceSlugs.length > 0 && (

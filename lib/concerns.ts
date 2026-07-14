@@ -14,6 +14,8 @@ export type Concern = {
   deviceSlugs: string[];
   recommendedFor: string[];
   faq: { q: string; a: string }[];
+  manufacturer?: string;
+  image?: string;
 };
 
 const BY_LOCALE: Record<Locale, Record<string, Concern>> = {
@@ -28,7 +30,19 @@ const ORDER_BY_CATEGORY: Record<string, string[]> = {
   whitening: ["melasma", "freckles", "resistant-pigment", "redness"],
   acne: ["acne-active", "acne-pigment", "acne-scar", "pores", "general-scar"],
   "skin-disease": ["athletes-foot", "psoriasis", "herpes", "burns"],
-  "anti-aging": ["rejuran", "juvelook", "rituo", "exosome", "chanel", "botox", "filler"],
+  "anti-aging": [
+    "rejuran",
+    "rejuran-i",
+    "juvelook",
+    "elravie-re20",
+    "cellredm",
+    "skinvive",
+    "mulgwang",
+    "ellanse-antiaging",
+    "radiesse",
+    "botox",
+    "filler",
+  ],
 };
 
 export function getConcernsByCategory(
