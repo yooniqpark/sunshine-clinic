@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { clinic as clinicFallback } from "@/lib/data";
 import {
@@ -46,6 +46,21 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const [view, setView] = useState<View>("actions");
   // Desktop speed-dial open by default — user can collapse via orb click.
   const [desktopOpen, setDesktopOpen] = useState(true);
+
+  // Open booking form when URL hash is #booking or #book (from external CTA links)
+  useEffect(() => {
+    function handleHash() {
+      const h = window.location.hash;
+      if (h === "#booking" || h === "#book") {
+        setView("booking");
+        // clean the hash so a re-navigation reopens it
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+    }
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
 
   // Booking form state
   const [bName, setBName] = useState("");

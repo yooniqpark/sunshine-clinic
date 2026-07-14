@@ -46,8 +46,7 @@ export const SETTINGS_DEFAULTS: SiteSettings = {
   license: "송파구보건소 신고 제 2026-3230034-00049 호",
   hoursJson: JSON.stringify([
     { day: "평일", time: "10:00 – 20:00" },
-    { day: "토요일", time: "10:00 – 16:00 (점심시간 없음)" },
-    { day: "점심시간", time: "13:00 – 14:00" },
+    { day: "토요일", time: "10:00 – 16:00" },
     { day: "일요일·공휴일", time: "휴진" },
   ]),
   blogHref: "https://blog.naver.com/",

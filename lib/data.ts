@@ -8,7 +8,7 @@ export const clinic = {
   phoneHref: "tel:024217588",
   kakaoHref: "https://pf.kakao.com/",
   naverBookingHref: "https://booking.naver.com/",
-  bookingHref: "#booking",
+  bookingHref: "#book",
   hours: [
     { day: "평일", time: "10:00 – 20:00" },
     { day: "토요일", time: "10:00 – 16:00 (점심시간 없음)" },
