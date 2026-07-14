@@ -116,7 +116,6 @@ export function Footer() {
             </Link>
           </div>
         </div>
-        <p className="mt-4 text-[11px] leading-relaxed text-ink-soft/80">{t("disclaimer")}</p>
       </div>
     </footer>
   );

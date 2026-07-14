@@ -102,10 +102,6 @@ export default async function EventsPage({ params }: Props) {
             </Reveal>
           ))}
         </div>
-
-        <p className="mt-10 rounded-2xl bg-sand/60 px-5 py-4 text-center text-xs leading-relaxed text-ink-soft">
-          {t.disclaimer}
-        </p>
       </section>
     </>
   );
