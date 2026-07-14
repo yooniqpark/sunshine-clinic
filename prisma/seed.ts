@@ -28,7 +28,7 @@ const sampleEvents = [
     bgColor: "#dfe4ed",
     photoUrl: "/models/lifting.png",
     imageUrl: "/events/event-1.svg",
-    published: true,
+    published: false,
     sortIndex: 1,
   },
   {
@@ -45,7 +45,7 @@ const sampleEvents = [
     bgColor: "#ede7e2",
     photoUrl: "/models/concept.png",
     imageUrl: "/events/event-2.svg",
-    published: true,
+    published: false,
     sortIndex: 2,
   },
   {
@@ -62,7 +62,7 @@ const sampleEvents = [
     bgColor: "#a9bed2",
     photoUrl: "/models/whitening.png",
     imageUrl: "/events/event-3.svg",
-    published: true,
+    published: false,
     sortIndex: 3,
   },
 ];

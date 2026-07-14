@@ -25,8 +25,8 @@ export const clinic = {
   },
   business: {
     owner: "대표원장 김병현",
-    bizNo: "123-45-67890",
-    license: "송파구보건소 신고 제0000호",
+    bizNo: "878-37-01499",
+    license: "송파구보건소 신고 제 2026-3230034-00049 호",
   },
 };
 
@@ -221,7 +221,7 @@ export const doctors = [
     role: "대표원장",
     focus: "리프팅 · 안티에이징",
     initials: "K",
-    photo: "/team/kim.png",
+    photo: "/team/kim.jpg",
   },
 ];
 

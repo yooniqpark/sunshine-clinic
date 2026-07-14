@@ -100,6 +100,7 @@ export function Footer() {
 
         <div className="mt-12 flex flex-col gap-3 border-t border-line pt-6 text-xs text-ink-soft lg:flex-row lg:items-center lg:justify-between">
           <p>
+            {content.clinic.legalNameLabel}: {content.clinic.legalName} ·{" "}
             {content.clinic.doctorOwnerName} · {content.clinic.bizNoLabel}{" "}
             {clinic.business.bizNo} · {content.clinic.licenseText}
           </p>

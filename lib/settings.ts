@@ -42,8 +42,8 @@ export const SETTINGS_DEFAULTS: SiteSettings = {
   address: "서울특별시 송파구 올림픽로 102, 서일빌딩 10층",
   addressSub: "2호선 잠실새내역 4번 출구 도보 3분 · 건물 내 주차 가능",
   bizOwner: "대표원장 김병현",
-  bizNo: "123-45-67890",
-  license: "송파구보건소 신고 제0000호",
+  bizNo: "878-37-01499",
+  license: "송파구보건소 신고 제 2026-3230034-00049 호",
   hoursJson: JSON.stringify([
     { day: "평일", time: "10:00 – 20:00" },
     { day: "토요일", time: "10:00 – 16:00 (점심시간 없음)" },

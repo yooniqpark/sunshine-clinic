@@ -174,7 +174,7 @@ export default async function AboutPage({ params }: Props) {
               <div className="overflow-hidden rounded-3xl border border-line bg-white">
                 <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-blush via-sand to-brand-soft/30">
                   <Image
-                    src="/team/kim.png"
+                    src="/team/kim.jpg"
                     alt={doc.name}
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"

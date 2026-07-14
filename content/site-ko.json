@@ -6,9 +6,11 @@
     "doctorTitle": "원장",
     "doctorOwnerName": "대표원장 김병현",
     "bizNoLabel": "사업자등록번호",
-    "licenseText": "송파구보건소 신고 제0000호",
+    "licenseText": "송파구보건소 신고 제 2026-3230034-00049 호",
+    "legalNameLabel": "상호",
+    "legalName": "선샤인의원",
     "marketingTagline": "선샤인에서, 피부의 빛이 다시 깨어나다",
-    "clinicNameFull": "선샤인피부과의원"
+    "clinicNameFull": "선샤인의원"
   },
   "hours": [
     {
