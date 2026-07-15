@@ -221,60 +221,66 @@ export default async function AntiAgingPage({ params }: Props) {
             </Reveal>
 
             {/* RECOMMENDED FOR */}
-            <div
-              id={`${concern.slug}-rec`}
-              className="mt-14 grid gap-10 scroll-mt-40 lg:grid-cols-[1fr_1.2fr] lg:items-start"
-            >
-              <Reveal>
-                <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">
-                  RECOMMENDED FOR
-                </p>
-                <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
-                  {tt.recommendedTitle}
-                </h3>
-                <a
-                  href={clinic.bookingHref}
-                  className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
-                >
-                  <CalendarIcon className="h-4 w-4" />
-                  {common.bookConsultation}
-                </a>
-              </Reveal>
-              <Reveal delay={120}>
-                <ul className="grid gap-3 sm:grid-cols-2">
-                  {concern.recommendedFor.map((r, j) => (
-                    <li
-                      key={j}
-                      className="flex items-start gap-3 rounded-2xl border border-line bg-white p-4"
-                    >
-                      <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand/10 text-xs font-bold text-brand">
-                        {j + 1}
-                      </span>
-                      <span className="text-sm leading-relaxed text-ink">{r}</span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </div>
+            {concern.recommendedFor.length > 0 && (
+              <div
+                id={`${concern.slug}-rec`}
+                className="mt-14 grid gap-10 scroll-mt-40 lg:grid-cols-[1fr_1.2fr] lg:items-start"
+              >
+                <Reveal>
+                  <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">
+                    RECOMMENDED FOR
+                  </p>
+                  <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">
+                    {tt.recommendedTitle}
+                  </h3>
+                  <a
+                    href={clinic.bookingHref}
+                    className="mt-7 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-dark"
+                  >
+                    <CalendarIcon className="h-4 w-4" />
+                    {common.bookConsultation}
+                  </a>
+                </Reveal>
+                <Reveal delay={120}>
+                  <ul className="grid gap-3 sm:grid-cols-2">
+                    {concern.recommendedFor.map((r, j) => (
+                      <li
+                        key={j}
+                        className="flex items-start gap-3 rounded-2xl border border-line bg-white p-4"
+                      >
+                        <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-brand/10 text-xs font-bold text-brand">
+                          {j + 1}
+                        </span>
+                        <span className="text-sm leading-relaxed text-ink">{r}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              </div>
+            )}
 
             {/* FAQ */}
-            <Reveal className="mt-14 scroll-mt-40" id={`${concern.slug}-faq`}>
-              <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">FAQ</p>
-              <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">{tt.faqTitle}</h3>
-            </Reveal>
-            <div className="mt-8 grid gap-3 lg:grid-cols-2">
-              {concern.faq.map((qa, j) => (
-                <Reveal key={j} delay={j * 60}>
-                  <details className="group rounded-2xl border border-line bg-white p-5 open:bg-cream">
-                    <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-ink">
-                      <span>Q. {qa.q}</span>
-                      <span className="text-brand transition group-open:rotate-45">＋</span>
-                    </summary>
-                    <p className="mt-3 text-sm leading-relaxed text-ink-soft">{qa.a}</p>
-                  </details>
+            {concern.faq.length > 0 && (
+              <>
+                <Reveal className="mt-14 scroll-mt-40" id={`${concern.slug}-faq`}>
+                  <p className="text-[10px] font-semibold tracking-[0.25em] text-brand">FAQ</p>
+                  <h3 className="mt-2 text-2xl font-bold tracking-tight sm:text-3xl">{tt.faqTitle}</h3>
                 </Reveal>
-              ))}
-            </div>
+                <div className="mt-8 grid gap-3 lg:grid-cols-2">
+                  {concern.faq.map((qa, j) => (
+                    <Reveal key={j} delay={j * 60}>
+                      <details className="group rounded-2xl border border-line bg-white p-5 open:bg-cream">
+                        <summary className="flex cursor-pointer items-center justify-between gap-4 text-sm font-semibold text-ink">
+                          <span>Q. {qa.q}</span>
+                          <span className="text-brand transition group-open:rotate-45">＋</span>
+                        </summary>
+                        <p className="mt-3 text-sm leading-relaxed text-ink-soft">{qa.a}</p>
+                      </details>
+                    </Reveal>
+                  ))}
+                </div>
+              </>
+            )}
           </div>
         </section>
       ))}

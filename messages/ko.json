@@ -27,10 +27,13 @@
     },
     "antiAgingChildren": {
       "rejuran": "리쥬란",
+      "rejuranI": "리쥬란 아이",
       "juvelook": "쥬베룩",
-      "rituo": "리투오",
-      "exosome": "엑소좀",
-      "chanel": "샤넬주사",
+      "elravieRe20": "엘라비에 리투오",
+      "cellredm": "셀르디엠",
+      "skinvive": "스칸바이브",
+      "mulgwang": "물광 주사",
+      "radiesse": "레디어스",
       "botox": "보톡스",
       "filler": "필러"
     },

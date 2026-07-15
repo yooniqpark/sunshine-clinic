@@ -37,8 +37,8 @@ const sections: FeeSection[] = [
   {
     heading: "시술",
     rows: [
-      { label: "염증주사", basis: "1부위", amount: "20,000원부터" },
-      { label: "CO₂ 이산화탄소 레이저", basis: "크기 / 개당", amount: "20,000원부터" },
+      { label: "염증주사", basis: "1부위", amount: "20,000원" },
+      { label: "CO₂ 이산화탄소 레이저", basis: "크기 / 개당", amount: "20,000원" },
     ],
   },
 ];

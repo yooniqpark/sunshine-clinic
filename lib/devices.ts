@@ -90,6 +90,7 @@ const DEVICE_IMAGES: Record<string, string> = {
   "secret-rf": "/devices/secret-rf.png",
   "carpri-co2": "/devices/carpri-co2.png",
   curajet: "/devices/curajet.png",
+  ellanse: "/devices/ellanse.jpg",
 };
 
 export function getDeviceImage(slug: string): string | null {

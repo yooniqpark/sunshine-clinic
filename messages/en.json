@@ -27,10 +27,13 @@
     },
     "antiAgingChildren": {
       "rejuran": "Rejuran",
+      "rejuranI": "Rejuran i",
       "juvelook": "Juvelook",
-      "rituo": "Rituo",
-      "exosome": "Exosome",
-      "chanel": "Chanel Injection",
+      "elravieRe20": "Elravie Re20",
+      "cellredm": "CellREDM",
+      "skinvive": "Skinvive",
+      "mulgwang": "Aqua Injection",
+      "radiesse": "Radiesse",
       "botox": "Botox",
       "filler": "Filler"
     },

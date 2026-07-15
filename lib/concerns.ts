@@ -38,7 +38,6 @@ const ORDER_BY_CATEGORY: Record<string, string[]> = {
     "cellredm",
     "skinvive",
     "mulgwang",
-    "ellanse-antiaging",
     "radiesse",
     "botox",
     "filler",
