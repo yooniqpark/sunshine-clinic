@@ -10,8 +10,15 @@ import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
-const ADMIN_EMAIL = "admin@sunshine.local";
-const ADMIN_PASSWORD = "sunshine123";
+// Credentials come from environment (never hardcoded).
+// See .env.example for setup.
+const ADMIN_EMAIL = process.env.ADMIN_USERNAME ?? "";
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? "";
+if (!ADMIN_EMAIL || !ADMIN_PASSWORD) {
+  throw new Error(
+    "ADMIN_USERNAME and ADMIN_PASSWORD must be set in .env before running seed"
+  );
+}
 
 const sampleEvents = [
   {

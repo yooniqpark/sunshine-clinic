@@ -8,10 +8,16 @@ export default function LoginForm() {
   const router = useRouter();
   const params = useSearchParams();
   const callbackUrl = params.get("callbackUrl") || "/admin";
+  const rateLimitError = params.get("error") === "too-many-attempts";
+  const retryAfter = Number(params.get("retry") || 0);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
+  const [err, setErr] = useState<string | null>(
+    rateLimitError
+      ? `로그인 시도가 너무 많습니다. ${Math.ceil(retryAfter / 60)}분 후 다시 시도해주세요.`
+      : null
+  );
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -24,7 +30,7 @@ export default function LoginForm() {
     });
     setLoading(false);
     if (res?.error) {
-      setErr("이메일 또는 비밀번호가 올바르지 않습니다.");
+      setErr("아이디 또는 비밀번호가 올바르지 않습니다.");
       return;
     }
     router.push(callbackUrl);
@@ -34,10 +40,10 @@ export default function LoginForm() {
   return (
     <form onSubmit={onSubmit} className="mt-6 space-y-3">
       <label className="block">
-        <span className="text-xs font-medium text-ink-soft">이메일</span>
+        <span className="text-xs font-medium text-ink-soft">아이디</span>
         <input
-          type="email"
-          autoComplete="email"
+          type="text"
+          autoComplete="username"
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
