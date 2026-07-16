@@ -125,9 +125,9 @@ export function Header() {
           <img
             src="/logo-mark.svg"
             alt=""
-            width={48}
-            height={48}
-            className="h-11 w-11 shrink-0 object-contain lg:h-12 lg:w-12"
+            width={44}
+            height={44}
+            className="h-10 w-10 shrink-0 object-contain lg:h-11 lg:w-11"
           />
           <span className="flex flex-col leading-none">
             <span className="text-[13px] font-bold uppercase tracking-[0.18em] text-ink lg:text-sm">
