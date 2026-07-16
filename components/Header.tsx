@@ -122,13 +122,15 @@ export function Header() {
           onClick={() => setOpen(false)}
           className="group -my-2 -mx-1 flex items-center gap-2.5 py-2 pl-1 pr-2 touch-manipulation"
         >
-          <img
-            src="/logo-mark.svg"
-            alt=""
-            width={44}
-            height={44}
-            className="h-10 w-10 shrink-0 object-contain lg:h-11 lg:w-11"
-          />
+          <span className="relative flex h-10 w-10 shrink-0 items-center justify-center lg:h-11 lg:w-11">
+            <img
+              src="/logo-mark.svg"
+              alt=""
+              width={44}
+              height={44}
+              className="absolute inset-0 h-full w-full -translate-y-[2px] object-contain"
+            />
+          </span>
           <span className="flex flex-col leading-none">
             <span className="text-[13px] font-bold uppercase tracking-[0.18em] text-ink lg:text-sm">
               {tBrand("name").toUpperCase()}
