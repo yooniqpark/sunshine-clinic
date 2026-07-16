@@ -122,13 +122,12 @@ export function Header() {
           onClick={() => setOpen(false)}
           className="group -my-2 -mx-1 flex items-center gap-2.5 py-2 pl-1 pr-2 touch-manipulation"
         >
-          <Image
-            src="/logo-mark.png"
+          <img
+            src="/logo-mark.svg"
             alt=""
-            width={256}
-            height={256}
-            priority
-            className="h-10 w-10 shrink-0 object-contain lg:h-11 lg:w-11"
+            width={48}
+            height={48}
+            className="h-11 w-11 shrink-0 object-contain lg:h-12 lg:w-12"
           />
           <span className="flex flex-col leading-none">
             <span className="text-[13px] font-bold uppercase tracking-[0.18em] text-ink lg:text-sm">
