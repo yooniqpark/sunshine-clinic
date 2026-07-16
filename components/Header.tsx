@@ -128,7 +128,7 @@ export function Header() {
               alt=""
               width={44}
               height={44}
-              className="absolute inset-0 h-full w-full -translate-y-[2px] object-contain"
+              className="absolute inset-0 h-full w-full -translate-y-[4px] object-contain"
             />
           </span>
           <span className="flex flex-col leading-none">
