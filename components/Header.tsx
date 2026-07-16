@@ -3,7 +3,8 @@
 import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { MenuIcon, CloseIcon, ChevronDownIcon, SunMarkIcon } from "./icons";
+import Image from "next/image";
+import { MenuIcon, CloseIcon, ChevronDownIcon } from "./icons";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
 const NAV = [
@@ -121,7 +122,14 @@ export function Header() {
           onClick={() => setOpen(false)}
           className="group -my-2 -mx-1 flex items-center gap-2.5 py-2 pl-1 pr-2 touch-manipulation"
         >
-          <SunMarkIcon className="h-8 w-8 text-brand transition-transform duration-500 group-hover:rotate-45 lg:h-9 lg:w-9" />
+          <Image
+            src="/logo-mark.png"
+            alt=""
+            width={256}
+            height={256}
+            priority
+            className="h-10 w-10 shrink-0 object-contain lg:h-11 lg:w-11"
+          />
           <span className="flex flex-col leading-none">
             <span className="text-[13px] font-bold uppercase tracking-[0.18em] text-ink lg:text-sm">
               {tBrand("name").toUpperCase()}

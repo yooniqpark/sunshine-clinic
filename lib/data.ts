@@ -6,8 +6,8 @@ export const clinic = {
     "리프팅·안티에이징부터 색소·여드름·피부질환까지, 근거 중심 진료와 프리미엄 장비로 건강한 피부를 디자인합니다.",
   phone: "02-421-7588",
   phoneHref: "tel:024217588",
-  kakaoHref: "https://pf.kakao.com/",
-  naverBookingHref: "https://booking.naver.com/",
+  kakaoHref: "https://pf.kakao.com/_xoVzwX",
+  naverBookingHref: "https://m.booking.naver.com/booking/13/bizes/1698236?theme=place&lang=ko&area=pll",
   bookingHref: "#book",
   hours: [
     { day: "평일", time: "10:00 – 20:00" },
@@ -20,8 +20,8 @@ export const clinic = {
   social: {
     blog: "https://blog.naver.com/",
     instagram: "https://instagram.com/",
-    naver: "https://map.naver.com/",
-    kakao: "https://pf.kakao.com/",
+    naver: "https://m.booking.naver.com/booking/13/bizes/1698236?theme=place&lang=ko&area=pll",
+    kakao: "https://pf.kakao.com/_xoVzwX",
   },
   business: {
     owner: "대표원장 김병현",
