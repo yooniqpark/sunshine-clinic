@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { pushReservationToVegas } from "@/lib/vegas";
 
 export const runtime = "nodejs";
 
@@ -91,14 +92,15 @@ export async function POST(req: Request) {
   const source = str(body.source) || "chatbot";
 
   try {
+    const contactType = (() => {
+      const explicit = str(body.contactType).toUpperCase();
+      return ALLOWED_CONTACT_TYPES.has(explicit) ? explicit : contactTypeOf(contact);
+    })();
     const created = await prisma.reservation.create({
       data: {
         name: name.slice(0, 60),
         contact: contact.slice(0, 120),
-        contactType: (() => {
-          const explicit = str(body.contactType).toUpperCase();
-          return ALLOWED_CONTACT_TYPES.has(explicit) ? explicit : contactTypeOf(contact);
-        })(),
+        contactType,
         preferredAt,
         interest,
         message,
@@ -106,6 +108,31 @@ export async function POST(req: Request) {
         source: source.slice(0, 20),
       },
     });
+
+    // Forward to Vegas CRM — fire-and-forget style but await briefly so any
+    // Vegas errors surface in the server log. Never blocks user response on
+    // Vegas failure (user's reservation is already saved in our DB).
+    pushReservationToVegas({
+      name,
+      phone: contact,
+      email: contactType === "EMAIL" ? contact : null,
+      preferredAt,
+      memo: message,
+      interest,
+    })
+      .then((r) => {
+        if (!r.ok) {
+          console.warn(
+            `[vegas] forward failed for reservation ${created.id}:`,
+            r.error,
+            r.raw
+          );
+        } else {
+          console.log(`[vegas] forwarded reservation ${created.id}`);
+        }
+      })
+      .catch((e) => console.error(`[vegas] unexpected error:`, e));
+
     return NextResponse.json({ id: created.id, ok: true });
   } catch (e) {
     console.error("/api/reservations error:", e);
