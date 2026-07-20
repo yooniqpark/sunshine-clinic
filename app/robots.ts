@@ -16,7 +16,11 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Google-Extended", allow: "/", disallow: ["/admin/", "/api/"] },
       { userAgent: "Applebot-Extended", allow: "/", disallow: ["/admin/", "/api/"] },
     ],
-    sitemap: `${SITE_URL}/sitemap.xml`,
+    // Our main sitemap + inblog's blog sitemap (served under /blog/* via rewrite)
+    sitemap: [
+      `${SITE_URL}/sitemap.xml`,
+      `${SITE_URL}/blog/sitemap.xml`,
+    ],
     host: SITE_URL,
   };
 }

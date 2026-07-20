@@ -40,6 +40,10 @@ export default function proxy(req: NextRequest) {
   if (pathname.startsWith("/api")) {
     return undefined;
   }
+  // /blog is served by inblog via next.config.ts rewrites — skip locale middleware
+  if (pathname === "/blog" || pathname.startsWith("/blog/")) {
+    return undefined;
+  }
   // everything else: locale-aware (redirects /, prefixes, etc.)
   return intl(req);
 }
