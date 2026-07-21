@@ -125,7 +125,9 @@ export function HeroSlider({ events }: { events: EventItem[] }) {
                           <br />
                           {tHero("brandDescLine2")}
                         </p>
-                        <div className="mt-8 flex flex-wrap gap-3">
+                        {/* Hide CTAs on mobile — space feels less cramped without them.
+                            Desktop still shows both. */}
+                        <div className="mt-8 hidden flex-wrap gap-3 lg:flex">
                           <a
                             href={clinic.bookingHref}
                             className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3.5 text-sm font-semibold text-white shadow-none transition-all duration-500 hover:bg-brand-dark hover:shadow-[0_22px_48px_-6px_rgba(196,144,116,0.85),0_10px_24px_-4px_rgba(196,144,116,0.65),0_0_18px_2px_rgba(232,205,175,0.45)]"
