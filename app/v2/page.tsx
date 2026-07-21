@@ -246,11 +246,11 @@ export default function PreviewHome() {
         <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
           <p className="text-[10px] font-bold tracking-[0.28em] text-brand">WHY SUNSHINE</p>
           <h2 className="mt-6 font-serif text-3xl font-normal leading-tight tracking-tight lg:text-5xl">
-            <em className="italic text-brand-dark">과잉 진료보다</em> 필요한 진료를,
+            <em className="italic text-brand-dark">과잉 진료보다</em> 필요한 진료를
             <br />
-            <em className="italic text-brand-dark">화려한 광고보다</em> 검증된 결과를,
+            <em className="italic text-brand-dark">화려한 광고보다</em> 검증된 결과를
             <br />
-            <em className="italic text-brand-dark">일시적 개선보다</em> 건강한 변화를.
+            <em className="italic text-brand-dark">일시적 개선보다</em> 건강한 변화를
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-ink-soft lg:text-base">
             피부 본연의 건강과 아름다움을 회복하여 일상에 더 큰 자신감을 선물하는
