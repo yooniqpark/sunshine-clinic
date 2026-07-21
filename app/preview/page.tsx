@@ -3,26 +3,9 @@ import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon, ArrowIcon } from "@/components/icons";
 
-export const metadata = {
-  title: "Preview — Sunshine 피부과 리디자인 시안",
-  robots: { index: false, follow: false },
-};
-
-/**
- * Homepage v2 preview — editorial + luxury 톤 시안.
- * 참고: 디아더 · 셀로디 · 갤러리아 · 제이윤 · 온오프
- *
- * 실제 홈으로 배포하려면 이 파일 내용을 app/[locale]/(site)/page.tsx 로 옮기고
- * 라우팅·i18n 훅 처리 필요. 지금은 순수 시안이라 next-intl 없이 하드코딩.
- */
 export default function PreviewHome() {
   return (
-    <main className="bg-cream text-ink">
-      {/* Preview banner */}
-      <div className="sticky top-0 z-50 bg-ink px-5 py-2 text-center text-[11px] font-medium text-cream/80">
-        🎨 리디자인 시안 · <Link href="/" className="underline">현재 홈 (/)</Link> ↔ /preview
-      </div>
-
+    <>
       {/* ═══════ 1. HERO — dark editorial ═══════ */}
       <section className="relative h-[92vh] min-h-[640px] overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
@@ -313,7 +296,7 @@ export default function PreviewHome() {
           </p>
         </div>
       </section>
-    </main>
+    </>
   );
 }
 
