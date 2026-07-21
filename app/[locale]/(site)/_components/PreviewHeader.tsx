@@ -289,13 +289,6 @@ export function PreviewHeader() {
                   </div>
                 );
               })}
-              <Link
-                href="/#book"
-                onClick={() => setOpen(false)}
-                className="mt-4 block rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-cream"
-              >
-                {t("ctaBook")}
-              </Link>
             </nav>
           </div>
         </>
