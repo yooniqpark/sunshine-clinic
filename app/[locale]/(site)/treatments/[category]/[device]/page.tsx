@@ -181,7 +181,7 @@ export default async function DevicePage({
           <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-tight lg:text-6xl">
             {t.rich("featuresTitle", {
               name: d.name,
-              accent: (c) => <em className="text-brand-dark">{c}</em>,
+              accent: (c) => <span className="text-brand-dark">{c}</span>,
             })}
           </h2>
 
@@ -235,7 +235,7 @@ export default async function DevicePage({
             <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
               {t("recTitleLine1")}
               <br />
-              <em className="text-brand-dark">{t("recTitleAccent")}</em>
+              <span className="text-brand-dark">{t("recTitleAccent")}</span>
             </h2>
           </div>
 
@@ -263,7 +263,7 @@ export default async function DevicePage({
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight lg:text-6xl">
             {t("processTitleLine1")}
             <br />
-            <em className="text-brand-soft">{t("processTitleAccent")}</em>
+            <span className="text-brand-soft">{t("processTitleAccent")}</span>
           </h2>
 
           <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-8">
@@ -319,7 +319,7 @@ export default async function DevicePage({
             <h2 className="font-serif text-4xl leading-tight lg:text-6xl">
               {t.rich("ctaTitle", {
                 name: d.name,
-                accent: (c) => <em className="text-brand-soft">{c}</em>,
+                accent: (c) => <span className="text-brand-soft">{c}</span>,
                 br: () => <br />,
               })}
             </h2>

@@ -6,7 +6,6 @@ import { routing } from "@/i18n/routing";
 import { PreviewHeader } from "./(site)/_components/PreviewHeader";
 import { PreviewFooter } from "./(site)/_components/PreviewFooter";
 import { ChatWidget } from "@/components/ChatWidget";
-import { FloatingBar } from "@/components/FloatingBar";
 
 export const metadata: Metadata = {
   title: "Sunshine Dermatology Clinic",
@@ -32,10 +31,9 @@ export default async function PreviewLayout({
     <NextIntlClientProvider locale={locale} messages={messages}>
       <div data-theme={locale} className={`theme-${locale} min-h-screen bg-cream text-ink antialiased`}>
         <PreviewHeader />
-        <main className="pb-16 lg:pb-0">{children}</main>
+        <main>{children}</main>
         <PreviewFooter />
 
-        <FloatingBar />
         <ChatWidget />
       </div>
     </NextIntlClientProvider>

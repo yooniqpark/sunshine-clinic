@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 type SubItem = { label: string; href: string; sub?: string };
 type Column = { title: string; href?: string; items: SubItem[] };
@@ -140,23 +141,29 @@ export function PreviewHeader() {
               </Link>
             </div>
           ))}
-          <Link
-            href="/#book"
-            className="ml-3 rounded-full bg-ink px-5 py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark"
-          >
-            {t("ctaBook")}
-          </Link>
+          <div className="ml-3 flex items-center gap-3">
+            <LanguageSwitcher />
+            <Link
+              href="/#book"
+              className="rounded-full bg-ink px-5 py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark"
+            >
+              {t("ctaBook")}
+            </Link>
+          </div>
         </nav>
 
-        {/* Mobile toggle */}
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="grid h-11 w-11 place-items-center rounded-full border border-line lg:hidden"
-          aria-label={open ? t("menuClose") : t("menuOpen")}
-        >
-          {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
-        </button>
+        {/* Mobile: language + toggle */}
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageSwitcher variant="compact" />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="grid h-11 w-11 place-items-center rounded-full border border-line"
+            aria-label={open ? t("menuClose") : t("menuOpen")}
+          >
+            {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Desktop mega panel */}
