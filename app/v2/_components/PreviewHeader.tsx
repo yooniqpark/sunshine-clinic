@@ -211,91 +211,96 @@ export function PreviewHeader() {
         ) : null
       )}
 
-      {/* Mobile drawer */}
+      {/* Mobile drawer — 원본 스타일: 카테고리 이름만 flat 리스트 (세부 시술 X) */}
       {open && (
-        <div className="border-t border-line bg-cream lg:hidden">
-          <nav className="mx-auto max-w-7xl px-5 py-3">
-            {NAV.map((item) => (
-              <div key={item.label} className="py-1">
-                {item.children ? (
-                  <>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setMobileOpen((v) => (v === item.label ? null : item.label))
-                      }
-                      className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-brand/5"
-                    >
-                      {item.label}
-                      <ChevronDownIcon
-                        className={`h-3 w-3 transition ${
-                          mobileOpen === item.label ? "rotate-180" : ""
-                        }`}
-                      />
-                    </button>
-                    {mobileOpen === item.label && (
-                      <div className="ml-3 mt-1 space-y-4 border-l border-line pl-3 pb-3">
-                        {item.children.map((col) => (
-                          <div key={col.title}>
-                            {col.href ? (
-                              <Link
-                                href={col.href}
-                                onClick={() => {
-                                  setOpen(false);
-                                  setMobileOpen(null);
-                                }}
-                                className="mb-2 block px-2 text-[11px] font-bold tracking-[0.2em] text-brand-dark hover:text-ink"
-                              >
-                                {col.title.toUpperCase()} →
-                              </Link>
-                            ) : (
-                              <p className="mb-2 px-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
-                                {col.title.toUpperCase()}
-                              </p>
+        <>
+          <div
+            className="fixed inset-0 top-24 z-30 bg-ink/50 backdrop-blur-sm lg:hidden"
+            onClick={() => setOpen(false)}
+          />
+          <div className="fixed inset-x-0 top-24 z-40 max-h-[calc(100vh-6rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 lg:hidden">
+            <nav className="mx-auto max-w-7xl px-5 py-3">
+              {NAV.map((item) => {
+                const isExpanded = mobileOpen === item.label;
+                return (
+                  <div key={item.label} className="border-b border-line/60 last:border-0">
+                    {item.children ? (
+                      <>
+                        <div
+                          className={`flex w-full items-center rounded-xl text-[17px] font-semibold transition ${
+                            isExpanded
+                              ? "bg-brand/15 text-brand-dark ring-1 ring-brand/25"
+                              : "text-ink"
+                          }`}
+                        >
+                          <Link
+                            href={item.href}
+                            onClick={() => {
+                              setOpen(false);
+                              setMobileOpen(null);
+                            }}
+                            className="flex-1 rounded-xl px-3 py-3.5 text-left transition hover:text-brand-dark active:bg-brand/10"
+                          >
+                            {item.label}
+                          </Link>
+                          <button
+                            type="button"
+                            aria-label={`${item.label} 하위 메뉴 펼치기`}
+                            aria-expanded={isExpanded}
+                            onClick={() =>
+                              setMobileOpen((v) => (v === item.label ? null : item.label))
+                            }
+                            className="grid h-12 w-12 shrink-0 place-items-center rounded-xl active:bg-brand/10"
+                          >
+                            <ChevronDownIcon
+                              className={`h-5 w-5 transition ${
+                                isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
+                              }`}
+                            />
+                          </button>
+                        </div>
+                        {isExpanded && (
+                          <div className="space-y-1 pb-3 pl-1">
+                            {item.children.map((col) =>
+                              col.href ? (
+                                <Link
+                                  key={col.title}
+                                  href={col.href}
+                                  onClick={() => {
+                                    setOpen(false);
+                                    setMobileOpen(null);
+                                  }}
+                                  className="block rounded-lg px-3 py-2.5 text-base text-ink-soft transition hover:text-brand-dark active:bg-brand/10 active:text-brand-dark"
+                                >
+                                  {col.title}
+                                </Link>
+                              ) : null
                             )}
-                            {col.items.map((c) => (
-                              <Link
-                                key={c.href}
-                                href={c.href}
-                                onClick={() => {
-                                  setOpen(false);
-                                  setMobileOpen(null);
-                                }}
-                                className="block rounded-lg px-2 py-2 text-sm text-ink-soft hover:text-brand-dark"
-                              >
-                                {c.label}
-                                {c.sub && (
-                                  <span className="ml-2 text-[9px] tracking-[0.15em] text-ink-soft/60">
-                                    {c.sub}
-                                  </span>
-                                )}
-                              </Link>
-                            ))}
                           </div>
-                        ))}
-                      </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => setOpen(false)}
+                        className="block rounded-xl px-3 py-3.5 text-[17px] font-semibold text-ink transition hover:text-brand-dark active:bg-brand/10"
+                      >
+                        {item.label}
+                      </Link>
                     )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    onClick={() => setOpen(false)}
-                    className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-brand/5"
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
-            ))}
-            <Link
-              href="/v2#book"
-              onClick={() => setOpen(false)}
-              className="mt-3 block rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-cream"
-            >
-              상담 예약
-            </Link>
-          </nav>
-        </div>
+                  </div>
+                );
+              })}
+              <Link
+                href="/v2#book"
+                onClick={() => setOpen(false)}
+                className="mt-4 block rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-cream"
+              >
+                상담 예약
+              </Link>
+            </nav>
+          </div>
+        </>
       )}
     </header>
   );

@@ -150,7 +150,7 @@ export default function PreviewHome() {
           <div className="grid gap-3 lg:grid-cols-4 lg:grid-rows-2 lg:gap-4">
             <BentoCard
               slug="lifting"
-              img="/clinic/consult-room.jpg"
+              img="/models/lifting.png"
               label="LIFTING"
               title="리프팅"
               tall
@@ -158,25 +158,24 @@ export default function PreviewHome() {
             />
             <BentoCard
               slug="anti-aging"
-              img="/clinic/care-room.jpg"
+              img="/models/anti-aging.jpg"
               label="ANTI-AGING"
               title="안티에이징"
             />
             <BentoCard
               slug="whitening"
-              img="/clinic/lounge.jpg"
+              img="/models/whitening.png"
               label="WHITENING"
               title="화이트닝·홍조"
             />
             <BentoCard
               slug="acne"
-              img="/clinic/vip-corridor.jpg"
+              img="/models/acne.png"
               label="ACNE · SCAR"
               title="여드름·흉터"
             />
             <BentoCard
               slug="skin-disease"
-              img="/clinic/powder-room.jpg"
               label="SKIN DISEASE"
               title="피부질환"
               wide

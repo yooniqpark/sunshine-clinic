@@ -33,7 +33,7 @@ const VALUES = [
 const SPACES = [
   { src: "/clinic/lounge.jpg", label: "WAITING LOUNGE", desc: "대기 라운지" },
   { src: "/clinic/corridor.jpg", label: "CORRIDOR", desc: "진료실 복도" },
-  { src: "/clinic/vip-corridor.jpg", label: "VIP AREA", desc: "VIP 시술 존" },
+  { src: "/clinic/vip-corridor.jpg", label: "TREATMENT AREA", desc: "시술 공간" },
   { src: "/clinic/care-room.jpg", label: "CARE ROOM", desc: "케어 룸" },
   { src: "/clinic/powder-room.jpg", label: "POWDER ROOM", desc: "파우더 룸" },
 ];
@@ -191,7 +191,7 @@ export default function AboutPage() {
                     sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
                   <figcaption className="absolute inset-x-5 bottom-5 text-cream">
                     <p className="text-[10px] font-bold tracking-[0.2em] text-brand-soft">
                       {s.label}
