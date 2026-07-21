@@ -2,6 +2,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ChatWidget } from "@/components/ChatWidget";
 import { NoticePopup } from "@/components/NoticePopup";
+import { Analytics } from "@/components/Analytics";
 import { getClinic } from "@/lib/settings";
 
 export default async function SiteLayout({
@@ -22,6 +23,7 @@ export default async function SiteLayout({
         phone={clinic.phone}
       />
       <NoticePopup />
+      <Analytics />
     </>
   );
 }

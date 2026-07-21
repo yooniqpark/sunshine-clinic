@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSettings } from "@/lib/settings";
+import { getStats } from "@/lib/analytics";
 
 function startOfMonth() {
   const d = new Date();
@@ -19,6 +20,7 @@ export default async function AdminDashboard() {
     contentCount,
     monthUsage,
     settings,
+    analyticsStats,
   ] = await Promise.all([
     prisma.event.count(),
     prisma.event.count({ where: { published: true } }),
@@ -33,11 +35,12 @@ export default async function AdminDashboard() {
       _count: { _all: true },
     }),
     getSettings(),
+    getStats(),
   ]);
 
-  const monthSpent = monthUsage._sum.costUsd ?? 0;
-  const budget = settings.monthlyTokenBudgetUsd;
-  const monthPct = budget > 0 ? Math.min(100, (monthSpent / budget) * 100) : 0;
+  // monthUsage/settings are kept for future budget UI; currently unused after usage page removal.
+  void monthUsage;
+  void settings;
 
   return (
     <>
@@ -59,25 +62,16 @@ export default async function AdminDashboard() {
           <p className="mt-1 text-[11px] text-ink-soft">대기 / 전체 {totalReservations}</p>
         </Link>
         <Link
-          href="/admin/usage"
+          href="/admin/analytics"
           className="rounded-2xl border border-line bg-white p-6 transition hover:border-brand/40"
         >
-          <p className="text-xs font-semibold tracking-[0.18em] text-ink-soft">THIS MONTH · OPENAI</p>
-          <p className="mt-2 text-3xl font-bold">
-            ${monthSpent < 1 ? monthSpent.toFixed(3) : monthSpent.toFixed(2)}
+          <p className="text-xs font-semibold tracking-[0.18em] text-ink-soft">TODAY · VISITORS</p>
+          <p className="mt-2 text-3xl font-bold tabular-nums">
+            {analyticsStats.pv.today.toLocaleString()}
           </p>
           <p className="mt-1 text-[11px] text-ink-soft">
-            {monthUsage._count._all} calls
-            {budget > 0 ? ` · 예산 ${monthPct.toFixed(0)}%` : ""}
+            유니크 {analyticsStats.uv.today}명 · 이번달 {analyticsStats.pv.month.toLocaleString()}회
           </p>
-          {budget > 0 && (
-            <div className="mt-3 h-1.5 w-full overflow-hidden rounded-full bg-line">
-              <div
-                className={`h-full ${monthPct > 80 ? "bg-red-500" : "bg-brand"}`}
-                style={{ width: `${monthPct}%` }}
-              />
-            </div>
-          )}
         </Link>
         <div className="rounded-2xl border border-line bg-white p-6">
           <p className="text-xs font-semibold tracking-[0.18em] text-ink-soft">EVENTS</p>
@@ -110,11 +104,11 @@ export default async function AdminDashboard() {
           <p className="mt-1 text-[12px] text-ink-soft">시술·장비·챗봇 텍스트</p>
         </Link>
         <Link
-          href="/admin/usage"
+          href="/admin/analytics"
           className="rounded-2xl border border-line bg-white p-5 transition hover:border-brand/40"
         >
-          <p className="text-sm font-bold">토큰 사용량</p>
-          <p className="mt-1 text-[12px] text-ink-soft">OpenAI 비용·호출 추적</p>
+          <p className="text-sm font-bold">방문 통계</p>
+          <p className="mt-1 text-[12px] text-ink-soft">일·주·월 방문 · 유입 경로</p>
         </Link>
         <Link
           href="/admin/settings"

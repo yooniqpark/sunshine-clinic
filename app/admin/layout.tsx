@@ -7,6 +7,7 @@ export const metadata: Metadata = { title: "관리자 — Sunshine" };
 const nav = [
   { label: "대시보드", href: "/admin" },
   { label: "예약", href: "/admin/reservations" },
+  { label: "방문 통계", href: "/admin/analytics" },
   { label: "이벤트", href: "/admin/events" },
   { label: "콘텐츠", href: "/admin/content" },
   { label: "챗봇 매뉴얼", href: "/admin/manual" },

@@ -309,7 +309,7 @@ export default async function AboutPage({ params }: Props) {
             <div className="overflow-hidden rounded-3xl border border-line lg:sticky lg:top-24">
               <iframe
                 title={content.home.mapTitle}
-                src={`https://www.google.com/maps?q=${encodeURIComponent(clinic.address)}&z=16&output=embed`}
+                src={`https://www.google.com/maps?q=${encodeURIComponent("선샤인의원 서울특별시 송파구 올림픽로 102")}&z=17&output=embed`}
                 className="block h-[380px] w-full lg:h-[560px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

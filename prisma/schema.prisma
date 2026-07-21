@@ -169,3 +169,17 @@ model SiteContent {
   @@unique([group, slug, locale, field])
   @@index([group, locale])
 }
+
+// ===== PageView — anonymous per-visit log for admin analytics =====
+model PageView {
+  id        String   @id @default(cuid())
+  path      String   // '/', '/treatments/lifting', ...
+  locale    String?  // 'ko' | 'en' | 'ja' | 'zh'
+  visitorId String?  // sha256(ip + salt), only for unique visitor counts (never the raw IP)
+  referrer  String?  // trimmed to origin only
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([path])
+  @@index([visitorId, createdAt])
+}
