@@ -49,6 +49,10 @@ export default function proxy(req: NextRequest) {
   ) {
     return undefined;
   }
+  // /preview is a design mock route outside the localized site.
+  if (pathname === "/preview" || pathname.startsWith("/preview/")) {
+    return undefined;
+  }
   // everything else: locale-aware (redirects /, prefixes, etc.)
   return intl(req);
 }
