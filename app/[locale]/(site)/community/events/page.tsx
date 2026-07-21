@@ -1,106 +1,67 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
-import { clinic } from "@/lib/data";
-import { getPublishedEvents } from "@/lib/queries";
-import { getSiteContent, type Locale } from "@/lib/site-content";
-import { ArrowIcon, CalendarIcon, ClockIcon } from "@/components/icons";
 
-type Props = { params: Promise<{ locale: Locale }> };
+type EventItem = { tag: string; title: string; period: string; body: string };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export default async function EventsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
-  const c = getSiteContent(locale);
-  return { title: c.events.metaTitle, description: c.events.metaDesc };
-}
-
-export default async function EventsPage({ params }: Props) {
-  const { locale } = await params;
-  const events = await getPublishedEvents(locale);
-  const content = getSiteContent(locale);
-  const t = content.events;
-  const common = content.common;
+  setRequestLocale(locale);
+  const t = await getTranslations("v2.events");
+  const items = t.raw("items") as EventItem[];
 
   return (
     <>
-      {/* hero */}
-      <section className="border-b border-line bg-sand/40">
-        <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
-          <nav className="flex items-center gap-2 text-xs text-ink-soft">
-            <Link href={`/${locale}`} className="transition hover:text-brand">
-              {common.home}
-            </Link>
-            <span>/</span>
-            <span className="text-ink">{t.breadcrumb}</span>
-          </nav>
-          <p className="mt-6 text-xs font-semibold tracking-[0.2em] text-brand">EVENT</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            {t.heroTitle}
+      <section className="bg-ink py-24 text-cream lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <p className="text-[10px] font-bold tracking-[0.35em] text-brand-soft">
+            {t("kicker")}
+          </p>
+          <h1 className="mt-4 font-serif text-4xl leading-tight lg:text-6xl">
+            {t("title")}
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-ink-soft">{t.heroBody}</p>
         </div>
       </section>
 
-      {/* posts */}
-      <section className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
-        <div className="space-y-8 lg:space-y-12">
-          {events.map((e, i) => (
-            <Reveal key={e.slug} delay={i * 80}>
-              <article className="grid overflow-hidden rounded-[2rem] border border-line bg-white lg:grid-cols-2">
-                <div
-                  className="relative aspect-[16/10] lg:aspect-auto"
-                  style={{ backgroundColor: e.bgColor }}
-                >
-                  {e.photo ? (
-                    <Image
-                      src={e.photo}
-                      alt={e.title}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover object-top"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-brand-soft/30 via-blush/40 to-sand" />
-                  )}
+      <section className="bg-cream py-16 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-6 px-5 md:grid-cols-2 lg:px-8">
+          {items.map((e, i) => (
+            <Reveal key={i} delay={i * 60}>
+              <article className="group flex h-full flex-col justify-between rounded-3xl border border-line bg-white p-8 transition hover:-translate-y-1 hover:border-brand-dark hover:shadow-lg">
+                <div>
+                  <span
+                    className={`inline-flex rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.15em] ${
+                      e.tag === "OPEN"
+                        ? "bg-brand-dark text-cream"
+                        : "bg-ink/5 text-ink-soft"
+                    }`}
+                  >
+                    {e.tag}
+                  </span>
+                  <h3 className="mt-5 font-serif text-2xl leading-tight lg:text-3xl">
+                    {e.title}
+                  </h3>
+                  <p className="mt-4 text-sm leading-relaxed text-ink-soft">{e.body}</p>
                 </div>
-                <div className="flex flex-col justify-center p-7 lg:p-10">
-                  <div className="flex items-center gap-3">
-                    <span className="rounded-full bg-blush px-3 py-1 text-[11px] font-semibold tracking-wide text-brand-dark">
-                      {e.tag}
-                    </span>
-                    <span className="inline-flex items-center gap-1 text-xs text-ink-soft">
-                      <ClockIcon className="h-3.5 w-3.5" />
-                      {e.period}
-                    </span>
-                  </div>
-                  <h2 className="mt-4 text-2xl font-bold tracking-tight lg:text-3xl">{e.title}</h2>
-                  <div className="mt-4 space-y-2.5 text-sm leading-relaxed text-ink-soft">
-                    {e.body.map((p, j) => (
-                      <p key={j}>{p}</p>
-                    ))}
-                  </div>
-                  <div className="mt-7 flex flex-wrap gap-3">
-                    <a
-                      href={clinic.kakaoHref}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-ink px-5 py-3 text-sm font-semibold text-cream transition hover:bg-brand-dark"
-                    >
-                      <CalendarIcon className="h-4 w-4" />
-                      {t.consultCta}
-                    </a>
-                    <a
-                      href={clinic.phoneHref}
-                      className="inline-flex items-center gap-2 rounded-full border border-line px-5 py-3 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand"
-                    >
-                      {t.phoneCta} <ArrowIcon className="h-4 w-4" />
-                    </a>
-                  </div>
+                <div className="mt-8 border-t border-line pt-5 text-xs tracking-[0.15em] text-ink-soft">
+                  {t("periodLabel")} · {e.period}
                 </div>
               </article>
             </Reveal>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/#book"
+            className="inline-flex rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream hover:bg-brand-dark"
+          >
+            {t("cta")}
+          </Link>
         </div>
       </section>
     </>

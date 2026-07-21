@@ -160,5 +160,387 @@
     "loading": "読み込み中…",
     "viewAll": "すべて見る",
     "viewDetail": "詳細を見る"
+  },
+  "v2": {
+    "header": {
+      "ctaBook": "相談予約",
+      "menuOpen": "メニューを開く",
+      "menuClose": "メニューを閉じる",
+      "nav": {
+        "about": "クリニック紹介",
+        "treatments": "施術",
+        "community": "コミュニティ"
+      },
+      "cols": {
+        "lifting": "リフティング",
+        "antiAging": "アンチエイジング",
+        "whitening": "ホワイトニング・赤ら顔",
+        "acne": "ニキビ・傷跡",
+        "skinDisease": "皮膚疾患",
+        "community": "コミュニティ"
+      },
+      "items": {
+        "botox": "ボトックス",
+        "filler": "フィラー",
+        "skinBotox": "スキンボトックス",
+        "jubellook": "ジュベルック",
+        "rejuran": "リジュラン",
+        "atopic": "アトピー・湿疹",
+        "psoriasis": "乾癬",
+        "hairLoss": "薄毛治療",
+        "wart": "いぼ・魚の目",
+        "athlete": "水虫・爪白癬",
+        "notices": "お知らせ",
+        "events": "イベント",
+        "prices": "自由診療料金表",
+        "ultheraPrime": "ウルセラ プライム",
+        "thermageFlx": "サーマージ FLX",
+        "shurinkUniverse": "シュリンク ユニバース",
+        "inmode": "InMode",
+        "ellanse": "エランセ",
+        "clarityII": "クラリティ II",
+        "starwalker": "スターウォーカー",
+        "vbeam": "V-Beam",
+        "secretRf": "シークレット RF",
+        "carpriCo2": "CarPri CO2",
+        "goldPtt": "ゴールド PTT",
+        "curejet": "キュアジェット"
+      }
+    },
+    "footer": {
+      "tagline": "一人ひとりに寄り添う、繊細で誠実な診療。豊富な臨床経験とプレミアムなハイエンド機器で、心地よく質の高い医療をお届けします。",
+      "menuHeading": "MENU",
+      "contactHeading": "CONTACT",
+      "menu": {
+        "about": "クリニック紹介",
+        "treatments": "施術",
+        "notices": "お知らせ",
+        "prices": "自由診療料金表"
+      },
+      "address1": "ソウル特別市 松坡区 オリンピック路 102",
+      "address2": "ソイルビル 10階",
+      "hoursWeekday": "平日 10:00 – 20:00",
+      "hoursSat": "土曜日 10:00 – 16:00",
+      "hoursClosed": "日曜・祝日 休診",
+      "business": "商号 サンシャインクリニック · 院長 キム・ビョンヒョン · 事業者登録番号 878-37-01499 · 松坡区保健所届出 第 2026-3230034-00049 号"
+    },
+    "home": {
+      "heroKicker": "SUNSHINE DERMATOLOGY CLINIC · SINCE 2026",
+      "heroTitleLine1": "肌のキメ、",
+      "heroTitleAccent": "日常の光。",
+      "heroDescLine1": "一人ひとりに寄り添う、繊細で誠実な診療。",
+      "heroDescLine2": "プレミアムなハイエンド機器で、健やかな変化を共に。",
+      "ctaBook": "相談を予約する",
+      "ctaTreatments": "施術を見る",
+      "scroll": "SCROLL ↓",
+      "location": "SEOUL · 松坡",
+      "stats": {
+        "years": { "n": "10", "u": "年+", "l": "臨床経験" },
+        "devices": { "n": "15", "u": "種", "l": "正規認証機器" },
+        "languages": { "n": "4", "u": "か国", "l": "多言語対応" },
+        "personal": { "n": "1:1", "u": "", "l": "オーダーメイド診療" }
+      },
+      "directorKicker": "DIRECTOR · 院長",
+      "directorQuoteStart": "「一人ひとりの",
+      "directorQuoteAccent": "肌と心",
+      "directorQuoteEnd": "まで、共に寄り添う診療を目指しています。」",
+      "directorName": "キム・ビョンヒョン",
+      "directorRole": "院長 · Sunshine Dermatology Clinic",
+      "viewDoctors": "医師紹介",
+      "categoriesKicker": "TREATMENTS",
+      "categoriesTitleLead": "お悩み別の ",
+      "categoriesTitleAccent": "オーダーメイド施術",
+      "viewAllCategories": "すべてのカテゴリー →",
+      "cards": {
+        "lifting": "リフティング",
+        "antiAging": "アンチエイジング",
+        "whitening": "ホワイトニング・赤ら顔",
+        "acne": "ニキビ・傷跡",
+        "skinDisease": "皮膚疾患"
+      },
+      "bentoDetail": "詳しく見る",
+      "devicesKicker": "SIGNATURE DEVICES",
+      "devicesTitleLead": "メーカー ",
+      "devicesTitleAccent": "正規認証",
+      "devicesTitleTail": "ハイエンド機器。",
+      "devicesDesc": "ウルセラ・サーマージ・シュリンクユニバースなど15種以上の正規機器で、肌層・部位・状態に合わせた精密な施術をご提供します。",
+      "viewAllDevices": "機器一覧を見る",
+      "devicesList": {
+        "ulthera": { "name": "ウルセラ プライム", "tag": "HIFU · リフティング" },
+        "thermage": { "name": "サーマージ FLX", "tag": "RF · ハリ" },
+        "shurink": { "name": "シュリンク ユニバース", "tag": "HIFU · 部位別" },
+        "fotona": { "name": "フォトナ スターウォーカー", "tag": "レーザー · 色素" },
+        "vbeam": { "name": "V-Beam", "tag": "赤ら顔・血管" },
+        "secretRf": { "name": "Secret RF", "tag": "マイクロニードル RF" }
+      },
+      "whyKicker": "WHY SUNSHINE",
+      "whyLine1a": "過剰な診療より",
+      "whyLine1b": " 必要な診療を",
+      "whyLine2a": "派手な広告より",
+      "whyLine2b": " 確かな結果を",
+      "whyLine3a": "一時的な改善より",
+      "whyLine3b": " 健やかな変化を",
+      "whyDesc": "肌本来の健康と美しさを取り戻し、日常により大きな自信を届けるかかりつけ医でありたいと考えています。",
+      "whyCta": "クリニック紹介を見る",
+      "ctaKicker": "CONTACT",
+      "ctaTitleLead": "今すぐ ",
+      "ctaTitleAccent": "相談を予約",
+      "ctaTitleTail": "してください。",
+      "ctaDesc": "1:1のオーダーメイド相談後、最適な施術プランをご案内します。ご来院相談は無料です。",
+      "ctaPhone": "電話 02-421-7588",
+      "ctaNaver": "Naverで予約",
+      "address": "ソウル特別市 松坡区 オリンピック路 102、ソイルビル 10階 · 平日 10:00–20:00 · 土曜 10:00–16:00"
+    },
+    "about": {
+      "heroKicker": "ABOUT SUNSHINE",
+      "heroTitleLine1": "キメを整え、",
+      "heroTitleAccent": "日常を照らす。",
+      "heroDesc": "サンシャインクリニックは、大学病院で長年臨床経験を積んだ皮膚科専門医が直接診療する地域密着型クリニックです。流行より長く続く美しさを、派手さより健やかな回復を目指します。",
+      "directorKicker": "DIRECTOR",
+      "directorName": "キム・ビョンヒョン",
+      "directorTitle": "院長",
+      "directorBio": "カトリック大学ソウル聖母病院の皮膚科専門医として、15年以上多様な症例を診てきました。流行を追わず、それぞれのトーンとキメを尊重した診療計画をご提案します。",
+      "historyLabel": "HISTORY",
+      "history": [
+        { "year": "2010", "event": "カトリック大学医学部 卒業" },
+        { "year": "2015", "event": "カトリック大学ソウル聖母病院 皮膚科専門医 取得" },
+        { "year": "2016", "event": "大韓皮膚科学会 正会員" },
+        { "year": "2018", "event": "大韓美容形成レーザー医学会 正会員" },
+        { "year": "2020", "event": "国際毛髪移植学会 (ISHRS) 正会員" },
+        { "year": "2026", "event": "サンシャインクリニック 開院 · 院長" }
+      ],
+      "consultKicker": "CONSULT ROOM",
+      "consultTitle": "対話がはじまる場所",
+      "consultBody": "大理石の壁とブラウンウッドで仕上げた院長室は、落ち着いたトーンで安心して相談できる雰囲気を作ります。十分な時間をかけて、肌の状態とライフスタイルを共に話し合います。",
+      "spaceKicker": "THE SPACE",
+      "spaceTitleLead": "心地よい回復のための",
+      "spaceTitleAccent": "すべての瞬間。",
+      "spaceDesc": "待合室からパウダールームまで、来院されるすべての空間をホテルのような繊細さで整え、心地よくプライベートに設計しました。",
+      "spaces": [
+        { "label": "WAITING LOUNGE", "desc": "待合ラウンジ" },
+        { "label": "CORRIDOR", "desc": "診療室の廊下" },
+        { "label": "TREATMENT AREA", "desc": "施術スペース" },
+        { "label": "CARE ROOM", "desc": "ケアルーム" },
+        { "label": "POWDER ROOM", "desc": "パウダールーム" }
+      ],
+      "philosophyKicker": "PHILOSOPHY",
+      "philosophyTitleLead": "急がずに、",
+      "philosophyTitleAccent": "長く続く結果を。",
+      "values": [
+        { "n": "01", "title": "誠実な診療", "body": "必要のない施術はおすすめしません。肌の状態とライフサイクルに合わせた最小限の介入を優先します。" },
+        { "n": "02", "title": "繊細な手技", "body": "10年以上の臨床経験をもとに、キメ・トーン・ラインを一つひとつ丁寧に整える密度の高い診療をご提供します。" },
+        { "n": "03", "title": "プレミアム機器", "body": "国内トップクラスのハイエンド機器を導入し、回復が早く快適な施術環境を整えています。" }
+      ],
+      "equipmentKicker": "EQUIPMENT",
+      "equipmentTitleLead": "ハイエンド機器を、",
+      "equipmentTitleAccent": "ひとつの場所に。",
+      "equipmentDesc": "ウルセラ プライム・サーマージ FLX・シュリンク ユニバース・クラリティ II・スターウォーカー・V-Beam・InMode・CarPri CO2 など、国内トップクラスのハイエンド機器を一つの空間に揃えました。",
+      "equipmentCta": "機器一覧を見る",
+      "ctaTitleLine1": "初めての相談は、",
+      "ctaTitleLine2Lead": "もっとも近い ",
+      "ctaTitleAccent": "はじまり",
+      "ctaTitleTail": "です。",
+      "ctaTreatments": "施術を見る"
+    },
+    "notices": {
+      "kicker": "COMMUNITY",
+      "title": "お知らせ",
+      "tagOpen": "OPEN",
+      "tagInfo": "お知らせ",
+      "items": [
+        { "tag": "OPEN", "date": "2026.07.15", "title": "サンシャインクリニック 正式開院のご案内", "excerpt": "松坡区オリンピック路にサンシャインクリニックが正式に開院します。開院記念の相談イベントも同時開催します。" },
+        { "tag": "お知らせ", "date": "2026.07.10", "title": "8月の診療時間・休診日", "excerpt": "8月光復節(15日)は休診、毎週日曜日および祝日も通常休診です。" },
+        { "tag": "お知らせ", "date": "2026.07.03", "title": "オンライン事前相談予約サービス開始", "excerpt": "Naver予約を通じたオンライン相談予約をご利用ください。リアルタイム確定で待ち時間を短縮できます。" },
+        { "tag": "お知らせ", "date": "2026.06.28", "title": "KakaoTalkチャンネル相談サービスのご案内", "excerpt": "KakaoTalkチャンネルからも相談を受け付けています。診療に関するお問い合わせは診療時間内に返信いたします。" }
+      ]
+    },
+    "events": {
+      "kicker": "COMMUNITY",
+      "title": "イベント",
+      "periodLabel": "期間",
+      "cta": "相談を予約する",
+      "items": [
+        { "tag": "OPEN", "title": "サンシャインクリニック 開院記念 相談イベント", "period": "2026.07.15 ~ 2026.08.31", "body": "正式開院を記念し、ご来院相談時に肌診断サービスを無料でご提供します。" },
+        { "tag": "イベント", "title": "サマー トーンケア プロモーション", "period": "2026.07.20 ~ 2026.08.31", "body": "夏の色素・赤ら顔ケアのためのトーンアッププログラムを特別価格でご提供。" },
+        { "tag": "お知らせ", "title": "ホームケア化粧品 リカバリーガイド", "period": "常時", "body": "施術後の回復を助けるホームケア製品のガイドを診療室でご案内します。" }
+      ]
+    },
+    "prices": {
+      "kicker": "COMMUNITY",
+      "title": "自由診療料金表",
+      "desc": "個人の肌の状態や施術の組み合わせにより、実際の費用は変わることがあります。正確なお見積もりはご来院相談時にご案内します。",
+      "footnote1": "* 表示金額は消費税の有無にかかわらず、ご来院時の最終見積もりで確定します。",
+      "footnote2": "* 肌の状態、施術範囲、セッション数、プロモーション適用の有無により、実際の費用は変わることがあります。",
+      "sections": [
+        {
+          "kicker": "LIFTING",
+          "title": "リフティング",
+          "rows": [
+            { "name": "ウルセラ 全顔 300ショット", "price": "1,200,000ウォン" },
+            { "name": "シュリンク ユニバース 400ショット", "price": "800,000ウォン" },
+            { "name": "デンシティ 全顔", "price": "600,000ウォン" },
+            { "name": "InMode FX", "price": "300,000ウォン" },
+            { "name": "糸リフト (PDO 10本基準)", "price": "800,000ウォン", "note": "糸の種類・本数により異なる" }
+          ]
+        },
+        {
+          "kicker": "ANTI-AGING",
+          "title": "アンチエイジング",
+          "rows": [
+            { "name": "ボトックス 額 · 眉間", "price": "60,000ウォン", "note": "1部位" },
+            { "name": "フィラー (1cc)", "price": "350,000ウォン", "note": "製品により異なる" },
+            { "name": "スキンボトックス 全顔", "price": "250,000ウォン" },
+            { "name": "ジュベルック 1本", "price": "300,000ウォン" },
+            { "name": "リジュラン ヒーラー 1本", "price": "300,000ウォン" }
+          ]
+        },
+        {
+          "kicker": "TONE",
+          "title": "ホワイトニング · 赤ら顔",
+          "rows": [
+            { "name": "ピコトーニング", "price": "150,000ウォン" },
+            { "name": "V-Beam パーフェクタ 局所", "price": "200,000ウォン" },
+            { "name": "IPL 全顔", "price": "180,000ウォン" },
+            { "name": "ジェネシス 全顔", "price": "150,000ウォン" }
+          ]
+        },
+        {
+          "kicker": "ACNE & SCAR",
+          "title": "ニキビ · 傷跡",
+          "rows": [
+            { "name": "ニキビ圧出 (部位)", "price": "50,000ウォン" },
+            { "name": "PDT 光線力学療法", "price": "300,000ウォン" },
+            { "name": "フラクセル 全顔", "price": "500,000ウォン" },
+            { "name": "インフィニ ハイブリッド", "price": "500,000ウォン" }
+          ]
+        }
+      ]
+    },
+    "treatments": {
+      "crumbHome": "HOME",
+      "crumbTreatments": "TREATMENTS",
+      "processKicker": "PROCESS",
+      "processTitle": "施術の流れ",
+      "menuKicker": "MENU",
+      "menuTitleSuffix": " 施術",
+      "menuDesc": "項目をクリックすると各機器の詳細ページに移動します。",
+      "ctaTitle": "{label}の相談を<accent>予約</accent>する。",
+      "ctaOnline": "オンライン相談予約",
+      "ctaPhone": "02-421-7588",
+      "categories": {
+        "lifting": {
+          "label": "リフティング",
+          "kicker": "LIFTING",
+          "heroLine1": "キメをもう一度、",
+          "heroLine2": "ラインは鮮やかに。",
+          "intro": "顔のたるみとボリューム低下を多層的にアプローチ。施術の組み合わせと強さは、肌のキメと組織状態に合わせて設計します。",
+          "process": [
+            { "step": "01", "title": "精密相談", "body": "顔の3D分析と肌のキメ・ボリューム診断をもとに組み合わせを設計します。" },
+            { "step": "02", "title": "オーダーメイド プロトコル", "body": "ウルセラ・シュリンク・糸リフトなどを組み合わせて1セッションで進めます。" },
+            { "step": "03", "title": "回復ケア", "body": "施術直後の鎮静ケアとホームケアガイドを共にご提供します。" }
+          ]
+        },
+        "anti-aging": {
+          "label": "アンチエイジング",
+          "kicker": "ANTI-AGING",
+          "heroLine1": "時が流れても、",
+          "heroLine2": "キメは育ちつづける。",
+          "intro": "小じわ · ボリューム · キメの3つの軸を共に管理します。自然な年齢を重ねるための、ケア志向のプロトコルをご提案します。",
+          "process": [
+            { "step": "01", "title": "エイジング診断", "body": "小じわ・ボリューム・弾力・キメを精密に診断します。" },
+            { "step": "02", "title": "レイヤリング施術", "body": "トキシン・フィラー・スキンブースターを組み合わせ自然な結果を作ります。" },
+            { "step": "03", "title": "長期プラン", "body": "3〜6ヶ月単位のケアカレンダーを共に設計します。" }
+          ],
+          "fallbackItems": [
+            { "name": "ボトックス", "desc": "表情じわの緩和、筋肉ラインを整える" },
+            { "name": "フィラー", "desc": "ボリューム回復と輪郭補正(ヒアルロン酸)" },
+            { "name": "スキンボトックス", "desc": "浅い表皮にマイクロ塗布でキメ・毛穴ケア" },
+            { "name": "ジュベルック", "desc": "PDLLAコラーゲンブースター、キメ改善" },
+            { "name": "リジュラン", "desc": "PN成分で肌再生・弾力回復" }
+          ]
+        },
+        "whitening": {
+          "label": "ホワイトニング · 赤ら顔",
+          "kicker": "TONE",
+          "heroLine1": "トーンは澄み、",
+          "heroLine2": "キメは均一に。",
+          "intro": "色素沈着と赤ら顔を原因から分析してアプローチ。季節と肌の回復力を考慮したプロトコルをご提供します。",
+          "process": [
+            { "step": "01", "title": "色素診断", "body": "表皮性・真皮性・血管性の要因を正確に分類します。" },
+            { "step": "02", "title": "ターゲット施術", "body": "波長と強さを各病変に合わせて細分化します。" },
+            { "step": "03", "title": "再発ケア", "body": "紫外線対策とホームケアの併用で再発を最小限に。" }
+          ]
+        },
+        "acne": {
+          "label": "ニキビ · 傷跡",
+          "kicker": "ACNE & SCAR",
+          "heroLine1": "肌の痕跡を、",
+          "heroLine2": "キメで回復させる。",
+          "intro": "ニキビの原因と進行段階を把握し、鎮静・再生・傷跡ケアへとつながる統合プロトコルをご提供します。",
+          "process": [
+            { "step": "01", "title": "段階分類", "body": "炎症性・非炎症性・傷跡の段階ごとにアプローチを分けます。" },
+            { "step": "02", "title": "複合ケア", "body": "薬物処方と施術を併用し、再発を抑えます。" },
+            { "step": "03", "title": "傷跡回復", "body": "残った傷跡はフラクショナル・ニードルRFで長期ケアします。" }
+          ]
+        },
+        "skin-disease": {
+          "label": "皮膚疾患",
+          "kicker": "MEDICAL DERMATOLOGY",
+          "heroLine1": "正確な診断、",
+          "heroLine2": "誠実な治療。",
+          "intro": "皮膚科専門医として、一般的な皮膚疾患から慢性疾患まで、エビデンスに基づく診療をご提供します。",
+          "process": [
+            { "step": "01", "title": "正確な診断", "body": "必要に応じてKOH・生検などで原因を確認します。" },
+            { "step": "02", "title": "エビデンスに基づく治療", "body": "ガイドラインに沿って局所・全身・施術を組み合わせます。" },
+            { "step": "03", "title": "継続観察", "body": "慢性疾患は長期フォローアップで再発を管理します。" }
+          ],
+          "fallbackItems": [
+            { "name": "アトピー · 湿疹", "desc": "慢性管理および局所・全身治療" },
+            { "name": "乾癬", "desc": "局所・光線治療・全身療法" },
+            { "name": "薄毛", "desc": "メソセラピー · 頭皮診断 · 薬物治療" },
+            { "name": "いぼ · 魚の目", "desc": "凍結療法 · レーザー · 薬物治療" },
+            { "name": "水虫 · 爪白癬", "desc": "精密検査と長期治療" }
+          ]
+        }
+      }
+    },
+    "device": {
+      "crumbHome": "HOME",
+      "introKicker": "INTRODUCTION",
+      "coreSpec": "CORE SPEC",
+      "technology": "TECHNOLOGY",
+      "featuresKicker": "FEATURES",
+      "featuresTitle": "{name}ならではの<accent>違い</accent>",
+      "howKicker": "HOW IT WORKS",
+      "howTitle": "作動原理",
+      "recKicker": "RECOMMENDED FOR",
+      "recTitleLine1": "こんな方に",
+      "recTitleAccent": "おすすめです。",
+      "processKicker": "PROCESS",
+      "processTitleLine1": "相談から回復まで、",
+      "processTitleAccent": "ひとつの流れで。",
+      "defaultProcess": [
+        { "step": "01", "title": "精密相談", "body": "肌のキメ・トーン・ボリュームなどの状態を診断し、ライフサイクルに合わせた施術の強さを設計します。" },
+        { "step": "02", "title": "オーダーメイド施術", "body": "表面麻酔後、個人の肌の厚さと反応に合わせてカートリッジ・エネルギー・ショット数を調整して行います。" },
+        { "step": "03", "title": "回復ケア", "body": "施術直後の鎮静ケアとホームケアガイドをご提供し、必要に応じて再診スケジュールも共に設計します。" }
+      ],
+      "faqKicker": "FAQ",
+      "faqTitle": "よくある質問",
+      "byPrefix": "BY",
+      "ctaTitle": "{name}<br/><accent>相談予約</accent>する",
+      "ctaOnline": "オンライン相談予約",
+      "ctaPhone": "02-421-7588",
+      "moreInPrefix": "MORE IN ",
+      "siblingsTitle": "同じカテゴリー",
+      "viewAllSiblings": "すべて見る",
+      "siblingsView": "VIEW",
+      "categoryLabels": {
+        "lifting": "リフティング",
+        "anti-aging": "アンチエイジング",
+        "whitening": "ホワイトニング · 赤ら顔",
+        "acne": "ニキビ · 傷跡",
+        "skin-disease": "皮膚疾患"
+      }
+    }
   }
 }

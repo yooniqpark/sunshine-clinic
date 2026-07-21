@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon, ArrowIcon } from "@/components/icons";
 import {
@@ -10,51 +11,33 @@ import {
 } from "@/lib/devices";
 import koData from "@/content/devices-ko.json";
 import type { DeviceDetail } from "@/lib/devices";
+import type { AppLocale } from "@/i18n/routing";
 
-const ALL_DEVICES = koData as Record<string, DeviceDetail>;
+const ALL_DEVICES_KO = koData as Record<string, DeviceDetail>;
 
-const CATEGORY_LABELS: Record<string, string> = {
-  lifting: "리프팅",
-  "anti-aging": "안티에이징",
-  whitening: "화이트닝 · 홍조",
-  acne: "여드름 · 흉터",
-  "skin-disease": "피부질환",
-};
+const CATEGORY_KEYS = ["lifting", "anti-aging", "whitening", "acne", "skin-disease"];
 
-const DEFAULT_PROCESS = [
-  {
-    step: "01",
-    title: "정밀 상담",
-    body: "피부 결·톤·볼륨 등 상태를 진단하고 라이프 사이클에 맞춘 시술 강도를 설계합니다.",
-  },
-  {
-    step: "02",
-    title: "맞춤 시술",
-    body: "표면 마취 후, 개인의 피부 두께와 반응에 맞춰 카트리지·에너지·샷 수를 조절해 진행합니다.",
-  },
-  {
-    step: "03",
-    title: "회복 케어",
-    body: "시술 직후 진정 관리와 홈케어 가이드를 제공하고, 필요 시 재진 스케줄을 함께 설계합니다.",
-  },
-];
+type ProcessStep = { step: string; title: string; body: string };
 
 export function generateStaticParams() {
-  return Object.values(ALL_DEVICES)
-    .filter((d) => d.category in CATEGORY_LABELS)
+  return Object.values(ALL_DEVICES_KO)
+    .filter((d) => CATEGORY_KEYS.includes(d.category))
     .map((d) => ({ category: d.category, device: d.slug }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ category: string; device: string }>;
+  params: Promise<{ locale: string; category: string; device: string }>;
 }) {
-  const { device } = await params;
-  const d = ALL_DEVICES[device];
+  const { locale, device } = await params;
+  const dict = (
+    await import(`@/content/devices-${locale}.json`).catch(() => ({ default: ALL_DEVICES_KO }))
+  ).default as Record<string, DeviceDetail>;
+  const d = dict[device] ?? ALL_DEVICES_KO[device];
   if (!d) return {};
   return {
-    title: `${d.name} — Preview`,
+    title: d.name,
     robots: { index: false, follow: false },
   };
 }
@@ -62,20 +45,30 @@ export async function generateMetadata({
 export default async function DevicePage({
   params,
 }: {
-  params: Promise<{ category: string; device: string }>;
+  params: Promise<{ locale: string; category: string; device: string }>;
 }) {
-  const { category, device } = await params;
-  const d = ALL_DEVICES[device];
+  const { locale, category, device } = await params;
+  setRequestLocale(locale);
+
+  // Load the localized device dict
+  const dict = (
+    await import(`@/content/devices-${locale}.json`).catch(() => ({ default: ALL_DEVICES_KO }))
+  ).default as Record<string, DeviceDetail>;
+  const d = dict[device] ?? ALL_DEVICES_KO[device];
   if (!d || d.category !== category) notFound();
 
-  const catLabel = CATEGORY_LABELS[category] ?? category;
+  const t = await getTranslations("v2.device");
+  const catLabel = t(`categoryLabels.${category}` as never);
   const img = getDeviceImage(d.slug);
   const meta = getDeviceMarketing(d.slug);
-  const siblings = getDevicesByCategory("ko", category).filter((x) => x.slug !== d.slug);
+  const siblings = getDevicesByCategory(locale as AppLocale, category).filter(
+    (x) => x.slug !== d.slug,
+  );
+  const defaultProcess = t.raw("defaultProcess") as ProcessStep[];
 
   return (
     <>
-      {/* ══════ HERO — spacious editorial ══════ */}
+      {/* HERO */}
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
           {img && (
@@ -91,11 +84,10 @@ export default async function DevicePage({
         </div>
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
-          {/* Breadcrumb */}
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
-            <Link href="/v2" className="hover:text-cream">HOME</Link>
+            <Link href="/" className="hover:text-cream">{t("crumbHome")}</Link>
             <span>/</span>
-            <Link href={`/v2/treatments/${category}`} className="hover:text-cream">
+            <Link href={`/treatments/${category}`} className="hover:text-cream">
               {catLabel.toUpperCase()}
             </Link>
             <span>/</span>
@@ -114,17 +106,17 @@ export default async function DevicePage({
             &ldquo;{d.tagline}&rdquo;
           </p>
           <p className="mt-12 text-[10px] tracking-[0.3em] text-cream/40">
-            BY {d.manufacturer.toUpperCase()}
+            {t("byPrefix")} {d.manufacturer.toUpperCase()}
           </p>
         </div>
       </section>
 
-      {/* ══════ INTRO — huge serif quote ══════ */}
+      {/* INTRO */}
       <section className="bg-cream py-32 lg:py-44">
         <div className="mx-auto max-w-4xl px-5 lg:px-8">
           <Reveal>
             <p className="text-[10px] font-bold tracking-[0.35em] text-brand-dark">
-              INTRODUCTION
+              {t("introKicker")}
             </p>
             <p className="mt-12 font-serif text-2xl leading-[1.5] text-ink lg:text-[32px] lg:leading-[1.45]">
               {d.intro}
@@ -133,12 +125,12 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* ══════ HIGHLIGHT STAT + TECH TAGS ══════ */}
+      {/* HIGHLIGHT STAT + TECH */}
       <section className="border-y border-line bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-6xl gap-16 px-5 lg:grid-cols-[1fr_1.4fr] lg:gap-24 lg:px-8">
           <div>
             <p className="text-[10px] font-bold tracking-[0.3em] text-ink-soft">
-              CORE SPEC
+              {t("coreSpec")}
             </p>
             <div className="mt-6 flex items-baseline gap-4">
               <span className="font-serif text-6xl leading-none text-ink lg:text-7xl">
@@ -152,15 +144,15 @@ export default async function DevicePage({
 
           <div>
             <p className="text-[10px] font-bold tracking-[0.3em] text-ink-soft">
-              TECHNOLOGY
+              {t("technology")}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {d.tech.map((t) => (
+              {d.tech.map((tt) => (
                 <span
-                  key={t}
+                  key={tt}
                   className="rounded-full border border-line px-4 py-2 text-xs font-medium text-ink"
                 >
-                  {t}
+                  {tt}
                 </span>
               ))}
             </div>
@@ -180,14 +172,17 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* ══════ FEATURES — 2-col spacious ══════ */}
+      {/* FEATURES */}
       <section className="bg-cream py-32 lg:py-40">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-            FEATURES
+            {t("featuresKicker")}
           </p>
           <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-tight lg:text-6xl">
-            {d.name}만의 <em className="italic text-brand-dark">차별점</em>
+            {t.rich("featuresTitle", {
+              name: d.name,
+              accent: (c) => <em className="italic text-brand-dark">{c}</em>,
+            })}
           </h2>
 
           <div className="mt-20 grid gap-x-16 gap-y-20 lg:grid-cols-2">
@@ -210,7 +205,7 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* ══════ HOW IT WORKS — dark, cinematic ══════ */}
+      {/* HOW IT WORKS */}
       <section className="relative overflow-hidden bg-ink py-32 text-cream lg:py-44">
         {img && (
           <div className="absolute inset-0 opacity-10">
@@ -219,10 +214,10 @@ export default async function DevicePage({
         )}
         <div className="relative mx-auto max-w-4xl px-5 lg:px-8">
           <p className="text-[10px] font-bold tracking-[0.3em] text-brand-soft">
-            HOW IT WORKS
+            {t("howKicker")}
           </p>
           <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
-            작동 원리
+            {t("howTitle")}
           </h2>
           <p className="mt-12 font-serif text-xl leading-[1.6] text-cream/80 lg:text-2xl lg:leading-[1.55]">
             {d.howItWorks}
@@ -230,17 +225,17 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* ══════ RECOMMENDED FOR — editorial list ══════ */}
+      {/* RECOMMENDED FOR */}
       <section className="bg-cream py-32 lg:py-40">
         <div className="mx-auto grid max-w-6xl gap-16 px-5 lg:grid-cols-[1fr_1.3fr] lg:gap-24 lg:px-8">
           <div>
             <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-              RECOMMENDED FOR
+              {t("recKicker")}
             </p>
             <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
-              이런 분께
+              {t("recTitleLine1")}
               <br />
-              <em className="italic text-brand-dark">권해드립니다.</em>
+              <em className="italic text-brand-dark">{t("recTitleAccent")}</em>
             </h2>
           </div>
 
@@ -259,20 +254,20 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* ══════ PROCESS — the requested 3-step ══════ */}
+      {/* PROCESS */}
       <section className="bg-ink py-32 text-cream lg:py-44">
         <div className="mx-auto max-w-6xl px-5 lg:px-8">
           <p className="text-[10px] font-bold tracking-[0.3em] text-brand-soft">
-            PROCESS
+            {t("processKicker")}
           </p>
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight lg:text-6xl">
-            상담부터 회복까지,
+            {t("processTitleLine1")}
             <br />
-            <em className="italic text-brand-soft">한 흐름으로.</em>
+            <em className="italic text-brand-soft">{t("processTitleAccent")}</em>
           </h2>
 
           <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-8">
-            {DEFAULT_PROCESS.map((p) => (
+            {defaultProcess.map((p) => (
               <Reveal key={p.step}>
                 <div className="border-t border-cream/20 pt-10">
                   <p className="font-serif text-5xl text-brand-soft">{p.step}</p>
@@ -287,13 +282,13 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* ══════ FAQ ══════ */}
+      {/* FAQ */}
       {d.faq.length > 0 && (
         <section className="bg-cream py-32 lg:py-40">
           <div className="mx-auto max-w-4xl px-5 lg:px-8">
-            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">FAQ</p>
+            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">{t("faqKicker")}</p>
             <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
-              자주 묻는 질문
+              {t("faqTitle")}
             </h2>
 
             <div className="mt-16 divide-y divide-line border-y border-line">
@@ -317,52 +312,54 @@ export default async function DevicePage({
         </section>
       )}
 
-      {/* ══════ CTA — bold ══════ */}
+      {/* CTA */}
       <section className="bg-ink py-24 text-cream lg:py-32">
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
           <Reveal>
             <h2 className="font-serif text-4xl leading-tight lg:text-6xl">
-              {d.name}
-              <br />
-              <em className="italic text-brand-soft">상담 예약</em>하기
+              {t.rich("ctaTitle", {
+                name: d.name,
+                accent: (c) => <em className="italic text-brand-soft">{c}</em>,
+                br: () => <br />,
+              })}
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/v2#book"
+                href="/#book"
                 className="group inline-flex items-center gap-2 rounded-full bg-cream px-8 py-4 text-sm font-semibold text-ink transition hover:bg-brand-soft"
               >
-                온라인 상담 예약
+                {t("ctaOnline")}
                 <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
               <a
                 href="tel:024217588"
                 className="rounded-full border border-cream/30 px-8 py-4 text-sm font-semibold text-cream hover:border-cream"
               >
-                02-421-7588
+                {t("ctaPhone")}
               </a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ══════ SIBLINGS — other devices in same category ══════ */}
+      {/* SIBLINGS */}
       {siblings.length > 0 && (
         <section className="bg-cream py-24 lg:py-32">
           <div className="mx-auto max-w-6xl px-5 lg:px-8">
             <div className="flex items-end justify-between gap-6">
               <div>
                 <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-                  MORE IN {catLabel.toUpperCase()}
+                  {t("moreInPrefix")}{catLabel.toUpperCase()}
                 </p>
                 <h2 className="mt-3 font-serif text-3xl leading-tight lg:text-4xl">
-                  같은 카테고리
+                  {t("siblingsTitle")}
                 </h2>
               </div>
               <Link
-                href={`/v2/treatments/${category}`}
+                href={`/treatments/${category}`}
                 className="hidden items-center gap-1 text-xs font-semibold text-ink-soft hover:text-brand-dark md:inline-flex"
               >
-                전체 보기 <ArrowIcon className="h-3 w-3" />
+                {t("viewAllSiblings")} <ArrowIcon className="h-3 w-3" />
               </Link>
             </div>
 
@@ -372,7 +369,7 @@ export default async function DevicePage({
                 return (
                   <Link
                     key={s.slug}
-                    href={`/v2/treatments/${category}/${s.slug}`}
+                    href={`/treatments/${category}/${s.slug}`}
                     className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5"
                   >
                     {sImg && (
@@ -388,7 +385,7 @@ export default async function DevicePage({
                       <h3 className="font-serif text-2xl leading-tight">{s.name}</h3>
                       <p className="mt-2 line-clamp-2 text-xs text-cream/70">{s.tagline}</p>
                       <div className="mt-4 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.15em] text-brand-soft">
-                        VIEW <ArrowUpRightIcon className="h-3 w-3 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        {t("siblingsView")} <ArrowUpRightIcon className="h-3 w-3 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                       </div>
                     </div>
                   </Link>

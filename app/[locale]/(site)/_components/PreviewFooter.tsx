@@ -1,13 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 
-export function PreviewFooter() {
+export async function PreviewFooter() {
+  const t = await getTranslations("v2.footer");
+  const tBrand = await getTranslations("brand");
+
   return (
     <footer className="border-t border-cream/10 bg-ink text-cream/70">
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-4 lg:px-8 lg:py-20">
         {/* Brand col */}
         <div className="md:col-span-2">
-          <Link href="/v2" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <Image
               src="/logo-mark.svg"
               alt=""
@@ -16,32 +20,31 @@ export function PreviewFooter() {
               className="h-11 w-11 object-contain brightness-125"
             />
             <div className="leading-none">
-              <p className="font-serif text-lg text-cream">선샤인의원</p>
+              <p className="font-serif text-lg text-cream">{tBrand("name")}</p>
               <p className="mt-1 text-[10px] uppercase tracking-[0.24em] text-cream/50">
                 Sunshine Dermatology Clinic
               </p>
             </div>
           </Link>
           <p className="mt-6 max-w-md text-sm leading-relaxed text-cream/60">
-            환자 한 분 한 분에게 맞춘 섬세하고 정직한 진료.
-            풍부한 임상 경험과 프리미엄 하이엔드 장비로 편안하게 수준 높은 의료 서비스를 제공합니다.
+            {t("tagline")}
           </p>
         </div>
 
         {/* Quick links */}
         <div>
-          <p className="text-[10px] font-bold tracking-[0.24em] text-brand-soft">MENU</p>
+          <p className="text-[10px] font-bold tracking-[0.24em] text-brand-soft">{t("menuHeading")}</p>
           <ul className="mt-5 space-y-2 text-sm">
-            <li><Link href="/v2/about" className="hover:text-cream">병원 소개</Link></li>
-            <li><Link href="/v2/treatments/lifting" className="hover:text-cream">시술</Link></li>
-            <li><Link href="/v2/community/notices" className="hover:text-cream">공지사항</Link></li>
-            <li><Link href="/v2/community/prices" className="hover:text-cream">비급여 수가표</Link></li>
+            <li><Link href="/about" className="hover:text-cream">{t("menu.about")}</Link></li>
+            <li><Link href="/treatments/lifting" className="hover:text-cream">{t("menu.treatments")}</Link></li>
+            <li><Link href="/community/notices" className="hover:text-cream">{t("menu.notices")}</Link></li>
+            <li><Link href="/community/prices" className="hover:text-cream">{t("menu.prices")}</Link></li>
           </ul>
         </div>
 
         {/* Contact */}
         <div>
-          <p className="text-[10px] font-bold tracking-[0.24em] text-brand-soft">CONTACT</p>
+          <p className="text-[10px] font-bold tracking-[0.24em] text-brand-soft">{t("contactHeading")}</p>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
               <a href="tel:024217588" className="block font-serif text-lg text-cream">
@@ -49,13 +52,13 @@ export function PreviewFooter() {
               </a>
             </li>
             <li className="text-xs leading-relaxed">
-              서울특별시 송파구 올림픽로 102<br />
-              서일빌딩 10층
+              {t("address1")}<br />
+              {t("address2")}
             </li>
             <li className="text-xs leading-relaxed">
-              평일 10:00 – 20:00<br />
-              토요일 10:00 – 16:00<br />
-              일·공휴일 휴진
+              {t("hoursWeekday")}<br />
+              {t("hoursSat")}<br />
+              {t("hoursClosed")}
             </li>
           </ul>
         </div>
@@ -63,7 +66,7 @@ export function PreviewFooter() {
 
       <div className="border-t border-cream/10 py-6">
         <p className="mx-auto max-w-7xl px-5 text-center text-[10px] text-cream/40 lg:px-8">
-          상호 선샤인의원 · 대표원장 김병현 · 사업자등록번호 878-37-01499 · 송파구보건소 신고 제 2026-3230034-00049 호
+          {t("business")}
         </p>
       </div>
     </footer>

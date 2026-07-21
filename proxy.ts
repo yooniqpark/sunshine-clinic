@@ -49,10 +49,6 @@ export default function proxy(req: NextRequest) {
   ) {
     return undefined;
   }
-  // /v2 is the redesign preview route outside the localized site.
-  if (pathname === "/v2" || pathname.startsWith("/v2/")) {
-    return undefined;
-  }
   // everything else: locale-aware (redirects /, prefixes, etc.)
   return intl(req);
 }

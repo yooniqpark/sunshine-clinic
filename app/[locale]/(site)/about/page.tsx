@@ -1,368 +1,278 @@
-import type { Metadata } from "next";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
-import { SectionHeading } from "@/components/SectionHeading";
-import {
-  ArrowIcon,
-  CalendarIcon,
-  ClockIcon,
-  PhoneIcon,
-  PinIcon,
-  SparkleIcon,
-} from "@/components/icons";
-import { clinic } from "@/lib/data";
-import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
-import { getSiteContent, type Locale } from "@/lib/site-content";
+import { ArrowUpRightIcon } from "@/components/icons";
 
-type Props = { params: Promise<{ locale: Locale }> };
+type HistoryItem = { year: string; event: string };
+type SpaceItem = { label: string; desc: string };
+type ValueItem = { n: string; title: string; body: string };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+const SPACE_IMGS = [
+  "/clinic/lounge.jpg",
+  "/clinic/corridor.jpg",
+  "/clinic/vip-corridor.jpg",
+  "/clinic/care-room.jpg",
+  "/clinic/powder-room.jpg",
+];
+
+export default async function AboutPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
-  const content = getSiteContent(locale);
-  return {
-    title: content.about.metaTitle,
-    description: content.about.metaDesc,
-  };
-}
-
-const SPOT_EYEBROWS = ["RECEPTION", "WAITING LOUNGE", "TREATMENT ROOM"];
-
-const DEVICE_CATEGORIES = ["lifting", "whitening", "acne"] as const;
-
-export default async function AboutPage({ params }: Props) {
-  const { locale } = await params;
-  const content = getSiteContent(locale);
-  const a = content.about;
-  const common = content.common;
-  const doc = content.doctors.kim;
-
-  const deviceGroups = DEVICE_CATEGORIES.map((cat) => ({
-    key: cat,
-    label: content.categories[cat as keyof typeof content.categories].label,
-    devices: getDevicesByCategory(locale, cat),
-  })).filter((g) => g.devices.length > 0);
+  setRequestLocale(locale);
+  const t = await getTranslations("v2.about");
+  const history = t.raw("history") as HistoryItem[];
+  const spaces = t.raw("spaces") as SpaceItem[];
+  const values = t.raw("values") as ValueItem[];
 
   return (
     <>
-      {/* hero */}
-      <section className="border-b border-line bg-sand/40">
-        <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8 lg:py-20">
-          <nav className="flex items-center gap-2 text-xs text-ink-soft">
-            <Link href={`/${locale}`} className="transition hover:text-brand">
-              {common.home}
-            </Link>
-            <span>/</span>
-            <span className="text-ink">{a.breadcrumb}</span>
-          </nav>
-          <p className="mt-6 text-xs font-semibold tracking-[0.2em] text-brand">ABOUT</p>
-          <h1 className="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            {a.heroTitleL1}<br />
-            {a.heroTitleL2}
+      {/* ══════ HERO ══════ */}
+      <section className="relative overflow-hidden bg-ink text-cream">
+        <div className="absolute inset-0">
+          <Image
+            src="/clinic/reception.jpg"
+            alt=""
+            fill
+            priority
+            className="object-cover opacity-55"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/40 to-ink" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-24 lg:px-8 lg:pb-36 lg:pt-32">
+          <p className="text-[10px] font-bold tracking-[0.35em] text-brand-soft">
+            {t("heroKicker")}
+          </p>
+          <h1 className="mt-6 font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05]">
+            {t("heroTitleLine1")}
+            <br />
+            <em className="italic text-brand-soft">{t("heroTitleAccent")}</em>
           </h1>
-          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
-            {a.brandDescription}
+          <p className="mt-10 max-w-2xl text-base leading-relaxed text-cream/75 lg:text-lg">
+            {t("heroDesc")}
           </p>
         </div>
       </section>
 
-      {/* 01 VISION / PHILOSOPHY */}
-      <section id="vision" className="mx-auto max-w-7xl scroll-mt-24 px-5 py-20 lg:px-8 lg:py-28">
-        <Reveal>
-          <SectionHeading index="01" label={a.valuesLabel} title={a.valuesTitle} />
-        </Reveal>
-        <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:items-center">
+      {/* ══════ DIRECTOR ══════ */}
+      <section className="bg-cream py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:px-8">
           <Reveal>
-            <div className="relative aspect-[16/12] overflow-hidden rounded-3xl shadow-xl shadow-brand/10">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5">
               <Image
-                src="/hero-clinic.png"
-                alt={a.spaceImageAlt}
+                src="/team/kim.jpg"
+                alt={t("directorName")}
                 fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-center"
+                className="object-cover"
               />
             </div>
           </Reveal>
-          <Reveal delay={120}>
-            <div className="space-y-4 text-base leading-relaxed text-ink-soft">
-              <p>{a.philosophyBody1}</p>
-              <p>{a.philosophyBody2}</p>
-            </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {a.values.map((v, i) => (
-                <div key={i} className="rounded-2xl bg-sand/60 p-5">
-                  <p className="text-lg font-bold text-brand">{String(i + 1).padStart(2, "0")}</p>
-                  <p className="mt-2 text-sm font-semibold text-ink">{v.title}</p>
-                  <p className="mt-1.5 text-xs leading-relaxed text-ink-soft">{v.body}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
-      {/* 02 DEVICES — 사용 장비 안내 (inline, grouped by category) */}
-      <section
-        id="devices"
-        className="scroll-mt-24 border-t border-line bg-cream py-20 lg:py-28"
-      >
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <SectionHeading index="02" label="DEVICES" title="사용 장비 안내" />
-          </Reveal>
-          <div className="mt-12 space-y-12 lg:space-y-16">
-            {deviceGroups.map((group) => (
-              <Reveal key={group.key}>
-                <div>
-                  <p className="text-[11px] font-semibold tracking-[0.22em] text-brand">
-                    {group.key.toUpperCase()}
-                  </p>
-                  <h3 className="mt-1.5 text-xl font-bold tracking-tight sm:text-2xl">
-                    {group.label}
-                  </h3>
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {group.devices.map((d) => {
-                      const img = getDeviceImage(d.slug);
-                      return (
-                        <Link
-                          key={d.slug}
-                          href={`/${locale}/treatments/${group.key}`}
-                          className="group flex h-full items-center gap-4 rounded-3xl border border-line bg-white p-4 transition hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-lg hover:shadow-brand/10"
-                        >
-                          <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-sand/60">
-                            {img && (
-                              <Image
-                                src={img}
-                                alt={d.name}
-                                fill
-                                sizes="80px"
-                                className="object-cover object-center"
-                              />
-                            )}
-                          </div>
-                          <div className="min-w-0 flex-1">
-                            <p className="text-[10px] font-bold tracking-[0.2em] text-brand">
-                              {d.manufacturer.toUpperCase()}
-                            </p>
-                            <p className="mt-1 truncate text-base font-bold text-ink">
-                              {d.name}
-                            </p>
-                            <p className="mt-0.5 line-clamp-2 text-xs leading-relaxed text-ink-soft">
-                              {d.tagline}
-                            </p>
-                          </div>
-                          <ArrowIcon className="h-4 w-4 shrink-0 text-ink-soft transition group-hover:translate-x-0.5 group-hover:text-brand" />
-                        </Link>
-                      );
-                    })}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+          <Reveal delay={100}>
+            <div>
+              <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+                {t("directorKicker")}
+              </p>
+              <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
+                {t("directorName")} <span className="text-ink-soft/70">{t("directorTitle")}</span>
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-ink-soft">
+                {t("directorBio")}
+              </p>
 
-      {/* 03 DIRECTOR */}
-      <section id="doctors" className="scroll-mt-24 bg-sand/40 py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <SectionHeading index="03" label={a.directorLabel} title={a.directorTitle} />
-          </Reveal>
-          <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-stretch">
-            <Reveal>
-              <div className="overflow-hidden rounded-3xl border border-line bg-white">
-                <div className="relative aspect-[3/4] overflow-hidden bg-gradient-to-br from-blush via-sand to-brand-soft/30">
-                  <Image
-                    src="/team/kim.jpg"
-                    alt={doc.name}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 40vw"
-                    className="object-cover object-top"
-                  />
-                </div>
-                <div className="p-7">
-                  <h3 className="text-2xl font-bold">
-                    {doc.name}{" "}
-                    <span className="text-base font-normal text-ink-soft">
-                      {content.clinic.doctorTitle}
-                    </span>
-                  </h3>
-                  <p className="mt-1 text-sm text-ink-soft">{doc.role}</p>
-                  <p className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-sand px-3 py-1 text-xs font-medium text-brand-dark">
-                    <SparkleIcon className="h-3 w-3" />
-                    {doc.focus}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal delay={120}>
-              <div className="space-y-8">
-                <div className="rounded-2xl border border-line bg-white p-6">
-                  <p className="text-xs font-semibold tracking-[0.2em] text-brand">CAREER</p>
-                  <ul className="mt-4 space-y-2 text-sm text-ink-soft">
-                    {a.credentials.map((c, i) => (
-                      <li key={i} className="flex gap-2">
-                        <span className="text-brand">·</span>
-                        <span>{c}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* 04 TOUR */}
-      <section id="tour" className="scroll-mt-24 bg-sand/40 py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <Reveal>
-            <SectionHeading index="04" label={a.tourLabel} title={a.tourTitle} />
-          </Reveal>
-          <div className="mt-12 grid gap-4 md:grid-cols-3">
-            {a.tour.map((s, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="h-full overflow-hidden rounded-3xl border border-line bg-white">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-blush via-sand to-brand-soft/30">
-                    <div className="absolute inset-0 grid place-items-center text-xs font-medium text-ink/40">
-                      {a.tourPhotoPlaceholder}
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-[11px] font-semibold tracking-[0.2em] text-brand">
-                      {SPOT_EYEBROWS[i] ?? ""}
-                    </p>
-                    <h3 className="mt-2 text-lg font-bold">{s.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">{s.body}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <p className="mx-auto mt-10 max-w-3xl rounded-2xl bg-white/70 px-5 py-4 text-center text-xs leading-relaxed text-ink-soft">
-            {a.tourFootnote}
-          </p>
-        </div>
-      </section>
-
-      {/* 05 LOCATION */}
-      <section id="location" className="mx-auto max-w-7xl scroll-mt-24 px-5 py-20 lg:px-8 lg:py-28">
-        <Reveal>
-          <SectionHeading index="05" label="LOCATION" title={a.locationTitle} />
-        </Reveal>
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          <Reveal>
-            <div className="space-y-6">
-              <div className="rounded-3xl border border-line bg-white p-6">
-                <p className="text-xs font-semibold tracking-[0.2em] text-brand">ADDRESS</p>
-                <p className="mt-3 flex items-start gap-3 text-sm">
-                  <PinIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                  <span>
-                    <span className="text-base font-semibold text-ink">
-                      {content.clinic.addressLine}
-                    </span>
-                    <br />
-                    <span className="text-ink-soft">{content.clinic.addressSub}</span>
-                  </span>
+              <div className="mt-10 border-t border-line pt-8">
+                <p className="text-[10px] font-bold tracking-[0.24em] text-ink-soft">
+                  {t("historyLabel")}
                 </p>
-              </div>
-              <div className="rounded-3xl border border-line bg-white p-6">
-                <p className="text-xs font-semibold tracking-[0.2em] text-brand">HOURS</p>
-                <ul className="mt-4 space-y-2 text-sm">
-                  {content.hours.map((h, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <ClockIcon className="mt-0.5 h-5 w-5 shrink-0 text-brand" />
-                      <span>
-                        <span className="font-semibold text-ink">{h.day}</span>{" "}
-                        <span className="text-ink-soft">{h.time}</span>
+                <ul className="mt-6 space-y-3 text-sm">
+                  {history.map((h) => (
+                    <li key={h.year} className="grid grid-cols-[64px_1fr] gap-4">
+                      <span className="font-serif text-base text-brand-dark">
+                        {h.year}
                       </span>
+                      <span className="text-ink-soft">{h.event}</span>
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div className="rounded-3xl border border-line bg-white p-6">
-                <p className="text-xs font-semibold tracking-[0.2em] text-brand">CONTACT</p>
-                <p className="mt-3 flex items-center gap-3 text-sm">
-                  <PhoneIcon className="h-5 w-5 shrink-0 text-brand" />
-                  <a href={clinic.phoneHref} className="text-base font-semibold text-ink">
-                    {clinic.phone}
-                  </a>
-                </p>
-              </div>
-              <div className="rounded-3xl border border-line bg-white p-6">
-                <p className="text-xs font-semibold tracking-[0.2em] text-brand">DIRECTIONS</p>
-                <ul className="mt-4 space-y-2 text-sm text-ink-soft">
-                  {a.directions.map((d, i) => (
-                    <li key={i} className="flex gap-2">
-                      <span className="text-brand">·</span>
-                      <span>{d}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="overflow-hidden rounded-3xl border border-line lg:sticky lg:top-24">
-              <iframe
-                title={content.home.mapTitle}
-                src={`https://www.google.com/maps?q=${encodeURIComponent("선샤인의원 서울특별시 송파구 올림픽로 102")}&z=17&output=embed`}
-                className="block h-[380px] w-full lg:h-[560px]"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-              <div className="flex gap-2 border-t border-line bg-white p-3">
-                <a
-                  href={`https://map.naver.com/p/search/${encodeURIComponent(clinic.address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-sand py-2.5 text-sm font-semibold text-ink transition hover:bg-blush"
-                >
-                  <PinIcon className="h-4 w-4 text-brand" /> {common.naverMap}
-                </a>
-                <a
-                  href={`https://map.kakao.com/?q=${encodeURIComponent(clinic.address)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-1 items-center justify-center gap-1.5 rounded-xl bg-sand py-2.5 text-sm font-semibold text-ink transition hover:bg-blush"
-                >
-                  <PinIcon className="h-4 w-4 text-brand" /> {common.kakaoMap}
-                </a>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <Reveal>
-          <div className="overflow-hidden rounded-[2rem] bg-gradient-to-br from-blush via-sand to-brand-soft/40 px-6 py-12 text-center lg:py-16">
-            <h2 className="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">
-              {a.ctaTitle}
-            </h2>
-            <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink-soft">
-              {a.ctaBody}
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <a
-                href={clinic.bookingHref}
-                className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3.5 text-sm font-semibold text-cream transition hover:bg-brand-dark"
-              >
-                <CalendarIcon className="h-4 w-4" /> {common.bookConsultation}
-              </a>
-              <Link
-                href={`/${locale}/treatments/lifting`}
-                className="inline-flex items-center gap-2 rounded-full border border-ink/15 bg-white px-6 py-3.5 text-sm font-semibold text-ink transition hover:border-brand hover:text-brand"
-              >
-                {a.ctaSecondary} <ArrowIcon className="h-4 w-4" />
-              </Link>
+      {/* ══════ CONSULT ROOM ══════ */}
+      <section className="bg-white py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-2 lg:gap-24 lg:px-8">
+          <Reveal>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-ink/5">
+              <Image
+                src="/clinic/consult-room.jpg"
+                alt={t("consultTitle")}
+                fill
+                className="object-cover"
+              />
             </div>
+          </Reveal>
+          <div className="flex flex-col justify-center">
+            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+              {t("consultKicker")}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
+              {t("consultTitle")}
+            </h2>
+            <p className="mt-8 text-base leading-relaxed text-ink-soft lg:text-lg">
+              {t("consultBody")}
+            </p>
           </div>
-        </Reveal>
+        </div>
+      </section>
+
+      {/* ══════ SPACE GALLERY ══════ */}
+      <section className="bg-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+                {t("spaceKicker")}
+              </p>
+              <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-tight lg:text-6xl">
+                {t("spaceTitleLead")}
+                <br />
+                <em className="italic text-brand-dark">{t("spaceTitleAccent")}</em>
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-relaxed text-ink-soft">
+              {t("spaceDesc")}
+            </p>
+          </div>
+
+          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+            {spaces.map((s, i) => (
+              <Reveal
+                key={SPACE_IMGS[i]}
+                delay={i * 60}
+                className={
+                  i === 0
+                    ? "col-span-2 md:col-span-2 md:row-span-2"
+                    : ""
+                }
+              >
+                <figure
+                  className={`group relative overflow-hidden rounded-3xl bg-ink/5 ${
+                    i === 0
+                      ? "aspect-[4/5] md:aspect-square"
+                      : "aspect-[4/5]"
+                  }`}
+                >
+                  <Image
+                    src={SPACE_IMGS[i]}
+                    alt={s.desc}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
+                  <figcaption className="absolute inset-x-5 bottom-5 text-cream">
+                    <p className="text-[10px] font-bold tracking-[0.2em] text-brand-soft">
+                      {s.label}
+                    </p>
+                    <p className="mt-1 font-serif text-lg md:text-xl">{s.desc}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════ PHILOSOPHY ══════ */}
+      <section className="relative overflow-hidden bg-ink py-24 text-cream lg:py-32">
+        <div className="absolute inset-0 opacity-25">
+          <Image src="/clinic/corridor.jpg" alt="" fill className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/40" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+          <p className="text-[10px] font-bold tracking-[0.3em] text-brand-soft">
+            {t("philosophyKicker")}
+          </p>
+          <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight lg:text-6xl">
+            {t("philosophyTitleLead")}
+            <br />
+            <em className="italic text-brand-soft">{t("philosophyTitleAccent")}</em>
+          </h2>
+
+          <div className="mt-16 grid gap-10 md:grid-cols-3">
+            {values.map((v) => (
+              <Reveal key={v.n}>
+                <div className="border-t border-cream/20 pt-8">
+                  <p className="font-serif text-3xl text-brand-soft">{v.n}</p>
+                  <h3 className="mt-4 font-serif text-xl">{v.title}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-cream/70">{v.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════ DEVICES ══════ */}
+      <section className="bg-white py-28 lg:py-36">
+        <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
+          <Reveal>
+            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+              {t("equipmentKicker")}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-6xl">
+              {t("equipmentTitleLead")}
+              <br />
+              <em className="italic text-brand-dark">{t("equipmentTitleAccent")}</em>
+            </h2>
+            <p className="mx-auto mt-10 max-w-2xl text-base leading-relaxed text-ink-soft lg:text-lg">
+              {t("equipmentDesc")}
+            </p>
+            <Link
+              href="/treatments/lifting"
+              className="group mt-12 inline-flex items-center gap-3 border-b border-ink/30 pb-2 text-sm font-semibold text-ink transition hover:border-brand-dark hover:text-brand-dark"
+            >
+              {t("equipmentCta")}
+              <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ══════ CTA ══════ */}
+      <section className="bg-cream py-24 lg:py-32">
+        <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
+          <Reveal>
+            <h2 className="font-serif text-4xl leading-tight lg:text-6xl">
+              {t("ctaTitleLine1")}
+              <br />
+              {t("ctaTitleLine2Lead")}
+              <em className="italic text-brand-dark">{t("ctaTitleAccent")}</em>
+              {t("ctaTitleTail")}
+            </h2>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                href="/treatments/lifting"
+                className="group inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream transition hover:bg-brand-dark"
+              >
+                {t("ctaTreatments")}
+                <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+              <a
+                href="tel:024217588"
+                className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-8 py-4 text-sm font-semibold text-ink hover:border-ink"
+              >
+                02-421-7588
+              </a>
+            </div>
+          </Reveal>
+        </div>
       </section>
     </>
   );

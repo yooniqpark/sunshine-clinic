@@ -160,5 +160,387 @@
     "loading": "불러오는 중…",
     "viewAll": "전체 보기",
     "viewDetail": "자세히 보기"
+  },
+  "v2": {
+    "header": {
+      "ctaBook": "상담 예약",
+      "menuOpen": "메뉴 열기",
+      "menuClose": "메뉴 닫기",
+      "nav": {
+        "about": "병원 소개",
+        "treatments": "시술",
+        "community": "커뮤니티"
+      },
+      "cols": {
+        "lifting": "리프팅",
+        "antiAging": "안티에이징",
+        "whitening": "화이트닝 · 홍조",
+        "acne": "여드름 · 흉터",
+        "skinDisease": "피부질환",
+        "community": "커뮤니티"
+      },
+      "items": {
+        "botox": "보톡스",
+        "filler": "필러",
+        "skinBotox": "스킨보톡스",
+        "jubellook": "쥬베룩",
+        "rejuran": "리쥬란",
+        "atopic": "아토피 · 습진",
+        "psoriasis": "건선",
+        "hairLoss": "탈모",
+        "wart": "사마귀 · 티눈",
+        "athlete": "무좀 · 손발톱 진균증",
+        "notices": "공지사항",
+        "events": "이벤트",
+        "prices": "비급여 수가표",
+        "ultheraPrime": "울쎄라 프라임",
+        "thermageFlx": "써마지 FLX",
+        "shurinkUniverse": "슈링크 유니버스",
+        "inmode": "인모드",
+        "ellanse": "엘란쎄",
+        "clarityII": "클라리티 II",
+        "starwalker": "스타워커",
+        "vbeam": "브이빔",
+        "secretRf": "시크릿 RF",
+        "carpriCo2": "카프리 CO2",
+        "goldPtt": "골드 PTT",
+        "curejet": "큐라젯"
+      }
+    },
+    "footer": {
+      "tagline": "환자 한 분 한 분에게 맞춘 섬세하고 정직한 진료. 풍부한 임상 경험과 프리미엄 하이엔드 장비로 편안하게 수준 높은 의료 서비스를 제공합니다.",
+      "menuHeading": "MENU",
+      "contactHeading": "CONTACT",
+      "menu": {
+        "about": "병원 소개",
+        "treatments": "시술",
+        "notices": "공지사항",
+        "prices": "비급여 수가표"
+      },
+      "address1": "서울특별시 송파구 올림픽로 102",
+      "address2": "서일빌딩 10층",
+      "hoursWeekday": "평일 10:00 – 20:00",
+      "hoursSat": "토요일 10:00 – 16:00",
+      "hoursClosed": "일·공휴일 휴진",
+      "business": "상호 선샤인의원 · 대표원장 김병현 · 사업자등록번호 878-37-01499 · 송파구보건소 신고 제 2026-3230034-00049 호"
+    },
+    "home": {
+      "heroKicker": "SUNSHINE DERMATOLOGY CLINIC · SINCE 2026",
+      "heroTitleLine1": "피부의 결,",
+      "heroTitleAccent": "일상의 빛.",
+      "heroDescLine1": "환자 한 분 한 분에게 맞춘 섬세하고 정직한 진료.",
+      "heroDescLine2": "프리미엄 하이엔드 장비로 건강한 변화를 함께 만들어 갑니다.",
+      "ctaBook": "상담 예약하기",
+      "ctaTreatments": "시술 둘러보기",
+      "scroll": "SCROLL ↓",
+      "location": "SEOUL · 송파",
+      "stats": {
+        "years": { "n": "10", "u": "년+", "l": "임상 경험" },
+        "devices": { "n": "15", "u": "종", "l": "정품 인증 장비" },
+        "languages": { "n": "4", "u": "개국", "l": "다국어 진료" },
+        "personal": { "n": "1:1", "u": "", "l": "맞춤 진료" }
+      },
+      "directorKicker": "DIRECTOR · 대표원장",
+      "directorQuoteStart": "“환자 한 분 한 분의 ",
+      "directorQuoteAccent": "피부와 마음",
+      "directorQuoteEnd": "까지 함께 살피는 진료를 지향합니다.”",
+      "directorName": "김병현",
+      "directorRole": "대표원장 · Sunshine Dermatology Clinic",
+      "viewDoctors": "의료진 소개",
+      "categoriesKicker": "TREATMENTS",
+      "categoriesTitleLead": "고민별 ",
+      "categoriesTitleAccent": "맞춤 시술",
+      "viewAllCategories": "전체 카테고리 →",
+      "cards": {
+        "lifting": "리프팅",
+        "antiAging": "안티에이징",
+        "whitening": "화이트닝·홍조",
+        "acne": "여드름·흉터",
+        "skinDisease": "피부질환"
+      },
+      "bentoDetail": "자세히 보기",
+      "devicesKicker": "SIGNATURE DEVICES",
+      "devicesTitleLead": "본사 ",
+      "devicesTitleAccent": "정품 인증",
+      "devicesTitleTail": "하이엔드 장비.",
+      "devicesDesc": "울쎄라 · 써마지 · 슈링크 유니버스 등 15종 이상의 정품 장비로 피부층·부위·개별 상태에 맞춘 정밀 시술을 제공합니다.",
+      "viewAllDevices": "전체 장비 보기",
+      "devicesList": {
+        "ulthera": { "name": "울쎄라 프라임", "tag": "HIFU · 리프팅" },
+        "thermage": { "name": "써마지 FLX", "tag": "RF · 탄력" },
+        "shurink": { "name": "슈링크 유니버스", "tag": "HIFU · 부위 맞춤" },
+        "fotona": { "name": "포토나 스타워커", "tag": "레이저 · 색소" },
+        "vbeam": { "name": "V-Beam", "tag": "홍조 · 혈관" },
+        "secretRf": { "name": "Secret RF", "tag": "미세바늘 RF" }
+      },
+      "whyKicker": "WHY SUNSHINE",
+      "whyLine1a": "과잉 진료보다",
+      "whyLine1b": " 필요한 진료를",
+      "whyLine2a": "화려한 광고보다",
+      "whyLine2b": " 검증된 결과를",
+      "whyLine3a": "일시적 개선보다",
+      "whyLine3b": " 건강한 변화를",
+      "whyDesc": "피부 본연의 건강과 아름다움을 회복하여 일상에 더 큰 자신감을 선물하는 주치의가 되겠습니다.",
+      "whyCta": "병원 소개 자세히",
+      "ctaKicker": "CONTACT",
+      "ctaTitleLead": "지금 ",
+      "ctaTitleAccent": "상담을 예약",
+      "ctaTitleTail": "하세요.",
+      "ctaDesc": "1:1 맞춤 상담 후 가장 적합한 시술 플랜을 안내드립니다. 방문 상담은 무료입니다.",
+      "ctaPhone": "전화 02-421-7588",
+      "ctaNaver": "네이버 예약하기",
+      "address": "서울특별시 송파구 올림픽로 102, 서일빌딩 10층 · 평일 10:00–20:00 · 토요일 10:00–16:00"
+    },
+    "about": {
+      "heroKicker": "ABOUT SUNSHINE",
+      "heroTitleLine1": "결을 다듬고,",
+      "heroTitleAccent": "일상을 밝히다.",
+      "heroDesc": "선샤인의원은 대학병원에서 오랜 임상 경험을 쌓은 피부과 전문의가 직접 진료하는 로컬 클리닉입니다. 유행보다는 오래가는 아름다움을, 화려함보다는 건강한 회복을 지향합니다.",
+      "directorKicker": "DIRECTOR",
+      "directorName": "김병현",
+      "directorTitle": "대표원장",
+      "directorBio": "가톨릭대학교 서울성모병원 피부과 전문의로서 15년 이상 다양한 피부 케이스를 진료해 왔습니다. 유행을 좇지 않고, 각자의 톤과 결을 존중한 진료 계획을 세워 드립니다.",
+      "historyLabel": "HISTORY",
+      "history": [
+        { "year": "2010", "event": "가톨릭대학교 의과대학 졸업" },
+        { "year": "2015", "event": "가톨릭대학교 서울성모병원 피부과 전문의 취득" },
+        { "year": "2016", "event": "대한피부과학회 정회원" },
+        { "year": "2018", "event": "대한미용성형레이저의학회 정회원" },
+        { "year": "2020", "event": "국제모발이식학회 (ISHRS) 정회원" },
+        { "year": "2026", "event": "선샤인의원 개원 · 대표원장" }
+      ],
+      "consultKicker": "CONSULT ROOM",
+      "consultTitle": "대화가 시작되는 자리",
+      "consultBody": "대리석 벽면과 브라운 우드로 마감한 원장실은 차분한 톤으로 편안한 상담 분위기를 만듭니다. 충분한 시간을 두고 피부 상태와 라이프 사이클을 함께 나눕니다.",
+      "spaceKicker": "THE SPACE",
+      "spaceTitleLead": "편안한 회복을 위한",
+      "spaceTitleAccent": "모든 순간.",
+      "spaceDesc": "대기실부터 파우더룸까지, 방문하시는 모든 공간을 호텔의 결로 다듬어 편안하고 프라이빗하게 설계했습니다.",
+      "spaces": [
+        { "label": "WAITING LOUNGE", "desc": "대기 라운지" },
+        { "label": "CORRIDOR", "desc": "진료실 복도" },
+        { "label": "TREATMENT AREA", "desc": "시술 공간" },
+        { "label": "CARE ROOM", "desc": "케어 룸" },
+        { "label": "POWDER ROOM", "desc": "파우더 룸" }
+      ],
+      "philosophyKicker": "PHILOSOPHY",
+      "philosophyTitleLead": "서두르지 않고,",
+      "philosophyTitleAccent": "오래가는 결과.",
+      "values": [
+        { "n": "01", "title": "정직한 진료", "body": "필요하지 않은 시술은 권하지 않습니다. 피부 상태와 라이프 사이클에 맞춘 최소 개입을 우선합니다." },
+        { "n": "02", "title": "섬세한 손길", "body": "10년 이상의 임상 경험을 바탕으로 결·톤·라인을 하나씩 다듬는 밀도 있는 진료를 제공합니다." },
+        { "n": "03", "title": "프리미엄 장비", "body": "국내 상위권 하이엔드 장비를 도입해 회복이 빠르고 편안한 시술 환경을 만듭니다." }
+      ],
+      "equipmentKicker": "EQUIPMENT",
+      "equipmentTitleLead": "하이엔드 장비,",
+      "equipmentTitleAccent": "한 자리에.",
+      "equipmentDesc": "울쎄라 프라임 · 써마지 FLX · 슈링크 유니버스 · 클라리티 II · 스타워커 · 브이빔 · 인모드 · 카프리 CO2 등 국내 상위권 하이엔드 장비를 한 공간에 갖추었습니다.",
+      "equipmentCta": "장비 리스트 보기",
+      "ctaTitleLine1": "첫 상담,",
+      "ctaTitleLine2Lead": "가장 가까운 ",
+      "ctaTitleAccent": "시작",
+      "ctaTitleTail": "입니다.",
+      "ctaTreatments": "시술 알아보기"
+    },
+    "notices": {
+      "kicker": "COMMUNITY",
+      "title": "공지사항",
+      "tagOpen": "OPEN",
+      "tagInfo": "안내",
+      "items": [
+        { "tag": "OPEN", "date": "2026.07.15", "title": "선샤인의원 정식 개원 안내", "excerpt": "송파구 올림픽로에 선샤인의원이 정식 개원합니다. 개원 기념 상담 이벤트를 함께 진행합니다." },
+        { "tag": "안내", "date": "2026.07.10", "title": "8월 진료 시간 및 휴진 일정", "excerpt": "8월 광복절(15일)은 휴진이며, 매주 일요일과 공휴일은 정상 휴진합니다." },
+        { "tag": "안내", "date": "2026.07.03", "title": "온라인 사전 상담 예약 서비스 오픈", "excerpt": "네이버 예약을 통한 온라인 상담 예약을 이용해 주세요. 실시간 확정으로 대기 시간을 줄일 수 있습니다." },
+        { "tag": "안내", "date": "2026.06.28", "title": "카카오톡 채널 상담 서비스 안내", "excerpt": "카카오톡 채널로도 상담 접수가 가능합니다. 진료 관련 문의는 진료 시간 내 답변드립니다." }
+      ]
+    },
+    "events": {
+      "kicker": "COMMUNITY",
+      "title": "이벤트",
+      "periodLabel": "기간",
+      "cta": "상담 예약하기",
+      "items": [
+        { "tag": "OPEN", "title": "선샤인의원 개원 기념 상담 이벤트", "period": "2026.07.15 ~ 2026.08.31", "body": "정식 개원을 기념하여 방문 상담 시 피부 진단 서비스를 무료로 제공합니다." },
+        { "tag": "이벤트", "title": "여름 톤 케어 프로모션", "period": "2026.07.20 ~ 2026.08.31", "body": "여름철 색소·홍조 관리를 위한 톤업 프로그램을 특별가로 만나 보세요." },
+        { "tag": "안내", "title": "홈케어 화장품 리커버 가이드", "period": "상시", "body": "시술 후 회복을 돕는 홈케어 제품 가이드를 진료실에서 안내해 드립니다." }
+      ]
+    },
+    "prices": {
+      "kicker": "COMMUNITY",
+      "title": "비급여 수가표",
+      "desc": "개인의 피부 상태와 시술 조합에 따라 실제 비용은 달라질 수 있습니다. 정확한 견적은 방문 상담 시 안내해 드립니다.",
+      "footnote1": "* 표시된 금액은 부가세 포함 여부와 관계없이 방문 시 최종 견적으로 확정됩니다.",
+      "footnote2": "* 피부 상태, 시술 범위, 세션 수, 프로모션 적용 여부에 따라 실제 비용이 달라질 수 있습니다.",
+      "sections": [
+        {
+          "kicker": "LIFTING",
+          "title": "리프팅",
+          "rows": [
+            { "name": "울쎄라 전안 300샷", "price": "1,200,000원" },
+            { "name": "슈링크 유니버스 400샷", "price": "800,000원" },
+            { "name": "덴서티 전안", "price": "600,000원" },
+            { "name": "인모드 FX", "price": "300,000원" },
+            { "name": "실 리프팅 (PDO 10개 기준)", "price": "800,000원", "note": "실 종류·개수에 따라 상이" }
+          ]
+        },
+        {
+          "kicker": "ANTI-AGING",
+          "title": "안티에이징",
+          "rows": [
+            { "name": "보톡스 이마 · 미간", "price": "60,000원", "note": "1부위" },
+            { "name": "필러 (1cc)", "price": "350,000원", "note": "제품에 따라 상이" },
+            { "name": "스킨보톡스 전안", "price": "250,000원" },
+            { "name": "쥬베룩 1병", "price": "300,000원" },
+            { "name": "리쥬란 힐러 1병", "price": "300,000원" }
+          ]
+        },
+        {
+          "kicker": "TONE",
+          "title": "화이트닝 · 홍조",
+          "rows": [
+            { "name": "피코 토닝", "price": "150,000원" },
+            { "name": "브이빔 퍼펙타 국소", "price": "200,000원" },
+            { "name": "IPL 전안", "price": "180,000원" },
+            { "name": "제네시스 전안", "price": "150,000원" }
+          ]
+        },
+        {
+          "kicker": "ACNE & SCAR",
+          "title": "여드름 · 흉터",
+          "rows": [
+            { "name": "여드름 압출 (부위)", "price": "50,000원" },
+            { "name": "PDT 광역동 치료", "price": "300,000원" },
+            { "name": "프락셀 전안", "price": "500,000원" },
+            { "name": "인피니 하이브리드", "price": "500,000원" }
+          ]
+        }
+      ]
+    },
+    "treatments": {
+      "crumbHome": "HOME",
+      "crumbTreatments": "TREATMENTS",
+      "processKicker": "PROCESS",
+      "processTitle": "진행 방식",
+      "menuKicker": "MENU",
+      "menuTitleSuffix": " 시술",
+      "menuDesc": "항목을 클릭하시면 각 장비의 상세 페이지로 이동합니다.",
+      "ctaTitle": "{label} 상담을 <accent>예약</accent>하세요.",
+      "ctaOnline": "온라인 상담 예약",
+      "ctaPhone": "02-421-7588",
+      "categories": {
+        "lifting": {
+          "label": "리프팅",
+          "kicker": "LIFTING",
+          "heroLine1": "결을 다시,",
+          "heroLine2": "라인은 선명하게.",
+          "intro": "얼굴의 처짐과 볼륨 저하를 다층적으로 접근합니다. 시술 조합·강도는 피부 결과 조직 상태에 맞춰 맞춤 설계합니다.",
+          "process": [
+            { "step": "01", "title": "정밀 상담", "body": "얼굴 3D 분석과 피부 결·볼륨 진단을 바탕으로 조합을 설계합니다." },
+            { "step": "02", "title": "맞춤 프로토콜", "body": "울쎄라 · 슈링크 · 실 리프팅 등을 조합하여 한 세션에 진행합니다." },
+            { "step": "03", "title": "회복 케어", "body": "시술 직후 진정 관리와 홈케어 가이드를 함께 제공합니다." }
+          ]
+        },
+        "anti-aging": {
+          "label": "안티에이징",
+          "kicker": "ANTI-AGING",
+          "heroLine1": "시간은 흘러도,",
+          "heroLine2": "결은 자라난다.",
+          "intro": "잔주름 · 볼륨 · 결 세 가지 축을 함께 관리합니다. 자연스러운 나이 듦을 지지하는 관리 지향의 프로토콜을 제안합니다.",
+          "process": [
+            { "step": "01", "title": "노화 진단", "body": "잔주름·볼륨·탄력·결을 정밀하게 진단합니다." },
+            { "step": "02", "title": "레이어링 시술", "body": "톡신·필러·스킨부스터를 조합해 자연스러운 결과를 만듭니다." },
+            { "step": "03", "title": "장기 플랜", "body": "3~6개월 단위의 관리 캘린더를 함께 설계합니다." }
+          ],
+          "fallbackItems": [
+            { "name": "보톡스", "desc": "표정 주름 완화, 근육 라인 정돈" },
+            { "name": "필러", "desc": "볼륨 회복 및 윤곽 보정 (히알루론산)" },
+            { "name": "스킨보톡스", "desc": "얕은 표피에 마이크로 도포로 결·모공 관리" },
+            { "name": "쥬베룩", "desc": "PDLLA 콜라겐 부스터, 결 개선" },
+            { "name": "리쥬란", "desc": "PN 성분으로 피부 재생·탄력 회복" }
+          ]
+        },
+        "whitening": {
+          "label": "화이트닝 · 홍조",
+          "kicker": "TONE",
+          "heroLine1": "톤은 맑게,",
+          "heroLine2": "결은 균일하게.",
+          "intro": "색소침착과 홍조를 원인부터 분석해 접근합니다. 계절과 피부 회복력을 고려한 프로토콜을 제공합니다.",
+          "process": [
+            { "step": "01", "title": "색소 진단", "body": "표피성·진피성·혈관성 요인을 정확히 분류합니다." },
+            { "step": "02", "title": "타겟팅 시술", "body": "파장과 강도를 각 병변에 맞춰 세분화합니다." },
+            { "step": "03", "title": "재발 관리", "body": "자외선 차단·홈케어 병행으로 재발을 최소화합니다." }
+          ]
+        },
+        "acne": {
+          "label": "여드름 · 흉터",
+          "kicker": "ACNE & SCAR",
+          "heroLine1": "피부의 흔적,",
+          "heroLine2": "결로 회복시키다.",
+          "intro": "여드름의 원인과 진행 단계를 파악해 진정·재생·흉터 관리로 이어지는 통합 프로토콜을 제공합니다.",
+          "process": [
+            { "step": "01", "title": "단계 분류", "body": "염증성·비염증성·흉터 단계별로 접근을 나눕니다." },
+            { "step": "02", "title": "복합 관리", "body": "약물 처방과 시술을 병행하여 재발을 낮춥니다." },
+            { "step": "03", "title": "흉터 회복", "body": "잔여 흉터는 프락셔널·니들 RF로 장기 케어합니다." }
+          ]
+        },
+        "skin-disease": {
+          "label": "피부질환",
+          "kicker": "MEDICAL DERMATOLOGY",
+          "heroLine1": "정확한 진단,",
+          "heroLine2": "정직한 치료.",
+          "intro": "피부과 전문의로서 흔한 피부 질환부터 만성 질환까지, 근거 기반의 진료를 제공합니다.",
+          "process": [
+            { "step": "01", "title": "정확한 진단", "body": "필요 시 KOH·조직검사 등으로 원인을 확인합니다." },
+            { "step": "02", "title": "근거 기반 치료", "body": "가이드라인에 따라 국소·전신·시술을 조합합니다." },
+            { "step": "03", "title": "지속 관찰", "body": "만성 질환은 장기 팔로업으로 재발을 관리합니다." }
+          ],
+          "fallbackItems": [
+            { "name": "아토피 · 습진", "desc": "만성 관리 및 국소·전신 치료" },
+            { "name": "건선", "desc": "국소·광선치료·전신 요법" },
+            { "name": "탈모", "desc": "메조테라피 · 두피 진단 · 약물치료" },
+            { "name": "사마귀 · 티눈", "desc": "냉동요법 · 레이저 · 약물치료" },
+            { "name": "무좀 · 손발톱 진균증", "desc": "정밀 검사와 장기 치료" }
+          ]
+        }
+      }
+    },
+    "device": {
+      "crumbHome": "HOME",
+      "introKicker": "INTRODUCTION",
+      "coreSpec": "CORE SPEC",
+      "technology": "TECHNOLOGY",
+      "featuresKicker": "FEATURES",
+      "featuresTitle": "{name}만의 <accent>차별점</accent>",
+      "howKicker": "HOW IT WORKS",
+      "howTitle": "작동 원리",
+      "recKicker": "RECOMMENDED FOR",
+      "recTitleLine1": "이런 분께",
+      "recTitleAccent": "권해드립니다.",
+      "processKicker": "PROCESS",
+      "processTitleLine1": "상담부터 회복까지,",
+      "processTitleAccent": "한 흐름으로.",
+      "defaultProcess": [
+        { "step": "01", "title": "정밀 상담", "body": "피부 결·톤·볼륨 등 상태를 진단하고 라이프 사이클에 맞춘 시술 강도를 설계합니다." },
+        { "step": "02", "title": "맞춤 시술", "body": "표면 마취 후, 개인의 피부 두께와 반응에 맞춰 카트리지·에너지·샷 수를 조절해 진행합니다." },
+        { "step": "03", "title": "회복 케어", "body": "시술 직후 진정 관리와 홈케어 가이드를 제공하고, 필요 시 재진 스케줄을 함께 설계합니다." }
+      ],
+      "faqKicker": "FAQ",
+      "faqTitle": "자주 묻는 질문",
+      "byPrefix": "BY",
+      "ctaTitle": "{name}<br/><accent>상담 예약</accent>하기",
+      "ctaOnline": "온라인 상담 예약",
+      "ctaPhone": "02-421-7588",
+      "moreInPrefix": "MORE IN ",
+      "siblingsTitle": "같은 카테고리",
+      "viewAllSiblings": "전체 보기",
+      "siblingsView": "VIEW",
+      "categoryLabels": {
+        "lifting": "리프팅",
+        "anti-aging": "안티에이징",
+        "whitening": "화이트닝 · 홍조",
+        "acne": "여드름 · 흉터",
+        "skin-disease": "피부질환"
+      }
+    }
   }
 }

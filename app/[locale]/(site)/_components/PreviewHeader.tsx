@@ -3,100 +3,105 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 
 type SubItem = { label: string; href: string; sub?: string };
 type Column = { title: string; href?: string; items: SubItem[] };
 type NavItem =
-  | { label: string; href: string; children?: undefined }
-  | { label: string; href: string; children: Column[] };
-
-const NAV: NavItem[] = [
-  { label: "병원 소개", href: "/v2/about" },
-  {
-    label: "시술",
-    href: "/v2/treatments/lifting",
-    children: [
-      {
-        title: "리프팅",
-        href: "/v2/treatments/lifting",
-        items: [
-          { label: "울쎄라 프라임", sub: "ULTHERA PRIME", href: "/v2/treatments/lifting/ulthera-prime" },
-          { label: "써마지 FLX", sub: "THERMAGE FLX", href: "/v2/treatments/lifting/thermage-flx" },
-          { label: "슈링크 유니버스", sub: "SHRINK UNIVERSE", href: "/v2/treatments/lifting/shurink-universe" },
-          { label: "인모드", sub: "INMODE", href: "/v2/treatments/lifting/inmode" },
-          { label: "엘란쎄", sub: "ELLANSÉ", href: "/v2/treatments/lifting/ellanse" },
-        ],
-      },
-      {
-        title: "안티에이징",
-        href: "/v2/treatments/anti-aging",
-        items: [
-          { label: "보톡스", href: "/v2/treatments/anti-aging" },
-          { label: "필러", href: "/v2/treatments/anti-aging" },
-          { label: "스킨보톡스", href: "/v2/treatments/anti-aging" },
-          { label: "쥬베룩", href: "/v2/treatments/anti-aging" },
-          { label: "리쥬란", href: "/v2/treatments/anti-aging" },
-        ],
-      },
-      {
-        title: "화이트닝 · 홍조",
-        href: "/v2/treatments/whitening",
-        items: [
-          { label: "클라리티 II", sub: "CLARITY II", href: "/v2/treatments/whitening/clarity-ii" },
-          { label: "스타워커", sub: "STARWALKER", href: "/v2/treatments/whitening/fotona-starwalker" },
-          { label: "브이빔", sub: "VBEAM", href: "/v2/treatments/whitening/vbeam" },
-          { label: "시크릿 RF", sub: "SECRET RF", href: "/v2/treatments/whitening/secret-rf" },
-        ],
-      },
-      {
-        title: "여드름 · 흉터",
-        href: "/v2/treatments/acne",
-        items: [
-          { label: "카프리 CO2", sub: "CARPRI CO2", href: "/v2/treatments/acne/carpri-co2" },
-          { label: "골드 PTT", sub: "GOLD PTT", href: "/v2/treatments/acne/gold-ptt" },
-          { label: "큐라젯", sub: "CUREJET", href: "/v2/treatments/acne/curajet" },
-        ],
-      },
-      {
-        title: "피부질환",
-        href: "/v2/treatments/skin-disease",
-        items: [
-          { label: "아토피 · 습진", href: "/v2/treatments/skin-disease" },
-          { label: "건선", href: "/v2/treatments/skin-disease" },
-          { label: "탈모", href: "/v2/treatments/skin-disease" },
-          { label: "사마귀 · 티눈", href: "/v2/treatments/skin-disease" },
-          { label: "무좀 · 손발톱 진균증", href: "/v2/treatments/skin-disease" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "커뮤니티",
-    href: "/v2/community/notices",
-    children: [
-      {
-        title: "커뮤니티",
-        items: [
-          { label: "공지사항", href: "/v2/community/notices" },
-          { label: "이벤트", href: "/v2/community/events" },
-          { label: "비급여 수가표", href: "/v2/community/prices" },
-        ],
-      },
-    ],
-  },
-];
+  | { key: string; label: string; href: string; children?: undefined }
+  | { key: string; label: string; href: string; children: Column[] };
 
 export function PreviewHeader() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
+  const t = useTranslations("v2.header");
+  const tBrand = useTranslations("brand");
+
+  const NAV: NavItem[] = [
+    { key: "about", label: t("nav.about"), href: "/about" },
+    {
+      key: "treatments",
+      label: t("nav.treatments"),
+      href: "/treatments/lifting",
+      children: [
+        {
+          title: t("cols.lifting"),
+          href: "/treatments/lifting",
+          items: [
+            { label: t("items.ultheraPrime"), sub: "ULTHERA PRIME", href: "/treatments/lifting/ulthera-prime" },
+            { label: t("items.thermageFlx"), sub: "THERMAGE FLX", href: "/treatments/lifting/thermage-flx" },
+            { label: t("items.shurinkUniverse"), sub: "SHRINK UNIVERSE", href: "/treatments/lifting/shurink-universe" },
+            { label: t("items.inmode"), sub: "INMODE", href: "/treatments/lifting/inmode" },
+            { label: t("items.ellanse"), sub: "ELLANSÉ", href: "/treatments/lifting/ellanse" },
+          ],
+        },
+        {
+          title: t("cols.antiAging"),
+          href: "/treatments/anti-aging",
+          items: [
+            { label: t("items.botox"), href: "/treatments/anti-aging" },
+            { label: t("items.filler"), href: "/treatments/anti-aging" },
+            { label: t("items.skinBotox"), href: "/treatments/anti-aging" },
+            { label: t("items.jubellook"), href: "/treatments/anti-aging" },
+            { label: t("items.rejuran"), href: "/treatments/anti-aging" },
+          ],
+        },
+        {
+          title: t("cols.whitening"),
+          href: "/treatments/whitening",
+          items: [
+            { label: t("items.clarityII"), sub: "CLARITY II", href: "/treatments/whitening/clarity-ii" },
+            { label: t("items.starwalker"), sub: "STARWALKER", href: "/treatments/whitening/fotona-starwalker" },
+            { label: t("items.vbeam"), sub: "VBEAM", href: "/treatments/whitening/vbeam" },
+            { label: t("items.secretRf"), sub: "SECRET RF", href: "/treatments/whitening/secret-rf" },
+          ],
+        },
+        {
+          title: t("cols.acne"),
+          href: "/treatments/acne",
+          items: [
+            { label: t("items.carpriCo2"), sub: "CARPRI CO2", href: "/treatments/acne/carpri-co2" },
+            { label: t("items.goldPtt"), sub: "GOLD PTT", href: "/treatments/acne/gold-ptt" },
+            { label: t("items.curejet"), sub: "CUREJET", href: "/treatments/acne/curajet" },
+          ],
+        },
+        {
+          title: t("cols.skinDisease"),
+          href: "/treatments/skin-disease",
+          items: [
+            { label: t("items.atopic"), href: "/treatments/skin-disease" },
+            { label: t("items.psoriasis"), href: "/treatments/skin-disease" },
+            { label: t("items.hairLoss"), href: "/treatments/skin-disease" },
+            { label: t("items.wart"), href: "/treatments/skin-disease" },
+            { label: t("items.athlete"), href: "/treatments/skin-disease" },
+          ],
+        },
+      ],
+    },
+    {
+      key: "community",
+      label: t("nav.community"),
+      href: "/community/notices",
+      children: [
+        {
+          title: t("cols.community"),
+          items: [
+            { label: t("items.notices"), href: "/community/notices" },
+            { label: t("items.events"), href: "/community/events" },
+            { label: t("items.prices"), href: "/community/prices" },
+          ],
+        },
+      ],
+    },
+  ];
 
   return (
-    <header className="sticky top-8 z-50 border-b border-line/60 bg-cream/85 backdrop-blur-lg">
+    <header className="sticky top-0 z-50 border-b border-line/60 bg-cream/85 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
-          href="/v2"
+          href="/"
           onClick={() => setOpen(false)}
           className="group flex items-center gap-3"
         >
@@ -109,10 +114,10 @@ export function PreviewHeader() {
           />
           <div className="flex flex-col leading-none">
             <span className="font-serif text-[15px] font-normal tracking-tight text-ink lg:text-base">
-              선샤인의원
+              {tBrand("name")}
             </span>
             <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.24em] text-ink-soft/80">
-              Dermatology Clinic
+              {tBrand("label")}
             </span>
           </div>
         </Link>
@@ -121,9 +126,9 @@ export function PreviewHeader() {
         <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => (
             <div
-              key={item.label}
+              key={item.key}
               className="relative"
-              onMouseEnter={() => setHovered(item.label)}
+              onMouseEnter={() => setHovered(item.key)}
               onMouseLeave={() => setHovered(null)}
             >
               <Link
@@ -136,10 +141,10 @@ export function PreviewHeader() {
             </div>
           ))}
           <Link
-            href="/v2#book"
+            href="/#book"
             className="ml-3 rounded-full bg-ink px-5 py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark"
           >
-            상담 예약
+            {t("ctaBook")}
           </Link>
         </nav>
 
@@ -148,21 +153,21 @@ export function PreviewHeader() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           className="grid h-11 w-11 place-items-center rounded-full border border-line lg:hidden"
-          aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
+          aria-label={open ? t("menuClose") : t("menuOpen")}
         >
           {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Desktop mega panel — full-width bar */}
+      {/* Desktop mega panel */}
       {NAV.map((item) =>
         item.children ? (
           <div
-            key={item.label}
-            onMouseEnter={() => setHovered(item.label)}
+            key={item.key}
+            onMouseEnter={() => setHovered(item.key)}
             onMouseLeave={() => setHovered(null)}
             className={`absolute left-0 right-0 top-full hidden overflow-hidden border-t border-line bg-white/98 shadow-xl shadow-ink/10 backdrop-blur transition-all duration-200 lg:block ${
-              hovered === item.label
+              hovered === item.key
                 ? "visible max-h-[600px] opacity-100"
                 : "invisible max-h-0 opacity-0"
             }`}
@@ -185,8 +190,8 @@ export function PreviewHeader() {
                     </p>
                   )}
                   <ul className="space-y-1">
-                    {col.items.map((c) => (
-                      <li key={c.href}>
+                    {col.items.map((c, idx) => (
+                      <li key={`${c.href}-${idx}`}>
                         <Link
                           href={c.href}
                           onClick={() => setHovered(null)}
@@ -211,7 +216,7 @@ export function PreviewHeader() {
         ) : null
       )}
 
-      {/* Mobile drawer — 원본 스타일: 카테고리 이름만 flat 리스트 (세부 시술 X) */}
+      {/* Mobile drawer */}
       {open && (
         <>
           <div
@@ -221,16 +226,16 @@ export function PreviewHeader() {
           <div className="fixed inset-x-0 top-24 z-40 max-h-[calc(100vh-6rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 lg:hidden">
             <nav className="mx-auto max-w-7xl px-5 py-3">
               {NAV.map((item) => {
-                const isExpanded = mobileOpen === item.label;
+                const isExpanded = mobileOpen === item.key;
                 return (
-                  <div key={item.label} className="border-b border-line/60 last:border-0">
+                  <div key={item.key} className="border-b border-line/60 last:border-0">
                     {item.children ? (
                       <>
                         <button
                           type="button"
                           aria-expanded={isExpanded}
                           onClick={() =>
-                            setMobileOpen((v) => (v === item.label ? null : item.label))
+                            setMobileOpen((v) => (v === item.key ? null : item.key))
                           }
                           className={`flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-[17px] font-semibold transition active:bg-brand/10 ${
                             isExpanded
@@ -278,11 +283,11 @@ export function PreviewHeader() {
                 );
               })}
               <Link
-                href="/v2#book"
+                href="/#book"
                 onClick={() => setOpen(false)}
                 className="mt-4 block rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-cream"
               >
-                상담 예약
+                {t("ctaBook")}
               </Link>
             </nav>
           </div>
