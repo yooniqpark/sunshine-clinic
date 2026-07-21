@@ -32,7 +32,6 @@ const ORDER_BY_CATEGORY: Record<string, string[]> = {
   "skin-disease": ["athletes-foot", "psoriasis", "herpes", "burns"],
   "anti-aging": [
     "rejuran",
-    "rejuran-i",
     "juvelook",
     "elravie-re20",
     "cellredm",

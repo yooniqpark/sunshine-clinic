@@ -83,8 +83,8 @@ export function NoticePopup() {
                     <span
                       className={
                         it.status === "closed"
-                          ? "grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-ink text-[13px] font-bold text-cream"
-                          : "grid h-7 w-7 shrink-0 place-items-center rounded-lg bg-brand/15 text-[13px] font-bold text-brand-dark"
+                          ? "grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-ink text-lg font-bold text-cream"
+                          : "grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand/15 text-lg font-bold text-brand-dark"
                       }
                     >
                       {it.day}
@@ -179,11 +179,11 @@ export function NoticePopup() {
                 <div
                   className={
                     it.status === "closed"
-                      ? "grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-ink text-cream"
-                      : "grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-brand/15 text-brand-dark"
+                      ? "grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-ink text-cream"
+                      : "grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-brand/15 text-brand-dark"
                   }
                 >
-                  <span className="text-2xl font-bold leading-none">{it.day}</span>
+                  <span className="text-3xl font-bold leading-none">{it.day}</span>
                 </div>
                 <div className="flex-1">
                   <p className="text-[11px] font-medium tracking-wide text-ink-soft">

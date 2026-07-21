@@ -38,7 +38,6 @@ const NAV = [
     childrenGroup: "antiAgingChildren" as const,
     children: [
       { key: "rejuran", href: "/treatments/anti-aging#rejuran" },
-      { key: "rejuranI", href: "/treatments/anti-aging#rejuran-i" },
       { key: "juvelook", href: "/treatments/anti-aging#juvelook" },
       { key: "elravieRe20", href: "/treatments/anti-aging#elravie-re20" },
       { key: "cellredm", href: "/treatments/anti-aging#cellredm" },

@@ -19,8 +19,8 @@ const sections: FeeSection[] = [
     rows: [
       { label: "비급여 진료비", basis: "1회", amount: "20,000원" },
       { label: "비급여 처방전", basis: "14일", amount: "20,000원" },
-      { label: "비급여 처방전", basis: "30일", amount: "30,000원" },
-      { label: "비급여 처방전", basis: "60일", amount: "40,000원" },
+      { label: "", basis: "30일", amount: "30,000원" },
+      { label: "", basis: "60일", amount: "40,000원" },
     ],
   },
   {
