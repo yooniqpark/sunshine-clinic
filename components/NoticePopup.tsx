@@ -148,16 +148,16 @@ export function NoticePopup() {
       >
         <div
           onClick={(e) => e.stopPropagation()}
-          className={`w-full max-w-md overflow-hidden rounded-3xl border border-line bg-cream shadow-2xl shadow-ink/25 transition-transform duration-300 ${
+          className={`w-full max-w-2xl overflow-hidden rounded-3xl border border-line bg-cream shadow-2xl shadow-ink/25 transition-transform duration-300 ${
             entered ? "translate-y-0 scale-100" : "translate-y-4 scale-95"
           }`}
         >
-          <div className="relative border-b border-line bg-gradient-to-br from-brand-soft/30 via-blush/40 to-sand px-6 py-5">
-            <p className="text-[11px] font-semibold tracking-[0.22em] text-brand">NOTICE</p>
-            <h2 id="notice-title" className="mt-1 text-xl font-bold text-ink">
+          <div className="relative border-b border-line bg-gradient-to-br from-brand-soft/30 via-blush/40 to-sand px-8 py-7">
+            <p className="text-xs font-semibold tracking-[0.22em] text-brand">NOTICE</p>
+            <h2 id="notice-title" className="mt-2 text-2xl font-bold text-ink">
               진료 안내
             </h2>
-            <p className="mt-1 text-xs text-ink-soft">8월 정기 안내 사항입니다.</p>
+            <p className="mt-1.5 text-sm text-ink-soft">8월 정기 안내 사항입니다.</p>
             <button
               type="button"
               onClick={close}
@@ -170,7 +170,7 @@ export function NoticePopup() {
             </button>
           </div>
 
-          <div className="space-y-3 px-6 py-6">
+          <div className="space-y-4 px-8 py-8">
             {ITEMS.map((it) => (
               <div
                 key={it.day}
