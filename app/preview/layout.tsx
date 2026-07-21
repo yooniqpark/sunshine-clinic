@@ -3,7 +3,6 @@ import { NextIntlClientProvider } from "next-intl";
 import { setRequestLocale, getMessages } from "next-intl/server";
 import { PreviewHeader } from "./_components/PreviewHeader";
 import { PreviewFooter } from "./_components/PreviewFooter";
-import { FloatingBar } from "@/components/FloatingBar";
 import { ChatWidget } from "@/components/ChatWidget";
 
 export const metadata: Metadata = {
@@ -28,11 +27,10 @@ export default async function PreviewLayout({
           🎨 리디자인 시안 · <a href="/" className="underline">실제 홈 (/)</a> ↔ /preview
         </div>
         <PreviewHeader />
-        <main className="pb-20 lg:pb-0">{children}</main>
+        <main>{children}</main>
         <PreviewFooter />
 
-        {/* AI 봇 + 예약/카톡/전화 버튼 */}
-        <FloatingBar />
+        {/* AI 챗봇 */}
         <ChatWidget />
       </div>
     </NextIntlClientProvider>
