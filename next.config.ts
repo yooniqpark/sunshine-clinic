@@ -13,8 +13,18 @@ const nextConfig: NextConfig = {
       //   robots.ts (AI crawler allowlist) and instead add the inblog
       //   sitemap alongside our sitemap.xml. See app/robots.ts.
       beforeFiles: [
+        // Korean (default locale, no prefix)
         { source: "/blog", destination: "https://proxy.inblog.dev/sunshineclinic" },
         { source: "/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic/:path*" },
+        // English
+        { source: "/en/blog", destination: "https://proxy.inblog.dev/sunshineclinic-en" },
+        { source: "/en/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic-en/:path*" },
+        // Japanese (inblog uses -jp not -ja)
+        { source: "/ja/blog", destination: "https://proxy.inblog.dev/sunshineclinic-jp" },
+        { source: "/ja/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic-jp/:path*" },
+        // Chinese (inblog uses -cn not -zh)
+        { source: "/zh/blog", destination: "https://proxy.inblog.dev/sunshineclinic-cn" },
+        { source: "/zh/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic-cn/:path*" },
       ],
       afterFiles: [],
       fallback: [],
