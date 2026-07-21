@@ -656,24 +656,46 @@
           ],
           "fallbackItems": [
             {
-              "name": "Botox",
-              "desc": "Softens expression lines; refines muscular lines"
-            },
-            {
-              "name": "Filler",
-              "desc": "Restores volume and refines contour (hyaluronic acid)"
-            },
-            {
-              "name": "Skin Botox",
-              "desc": "Micro-application in the superficial epidermis for texture and pores"
-            },
-            {
-              "name": "Juvelook",
-              "desc": "PDLLA collagen booster; improves texture"
-            },
-            {
+              "slug": "rejuran",
               "name": "Rejuran",
-              "desc": "PN-based regeneration for skin renewal and elasticity"
+              "desc": "Awakening the skin's own regenerative power with salmon DNA (PN·PDRN) ingredients",
+              "image": "/devices/rejuran.jpg"
+            },
+            {
+              "slug": "juvelook",
+              "name": "Juvelook",
+              "desc": "A PLLA collagen booster that naturally fills over time",
+              "image": "/devices/juvelook.jpg"
+            },
+            {
+              "slug": "elravie-re20",
+              "name": "엘라비에 리투오",
+              "desc": "HA 필러 기반 재생·볼륨 솔루션 (엘라비에 리투오)",
+              "image": "/devices/elravie-re20.jpg"
+            },
+            {
+              "slug": "cellredm",
+              "name": "셀르디엠",
+              "desc": "엑소좀·성장인자 기반 세포 리모델링 부스터",
+              "image": "/devices/cellredm.jpg"
+            },
+            {
+              "slug": "skinvive",
+              "name": "스킨바이브",
+              "desc": "주브덤 라인의 하이드로 부스터, 볼륨보다 결·수분에 집중",
+              "image": "/devices/skinvive.jpg"
+            },
+            {
+              "slug": "ellanse-antiaging",
+              "name": "엘란쎄",
+              "desc": "PCL 콜라겐 부스터로 최장 4년까지 지속되는 자연 볼륨",
+              "image": "/devices/ellanse.jpg"
+            },
+            {
+              "slug": "radiesse",
+              "name": "레디어스",
+              "desc": "CaHA 성분으로 즉시 볼륨 + 지속적 콜라겐 생성",
+              "image": "/devices/radiesse.jpg"
             }
           ]
         },
@@ -750,24 +772,34 @@
           ],
           "fallbackItems": [
             {
-              "name": "Atopy · Eczema",
-              "desc": "Chronic management with topical and systemic care"
+              "slug": "atopy",
+              "name": "Atopy",
+              "desc": "Step-by-step treatment and lifestyle management focused on skin barrier recovery"
             },
             {
-              "name": "Psoriasis",
-              "desc": "Topical, phototherapy, and systemic therapy"
+              "slug": "psoriasis",
+              "name": "Psoriasis · Tinea",
+              "desc": "Long-term management plan for chronic inflammatory diseases"
             },
             {
+              "slug": "hair-loss",
               "name": "Hair Loss",
-              "desc": "Mesotherapy · scalp diagnosis · medication"
+              "desc": "Diagnosis by Cause and Scalp & Hair Strengthening Treatment"
             },
             {
-              "name": "Warts · Corns",
-              "desc": "Cryotherapy · laser · medication"
+              "slug": "herpes",
+              "name": "대상포진 · 단순포진",
+              "desc": "수포성 바이러스 피부 질환, 초기 항바이러스 치료가 핵심"
             },
             {
-              "name": "Athlete's Foot · Onychomycosis",
-              "desc": "Precise testing and long-term treatment"
+              "slug": "athletes-foot",
+              "name": "Athlete's foot",
+              "desc": "Accurate diagnosis and treatment of fungal infections without recurrence"
+            },
+            {
+              "slug": "burns",
+              "name": "Burns",
+              "desc": "Post-burn care aimed at minimizing scars"
             }
           ]
         }

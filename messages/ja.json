@@ -656,24 +656,46 @@
           ],
           "fallbackItems": [
             {
-              "name": "ボトックス",
-              "desc": "表情じわの緩和、筋肉ラインを整える"
-            },
-            {
-              "name": "フィラー",
-              "desc": "ボリューム回復と輪郭補正(ヒアルロン酸)"
-            },
-            {
-              "name": "スキンボトックス",
-              "desc": "浅い表皮にマイクロ塗布でキメ・毛穴ケア"
-            },
-            {
-              "name": "ジュベルック",
-              "desc": "PDLLAコラーゲンブースター、キメ改善"
-            },
-            {
+              "slug": "rejuran",
               "name": "リジュラン",
-              "desc": "PN成分で肌再生・弾力回復"
+              "desc": "サーモンDNA（PN・PDRN）成分で肌自身の再生力を呼び覚ます",
+              "image": "/devices/rejuran.jpg"
+            },
+            {
+              "slug": "juvelook",
+              "name": "ジュベロック",
+              "desc": "PLLAコラーゲンブースターで時間が経つにつれて増す自然なボリューム",
+              "image": "/devices/juvelook.jpg"
+            },
+            {
+              "slug": "elravie-re20",
+              "name": "엘라비에 리투오",
+              "desc": "HA 필러 기반 재생·볼륨 솔루션 (엘라비에 리투오)",
+              "image": "/devices/elravie-re20.jpg"
+            },
+            {
+              "slug": "cellredm",
+              "name": "셀르디엠",
+              "desc": "엑소좀·성장인자 기반 세포 리모델링 부스터",
+              "image": "/devices/cellredm.jpg"
+            },
+            {
+              "slug": "skinvive",
+              "name": "스킨바이브",
+              "desc": "주브덤 라인의 하이드로 부스터, 볼륨보다 결·수분에 집중",
+              "image": "/devices/skinvive.jpg"
+            },
+            {
+              "slug": "ellanse-antiaging",
+              "name": "엘란쎄",
+              "desc": "PCL 콜라겐 부스터로 최장 4년까지 지속되는 자연 볼륨",
+              "image": "/devices/ellanse.jpg"
+            },
+            {
+              "slug": "radiesse",
+              "name": "레디어스",
+              "desc": "CaHA 성분으로 즉시 볼륨 + 지속적 콜라겐 생성",
+              "image": "/devices/radiesse.jpg"
             }
           ]
         },
@@ -750,24 +772,34 @@
           ],
           "fallbackItems": [
             {
-              "name": "アトピー · 湿疹",
-              "desc": "慢性管理および局所・全身治療"
+              "slug": "atopy",
+              "name": "アトピー",
+              "desc": "皮膚バリア回復中心の段階的治療と生活管理"
             },
             {
-              "name": "乾癬",
-              "desc": "局所・光線治療・全身療法"
+              "slug": "psoriasis",
+              "name": "乾癬 · 白癬",
+              "desc": "慢性炎症性疾患の長期管理プラン"
             },
             {
-              "name": "薄毛",
-              "desc": "メソセラピー · 頭皮診断 · 薬物治療"
+              "slug": "hair-loss",
+              "name": "脱毛",
+              "desc": "原因別診断と頭皮・毛髪強化治療"
             },
             {
-              "name": "いぼ · 魚の目",
-              "desc": "凍結療法 · レーザー · 薬物治療"
+              "slug": "herpes",
+              "name": "대상포진 · 단순포진",
+              "desc": "수포성 바이러스 피부 질환, 초기 항바이러스 치료가 핵심"
             },
             {
-              "name": "水虫 · 爪白癬",
-              "desc": "精密検査と長期治療"
+              "slug": "athletes-foot",
+              "name": "水虫",
+              "desc": "真菌感染の正確な診断と再発のない治療"
+            },
+            {
+              "slug": "burns",
+              "name": "やけど",
+              "desc": "瘢痕の最小化を目指したやけど後のケア"
             }
           ]
         }

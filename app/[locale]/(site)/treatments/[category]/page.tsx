@@ -18,7 +18,13 @@ const CATEGORY_META: Record<string, { image: string; hasDevices: boolean }> = {
 };
 
 type ProcessStep = { step: string; title: string; body: string };
-type FallbackItem = { name: string; desc: string; duration?: string };
+type FallbackItem = {
+  name: string;
+  desc: string;
+  duration?: string;
+  slug?: string;
+  image?: string;
+};
 
 export function generateStaticParams() {
   return CATEGORY_SLUGS.map((category) => ({ category }));
@@ -173,6 +179,7 @@ type ListRow = {
   desc: string;
   href?: string;
   meta?: string;
+  image?: string;
 };
 
 function TreatmentList({
@@ -204,6 +211,8 @@ function TreatmentList({
           name: it.name,
           desc: it.desc,
           meta: it.duration ? `DURATION · ${it.duration}` : undefined,
+          href: it.slug ? `/treatments/${category}/${it.slug}` : undefined,
+          image: it.image,
         }));
 
   return (
@@ -235,18 +244,30 @@ function TreatmentList({
 function ListItem({ row }: { row: ListRow }) {
   const inner = (
     <div className="flex h-full items-start justify-between gap-6 border-t border-line py-8 transition group-hover:border-brand-dark">
-      <div className="min-w-0">
-        {row.meta && (
-          <p className="text-[10px] font-bold tracking-[0.2em] text-brand-dark">
-            {row.meta}
-          </p>
+      <div className="flex min-w-0 flex-1 items-start gap-5">
+        {row.image && (
+          <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-2xl bg-ink/5">
+            <Image
+              src={row.image}
+              alt=""
+              fill
+              className="object-cover transition duration-500 group-hover:scale-105"
+            />
+          </div>
         )}
-        <h3 className="mt-2 font-serif text-2xl transition group-hover:text-brand-dark">
-          {row.name}
-        </h3>
-        <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
-          {row.desc}
-        </p>
+        <div className="min-w-0">
+          {row.meta && (
+            <p className="text-[10px] font-bold tracking-[0.2em] text-brand-dark">
+              {row.meta}
+            </p>
+          )}
+          <h3 className="mt-2 font-serif text-2xl transition group-hover:text-brand-dark">
+            {row.name}
+          </h3>
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
+            {row.desc}
+          </p>
+        </div>
       </div>
       {row.href && (
         <ArrowUpRightIcon className="mt-2 h-5 w-5 shrink-0 text-ink-soft transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-dark" />
