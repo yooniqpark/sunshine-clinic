@@ -26,7 +26,6 @@ export type NoticeEntry = {
   items?: NoticeItem[];
 };
 
-// 최신 게시글이 위로 오도록 배열 상단이 최신
 const NOTICES: NoticeEntry[] = [
   {
     id: "2026-08-15-holiday",
@@ -51,34 +50,41 @@ export default async function NoticesPage({ params }: Props) {
 
   return (
     <>
-      <section className="border-b border-line bg-sand/40">
-        <div className="mx-auto max-w-5xl px-5 py-14 lg:px-8 lg:py-20">
-          <nav className="flex items-center gap-2 text-xs text-ink-soft">
-            <Link href={`/${locale}`} className="transition hover:text-brand">
-              {common.home}
+      {/* HERO — dark editorial */}
+      <section className="relative bg-ink py-24 text-cream lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <nav className="flex items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
+            <Link href={`/${locale}`} className="hover:text-cream">
+              {common.home?.toUpperCase() ?? "HOME"}
             </Link>
             <span>/</span>
-            <span className="text-ink">공지사항</span>
+            <span className="text-cream/80">COMMUNITY</span>
           </nav>
-          <p className="mt-6 text-xs font-semibold tracking-[0.2em] text-brand">NOTICES</p>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+          <p className="mt-6 text-[10px] font-bold tracking-[0.35em] text-brand-soft">
+            NOTICES
+          </p>
+          <h1 className="mt-4 font-serif text-4xl leading-tight lg:text-6xl">
             공지사항
           </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-ink-soft">
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-cream/60 lg:text-base">
             휴진·진료 시간 변경 등 병원 소식을 안내해 드립니다.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-5 py-14 lg:px-8 lg:py-20">
-        <NoticeBoard notices={NOTICES} />
-        <p className="mt-8 rounded-2xl bg-sand/60 px-6 py-4 text-center text-xs leading-relaxed text-ink-soft">
-          문의는{" "}
-          <a href="tel:024217588" className="font-semibold text-brand hover:underline">
-            02-421-7588
-          </a>{" "}
-          또는 카카오톡 채널로 연락해 주세요.
-        </p>
+      {/* LIST */}
+      <section className="bg-cream py-16 lg:py-24">
+        <div className="mx-auto max-w-5xl px-5 lg:px-8">
+          <NoticeBoard notices={NOTICES} />
+
+          <p className="mt-12 text-center text-xs leading-relaxed text-ink-soft">
+            문의는{" "}
+            <a href="tel:024217588" className="font-semibold text-brand-dark hover:underline">
+              02-421-7588
+            </a>{" "}
+            또는 카카오톡 채널로 연락해 주세요.
+          </p>
+        </div>
       </section>
     </>
   );
