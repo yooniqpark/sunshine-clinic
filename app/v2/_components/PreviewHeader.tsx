@@ -226,39 +226,25 @@ export function PreviewHeader() {
                   <div key={item.label} className="border-b border-line/60 last:border-0">
                     {item.children ? (
                       <>
-                        <div
-                          className={`flex w-full items-center rounded-xl text-[17px] font-semibold transition ${
+                        <button
+                          type="button"
+                          aria-expanded={isExpanded}
+                          onClick={() =>
+                            setMobileOpen((v) => (v === item.label ? null : item.label))
+                          }
+                          className={`flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-[17px] font-semibold transition active:bg-brand/10 ${
                             isExpanded
                               ? "bg-brand/15 text-brand-dark ring-1 ring-brand/25"
                               : "text-ink"
                           }`}
                         >
-                          <Link
-                            href={item.href}
-                            onClick={() => {
-                              setOpen(false);
-                              setMobileOpen(null);
-                            }}
-                            className="flex-1 rounded-xl px-3 py-3.5 text-left transition hover:text-brand-dark active:bg-brand/10"
-                          >
-                            {item.label}
-                          </Link>
-                          <button
-                            type="button"
-                            aria-label={`${item.label} 하위 메뉴 펼치기`}
-                            aria-expanded={isExpanded}
-                            onClick={() =>
-                              setMobileOpen((v) => (v === item.label ? null : item.label))
-                            }
-                            className="grid h-12 w-12 shrink-0 place-items-center rounded-xl active:bg-brand/10"
-                          >
-                            <ChevronDownIcon
-                              className={`h-5 w-5 transition ${
-                                isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
-                              }`}
-                            />
-                          </button>
-                        </div>
+                          <span>{item.label}</span>
+                          <ChevronDownIcon
+                            className={`h-5 w-5 transition ${
+                              isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
+                            }`}
+                          />
+                        </button>
                         {isExpanded && (
                           <div className="space-y-1 pb-3 pl-1">
                             {item.children.map((col) =>
