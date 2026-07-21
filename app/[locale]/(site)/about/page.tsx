@@ -50,7 +50,7 @@ export default async function AboutPage({
           <h1 className="mt-6 font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05]">
             {t("heroTitleLine1")}
             <br />
-            <em className="italic text-brand-soft">{t("heroTitleAccent")}</em>
+            <em className="text-brand-soft">{t("heroTitleAccent")}</em>
           </h1>
           <p className="mt-10 max-w-2xl text-base leading-relaxed text-cream/75 lg:text-lg">
             {t("heroDesc")}
@@ -142,7 +142,7 @@ export default async function AboutPage({
               <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-tight lg:text-6xl">
                 {t("spaceTitleLead")}
                 <br />
-                <em className="italic text-brand-dark">{t("spaceTitleAccent")}</em>
+                <em className="text-brand-dark">{t("spaceTitleAccent")}</em>
               </h2>
             </div>
             <p className="max-w-sm text-sm leading-relaxed text-ink-soft">
@@ -202,7 +202,7 @@ export default async function AboutPage({
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight lg:text-6xl">
             {t("philosophyTitleLead")}
             <br />
-            <em className="italic text-brand-soft">{t("philosophyTitleAccent")}</em>
+            <em className="text-brand-soft">{t("philosophyTitleAccent")}</em>
           </h2>
 
           <div className="mt-16 grid gap-10 md:grid-cols-3">
@@ -229,7 +229,7 @@ export default async function AboutPage({
             <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-6xl">
               {t("equipmentTitleLead")}
               <br />
-              <em className="italic text-brand-dark">{t("equipmentTitleAccent")}</em>
+              <em className="text-brand-dark">{t("equipmentTitleAccent")}</em>
             </h2>
             <p className="mx-auto mt-10 max-w-2xl text-base leading-relaxed text-ink-soft lg:text-lg">
               {t("equipmentDesc")}
@@ -253,7 +253,7 @@ export default async function AboutPage({
               {t("ctaTitleLine1")}
               <br />
               {t("ctaTitleLine2Lead")}
-              <em className="italic text-brand-dark">{t("ctaTitleAccent")}</em>
+              <em className="text-brand-dark">{t("ctaTitleAccent")}</em>
               {t("ctaTitleTail")}
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">

@@ -226,8 +226,8 @@
     },
     "home": {
       "heroKicker": "SUNSHINE DERMATOLOGY CLINIC · SINCE 2026",
-      "heroTitleLine1": "Texture of skin,",
-      "heroTitleAccent": "light of every day.",
+      "heroTitleLine1": "Texture of skin",
+      "heroTitleAccent": "light of every day",
       "heroDescLine1": "Attentive, honest care tailored to each patient.",
       "heroDescLine2": "Premium high-end devices, guiding you toward healthy change.",
       "ctaBook": "Book a Consultation",
@@ -235,15 +235,31 @@
       "scroll": "SCROLL ↓",
       "location": "SEOUL · SONGPA",
       "stats": {
-        "years": { "n": "10", "u": "yr+", "l": "Clinical Experience" },
-        "devices": { "n": "15", "u": "+", "l": "Certified Devices" },
-        "languages": { "n": "4", "u": "", "l": "Languages Served" },
-        "personal": { "n": "1:1", "u": "", "l": "Personalized Care" }
+        "years": {
+          "n": "10",
+          "u": "yr+",
+          "l": "Clinical Experience"
+        },
+        "devices": {
+          "n": "15",
+          "u": "+",
+          "l": "Certified Devices"
+        },
+        "languages": {
+          "n": "4",
+          "u": "",
+          "l": "Languages Served"
+        },
+        "personal": {
+          "n": "1:1",
+          "u": "",
+          "l": "Personalized Care"
+        }
       },
       "directorKicker": "DIRECTOR",
       "directorQuoteStart": "“I want to care not only for the ",
       "directorQuoteAccent": "skin, but the heart",
-      "directorQuoteEnd": " of every patient who visits us.”",
+      "directorQuoteEnd": " of every patient who visits us”",
       "directorName": "Kim Byung-hyun",
       "directorRole": "Director · Sunshine Dermatology Clinic",
       "viewDoctors": "Meet the Doctor",
@@ -262,16 +278,34 @@
       "devicesKicker": "SIGNATURE DEVICES",
       "devicesTitleLead": "Authorized ",
       "devicesTitleAccent": "genuine",
-      "devicesTitleTail": "high-end equipment.",
+      "devicesTitleTail": "high-end equipment",
       "devicesDesc": "Ulthera, Thermage, Shurink Universe and more — 15+ certified devices calibrated to your skin layers, concerns, and condition.",
       "viewAllDevices": "See All Devices",
       "devicesList": {
-        "ulthera": { "name": "Ulthera Prime", "tag": "HIFU · LIFTING" },
-        "thermage": { "name": "Thermage FLX", "tag": "RF · TIGHTENING" },
-        "shurink": { "name": "Shurink Universe", "tag": "HIFU · TARGETED" },
-        "fotona": { "name": "Fotona Starwalker", "tag": "LASER · PIGMENT" },
-        "vbeam": { "name": "V-Beam", "tag": "REDNESS · VASCULAR" },
-        "secretRf": { "name": "Secret RF", "tag": "MICRONEEDLE RF" }
+        "ulthera": {
+          "name": "Ulthera Prime",
+          "tag": "HIFU · LIFTING"
+        },
+        "thermage": {
+          "name": "Thermage FLX",
+          "tag": "RF · TIGHTENING"
+        },
+        "shurink": {
+          "name": "Shurink Universe",
+          "tag": "HIFU · TARGETED"
+        },
+        "fotona": {
+          "name": "Fotona Starwalker",
+          "tag": "LASER · PIGMENT"
+        },
+        "vbeam": {
+          "name": "V-Beam",
+          "tag": "REDNESS · VASCULAR"
+        },
+        "secretRf": {
+          "name": "Secret RF",
+          "tag": "MICRONEEDLE RF"
+        }
       },
       "whyKicker": "WHY SUNSHINE",
       "whyLine1a": "Necessary care,",
@@ -285,7 +319,7 @@
       "ctaKicker": "CONTACT",
       "ctaTitleLead": "Book your ",
       "ctaTitleAccent": "consultation",
-      "ctaTitleTail": " today.",
+      "ctaTitleTail": " today",
       "ctaDesc": "After a 1:1 consultation we'll recommend the treatment plan best suited to you. In-person consultations are complimentary.",
       "ctaPhone": "Call +82-2-421-7588",
       "ctaNaver": "Book via Naver",
@@ -293,8 +327,8 @@
     },
     "about": {
       "heroKicker": "ABOUT SUNSHINE",
-      "heroTitleLine1": "Refining texture,",
-      "heroTitleAccent": "brightening every day.",
+      "heroTitleLine1": "Refining texture",
+      "heroTitleAccent": "brightening every day",
       "heroDesc": "Sunshine Dermatology Clinic is a local practice led by a board-certified dermatologist with years of experience at university hospitals. We favor lasting beauty over trends, and healthy recovery over spectacle.",
       "directorKicker": "DIRECTOR",
       "directorName": "Kim Byung-hyun",
@@ -302,44 +336,89 @@
       "directorBio": "A board-certified dermatologist from Seoul St. Mary's Hospital with 15+ years treating a wide range of skin cases. We don't chase trends — we design plans that respect each patient's tone and texture.",
       "historyLabel": "HISTORY",
       "history": [
-        { "year": "2010", "event": "Graduated, Catholic University of Korea College of Medicine" },
-        { "year": "2015", "event": "Board-certified Dermatologist, Seoul St. Mary's Hospital" },
-        { "year": "2016", "event": "Member, Korean Dermatological Association" },
-        { "year": "2018", "event": "Member, Korean Society for Aesthetic & Laser Medicine" },
-        { "year": "2020", "event": "Member, International Society of Hair Restoration Surgery (ISHRS)" },
-        { "year": "2026", "event": "Opened Sunshine Dermatology Clinic · Director" }
+        {
+          "year": "2010",
+          "event": "Graduated, Catholic University of Korea College of Medicine"
+        },
+        {
+          "year": "2015",
+          "event": "Board-certified Dermatologist, Seoul St. Mary's Hospital"
+        },
+        {
+          "year": "2016",
+          "event": "Member, Korean Dermatological Association"
+        },
+        {
+          "year": "2018",
+          "event": "Member, Korean Society for Aesthetic & Laser Medicine"
+        },
+        {
+          "year": "2020",
+          "event": "Member, International Society of Hair Restoration Surgery (ISHRS)"
+        },
+        {
+          "year": "2026",
+          "event": "Opened Sunshine Dermatology Clinic · Director"
+        }
       ],
       "consultKicker": "CONSULT ROOM",
       "consultTitle": "Where the conversation begins",
       "consultBody": "Finished in marble and warm walnut, the consult room sets a calm tone for open dialogue. We take the time we need to understand your skin and your rhythm of life.",
       "spaceKicker": "THE SPACE",
       "spaceTitleLead": "Every moment,",
-      "spaceTitleAccent": "designed for recovery.",
+      "spaceTitleAccent": "designed for recovery",
       "spaceDesc": "From the waiting lounge to the powder room, every space is finished to hotel-grade quiet — comfortable, private, considered.",
       "spaces": [
-        { "label": "WAITING LOUNGE", "desc": "Waiting Lounge" },
-        { "label": "CORRIDOR", "desc": "Treatment Corridor" },
-        { "label": "TREATMENT AREA", "desc": "Treatment Area" },
-        { "label": "CARE ROOM", "desc": "Care Room" },
-        { "label": "POWDER ROOM", "desc": "Powder Room" }
+        {
+          "label": "WAITING LOUNGE",
+          "desc": "Waiting Lounge"
+        },
+        {
+          "label": "CORRIDOR",
+          "desc": "Treatment Corridor"
+        },
+        {
+          "label": "TREATMENT AREA",
+          "desc": "Treatment Area"
+        },
+        {
+          "label": "CARE ROOM",
+          "desc": "Care Room"
+        },
+        {
+          "label": "POWDER ROOM",
+          "desc": "Powder Room"
+        }
       ],
       "philosophyKicker": "PHILOSOPHY",
-      "philosophyTitleLead": "Unhurried,",
-      "philosophyTitleAccent": "results that last.",
+      "philosophyTitleLead": "Unhurried",
+      "philosophyTitleAccent": "results that last",
       "values": [
-        { "n": "01", "title": "Honest Care", "body": "We don't recommend what you don't need. Minimum intervention, matched to your skin and life cycle, comes first." },
-        { "n": "02", "title": "A Considered Hand", "body": "Backed by 10+ years of clinical experience, we refine texture, tone, and line — one step at a time." },
-        { "n": "03", "title": "Premium Equipment", "body": "A curated set of top-tier high-end devices makes for quicker, more comfortable recovery." }
+        {
+          "n": "01",
+          "title": "Honest Care",
+          "body": "We don't recommend what you don't need. Minimum intervention, matched to your skin and life cycle, comes first."
+        },
+        {
+          "n": "02",
+          "title": "A Considered Hand",
+          "body": "Backed by 10+ years of clinical experience, we refine texture, tone, and line — one step at a time."
+        },
+        {
+          "n": "03",
+          "title": "Premium Equipment",
+          "body": "A curated set of top-tier high-end devices makes for quicker, more comfortable recovery."
+        }
       ],
       "equipmentKicker": "EQUIPMENT",
-      "equipmentTitleLead": "High-end equipment,",
-      "equipmentTitleAccent": "under one roof.",
+      "equipmentTitleLead": "High-end equipment",
+      "equipmentTitleAccent": "under one roof",
       "equipmentDesc": "Ulthera Prime, Thermage FLX, Shurink Universe, Clarity II, Starwalker, V-Beam, InMode, CarPri CO2 — a suite of top-tier devices, gathered in a single space.",
       "equipmentCta": "See the Device List",
       "ctaTitleLine1": "The first consultation",
       "ctaTitleLine2Lead": "is the nearest ",
       "ctaTitleAccent": "beginning",
-      "ctaTitleTail": ".",
+      "ctaTitleTail": "",
       "ctaTreatments": "Explore Treatments"
     },
     "notices": {
@@ -348,10 +427,30 @@
       "tagOpen": "OPEN",
       "tagInfo": "INFO",
       "items": [
-        { "tag": "OPEN", "date": "2026.07.15", "title": "Sunshine Dermatology Clinic Grand Opening", "excerpt": "Sunshine Dermatology Clinic officially opens on Olympic-ro, Songpa-gu. A grand-opening consultation event is running alongside." },
-        { "tag": "INFO", "date": "2026.07.10", "title": "August Hours and Holiday Schedule", "excerpt": "The clinic will be closed on Liberation Day (Aug 15) and remains closed every Sunday and public holiday." },
-        { "tag": "INFO", "date": "2026.07.03", "title": "Online Pre-Consultation Booking Opens", "excerpt": "Please use Naver Booking for online consultations. Real-time confirmation minimizes waiting time." },
-        { "tag": "INFO", "date": "2026.06.28", "title": "KakaoTalk Channel Consultations", "excerpt": "You can also reach us via KakaoTalk. Medical inquiries are answered during clinic hours." }
+        {
+          "tag": "OPEN",
+          "date": "2026.07.15",
+          "title": "Sunshine Dermatology Clinic Grand Opening",
+          "excerpt": "Sunshine Dermatology Clinic officially opens on Olympic-ro, Songpa-gu. A grand-opening consultation event is running alongside."
+        },
+        {
+          "tag": "INFO",
+          "date": "2026.07.10",
+          "title": "August Hours and Holiday Schedule",
+          "excerpt": "The clinic will be closed on Liberation Day (Aug 15) and remains closed every Sunday and public holiday."
+        },
+        {
+          "tag": "INFO",
+          "date": "2026.07.03",
+          "title": "Online Pre-Consultation Booking Opens",
+          "excerpt": "Please use Naver Booking for online consultations. Real-time confirmation minimizes waiting time."
+        },
+        {
+          "tag": "INFO",
+          "date": "2026.06.28",
+          "title": "KakaoTalk Channel Consultations",
+          "excerpt": "You can also reach us via KakaoTalk. Medical inquiries are answered during clinic hours."
+        }
       ]
     },
     "events": {
@@ -360,9 +459,24 @@
       "periodLabel": "Period",
       "cta": "Book a Consultation",
       "items": [
-        { "tag": "OPEN", "title": "Grand-Opening Consultation Event", "period": "2026.07.15 – 2026.08.31", "body": "To mark our opening, we offer a complimentary skin diagnostic service with every in-person consultation." },
-        { "tag": "EVENT", "title": "Summer Tone-Care Promotion", "period": "2026.07.20 – 2026.08.31", "body": "A special-rate tone-up program for summer pigment and redness care." },
-        { "tag": "INFO", "title": "Home-Care Recovery Guide", "period": "Ongoing", "body": "In-clinic guidance on home-care products that support post-treatment recovery." }
+        {
+          "tag": "OPEN",
+          "title": "Grand-Opening Consultation Event",
+          "period": "2026.07.15 – 2026.08.31",
+          "body": "To mark our opening, we offer a complimentary skin diagnostic service with every in-person consultation."
+        },
+        {
+          "tag": "EVENT",
+          "title": "Summer Tone-Care Promotion",
+          "period": "2026.07.20 – 2026.08.31",
+          "body": "A special-rate tone-up program for summer pigment and redness care."
+        },
+        {
+          "tag": "INFO",
+          "title": "Home-Care Recovery Guide",
+          "period": "Ongoing",
+          "body": "In-clinic guidance on home-care products that support post-treatment recovery."
+        }
       ]
     },
     "prices": {
@@ -376,42 +490,99 @@
           "kicker": "LIFTING",
           "title": "Lifting",
           "rows": [
-            { "name": "Ulthera Full Face 300 shots", "price": "KRW 1,200,000" },
-            { "name": "Shurink Universe 400 shots", "price": "KRW 800,000" },
-            { "name": "Density Full Face", "price": "KRW 600,000" },
-            { "name": "InMode FX", "price": "KRW 300,000" },
-            { "name": "Thread Lift (10 PDO threads)", "price": "KRW 800,000", "note": "Varies by thread type and count" }
+            {
+              "name": "Ulthera Full Face 300 shots",
+              "price": "KRW 1,200,000"
+            },
+            {
+              "name": "Shurink Universe 400 shots",
+              "price": "KRW 800,000"
+            },
+            {
+              "name": "Density Full Face",
+              "price": "KRW 600,000"
+            },
+            {
+              "name": "InMode FX",
+              "price": "KRW 300,000"
+            },
+            {
+              "name": "Thread Lift (10 PDO threads)",
+              "price": "KRW 800,000",
+              "note": "Varies by thread type and count"
+            }
           ]
         },
         {
           "kicker": "ANTI-AGING",
           "title": "Anti-Aging",
           "rows": [
-            { "name": "Botox – Forehead / Glabella", "price": "KRW 60,000", "note": "Per area" },
-            { "name": "Filler (1cc)", "price": "KRW 350,000", "note": "Varies by product" },
-            { "name": "Skin Botox – Full Face", "price": "KRW 250,000" },
-            { "name": "Juvelook (1 vial)", "price": "KRW 300,000" },
-            { "name": "Rejuran Healer (1 vial)", "price": "KRW 300,000" }
+            {
+              "name": "Botox – Forehead / Glabella",
+              "price": "KRW 60,000",
+              "note": "Per area"
+            },
+            {
+              "name": "Filler (1cc)",
+              "price": "KRW 350,000",
+              "note": "Varies by product"
+            },
+            {
+              "name": "Skin Botox – Full Face",
+              "price": "KRW 250,000"
+            },
+            {
+              "name": "Juvelook (1 vial)",
+              "price": "KRW 300,000"
+            },
+            {
+              "name": "Rejuran Healer (1 vial)",
+              "price": "KRW 300,000"
+            }
           ]
         },
         {
           "kicker": "TONE",
           "title": "Whitening · Redness",
           "rows": [
-            { "name": "Pico Toning", "price": "KRW 150,000" },
-            { "name": "V-Beam Perfecta (local)", "price": "KRW 200,000" },
-            { "name": "IPL – Full Face", "price": "KRW 180,000" },
-            { "name": "Genesis – Full Face", "price": "KRW 150,000" }
+            {
+              "name": "Pico Toning",
+              "price": "KRW 150,000"
+            },
+            {
+              "name": "V-Beam Perfecta (local)",
+              "price": "KRW 200,000"
+            },
+            {
+              "name": "IPL – Full Face",
+              "price": "KRW 180,000"
+            },
+            {
+              "name": "Genesis – Full Face",
+              "price": "KRW 150,000"
+            }
           ]
         },
         {
           "kicker": "ACNE & SCAR",
           "title": "Acne · Scars",
           "rows": [
-            { "name": "Acne Extraction (per area)", "price": "KRW 50,000" },
-            { "name": "PDT Photodynamic Therapy", "price": "KRW 300,000" },
-            { "name": "Fraxel – Full Face", "price": "KRW 500,000" },
-            { "name": "Infini Hybrid", "price": "KRW 500,000" }
+            {
+              "name": "Acne Extraction (per area)",
+              "price": "KRW 50,000"
+            },
+            {
+              "name": "PDT Photodynamic Therapy",
+              "price": "KRW 300,000"
+            },
+            {
+              "name": "Fraxel – Full Face",
+              "price": "KRW 500,000"
+            },
+            {
+              "name": "Infini Hybrid",
+              "price": "KRW 500,000"
+            }
           ]
         }
       ]
@@ -431,75 +602,165 @@
         "lifting": {
           "label": "Lifting",
           "kicker": "LIFTING",
-          "heroLine1": "Texture, restored.",
-          "heroLine2": "Lines, redrawn.",
+          "heroLine1": "Texture, restored",
+          "heroLine2": "Lines, redrawn",
           "intro": "A multi-layered approach to facial sagging and volume loss. Combinations and intensity are tailored to your skin and tissue condition.",
           "process": [
-            { "step": "01", "title": "Precise Consult", "body": "We design your combination from 3D facial analysis and a diagnosis of skin texture and volume." },
-            { "step": "02", "title": "Tailored Protocol", "body": "Ulthera, Shurink, thread lift and more — combined into a single session." },
-            { "step": "03", "title": "Recovery Care", "body": "Immediate post-treatment soothing and a home-care guide, together." }
+            {
+              "step": "01",
+              "title": "Precise Consult",
+              "body": "We design your combination from 3D facial analysis and a diagnosis of skin texture and volume."
+            },
+            {
+              "step": "02",
+              "title": "Tailored Protocol",
+              "body": "Ulthera, Shurink, thread lift and more — combined into a single session."
+            },
+            {
+              "step": "03",
+              "title": "Recovery Care",
+              "body": "Immediate post-treatment soothing and a home-care guide, together."
+            }
           ]
         },
         "anti-aging": {
           "label": "Anti-Aging",
           "kicker": "ANTI-AGING",
-          "heroLine1": "Time may pass,",
-          "heroLine2": "texture still grows.",
+          "heroLine1": "Time may pass",
+          "heroLine2": "texture still grows",
           "intro": "We manage fine lines, volume, and texture as three connected axes — a care-first protocol that honors natural aging.",
           "process": [
-            { "step": "01", "title": "Aging Diagnosis", "body": "A precise reading of fine lines, volume, elasticity, and texture." },
-            { "step": "02", "title": "Layered Treatment", "body": "Toxins, fillers, and skin boosters — layered for a natural result." },
-            { "step": "03", "title": "Long-Term Plan", "body": "A care calendar built in 3–6 month intervals." }
+            {
+              "step": "01",
+              "title": "Aging Diagnosis",
+              "body": "A precise reading of fine lines, volume, elasticity, and texture."
+            },
+            {
+              "step": "02",
+              "title": "Layered Treatment",
+              "body": "Toxins, fillers, and skin boosters — layered for a natural result."
+            },
+            {
+              "step": "03",
+              "title": "Long-Term Plan",
+              "body": "A care calendar built in 3–6 month intervals."
+            }
           ],
           "fallbackItems": [
-            { "name": "Botox", "desc": "Softens expression lines; refines muscular lines" },
-            { "name": "Filler", "desc": "Restores volume and refines contour (hyaluronic acid)" },
-            { "name": "Skin Botox", "desc": "Micro-application in the superficial epidermis for texture and pores" },
-            { "name": "Juvelook", "desc": "PDLLA collagen booster; improves texture" },
-            { "name": "Rejuran", "desc": "PN-based regeneration for skin renewal and elasticity" }
+            {
+              "name": "Botox",
+              "desc": "Softens expression lines; refines muscular lines"
+            },
+            {
+              "name": "Filler",
+              "desc": "Restores volume and refines contour (hyaluronic acid)"
+            },
+            {
+              "name": "Skin Botox",
+              "desc": "Micro-application in the superficial epidermis for texture and pores"
+            },
+            {
+              "name": "Juvelook",
+              "desc": "PDLLA collagen booster; improves texture"
+            },
+            {
+              "name": "Rejuran",
+              "desc": "PN-based regeneration for skin renewal and elasticity"
+            }
           ]
         },
         "whitening": {
           "label": "Whitening · Redness",
           "kicker": "TONE",
-          "heroLine1": "Tone, clear.",
-          "heroLine2": "Texture, even.",
+          "heroLine1": "Tone, clear",
+          "heroLine2": "Texture, even",
           "intro": "Pigmentation and redness, addressed from the root cause — with protocols adjusted for season and skin recovery.",
           "process": [
-            { "step": "01", "title": "Pigment Diagnosis", "body": "Accurate classification of epidermal, dermal, and vascular factors." },
-            { "step": "02", "title": "Targeted Treatment", "body": "Wavelength and intensity refined for each lesion." },
-            { "step": "03", "title": "Relapse Care", "body": "Sun protection and home care to minimize recurrence." }
+            {
+              "step": "01",
+              "title": "Pigment Diagnosis",
+              "body": "Accurate classification of epidermal, dermal, and vascular factors."
+            },
+            {
+              "step": "02",
+              "title": "Targeted Treatment",
+              "body": "Wavelength and intensity refined for each lesion."
+            },
+            {
+              "step": "03",
+              "title": "Relapse Care",
+              "body": "Sun protection and home care to minimize recurrence."
+            }
           ]
         },
         "acne": {
           "label": "Acne · Scars",
           "kicker": "ACNE & SCAR",
-          "heroLine1": "The marks skin leaves,",
-          "heroLine2": "restored through texture.",
+          "heroLine1": "The marks skin leaves",
+          "heroLine2": "restored through texture",
           "intro": "An integrated protocol that reads the cause and stage of acne, then moves through soothing, regeneration, and scar care.",
           "process": [
-            { "step": "01", "title": "Stage Classification", "body": "Inflammatory, non-inflammatory, and scar stages — each approached differently." },
-            { "step": "02", "title": "Combined Care", "body": "Medication and procedures together, lowering recurrence." },
-            { "step": "03", "title": "Scar Recovery", "body": "Residual scars managed long-term with fractional and needle RF." }
+            {
+              "step": "01",
+              "title": "Stage Classification",
+              "body": "Inflammatory, non-inflammatory, and scar stages — each approached differently."
+            },
+            {
+              "step": "02",
+              "title": "Combined Care",
+              "body": "Medication and procedures together, lowering recurrence."
+            },
+            {
+              "step": "03",
+              "title": "Scar Recovery",
+              "body": "Residual scars managed long-term with fractional and needle RF."
+            }
           ]
         },
         "skin-disease": {
           "label": "Skin Conditions",
           "kicker": "MEDICAL DERMATOLOGY",
-          "heroLine1": "Accurate diagnosis,",
-          "heroLine2": "honest treatment.",
+          "heroLine1": "Accurate diagnosis",
+          "heroLine2": "honest treatment",
           "intro": "As board-certified dermatologists, we provide evidence-based care from common conditions to chronic disease.",
           "process": [
-            { "step": "01", "title": "Accurate Diagnosis", "body": "KOH tests, biopsy, and more when necessary to identify the cause." },
-            { "step": "02", "title": "Evidence-Based Care", "body": "Topical, systemic, and procedural approaches, combined per guidelines." },
-            { "step": "03", "title": "Ongoing Follow-Up", "body": "Chronic conditions managed with long-term follow-up." }
+            {
+              "step": "01",
+              "title": "Accurate Diagnosis",
+              "body": "KOH tests, biopsy, and more when necessary to identify the cause."
+            },
+            {
+              "step": "02",
+              "title": "Evidence-Based Care",
+              "body": "Topical, systemic, and procedural approaches, combined per guidelines."
+            },
+            {
+              "step": "03",
+              "title": "Ongoing Follow-Up",
+              "body": "Chronic conditions managed with long-term follow-up."
+            }
           ],
           "fallbackItems": [
-            { "name": "Atopy · Eczema", "desc": "Chronic management with topical and systemic care" },
-            { "name": "Psoriasis", "desc": "Topical, phototherapy, and systemic therapy" },
-            { "name": "Hair Loss", "desc": "Mesotherapy · scalp diagnosis · medication" },
-            { "name": "Warts · Corns", "desc": "Cryotherapy · laser · medication" },
-            { "name": "Athlete's Foot · Onychomycosis", "desc": "Precise testing and long-term treatment" }
+            {
+              "name": "Atopy · Eczema",
+              "desc": "Chronic management with topical and systemic care"
+            },
+            {
+              "name": "Psoriasis",
+              "desc": "Topical, phototherapy, and systemic therapy"
+            },
+            {
+              "name": "Hair Loss",
+              "desc": "Mesotherapy · scalp diagnosis · medication"
+            },
+            {
+              "name": "Warts · Corns",
+              "desc": "Cryotherapy · laser · medication"
+            },
+            {
+              "name": "Athlete's Foot · Onychomycosis",
+              "desc": "Precise testing and long-term treatment"
+            }
           ]
         }
       }
@@ -515,14 +776,26 @@
       "howTitle": "How it works",
       "recKicker": "RECOMMENDED FOR",
       "recTitleLine1": "Recommended",
-      "recTitleAccent": "for you.",
+      "recTitleAccent": "for you",
       "processKicker": "PROCESS",
-      "processTitleLine1": "From consultation to recovery,",
-      "processTitleAccent": "in one flow.",
+      "processTitleLine1": "From consultation to recovery",
+      "processTitleAccent": "in one flow",
       "defaultProcess": [
-        { "step": "01", "title": "Precise Consult", "body": "We diagnose skin texture, tone, and volume, then design treatment intensity around your rhythm of life." },
-        { "step": "02", "title": "Tailored Treatment", "body": "After topical anesthesia, cartridges, energy, and shot count are adjusted to your skin thickness and response." },
-        { "step": "03", "title": "Recovery Care", "body": "Immediate post-treatment soothing and a home-care guide — with a follow-up schedule as needed." }
+        {
+          "step": "01",
+          "title": "Precise Consult",
+          "body": "We diagnose skin texture, tone, and volume, then design treatment intensity around your rhythm of life."
+        },
+        {
+          "step": "02",
+          "title": "Tailored Treatment",
+          "body": "After topical anesthesia, cartridges, energy, and shot count are adjusted to your skin thickness and response."
+        },
+        {
+          "step": "03",
+          "title": "Recovery Care",
+          "body": "Immediate post-treatment soothing and a home-care guide — with a follow-up schedule as needed."
+        }
       ],
       "faqKicker": "FAQ",
       "faqTitle": "Frequently Asked Questions",

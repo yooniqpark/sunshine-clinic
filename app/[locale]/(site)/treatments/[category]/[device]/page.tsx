@@ -102,7 +102,7 @@ export default async function DevicePage({
           <h1 className="mt-6 font-serif text-[clamp(3rem,8vw,6.5rem)] font-normal leading-[1.02] tracking-tight">
             {d.name}
           </h1>
-          <p className="mt-8 max-w-2xl font-serif text-lg italic leading-relaxed text-cream/75 lg:text-2xl">
+          <p className="mt-8 max-w-2xl font-serif text-lg leading-relaxed text-cream/75 lg:text-2xl">
             &ldquo;{d.tagline}&rdquo;
           </p>
           <p className="mt-12 text-[10px] tracking-[0.3em] text-cream/40">
@@ -181,7 +181,7 @@ export default async function DevicePage({
           <h2 className="mt-4 max-w-2xl font-serif text-4xl leading-tight lg:text-6xl">
             {t.rich("featuresTitle", {
               name: d.name,
-              accent: (c) => <em className="italic text-brand-dark">{c}</em>,
+              accent: (c) => <em className="text-brand-dark">{c}</em>,
             })}
           </h2>
 
@@ -235,7 +235,7 @@ export default async function DevicePage({
             <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
               {t("recTitleLine1")}
               <br />
-              <em className="italic text-brand-dark">{t("recTitleAccent")}</em>
+              <em className="text-brand-dark">{t("recTitleAccent")}</em>
             </h2>
           </div>
 
@@ -263,7 +263,7 @@ export default async function DevicePage({
           <h2 className="mt-4 max-w-3xl font-serif text-4xl leading-tight lg:text-6xl">
             {t("processTitleLine1")}
             <br />
-            <em className="italic text-brand-soft">{t("processTitleAccent")}</em>
+            <em className="text-brand-soft">{t("processTitleAccent")}</em>
           </h2>
 
           <div className="mt-20 grid gap-12 md:grid-cols-3 md:gap-8">
@@ -319,7 +319,7 @@ export default async function DevicePage({
             <h2 className="font-serif text-4xl leading-tight lg:text-6xl">
               {t.rich("ctaTitle", {
                 name: d.name,
-                accent: (c) => <em className="italic text-brand-soft">{c}</em>,
+                accent: (c) => <em className="text-brand-soft">{c}</em>,
                 br: () => <br />,
               })}
             </h2>

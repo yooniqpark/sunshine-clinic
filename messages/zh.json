@@ -226,8 +226,8 @@
     },
     "home": {
       "heroKicker": "SUNSHINE DERMATOLOGY CLINIC · SINCE 2026",
-      "heroTitleLine1": "肌肤纹理,",
-      "heroTitleAccent": "日常之光。",
+      "heroTitleLine1": "肌肤纹理",
+      "heroTitleAccent": "日常之光",
       "heroDescLine1": "为每一位患者量身定制的细致而诚实的诊疗。",
       "heroDescLine2": "以高端仪器与您共同缔造健康的改变。",
       "ctaBook": "预约咨询",
@@ -235,15 +235,31 @@
       "scroll": "SCROLL ↓",
       "location": "SEOUL · 松坡",
       "stats": {
-        "years": { "n": "10", "u": "年+", "l": "临床经验" },
-        "devices": { "n": "15", "u": "种", "l": "正品认证设备" },
-        "languages": { "n": "4", "u": "种", "l": "多语言诊疗" },
-        "personal": { "n": "1:1", "u": "", "l": "个性化诊疗" }
+        "years": {
+          "n": "10",
+          "u": "年+",
+          "l": "临床经验"
+        },
+        "devices": {
+          "n": "15",
+          "u": "种",
+          "l": "正品认证设备"
+        },
+        "languages": {
+          "n": "4",
+          "u": "种",
+          "l": "多语言诊疗"
+        },
+        "personal": {
+          "n": "1:1",
+          "u": "",
+          "l": "个性化诊疗"
+        }
       },
       "directorKicker": "DIRECTOR · 院长",
       "directorQuoteStart": "“致力于用心呵护每一位患者的",
       "directorQuoteAccent": "肌肤与心灵",
-      "directorQuoteEnd": "。”",
+      "directorQuoteEnd": "”",
       "directorName": "金炳贤",
       "directorRole": "院长 · Sunshine Dermatology Clinic",
       "viewDoctors": "医疗团队",
@@ -262,16 +278,34 @@
       "devicesKicker": "SIGNATURE DEVICES",
       "devicesTitleLead": "原厂 ",
       "devicesTitleAccent": "正品认证",
-      "devicesTitleTail": "高端设备。",
+      "devicesTitleTail": "高端设备",
       "devicesDesc": "Ulthera、Thermage、Shurink Universe 等 15 种以上正品设备,根据肌肤层次、部位与个人状态提供精准治疗。",
       "viewAllDevices": "查看全部设备",
       "devicesList": {
-        "ulthera": { "name": "Ulthera Prime", "tag": "HIFU · 提升" },
-        "thermage": { "name": "Thermage FLX", "tag": "RF · 紧致" },
-        "shurink": { "name": "Shurink Universe", "tag": "HIFU · 部位定制" },
-        "fotona": { "name": "Fotona Starwalker", "tag": "激光 · 色素" },
-        "vbeam": { "name": "V-Beam", "tag": "潮红 · 血管" },
-        "secretRf": { "name": "Secret RF", "tag": "微针 RF" }
+        "ulthera": {
+          "name": "Ulthera Prime",
+          "tag": "HIFU · 提升"
+        },
+        "thermage": {
+          "name": "Thermage FLX",
+          "tag": "RF · 紧致"
+        },
+        "shurink": {
+          "name": "Shurink Universe",
+          "tag": "HIFU · 部位定制"
+        },
+        "fotona": {
+          "name": "Fotona Starwalker",
+          "tag": "激光 · 色素"
+        },
+        "vbeam": {
+          "name": "V-Beam",
+          "tag": "潮红 · 血管"
+        },
+        "secretRf": {
+          "name": "Secret RF",
+          "tag": "微针 RF"
+        }
       },
       "whyKicker": "WHY SUNSHINE",
       "whyLine1a": "必要的诊疗,",
@@ -285,7 +319,7 @@
       "ctaKicker": "CONTACT",
       "ctaTitleLead": "立即 ",
       "ctaTitleAccent": "预约咨询",
-      "ctaTitleTail": "。",
+      "ctaTitleTail": "",
       "ctaDesc": "在一对一咨询后,我们将为您推荐最合适的治疗方案。到院咨询免费。",
       "ctaPhone": "电话 02-421-7588",
       "ctaNaver": "Naver 预约",
@@ -293,8 +327,8 @@
     },
     "about": {
       "heroKicker": "ABOUT SUNSHINE",
-      "heroTitleLine1": "打磨肌肤纹理,",
-      "heroTitleAccent": "点亮平凡日常。",
+      "heroTitleLine1": "打磨肌肤纹理",
+      "heroTitleAccent": "点亮平凡日常",
       "heroDesc": "阳光皮肤科诊所是一家由在大学医院积累多年临床经验的皮肤科专科医生亲自诊疗的社区诊所。我们追求经得起时间考验的美,而非流行;追求健康的恢复,而非浮华。",
       "directorKicker": "DIRECTOR",
       "directorName": "金炳贤",
@@ -302,44 +336,89 @@
       "directorBio": "作为天主教大学首尔圣母医院的皮肤科专科医生,已诊疗各类皮肤病例超过 15 年。我们不追随潮流,而是根据每一位患者的肤色与肌理,制定专属诊疗方案。",
       "historyLabel": "HISTORY",
       "history": [
-        { "year": "2010", "event": "天主教大学医学院 毕业" },
-        { "year": "2015", "event": "天主教大学首尔圣母医院 皮肤科专科医生资格" },
-        { "year": "2016", "event": "大韩皮肤科学会 正式会员" },
-        { "year": "2018", "event": "大韩美容整形激光医学会 正式会员" },
-        { "year": "2020", "event": "国际毛发移植学会 (ISHRS) 正式会员" },
-        { "year": "2026", "event": "阳光皮肤科诊所开业 · 院长" }
+        {
+          "year": "2010",
+          "event": "天主教大学医学院 毕业"
+        },
+        {
+          "year": "2015",
+          "event": "天主教大学首尔圣母医院 皮肤科专科医生资格"
+        },
+        {
+          "year": "2016",
+          "event": "大韩皮肤科学会 正式会员"
+        },
+        {
+          "year": "2018",
+          "event": "大韩美容整形激光医学会 正式会员"
+        },
+        {
+          "year": "2020",
+          "event": "国际毛发移植学会 (ISHRS) 正式会员"
+        },
+        {
+          "year": "2026",
+          "event": "阳光皮肤科诊所开业 · 院长"
+        }
       ],
       "consultKicker": "CONSULT ROOM",
       "consultTitle": "对话开始之处",
       "consultBody": "以大理石墙面与棕色木饰面呈现的院长诊室,以沉静的色调营造舒适的咨询氛围。我们会用充裕的时间,与您共同了解肌肤状态与生活节奏。",
       "spaceKicker": "THE SPACE",
       "spaceTitleLead": "为舒适恢复而设的",
-      "spaceTitleAccent": "每一个瞬间。",
+      "spaceTitleAccent": "每一个瞬间",
       "spaceDesc": "从候诊区到梳妆室,每一处空间都以酒店级质感精心打造,舒适、私密、周到。",
       "spaces": [
-        { "label": "WAITING LOUNGE", "desc": "候诊休息区" },
-        { "label": "CORRIDOR", "desc": "诊室走廊" },
-        { "label": "TREATMENT AREA", "desc": "治疗区" },
-        { "label": "CARE ROOM", "desc": "护理室" },
-        { "label": "POWDER ROOM", "desc": "梳妆室" }
+        {
+          "label": "WAITING LOUNGE",
+          "desc": "候诊休息区"
+        },
+        {
+          "label": "CORRIDOR",
+          "desc": "诊室走廊"
+        },
+        {
+          "label": "TREATMENT AREA",
+          "desc": "治疗区"
+        },
+        {
+          "label": "CARE ROOM",
+          "desc": "护理室"
+        },
+        {
+          "label": "POWDER ROOM",
+          "desc": "梳妆室"
+        }
       ],
       "philosophyKicker": "PHILOSOPHY",
-      "philosophyTitleLead": "不急不躁,",
-      "philosophyTitleAccent": "持久之效。",
+      "philosophyTitleLead": "不急不躁",
+      "philosophyTitleAccent": "持久之效",
       "values": [
-        { "n": "01", "title": "诚实的诊疗", "body": "我们不会推荐您不需要的治疗。优先根据肌肤状态与生活节奏,采取最低程度的干预。" },
-        { "n": "02", "title": "细致的手法", "body": "以 10 年以上的临床经验为基础,精心打磨纹理、色调与轮廓的每一处细节。" },
-        { "n": "03", "title": "高端设备", "body": "引进国内顶级高端设备,打造快速恢复、舒适放心的治疗环境。" }
+        {
+          "n": "01",
+          "title": "诚实的诊疗",
+          "body": "我们不会推荐您不需要的治疗。优先根据肌肤状态与生活节奏,采取最低程度的干预。"
+        },
+        {
+          "n": "02",
+          "title": "细致的手法",
+          "body": "以 10 年以上的临床经验为基础,精心打磨纹理、色调与轮廓的每一处细节。"
+        },
+        {
+          "n": "03",
+          "title": "高端设备",
+          "body": "引进国内顶级高端设备,打造快速恢复、舒适放心的治疗环境。"
+        }
       ],
       "equipmentKicker": "EQUIPMENT",
-      "equipmentTitleLead": "高端设备,",
-      "equipmentTitleAccent": "汇聚一处。",
+      "equipmentTitleLead": "高端设备",
+      "equipmentTitleAccent": "汇聚一处",
       "equipmentDesc": "Ulthera Prime · Thermage FLX · Shurink Universe · Clarity II · Starwalker · V-Beam · InMode · CarPri CO2 等国内顶级高端设备,汇聚于一个空间。",
       "equipmentCta": "查看设备清单",
-      "ctaTitleLine1": "首次咨询,",
+      "ctaTitleLine1": "首次咨询",
       "ctaTitleLine2Lead": "是最近的 ",
       "ctaTitleAccent": "开始",
-      "ctaTitleTail": "。",
+      "ctaTitleTail": "",
       "ctaTreatments": "了解治疗项目"
     },
     "notices": {
@@ -348,10 +427,30 @@
       "tagOpen": "OPEN",
       "tagInfo": "通知",
       "items": [
-        { "tag": "OPEN", "date": "2026.07.15", "title": "阳光皮肤科诊所正式开业公告", "excerpt": "阳光皮肤科诊所将于松坡区奥林匹克路正式开业,同期举办开业纪念咨询活动。" },
-        { "tag": "通知", "date": "2026.07.10", "title": "8月诊疗时间及休诊安排", "excerpt": "8月光复节 (15日) 休诊,每周日及公众假日照常休诊。" },
-        { "tag": "通知", "date": "2026.07.03", "title": "在线预约咨询服务开通", "excerpt": "请通过 Naver 预约进行在线咨询预约,实时确认,减少等待时间。" },
-        { "tag": "通知", "date": "2026.06.28", "title": "KakaoTalk 频道咨询服务", "excerpt": "您也可以通过 KakaoTalk 频道咨询。诊疗相关询问将在诊疗时间内回复。" }
+        {
+          "tag": "OPEN",
+          "date": "2026.07.15",
+          "title": "阳光皮肤科诊所正式开业公告",
+          "excerpt": "阳光皮肤科诊所将于松坡区奥林匹克路正式开业,同期举办开业纪念咨询活动。"
+        },
+        {
+          "tag": "通知",
+          "date": "2026.07.10",
+          "title": "8月诊疗时间及休诊安排",
+          "excerpt": "8月光复节 (15日) 休诊,每周日及公众假日照常休诊。"
+        },
+        {
+          "tag": "通知",
+          "date": "2026.07.03",
+          "title": "在线预约咨询服务开通",
+          "excerpt": "请通过 Naver 预约进行在线咨询预约,实时确认,减少等待时间。"
+        },
+        {
+          "tag": "通知",
+          "date": "2026.06.28",
+          "title": "KakaoTalk 频道咨询服务",
+          "excerpt": "您也可以通过 KakaoTalk 频道咨询。诊疗相关询问将在诊疗时间内回复。"
+        }
       ]
     },
     "events": {
@@ -360,9 +459,24 @@
       "periodLabel": "期间",
       "cta": "预约咨询",
       "items": [
-        { "tag": "OPEN", "title": "阳光皮肤科诊所开业纪念咨询活动", "period": "2026.07.15 ~ 2026.08.31", "body": "为纪念正式开业,到院咨询即赠送免费肌肤诊断服务。" },
-        { "tag": "活动", "title": "夏季肤色护理活动", "period": "2026.07.20 ~ 2026.08.31", "body": "针对夏季色素与潮红护理的提亮项目,特价优惠。" },
-        { "tag": "通知", "title": "居家护理产品恢复指南", "period": "长期", "body": "在诊室为您提供术后恢复的居家护理产品指南。" }
+        {
+          "tag": "OPEN",
+          "title": "阳光皮肤科诊所开业纪念咨询活动",
+          "period": "2026.07.15 ~ 2026.08.31",
+          "body": "为纪念正式开业,到院咨询即赠送免费肌肤诊断服务。"
+        },
+        {
+          "tag": "活动",
+          "title": "夏季肤色护理活动",
+          "period": "2026.07.20 ~ 2026.08.31",
+          "body": "针对夏季色素与潮红护理的提亮项目,特价优惠。"
+        },
+        {
+          "tag": "通知",
+          "title": "居家护理产品恢复指南",
+          "period": "长期",
+          "body": "在诊室为您提供术后恢复的居家护理产品指南。"
+        }
       ]
     },
     "prices": {
@@ -376,42 +490,99 @@
           "kicker": "LIFTING",
           "title": "提升",
           "rows": [
-            { "name": "Ulthera 全脸 300 发", "price": "1,200,000 韩元" },
-            { "name": "Shurink Universe 400 发", "price": "800,000 韩元" },
-            { "name": "Density 全脸", "price": "600,000 韩元" },
-            { "name": "InMode FX", "price": "300,000 韩元" },
-            { "name": "线雕 (PDO 10 根)", "price": "800,000 韩元", "note": "价格视线的种类与数量而异" }
+            {
+              "name": "Ulthera 全脸 300 发",
+              "price": "1,200,000 韩元"
+            },
+            {
+              "name": "Shurink Universe 400 发",
+              "price": "800,000 韩元"
+            },
+            {
+              "name": "Density 全脸",
+              "price": "600,000 韩元"
+            },
+            {
+              "name": "InMode FX",
+              "price": "300,000 韩元"
+            },
+            {
+              "name": "线雕 (PDO 10 根)",
+              "price": "800,000 韩元",
+              "note": "价格视线的种类与数量而异"
+            }
           ]
         },
         {
           "kicker": "ANTI-AGING",
           "title": "抗衰老",
           "rows": [
-            { "name": "肉毒素 额头 · 眉间", "price": "60,000 韩元", "note": "单部位" },
-            { "name": "填充剂 (1cc)", "price": "350,000 韩元", "note": "价格视产品而异" },
-            { "name": "水光肉毒 全脸", "price": "250,000 韩元" },
-            { "name": "少女针 1 支", "price": "300,000 韩元" },
-            { "name": "婴儿针 Healer 1 支", "price": "300,000 韩元" }
+            {
+              "name": "肉毒素 额头 · 眉间",
+              "price": "60,000 韩元",
+              "note": "单部位"
+            },
+            {
+              "name": "填充剂 (1cc)",
+              "price": "350,000 韩元",
+              "note": "价格视产品而异"
+            },
+            {
+              "name": "水光肉毒 全脸",
+              "price": "250,000 韩元"
+            },
+            {
+              "name": "少女针 1 支",
+              "price": "300,000 韩元"
+            },
+            {
+              "name": "婴儿针 Healer 1 支",
+              "price": "300,000 韩元"
+            }
           ]
         },
         {
           "kicker": "TONE",
           "title": "美白 · 潮红",
           "rows": [
-            { "name": "皮秒调理", "price": "150,000 韩元" },
-            { "name": "V-Beam Perfecta 局部", "price": "200,000 韩元" },
-            { "name": "IPL 全脸", "price": "180,000 韩元" },
-            { "name": "Genesis 全脸", "price": "150,000 韩元" }
+            {
+              "name": "皮秒调理",
+              "price": "150,000 韩元"
+            },
+            {
+              "name": "V-Beam Perfecta 局部",
+              "price": "200,000 韩元"
+            },
+            {
+              "name": "IPL 全脸",
+              "price": "180,000 韩元"
+            },
+            {
+              "name": "Genesis 全脸",
+              "price": "150,000 韩元"
+            }
           ]
         },
         {
           "kicker": "ACNE & SCAR",
           "title": "痤疮 · 疤痕",
           "rows": [
-            { "name": "痤疮清理 (单部位)", "price": "50,000 韩元" },
-            { "name": "PDT 光动力治疗", "price": "300,000 韩元" },
-            { "name": "Fraxel 全脸", "price": "500,000 韩元" },
-            { "name": "Infini Hybrid", "price": "500,000 韩元" }
+            {
+              "name": "痤疮清理 (单部位)",
+              "price": "50,000 韩元"
+            },
+            {
+              "name": "PDT 光动力治疗",
+              "price": "300,000 韩元"
+            },
+            {
+              "name": "Fraxel 全脸",
+              "price": "500,000 韩元"
+            },
+            {
+              "name": "Infini Hybrid",
+              "price": "500,000 韩元"
+            }
           ]
         }
       ]
@@ -431,75 +602,165 @@
         "lifting": {
           "label": "提升",
           "kicker": "LIFTING",
-          "heroLine1": "重塑纹理,",
-          "heroLine2": "轮廓清晰。",
+          "heroLine1": "重塑纹理",
+          "heroLine2": "轮廓清晰",
           "intro": "对面部下垂与凹陷进行多层次的方案设计。治疗组合与强度将根据肌肤纹理与组织状态量身定制。",
           "process": [
-            { "step": "01", "title": "精准咨询", "body": "以面部 3D 分析与肌肤纹理、体积诊断为基础,设计治疗组合。" },
-            { "step": "02", "title": "定制方案", "body": "Ulthera、Shurink、线雕等在同一疗程中组合进行。" },
-            { "step": "03", "title": "恢复护理", "body": "术后即时的舒缓护理与居家护理指南一同提供。" }
+            {
+              "step": "01",
+              "title": "精准咨询",
+              "body": "以面部 3D 分析与肌肤纹理、体积诊断为基础,设计治疗组合。"
+            },
+            {
+              "step": "02",
+              "title": "定制方案",
+              "body": "Ulthera、Shurink、线雕等在同一疗程中组合进行。"
+            },
+            {
+              "step": "03",
+              "title": "恢复护理",
+              "body": "术后即时的舒缓护理与居家护理指南一同提供。"
+            }
           ]
         },
         "anti-aging": {
           "label": "抗衰老",
           "kicker": "ANTI-AGING",
-          "heroLine1": "时光流转,",
-          "heroLine2": "纹理生长。",
+          "heroLine1": "时光流转",
+          "heroLine2": "纹理生长",
           "intro": "同步管理细纹、体积与纹理三条主线,以护理导向的方案支持自然的年龄之美。",
           "process": [
-            { "step": "01", "title": "衰老诊断", "body": "精准诊断细纹、体积、弹性与纹理。" },
-            { "step": "02", "title": "叠加治疗", "body": "结合肉毒素、填充剂与肌底修护,呈现自然的效果。" },
-            { "step": "03", "title": "长期方案", "body": "以 3~6 个月为周期,共同规划护理日程。" }
+            {
+              "step": "01",
+              "title": "衰老诊断",
+              "body": "精准诊断细纹、体积、弹性与纹理。"
+            },
+            {
+              "step": "02",
+              "title": "叠加治疗",
+              "body": "结合肉毒素、填充剂与肌底修护,呈现自然的效果。"
+            },
+            {
+              "step": "03",
+              "title": "长期方案",
+              "body": "以 3~6 个月为周期,共同规划护理日程。"
+            }
           ],
           "fallbackItems": [
-            { "name": "肉毒素", "desc": "缓解表情纹,修整肌肉线条" },
-            { "name": "填充剂", "desc": "恢复体积、修正轮廓 (透明质酸)" },
-            { "name": "水光肉毒", "desc": "在浅层表皮微量注射,改善纹理与毛孔" },
-            { "name": "少女针", "desc": "PDLLA 胶原促生剂,改善纹理" },
-            { "name": "婴儿针", "desc": "以 PN 成分实现肌肤再生与弹性恢复" }
+            {
+              "name": "肉毒素",
+              "desc": "缓解表情纹,修整肌肉线条"
+            },
+            {
+              "name": "填充剂",
+              "desc": "恢复体积、修正轮廓 (透明质酸)"
+            },
+            {
+              "name": "水光肉毒",
+              "desc": "在浅层表皮微量注射,改善纹理与毛孔"
+            },
+            {
+              "name": "少女针",
+              "desc": "PDLLA 胶原促生剂,改善纹理"
+            },
+            {
+              "name": "婴儿针",
+              "desc": "以 PN 成分实现肌肤再生与弹性恢复"
+            }
           ]
         },
         "whitening": {
           "label": "美白 · 潮红",
           "kicker": "TONE",
-          "heroLine1": "肤色澄澈,",
-          "heroLine2": "纹理均匀。",
+          "heroLine1": "肤色澄澈",
+          "heroLine2": "纹理均匀",
           "intro": "从根源分析色素沉着与潮红,结合季节与肌肤恢复力提供治疗方案。",
           "process": [
-            { "step": "01", "title": "色素诊断", "body": "精准区分表皮性、真皮性与血管性因素。" },
-            { "step": "02", "title": "靶向治疗", "body": "根据各类病变,细化波长与强度。" },
-            { "step": "03", "title": "复发护理", "body": "结合防晒与居家护理,最大限度减少复发。" }
+            {
+              "step": "01",
+              "title": "色素诊断",
+              "body": "精准区分表皮性、真皮性与血管性因素。"
+            },
+            {
+              "step": "02",
+              "title": "靶向治疗",
+              "body": "根据各类病变,细化波长与强度。"
+            },
+            {
+              "step": "03",
+              "title": "复发护理",
+              "body": "结合防晒与居家护理,最大限度减少复发。"
+            }
           ]
         },
         "acne": {
           "label": "痤疮 · 疤痕",
           "kicker": "ACNE & SCAR",
-          "heroLine1": "肌肤的痕迹,",
-          "heroLine2": "以纹理修复。",
+          "heroLine1": "肌肤的痕迹",
+          "heroLine2": "以纹理修复",
           "intro": "掌握痤疮的成因与阶段,提供从舒缓、再生到疤痕护理的一体化方案。",
           "process": [
-            { "step": "01", "title": "阶段分类", "body": "按炎症性、非炎症性与疤痕阶段分别处理。" },
-            { "step": "02", "title": "综合护理", "body": "药物处方与治疗并行,降低复发。" },
-            { "step": "03", "title": "疤痕修复", "body": "残留疤痕以点阵激光与微针 RF 长期护理。" }
+            {
+              "step": "01",
+              "title": "阶段分类",
+              "body": "按炎症性、非炎症性与疤痕阶段分别处理。"
+            },
+            {
+              "step": "02",
+              "title": "综合护理",
+              "body": "药物处方与治疗并行,降低复发。"
+            },
+            {
+              "step": "03",
+              "title": "疤痕修复",
+              "body": "残留疤痕以点阵激光与微针 RF 长期护理。"
+            }
           ]
         },
         "skin-disease": {
           "label": "皮肤疾病",
           "kicker": "MEDICAL DERMATOLOGY",
-          "heroLine1": "精准诊断,",
-          "heroLine2": "诚实治疗。",
+          "heroLine1": "精准诊断",
+          "heroLine2": "诚实治疗",
           "intro": "作为皮肤科专科医生,我们为从常见皮肤疾病到慢性疾病提供循证诊疗。",
           "process": [
-            { "step": "01", "title": "精准诊断", "body": "必要时以 KOH、活检等方式确认病因。" },
-            { "step": "02", "title": "循证治疗", "body": "依据指南组合外用、系统与治疗方案。" },
-            { "step": "03", "title": "持续随访", "body": "慢性疾病通过长期随访管理复发。" }
+            {
+              "step": "01",
+              "title": "精准诊断",
+              "body": "必要时以 KOH、活检等方式确认病因。"
+            },
+            {
+              "step": "02",
+              "title": "循证治疗",
+              "body": "依据指南组合外用、系统与治疗方案。"
+            },
+            {
+              "step": "03",
+              "title": "持续随访",
+              "body": "慢性疾病通过长期随访管理复发。"
+            }
           ],
           "fallbackItems": [
-            { "name": "特应性 · 湿疹", "desc": "慢性管理及外用、系统治疗" },
-            { "name": "银屑病", "desc": "外用、光疗与系统治疗" },
-            { "name": "脱发", "desc": "美塑疗法 · 头皮诊断 · 药物治疗" },
-            { "name": "疣 · 鸡眼", "desc": "冷冻疗法 · 激光 · 药物治疗" },
-            { "name": "脚气 · 甲癣", "desc": "精密检查与长期治疗" }
+            {
+              "name": "特应性 · 湿疹",
+              "desc": "慢性管理及外用、系统治疗"
+            },
+            {
+              "name": "银屑病",
+              "desc": "外用、光疗与系统治疗"
+            },
+            {
+              "name": "脱发",
+              "desc": "美塑疗法 · 头皮诊断 · 药物治疗"
+            },
+            {
+              "name": "疣 · 鸡眼",
+              "desc": "冷冻疗法 · 激光 · 药物治疗"
+            },
+            {
+              "name": "脚气 · 甲癣",
+              "desc": "精密检查与长期治疗"
+            }
           ]
         }
       }
@@ -515,14 +776,26 @@
       "howTitle": "工作原理",
       "recKicker": "RECOMMENDED FOR",
       "recTitleLine1": "推荐给",
-      "recTitleAccent": "这样的您。",
+      "recTitleAccent": "这样的您",
       "processKicker": "PROCESS",
-      "processTitleLine1": "从咨询到恢复,",
-      "processTitleAccent": "一气呵成。",
+      "processTitleLine1": "从咨询到恢复",
+      "processTitleAccent": "一气呵成",
       "defaultProcess": [
-        { "step": "01", "title": "精准咨询", "body": "诊断肌肤纹理、色调、体积等状态,并根据生活节奏设计治疗强度。" },
-        { "step": "02", "title": "定制治疗", "body": "表面麻醉后,根据个人肌肤厚度与反应,调整探头、能量与发数进行治疗。" },
-        { "step": "03", "title": "恢复护理", "body": "术后即时的舒缓护理与居家护理指南,必要时共同安排复诊时间。" }
+        {
+          "step": "01",
+          "title": "精准咨询",
+          "body": "诊断肌肤纹理、色调、体积等状态,并根据生活节奏设计治疗强度。"
+        },
+        {
+          "step": "02",
+          "title": "定制治疗",
+          "body": "表面麻醉后,根据个人肌肤厚度与反应,调整探头、能量与发数进行治疗。"
+        },
+        {
+          "step": "03",
+          "title": "恢复护理",
+          "body": "术后即时的舒缓护理与居家护理指南,必要时共同安排复诊时间。"
+        }
       ],
       "faqKicker": "FAQ",
       "faqTitle": "常见问题",

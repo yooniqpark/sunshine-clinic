@@ -50,7 +50,7 @@ export default async function PreviewHome({
               <h1 className="font-serif text-[clamp(2.5rem,7vw,5.5rem)] font-normal leading-[1.05] tracking-tight">
                 {t("heroTitleLine1")}
                 <br />
-                <em className="italic text-brand-soft">{t("heroTitleAccent")}</em>
+                <em className="text-brand-soft">{t("heroTitleAccent")}</em>
               </h1>
               <p className="mt-8 max-w-md text-base leading-relaxed text-cream/75 lg:text-lg">
                 {t("heroDescLine1")}
@@ -125,7 +125,7 @@ export default async function PreviewHome({
             </p>
             <blockquote className="mt-5 font-serif text-3xl font-normal leading-[1.35] tracking-tight text-ink lg:text-[2.75rem] lg:leading-[1.25]">
               {t("directorQuoteStart")}
-              <em className="italic text-brand-dark">{t("directorQuoteAccent")}</em>
+              <em className="text-brand-dark">{t("directorQuoteAccent")}</em>
               {t("directorQuoteEnd")}
             </blockquote>
             <div className="mt-10 flex items-center gap-4">
@@ -155,7 +155,7 @@ export default async function PreviewHome({
               </p>
               <h2 className="mt-3 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-5xl">
                 {t("categoriesTitleLead")}
-                <em className="italic text-brand-dark">{t("categoriesTitleAccent")}</em>
+                <em className="text-brand-dark">{t("categoriesTitleAccent")}</em>
               </h2>
             </div>
             <Link
@@ -218,7 +218,7 @@ export default async function PreviewHome({
               </p>
               <h2 className="mt-3 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-5xl">
                 {t("devicesTitleLead")}
-                <em className="italic text-brand-soft">{t("devicesTitleAccent")}</em>
+                <em className="text-brand-soft">{t("devicesTitleAccent")}</em>
                 <br />
                 {t("devicesTitleTail")}
               </h2>
@@ -265,13 +265,13 @@ export default async function PreviewHome({
         <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
           <p className="text-[10px] font-bold tracking-[0.28em] text-brand">{t("whyKicker")}</p>
           <h2 className="mt-6 font-serif text-3xl font-normal leading-tight tracking-tight lg:text-5xl">
-            <em className="italic text-brand-dark">{t("whyLine1a")}</em>
+            <em className="text-brand-dark">{t("whyLine1a")}</em>
             {t("whyLine1b")}
             <br />
-            <em className="italic text-brand-dark">{t("whyLine2a")}</em>
+            <em className="text-brand-dark">{t("whyLine2a")}</em>
             {t("whyLine2b")}
             <br />
-            <em className="italic text-brand-dark">{t("whyLine3a")}</em>
+            <em className="text-brand-dark">{t("whyLine3a")}</em>
             {t("whyLine3b")}
           </h2>
           <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-ink-soft lg:text-base">
@@ -292,7 +292,7 @@ export default async function PreviewHome({
           <p className="text-[10px] font-bold tracking-[0.28em] text-brand-soft">{t("ctaKicker")}</p>
           <h2 className="mt-4 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-6xl">
             {t("ctaTitleLead")}
-            <em className="italic text-brand-soft">{t("ctaTitleAccent")}</em>
+            <em className="text-brand-soft">{t("ctaTitleAccent")}</em>
             {t("ctaTitleTail")}
           </h2>
           <p className="mx-auto mt-6 max-w-md text-sm text-cream/70">

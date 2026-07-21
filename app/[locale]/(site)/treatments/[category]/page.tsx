@@ -130,7 +130,7 @@ export default async function TreatmentPage({
             {t.rich("ctaTitle", {
               label,
               accent: (chunks) => (
-                <em className="italic text-brand-dark">{chunks}</em>
+                <em className="text-brand-dark">{chunks}</em>
               ),
             })}
           </h2>
