@@ -31,9 +31,10 @@ export default function PreviewHome() {
             alt=""
             fill
             priority
-            className="object-cover object-center opacity-45"
+            className="object-cover object-center opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/30 to-ink/90" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-ink/30" />
         </div>
         <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-between px-5 py-16 lg:px-8 lg:py-24">
           <div>
@@ -235,8 +236,8 @@ export default function PreviewHome() {
                 { name: "Secret RF", tag: "미세바늘 RF", img: "/devices/secret-rf.png" },
               ].map((d, i) => (
                 <Reveal key={d.name} delay={i * 60}>
-                  <div className="group rounded-3xl border border-cream/10 bg-cream/5 p-4 transition hover:border-brand-soft/40 hover:bg-cream/10">
-                    <div className="relative aspect-square overflow-hidden rounded-xl bg-cream/5">
+                  <div className="group overflow-hidden rounded-2xl bg-cream/95 p-4 transition hover:bg-cream">
+                    <div className="relative aspect-square overflow-hidden rounded-xl bg-sand/60">
                       <Image
                         src={d.img}
                         alt={d.name}
@@ -245,10 +246,10 @@ export default function PreviewHome() {
                         className="object-contain p-3 transition group-hover:scale-105"
                       />
                     </div>
-                    <p className="mt-3 text-[10px] font-bold tracking-[0.22em] text-brand-soft">
+                    <p className="mt-3 text-[10px] font-bold tracking-[0.22em] text-brand">
                       {d.tag}
                     </p>
-                    <p className="mt-1 text-sm font-semibold text-cream">{d.name}</p>
+                    <p className="mt-1 text-sm font-semibold text-ink">{d.name}</p>
                   </div>
                 </Reveal>
               ))}
@@ -338,27 +339,37 @@ function BentoCard({
     .filter(Boolean)
     .join(" ");
   return (
-    <Reveal className={span}>
+    <Reveal className={`${span} h-full`}>
       <Link
         href={`/treatments/${slug}`}
-        className="group relative block h-full min-h-[220px] overflow-hidden rounded-3xl bg-gradient-to-br from-brand-dark via-brand to-brand-soft"
+        className="group relative flex h-full min-h-[240px] flex-col overflow-hidden rounded-3xl bg-ink"
       >
-        {img && (
-          <Image
-            src={img}
-            alt={title}
-            fill
-            sizes="(max-width: 1024px) 100vw, 40vw"
-            className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-          />
+        {img ? (
+          <>
+            <Image
+              src={img}
+              alt={title}
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand to-brand-soft/70" />
+            <div className="pointer-events-none absolute -right-8 -top-8 h-40 w-40 rounded-full bg-cream/15 blur-3xl" />
+          </>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/25 to-transparent" />
-        <div className="relative flex h-full flex-col justify-end p-6 lg:p-7">
-          <p className="text-[10px] font-bold tracking-[0.22em] text-cream/80">{label}</p>
-          <h3 className="mt-1 font-serif text-2xl font-normal text-cream lg:text-3xl">
+        <div className="relative mt-auto p-6 lg:p-7">
+          <p className="text-[10px] font-bold tracking-[0.22em] text-brand-soft">{label}</p>
+          <h3 className="mt-2 font-serif text-2xl font-normal leading-tight text-cream lg:text-3xl">
             {title}
           </h3>
-          <ArrowUpRightIcon className="mt-4 h-5 w-5 text-cream/90 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          <div className="mt-4 inline-flex items-center gap-2 text-xs font-semibold text-cream/80 transition group-hover:text-cream">
+            자세히 보기
+            <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </div>
         </div>
       </Link>
     </Reveal>
