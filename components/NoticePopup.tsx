@@ -152,19 +152,21 @@ export function NoticePopup() {
             entered ? "translate-y-0 scale-100" : "translate-y-4 scale-95"
           }`}
         >
-          <div className="relative border-b border-line bg-gradient-to-br from-brand-soft/30 via-blush/40 to-sand px-8 py-7">
-            <p className="text-xs font-semibold tracking-[0.22em] text-brand">NOTICE</p>
-            <h2 id="notice-title" className="mt-2 text-2xl font-bold text-ink">
-              진료 안내
-            </h2>
-            <p className="mt-1.5 text-sm text-ink-soft">8월 정기 안내 사항입니다.</p>
+          <div className="relative flex items-center justify-between border-b border-line/60 bg-cream px-8 py-4">
+            <div className="flex items-baseline gap-3">
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand" aria-hidden />
+              <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-brand">Notice</span>
+              <h2 id="notice-title" className="text-base font-semibold text-ink">
+                진료 안내
+              </h2>
+            </div>
             <button
               type="button"
               onClick={close}
               aria-label="닫기"
-              className="absolute right-4 top-4 grid h-8 w-8 place-items-center rounded-full bg-white/70 text-ink transition hover:bg-white"
+              className="grid h-7 w-7 place-items-center rounded-full text-ink-soft transition hover:bg-ink/5 hover:text-ink"
             >
-              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.8">
                 <path d="M6 6l12 12M18 6L6 18" />
               </svg>
             </button>
