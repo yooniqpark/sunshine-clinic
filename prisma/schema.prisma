@@ -177,6 +177,7 @@ model PageView {
   locale    String?  // 'ko' | 'en' | 'ja' | 'zh'
   visitorId String?  // sha256(ip + salt), only for unique visitor counts (never the raw IP)
   referrer  String?  // trimmed to origin only
+  deviceType String? // 'mobile' | 'tablet' | 'desktop'
   createdAt DateTime @default(now())
 
   @@index([createdAt])

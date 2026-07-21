@@ -81,24 +81,37 @@ export default async function AnalyticsPage() {
         </div>
       </section>
 
-      {/* Locale breakdown */}
-      <section className="mt-10">
-        <h2 className="text-lg font-bold">언어별 방문 (이번 달)</h2>
-        <div className="mt-4 rounded-2xl border border-line bg-white p-6">
-          {stats.byLocale.length === 0 ? (
-            <p className="py-4 text-sm text-ink-soft">데이터 없음</p>
-          ) : (
-            <ul className="grid gap-3 sm:grid-cols-4">
-              {stats.byLocale.map((l) => (
-                <li key={l.locale} className="rounded-xl border border-line bg-sand/30 p-4 text-center">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-ink-soft">
-                    {l.locale}
-                  </p>
-                  <p className="mt-1 text-2xl font-bold tabular-nums">{l.count}</p>
-                </li>
-              ))}
-            </ul>
-          )}
+      {/* Locale + device breakdown */}
+      <section className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div>
+          <h2 className="text-lg font-bold">언어별 방문 (이번 달)</h2>
+          <div className="mt-4 rounded-2xl border border-line bg-white p-6">
+            {stats.byLocale.length === 0 ? (
+              <p className="py-4 text-sm text-ink-soft">데이터 없음</p>
+            ) : (
+              <ul className="grid gap-3 sm:grid-cols-4">
+                {stats.byLocale.map((l) => (
+                  <li key={l.locale} className="rounded-xl border border-line bg-sand/30 p-4 text-center">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-ink-soft">
+                      {l.locale}
+                    </p>
+                    <p className="mt-1 text-2xl font-bold tabular-nums">{l.count}</p>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-lg font-bold">기기별 방문 (이번 달)</h2>
+          <div className="mt-4 rounded-2xl border border-line bg-white p-6">
+            {stats.byDevice.length === 0 ? (
+              <p className="py-4 text-sm text-ink-soft">데이터 없음</p>
+            ) : (
+              <DeviceBreakdown items={stats.byDevice} />
+            )}
+          </div>
         </div>
       </section>
 
@@ -150,18 +163,58 @@ function StatCard({
   );
 }
 
+const DEVICE_META: Record<string, { label: string; icon: string }> = {
+  mobile: { label: "모바일", icon: "📱" },
+  tablet: { label: "태블릿", icon: "📲" },
+  desktop: { label: "데스크탑", icon: "💻" },
+};
+
+function DeviceBreakdown({ items }: { items: { device: string; count: number }[] }) {
+  const total = items.reduce((s, i) => s + i.count, 0);
+  return (
+    <ul className="grid gap-3 sm:grid-cols-3">
+      {items.map((d) => {
+        const meta = DEVICE_META[d.device] ?? { label: d.device, icon: "🖥" };
+        const pct = total > 0 ? Math.round((d.count / total) * 100) : 0;
+        return (
+          <li key={d.device} className="rounded-xl border border-line bg-sand/30 p-4">
+            <p className="text-xs font-semibold text-ink-soft">
+              <span className="mr-1">{meta.icon}</span>
+              {meta.label}
+            </p>
+            <p className="mt-1 text-2xl font-bold tabular-nums">{d.count.toLocaleString()}</p>
+            <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-line">
+              <div className="h-full bg-brand" style={{ width: `${pct}%` }} />
+            </div>
+            <p className="mt-1 text-[11px] text-ink-soft">{pct}%</p>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 function BarChart({ items }: { items: { day: string; count: number }[] }) {
   const max = Math.max(1, ...items.map((i) => i.count));
   return (
-    <div className="flex h-40 items-end gap-1.5">
+    <div className="flex h-48 items-end gap-2">
       {items.map((it) => {
-        const h = (it.count / max) * 100;
+        // Reserve minimum 3px for zero-count days so the axis feels populated.
+        const h = it.count === 0 ? 3 : Math.max(6, (it.count / max) * 176);
+        const empty = it.count === 0;
         return (
-          <div key={it.day} className="flex flex-1 flex-col items-center gap-1">
-            <div className="relative flex w-full flex-1 items-end">
+          <div key={it.day} className="group flex flex-1 flex-col items-center gap-2">
+            <div className="relative flex w-full flex-1 items-end justify-center">
+              {it.count > 0 && (
+                <span className="absolute -top-5 hidden text-[10px] font-semibold text-ink group-hover:block">
+                  {it.count}
+                </span>
+              )}
               <div
-                className="w-full rounded-t bg-brand/70 transition"
-                style={{ height: `${Math.max(2, h)}%` }}
+                className={`w-full rounded-t transition ${
+                  empty ? "bg-line" : "bg-brand/80 group-hover:bg-brand"
+                }`}
+                style={{ height: `${h}px` }}
                 title={`${it.day}: ${it.count}회`}
               />
             </div>

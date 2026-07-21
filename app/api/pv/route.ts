@@ -30,6 +30,15 @@ function originOnly(url: string): string | null {
   }
 }
 
+function detectDevice(ua: string): "mobile" | "tablet" | "desktop" {
+  if (!ua) return "desktop";
+  const s = ua.toLowerCase();
+  // iPad reports itself as desktop Safari on iPadOS 13+; still check first
+  if (/ipad|tablet|(?:android(?!.*mobile))/i.test(ua)) return "tablet";
+  if (/mobi|iphone|ipod|android|blackberry|iemobile|opera mini/i.test(s)) return "mobile";
+  return "desktop";
+}
+
 const LOCALES = new Set(["ko", "en", "ja", "zh"]);
 const PATH_MAX = 200;
 
@@ -60,10 +69,11 @@ export async function POST(req: Request) {
   const ip = clientIp(req);
   const ua = req.headers.get("user-agent") ?? "";
   const visitorId = hashVisitor(ip, ua);
+  const deviceType = detectDevice(ua);
 
   try {
     await prisma.pageView.create({
-      data: { path, locale, visitorId, referrer },
+      data: { path, locale, visitorId, referrer, deviceType },
     });
   } catch (e) {
     console.error("[pv] insert failed:", e);

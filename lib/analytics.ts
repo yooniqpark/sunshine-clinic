@@ -20,6 +20,7 @@ export type AnalyticsStats = {
   topPaths: { path: string; count: number }[];
   topReferrers: { referrer: string; count: number }[];
   byLocale: { locale: string; count: number }[];
+  byDevice: { device: string; count: number }[];
 };
 
 async function countPV(fromDate?: Date) {
@@ -107,6 +108,17 @@ export async function getStats(): Promise<AnalyticsStats> {
     .filter((r) => r.locale)
     .map((r) => ({ locale: r.locale as string, count: r._count._all }));
 
+  // By device type
+  const byDeviceRaw = await prisma.pageView.groupBy({
+    by: ["deviceType"],
+    where: { createdAt: { gte: monthStart }, deviceType: { not: null } },
+    _count: { _all: true },
+    orderBy: { _count: { deviceType: "desc" } },
+  });
+  const byDevice = byDeviceRaw
+    .filter((r) => r.deviceType)
+    .map((r) => ({ device: r.deviceType as string, count: r._count._all }));
+
   return {
     pv: { today: pvToday, week: pvWeek, month: pvMonth, total: pvTotal },
     uv: { today: uvToday, week: uvWeek, month: uvMonth, total: uvTotal },
@@ -114,5 +126,6 @@ export async function getStats(): Promise<AnalyticsStats> {
     topPaths,
     topReferrers,
     byLocale,
+    byDevice,
   };
 }
