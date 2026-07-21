@@ -6,7 +6,7 @@ import { useState } from "react";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 
 type SubItem = { label: string; href: string; sub?: string };
-type Column = { title: string; items: SubItem[] };
+type Column = { title: string; href?: string; items: SubItem[] };
 type NavItem =
   | { label: string; href: string; children?: undefined }
   | { label: string; href: string; children: Column[] };
@@ -19,6 +19,7 @@ const NAV: NavItem[] = [
     children: [
       {
         title: "리프팅",
+        href: "/preview/treatments/lifting",
         items: [
           { label: "울쎄라 프라임", sub: "ULTHERA PRIME", href: "/preview/treatments/lifting/ulthera-prime" },
           { label: "써마지 FLX", sub: "THERMAGE FLX", href: "/preview/treatments/lifting/thermage-flx" },
@@ -28,7 +29,19 @@ const NAV: NavItem[] = [
         ],
       },
       {
+        title: "안티에이징",
+        href: "/preview/treatments/anti-aging",
+        items: [
+          { label: "보톡스", href: "/preview/treatments/anti-aging" },
+          { label: "필러", href: "/preview/treatments/anti-aging" },
+          { label: "스킨보톡스", href: "/preview/treatments/anti-aging" },
+          { label: "쥬베룩", href: "/preview/treatments/anti-aging" },
+          { label: "리쥬란", href: "/preview/treatments/anti-aging" },
+        ],
+      },
+      {
         title: "화이트닝 · 홍조",
+        href: "/preview/treatments/whitening",
         items: [
           { label: "클라리티 II", sub: "CLARITY II", href: "/preview/treatments/whitening/clarity-ii" },
           { label: "스타워커", sub: "STARWALKER", href: "/preview/treatments/whitening/fotona-starwalker" },
@@ -38,6 +51,7 @@ const NAV: NavItem[] = [
       },
       {
         title: "여드름 · 흉터",
+        href: "/preview/treatments/acne",
         items: [
           { label: "카프리 CO2", sub: "CARPRI CO2", href: "/preview/treatments/acne/carpri-co2" },
           { label: "골드 PTT", sub: "GOLD PTT", href: "/preview/treatments/acne/gold-ptt" },
@@ -45,10 +59,14 @@ const NAV: NavItem[] = [
         ],
       },
       {
-        title: "그 외",
+        title: "피부질환",
+        href: "/preview/treatments/skin-disease",
         items: [
-          { label: "안티에이징 전체", href: "/preview/treatments/anti-aging" },
-          { label: "피부질환 전체", href: "/preview/treatments/skin-disease" },
+          { label: "아토피 · 습진", href: "/preview/treatments/skin-disease" },
+          { label: "건선", href: "/preview/treatments/skin-disease" },
+          { label: "탈모", href: "/preview/treatments/skin-disease" },
+          { label: "사마귀 · 티눈", href: "/preview/treatments/skin-disease" },
+          { label: "무좀 · 손발톱 진균증", href: "/preview/treatments/skin-disease" },
         ],
       },
     ],
@@ -149,12 +167,23 @@ export function PreviewHeader() {
                 : "invisible max-h-0 opacity-0"
             }`}
           >
-            <div className="mx-auto grid max-w-7xl gap-8 px-8 py-10 md:grid-cols-4">
+            <div className="mx-auto grid max-w-7xl gap-6 px-8 py-10 md:grid-cols-3 lg:grid-cols-5">
               {item.children.map((col) => (
                 <div key={col.title}>
-                  <p className="mb-4 border-b border-line pb-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
-                    {col.title.toUpperCase()}
-                  </p>
+                  {col.href ? (
+                    <Link
+                      href={col.href}
+                      onClick={() => setHovered(null)}
+                      className="mb-4 flex items-center justify-between border-b border-line pb-2 text-[11px] font-bold tracking-[0.2em] text-brand-dark transition hover:text-ink"
+                    >
+                      <span>{col.title.toUpperCase()}</span>
+                      <span className="text-ink-soft/60 transition group-hover:translate-x-0.5">→</span>
+                    </Link>
+                  ) : (
+                    <p className="mb-4 border-b border-line pb-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
+                      {col.title.toUpperCase()}
+                    </p>
+                  )}
                   <ul className="space-y-1">
                     {col.items.map((c) => (
                       <li key={c.href}>
@@ -208,9 +237,22 @@ export function PreviewHeader() {
                       <div className="ml-3 mt-1 space-y-4 border-l border-line pl-3 pb-3">
                         {item.children.map((col) => (
                           <div key={col.title}>
-                            <p className="mb-2 px-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
-                              {col.title.toUpperCase()}
-                            </p>
+                            {col.href ? (
+                              <Link
+                                href={col.href}
+                                onClick={() => {
+                                  setOpen(false);
+                                  setMobileOpen(null);
+                                }}
+                                className="mb-2 block px-2 text-[11px] font-bold tracking-[0.2em] text-brand-dark hover:text-ink"
+                              >
+                                {col.title.toUpperCase()} →
+                              </Link>
+                            ) : (
+                              <p className="mb-2 px-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
+                                {col.title.toUpperCase()}
+                              </p>
+                            )}
                             {col.items.map((c) => (
                               <Link
                                 key={c.href}
