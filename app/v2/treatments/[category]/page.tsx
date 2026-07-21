@@ -131,7 +131,7 @@ export default async function TreatmentPage({
         </div>
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <nav className="mb-6 flex items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
-            <Link href="/preview" className="hover:text-cream">HOME</Link>
+            <Link href="/v2" className="hover:text-cream">HOME</Link>
             <span>/</span>
             <span className="text-cream/80">TREATMENTS</span>
           </nav>
@@ -153,7 +153,7 @@ export default async function TreatmentPage({
           {ALL.map((c) => (
             <Link
               key={c.slug}
-              href={`/preview/treatments/${c.slug}`}
+              href={`/v2/treatments/${c.slug}`}
               className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-semibold transition ${
                 c.slug === data.slug
                   ? "bg-ink text-cream"
@@ -201,7 +201,7 @@ export default async function TreatmentPage({
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/preview#book"
+              href="/v2#book"
               className="rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream hover:bg-brand-dark"
             >
               온라인 상담 예약
@@ -240,7 +240,7 @@ function TreatmentList({
       ? devices.map((d) => ({
           name: d.name,
           desc: d.tagline,
-          href: `/preview/treatments/${d.category}/${d.slug}`,
+          href: `/v2/treatments/${d.category}/${d.slug}`,
           meta: getDeviceMarketing(d.slug)?.englishName ?? d.manufacturer,
         }))
       : (items ?? []).map((it) => ({

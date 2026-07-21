@@ -93,9 +93,9 @@ export default async function DevicePage({
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
           {/* Breadcrumb */}
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
-            <Link href="/preview" className="hover:text-cream">HOME</Link>
+            <Link href="/v2" className="hover:text-cream">HOME</Link>
             <span>/</span>
-            <Link href={`/preview/treatments/${category}`} className="hover:text-cream">
+            <Link href={`/v2/treatments/${category}`} className="hover:text-cream">
               {catLabel.toUpperCase()}
             </Link>
             <span>/</span>
@@ -328,7 +328,7 @@ export default async function DevicePage({
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/preview#book"
+                href="/v2#book"
                 className="group inline-flex items-center gap-2 rounded-full bg-cream px-8 py-4 text-sm font-semibold text-ink transition hover:bg-brand-soft"
               >
                 온라인 상담 예약
@@ -359,7 +359,7 @@ export default async function DevicePage({
                 </h2>
               </div>
               <Link
-                href={`/preview/treatments/${category}`}
+                href={`/v2/treatments/${category}`}
                 className="hidden items-center gap-1 text-xs font-semibold text-ink-soft hover:text-brand-dark md:inline-flex"
               >
                 전체 보기 <ArrowIcon className="h-3 w-3" />
@@ -372,7 +372,7 @@ export default async function DevicePage({
                 return (
                   <Link
                     key={s.slug}
-                    href={`/preview/treatments/${category}/${s.slug}`}
+                    href={`/v2/treatments/${category}/${s.slug}`}
                     className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5"
                   >
                     {sImg && (

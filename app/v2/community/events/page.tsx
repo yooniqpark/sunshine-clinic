@@ -66,7 +66,7 @@ export default function EventsPage() {
 
         <div className="mt-16 text-center">
           <Link
-            href="/preview#book"
+            href="/v2#book"
             className="inline-flex rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream hover:bg-brand-dark"
           >
             상담 예약하기

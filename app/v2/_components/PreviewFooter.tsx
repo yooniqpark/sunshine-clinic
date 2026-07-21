@@ -7,7 +7,7 @@ export function PreviewFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-4 lg:px-8 lg:py-20">
         {/* Brand col */}
         <div className="md:col-span-2">
-          <Link href="/preview" className="flex items-center gap-3">
+          <Link href="/v2" className="flex items-center gap-3">
             <Image
               src="/logo-mark.svg"
               alt=""
@@ -32,10 +32,10 @@ export function PreviewFooter() {
         <div>
           <p className="text-[10px] font-bold tracking-[0.24em] text-brand-soft">MENU</p>
           <ul className="mt-5 space-y-2 text-sm">
-            <li><Link href="/preview/about" className="hover:text-cream">병원 소개</Link></li>
-            <li><Link href="/preview/treatments/lifting" className="hover:text-cream">시술</Link></li>
-            <li><Link href="/preview/community/notices" className="hover:text-cream">공지사항</Link></li>
-            <li><Link href="/preview/community/prices" className="hover:text-cream">비급여 수가표</Link></li>
+            <li><Link href="/v2/about" className="hover:text-cream">병원 소개</Link></li>
+            <li><Link href="/v2/treatments/lifting" className="hover:text-cream">시술</Link></li>
+            <li><Link href="/v2/community/notices" className="hover:text-cream">공지사항</Link></li>
+            <li><Link href="/v2/community/prices" className="hover:text-cream">비급여 수가표</Link></li>
           </ul>
         </div>
 

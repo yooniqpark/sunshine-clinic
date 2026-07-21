@@ -10,7 +10,7 @@ export default function PreviewHome() {
       <section className="relative h-[92vh] min-h-[640px] overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
           <Image
-            src="/hero-clinic.png"
+            src="/clinic/reception.jpg"
             alt=""
             fill
             priority
@@ -150,7 +150,7 @@ export default function PreviewHome() {
           <div className="grid gap-3 lg:grid-cols-4 lg:grid-rows-2 lg:gap-4">
             <BentoCard
               slug="lifting"
-              img="/models/lifting.png"
+              img="/clinic/consult-room.jpg"
               label="LIFTING"
               title="리프팅"
               tall
@@ -158,24 +158,25 @@ export default function PreviewHome() {
             />
             <BentoCard
               slug="anti-aging"
-              img="/models/anti-aging.jpg"
+              img="/clinic/care-room.jpg"
               label="ANTI-AGING"
               title="안티에이징"
             />
             <BentoCard
               slug="whitening"
-              img="/models/whitening.png"
+              img="/clinic/lounge.jpg"
               label="WHITENING"
               title="화이트닝·홍조"
             />
             <BentoCard
               slug="acne"
-              img="/models/acne.png"
+              img="/clinic/vip-corridor.jpg"
               label="ACNE · SCAR"
               title="여드름·흉터"
             />
             <BentoCard
               slug="skin-disease"
+              img="/clinic/powder-room.jpg"
               label="SKIN DISEASE"
               title="피부질환"
               wide

@@ -12,75 +12,75 @@ type NavItem =
   | { label: string; href: string; children: Column[] };
 
 const NAV: NavItem[] = [
-  { label: "병원 소개", href: "/preview/about" },
+  { label: "병원 소개", href: "/v2/about" },
   {
     label: "시술",
-    href: "/preview/treatments/lifting",
+    href: "/v2/treatments/lifting",
     children: [
       {
         title: "리프팅",
-        href: "/preview/treatments/lifting",
+        href: "/v2/treatments/lifting",
         items: [
-          { label: "울쎄라 프라임", sub: "ULTHERA PRIME", href: "/preview/treatments/lifting/ulthera-prime" },
-          { label: "써마지 FLX", sub: "THERMAGE FLX", href: "/preview/treatments/lifting/thermage-flx" },
-          { label: "슈링크 유니버스", sub: "SHRINK UNIVERSE", href: "/preview/treatments/lifting/shurink-universe" },
-          { label: "인모드", sub: "INMODE", href: "/preview/treatments/lifting/inmode" },
-          { label: "엘란쎄", sub: "ELLANSÉ", href: "/preview/treatments/lifting/ellanse" },
+          { label: "울쎄라 프라임", sub: "ULTHERA PRIME", href: "/v2/treatments/lifting/ulthera-prime" },
+          { label: "써마지 FLX", sub: "THERMAGE FLX", href: "/v2/treatments/lifting/thermage-flx" },
+          { label: "슈링크 유니버스", sub: "SHRINK UNIVERSE", href: "/v2/treatments/lifting/shurink-universe" },
+          { label: "인모드", sub: "INMODE", href: "/v2/treatments/lifting/inmode" },
+          { label: "엘란쎄", sub: "ELLANSÉ", href: "/v2/treatments/lifting/ellanse" },
         ],
       },
       {
         title: "안티에이징",
-        href: "/preview/treatments/anti-aging",
+        href: "/v2/treatments/anti-aging",
         items: [
-          { label: "보톡스", href: "/preview/treatments/anti-aging" },
-          { label: "필러", href: "/preview/treatments/anti-aging" },
-          { label: "스킨보톡스", href: "/preview/treatments/anti-aging" },
-          { label: "쥬베룩", href: "/preview/treatments/anti-aging" },
-          { label: "리쥬란", href: "/preview/treatments/anti-aging" },
+          { label: "보톡스", href: "/v2/treatments/anti-aging" },
+          { label: "필러", href: "/v2/treatments/anti-aging" },
+          { label: "스킨보톡스", href: "/v2/treatments/anti-aging" },
+          { label: "쥬베룩", href: "/v2/treatments/anti-aging" },
+          { label: "리쥬란", href: "/v2/treatments/anti-aging" },
         ],
       },
       {
         title: "화이트닝 · 홍조",
-        href: "/preview/treatments/whitening",
+        href: "/v2/treatments/whitening",
         items: [
-          { label: "클라리티 II", sub: "CLARITY II", href: "/preview/treatments/whitening/clarity-ii" },
-          { label: "스타워커", sub: "STARWALKER", href: "/preview/treatments/whitening/fotona-starwalker" },
-          { label: "브이빔", sub: "VBEAM", href: "/preview/treatments/whitening/vbeam" },
-          { label: "시크릿 RF", sub: "SECRET RF", href: "/preview/treatments/whitening/secret-rf" },
+          { label: "클라리티 II", sub: "CLARITY II", href: "/v2/treatments/whitening/clarity-ii" },
+          { label: "스타워커", sub: "STARWALKER", href: "/v2/treatments/whitening/fotona-starwalker" },
+          { label: "브이빔", sub: "VBEAM", href: "/v2/treatments/whitening/vbeam" },
+          { label: "시크릿 RF", sub: "SECRET RF", href: "/v2/treatments/whitening/secret-rf" },
         ],
       },
       {
         title: "여드름 · 흉터",
-        href: "/preview/treatments/acne",
+        href: "/v2/treatments/acne",
         items: [
-          { label: "카프리 CO2", sub: "CARPRI CO2", href: "/preview/treatments/acne/carpri-co2" },
-          { label: "골드 PTT", sub: "GOLD PTT", href: "/preview/treatments/acne/gold-ptt" },
-          { label: "큐라젯", sub: "CUREJET", href: "/preview/treatments/acne/curajet" },
+          { label: "카프리 CO2", sub: "CARPRI CO2", href: "/v2/treatments/acne/carpri-co2" },
+          { label: "골드 PTT", sub: "GOLD PTT", href: "/v2/treatments/acne/gold-ptt" },
+          { label: "큐라젯", sub: "CUREJET", href: "/v2/treatments/acne/curajet" },
         ],
       },
       {
         title: "피부질환",
-        href: "/preview/treatments/skin-disease",
+        href: "/v2/treatments/skin-disease",
         items: [
-          { label: "아토피 · 습진", href: "/preview/treatments/skin-disease" },
-          { label: "건선", href: "/preview/treatments/skin-disease" },
-          { label: "탈모", href: "/preview/treatments/skin-disease" },
-          { label: "사마귀 · 티눈", href: "/preview/treatments/skin-disease" },
-          { label: "무좀 · 손발톱 진균증", href: "/preview/treatments/skin-disease" },
+          { label: "아토피 · 습진", href: "/v2/treatments/skin-disease" },
+          { label: "건선", href: "/v2/treatments/skin-disease" },
+          { label: "탈모", href: "/v2/treatments/skin-disease" },
+          { label: "사마귀 · 티눈", href: "/v2/treatments/skin-disease" },
+          { label: "무좀 · 손발톱 진균증", href: "/v2/treatments/skin-disease" },
         ],
       },
     ],
   },
   {
     label: "커뮤니티",
-    href: "/preview/community/notices",
+    href: "/v2/community/notices",
     children: [
       {
         title: "커뮤니티",
         items: [
-          { label: "공지사항", href: "/preview/community/notices" },
-          { label: "이벤트", href: "/preview/community/events" },
-          { label: "비급여 수가표", href: "/preview/community/prices" },
+          { label: "공지사항", href: "/v2/community/notices" },
+          { label: "이벤트", href: "/v2/community/events" },
+          { label: "비급여 수가표", href: "/v2/community/prices" },
         ],
       },
     ],
@@ -96,7 +96,7 @@ export function PreviewHeader() {
     <header className="sticky top-8 z-50 border-b border-line/60 bg-cream/85 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
-          href="/preview"
+          href="/v2"
           onClick={() => setOpen(false)}
           className="group flex items-center gap-3"
         >
@@ -136,7 +136,7 @@ export function PreviewHeader() {
             </div>
           ))}
           <Link
-            href="/preview#book"
+            href="/v2#book"
             className="ml-3 rounded-full bg-ink px-5 py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark"
           >
             상담 예약
@@ -288,7 +288,7 @@ export function PreviewHeader() {
               </div>
             ))}
             <Link
-              href="/preview#book"
+              href="/v2#book"
               onClick={() => setOpen(false)}
               className="mt-3 block rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-cream"
             >

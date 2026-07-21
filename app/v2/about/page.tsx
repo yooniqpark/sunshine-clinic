@@ -166,31 +166,37 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-4 md:grid-cols-6 md:gap-6">
+          <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {SPACES.map((s, i) => (
               <Reveal
                 key={s.src}
                 delay={i * 60}
                 className={
                   i === 0
-                    ? "md:col-span-4 md:row-span-2"
-                    : "md:col-span-2 md:row-span-1"
+                    ? "col-span-2 md:col-span-2 md:row-span-2"
+                    : ""
                 }
               >
-                <figure className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5 md:aspect-auto md:h-full">
+                <figure
+                  className={`group relative overflow-hidden rounded-3xl bg-ink/5 ${
+                    i === 0
+                      ? "aspect-[4/5] md:aspect-square"
+                      : "aspect-[4/5]"
+                  }`}
+                >
                   <Image
                     src={s.src}
                     alt={s.desc}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
+                    sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent opacity-0 transition group-hover:opacity-100" />
-                  <figcaption className="absolute inset-x-6 bottom-6 translate-y-2 text-cream opacity-0 transition group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent" />
+                  <figcaption className="absolute inset-x-5 bottom-5 text-cream">
                     <p className="text-[10px] font-bold tracking-[0.2em] text-brand-soft">
                       {s.label}
                     </p>
-                    <p className="mt-1 font-serif text-xl">{s.desc}</p>
+                    <p className="mt-1 font-serif text-lg md:text-xl">{s.desc}</p>
                   </figcaption>
                 </figure>
               </Reveal>
@@ -229,42 +235,29 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ══════ DEVICES — laser room ══════ */}
-      <section className="bg-white py-24 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[1.1fr_1fr] lg:gap-24 lg:px-8">
-          <div className="flex flex-col justify-center lg:order-2">
+      {/* ══════ DEVICES — text only for now, photos coming later ══════ */}
+      <section className="bg-white py-28 lg:py-36">
+        <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
+          <Reveal>
             <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
               EQUIPMENT
             </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
+            <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-6xl">
               하이엔드 장비,
               <br />
               <em className="italic text-brand-dark">한 자리에.</em>
             </h2>
-            <p className="mt-8 text-base leading-relaxed text-ink-soft lg:text-lg">
+            <p className="mx-auto mt-10 max-w-2xl text-base leading-relaxed text-ink-soft lg:text-lg">
               울쎄라 프라임 · 써마지 FLX · 슈링크 유니버스 · 클라리티 II · 스타워커 ·
               브이빔 · 인모드 · 카프리 CO2 등 국내 상위권 하이엔드 장비를 한 공간에 갖추었습니다.
             </p>
             <Link
-              href="/preview/treatments/lifting"
-              className="group mt-10 inline-flex items-center gap-3 border-b border-ink/30 pb-2 text-sm font-semibold text-ink transition hover:border-brand-dark hover:text-brand-dark self-start"
+              href="/v2/treatments/lifting"
+              className="group mt-12 inline-flex items-center gap-3 border-b border-ink/30 pb-2 text-sm font-semibold text-ink transition hover:border-brand-dark hover:text-brand-dark"
             >
               장비 리스트 보기
               <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
-          </div>
-          <Reveal>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="relative col-span-2 aspect-[16/10] overflow-hidden rounded-3xl bg-ink/5">
-                <Image src="/clinic/devices-1.jpg" alt="시술 장비실" fill className="object-cover" />
-              </div>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5">
-                <Image src="/clinic/devices-2.jpg" alt="레이저 장비" fill className="object-cover" />
-              </div>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5">
-                <Image src="/clinic/surgery.jpg" alt="시술실" fill className="object-cover" />
-              </div>
-            </div>
           </Reveal>
         </div>
       </section>
@@ -280,7 +273,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/preview/treatments/lifting"
+                href="/v2/treatments/lifting"
                 className="group inline-flex items-center gap-2 rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream transition hover:bg-brand-dark"
               >
                 시술 알아보기
