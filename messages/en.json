@@ -333,32 +333,40 @@
       "directorKicker": "DIRECTOR",
       "directorName": "Kim Byung-hyun",
       "directorTitle": "Director",
-      "directorBio": "A board-certified dermatologist from Seoul St. Mary's Hospital with 15+ years treating a wide range of skin cases. We don't chase trends — we design plans that respect each patient's tone and texture.",
+      "directorBio": "Graduated from Keimyung University College of Medicine and completed residency at the National Medical Center. Served as director at Y&T Plastic Surgery in Apgujeong, A-Top Plastic Surgery, Prima Dermatology, and The One Clinic, building extensive clinical experience. Rather than following trends, we design a treatment plan that respects each patient's own tone and texture.",
       "historyLabel": "HISTORY",
       "history": [
         {
-          "year": "2010",
-          "event": "Graduated, Catholic University of Korea College of Medicine"
+          "year": "",
+          "event": "Graduated, Keimyung University College of Medicine"
         },
         {
-          "year": "2015",
-          "event": "Board-certified Dermatologist, Seoul St. Mary's Hospital"
+          "year": "",
+          "event": "Residency, National Medical Center"
         },
         {
-          "year": "2016",
-          "event": "Member, Korean Dermatological Association"
+          "year": "",
+          "event": "Member, Korean Society of Aesthetic Plastic & Laser Medicine"
         },
         {
-          "year": "2018",
-          "event": "Member, Korean Society for Aesthetic & Laser Medicine"
+          "year": "",
+          "event": "Member, Korean Society of Laser Dermatology and Trichology"
         },
         {
-          "year": "2020",
-          "event": "Member, International Society of Hair Restoration Surgery (ISHRS)"
+          "year": "",
+          "event": "Former Director, Y&T Plastic Surgery, Apgujeong"
         },
         {
-          "year": "2026",
-          "event": "Opened Sunshine Dermatology Clinic · Director"
+          "year": "",
+          "event": "Former Director, A-Top Plastic Surgery"
+        },
+        {
+          "year": "",
+          "event": "Former Director, Prima Dermatology"
+        },
+        {
+          "year": "",
+          "event": "Former Director, The One Clinic"
         }
       ],
       "consultKicker": "CONSULT ROOM",
@@ -829,7 +837,7 @@
       "phoneLabel": "Phone",
       "directionsLabel": "Getting Here",
       "directions": [
-        "5-min walk from Jamsil Station (Lines 2 & 8), Exit 3",
+        "3-min walk from Jamsilsaenae Station (Line 2), Exit 4",
         "Paid parking available in the building"
       ],
       "mapTitle": "Sunshine Clinic on the map",

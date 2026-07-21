@@ -333,32 +333,40 @@
       "directorKicker": "DIRECTOR",
       "directorName": "金炳贤",
       "directorTitle": "院长",
-      "directorBio": "作为天主教大学首尔圣母医院的皮肤科专科医生,已诊疗各类皮肤病例超过 15 年。我们不追随潮流,而是根据每一位患者的肤色与肌理,制定专属诊疗方案。",
+      "directorBio": "毕业于启明大学医科大学，并在国立中央医疗院完成住院医师培训。曾任狎鸥亭Y&T整形外科、A-Top整形外科、Prima皮肤科及The One医院院长，积累了丰富的临床经验。不追随潮流，为您量身打造尊重个人肤色与肌理的诊疗方案。",
       "historyLabel": "HISTORY",
       "history": [
         {
-          "year": "2010",
-          "event": "天主教大学医学院 毕业"
+          "year": "",
+          "event": "啓明大学医科大学 毕业"
         },
         {
-          "year": "2015",
-          "event": "天主教大学首尔圣母医院 皮肤科专科医生资格"
+          "year": "",
+          "event": "国立中央医疗院 住院医师培训修了"
         },
         {
-          "year": "2016",
-          "event": "大韩皮肤科学会 正式会员"
-        },
-        {
-          "year": "2018",
+          "year": "",
           "event": "大韩美容整形激光医学会 正式会员"
         },
         {
-          "year": "2020",
-          "event": "国际毛发移植学会 (ISHRS) 正式会员"
+          "year": "",
+          "event": "大韩激光皮肤毛发学会 正式会员"
         },
         {
-          "year": "2026",
-          "event": "阳光皮肤科诊所开业 · 院长"
+          "year": "",
+          "event": "原 狎鸥亭Y&T整形外科 院长"
+        },
+        {
+          "year": "",
+          "event": "原 A-Top整形外科 院长"
+        },
+        {
+          "year": "",
+          "event": "原 Prima皮肤科 院长"
+        },
+        {
+          "year": "",
+          "event": "原 The One医院 院长"
         }
       ],
       "consultKicker": "CONSULT ROOM",
@@ -829,7 +837,7 @@
       "phoneLabel": "电话",
       "directionsLabel": "交通指南",
       "directions": [
-        "地铁2号线·8号线 蚕室站 3号出口 步行5分钟",
+        "地铁2号线 蚕室新内站 4号出口 步行3分钟",
         "大厦内设有付费停车场"
       ],
       "mapTitle": "阳光皮肤科诊所位置",

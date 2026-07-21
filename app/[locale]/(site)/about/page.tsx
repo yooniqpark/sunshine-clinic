@@ -91,10 +91,8 @@ export default async function AboutPage({
                 </p>
                 <ul className="mt-6 space-y-3 text-sm">
                   {history.map((h) => (
-                    <li key={h.year} className="grid grid-cols-[64px_1fr] gap-4">
-                      <span className="font-serif text-base text-brand-dark">
-                        {h.year}
-                      </span>
+                    <li key={h.event} className="flex gap-3">
+                      <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand-dark" />
                       <span className="text-ink-soft">{h.event}</span>
                     </li>
                   ))}
