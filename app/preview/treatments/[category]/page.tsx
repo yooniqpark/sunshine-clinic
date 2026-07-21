@@ -244,18 +244,22 @@ function DeviceCard({ device, index }: { device: DeviceDetail; index: number }) 
   const img = getDeviceImage(device.slug);
   const meta = getDeviceMarketing(device.slug);
   const reversed = index % 2 === 1;
+  const detailHref = `/preview/treatments/${device.category}/${device.slug}`;
 
   return (
     <Reveal>
       <article className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-        {/* Image side */}
-        <div className={`relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5 ${reversed ? "lg:order-2" : ""}`}>
+        {/* Image side — click to detail */}
+        <Link
+          href={detailHref}
+          className={`group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5 ${reversed ? "lg:order-2" : ""}`}
+        >
           {img && (
             <Image
               src={img}
               alt={device.name}
               fill
-              className="object-cover"
+              className="object-cover transition duration-700 group-hover:scale-105"
             />
           )}
           {meta && (
@@ -263,7 +267,10 @@ function DeviceCard({ device, index }: { device: DeviceDetail; index: number }) 
               {meta.englishName}
             </div>
           )}
-        </div>
+          <div className="absolute bottom-6 right-6 grid h-12 w-12 place-items-center rounded-full bg-ink text-cream opacity-0 transition group-hover:opacity-100">
+            <ArrowUpRightIcon className="h-5 w-5" />
+          </div>
+        </Link>
 
         {/* Content side */}
         <div className={reversed ? "lg:order-1" : ""}>
@@ -328,23 +335,14 @@ function DeviceCard({ device, index }: { device: DeviceDetail; index: number }) 
             </div>
           </div>
 
-          {/* FAQ */}
-          {device.faq.length > 0 && (
-            <details className="group mt-8 border-t border-line pt-6">
-              <summary className="flex cursor-pointer items-center justify-between text-[11px] font-bold tracking-[0.2em] text-brand-dark">
-                <span>FAQ · {device.faq.length}</span>
-                <span className="transition group-open:rotate-45">+</span>
-              </summary>
-              <div className="mt-6 space-y-6">
-                {device.faq.map((f) => (
-                  <div key={f.q}>
-                    <p className="font-serif text-base text-ink">Q. {f.q}</p>
-                    <p className="mt-2 text-sm leading-relaxed text-ink-soft">A. {f.a}</p>
-                  </div>
-                ))}
-              </div>
-            </details>
-          )}
+          {/* Detail link */}
+          <Link
+            href={detailHref}
+            className="group mt-10 inline-flex items-center gap-3 border-b border-ink/30 pb-2 text-sm font-semibold text-ink transition hover:border-brand-dark hover:text-brand-dark"
+          >
+            상세 페이지 보기
+            <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </Link>
         </div>
       </article>
     </Reveal>
