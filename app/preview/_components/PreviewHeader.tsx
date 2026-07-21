@@ -5,26 +5,66 @@ import Image from "next/image";
 import { useState } from "react";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 
-const NAV = [
+type SubItem = { label: string; href: string; sub?: string };
+type Column = { title: string; items: SubItem[] };
+type NavItem =
+  | { label: string; href: string; children?: undefined }
+  | { label: string; href: string; children: Column[] };
+
+const NAV: NavItem[] = [
   { label: "병원 소개", href: "/preview/about" },
   {
     label: "시술",
     href: "/preview/treatments/lifting",
     children: [
-      { label: "리프팅", href: "/preview/treatments/lifting" },
-      { label: "안티에이징", href: "/preview/treatments/anti-aging" },
-      { label: "화이트닝 · 홍조", href: "/preview/treatments/whitening" },
-      { label: "여드름 · 흉터", href: "/preview/treatments/acne" },
-      { label: "피부질환", href: "/preview/treatments/skin-disease" },
+      {
+        title: "리프팅",
+        items: [
+          { label: "울쎄라 프라임", sub: "ULTHERA PRIME", href: "/preview/treatments/lifting/ulthera-prime" },
+          { label: "써마지 FLX", sub: "THERMAGE FLX", href: "/preview/treatments/lifting/thermage-flx" },
+          { label: "슈링크 유니버스", sub: "SHRINK UNIVERSE", href: "/preview/treatments/lifting/shurink-universe" },
+          { label: "인모드", sub: "INMODE", href: "/preview/treatments/lifting/inmode" },
+          { label: "엘란쎄", sub: "ELLANSÉ", href: "/preview/treatments/lifting/ellanse" },
+        ],
+      },
+      {
+        title: "화이트닝 · 홍조",
+        items: [
+          { label: "클라리티 II", sub: "CLARITY II", href: "/preview/treatments/whitening/clarity-ii" },
+          { label: "스타워커", sub: "STARWALKER", href: "/preview/treatments/whitening/fotona-starwalker" },
+          { label: "브이빔", sub: "VBEAM", href: "/preview/treatments/whitening/vbeam" },
+          { label: "시크릿 RF", sub: "SECRET RF", href: "/preview/treatments/whitening/secret-rf" },
+        ],
+      },
+      {
+        title: "여드름 · 흉터",
+        items: [
+          { label: "카프리 CO2", sub: "CARPRI CO2", href: "/preview/treatments/acne/carpri-co2" },
+          { label: "골드 PTT", sub: "GOLD PTT", href: "/preview/treatments/acne/gold-ptt" },
+          { label: "큐라젯", sub: "CUREJET", href: "/preview/treatments/acne/curajet" },
+        ],
+      },
+      {
+        title: "그 외",
+        items: [
+          { label: "안티에이징 전체", href: "/preview/treatments/anti-aging" },
+          { label: "피부질환 전체", href: "/preview/treatments/skin-disease" },
+        ],
+      },
     ],
   },
   {
     label: "커뮤니티",
     href: "/preview/community/notices",
     children: [
-      { label: "공지사항", href: "/preview/community/notices" },
-      { label: "이벤트", href: "/preview/community/events" },
-      { label: "비급여 수가표", href: "/preview/community/prices" },
+      {
+        title: "커뮤니티",
+        items: [
+          { label: "공지사항", href: "/preview/community/notices" },
+          { label: "이벤트", href: "/preview/community/events" },
+          { label: "비급여 수가표", href: "/preview/community/prices" },
+        ],
+      },
     ],
   },
 ];
@@ -32,6 +72,7 @@ const NAV = [
 export function PreviewHeader() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState<string | null>(null);
 
   return (
     <header className="sticky top-8 z-50 border-b border-line/60 bg-cream/85 backdrop-blur-lg">
@@ -59,7 +100,7 @@ export function PreviewHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-2 lg:flex">
+        <nav className="hidden items-center gap-1 lg:flex">
           {NAV.map((item) => (
             <div
               key={item.label}
@@ -69,32 +110,11 @@ export function PreviewHeader() {
             >
               <Link
                 href={item.href}
-                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink transition hover:text-brand"
+                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink transition hover:text-brand-dark"
               >
                 {item.label}
                 {item.children && <ChevronDownIcon className="h-3 w-3" />}
               </Link>
-              {item.children && (
-                <div
-                  className={`absolute left-1/2 top-full w-56 -translate-x-1/2 pt-2 transition-all duration-200 ${
-                    hovered === item.label
-                      ? "visible translate-y-0 opacity-100"
-                      : "pointer-events-none invisible -translate-y-1 opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden rounded-2xl border border-line bg-white/95 p-2 shadow-xl shadow-ink/15 backdrop-blur">
-                    {item.children.map((c) => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        className="block rounded-xl px-3 py-2 text-sm text-ink-soft transition hover:bg-brand/10 hover:text-brand-dark"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
             </div>
           ))}
           <Link
@@ -116,32 +136,112 @@ export function PreviewHeader() {
         </button>
       </div>
 
+      {/* Desktop mega panel — full-width bar */}
+      {NAV.map((item) =>
+        item.children ? (
+          <div
+            key={item.label}
+            onMouseEnter={() => setHovered(item.label)}
+            onMouseLeave={() => setHovered(null)}
+            className={`absolute left-0 right-0 top-full hidden overflow-hidden border-t border-line bg-white/98 shadow-xl shadow-ink/10 backdrop-blur transition-all duration-200 lg:block ${
+              hovered === item.label
+                ? "visible max-h-[600px] opacity-100"
+                : "invisible max-h-0 opacity-0"
+            }`}
+          >
+            <div className="mx-auto grid max-w-7xl gap-8 px-8 py-10 md:grid-cols-4">
+              {item.children.map((col) => (
+                <div key={col.title}>
+                  <p className="mb-4 border-b border-line pb-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
+                    {col.title.toUpperCase()}
+                  </p>
+                  <ul className="space-y-1">
+                    {col.items.map((c) => (
+                      <li key={c.href}>
+                        <Link
+                          href={c.href}
+                          onClick={() => setHovered(null)}
+                          className="group block rounded-xl px-3 py-2 transition hover:bg-brand/10"
+                        >
+                          <span className="block text-sm font-medium text-ink transition group-hover:text-brand-dark">
+                            {c.label}
+                          </span>
+                          {c.sub && (
+                            <span className="mt-0.5 block text-[10px] tracking-[0.15em] text-ink-soft">
+                              {c.sub}
+                            </span>
+                          )}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null
+      )}
+
       {/* Mobile drawer */}
       {open && (
         <div className="border-t border-line bg-cream lg:hidden">
           <nav className="mx-auto max-w-7xl px-5 py-3">
             {NAV.map((item) => (
               <div key={item.label} className="py-1">
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-brand/5"
-                >
-                  {item.label}
-                </Link>
-                {item.children && (
-                  <div className="ml-3 border-l border-line pl-3">
-                    {item.children.map((c) => (
-                      <Link
-                        key={c.href}
-                        href={c.href}
-                        onClick={() => setOpen(false)}
-                        className="block rounded-lg px-3 py-2 text-sm text-ink-soft hover:text-brand-dark"
-                      >
-                        {c.label}
-                      </Link>
-                    ))}
-                  </div>
+                {item.children ? (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setMobileOpen((v) => (v === item.label ? null : item.label))
+                      }
+                      className="flex w-full items-center justify-between rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-brand/5"
+                    >
+                      {item.label}
+                      <ChevronDownIcon
+                        className={`h-3 w-3 transition ${
+                          mobileOpen === item.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {mobileOpen === item.label && (
+                      <div className="ml-3 mt-1 space-y-4 border-l border-line pl-3 pb-3">
+                        {item.children.map((col) => (
+                          <div key={col.title}>
+                            <p className="mb-2 px-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
+                              {col.title.toUpperCase()}
+                            </p>
+                            {col.items.map((c) => (
+                              <Link
+                                key={c.href}
+                                href={c.href}
+                                onClick={() => {
+                                  setOpen(false);
+                                  setMobileOpen(null);
+                                }}
+                                className="block rounded-lg px-2 py-2 text-sm text-ink-soft hover:text-brand-dark"
+                              >
+                                {c.label}
+                                {c.sub && (
+                                  <span className="ml-2 text-[9px] tracking-[0.15em] text-ink-soft/60">
+                                    {c.sub}
+                                  </span>
+                                )}
+                              </Link>
+                            ))}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-xl px-3 py-3 text-base font-semibold text-ink hover:bg-brand/5"
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}

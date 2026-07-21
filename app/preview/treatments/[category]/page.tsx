@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon } from "@/components/icons";
-import { getDevicesByCategory, getDeviceImage, getDeviceMarketing, type DeviceDetail } from "@/lib/devices";
+import { getDevicesByCategory, getDeviceMarketing, type DeviceDetail } from "@/lib/devices";
 
 type CategoryMeta = {
   slug: string;
@@ -166,12 +166,13 @@ export default async function TreatmentPage({
         </div>
       </div>
 
-      {/* DEVICES (rich) or ITEMS (simple fallback) */}
-      {devices.length > 0 ? (
-        <DeviceSections devices={devices} />
-      ) : data.fallbackItems ? (
-        <SimpleItemList label={data.label} items={data.fallbackItems} />
-      ) : null}
+      {/* ITEMS — unified simple list (device OR fallback) */}
+      <TreatmentList
+        label={data.label}
+        devices={devices}
+        items={data.fallbackItems}
+      />
+
 
       {/* PROCESS */}
       <section className="bg-ink py-24 text-cream lg:py-32">
@@ -218,144 +219,36 @@ export default async function TreatmentPage({
   );
 }
 
-function DeviceSections({ devices }: { devices: DeviceDetail[] }) {
-  return (
-    <section className="bg-cream py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">DEVICES</p>
-        <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
-          하이엔드 장비
-        </h2>
-        <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft lg:text-base">
-          진단과 개인의 피부 상태에 따라 아래 장비들을 조합해 최적의 프로토콜을 설계합니다.
-        </p>
+type ListRow = {
+  name: string;
+  desc: string;
+  href?: string;
+  meta?: string;
+};
 
-        <div className="mt-20 space-y-24 lg:space-y-32">
-          {devices.map((d, i) => (
-            <DeviceCard key={d.slug} device={d} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function DeviceCard({ device, index }: { device: DeviceDetail; index: number }) {
-  const img = getDeviceImage(device.slug);
-  const meta = getDeviceMarketing(device.slug);
-  const reversed = index % 2 === 1;
-  const detailHref = `/preview/treatments/${device.category}/${device.slug}`;
-
-  return (
-    <Reveal>
-      <article className="grid gap-10 lg:grid-cols-2 lg:gap-16">
-        {/* Image side — click to detail */}
-        <Link
-          href={detailHref}
-          className={`group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5 ${reversed ? "lg:order-2" : ""}`}
-        >
-          {img && (
-            <Image
-              src={img}
-              alt={device.name}
-              fill
-              className="object-cover transition duration-700 group-hover:scale-105"
-            />
-          )}
-          {meta && (
-            <div className="absolute bottom-6 left-6 rounded-full bg-cream/90 px-4 py-2 text-[10px] font-bold tracking-[0.2em] text-ink backdrop-blur">
-              {meta.englishName}
-            </div>
-          )}
-          <div className="absolute bottom-6 right-6 grid h-12 w-12 place-items-center rounded-full bg-ink text-cream opacity-0 transition group-hover:opacity-100">
-            <ArrowUpRightIcon className="h-5 w-5" />
-          </div>
-        </Link>
-
-        {/* Content side */}
-        <div className={reversed ? "lg:order-1" : ""}>
-          <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-            {device.manufacturer}
-          </p>
-          <h3 className="mt-3 font-serif text-3xl leading-tight lg:text-4xl">{device.name}</h3>
-          <p className="mt-2 text-sm italic text-ink-soft">{device.tagline}</p>
-
-          <p className="mt-6 text-sm leading-relaxed text-ink-soft lg:text-base">
-            {device.intro}
-          </p>
-
-          {device.highlightStat && (
-            <div className="mt-8 inline-flex items-baseline gap-3 border-l-2 border-brand pl-4">
-              <span className="font-serif text-4xl text-ink">{device.highlightStat.value}</span>
-              <span className="text-xs tracking-[0.15em] text-ink-soft">
-                {device.highlightStat.label}
-              </span>
-            </div>
-          )}
-
-          {/* Feature keywords */}
-          {meta && (
-            <div className="mt-8 flex flex-wrap gap-2">
-              {meta.featureKeywords.map((k) => (
-                <span
-                  key={k}
-                  className="rounded-full border border-line px-3 py-1 text-[10px] font-bold tracking-[0.15em] text-ink-soft"
-                >
-                  {k}
-                </span>
-              ))}
-            </div>
-          )}
-
-          {/* Features grid */}
-          <div className="mt-10 grid gap-6 sm:grid-cols-2">
-            {device.features.slice(0, 4).map((f) => (
-              <div key={f.title}>
-                <h4 className="font-serif text-base text-ink">{f.title}</h4>
-                <p className="mt-2 text-xs leading-relaxed text-ink-soft">{f.body}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* How + Recommended */}
-          <div className="mt-10 space-y-6 border-t border-line pt-8">
-            <div>
-              <p className="text-[10px] font-bold tracking-[0.24em] text-ink-soft">HOW IT WORKS</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-soft">{device.howItWorks}</p>
-            </div>
-            <div>
-              <p className="text-[10px] font-bold tracking-[0.24em] text-ink-soft">RECOMMENDED FOR</p>
-              <ul className="mt-3 space-y-1.5 text-sm text-ink-soft">
-                {device.recommendedFor.map((r) => (
-                  <li key={r} className="flex gap-2 before:mt-2 before:h-1 before:w-1 before:shrink-0 before:rounded-full before:bg-brand">
-                    <span>{r}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Detail link */}
-          <Link
-            href={detailHref}
-            className="group mt-10 inline-flex items-center gap-3 border-b border-ink/30 pb-2 text-sm font-semibold text-ink transition hover:border-brand-dark hover:text-brand-dark"
-          >
-            상세 페이지 보기
-            <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </Link>
-        </div>
-      </article>
-    </Reveal>
-  );
-}
-
-function SimpleItemList({
+function TreatmentList({
   label,
+  devices,
   items,
 }: {
   label: string;
-  items: { name: string; desc: string; duration?: string }[];
+  devices: DeviceDetail[];
+  items?: { name: string; desc: string; duration?: string }[];
 }) {
+  const rows: ListRow[] =
+    devices.length > 0
+      ? devices.map((d) => ({
+          name: d.name,
+          desc: d.tagline,
+          href: `/preview/treatments/${d.category}/${d.slug}`,
+          meta: getDeviceMarketing(d.slug)?.englishName ?? d.manufacturer,
+        }))
+      : (items ?? []).map((it) => ({
+          name: it.name,
+          desc: it.desc,
+          meta: it.duration ? `DURATION · ${it.duration}` : undefined,
+        }));
+
   return (
     <section className="bg-cream py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -363,25 +256,50 @@ function SimpleItemList({
         <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
           {label} 시술
         </h2>
+        {devices.length > 0 && (
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft lg:text-base">
+            항목을 클릭하시면 각 장비의 상세 페이지로 이동합니다.
+          </p>
+        )}
+
         <div className="mt-16 grid gap-4 md:grid-cols-2">
-          {items.map((item, i) => (
-            <Reveal key={item.name} delay={i * 40}>
-              <div className="group flex items-start justify-between gap-6 border-t border-line py-8 transition hover:border-brand-dark">
-                <div>
-                  <h3 className="font-serif text-2xl">{item.name}</h3>
-                  <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">{item.desc}</p>
-                  {item.duration && (
-                    <p className="mt-3 text-[11px] tracking-[0.2em] text-ink-soft/70">
-                      DURATION · {item.duration}
-                    </p>
-                  )}
-                </div>
-                <ArrowUpRightIcon className="mt-2 h-5 w-5 shrink-0 text-ink-soft transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-dark" />
-              </div>
+          {rows.map((row, i) => (
+            <Reveal key={row.name} delay={i * 40}>
+              <ListItem row={row} />
             </Reveal>
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function ListItem({ row }: { row: ListRow }) {
+  const inner = (
+    <div className="flex h-full items-start justify-between gap-6 border-t border-line py-8 transition group-hover:border-brand-dark">
+      <div className="min-w-0">
+        {row.meta && (
+          <p className="text-[10px] font-bold tracking-[0.2em] text-brand-dark">
+            {row.meta}
+          </p>
+        )}
+        <h3 className="mt-2 font-serif text-2xl transition group-hover:text-brand-dark">
+          {row.name}
+        </h3>
+        <p className="mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
+          {row.desc}
+        </p>
+      </div>
+      {row.href && (
+        <ArrowUpRightIcon className="mt-2 h-5 w-5 shrink-0 text-ink-soft transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-brand-dark" />
+      )}
+    </div>
+  );
+  return row.href ? (
+    <Link href={row.href} className="group block h-full">
+      {inner}
+    </Link>
+  ) : (
+    <div className="group h-full">{inner}</div>
   );
 }
