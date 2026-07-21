@@ -338,14 +338,14 @@ export default async function AboutPage({
               <div className="overflow-hidden rounded-3xl border border-line">
                 <iframe
                   title={tLoc("mapTitle")}
-                  src={`https://www.google.com/maps?q=${encodeURIComponent("선샤인의원 서울특별시 송파구 올림픽로 102")}&z=17&output=embed`}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent("서울특별시 송파구 올림픽로 102 서일빌딩")}&z=17&output=embed`}
                   className="block h-[420px] w-full lg:h-[620px]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 <div className="flex gap-2 border-t border-line bg-white p-3">
                   <a
-                    href="https://map.naver.com/p/search/서울특별시 송파구 올림픽로 102"
+                    href="https://map.naver.com/p/search/서울특별시%20송파구%20올림픽로%20102%20서일빌딩"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-1 items-center justify-center rounded-xl bg-sand/70 py-3 text-sm font-semibold text-ink hover:bg-blush"
@@ -353,7 +353,7 @@ export default async function AboutPage({
                     {tLoc("naverMap")}
                   </a>
                   <a
-                    href="https://map.kakao.com/?q=서울특별시 송파구 올림픽로 102"
+                    href="https://map.kakao.com/?q=서울특별시%20송파구%20올림픽로%20102%20서일빌딩"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-1 items-center justify-center rounded-xl bg-sand/70 py-3 text-sm font-semibold text-ink hover:bg-blush"
