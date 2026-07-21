@@ -2,6 +2,13 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { getSettings } from "@/lib/settings";
 import { getStats } from "@/lib/analytics";
+import {
+  CalendarIcon,
+  ChartBarIcon,
+  TicketIcon,
+  PencilIcon,
+  GearIcon,
+} from "@/components/icons";
 
 function startOfMonth() {
   const d = new Date();
@@ -58,14 +65,16 @@ export default async function AdminDashboard() {
   void settings;
 
   const now = new Date();
-  const greetHour = now.getHours();
+  // Server may run in UTC (Lightsail default) — force KST (UTC+9) for user-visible time.
+  const kstHour = (now.getUTCHours() + 9) % 24;
   const greet =
-    greetHour < 6 ? "좋은 새벽입니다"
-    : greetHour < 12 ? "좋은 아침입니다"
-    : greetHour < 18 ? "좋은 오후입니다"
+    kstHour < 6 ? "좋은 새벽입니다"
+    : kstHour < 12 ? "좋은 아침입니다"
+    : kstHour < 18 ? "좋은 오후입니다"
     : "좋은 저녁입니다";
 
   const dateFmt = new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
     year: "numeric", month: "long", day: "numeric", weekday: "long",
   }).format(now);
 
@@ -191,11 +200,36 @@ export default async function AdminDashboard() {
           <p className="text-xs font-semibold tracking-[0.18em] text-brand">QUICK ACTIONS</p>
           <h2 className="mt-1 text-lg font-bold">바로가기</h2>
           <div className="mt-5 grid gap-2">
-            <QuickLink href="/admin/reservations" label="예약 관리" desc="접수·처리·캘린더" icon="📅" />
-            <QuickLink href="/admin/analytics" label="방문 통계" desc="일·주·달 트래픽" icon="📊" />
-            <QuickLink href="/admin/events" label="이벤트" desc={`${manualLiveCount}/${manualCount} 활성`} icon="🎉" />
-            <QuickLink href="/admin/content" label="콘텐츠 편집" desc="시술·장비·챗봇" icon="✏️" />
-            <QuickLink href="/admin/settings" label="사이트 설정" desc="전화·URL·시간" icon="⚙️" />
+            <QuickLink
+              href="/admin/reservations"
+              label="예약 관리"
+              desc="접수·처리·캘린더"
+              Icon={CalendarIcon}
+            />
+            <QuickLink
+              href="/admin/analytics"
+              label="방문 통계"
+              desc="일·주·달 트래픽"
+              Icon={ChartBarIcon}
+            />
+            <QuickLink
+              href="/admin/events"
+              label="이벤트"
+              desc={`${manualLiveCount}/${manualCount} 활성`}
+              Icon={TicketIcon}
+            />
+            <QuickLink
+              href="/admin/content"
+              label="콘텐츠 편집"
+              desc="시술·장비·챗봇"
+              Icon={PencilIcon}
+            />
+            <QuickLink
+              href="/admin/settings"
+              label="사이트 설정"
+              desc="전화·URL·시간"
+              Icon={GearIcon}
+            />
           </div>
         </div>
       </section>
@@ -255,26 +289,28 @@ function QuickLink({
   href,
   label,
   desc,
-  icon,
+  Icon,
 }: {
   href: string;
   label: string;
   desc: string;
-  icon: string;
+  Icon: (p: React.SVGProps<SVGSVGElement>) => React.JSX.Element;
 }) {
   return (
     <Link
       href={href}
-      className="flex items-center gap-3 rounded-2xl border border-line bg-sand/20 px-4 py-3 transition hover:border-brand/40 hover:bg-sand/50"
+      className="group flex items-center gap-3 rounded-2xl border border-line bg-white px-4 py-3 transition hover:border-brand/40 hover:bg-sand/20"
     >
-      <span className="grid h-9 w-9 place-items-center rounded-xl bg-white text-lg">
-        {icon}
+      <span className="grid h-10 w-10 place-items-center rounded-xl bg-brand/10 text-brand-dark transition group-hover:bg-brand group-hover:text-white">
+        <Icon className="h-5 w-5" />
       </span>
       <div className="flex-1">
         <p className="text-sm font-semibold text-ink">{label}</p>
         <p className="mt-0.5 text-[11px] text-ink-soft">{desc}</p>
       </div>
-      <span className="text-ink-soft">→</span>
+      <span className="text-ink-soft transition group-hover:translate-x-0.5 group-hover:text-brand">
+        →
+      </span>
     </Link>
   );
 }
