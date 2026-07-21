@@ -814,6 +814,27 @@
         "acne": "ニキビ · 傷跡",
         "skin-disease": "皮膚疾患"
       }
+    },
+    "location": {
+      "kicker": "LOCATION",
+      "title": "アクセス",
+      "addressLabel": "住所",
+      "address": "ソウル市松坡区オリンピック路102、ソイルビル10階",
+      "hoursLabel": "診療時間",
+      "hoursLines": [
+        "平日  10:00 – 20:00",
+        "土曜日  10:00 – 16:00",
+        "日曜・祝日  休診"
+      ],
+      "phoneLabel": "電話",
+      "directionsLabel": "ご案内",
+      "directions": [
+        "地下鉄2号線・8号線 蚕室(チャムシル)駅 3番出口 徒歩5分",
+        "建物内の有料駐車場をご利用いただけます"
+      ],
+      "mapTitle": "サンシャインクリニックの地図",
+      "naverMap": "Naver地図",
+      "kakaoMap": "Kakao地図"
     }
   }
 }

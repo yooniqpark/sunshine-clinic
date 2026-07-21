@@ -814,6 +814,27 @@
         "acne": "Acne · Scars",
         "skin-disease": "Skin Conditions"
       }
+    },
+    "location": {
+      "kicker": "LOCATION",
+      "title": "How to Find Us",
+      "addressLabel": "Address",
+      "address": "Seoil Bldg. 10F, 102 Olympic-ro, Songpa-gu, Seoul",
+      "hoursLabel": "Opening Hours",
+      "hoursLines": [
+        "Weekdays  10:00 – 20:00",
+        "Saturday  10:00 – 16:00",
+        "Sun & Holidays  Closed"
+      ],
+      "phoneLabel": "Phone",
+      "directionsLabel": "Getting Here",
+      "directions": [
+        "5-min walk from Jamsil Station (Lines 2 & 8), Exit 3",
+        "Paid parking available in the building"
+      ],
+      "mapTitle": "Sunshine Clinic on the map",
+      "naverMap": "Naver Map",
+      "kakaoMap": "Kakao Map"
     }
   }
 }

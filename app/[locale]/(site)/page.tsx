@@ -105,47 +105,7 @@ export default async function PreviewHome({
         </div>
       </section>
 
-      {/* ═══════ 3. EDITORIAL QUOTE — director spotlight ═══════ */}
-      <section className="bg-cream py-24 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:px-8">
-          <Reveal>
-            <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-sand/40">
-              <Image
-                src="/team/kim.jpg"
-                alt={t("directorName")}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-top"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="text-[10px] font-bold tracking-[0.28em] text-brand">
-              {t("directorKicker")}
-            </p>
-            <blockquote className="mt-5 font-serif text-3xl font-normal leading-[1.35] tracking-tight text-ink lg:text-[2.75rem] lg:leading-[1.25]">
-              {t("directorQuoteStart")}
-              <span className="text-brand-dark">{t("directorQuoteAccent")}</span>
-              {t("directorQuoteEnd")}
-            </blockquote>
-            <div className="mt-10 flex items-center gap-4">
-              <div className="h-px flex-1 bg-line" />
-              <div>
-                <p className="text-base font-semibold">{t("directorName")}</p>
-                <p className="text-xs text-ink-soft">{t("directorRole")}</p>
-              </div>
-            </div>
-            <Link
-              href="/about#doctors"
-              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-dark hover:text-brand"
-            >
-              {t("viewDoctors")} <ArrowUpRightIcon className="h-4 w-4" />
-            </Link>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ═══════ 4. CATEGORIES — bento grid ═══════ */}
+      {/* ═══════ 3. CATEGORIES — bento grid (before director) ═══════ */}
       <section className="border-y border-line bg-sand/30 py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-14 flex items-end justify-between gap-6">
@@ -205,6 +165,46 @@ export default async function PreviewHome({
               wide
             />
           </div>
+        </div>
+      </section>
+
+      {/* ═══════ 4. EDITORIAL QUOTE — director spotlight ═══════ */}
+      <section className="bg-cream py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:px-8">
+          <Reveal>
+            <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-sand/40">
+              <Image
+                src="/team/kim.jpg"
+                alt={t("directorName")}
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-cover object-top"
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="text-[10px] font-bold tracking-[0.28em] text-brand">
+              {t("directorKicker")}
+            </p>
+            <blockquote className="mt-5 font-serif text-3xl font-normal leading-[1.35] tracking-tight text-ink lg:text-[2.75rem] lg:leading-[1.25]">
+              {t("directorQuoteStart")}
+              <span className="text-brand-dark">{t("directorQuoteAccent")}</span>
+              {t("directorQuoteEnd")}
+            </blockquote>
+            <div className="mt-10 flex items-center gap-4">
+              <div className="h-px flex-1 bg-line" />
+              <div>
+                <p className="text-base font-semibold">{t("directorName")}</p>
+                <p className="text-xs text-ink-soft">{t("directorRole")}</p>
+              </div>
+            </div>
+            <Link
+              href="/about#doctors"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-brand-dark hover:text-brand"
+            >
+              {t("viewDoctors")} <ArrowUpRightIcon className="h-4 w-4" />
+            </Link>
+          </Reveal>
         </div>
       </section>
 

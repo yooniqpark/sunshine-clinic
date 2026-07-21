@@ -24,6 +24,7 @@ export default async function AboutPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("v2.about");
+  const tLoc = await getTranslations("v2.location");
   const history = t.raw("history") as HistoryItem[];
   const spaces = t.raw("spaces") as SpaceItem[];
   const values = t.raw("values") as ValueItem[];
@@ -272,6 +273,99 @@ export default async function AboutPage({
               </a>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ══════ LOCATION ══════ */}
+      <section className="border-t border-line bg-white py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mb-14">
+            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+              {tLoc("kicker")}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
+              {tLoc("title")}
+            </h2>
+          </div>
+
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
+            <Reveal>
+              <div className="space-y-6">
+                <div className="rounded-3xl border border-line bg-cream/40 p-6">
+                  <p className="text-[10px] font-bold tracking-[0.24em] text-brand-dark">
+                    {tLoc("addressLabel")}
+                  </p>
+                  <p className="mt-3 text-base leading-relaxed text-ink">
+                    {tLoc("address")}
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-line bg-cream/40 p-6">
+                  <p className="text-[10px] font-bold tracking-[0.24em] text-brand-dark">
+                    {tLoc("hoursLabel")}
+                  </p>
+                  <ul className="mt-3 space-y-1.5 text-base text-ink-soft">
+                    {(tLoc.raw("hoursLines") as string[]).map((h) => (
+                      <li key={h}>{h}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-3xl border border-line bg-cream/40 p-6">
+                  <p className="text-[10px] font-bold tracking-[0.24em] text-brand-dark">
+                    {tLoc("phoneLabel")}
+                  </p>
+                  <a
+                    href="tel:024217588"
+                    className="mt-3 block font-serif text-2xl text-ink hover:text-brand-dark"
+                  >
+                    02-421-7588
+                  </a>
+                </div>
+                <div className="rounded-3xl border border-line bg-cream/40 p-6">
+                  <p className="text-[10px] font-bold tracking-[0.24em] text-brand-dark">
+                    {tLoc("directionsLabel")}
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm text-ink-soft">
+                    {(tLoc.raw("directions") as string[]).map((d) => (
+                      <li key={d} className="flex gap-2">
+                        <span className="text-brand-dark">·</span>
+                        <span>{d}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="overflow-hidden rounded-3xl border border-line">
+                <iframe
+                  title={tLoc("mapTitle")}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent("선샤인의원 서울특별시 송파구 올림픽로 102")}&z=17&output=embed`}
+                  className="block h-[420px] w-full lg:h-[620px]"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <div className="flex gap-2 border-t border-line bg-white p-3">
+                  <a
+                    href="https://map.naver.com/p/search/서울특별시 송파구 올림픽로 102"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-1 items-center justify-center rounded-xl bg-sand/70 py-3 text-sm font-semibold text-ink hover:bg-blush"
+                  >
+                    {tLoc("naverMap")}
+                  </a>
+                  <a
+                    href="https://map.kakao.com/?q=서울특별시 송파구 올림픽로 102"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-1 items-center justify-center rounded-xl bg-sand/70 py-3 text-sm font-semibold text-ink hover:bg-blush"
+                  >
+                    {tLoc("kakaoMap")}
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
     </>

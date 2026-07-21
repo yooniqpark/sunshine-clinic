@@ -814,6 +814,27 @@
         "acne": "痤疮 · 疤痕",
         "skin-disease": "皮肤疾病"
       }
+    },
+    "location": {
+      "kicker": "LOCATION",
+      "title": "来院路线",
+      "addressLabel": "地址",
+      "address": "首尔特别市松坡区奥林匹克路102号 瑞日大厦10层",
+      "hoursLabel": "诊疗时间",
+      "hoursLines": [
+        "平日  10:00 – 20:00",
+        "周六  10:00 – 16:00",
+        "周日及节假日  休诊"
+      ],
+      "phoneLabel": "电话",
+      "directionsLabel": "交通指南",
+      "directions": [
+        "地铁2号线·8号线 蚕室站 3号出口 步行5分钟",
+        "大厦内设有付费停车场"
+      ],
+      "mapTitle": "阳光皮肤科诊所位置",
+      "naverMap": "Naver地图",
+      "kakaoMap": "Kakao地图"
     }
   }
 }

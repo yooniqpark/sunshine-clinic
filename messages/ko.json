@@ -814,6 +814,27 @@
         "acne": "여드름 · 흉터",
         "skin-disease": "피부질환"
       }
+    },
+    "location": {
+      "kicker": "LOCATION",
+      "title": "오시는 길",
+      "addressLabel": "주소",
+      "address": "서울특별시 송파구 올림픽로 102, 서일빌딩 10층",
+      "hoursLabel": "진료 시간",
+      "hoursLines": [
+        "평일  10:00 – 20:00",
+        "토요일  10:00 – 16:00",
+        "일·공휴일  휴진"
+      ],
+      "phoneLabel": "전화",
+      "directionsLabel": "오시는 방법",
+      "directions": [
+        "지하철 2호선·8호선 잠실역 3번 출구 도보 5분",
+        "건물 지하 유료 주차장 이용 가능"
+      ],
+      "mapTitle": "선샤인의원 위치",
+      "naverMap": "네이버 지도",
+      "kakaoMap": "카카오맵"
     }
   }
 }
