@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -17,22 +17,14 @@ export function PreviewHeader() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const t = useTranslations("v2.header");
   const tBrand = useTranslations("brand");
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  // 드로어 열리면 solid 스타일 강제
-  const solid = scrolled || open || hovered !== null;
-  const nameColor = solid ? "text-ink" : "text-cream";
-  const subColor = solid ? "text-ink-soft/80" : "text-cream/70";
-  const linkColor = solid ? "text-ink" : "text-cream";
+  // 드로어 열리거나 메가 hover 시에만 solid, 그 외는 항상 투명 오버레이
+  const solid = open || hovered !== null;
+  const nameColor = solid ? "text-ink" : "text-cream drop-shadow-md";
+  const subColor = solid ? "text-ink-soft/80" : "text-cream/85 drop-shadow";
+  const linkColor = solid ? "text-ink" : "text-cream drop-shadow-md";
 
   const NAV: NavItem[] = [
     { key: "about", label: t("nav.about"), href: "/about" },
@@ -114,7 +106,7 @@ export function PreviewHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         solid
           ? "border-b border-line/60 bg-cream/90 backdrop-blur-lg"
           : "border-b border-transparent bg-transparent"
