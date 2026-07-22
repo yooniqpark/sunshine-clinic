@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -17,8 +17,22 @@ export function PreviewHeader() {
   const [open, setOpen] = useState(false);
   const [hovered, setHovered] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
+  const [scrolled, setScrolled] = useState(false);
   const t = useTranslations("v2.header");
   const tBrand = useTranslations("brand");
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // 드로어 열리면 solid 스타일 강제
+  const solid = scrolled || open || hovered !== null;
+  const nameColor = solid ? "text-ink" : "text-cream";
+  const subColor = solid ? "text-ink-soft/80" : "text-cream/70";
+  const linkColor = solid ? "text-ink" : "text-cream";
 
   const NAV: NavItem[] = [
     { key: "about", label: t("nav.about"), href: "/about" },
@@ -99,7 +113,13 @@ export function PreviewHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/60 bg-cream/85 backdrop-blur-lg">
+    <header
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        solid
+          ? "border-b border-line/60 bg-cream/90 backdrop-blur-lg"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
           href="/"
@@ -111,13 +131,19 @@ export function PreviewHeader() {
             alt=""
             width={40}
             height={40}
-            className="h-9 w-9 -translate-y-[3px] object-contain lg:h-10 lg:w-10"
+            className={`h-9 w-9 -translate-y-[3px] object-contain transition lg:h-10 lg:w-10 ${
+              solid ? "" : "brightness-0 invert"
+            }`}
           />
           <div className="flex flex-col leading-none">
-            <span className="font-serif text-[15px] font-normal tracking-tight text-ink lg:text-base">
+            <span
+              className={`font-serif text-[15px] font-normal tracking-tight transition lg:text-base ${nameColor}`}
+            >
               {tBrand("name")}
             </span>
-            <span className="mt-1 text-[9px] font-medium uppercase tracking-[0.24em] text-ink-soft/80">
+            <span
+              className={`mt-1 text-[9px] font-medium uppercase tracking-[0.24em] transition ${subColor}`}
+            >
               {tBrand("label")}
             </span>
           </div>
@@ -134,7 +160,7 @@ export function PreviewHeader() {
             >
               <Link
                 href={item.href}
-                className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-ink transition hover:text-brand-dark"
+                className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition hover:text-brand-dark ${linkColor}`}
               >
                 {item.label}
                 {item.children && <ChevronDownIcon className="h-3 w-3" />}
@@ -158,7 +184,9 @@ export function PreviewHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-line"
+            className={`grid h-11 w-11 place-items-center rounded-full border transition ${
+              solid ? "border-line text-ink" : "border-cream/40 text-cream"
+            }`}
             aria-label={open ? t("menuClose") : t("menuOpen")}
           >
             {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
