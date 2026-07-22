@@ -20,8 +20,8 @@ export function PreviewHeader() {
   const t = useTranslations("v2.header");
   const tBrand = useTranslations("brand");
 
-  // 드로어 열리거나 메가 hover 시에만 solid, 그 외는 항상 투명 오버레이
-  const solid = open || hovered !== null;
+  // 항상 투명 오버레이 유지. 모바일 드로어 열렸을 때만 solid.
+  const solid = open;
   const nameColor = solid ? "text-ink" : "text-cream drop-shadow-md";
   const subColor = solid ? "text-ink-soft/80" : "text-cream/85 drop-shadow";
   const linkColor = solid ? "text-ink" : "text-cream drop-shadow-md";
