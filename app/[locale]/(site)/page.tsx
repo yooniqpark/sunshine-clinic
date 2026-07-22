@@ -57,7 +57,7 @@ export default async function PreviewHome({
                 <br />
                 {t("heroDescLine2")}
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-6">
+              <div className="mt-10 hidden flex-wrap items-center gap-6 lg:flex">
                 <Link
                   href="#book"
                   className="group inline-flex items-center gap-3 text-sm font-semibold text-cream"
