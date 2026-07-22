@@ -350,7 +350,7 @@ function BentoCard({
     <Reveal className={`${span} h-full`}>
       <Link
         href={`/treatments/${slug}`}
-        className="group relative flex h-full min-h-[240px] flex-col overflow-hidden rounded-3xl bg-ink"
+        className="group relative flex aspect-[4/5] h-full flex-col overflow-hidden rounded-3xl bg-ink sm:aspect-[16/10] lg:aspect-auto lg:min-h-[240px]"
       >
         {img ? (
           <>
@@ -359,7 +359,7 @@ function BentoCard({
               alt={title}
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-top opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100"
+              className="object-cover object-[center_15%] opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
           </>

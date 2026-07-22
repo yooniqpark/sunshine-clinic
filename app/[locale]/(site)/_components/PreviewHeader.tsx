@@ -227,10 +227,10 @@ export function PreviewHeader() {
       {open && (
         <>
           <div
-            className="fixed inset-0 top-24 z-30 bg-ink/50 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 top-16 z-30 bg-ink/50 backdrop-blur-sm lg:hidden"
             onClick={() => setOpen(false)}
           />
-          <div className="fixed inset-x-0 top-24 z-40 max-h-[calc(100vh-6rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 lg:hidden">
+          <div className="fixed inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 lg:hidden">
             <nav className="mx-auto max-w-7xl px-5 py-3">
               {NAV.map((item) => {
                 const isExpanded = mobileOpen === item.key;

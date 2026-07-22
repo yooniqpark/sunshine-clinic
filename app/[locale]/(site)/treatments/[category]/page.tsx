@@ -87,7 +87,7 @@ export default async function TreatmentPage({
       </section>
 
       {/* CATEGORY TABS */}
-      <div className="sticky top-24 z-40 border-b border-line bg-cream/90 backdrop-blur lg:top-28">
+      <div className="sticky top-16 z-40 border-b border-line bg-cream/90 backdrop-blur lg:top-20">
         <div className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-5 py-3 lg:px-8">
           {CATEGORY_SLUGS.map((slug) => (
             <CategoryTab
