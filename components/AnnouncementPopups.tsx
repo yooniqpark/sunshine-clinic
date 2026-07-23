@@ -65,7 +65,7 @@ export function AnnouncementPopups() {
   }
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-end justify-center px-3 py-4 sm:items-center sm:p-8">
+    <div className="fixed inset-0 z-[95] flex items-center justify-center px-3 py-4 sm:p-8">
       {/* backdrop click closes */}
       <button
         type="button"

@@ -7,6 +7,7 @@ import { PreviewHeader } from "./(site)/_components/PreviewHeader";
 import { PreviewFooter } from "./(site)/_components/PreviewFooter";
 import { ChatWidget } from "@/components/ChatWidget";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { Analytics } from "@/components/Analytics";
 
 export const metadata: Metadata = {
   title: "Sunshine Dermatology Clinic",
@@ -37,6 +38,7 @@ export default async function PreviewLayout({
 
         <ChatWidget />
         <ScrollToTop />
+        <Analytics />
       </div>
     </NextIntlClientProvider>
   );
