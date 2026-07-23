@@ -33,9 +33,9 @@ export default async function PreviewHome({
         className="relative overflow-hidden text-ink"
         style={{ backgroundColor: "#F5F0EA" }}
       >
-        {/* 우측 누드 헤이즈 - 아주 연하게 (엔트리 톤 잔향) */}
+        {/* 히어로 전체 누드 헤이즈 - 아주 연하게 */}
         <div
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] opacity-[0.09] lg:block"
+          className="pointer-events-none absolute inset-0 opacity-[0.18]"
           style={{
             backgroundImage: "url('/splash.jpg')",
             backgroundSize: "cover",
