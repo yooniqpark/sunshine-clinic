@@ -488,12 +488,97 @@
       ]
     },
     "prices": {
-      "kicker": "COMMUNITY",
-      "title": "Price List",
-      "desc": "Non-covered service items and fees are disclosed in accordance with regulations.",
-      "placeholder": "Detailed pricing is being prepared. Exact quotes are provided at your in-person consultation.",
-      "footnote1": "Actual costs may vary depending on skin condition, treatment combinations, and number of sessions.",
-      "footnote2": "Please contact us by phone or KakaoTalk for detailed information."
+      "kicker": "PRICE",
+      "title": "Certification Fees & Non-Covered Service Prices",
+      "desc": "In accordance with Article 45 of the Medical Service Act, we disclose the non-covered service items and certification fees charged at our clinic.",
+      "colItem": "Item",
+      "colBasis": "Basis",
+      "colAmount": "Fee",
+      "free": "Free",
+      "sections": [
+        {
+          "heading": "Non-Covered Care",
+          "rows": [
+            {
+              "label": "Non-covered consultation",
+              "basis": "per visit",
+              "amount": "KRW 20,000"
+            },
+            {
+              "label": "Non-covered prescription",
+              "basis": "14 days",
+              "amount": "KRW 20,000"
+            },
+            {
+              "label": "",
+              "basis": "30 days",
+              "amount": "KRW 30,000"
+            },
+            {
+              "label": "",
+              "basis": "60 days",
+              "amount": "KRW 40,000"
+            }
+          ]
+        },
+        {
+          "heading": "Certification Fees",
+          "rows": [
+            {
+              "label": "Medical certificate",
+              "basis": "per copy",
+              "amount": "KRW 20,000"
+            },
+            {
+              "label": "Medical opinion",
+              "basis": "per copy",
+              "amount": "KRW 20,000"
+            },
+            {
+              "label": "Itemized statement",
+              "basis": "per copy",
+              "amount": "Free"
+            },
+            {
+              "label": "Receipt of fees",
+              "basis": "per copy",
+              "amount": "Free"
+            },
+            {
+              "label": "Referral letter",
+              "basis": "per copy",
+              "amount": "Free"
+            },
+            {
+              "label": "Photo print",
+              "basis": "per sheet",
+              "amount": "Free"
+            }
+          ]
+        },
+        {
+          "heading": "Procedures",
+          "rows": [
+            {
+              "label": "Anti-inflammatory injection",
+              "basis": "per site",
+              "amount": "KRW 20,000"
+            },
+            {
+              "label": "CO₂ laser",
+              "basis": "per size/unit",
+              "amount": "KRW 20,000"
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Please notify the desk in advance if you require an itemized statement or receipt of fees.",
+        "Medical opinions and certificates can only be issued in person on the same day.",
+        "Documents cannot be sent by mobile or fax.",
+        "Non-covered prescriptions are non-refundable."
+      ],
+      "footer": "Non-covered service fees are posted in accordance with the Medical Service Act Article 45 and the Ministry of Health and Welfare notice, and any changes will be announced in advance. For details, please contact the front desk or call us."
     },
     "treatments": {
       "crumbHome": "HOME",
