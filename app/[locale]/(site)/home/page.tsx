@@ -3,7 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
-import { ArrowUpRightIcon, ArrowIcon } from "@/components/icons";
+import { ArrowUpRightIcon } from "@/components/icons";
 
 export default async function PreviewHome({
   params,
@@ -50,21 +50,6 @@ export default async function PreviewHome({
                 <br />
                 {t("heroDescLine2")}
               </p>
-              <div className="mt-12 flex flex-wrap items-center gap-6">
-                <Link
-                  href="#book"
-                  className="group inline-flex items-center gap-3 rounded-full bg-brand-dark px-8 py-4 text-sm font-semibold text-cream transition hover:bg-ink"
-                >
-                  {t("ctaBook")}
-                  <ArrowIcon className="h-4 w-4 transition group-hover:translate-x-0.5" />
-                </Link>
-                <Link
-                  href="/treatments/lifting"
-                  className="text-xs font-semibold tracking-[0.2em] text-ink-soft underline underline-offset-8 transition hover:text-brand-dark"
-                >
-                  {t("ctaTreatments")}
-                </Link>
-              </div>
             </div>
           </Reveal>
         </div>
