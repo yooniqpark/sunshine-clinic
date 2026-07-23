@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { CloseIcon } from "@/components/icons";
+import { Link } from "@/i18n/navigation";
 
 type Popup = {
   id: string;
@@ -93,25 +94,44 @@ export function AnnouncementPopups() {
 function EventCard() {
   const t = useTranslations("v2.popups.event");
   return (
-    <div className="px-10 pt-16 pb-14 text-center sm:px-14 sm:pt-20 sm:pb-16">
+    <div className="relative overflow-hidden px-10 pt-14 pb-12 text-center sm:px-14 sm:pt-16 sm:pb-14">
+      {/* Corner ornaments */}
+      <div className="pointer-events-none absolute left-6 top-6 h-6 w-6 border-l border-t border-ink/25" />
+      <div className="pointer-events-none absolute right-6 top-6 h-6 w-6 border-r border-t border-ink/25" />
+      <div className="pointer-events-none absolute bottom-6 left-6 h-6 w-6 border-b border-l border-ink/25" />
+      <div className="pointer-events-none absolute bottom-6 right-6 h-6 w-6 border-b border-r border-ink/25" />
+
       <p className="text-[10px] font-medium tracking-[0.3em] text-ink-soft">
         {t("kicker")}
       </p>
-      <p className="mt-6 text-sm font-semibold tracking-[0.15em] text-ink">
+      <p className="mt-6 text-sm font-semibold tracking-[0.2em] text-ink">
         {t("brand")}
       </p>
-      <div className="mx-auto mt-1 h-px w-16 bg-ink/20" />
-      <h2 className="mt-6 font-serif text-5xl font-normal leading-none tracking-tight text-ink">
+      <div className="mx-auto mt-2 flex items-center justify-center gap-2">
+        <span className="h-px w-8 bg-ink/25" />
+        <span className="text-[10px] tracking-[0.35em] text-ink-soft">2026</span>
+        <span className="h-px w-8 bg-ink/25" />
+      </div>
+
+      <h2 className="mt-8 font-serif text-5xl font-normal leading-[0.95] tracking-tight text-ink sm:text-6xl">
         GRAND
         <br />
         OPEN
       </h2>
-      <p className="mt-6 text-sm tracking-[0.3em] text-ink-soft">
+      <p className="mt-6 text-sm tracking-[0.32em] text-ink-soft">
         {t("date")}
       </p>
-      <p className="mx-auto mt-8 max-w-[240px] text-xs leading-relaxed text-ink-soft">
+      <p className="mx-auto mt-8 max-w-[280px] text-xs leading-relaxed text-ink-soft sm:text-sm">
         {t("body")}
       </p>
+
+      <Link
+        href="/community/events#grand-open-2026-07"
+        className="group mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold tracking-[0.15em] text-cream transition hover:bg-brand-dark"
+      >
+        {t("ctaSeeMore")}
+        <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+      </Link>
     </div>
   );
 }

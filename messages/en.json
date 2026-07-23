@@ -452,7 +452,9 @@
       "ctaDesc": "After a 1:1 consultation we'll recommend the treatment plan best suited to you. In-person consultations are complimentary.",
       "ctaPhone": "Call +82-2-421-7588",
       "ctaNaver": "Book via Naver",
-      "address": "10F Seoil Building, 102 Olympic-ro, Songpa-gu, Seoul · Weekdays 10:00–20:00 · Saturday 10:00–16:00"
+      "address": "10F Seoil Building, 102 Olympic-ro, Songpa-gu, Seoul · Weekdays 10:00–20:00 · Saturday 10:00–16:00",
+      "grandOpenBadge": "GRAND OPEN",
+      "grandOpenDate": "2026.07"
     },
     "about": {
       "heroKicker": "ABOUT SUNSHINE",
@@ -593,28 +595,28 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "Events",
-      "periodLabel": "Period",
-      "cta": "Book a Consultation",
       "items": [
         {
           "tag": "OPEN",
-          "title": "Grand-Opening Consultation Event",
-          "period": "2026.07.15 – 2026.08.31",
-          "body": "To mark our opening, we offer a complimentary skin diagnostic service with every in-person consultation."
+          "slug": "grand-open-2026-07",
+          "title": "Sunshine Clinic GRAND OPEN",
+          "period": "2026.07.15 ~ 2026.08.31",
+          "body": "Sunshine Clinic has officially opened on the 10th floor of Seoil Bldg. in Jamsil, Songpa-gu. To celebrate, we offer a complimentary skin diagnosis at in-person consultations and special opening rates on five signature procedures.",
+          "highlights": [
+            "Complimentary skin diagnosis",
+            "Opening prices on Lifting · Skin Booster · Pigmentation · Acne",
+            "Priority booking via KakaoTalk channel"
+          ]
         },
         {
-          "tag": "EVENT",
-          "title": "Summer Tone-Care Promotion",
-          "period": "2026.07.20 – 2026.08.31",
-          "body": "A special-rate tone-up program for summer pigment and redness care."
-        },
-        {
-          "tag": "INFO",
+          "tag": "Note",
           "title": "Home-Care Recovery Guide",
           "period": "Ongoing",
-          "body": "In-clinic guidance on home-care products that support post-treatment recovery."
+          "body": "We introduce home-care products and routines that support recovery after treatments.",
+          "highlights": []
         }
-      ]
+      ],
+      "ctaBook": "Book a consultation"
     },
     "prices": {
       "kicker": "PRICE",
@@ -997,7 +999,8 @@
         "kicker": "A sunlit change on your skin",
         "brand": "Sunshine Clinic",
         "date": "2026.07",
-        "body": "Honest care and the moment your skin shines brightest — together."
+        "body": "Honest care and the moment your skin shines brightest — together.",
+        "ctaSeeMore": "See Opening Event"
       },
       "holiday": {
         "brand": "SUNSHINE CLINIC",
