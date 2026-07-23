@@ -28,65 +28,11 @@ export function PreviewHeader() {
 
   const NAV: NavItem[] = [
     { key: "about", label: t("nav.about"), href: "/about" },
-    {
-      key: "treatments",
-      label: t("nav.treatments"),
-      href: "/treatments/lifting",
-      children: [
-        {
-          title: t("cols.lifting"),
-          href: "/treatments/lifting",
-          items: [
-            { label: t("items.ultheraPrime"), sub: "ULTHERA PRIME", href: "/treatments/lifting/ulthera-prime" },
-            { label: t("items.thermageFlx"), sub: "THERMAGE FLX", href: "/treatments/lifting/thermage-flx" },
-            { label: t("items.shurinkUniverse"), sub: "SHRINK UNIVERSE", href: "/treatments/lifting/shurink-universe" },
-            { label: t("items.inmode"), sub: "INMODE", href: "/treatments/lifting/inmode" },
-            { label: t("items.ellanse"), sub: "ELLANSÉ", href: "/treatments/lifting/ellanse" },
-          ],
-        },
-        {
-          title: t("cols.antiAging"),
-          href: "/treatments/anti-aging",
-          items: [
-            { label: t("items.botox"), href: "/treatments/anti-aging" },
-            { label: t("items.filler"), href: "/treatments/anti-aging" },
-            { label: t("items.skinBotox"), href: "/treatments/anti-aging" },
-            { label: t("items.jubellook"), href: "/treatments/anti-aging" },
-            { label: t("items.rejuran"), href: "/treatments/anti-aging" },
-          ],
-        },
-        {
-          title: t("cols.whitening"),
-          href: "/treatments/whitening",
-          items: [
-            { label: t("items.clarityII"), sub: "CLARITY II", href: "/treatments/whitening/clarity-ii" },
-            { label: t("items.starwalker"), sub: "STARWALKER", href: "/treatments/whitening/fotona-starwalker" },
-            { label: t("items.vbeam"), sub: "VBEAM", href: "/treatments/whitening/vbeam" },
-            { label: t("items.secretRf"), sub: "SECRET RF", href: "/treatments/whitening/secret-rf" },
-          ],
-        },
-        {
-          title: t("cols.acne"),
-          href: "/treatments/acne",
-          items: [
-            { label: t("items.carpriCo2"), sub: "CARPRI CO2", href: "/treatments/acne/carpri-co2" },
-            { label: t("items.goldPtt"), sub: "GOLD PTT", href: "/treatments/acne/gold-ptt" },
-            { label: t("items.curejet"), sub: "CUREJET", href: "/treatments/acne/curajet" },
-          ],
-        },
-        {
-          title: t("cols.skinDisease"),
-          href: "/treatments/skin-disease",
-          items: [
-            { label: t("items.atopic"), href: "/treatments/skin-disease" },
-            { label: t("items.psoriasis"), href: "/treatments/skin-disease" },
-            { label: t("items.hairLoss"), href: "/treatments/skin-disease" },
-            { label: t("items.wart"), href: "/treatments/skin-disease" },
-            { label: t("items.athlete"), href: "/treatments/skin-disease" },
-          ],
-        },
-      ],
-    },
+    { key: "lifting", label: t("cols.lifting"), href: "/treatments/lifting" },
+    { key: "antiAging", label: t("cols.antiAging"), href: "/treatments/anti-aging" },
+    { key: "whitening", label: t("cols.whitening"), href: "/treatments/whitening" },
+    { key: "acne", label: t("cols.acne"), href: "/treatments/acne" },
+    { key: "skinDisease", label: t("cols.skinDisease"), href: "/treatments/skin-disease" },
     {
       key: "community",
       label: t("nav.community"),
