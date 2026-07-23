@@ -173,15 +173,31 @@ body {
 @keyframes msg-in {
   from {
     opacity: 0;
+    transform: translateY(10px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.animate-msg-in {
+  animation: msg-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes bubble-grow {
+  from {
+    opacity: 0;
+    max-width: 0;
     transform: translateY(8px);
   }
   to {
     opacity: 1;
+    max-width: 85%;
     transform: translateY(0);
   }
 }
-.animate-msg-in {
-  animation: msg-in 0.35s ease-out both;
+.animate-bubble-grow {
+  animation: bubble-grow 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  overflow: hidden;
 }
 @media (prefers-reduced-motion: reduce) {
   .animate-floaty {

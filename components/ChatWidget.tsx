@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { clinic as clinicFallback } from "@/lib/data";
 import {
   CalendarIcon,
   ChevronDownIcon,
+  CloseIcon,
   KakaoIcon,
   NaverIcon,
   PhoneIcon,
+  SendIcon,
 } from "./icons";
 import { LocalizedDatePicker } from "./LocalizedDatePicker";
 
@@ -44,8 +46,56 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const locale = useLocale();
 
   const [view, setView] = useState<View>("actions");
-  // Desktop speed-dial open by default — user can collapse via orb click.
   const [desktopOpen, setDesktopOpen] = useState(true);
+  const [chatOpen, setChatOpen] = useState(false);
+  const [chatMinimized, setChatMinimized] = useState(false);
+
+  // AI chat state (desktop)
+  type Msg = { role: "bot" | "user"; text: string };
+  const [messages, setMessages] = useState<Msg[]>([]);
+  const [input, setInput] = useState("");
+  const [loading, setLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: "smooth",
+    });
+  }, [messages, chatOpen, loading]);
+
+  useEffect(() => {
+    setMessages([]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
+
+  async function ask(question: string) {
+    const text = question.trim();
+    if (!text || loading) return;
+    setMessages((m) => [...m, { role: "user", text }]);
+    setInput("");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, locale }),
+      });
+      const data = await res.json();
+      const reply: string =
+        (typeof data?.answer === "string" && data.answer) ||
+        (typeof data?.error === "string" && data.error) ||
+        t("fallback");
+      setMessages((m) => [...m, { role: "bot", text: reply }]);
+    } catch {
+      setMessages((m) => [...m, { role: "bot", text: t("fallback") }]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  const faqRaw = t.raw("faq");
+  const faqList: string[] = Array.isArray(faqRaw) ? (faqRaw as string[]) : [];
 
   // Open booking form when URL hash is #booking or #book (from external CTA links)
   useEffect(() => {
@@ -386,12 +436,12 @@ export function ChatWidget(props: ClinicLinks = {}) {
 
   return (
     <>
-      {/* ════════════ DESKTOP — orb + speed-dial ════════════ */}
+      {/* ════════════ DESKTOP — orb + speed-dial (default) ════════════ */}
       <div className="pointer-events-none fixed bottom-7 right-6 z-50 hidden flex-col items-end gap-2 lg:flex">
-        {/* Action chips (visible by default; collapses via orb click) */}
+        {/* Action chips (visible by default; hidden when chat is activated) */}
         <div
           className={`flex flex-col items-end gap-2 transition-all duration-300 ${
-            desktopOpen
+            desktopOpen && !chatOpen
               ? "pointer-events-auto translate-y-0 opacity-100"
               : "pointer-events-none translate-y-2 opacity-0"
           }`}
@@ -405,12 +455,16 @@ export function ChatWidget(props: ClinicLinks = {}) {
           ))}
         </div>
 
-        {/* Orb toggle */}
+        {/* Orb toggle — activates chat mode */}
         <button
           type="button"
-          aria-label={desktopOpen ? "메뉴 닫기" : "메뉴 열기"}
-          aria-expanded={desktopOpen}
-          onClick={() => setDesktopOpen((v) => !v)}
+          aria-label={chatOpen ? t("closeLabel") : t("openLabel")}
+          aria-expanded={chatOpen}
+          onClick={() => {
+            setChatOpen((v) => !v);
+            setDesktopOpen(true);
+            setChatMinimized(false);
+          }}
           className="pointer-events-auto relative h-16 w-16 rounded-full transition-transform hover:scale-105 active:scale-95"
           style={{
             boxShadow:
@@ -419,7 +473,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
         >
           <span
             className={`pointer-events-none absolute inset-0 rounded-full ${
-              desktopOpen ? "" : "animate-orb-spin"
+              chatOpen ? "" : "animate-orb-spin"
             }`}
             style={{
               background:
@@ -437,7 +491,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
             }}
           >
             <span
-              className="absolute right-[10%] top-[18%] h-10 w-10 animate-wisp-1 rounded-full lg:h-14 lg:w-14"
+              className="absolute right-[10%] top-[18%] h-10 w-10 animate-wisp-1 rounded-full"
               style={{
                 background:
                   "radial-gradient(circle, #9a6e54 0%, rgba(154,110,84,0) 65%)",
@@ -445,7 +499,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
               }}
             />
             <span
-              className="absolute bottom-[12%] right-[20%] h-9 w-9 animate-wisp-2 rounded-full lg:h-12 lg:w-12"
+              className="absolute bottom-[12%] right-[20%] h-9 w-9 animate-wisp-2 rounded-full"
               style={{
                 background:
                   "radial-gradient(circle, #c49074 0%, rgba(196,144,116,0) 65%)",
@@ -453,10 +507,10 @@ export function ChatWidget(props: ClinicLinks = {}) {
               }}
             />
             <span
-              className="absolute bottom-[20%] left-[12%] h-9 w-9 animate-wisp-3 rounded-full lg:h-12 lg:w-12"
+              className="absolute bottom-[20%] left-[12%] h-9 w-9 animate-wisp-3 rounded-full"
               style={{
                 background:
-                  "radial-gradient(circle, #e8cdaf 0%, rgba(236,176,136,0) 70%)",
+                  "radial-gradient(circle, #e8cdaf 0%, rgba(232,205,175,0) 70%)",
                 filter: "blur(7px)",
               }}
             />
@@ -464,6 +518,216 @@ export function ChatWidget(props: ClinicLinks = {}) {
           </span>
         </button>
       </div>
+
+      {/* ════════════ DESKTOP — Chat mode (glass container, expands on chat) ════════════ */}
+      {chatOpen && (() => {
+        const hasChat = (messages.length > 0 || loading) && !chatMinimized;
+        return (
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] hidden justify-center lg:flex">
+          <div className="chat-in pointer-events-auto relative mb-6">
+            {/* Soft warm halo (같은 모바일 톤) */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -inset-10 -bottom-6 -top-2"
+              style={{
+                background:
+                  "radial-gradient(ellipse 80% 60% at 50% 60%, rgba(255,240,220,0.6) 0%, rgba(245,210,180,0.4) 25%, rgba(255,250,245,0.2) 55%, transparent 80%)",
+                filter: "blur(28px)",
+              }}
+            />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -left-8 bottom-8 h-32 w-32 rounded-full opacity-55 blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(232,180,138,0.95) 0%, rgba(255,235,210,0.5) 50%, transparent 80%)",
+              }}
+            />
+            <span
+              aria-hidden
+              className="pointer-events-none absolute -right-8 bottom-8 h-32 w-32 rounded-full opacity-45 blur-3xl"
+              style={{
+                background:
+                  "radial-gradient(circle, rgba(168,192,224,0.85) 0%, rgba(230,240,250,0.45) 50%, transparent 80%)",
+              }}
+            />
+
+            <div
+              className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                hasChat
+                  ? "max-w-[560px] delay-0"
+                  : "max-w-[420px] delay-[500ms]"
+              }`}
+              style={{
+                boxShadow: [
+                  "-12px -12px 28px rgba(255,255,255,0.4)",
+                  "-7px -7px 16px rgba(255,240,225,0.28)",
+                  "12px 12px 30px rgba(196,144,116,0.2)",
+                  "7px 7px 16px rgba(232,205,175,0.22)",
+                  "0 6px 18px rgba(120,80,50,0.08)",
+                  "inset 0 1px 0 rgba(255,255,255,0.55)",
+                  "inset 0 -1px 0 rgba(150,110,80,0.05)",
+                ].join(", "),
+              }}
+            >
+              {/* Expandable messages section — height starts mid-width-transition for smooth handoff */}
+              <div
+                className={`overflow-hidden transition-[max-height,opacity] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  hasChat
+                    ? "max-h-[60vh] opacity-100 duration-[1100ms] delay-[300ms]"
+                    : "max-h-0 opacity-0 duration-[500ms] delay-0"
+                }`}
+              >
+                <div className="flex items-center justify-between border-b border-white/25 px-2.5 py-1">
+                  <button
+                    type="button"
+                    onClick={() => setChatMinimized(true)}
+                    aria-label={t("closeLabel")}
+                    title={t("closeLabel")}
+                    className="grid h-6 w-6 place-items-center rounded-full text-ink-soft/70 transition hover:bg-white/30 hover:text-ink"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M3 6h6"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMessages([]);
+                      setInput("");
+                      setChatMinimized(false);
+                    }}
+                    aria-label={t("clearLabel")}
+                    title={t("clearLabel")}
+                    className="grid h-6 w-6 place-items-center rounded-full text-ink-soft/70 transition hover:bg-white/30 hover:text-ink"
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path
+                        d="M3 3l6 6M9 3l-6 6"
+                        stroke="currentColor"
+                        strokeWidth="1.6"
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <div
+                  ref={scrollRef}
+                  className="max-h-[55vh] space-y-2 overflow-y-auto px-3.5 pb-2 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                >
+                  {messages.map((m, i) => (
+                    <div
+                      key={i}
+                      className={`flex animate-msg-in ${
+                        m.role === "user" ? "justify-end" : "justify-start"
+                      }`}
+                    >
+                      <div
+                        className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+                          m.role === "user"
+                            ? "rounded-br-md bg-brand/90 text-white shadow-sm shadow-brand/10"
+                            : "rounded-bl-md bg-white/70 text-ink shadow-sm shadow-ink/5"
+                        }`}
+                      >
+                        {m.text}
+                      </div>
+                    </div>
+                  ))}
+                  {loading && (
+                    <div className="flex animate-msg-in justify-start">
+                      <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white/70 px-4 py-3 shadow-sm shadow-ink/5">
+                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60 [animation-delay:-0.3s]" />
+                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60 [animation-delay:-0.15s]" />
+                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60" />
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Input box */}
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  ask(input);
+                }}
+                className="flex items-center gap-2 border-t border-white/40 px-4 py-3"
+              >
+                <div className="flex flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
+                  <input
+                    autoFocus
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onFocus={() => setChatMinimized(false)}
+                    placeholder={
+                      loading ? t("inputPlaceholderLoading") : t("inputPlaceholder")
+                    }
+                    disabled={loading}
+                    className="flex-1 bg-transparent px-1 py-1.5 text-sm outline-none placeholder:text-ink-soft/60 disabled:opacity-60"
+                  />
+                  <button
+                    type="submit"
+                    aria-label={t("send")}
+                    className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand text-white transition hover:bg-brand-dark disabled:opacity-40"
+                    disabled={loading || !input.trim()}
+                  >
+                    <SendIcon className="h-4 w-4" />
+                  </button>
+                </div>
+              </form>
+
+              {/* Booking action row (Naver / Kakao / Phone) — 최하단 */}
+              <div className="border-t border-white/40 px-4 py-2.5">
+                <div className="grid grid-cols-4 gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setView("booking");
+                      setBError(null);
+                    }}
+                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-2 text-[11px] font-semibold leading-none text-white transition hover:bg-brand-dark"
+                  >
+                    <CalendarIcon className="h-3.5 w-3.5" />
+                    {t("ctaBookingShort")}
+                  </button>
+                  <a
+                    href={clinic.naverBookingHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                  >
+                    <NaverIcon className="h-3 w-3" />
+                    {t("ctaNaverShort")}
+                  </a>
+                  <a
+                    href={clinic.kakaoHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                  >
+                    <KakaoIcon className="h-3.5 w-3.5" />
+                    {t("ctaKakaoShort")}
+                  </a>
+                  <a
+                    href={clinic.phoneHref}
+                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                  >
+                    <PhoneIcon className="h-3.5 w-3.5" />
+                    {t("ctaPhoneShort")}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        );
+      })()}
 
       {/* ════════════ MOBILE — bottom glass bar with 4 chips ════════════ */}
       <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden">
