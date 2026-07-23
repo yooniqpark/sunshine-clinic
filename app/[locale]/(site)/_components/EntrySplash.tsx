@@ -12,14 +12,16 @@ export function EntrySplash({ locale }: { locale: string }) {
   }
 
   return (
-    <div
-      className="fixed inset-0 z-[100]"
-      style={{
-        backgroundImage: "url('/splash.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
+    <div className="fixed inset-0 z-[100] overflow-hidden bg-ink">
+      <video
+        src="/splash.webm"
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/splash.jpg"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
       <button
         type="button"
         onClick={enter}
