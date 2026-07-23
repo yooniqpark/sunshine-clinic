@@ -3,7 +3,6 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
-import { EventSlideBanner } from "../_components/EventSlideBanner";
 import { ArrowUpRightIcon } from "@/components/icons";
 
 export default async function PreviewHome({
@@ -68,10 +67,8 @@ export default async function PreviewHome({
         </div>
       </section>
 
-      {/* ═══════ EVENT SLIDE BANNER ═══════ */}
-      <EventSlideBanner />
-
-      {/* ═══════ 2. TRUST BAR ═══════ */}
+      {/* ═══════ 2. TRUST BAR (removed) ═══════ */}
+      {false && (
       <section className="border-b border-line bg-cream">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-8 px-5 py-14 md:grid-cols-4 lg:px-8">
           {STATS_KEYS.map((k, i) => (
@@ -91,6 +88,7 @@ export default async function PreviewHome({
           ))}
         </div>
       </section>
+      )}
 
       {/* ═══════ 3. CATEGORIES — bento grid (before director) ═══════ */}
       <section className="border-y border-line bg-sand/30 py-24 lg:py-32">
