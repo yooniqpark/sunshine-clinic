@@ -16,13 +16,23 @@ export function EntrySplash({ locale }: { locale: string }) {
       className="fixed inset-0 z-[100] overflow-hidden"
       style={{ backgroundColor: "#F5F0EA" }}
     >
+      {/* Mobile portrait video */}
+      <video
+        src="/splash-mobile.webm"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover sm:hidden"
+      />
+      {/* Desktop landscape video */}
       <video
         src="/splash.webm"
         autoPlay
         muted
         loop
         playsInline
-        className="absolute inset-0 h-full w-full object-contain sm:object-cover"
+        className="absolute inset-0 hidden h-full w-full object-cover sm:block"
       />
 
       <button
