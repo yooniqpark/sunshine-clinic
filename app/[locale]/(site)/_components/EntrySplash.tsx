@@ -18,7 +18,7 @@ export function EntrySplash({ locale }: { locale: string }) {
     >
       {/* Mobile portrait video */}
       <video
-        src="/splash-mobile.webm"
+        src="/splash-mobile.mp4"
         autoPlay
         muted
         loop

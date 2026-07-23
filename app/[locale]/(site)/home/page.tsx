@@ -32,14 +32,15 @@ export default async function PreviewHome({
       <section
         className="relative overflow-hidden bg-ink text-cream"
       >
-        {/* 병원 리셉션 파노라마 배경 */}
-        <Image
-          src="/clinic/hero-panorama.jpg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="pointer-events-none absolute inset-0 object-cover object-center"
+        {/* 병원 리셉션 영상 배경 */}
+        <video
+          src="/clinic/hero.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/clinic/hero-panorama.jpg"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
         />
         {/* 좌측만 살짝 어둡게 (텍스트 가독성) — 사진 원본 최대한 유지 */}
         <div

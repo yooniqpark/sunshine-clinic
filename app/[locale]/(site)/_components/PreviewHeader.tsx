@@ -182,7 +182,7 @@ export function PreviewHeader() {
             </div>
           ))}
           <div className="ml-3 flex items-center gap-3">
-            <LanguageSwitcher />
+            <LanguageSwitcher tone={solid ? "light" : "dark"} />
             <Link
               href="/home#book"
               className="rounded-full bg-ink px-5 py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark"
@@ -194,7 +194,7 @@ export function PreviewHeader() {
 
         {/* Mobile: language + toggle */}
         <div className="flex items-center gap-3 lg:hidden">
-          <LanguageSwitcher variant="compact" />
+          <LanguageSwitcher variant="compact" tone={solid ? "light" : "dark"} />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
