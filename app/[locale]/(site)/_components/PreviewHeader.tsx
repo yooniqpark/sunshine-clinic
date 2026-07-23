@@ -219,21 +219,35 @@ export function PreviewHeader() {
                         </button>
                         {isExpanded && (
                           <div className="space-y-1 pb-3 pl-1">
-                            {item.children.map((col) =>
-                              col.href ? (
-                                <Link
-                                  key={col.title}
-                                  href={col.href}
-                                  onClick={() => {
-                                    setOpen(false);
-                                    setMobileOpen(null);
-                                  }}
-                                  className="block rounded-lg px-3 py-2.5 text-base text-ink-soft transition hover:text-brand-dark active:bg-brand/10 active:text-brand-dark"
-                                >
-                                  {col.title}
-                                </Link>
-                              ) : null
-                            )}
+                            {item.children.map((col) => (
+                              <div key={col.title}>
+                                {col.href && (
+                                  <Link
+                                    href={col.href}
+                                    onClick={() => {
+                                      setOpen(false);
+                                      setMobileOpen(null);
+                                    }}
+                                    className="block rounded-lg px-3 py-2 text-[10px] font-bold uppercase tracking-[0.2em] text-brand-dark active:bg-brand/10"
+                                  >
+                                    {col.title} →
+                                  </Link>
+                                )}
+                                {col.items.map((c, idx) => (
+                                  <Link
+                                    key={`${c.href}-${idx}`}
+                                    href={c.href}
+                                    onClick={() => {
+                                      setOpen(false);
+                                      setMobileOpen(null);
+                                    }}
+                                    className="block rounded-lg px-5 py-2 text-sm text-ink-soft transition hover:text-brand-dark active:bg-brand/10 active:text-brand-dark"
+                                  >
+                                    {c.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            ))}
                           </div>
                         )}
                       </>

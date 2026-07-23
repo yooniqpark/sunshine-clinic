@@ -2,6 +2,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
+import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { ArrowUpRightIcon, ArrowIcon } from "@/components/icons";
 
 export default async function PreviewHome({
@@ -25,6 +26,8 @@ export default async function PreviewHome({
 
   return (
     <>
+      <AnnouncementPopups />
+
       {/* ═══════ 1. HERO — clean editorial (light) ═══════ */}
       <section
         className="relative overflow-hidden text-ink"

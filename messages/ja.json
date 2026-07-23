@@ -989,6 +989,41 @@
       "mapTitle": "サンシャインクリニックの地図",
       "naverMap": "Naver地図",
       "kakaoMap": "Kakao地図"
+    },
+    "popups": {
+      "close": "閉じる",
+      "dontShowToday": "今日は表示しない",
+      "event": {
+        "kicker": "あなたの肌に、陽ざしのような変化を",
+        "brand": "サンシャインクリニック",
+        "date": "2026.07",
+        "body": "真心の診療と、肌が最も輝く瞬間をご一緒します。"
+      },
+      "holiday": {
+        "brand": "SUNSHINE CLINIC",
+        "title": "8月 診療のご案内",
+        "body1": "8月15日(金)は光復節 通常診療",
+        "body2": "8月17日(月)は振替休日 休診いたします。",
+        "openLabel": "通常診療",
+        "closedLabel": "休診",
+        "days": [
+          {
+            "date": "8.15",
+            "weekday": "金",
+            "label": "光復節",
+            "status": "open",
+            "hours": "10:00 – 18:00"
+          },
+          {
+            "date": "8.17",
+            "weekday": "月",
+            "label": "振替休日",
+            "status": "closed",
+            "hours": "休診"
+          }
+        ],
+        "footer": "ご予約・ご来院の際にご参考ください。ありがとうございます。"
+      }
     }
   }
 }

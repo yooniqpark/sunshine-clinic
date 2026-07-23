@@ -989,6 +989,41 @@
       "mapTitle": "阳光皮肤科诊所位置",
       "naverMap": "Naver地图",
       "kakaoMap": "Kakao地图"
+    },
+    "popups": {
+      "close": "关闭",
+      "dontShowToday": "今日不再显示",
+      "event": {
+        "kicker": "让您的肌肤，如阳光般焕新",
+        "brand": "阳光皮肤科诊所",
+        "date": "2026.07",
+        "body": "真诚的诊疗，与您肌肤最闪耀的瞬间同行。"
+      },
+      "holiday": {
+        "brand": "SUNSHINE CLINIC",
+        "title": "8月 诊疗安排",
+        "body1": "8月15日(周五) 光复节 正常诊疗",
+        "body2": "8月17日(周一) 补假日 休诊。",
+        "openLabel": "正常诊疗",
+        "closedLabel": "休诊",
+        "days": [
+          {
+            "date": "8.15",
+            "weekday": "五",
+            "label": "光复节",
+            "status": "open",
+            "hours": "10:00 – 18:00"
+          },
+          {
+            "date": "8.17",
+            "weekday": "一",
+            "label": "补假日",
+            "status": "closed",
+            "hours": "全日休诊"
+          }
+        ],
+        "footer": "请参考本安排安排就诊。感谢您的理解。"
+      }
     }
   }
 }

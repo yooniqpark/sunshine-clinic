@@ -280,7 +280,7 @@
         ],
         "anti-aging": [
           {
-            "label": "리쥬란 · 리쥬란 아이",
+            "label": "리쥬란",
             "href": "/treatments/anti-aging/rejuran"
           },
           {
@@ -771,7 +771,7 @@
           "fallbackItems": [
             {
               "slug": "rejuran",
-              "name": "리쥬란 · 리쥬란 아이",
+              "name": "리쥬란",
               "desc": "연어 PN(폴리뉴클레오타이드) 성분으로 피부 자체의 재생력을 깨우다",
               "image": "/devices/rejuran.jpg"
             },
@@ -989,6 +989,41 @@
       "mapTitle": "선샤인의원 위치",
       "naverMap": "네이버 지도",
       "kakaoMap": "카카오맵"
+    },
+    "popups": {
+      "close": "닫기",
+      "dontShowToday": "오늘 하루 보지 않기",
+      "event": {
+        "kicker": "당신의 피부에, 햇살 같은 변화",
+        "brand": "선샤인의원",
+        "date": "2026.07",
+        "body": "진료의 정직한 진심과 당신의 피부가 가장 빛나는 순간을 함께합니다."
+      },
+      "holiday": {
+        "brand": "SUNSHINE CLINIC",
+        "title": "8월 진료 안내",
+        "body1": "8월 15일(금)은 광복절 정상진료",
+        "body2": "8월 17일(월)은 대체공휴일 휴진입니다.",
+        "openLabel": "정상 진료",
+        "closedLabel": "휴진",
+        "days": [
+          {
+            "date": "8.15",
+            "weekday": "금",
+            "label": "광복절",
+            "status": "open",
+            "hours": "10:00 – 18:00"
+          },
+          {
+            "date": "8.17",
+            "weekday": "월",
+            "label": "대체공휴일",
+            "status": "closed",
+            "hours": "휴진합니다"
+          }
+        ],
+        "footer": "진료 예약 및 내원에 참고해 주시기 바랍니다. 감사합니다."
+      }
     }
   }
 }
