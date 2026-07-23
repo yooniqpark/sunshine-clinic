@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function HeroTitle() {
@@ -7,7 +8,6 @@ export function HeroTitle() {
 
   useEffect(() => {
     const onScroll = () => {
-      // fade 0 → 1 over first 320px of scroll
       const y = window.scrollY;
       const clamped = Math.min(1, Math.max(0, 1 - y / 320));
       setT(clamped);
@@ -19,19 +19,21 @@ export function HeroTitle() {
 
   return (
     <div
-      className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      className="pointer-events-none absolute inset-0 flex items-center justify-center px-8"
       style={{
         opacity: t,
         transform: `translateY(${(1 - t) * -30}px)`,
         transition: "opacity 180ms linear, transform 180ms linear",
       }}
     >
-      <h1
-        className="font-serif font-normal leading-none tracking-tight text-cream drop-shadow-2xl"
-        style={{ fontSize: "clamp(3rem, 12vw, 9rem)" }}
-      >
-        Sunshine
-      </h1>
+      <Image
+        src="/logo-lockup.svg"
+        alt="Sunshine Dermatology Clinic"
+        width={2100}
+        height={720}
+        priority
+        className="h-auto w-[80vw] max-w-[900px] brightness-0 invert drop-shadow-2xl"
+      />
     </div>
   );
 }
