@@ -2,7 +2,7 @@
 
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
@@ -20,11 +20,20 @@ export function PreviewHeader() {
   const t = useTranslations("v2.header");
   const tBrand = useTranslations("brand");
 
-  // 항상 subtle cream 배경 + 다크 텍스트 (라이트 히어로에서도 가독성 유지)
-  const solid = true;
-  const nameColor = "text-cream drop-shadow-md";
-  const subColor = "text-cream/80 drop-shadow";
-  const linkColor = "text-cream drop-shadow-md";
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // 최상단: 투명 + 크림 텍스트 / 스크롤 후: 크림 배경 + 다크 텍스트
+  const solid = scrolled || open;
+  const nameColor = solid ? "text-ink" : "text-cream drop-shadow-md";
+  const subColor = solid ? "text-ink-soft/80" : "text-cream/80 drop-shadow";
+  const linkColor = solid ? "text-ink" : "text-cream drop-shadow-md";
 
   const subMenu = (slug: string) =>
     (t.raw(`subMenus.${slug}`) as SubItem[]) ?? [];
@@ -79,7 +88,13 @@ export function PreviewHeader() {
   ];
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 bg-transparent">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        solid
+          ? "border-b border-line/60 bg-cream/85 backdrop-blur-lg"
+          : "border-b border-transparent bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
           href="/home"
@@ -183,7 +198,9 @@ export function PreviewHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-cream/40 text-cream"
+            className={`grid h-11 w-11 place-items-center rounded-full border transition ${
+              solid ? "border-line text-ink" : "border-cream/40 text-cream"
+            }`}
             aria-label={open ? t("menuClose") : t("menuOpen")}
           >
             {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}
