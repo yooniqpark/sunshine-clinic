@@ -595,29 +595,38 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "活动",
+      "tagOpen": "OPEN",
+      "ctaSeeMore": "查看详情",
       "items": [
         {
           "tag": "OPEN",
           "slug": "grand-open-2026-07",
-          "title": "阳光皮肤科诊所 隆重开业",
-          "period": "2026.07.15 ~ 2026.08.31",
-          "body": "阳光皮肤科诊所已在首尔松坡区蚕室瑞日大厦10层正式开业。开业期间提供免费皮肤诊断咨询，并对5大代表诊疗项目推出开业特惠价。",
-          "highlights": [
-            "皮肤诊断咨询 免费",
-            "提升 · 皮肤增强 · 色素 · 痘痘 代表项目开业价",
-            "KakaoTalk 优先咨询"
+          "date": "2026.07.13 – 2026.08.30",
+          "title": "阳光皮肤科诊所 隆重开业活动",
+          "excerpt": "4大类目开业特惠价：提升 · 美白&痘痘 · 皮肤增强 · 肉毒素。VAT另计，售完可能提前结束。",
+          "body": [
+            "阳光皮肤科诊所已在首尔松坡区蚕室瑞日大厦10层正式开业。开业期间提供免费皮肤诊断咨询，并对4大类目代表项目推出开业特惠价。"
+          ],
+          "images": [
+            {
+              "src": "/events/grand-open/lifting.jpg",
+              "label": "提升"
+            },
+            {
+              "src": "/events/grand-open/whitening-acne.jpg",
+              "label": "美白 & 痘痘"
+            },
+            {
+              "src": "/events/grand-open/skinbooster.jpg",
+              "label": "皮肤增强"
+            },
+            {
+              "src": "/events/grand-open/botox.jpg",
+              "label": "肉毒素"
+            }
           ]
-        },
-        {
-          "tag": "公告",
-          "title": "居家护理恢复指南",
-          "period": "常时",
-          "body": "术后帮助恢复的居家护理产品与用法，将在诊室为您详细说明。",
-          "highlights": []
         }
-      ],
-      "ctaBook": "预约咨询",
-      "ctaSeeMore": "查看详情"
+      ]
     },
     "prices": {
       "kicker": "PRICE",

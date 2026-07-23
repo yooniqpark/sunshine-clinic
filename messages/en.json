@@ -595,29 +595,38 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "Events",
+      "tagOpen": "OPEN",
+      "ctaSeeMore": "View details",
       "items": [
         {
           "tag": "OPEN",
           "slug": "grand-open-2026-07",
-          "title": "Sunshine Clinic GRAND OPEN",
-          "period": "2026.07.15 ~ 2026.08.31",
-          "body": "Sunshine Clinic has officially opened on the 10th floor of Seoil Bldg. in Jamsil, Songpa-gu. To celebrate, we offer a complimentary skin diagnosis at in-person consultations and special opening rates on five signature procedures.",
-          "highlights": [
-            "Complimentary skin diagnosis",
-            "Opening prices on Lifting · Skin Booster · Pigmentation · Acne",
-            "Priority booking via KakaoTalk channel"
+          "date": "2026.07.13 – 2026.08.30",
+          "title": "Sunshine Clinic GRAND OPEN Event",
+          "excerpt": "Opening prices across Lifting · Whitening & Acne · Skin Booster · Botox. VAT excluded, limited quantities.",
+          "body": [
+            "Sunshine Clinic has officially opened on the 10th floor of Seoil Bldg. in Jamsil, Songpa-gu. Complimentary skin diagnosis at in-person consultations, with opening prices across four signature categories."
+          ],
+          "images": [
+            {
+              "src": "/events/grand-open/lifting.jpg",
+              "label": "Lifting"
+            },
+            {
+              "src": "/events/grand-open/whitening-acne.jpg",
+              "label": "Whitening & Acne"
+            },
+            {
+              "src": "/events/grand-open/skinbooster.jpg",
+              "label": "Skin Booster"
+            },
+            {
+              "src": "/events/grand-open/botox.jpg",
+              "label": "Botox"
+            }
           ]
-        },
-        {
-          "tag": "Note",
-          "title": "Home-Care Recovery Guide",
-          "period": "Ongoing",
-          "body": "We introduce home-care products and routines that support recovery after treatments.",
-          "highlights": []
         }
-      ],
-      "ctaBook": "Book a consultation",
-      "ctaSeeMore": "View details"
+      ]
     },
     "prices": {
       "kicker": "PRICE",

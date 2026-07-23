@@ -595,29 +595,38 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "이벤트",
+      "tagOpen": "OPEN",
+      "ctaSeeMore": "자세히 보기",
       "items": [
         {
           "tag": "OPEN",
           "slug": "grand-open-2026-07",
-          "title": "선샤인의원 GRAND OPEN",
-          "period": "2026.07.15 ~ 2026.08.31",
-          "body": "송파구 잠실 서일빌딩 10층에 선샤인의원이 정식 개원했습니다. 개원 기념으로 방문 상담 시 피부 진단 서비스를 무료로 제공하며, 대표 시술 5종에 대한 오픈 특별가를 안내드립니다.",
-          "highlights": [
-            "피부 진단 상담 무료",
-            "리프팅 · 스킨부스터 · 색소 · 여드름 대표 시술 오픈가",
-            "카카오 채널 사전 상담 우대"
+          "date": "2026.07.13 – 2026.08.30",
+          "title": "선샤인의원 GRAND OPEN Event",
+          "excerpt": "리프팅 · 화이트닝&여드름 · 스킨부스터 · 보톡스 4개 카테고리 오픈 특별가. VAT 별도, 소진 시 조기 마감될 수 있습니다.",
+          "body": [
+            "송파구 잠실 서일빌딩 10층에 선샤인의원이 정식 개원했습니다. 방문 상담 시 피부 진단 서비스를 무료로 제공하며, 4개 카테고리 대표 시술을 오픈 특별가에 안내드립니다."
+          ],
+          "images": [
+            {
+              "src": "/events/grand-open/lifting.jpg",
+              "label": "리프팅"
+            },
+            {
+              "src": "/events/grand-open/whitening-acne.jpg",
+              "label": "화이트닝 & 여드름"
+            },
+            {
+              "src": "/events/grand-open/skinbooster.jpg",
+              "label": "스킨부스터"
+            },
+            {
+              "src": "/events/grand-open/botox.jpg",
+              "label": "보톡스"
+            }
           ]
-        },
-        {
-          "tag": "안내",
-          "title": "홈케어 리커버 가이드",
-          "period": "상시",
-          "body": "시술 후 회복을 돕는 홈케어 제품과 사용법을 진료실에서 안내해 드립니다.",
-          "highlights": []
         }
-      ],
-      "ctaBook": "상담 예약하기",
-      "ctaSeeMore": "자세히 보기"
+      ]
     },
     "prices": {
       "kicker": "PRICE",

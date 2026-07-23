@@ -595,29 +595,38 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "イベント",
+      "tagOpen": "OPEN",
+      "ctaSeeMore": "詳しく見る",
       "items": [
         {
           "tag": "OPEN",
           "slug": "grand-open-2026-07",
-          "title": "サンシャインクリニック GRAND OPEN",
-          "period": "2026.07.15 ~ 2026.08.31",
-          "body": "ソウル松坡区チャムシル、瑞日ビル10階にサンシャインクリニックが正式開院。ご来院相談時に肌診断を無料でご提供し、代表施術5種のオープン特別料金をご案内いたします。",
-          "highlights": [
-            "肌診断カウンセリング 無料",
-            "リフティング・スキンブースター・色素・ニキビ 代表施術オープン価",
-            "カカオトーク事前相談優遇"
+          "date": "2026.07.13 – 2026.08.30",
+          "title": "サンシャインクリニック GRAND OPEN イベント",
+          "excerpt": "リフティング・ホワイトニング&ニキビ・スキンブースター・ボトックスの4カテゴリでオープン特別価格。VAT別途、数量限定。",
+          "body": [
+            "ソウル松坡区チャムシル、瑞日ビル10階にサンシャインクリニックが正式開院。ご来院相談時に肌診断を無料でご提供し、4カテゴリの代表施術をオープン特別料金でご案内いたします。"
+          ],
+          "images": [
+            {
+              "src": "/events/grand-open/lifting.jpg",
+              "label": "リフティング"
+            },
+            {
+              "src": "/events/grand-open/whitening-acne.jpg",
+              "label": "ホワイトニング & ニキビ"
+            },
+            {
+              "src": "/events/grand-open/skinbooster.jpg",
+              "label": "スキンブースター"
+            },
+            {
+              "src": "/events/grand-open/botox.jpg",
+              "label": "ボトックス"
+            }
           ]
-        },
-        {
-          "tag": "お知らせ",
-          "title": "ホームケア リカバリーガイド",
-          "period": "常時",
-          "body": "施術後の回復をサポートするホームケア製品と使い方を診療室でご案内します。",
-          "highlights": []
         }
-      ],
-      "ctaBook": "カウンセリング予約",
-      "ctaSeeMore": "詳しく見る"
+      ]
     },
     "prices": {
       "kicker": "PRICE",

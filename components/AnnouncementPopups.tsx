@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { GRAND_OPEN_CATEGORIES } from "@/lib/grand-open";
+import { GrandOpenCard } from "@/components/GrandOpenCard";
 
 type Popup = {
   id: string;
@@ -10,7 +12,7 @@ type Popup = {
 };
 
 const POPUPS: Popup[] = [
-  { id: "grand-open-2026-07", variant: "event" },
+  { id: "grand-open-2026-07-v3", variant: "event" },
   { id: "aug-2026-holiday", variant: "holiday" },
 ];
 
@@ -39,12 +41,22 @@ export function AnnouncementPopups() {
     setQueue(remaining);
   }, []);
 
+  const close = useCallback(() => {
+    setQueue((q) => q.slice(1));
+  }, []);
+
+  useEffect(() => {
+    if (queue.length === 0) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [queue.length, close]);
+
   if (!mounted || queue.length === 0) return null;
   const current = queue[0];
 
-  function close() {
-    setQueue((q) => q.slice(1));
-  }
   function closeToday() {
     try {
       localStorage.setItem(KEY_PREFIX + current.id, todayStr());
@@ -53,25 +65,32 @@ export function AnnouncementPopups() {
   }
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[95] flex items-end justify-center px-4 py-6 sm:items-center sm:p-8">
-      <div className="pointer-events-auto relative w-full max-w-md overflow-hidden rounded-[2rem] border border-white/70 bg-white/65 shadow-2xl shadow-ink/25 backdrop-blur-2xl sm:max-w-lg">
-        {current.variant === "event" ? <EventCard /> : <HolidayCard />}
+    <div className="fixed inset-0 z-[95] flex items-end justify-center px-3 py-4 sm:items-center sm:p-8">
+      {/* backdrop click closes */}
+      <button
+        type="button"
+        aria-label={t("close")}
+        onClick={close}
+        className="absolute inset-0 h-full w-full cursor-default bg-transparent"
+      />
+      <div className="pointer-events-auto relative flex h-[92vh] max-h-[720px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl">
+        {current.variant === "event" ? <EventCarousel /> : <HolidayCard />}
 
-        <div className="flex items-center justify-between border-t border-line/60 px-5 py-3 text-xs">
-          <label className="flex cursor-pointer items-center gap-2 text-ink-soft">
+        <div className="flex shrink-0 items-center justify-between border-t border-white/15 bg-ink/40 px-5 py-3 text-xs text-cream backdrop-blur">
+          <label className="flex cursor-pointer items-center gap-2 text-cream/80">
             <input
               type="checkbox"
               onChange={(e) => {
                 if (e.currentTarget.checked) closeToday();
               }}
-              className="h-3.5 w-3.5 rounded border-line accent-ink"
+              className="h-3.5 w-3.5 rounded border-white/30 accent-cream"
             />
             {t("dontShowToday")}
           </label>
           <button
             type="button"
             onClick={close}
-            className="font-semibold text-ink hover:text-brand-dark"
+            className="font-semibold text-cream hover:text-brand-soft"
           >
             {t("close")}
           </button>
@@ -81,47 +100,93 @@ export function AnnouncementPopups() {
   );
 }
 
-function EventCard() {
+function EventCarousel() {
+  const [idx, setIdx] = useState(0);
+  const startX = useRef<number | null>(null);
   const t = useTranslations("v2.popups.event");
-  return (
-    <div className="relative overflow-hidden px-10 pt-14 pb-12 text-center sm:px-14 sm:pt-16 sm:pb-14">
-      {/* Corner ornaments */}
-      <div className="pointer-events-none absolute left-6 top-6 h-6 w-6 border-l border-t border-ink/25" />
-      <div className="pointer-events-none absolute right-6 top-6 h-6 w-6 border-r border-t border-ink/25" />
-      <div className="pointer-events-none absolute bottom-6 left-6 h-6 w-6 border-b border-l border-ink/25" />
-      <div className="pointer-events-none absolute bottom-6 right-6 h-6 w-6 border-b border-r border-ink/25" />
+  const total = GRAND_OPEN_CATEGORIES.length;
 
-      <p className="text-[10px] font-medium tracking-[0.3em] text-ink-soft">
-        {t("kicker")}
-      </p>
-      <p className="mt-6 text-sm font-semibold tracking-[0.2em] text-ink">
-        {t("brand")}
-      </p>
-      <div className="mx-auto mt-2 flex items-center justify-center gap-2">
-        <span className="h-px w-8 bg-ink/25" />
-        <span className="text-[10px] tracking-[0.35em] text-ink-soft">2026</span>
-        <span className="h-px w-8 bg-ink/25" />
+  const go = useCallback(
+    (dir: 1 | -1) => setIdx((i) => (i + dir + total) % total),
+    [total],
+  );
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") go(-1);
+      if (e.key === "ArrowRight") go(1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [go]);
+
+  function onTouchStart(e: React.TouchEvent) {
+    startX.current = e.touches[0].clientX;
+  }
+  function onTouchEnd(e: React.TouchEvent) {
+    if (startX.current == null) return;
+    const dx = e.changedTouches[0].clientX - startX.current;
+    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
+    startX.current = null;
+  }
+
+  const current = GRAND_OPEN_CATEGORIES[idx];
+
+  return (
+    <div className="relative flex min-h-0 flex-1 flex-col">
+      {/* Slide viewport — uniform height so all slides look the same */}
+      <div className="relative min-h-0 flex-1">
+        <div
+          className="h-full overflow-y-auto"
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+        >
+          <GrandOpenCard category={current} variant="compact" />
+        </div>
+
+        {/* Prev / Next arrows — top of viewport, translucent white */}
+        <button
+          type="button"
+          onClick={() => go(-1)}
+          aria-label="Previous"
+          className="absolute left-3 top-16 z-10 grid h-9 w-9 place-items-center rounded-full border border-white/60 bg-transparent text-cream transition hover:border-white hover:bg-white/10 sm:left-4 sm:top-20"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="h-4 w-4"><path d="M15 6l-6 6 6 6" /></svg>
+        </button>
+        <button
+          type="button"
+          onClick={() => go(1)}
+          aria-label="Next"
+          className="absolute right-3 top-16 z-10 grid h-9 w-9 place-items-center rounded-full border border-white/60 bg-transparent text-cream transition hover:border-white hover:bg-white/10 sm:right-4 sm:top-20"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="h-4 w-4"><path d="M9 6l6 6-6 6" /></svg>
+        </button>
       </div>
 
-      <h2 className="mt-8 font-serif text-5xl font-normal leading-[0.95] tracking-tight text-ink sm:text-6xl">
-        GRAND
-        <br />
-        OPEN
-      </h2>
-      <p className="mt-6 text-sm tracking-[0.32em] text-ink-soft">
-        {t("date")}
-      </p>
-      <p className="mx-auto mt-8 max-w-[280px] text-xs leading-relaxed text-ink-soft sm:text-sm">
-        {t("body")}
-      </p>
-
-      <Link
-        href="/community/events#grand-open-2026-07"
-        className="group mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-xs font-semibold tracking-[0.15em] text-cream transition hover:bg-brand-dark"
-      >
-        {t("ctaSeeMore")}
-        <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-      </Link>
+      {/* Dots + CTA */}
+      <div className="flex shrink-0 items-center justify-between border-t border-white/15 bg-ink/40 px-5 py-3 text-cream backdrop-blur">
+        <div className="flex items-center gap-1.5">
+          {GRAND_OPEN_CATEGORIES.map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => setIdx(i)}
+              aria-label={`Slide ${i + 1}`}
+              aria-current={i === idx}
+              className={`h-1.5 rounded-full transition-all ${
+                i === idx ? "w-6 bg-ink" : "w-1.5 bg-ink/25"
+              }`}
+            />
+          ))}
+        </div>
+        <Link
+          href="/community/events#grand-open-2026-07"
+          className="group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.15em] text-brand-soft hover:text-cream"
+        >
+          {t("ctaSeeMore")}
+          <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -137,48 +202,50 @@ function HolidayCard() {
   }[];
 
   return (
-    <div className="px-8 pt-16 pb-12 text-center sm:px-12 sm:pt-20 sm:pb-14">
-      <p className="text-[10px] font-medium tracking-[0.3em] text-ink-soft">
+    <div className="flex h-full flex-col overflow-y-auto px-8 pt-12 pb-10 text-center text-cream sm:px-12 sm:pt-16 sm:pb-12">
+      <p className="text-[10px] font-medium tracking-[0.3em] text-cream/70 drop-shadow">
         {t("brand")}
       </p>
-      <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-ink sm:text-4xl">
+      <h2 className="mt-4 font-serif text-3xl leading-tight tracking-tight text-cream drop-shadow-md sm:text-4xl">
         {t("title")}
       </h2>
-      <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+      <p className="mt-4 text-sm leading-relaxed text-cream/80 drop-shadow">
         {t("body1")}
         <br />
         {t("body2")}
       </p>
 
-      <div className="mt-6 grid grid-cols-2 gap-3">
+      <div className="my-auto grid grid-cols-2 gap-3 py-6">
         {days.map((d) => (
           <div
             key={d.date}
-            className={`rounded-2xl px-4 py-5 text-center ${
+            className={`rounded-2xl px-4 py-5 text-center backdrop-blur ${
               d.status === "closed"
-                ? "bg-ink text-cream"
-                : "bg-sand/70 text-ink"
+                ? "bg-ink/70 text-cream ring-1 ring-white/10"
+                : "bg-white/15 text-cream ring-1 ring-white/25"
             }`}
           >
-            <p className={`text-[10px] font-medium ${d.status === "closed" ? "text-cream/70" : "text-ink-soft"}`}>
+            <p className="text-[10px] font-medium text-cream/70">
               {d.date} ({d.weekday})
             </p>
-            <p className={`mt-1 text-[10px] font-medium tracking-[0.1em] ${d.status === "closed" ? "text-brand-soft" : "text-brand-dark"}`}>
+            <p
+              className={`mt-1 text-[10px] font-medium tracking-[0.1em] ${
+                d.status === "closed" ? "text-brand-soft" : "text-brand-soft"
+              }`}
+            >
               {d.label}
             </p>
-            <p className="mt-3 font-serif text-2xl">
+            <p className="mt-3 font-serif text-2xl text-cream drop-shadow">
               {d.status === "closed" ? t("closedLabel") : t("openLabel")}
             </p>
             {d.hours && (
-              <p className={`mt-2 text-[10px] ${d.status === "closed" ? "text-cream/60" : "text-ink-soft"}`}>
-                {d.hours}
-              </p>
+              <p className="mt-2 text-[10px] text-cream/70">{d.hours}</p>
             )}
           </div>
         ))}
       </div>
 
-      <p className="mt-6 text-[11px] leading-relaxed text-ink-soft">
+      <p className="pt-2 text-[11px] leading-relaxed text-cream/70">
         {t("footer")}
       </p>
     </div>
