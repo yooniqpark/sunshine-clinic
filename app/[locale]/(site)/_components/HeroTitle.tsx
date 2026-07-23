@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export function HeroTitle() {
@@ -9,7 +8,6 @@ export function HeroTitle() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      // fade window: 60 → 480px 스크롤 구간 (조금 늦게, 부드럽게)
       const start = 60;
       const end = 480;
       const raw = 1 - (y - start) / (end - start);
@@ -29,14 +27,12 @@ export function HeroTitle() {
         transition: "opacity 220ms ease-out, transform 220ms ease-out",
       }}
     >
-      <Image
-        src="/hero-logo.svg"
-        alt="Sunshine Dermatology Clinic"
-        width={834}
-        height={282}
-        priority
-        className="h-auto w-[80vw] max-w-[720px] brightness-0 invert drop-shadow-2xl"
-      />
+      <h1
+        className="font-serif font-normal leading-none tracking-tight text-cream drop-shadow-2xl"
+        style={{ fontSize: "clamp(3rem, 12vw, 9rem)" }}
+      >
+        Sunshine
+      </h1>
     </div>
   );
 }
