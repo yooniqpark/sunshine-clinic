@@ -1,7 +1,7 @@
 {
   "brand": {
-    "name": "SunShine",
-    "label": "Dermatology Clinic."
+    "name": "Sunshine",
+    "label": "Dermatology Clinic"
   },
   "nav": {
     "about": "About",
@@ -354,7 +354,7 @@
       "business": "Sunshine Dermatology Clinic · Director Kim Byung-hyun · Business Reg. 878-37-01499 · Songpa Public Health Center Reg. No. 2026-3230034-00049"
     },
     "home": {
-      "heroKicker": "SUNSHINE DERMATOLOGY CLINIC · SINCE 2026",
+      "heroKicker": "DERMATOLOGY CLINIC · SINCE 2026",
       "heroTitleLine1": "Texture of skin",
       "heroTitleAccent": "light of every day",
       "heroDescLine1": "Attentive, honest care tailored to each patient.",

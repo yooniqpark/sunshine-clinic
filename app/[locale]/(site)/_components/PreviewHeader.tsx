@@ -123,6 +123,39 @@ export function PreviewHeader() {
                 {item.label}
                 {item.children && <ChevronDownIcon className="h-3 w-3" />}
               </Link>
+
+              {/* Per-item dropdown (narrow, positioned under the nav item) */}
+              {item.children && (
+                <div
+                  className={`absolute left-1/2 top-full z-40 -translate-x-1/2 pt-2 transition-all duration-200 ${
+                    hovered === item.key
+                      ? "visible translate-y-0 opacity-100"
+                      : "pointer-events-none invisible -translate-y-1 opacity-0"
+                  }`}
+                >
+                  <div className="min-w-[240px] overflow-hidden rounded-2xl border border-line bg-white/98 p-2 shadow-xl shadow-ink/15 backdrop-blur">
+                    {item.children.flatMap((col) =>
+                      col.items.map((c, idx) => (
+                        <Link
+                          key={`${c.href}-${idx}`}
+                          href={c.href}
+                          onClick={() => setHovered(null)}
+                          className="group block rounded-xl px-3 py-2.5 transition hover:bg-brand/10"
+                        >
+                          <span className="block text-sm font-medium text-ink transition group-hover:text-brand-dark">
+                            {c.label}
+                          </span>
+                          {c.sub && (
+                            <span className="mt-0.5 block text-[10px] tracking-[0.15em] text-ink-soft">
+                              {c.sub}
+                            </span>
+                          )}
+                        </Link>
+                      )),
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
           <div className="ml-3 flex items-center gap-3">
@@ -149,63 +182,6 @@ export function PreviewHeader() {
           </button>
         </div>
       </div>
-
-      {/* Desktop mega panel */}
-      {NAV.map((item) =>
-        item.children ? (
-          <div
-            key={item.key}
-            onMouseEnter={() => setHovered(item.key)}
-            onMouseLeave={() => setHovered(null)}
-            className={`absolute left-0 right-0 top-full hidden overflow-hidden border-t border-line bg-white/98 shadow-xl shadow-ink/10 backdrop-blur transition-all duration-200 lg:block ${
-              hovered === item.key
-                ? "visible max-h-[600px] opacity-100"
-                : "invisible max-h-0 opacity-0"
-            }`}
-          >
-            <div className="mx-auto flex max-w-7xl flex-wrap gap-8 px-8 py-8">
-              {item.children.map((col) => (
-                <div key={col.title} className="min-w-[220px] flex-1">
-                  {col.href ? (
-                    <Link
-                      href={col.href}
-                      onClick={() => setHovered(null)}
-                      className="mb-4 flex items-center justify-between border-b border-line pb-2 text-[11px] font-bold tracking-[0.2em] text-brand-dark transition hover:text-ink"
-                    >
-                      <span>{col.title.toUpperCase()}</span>
-                      <span className="text-ink-soft/60 transition group-hover:translate-x-0.5">→</span>
-                    </Link>
-                  ) : (
-                    <p className="mb-4 border-b border-line pb-2 text-[10px] font-bold tracking-[0.2em] text-brand-dark">
-                      {col.title.toUpperCase()}
-                    </p>
-                  )}
-                  <ul className="space-y-1">
-                    {col.items.map((c, idx) => (
-                      <li key={`${c.href}-${idx}`}>
-                        <Link
-                          href={c.href}
-                          onClick={() => setHovered(null)}
-                          className="group block rounded-xl px-3 py-2 transition hover:bg-brand/10"
-                        >
-                          <span className="block text-sm font-medium text-ink transition group-hover:text-brand-dark">
-                            {c.label}
-                          </span>
-                          {c.sub && (
-                            <span className="mt-0.5 block text-[10px] tracking-[0.15em] text-ink-soft">
-                              {c.sub}
-                            </span>
-                          )}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </div>
-        ) : null
-      )}
 
       {/* Mobile drawer */}
       {open && (

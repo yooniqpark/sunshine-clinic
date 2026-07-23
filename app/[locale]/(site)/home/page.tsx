@@ -26,15 +26,29 @@ export default async function PreviewHome({
   return (
     <>
       {/* ═══════ 1. HERO — clean editorial (light) ═══════ */}
-      <section className="relative overflow-hidden bg-cream text-ink">
-        <div className="mx-auto max-w-7xl px-5 pb-16 pt-32 lg:min-h-[80vh] lg:px-8 lg:pb-28 lg:pt-48">
+      <section
+        className="relative overflow-hidden text-ink"
+        style={{ backgroundColor: "#F5F0EA" }}
+      >
+        {/* 우측 누드 헤이즈 - 아주 희미하게 (엔트리와 브랜드 연결) */}
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] opacity-[0.07] lg:block"
+          style={{
+            backgroundImage: "url('/splash.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            mixBlendMode: "multiply",
+          }}
+        />
+
+        <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-32 lg:min-h-[80vh] lg:px-8 lg:pb-28 lg:pt-48">
           <Reveal>
             <div className="max-w-3xl">
-              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-brand">
+              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand">
                 <span className="h-px w-8 bg-brand" />
                 {t("heroKicker")}
               </p>
-              <h1 className="mt-8 font-serif text-[clamp(2.75rem,6.5vw,5.25rem)] font-normal leading-[1.05] tracking-tight text-ink">
+              <h1 className="mt-8 font-serif text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-ink">
                 {t("heroTitleLine1")}
                 <br />
                 <span className="text-brand-dark">{t("heroTitleAccent")}</span>
