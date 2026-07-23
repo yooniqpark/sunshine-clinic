@@ -27,9 +27,9 @@ export default async function PreviewHome({
     <>
       {/* ═══════ 1. HERO — clean editorial (light) ═══════ */}
       <section className="relative overflow-hidden bg-cream text-ink">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-16 pt-32 lg:min-h-[88vh] lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:pb-24 lg:pt-40">
+        <div className="mx-auto max-w-7xl px-5 pb-16 pt-32 lg:min-h-[80vh] lg:px-8 lg:pb-28 lg:pt-48">
           <Reveal>
-            <div>
+            <div className="max-w-3xl">
               <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-brand">
                 <span className="h-px w-8 bg-brand" />
                 {t("heroKicker")}
@@ -61,17 +61,6 @@ export default async function PreviewHome({
               </div>
             </div>
           </Reveal>
-
-          {/* 우측 - 모델 대신 브랜드 그라디언트 텍스처 */}
-          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-[2.5rem] lg:block">
-            <Image
-              src="/splash.jpg"
-              alt=""
-              fill
-              sizes="50vw"
-              className="object-cover"
-            />
-          </div>
         </div>
       </section>
 
