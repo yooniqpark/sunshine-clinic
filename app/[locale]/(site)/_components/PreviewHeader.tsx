@@ -20,11 +20,11 @@ export function PreviewHeader() {
   const t = useTranslations("v2.header");
   const tBrand = useTranslations("brand");
 
-  // 항상 투명 오버레이 유지. 모바일 드로어 열렸을 때만 solid.
-  const solid = open;
-  const nameColor = solid ? "text-ink" : "text-cream drop-shadow-md";
-  const subColor = solid ? "text-ink-soft/80" : "text-cream/85 drop-shadow";
-  const linkColor = solid ? "text-ink" : "text-cream drop-shadow-md";
+  // 항상 subtle cream 배경 + 다크 텍스트 (라이트 히어로에서도 가독성 유지)
+  const solid = true;
+  const nameColor = "text-ink";
+  const subColor = "text-ink-soft/80";
+  const linkColor = "text-ink";
 
   const NAV: NavItem[] = [
     { key: "about", label: t("nav.about"), href: "/about" },
@@ -51,13 +51,7 @@ export function PreviewHeader() {
   ];
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        solid
-          ? "border-b border-line/60 bg-cream/90 backdrop-blur-lg"
-          : "border-b border-transparent bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line/40 bg-cream/85 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
           href="/"
@@ -69,9 +63,7 @@ export function PreviewHeader() {
             alt=""
             width={40}
             height={40}
-            className={`h-9 w-9 -translate-y-[3px] object-contain transition lg:h-10 lg:w-10 ${
-              solid ? "" : "brightness-0 invert"
-            }`}
+            className="h-9 w-9 -translate-y-[3px] object-contain lg:h-10 lg:w-10"
           />
           <div className="flex flex-col leading-none">
             <span
@@ -122,9 +114,7 @@ export function PreviewHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className={`grid h-11 w-11 place-items-center rounded-full border transition ${
-              solid ? "border-line text-ink" : "border-cream/40 text-cream"
-            }`}
+            className="grid h-11 w-11 place-items-center rounded-full border border-line text-ink"
             aria-label={open ? t("menuClose") : t("menuOpen")}
           >
             {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}

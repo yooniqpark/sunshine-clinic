@@ -25,51 +25,36 @@ export default async function PreviewHome({
 
   return (
     <>
-      {/* ═══════ 1. HERO — dark editorial ═══════ */}
-      <section className="relative h-[92vh] min-h-[640px] overflow-hidden bg-ink text-cream">
-        <div className="absolute inset-0">
-          <Image
-            src="/clinic/reception.jpg"
-            alt=""
-            fill
-            priority
-            className="object-cover object-center opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-ink/30" />
-        </div>
-        <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-between px-5 py-16 lg:px-8 lg:py-24">
-          <div>
-            <p className="text-[10px] font-bold tracking-[0.35em] text-brand-soft">
-              {t("heroKicker")}
-            </p>
-          </div>
-
+      {/* ═══════ 1. HERO — clean editorial (light) ═══════ */}
+      <section className="relative overflow-hidden bg-cream text-ink">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 pb-16 pt-32 lg:min-h-[88vh] lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16 lg:px-8 lg:pb-24 lg:pt-40">
           <Reveal>
-            <div className="max-w-3xl">
-              <h1 className="font-serif text-[clamp(2.5rem,7vw,5.5rem)] font-normal leading-[1.05] tracking-tight">
+            <div>
+              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.3em] text-brand">
+                <span className="h-px w-8 bg-brand" />
+                {t("heroKicker")}
+              </p>
+              <h1 className="mt-8 font-serif text-[clamp(2.75rem,6.5vw,5.25rem)] font-normal leading-[1.05] tracking-tight text-ink">
                 {t("heroTitleLine1")}
                 <br />
-                <span className="text-brand-soft">{t("heroTitleAccent")}</span>
+                <span className="text-brand-dark">{t("heroTitleAccent")}</span>
               </h1>
-              <p className="mt-8 max-w-md text-base leading-relaxed text-cream/75 lg:text-lg">
+              <p className="mt-8 max-w-md text-base leading-relaxed text-ink-soft lg:text-lg">
                 {t("heroDescLine1")}
                 <br />
                 {t("heroDescLine2")}
               </p>
-              <div className="mt-10 hidden flex-wrap items-center gap-6 lg:flex">
+              <div className="mt-12 flex flex-wrap items-center gap-6">
                 <Link
                   href="#book"
-                  className="group inline-flex items-center gap-3 text-sm font-semibold text-cream"
+                  className="group inline-flex items-center gap-3 rounded-full bg-brand-dark px-8 py-4 text-sm font-semibold text-cream transition hover:bg-ink"
                 >
-                  <span className="inline-flex h-14 w-14 items-center justify-center rounded-full border border-cream/40 transition group-hover:bg-cream group-hover:text-ink">
-                    <ArrowIcon className="h-4 w-4" />
-                  </span>
                   {t("ctaBook")}
+                  <ArrowIcon className="h-4 w-4 transition group-hover:translate-x-0.5" />
                 </Link>
                 <Link
                   href="/treatments/lifting"
-                  className="text-xs font-semibold tracking-[0.2em] text-cream/70 underline underline-offset-8 transition hover:text-brand-soft"
+                  className="text-xs font-semibold tracking-[0.2em] text-ink-soft underline underline-offset-8 transition hover:text-brand-dark"
                 >
                   {t("ctaTreatments")}
                 </Link>
@@ -77,9 +62,15 @@ export default async function PreviewHome({
             </div>
           </Reveal>
 
-          <div className="flex items-end justify-between text-[10px] tracking-[0.24em] text-cream/50">
-            <span>{t("scroll")}</span>
-            <span>{t("location")}</span>
+          {/* 우측 - 모델 대신 브랜드 그라디언트 텍스처 */}
+          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-[2.5rem] lg:block">
+            <Image
+              src="/splash.jpg"
+              alt=""
+              fill
+              sizes="50vw"
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
