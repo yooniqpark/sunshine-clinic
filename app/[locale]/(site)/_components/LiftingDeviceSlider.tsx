@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
 
-type Device = { slug: string; name: string; tagline: string; img: string };
+type Device = { slug: string; name: string; tagline: string; img: string; category: string };
 
 export function LiftingDeviceSlider({ devices }: { devices: Device[] }) {
   const [idx, setIdx] = useState(0);
@@ -25,7 +25,7 @@ export function LiftingDeviceSlider({ devices }: { devices: Device[] }) {
   return (
     <div className="relative">
       {/* Image slide viewport */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl bg-cream/5 lg:aspect-[4/3]">
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl bg-cream/5 sm:aspect-square lg:aspect-[4/5]">
         {devices.map((d, i) => (
           <div
             key={d.slug}
@@ -39,7 +39,7 @@ export function LiftingDeviceSlider({ devices }: { devices: Device[] }) {
               alt={d.name}
               fill
               sizes="(max-width: 1024px) 100vw, 60vw"
-              className="object-contain p-2 sm:p-3"
+              className="object-contain"
             />
           </div>
         ))}
@@ -88,7 +88,7 @@ export function LiftingDeviceSlider({ devices }: { devices: Device[] }) {
       </div>
 
       <Link
-        href={`/treatments/lifting/${cur.slug}`}
+        href={`/treatments/${cur.category}/${cur.slug}`}
         className="mt-6 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.15em] text-cream hover:text-brand-soft"
       >
         상세 보기 →

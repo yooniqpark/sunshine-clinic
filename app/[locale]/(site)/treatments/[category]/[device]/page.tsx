@@ -436,7 +436,8 @@ async function ConcernPage({
   const t = await getTranslations("v2.device");
   const catLabel = t(`categoryLabels.${category}` as never);
   const defaultProcess = t.raw("defaultProcess") as ProcessStep[];
-  const heroBg = concern.image ?? CATEGORY_FALLBACK_IMAGE[category];
+  // concern이 자체 이미지 없을 때 모델(카테고리 대표) 사진 대신 은은한 다크 배경만 사용
+  const heroBg = concern.image ?? undefined;
 
   // Localized concerns for siblings.
   const localizedConcerns = (

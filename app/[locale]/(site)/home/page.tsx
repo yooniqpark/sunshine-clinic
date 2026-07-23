@@ -4,7 +4,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
+import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
+import { getConcernsByCategory } from "@/lib/concerns";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 
@@ -31,11 +33,8 @@ export default async function PreviewHome({
     <>
       <AnnouncementPopups />
 
-      {/* ═══════ 1. HERO — clean editorial (light) ═══════ */}
-      <section
-        className="relative overflow-hidden bg-ink text-cream"
-      >
-        {/* 병원 리셉션 영상 배경 */}
+      {/* ═══════ 1. HERO — 풀스크린 영상 ═══════ */}
+      <section className="relative h-screen w-full overflow-hidden bg-ink text-cream">
         <video
           src="/clinic/hero.mp4"
           autoPlay
@@ -45,34 +44,112 @@ export default async function PreviewHome({
           poster="/clinic/hero-panorama.jpg"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
         />
-        {/* 중앙 대비를 위한 부드러운 방사형 어둡기 */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at center, rgba(10,6,3,0.35) 0%, rgba(10,6,3,0.55) 70%, rgba(10,6,3,0.7) 100%)",
+              "radial-gradient(circle at center, rgba(10,6,3,0.30) 0%, rgba(10,6,3,0.55) 70%, rgba(10,6,3,0.75) 100%)",
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:min-h-[75vh] lg:px-8 lg:pb-40 lg:pt-40">
+        <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-center px-5 lg:px-8">
           <Reveal>
             <div className="max-w-3xl">
-              <p className="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand-soft sm:flex">
-                <span className="h-px w-8 bg-brand-soft" />
-                {t("heroKicker")}
-              </p>
-              <h1 className="mt-8 font-serif text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-cream">
+              <h1 className="font-serif text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-cream">
                 {t("heroTitleLine1")}
                 <br />
                 <span className="text-brand-soft">{t("heroTitleAccent")}</span>
               </h1>
-              <p className="mt-8 max-w-md text-base leading-relaxed text-cream/75 lg:text-lg">
-                {t("heroDescLine1")}
-                <br />
-                {t("heroDescLine2")}
-              </p>
             </div>
           </Reveal>
+        </div>
+      </section>
+
+      {/* ═══════ 1.5 EVENTS — 이벤트 카드 (3-slot grid, 현재 GRAND OPEN 1개) ═══════ */}
+      <section className="border-b border-line bg-cream py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="mb-12 flex items-end justify-between gap-6">
+            <div>
+              <p className="text-[10px] font-bold tracking-[0.28em] text-brand-dark">
+                EVENTS
+              </p>
+              <h2 className="mt-3 font-serif text-4xl font-normal leading-tight tracking-tight text-ink lg:text-5xl">
+                진행 중인 이벤트
+              </h2>
+            </div>
+            <Link
+              href="/community/events"
+              className="hidden text-xs font-semibold tracking-[0.18em] text-ink-soft underline underline-offset-4 hover:text-brand-dark sm:inline"
+            >
+              전체 이벤트 →
+            </Link>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <Reveal>
+              <Link
+                href="/community/events#grand-open-2026-07"
+                className="group relative flex aspect-[4/5] h-full flex-col justify-between overflow-hidden rounded-[2rem] bg-ink p-8 text-cream shadow-xl shadow-ink/15 transition duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-ink/25 lg:p-10"
+              >
+                {/* 배경 그라디언트 · 노이즈 · 오너먼트 */}
+                <div
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at top right, rgba(232,205,175,0.20) 0%, transparent 55%), radial-gradient(ellipse at bottom left, rgba(154,110,84,0.18) 0%, transparent 55%)",
+                  }}
+                />
+                <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-soft/10 blur-3xl transition duration-700 group-hover:bg-brand-soft/20" />
+                <div className="pointer-events-none absolute left-6 top-6 h-8 w-8 border-l border-t border-cream/25" />
+                <div className="pointer-events-none absolute right-6 bottom-6 h-8 w-8 border-b border-r border-cream/25" />
+
+                <div className="relative">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft/40 bg-brand-soft/10 px-3 py-1 text-[10px] font-bold tracking-[0.22em] text-brand-soft backdrop-blur">
+                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-soft" />
+                    OPEN
+                  </span>
+                  <p className="mt-8 text-[10px] font-medium tracking-[0.32em] text-cream/55">
+                    2026.07.13 – 08.30
+                  </p>
+                  <h3 className="mt-6 font-serif text-4xl leading-none tracking-tight lg:text-5xl">
+                    Grand Open
+                  </h3>
+                  <p
+                    className="-mt-1 font-serif italic leading-none tracking-tight text-brand-soft"
+                    style={{ fontSize: "2.25rem" }}
+                  >
+                    Event
+                  </p>
+
+                  <div className="mt-10 h-px w-16 bg-cream/25" />
+
+                  <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/75 lg:text-base">
+                    리프팅 · 화이트닝 · 스킨부스터 · 보톡스
+                    <br />
+                    <span className="text-brand-soft">4개 카테고리 오픈 특별가</span>
+                  </p>
+                </div>
+
+                <div className="relative mt-8 flex items-center justify-between">
+                  <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-cream transition group-hover:text-brand-soft">
+                    자세히 보기
+                    <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </div>
+                  <span className="rounded-full border border-cream/20 px-3 py-1 text-[9px] tracking-[0.15em] text-cream/50">
+                    VAT 별도
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
+
+            {/* 향후 이벤트 자리 (플레이스홀더) */}
+            <div className="hidden aspect-[4/5] items-center justify-center rounded-[2rem] border border-dashed border-line bg-white/40 text-center text-xs tracking-[0.15em] text-ink-soft/60 md:flex">
+              추가 이벤트 준비 중
+            </div>
+            <div className="hidden aspect-[4/5] items-center justify-center rounded-[2rem] border border-dashed border-line bg-white/40 text-center text-xs tracking-[0.15em] text-ink-soft/60 lg:flex">
+              추가 이벤트 준비 중
+            </div>
+          </div>
         </div>
       </section>
 
@@ -99,102 +176,63 @@ export default async function PreviewHome({
       </section>
       )}
 
-      {/* ═══════ 3. CATEGORIES — bento grid (before director) ═══════ */}
-      <section className="border-y border-line bg-sand/30 py-24 lg:py-32">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="mb-14 flex items-end justify-between gap-6">
+      {/* ═══════ 5. SIGNATURE — 대표 시술 에디토리얼 쇼케이스 ═══════ */}
+      <section className="relative overflow-hidden bg-ink py-24 text-cream lg:py-36">
+        {/* 배경 미묘한 방사형 하이라이트 */}
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 20% 20%, rgba(232,205,175,0.06) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(154,110,84,0.08) 0%, transparent 55%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+          {/* Section header */}
+          <div className="mb-16 flex items-end justify-between gap-6">
             <div>
-              <p className="text-[10px] font-bold tracking-[0.28em] text-brand">
-                {t("categoriesKicker")}
+              <p className="text-[10px] font-bold tracking-[0.32em] text-brand-soft">
+                SIGNATURE
               </p>
-              <h2 className="mt-3 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-5xl">
-                {t("categoriesTitleLead")}
-                <span className="text-brand-dark">{t("categoriesTitleAccent")}</span>
+              <h2 className="mt-3 font-serif text-5xl font-normal leading-none tracking-tight lg:text-6xl">
+                대표 시술
               </h2>
+              <p
+                className="-mt-1 font-serif italic leading-none tracking-tight text-brand-soft/80"
+                style={{ fontSize: "2rem" }}
+              >
+                &amp; Devices
+              </p>
             </div>
             <Link
-              href="/treatments/lifting"
-              className="hidden text-xs font-semibold tracking-[0.18em] text-ink-soft underline underline-offset-4 hover:text-brand sm:inline"
+              href="/about#devices"
+              className="hidden text-xs font-semibold tracking-[0.2em] text-cream/60 underline underline-offset-8 hover:text-brand-soft sm:inline"
             >
-              {t("viewAllCategories")}
+              전체 장비 보기 →
             </Link>
           </div>
 
-          <div className="grid gap-3 lg:grid-cols-4 lg:grid-rows-2 lg:gap-4">
-            <BentoCard
-              slug="lifting"
-              img="/models/lifting.png"
-              label="LIFTING"
-              title={t("cards.lifting")}
-              detail={t("bentoDetail")}
-              tall
-              wide
-            />
-            <BentoCard
-              slug="anti-aging"
-              img="/models/anti-aging.jpg"
-              label="ANTI-AGING"
-              title={t("cards.antiAging")}
-              detail={t("bentoDetail")}
-            />
-            <BentoCard
-              slug="whitening"
-              img="/models/whitening.png"
-              label="WHITENING"
-              title={t("cards.whitening")}
-              detail={t("bentoDetail")}
-            />
-            <BentoCard
-              slug="acne"
-              img="/models/acne.png"
-              label="ACNE · SCAR"
-              title={t("cards.acne")}
-              detail={t("bentoDetail")}
-            />
-            <BentoCard
-              slug="skin-disease"
-              label="SKIN DISEASE"
-              title={t("cards.skinDisease")}
-              detail={t("bentoDetail")}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ 5. SIGNATURE DEVICES — 리프팅 대표 장비 슬라이드 ═══════ */}
-      <section className="bg-ink py-24 text-cream lg:py-32">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:items-center">
-            <div>
-              <p className="text-[10px] font-bold tracking-[0.28em] text-brand-soft">
-                LIFTING · SIGNATURE
-              </p>
-              <h2 className="mt-3 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-5xl">
-                리프팅 <span className="text-brand-soft">대표 장비</span>
-              </h2>
-              <p className="mt-6 max-w-md text-sm leading-relaxed text-cream/70">
-                울쎄라 · 써마지 · 슈링크 등 리프팅 하이엔드 장비를 소개합니다.
-                전체 장비는 병원 소개 페이지에서 확인하세요.
-              </p>
-              <Link
-                href="/about#devices"
-                className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cream hover:text-brand-soft"
-              >
-                전체 장비 보기 <ArrowUpRightIcon className="h-4 w-4" />
-              </Link>
-            </div>
-
-            <LiftingDeviceSlider
-              devices={getDevicesByCategory(locale as AppLocale, "lifting").map(
-                (d) => ({
-                  slug: d.slug,
-                  name: d.name,
-                  tagline: d.tagline,
-                  img: getDeviceImage(d.slug) ?? "",
-                }),
-              )}
-            />
-          </div>
+          <SignatureShowcase
+            items={[
+              ...getDevicesByCategory(locale as AppLocale, "lifting").map((d) => ({
+                slug: d.slug,
+                name: d.name,
+                tagline: d.tagline,
+                img: getDeviceImage(d.slug) ?? "",
+                category: "lifting",
+                categoryLabel: "LIFTING",
+              })),
+              ...getConcernsByCategory(locale as AppLocale, "anti-aging")
+                .filter((c) => c.image)
+                .map((c) => ({
+                  slug: c.slug,
+                  name: c.name,
+                  tagline: c.tagline,
+                  img: c.image ?? "",
+                  category: "anti-aging",
+                  categoryLabel: "ANTI-AGING",
+                })),
+            ]}
+          />
         </div>
       </section>
 
@@ -212,9 +250,6 @@ export default async function PreviewHome({
             <span className="text-brand-dark">{t("whyLine3a")}</span>
             {t("whyLine3b")}
           </h2>
-          <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-ink-soft lg:text-base">
-            {t("whyDesc")}
-          </p>
           <Link
             href="/about"
             className="mt-10 inline-flex items-center gap-2 text-sm font-semibold text-brand-dark hover:text-brand"
