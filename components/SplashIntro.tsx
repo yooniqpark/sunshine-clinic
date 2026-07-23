@@ -61,13 +61,6 @@ export function SplashIntro() {
         className="absolute inset-0 h-full w-full cursor-pointer bg-transparent"
       />
 
-      {/* Hint at bottom */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-3 text-cream/70 sm:bottom-12">
-        <span className="text-[10px] font-medium uppercase tracking-[0.4em]">
-          Tap logo to enter
-        </span>
-        <span className="h-4 w-px animate-pulse bg-cream/50" />
-      </div>
     </div>
   );
 }
