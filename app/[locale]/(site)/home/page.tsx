@@ -33,14 +33,21 @@ export default async function PreviewHome({
         className="relative overflow-hidden text-ink"
         style={{ backgroundColor: "#F5F0EA" }}
       >
-        {/* 히어로 전체 누드 헤이즈 - 아주 연하게 */}
+        {/* 병원 리셉션 파노라마 배경 */}
+        <Image
+          src="/clinic/hero-panorama.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="pointer-events-none absolute inset-0 object-cover object-center opacity-40"
+        />
+        {/* 왼쪽에서 오른쪽으로 페이드 (좌측 텍스트 가독성) */}
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.18]"
+          className="pointer-events-none absolute inset-0"
           style={{
-            backgroundImage: "url('/splash.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            mixBlendMode: "multiply",
+            background:
+              "linear-gradient(to right, rgba(245,240,234,0.92) 0%, rgba(245,240,234,0.65) 45%, rgba(245,240,234,0.35) 100%)",
           }}
         />
 
