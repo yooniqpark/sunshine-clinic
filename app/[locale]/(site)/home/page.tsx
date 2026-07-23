@@ -156,7 +156,6 @@ export default async function PreviewHome({
               label="SKIN DISEASE"
               title={t("cards.skinDisease")}
               detail={t("bentoDetail")}
-              wide
             />
           </div>
         </div>
@@ -262,6 +261,15 @@ export default async function PreviewHome({
   );
 }
 
+// First device/concern slug per category — deep-link entry from home bento
+const FIRST_ITEM: Record<string, string> = {
+  lifting: "ulthera-prime",
+  "anti-aging": "rejuran",
+  whitening: "clarity-ii",
+  acne: "carpri-co2",
+  "skin-disease": "atopy",
+};
+
 function BentoCard({
   slug,
   img,
@@ -285,10 +293,13 @@ function BentoCard({
   ]
     .filter(Boolean)
     .join(" ");
+  const target = FIRST_ITEM[slug]
+    ? `/treatments/${slug}/${FIRST_ITEM[slug]}`
+    : "/treatments/lifting/ulthera-prime";
   return (
     <Reveal className={`${span} h-full`}>
       <Link
-        href={`/treatments/${slug}`}
+        href={target}
         className="group relative flex aspect-[4/5] h-full flex-col overflow-hidden rounded-3xl bg-ink sm:aspect-[16/10] lg:aspect-auto lg:min-h-[240px]"
       >
         {img ? (
@@ -298,7 +309,7 @@ function BentoCard({
               alt={title}
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover object-[center_15%] opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100"
+              className="object-cover object-[center_25%] opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
           </>
