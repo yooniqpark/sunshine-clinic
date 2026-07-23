@@ -54,7 +54,7 @@ export default async function PreviewHome({
         <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:min-h-[75vh] lg:px-8 lg:pb-40 lg:pt-40">
           <Reveal>
             <div className="max-w-3xl">
-              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand-soft">
+              <p className="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand-soft sm:flex">
                 <span className="h-px w-8 bg-brand-soft" />
                 {t("heroKicker")}
               </p>
