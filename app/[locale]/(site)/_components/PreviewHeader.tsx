@@ -99,27 +99,19 @@ export function PreviewHeader() {
         <Link
           href="/home"
           onClick={() => setOpen(false)}
-          className="group flex items-center gap-3"
+          aria-label={tBrand("name")}
+          className="flex items-center"
         >
           <Image
-            src="/logo-mark.svg"
-            alt=""
-            width={40}
-            height={40}
-            className="h-9 w-9 -translate-y-[3px] object-contain lg:h-10 lg:w-10"
+            src="/logo-lockup.svg"
+            alt={tBrand("name")}
+            width={2100}
+            height={720}
+            priority
+            className={`h-9 w-auto object-contain transition lg:h-11 ${
+              solid ? "" : "brightness-0 invert"
+            }`}
           />
-          <div className="flex flex-col leading-none">
-            <span
-              className={`font-serif text-[15px] font-normal tracking-tight transition lg:text-base ${nameColor}`}
-            >
-              {tBrand("name")}
-            </span>
-            <span
-              className={`mt-1 text-[9px] font-medium uppercase tracking-[0.24em] transition ${subColor}`}
-            >
-              {tBrand("label")}
-            </span>
-          </div>
         </Link>
 
         {/* Desktop nav */}
