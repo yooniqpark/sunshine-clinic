@@ -3,6 +3,17 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon } from "@/components/icons";
+import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
+import type { AppLocale } from "@/i18n/routing";
+
+const DEVICE_CATEGORIES: {
+  slug: "lifting" | "whitening" | "acne";
+  labelKey: string;
+}[] = [
+  { slug: "lifting", labelKey: "리프팅" },
+  { slug: "whitening", labelKey: "화이트닝 · 홍조" },
+  { slug: "acne", labelKey: "여드름 · 흉터" },
+];
 
 type HistoryItem = { year: string; event: string };
 type SpaceItem = { label: string; desc: string };
@@ -28,6 +39,16 @@ export default async function AboutPage({
   const history = t.raw("history") as HistoryItem[];
   const spaces = t.raw("spaces") as SpaceItem[];
   const values = t.raw("values") as ValueItem[];
+
+  const allDevices = DEVICE_CATEGORIES.flatMap((cat) =>
+    getDevicesByCategory(locale as AppLocale, cat.slug).map((d) => ({
+      slug: d.slug,
+      name: d.name,
+      category: cat.slug,
+      categoryLabel: cat.labelKey,
+      image: getDeviceImage(d.slug),
+    })),
+  );
 
   return (
     <>
@@ -218,29 +239,53 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* ══════ DEVICES ══════ */}
-      <section className="bg-white py-28 lg:py-36">
-        <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
+      {/* ══════ DEVICES — 전체 장비 그리드 ══════ */}
+      <section id="devices" className="scroll-mt-24 bg-white py-24 lg:py-32">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
-            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-              {t("equipmentKicker")}
-            </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-6xl">
-              {t("equipmentTitleLead")}
-              <br />
-              <span className="text-brand-dark">{t("equipmentTitleAccent")}</span>
-            </h2>
-            <p className="mx-auto mt-10 max-w-2xl text-base leading-relaxed text-ink-soft lg:text-lg">
-              {t("equipmentDesc")}
-            </p>
-            <Link
-              href="/treatments/lifting"
-              className="group mt-12 inline-flex items-center gap-3 border-b border-ink/30 pb-2 text-sm font-semibold text-ink transition hover:border-brand-dark hover:text-brand-dark"
-            >
-              {t("equipmentCta")}
-              <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Link>
+            <div className="mb-14 text-center">
+              <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+                {t("equipmentKicker")}
+              </p>
+              <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
+                {t("equipmentTitleLead")}
+                <br />
+                <span className="text-brand-dark">{t("equipmentTitleAccent")}</span>
+              </h2>
+              <p className="mx-auto mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft lg:text-base">
+                {t("equipmentDesc")}
+              </p>
+            </div>
           </Reveal>
+
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 lg:gap-4">
+            {allDevices.map((d, i) => (
+              <Reveal key={d.slug} delay={i * 40}>
+                <Link
+                  href={`/treatments/${d.category}/${d.slug}`}
+                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-cream/40 transition hover:border-brand-dark hover:shadow-md"
+                >
+                  <div className="relative aspect-square overflow-hidden bg-white">
+                    {d.image && (
+                      <Image
+                        src={d.image}
+                        alt={d.name}
+                        fill
+                        sizes="(max-width: 768px) 45vw, 22vw"
+                        className="object-contain p-4 transition group-hover:scale-105"
+                      />
+                    )}
+                  </div>
+                  <div className="px-4 py-3">
+                    <p className="text-[9px] font-bold tracking-[0.2em] text-brand-dark">
+                      {d.categoryLabel}
+                    </p>
+                    <p className="mt-1 text-sm font-semibold text-ink">{d.name}</p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

@@ -174,7 +174,7 @@ function EventCarousel() {
               aria-label={`Slide ${i + 1}`}
               aria-current={i === idx}
               className={`h-1.5 rounded-full transition-all ${
-                i === idx ? "w-6 bg-ink" : "w-1.5 bg-ink/25"
+                i === idx ? "w-6 bg-cream" : "w-1.5 bg-cream/40"
               }`}
             />
           ))}

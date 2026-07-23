@@ -3,6 +3,9 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
+import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
+import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
+import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 
 export default async function PreviewHome({
@@ -159,88 +162,39 @@ export default async function PreviewHome({
         </div>
       </section>
 
-      {/* ═══════ 4. EDITORIAL QUOTE — director spotlight ═══════ */}
-      <section className="bg-cream py-24 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 lg:grid-cols-[1fr_1.2fr] lg:items-center lg:px-8">
-          <Reveal>
-            <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-sand/40">
-              <Image
-                src="/team/kim.jpg"
-                alt={t("directorName")}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                className="object-cover object-top"
-              />
-            </div>
-          </Reveal>
-          <Reveal delay={120}>
-            <p className="text-[10px] font-bold tracking-[0.28em] text-brand">
-              {t("directorKicker")}
-            </p>
-            <blockquote className="mt-5 font-serif text-3xl font-normal leading-[1.35] tracking-tight text-ink lg:text-[2.75rem] lg:leading-[1.25]">
-              {t("directorQuoteStart")}
-              <span className="text-brand-dark">{t("directorQuoteAccent")}</span>
-              {t("directorQuoteEnd")}
-            </blockquote>
-            <div className="mt-10 flex items-center gap-4">
-              <div className="h-px flex-1 bg-line" />
-              <div>
-                <p className="text-base font-semibold">{t("directorName")}</p>
-                <p className="text-xs text-ink-soft">{t("directorRole")}</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ═══════ 5. SIGNATURE DEVICES — dark rhythm ═══════ */}
+      {/* ═══════ 5. SIGNATURE DEVICES — 리프팅 대표 장비 슬라이드 ═══════ */}
       <section className="bg-ink py-24 text-cream lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+          <div className="grid gap-14 lg:grid-cols-[1fr_1.4fr] lg:items-center">
             <div>
               <p className="text-[10px] font-bold tracking-[0.28em] text-brand-soft">
-                {t("devicesKicker")}
+                LIFTING · SIGNATURE
               </p>
               <h2 className="mt-3 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-5xl">
-                {t("devicesTitleLead")}
-                <span className="text-brand-soft">{t("devicesTitleAccent")}</span>
-                <br />
-                {t("devicesTitleTail")}
+                리프팅 <span className="text-brand-soft">대표 장비</span>
               </h2>
               <p className="mt-6 max-w-md text-sm leading-relaxed text-cream/70">
-                {t("devicesDesc")}
+                울쎄라 · 써마지 · 슈링크 등 리프팅 하이엔드 장비를 소개합니다.
+                전체 장비는 병원 소개 페이지에서 확인하세요.
               </p>
               <Link
                 href="/about#devices"
                 className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-cream hover:text-brand-soft"
               >
-                {t("viewAllDevices")} <ArrowUpRightIcon className="h-4 w-4" />
+                전체 장비 보기 <ArrowUpRightIcon className="h-4 w-4" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-3 lg:gap-4">
-              {DEVICES_KEYS.map((d, i) => (
-                <Reveal key={d.key} delay={i * 60}>
-                  <div className="group overflow-hidden rounded-2xl bg-cream/95 p-4 transition hover:bg-cream">
-                    <div className="relative aspect-square overflow-hidden rounded-xl bg-sand/60">
-                      <Image
-                        src={d.img}
-                        alt={t(`devicesList.${d.key}.name`)}
-                        fill
-                        sizes="(max-width: 1024px) 40vw, 20vw"
-                        className="object-contain p-3 transition group-hover:scale-105"
-                      />
-                    </div>
-                    <p className="mt-3 text-[10px] font-bold tracking-[0.22em] text-brand">
-                      {t(`devicesList.${d.key}.tag`)}
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-ink">
-                      {t(`devicesList.${d.key}.name`)}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
+            <LiftingDeviceSlider
+              devices={getDevicesByCategory(locale as AppLocale, "lifting").map(
+                (d) => ({
+                  slug: d.slug,
+                  name: d.name,
+                  tagline: d.tagline,
+                  img: getDeviceImage(d.slug) ?? "",
+                }),
+              )}
+            />
           </div>
         </div>
       </section>
