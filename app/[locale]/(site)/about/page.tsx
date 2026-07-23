@@ -35,7 +35,7 @@ export default async function AboutPage({
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
           <Image
-            src="/clinic/reception.jpg"
+            src="/clinic/reception-v2.jpg"
             alt=""
             fill
             priority
