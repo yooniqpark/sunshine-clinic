@@ -68,7 +68,7 @@ export default async function TreatmentPage({
         </div>
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <nav className="mb-6 flex items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
-            <Link href="/" className="hover:text-cream">{t("crumbHome")}</Link>
+            <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
             <span>/</span>
             <span className="text-cream/80">{t("crumbTreatments")}</span>
           </nav>
@@ -142,7 +142,7 @@ export default async function TreatmentPage({
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/#book"
+              href="/home#book"
               className="rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream hover:bg-brand-dark"
             >
               {t("ctaOnline")}

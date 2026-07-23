@@ -205,6 +205,135 @@
         "carpriCo2": "CarPri CO2",
         "goldPtt": "ゴールド PTT",
         "curejet": "キュアジェット"
+      },
+      "subMenus": {
+        "lifting": [
+          {
+            "label": "ウルセラ プライム",
+            "sub": "ULTHERA PRIME",
+            "href": "/treatments/lifting/ulthera-prime"
+          },
+          {
+            "label": "サーマジ FLX",
+            "sub": "THERMAGE FLX",
+            "href": "/treatments/lifting/thermage-flx"
+          },
+          {
+            "label": "シュリンクユニバース",
+            "sub": "SHRINK UNIVERSE",
+            "href": "/treatments/lifting/shurink-universe"
+          },
+          {
+            "label": "インモード (フォルマ · ミニ)",
+            "sub": "INMODE",
+            "href": "/treatments/lifting/inmode"
+          },
+          {
+            "label": "ellanse",
+            "sub": "ELLANSÉ",
+            "href": "/treatments/lifting/ellanse"
+          }
+        ],
+        "whitening": [
+          {
+            "label": "クレアリティ II",
+            "sub": "CLARITY II",
+            "href": "/treatments/whitening/clarity-ii"
+          },
+          {
+            "label": "フォトナ スターウォーカー MAQX",
+            "sub": "STARWALKER",
+            "href": "/treatments/whitening/fotona-starwalker"
+          },
+          {
+            "label": "ブイビーム (VBeam)",
+            "sub": "VBEAM",
+            "href": "/treatments/whitening/vbeam"
+          },
+          {
+            "label": "シークレット RF",
+            "sub": "SECRET RF",
+            "href": "/treatments/whitening/secret-rf"
+          }
+        ],
+        "acne": [
+          {
+            "label": "カプリ (CO2)",
+            "sub": "CARPRI CO2",
+            "href": "/treatments/acne/carpri-co2"
+          },
+          {
+            "label": "ゴールドPTT",
+            "sub": "GOLD PTT",
+            "href": "/treatments/acne/gold-ptt"
+          },
+          {
+            "label": "Mirajet",
+            "sub": "CUREJET",
+            "href": "/treatments/acne/curajet"
+          },
+          {
+            "label": "シークレット RF",
+            "sub": "SECRET RF",
+            "href": "/treatments/acne/secret-rf"
+          }
+        ],
+        "anti-aging": [
+          {
+            "label": "リジュラン",
+            "href": "/treatments/anti-aging/rejuran"
+          },
+          {
+            "label": "ジュベロック",
+            "href": "/treatments/anti-aging/juvelook"
+          },
+          {
+            "label": "엘라비에 리투오",
+            "href": "/treatments/anti-aging/elravie-re20"
+          },
+          {
+            "label": "셀르디엠",
+            "href": "/treatments/anti-aging/cellredm"
+          },
+          {
+            "label": "스킨바이브",
+            "href": "/treatments/anti-aging/skinvive"
+          },
+          {
+            "label": "엘란쎄",
+            "href": "/treatments/anti-aging/ellanse-antiaging"
+          },
+          {
+            "label": "레디어스",
+            "href": "/treatments/anti-aging/radiesse"
+          }
+        ],
+        "skin-disease": [
+          {
+            "label": "アトピー",
+            "href": "/treatments/skin-disease/atopy"
+          },
+          {
+            "label": "乾癬 · 白癬",
+            "href": "/treatments/skin-disease/psoriasis"
+          },
+          {
+            "label": "脱毛",
+            "href": "/treatments/skin-disease/hair-loss"
+          },
+          {
+            "label": "대상포진 · 단순포진",
+            "href": "/treatments/skin-disease/herpes"
+          },
+          {
+            "label": "水虫",
+            "href": "/treatments/skin-disease/athletes-foot"
+          },
+          {
+            "label": "やけど",
+            "href": "/treatments/skin-disease/burns"
+          }
+        ]
       }
     },
     "footer": {

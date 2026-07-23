@@ -6,7 +6,6 @@ import { routing } from "@/i18n/routing";
 import { PreviewHeader } from "./(site)/_components/PreviewHeader";
 import { PreviewFooter } from "./(site)/_components/PreviewFooter";
 import { ChatWidget } from "@/components/ChatWidget";
-import { SplashIntro } from "@/components/SplashIntro";
 
 export const metadata: Metadata = {
   title: "Sunshine Dermatology Clinic",
@@ -36,7 +35,6 @@ export default async function PreviewLayout({
         <PreviewFooter />
 
         <ChatWidget />
-        <SplashIntro />
       </div>
     </NextIntlClientProvider>
   );

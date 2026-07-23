@@ -57,7 +57,7 @@ export default async function EventsPage({
 
         <div className="mt-16 text-center">
           <Link
-            href="/#book"
+            href="/home#book"
             className="inline-flex rounded-full bg-ink px-8 py-4 text-sm font-semibold text-cream hover:bg-brand-dark"
           >
             {t("cta")}

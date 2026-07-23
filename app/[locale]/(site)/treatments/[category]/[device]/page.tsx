@@ -118,7 +118,7 @@ export default async function DevicePage({
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
-            <Link href="/" className="hover:text-cream">{t("crumbHome")}</Link>
+            <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
             <span>/</span>
             <Link href={`/treatments/${category}`} className="hover:text-cream">
               {catLabel.toUpperCase()}
@@ -358,7 +358,7 @@ export default async function DevicePage({
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/#book"
+                href="/home#book"
                 className="group inline-flex items-center gap-2 rounded-full bg-cream px-8 py-4 text-sm font-semibold text-ink transition hover:bg-brand-soft"
               >
                 {t("ctaOnline")}
@@ -477,7 +477,7 @@ async function ConcernPage({
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
-            <Link href="/" className="hover:text-cream">
+            <Link href="/home" className="hover:text-cream">
               {t("crumbHome")}
             </Link>
             <span>/</span>
@@ -646,7 +646,7 @@ async function ConcernPage({
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
-                href="/#book"
+                href="/home#book"
                 className="group inline-flex items-center gap-2 rounded-full bg-cream px-8 py-4 text-sm font-semibold text-ink transition hover:bg-brand-soft"
               >
                 {t("ctaOnline")}

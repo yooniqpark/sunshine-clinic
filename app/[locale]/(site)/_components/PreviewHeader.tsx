@@ -26,13 +26,41 @@ export function PreviewHeader() {
   const subColor = "text-ink-soft/80";
   const linkColor = "text-ink";
 
+  const subMenu = (slug: string) =>
+    (t.raw(`subMenus.${slug}`) as SubItem[]) ?? [];
+
   const NAV: NavItem[] = [
     { key: "about", label: t("nav.about"), href: "/about" },
-    { key: "lifting", label: t("cols.lifting"), href: "/treatments/lifting" },
-    { key: "antiAging", label: t("cols.antiAging"), href: "/treatments/anti-aging" },
-    { key: "whitening", label: t("cols.whitening"), href: "/treatments/whitening" },
-    { key: "acne", label: t("cols.acne"), href: "/treatments/acne" },
-    { key: "skinDisease", label: t("cols.skinDisease"), href: "/treatments/skin-disease" },
+    {
+      key: "lifting",
+      label: t("cols.lifting"),
+      href: "/treatments/lifting",
+      children: [{ title: t("cols.lifting"), href: "/treatments/lifting", items: subMenu("lifting") }],
+    },
+    {
+      key: "antiAging",
+      label: t("cols.antiAging"),
+      href: "/treatments/anti-aging",
+      children: [{ title: t("cols.antiAging"), href: "/treatments/anti-aging", items: subMenu("anti-aging") }],
+    },
+    {
+      key: "whitening",
+      label: t("cols.whitening"),
+      href: "/treatments/whitening",
+      children: [{ title: t("cols.whitening"), href: "/treatments/whitening", items: subMenu("whitening") }],
+    },
+    {
+      key: "acne",
+      label: t("cols.acne"),
+      href: "/treatments/acne",
+      children: [{ title: t("cols.acne"), href: "/treatments/acne", items: subMenu("acne") }],
+    },
+    {
+      key: "skinDisease",
+      label: t("cols.skinDisease"),
+      href: "/treatments/skin-disease",
+      children: [{ title: t("cols.skinDisease"), href: "/treatments/skin-disease", items: subMenu("skin-disease") }],
+    },
     {
       key: "community",
       label: t("nav.community"),
@@ -54,7 +82,7 @@ export function PreviewHeader() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line/40 bg-cream/85 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
-          href="/"
+          href="/home"
           onClick={() => setOpen(false)}
           className="group flex items-center gap-3"
         >
@@ -100,7 +128,7 @@ export function PreviewHeader() {
           <div className="ml-3 flex items-center gap-3">
             <LanguageSwitcher />
             <Link
-              href="/#book"
+              href="/home#book"
               className="rounded-full bg-ink px-5 py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark"
             >
               {t("ctaBook")}
@@ -135,9 +163,9 @@ export function PreviewHeader() {
                 : "invisible max-h-0 opacity-0"
             }`}
           >
-            <div className="mx-auto grid max-w-7xl gap-6 px-8 py-10 md:grid-cols-3 lg:grid-cols-5">
+            <div className="mx-auto flex max-w-7xl flex-wrap gap-8 px-8 py-8">
               {item.children.map((col) => (
-                <div key={col.title}>
+                <div key={col.title} className="min-w-[220px] flex-1">
                   {col.href ? (
                     <Link
                       href={col.href}

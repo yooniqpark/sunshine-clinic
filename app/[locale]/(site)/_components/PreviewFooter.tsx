@@ -11,7 +11,7 @@ export async function PreviewFooter() {
       <div className="mx-auto grid max-w-7xl gap-12 px-5 py-16 md:grid-cols-4 lg:px-8 lg:py-20">
         {/* Brand col */}
         <div className="md:col-span-2">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/home" className="flex items-center gap-3">
             <Image
               src="/logo-mark.svg"
               alt=""
