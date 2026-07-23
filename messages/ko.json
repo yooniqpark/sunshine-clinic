@@ -258,7 +258,7 @@
         ],
         "acne": [
           {
-            "label": "카프리 (CO2)",
+            "label": "카프리",
             "sub": "CARPRI CO2",
             "href": "/treatments/acne/carpri-co2"
           },
@@ -268,7 +268,7 @@
             "href": "/treatments/acne/gold-ptt"
           },
           {
-            "label": "미라젯",
+            "label": "큐어젯",
             "sub": "CUREJET",
             "href": "/treatments/acne/curajet"
           },
@@ -280,7 +280,7 @@
         ],
         "anti-aging": [
           {
-            "label": "리쥬란",
+            "label": "리쥬란 · 리쥬란 아이",
             "href": "/treatments/anti-aging/rejuran"
           },
           {
@@ -300,12 +300,24 @@
             "href": "/treatments/anti-aging/skinvive"
           },
           {
+            "label": "물광 주사",
+            "href": "/treatments/anti-aging/mulgwang"
+          },
+          {
             "label": "엘란쎄",
             "href": "/treatments/anti-aging/ellanse-antiaging"
           },
           {
             "label": "레디어스",
             "href": "/treatments/anti-aging/radiesse"
+          },
+          {
+            "label": "보톡스",
+            "href": "/treatments/anti-aging/botox"
+          },
+          {
+            "label": "필러",
+            "href": "/treatments/anti-aging/filler"
           }
         ],
         "skin-disease": [
@@ -314,7 +326,7 @@
             "href": "/treatments/skin-disease/atopy"
           },
           {
-            "label": "건선 · 아토피",
+            "label": "건선",
             "href": "/treatments/skin-disease/psoriasis"
           },
           {
@@ -783,7 +795,7 @@
           "fallbackItems": [
             {
               "slug": "rejuran",
-              "name": "리쥬란",
+              "name": "리쥬란 · 리쥬란 아이",
               "desc": "연어 PN(폴리뉴클레오타이드) 성분으로 피부 자체의 재생력을 깨우다",
               "image": "/devices/rejuran.jpg"
             },
@@ -812,6 +824,11 @@
               "image": "/devices/skinvive.jpg"
             },
             {
+              "slug": "mulgwang",
+              "name": "물광 주사",
+              "desc": "히알루론산 기반 수분 부스터로 얇고 촉촉한 결 만들기"
+            },
+            {
               "slug": "ellanse-antiaging",
               "name": "엘란쎄",
               "desc": "PCL 콜라겐 부스터로 최장 4년까지 지속되는 자연 볼륨",
@@ -822,6 +839,16 @@
               "name": "레디어스",
               "desc": "CaHA 성분으로 즉시 볼륨 + 지속적 콜라겐 생성",
               "image": "/devices/radiesse.jpg"
+            },
+            {
+              "slug": "botox",
+              "name": "보톡스",
+              "desc": "표정은 자연스럽게, 라인은 매끄럽게 다듬는 디테일 안티에이징"
+            },
+            {
+              "slug": "filler",
+              "name": "필러",
+              "desc": "감추고 싶은 빈틈을 채워 얼굴의 황금 비율을 완성하는 맞춤 입체 성형"
             }
           ]
         },
@@ -904,7 +931,7 @@
             },
             {
               "slug": "psoriasis",
-              "name": "건선 · 아토피",
+              "name": "건선",
               "desc": "면역·장벽 이상으로 반복되는 만성 염증성 질환의 장기 관리"
             },
             {

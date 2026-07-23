@@ -489,7 +489,7 @@
   "carpri-co2": {
     "slug": "carpri-co2",
     "category": "acne",
-    "name": "Carpri (CO2)",
+    "name": "Carpri",
     "tagline": "Fractional CO2 laser, the standard for reconstructing depressed scars and pores",
     "intro": "The 10,600nm CO2 laser delivers precise micro-damage to the dermis in a fractional manner, inducing collagen regeneration. It is a representative device for gradually reconstructing depressed acne scars and enlarged pores.",
     "manufacturer": "Lumenis / Various",
@@ -611,7 +611,7 @@
   "curajet": {
     "slug": "curajet",
     "category": "acne",
-    "name": "Mirajet",
+    "name": "Curejet",
     "tagline": "High-pressure sterilized saline spray for non-invasive pore cleansing",
     "intro": "Medical-grade high-pressure sterilized saline penetrates deeply into the pores to non-invasively cleanse sebum, dead skin cells, and impurities. It soothes trouble spots and provides immediate skin texture improvement, making it a regular care treatment that is easy to receive frequently.",
     "manufacturer": "CUREJET",

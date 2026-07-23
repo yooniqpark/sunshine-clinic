@@ -258,7 +258,7 @@
         ],
         "acne": [
           {
-            "label": "卡普里 (CO2)",
+            "label": "卡普里",
             "sub": "CARPRI CO2",
             "href": "/treatments/acne/carpri-co2"
           },
@@ -268,7 +268,7 @@
             "href": "/treatments/acne/gold-ptt"
           },
           {
-            "label": "Mirajet",
+            "label": "库尔捷特",
             "sub": "CUREJET",
             "href": "/treatments/acne/curajet"
           },
@@ -300,12 +300,24 @@
             "href": "/treatments/anti-aging/skinvive"
           },
           {
+            "label": "물광 주사",
+            "href": "/treatments/anti-aging/mulgwang"
+          },
+          {
             "label": "엘란쎄",
             "href": "/treatments/anti-aging/ellanse-antiaging"
           },
           {
             "label": "레디어스",
             "href": "/treatments/anti-aging/radiesse"
+          },
+          {
+            "label": "보톡스",
+            "href": "/treatments/anti-aging/botox"
+          },
+          {
+            "label": "填充剂",
+            "href": "/treatments/anti-aging/filler"
           }
         ],
         "skin-disease": [
@@ -314,7 +326,7 @@
             "href": "/treatments/skin-disease/atopy"
           },
           {
-            "label": "银屑病 · 癣",
+            "label": "牛皮癣",
             "href": "/treatments/skin-disease/psoriasis"
           },
           {
@@ -812,6 +824,11 @@
               "image": "/devices/skinvive.jpg"
             },
             {
+              "slug": "mulgwang",
+              "name": "물광 주사",
+              "desc": "히알루론산 기반 수분 부스터로 얇고 촉촉한 결 만들기"
+            },
+            {
               "slug": "ellanse-antiaging",
               "name": "엘란쎄",
               "desc": "PCL 콜라겐 부스터로 최장 4년까지 지속되는 자연 볼륨",
@@ -822,6 +839,16 @@
               "name": "레디어스",
               "desc": "CaHA 성분으로 즉시 볼륨 + 지속적 콜라겐 생성",
               "image": "/devices/radiesse.jpg"
+            },
+            {
+              "slug": "botox",
+              "name": "보톡스",
+              "desc": "표정은 자연스럽게, 라인은 매끄럽게 다듬는 디테일 안티에이징"
+            },
+            {
+              "slug": "filler",
+              "name": "填充剂",
+              "desc": "瞬间填补凹陷的体积和轮廓的透明质酸注射"
             }
           ]
         },
@@ -904,7 +931,7 @@
             },
             {
               "slug": "psoriasis",
-              "name": "银屑病 · 癣",
+              "name": "牛皮癣",
               "desc": "慢性炎症性疾病的长期管理计划"
             },
             {
