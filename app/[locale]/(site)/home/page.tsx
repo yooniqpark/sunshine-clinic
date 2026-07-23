@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
+import { HeroTitle } from "../_components/HeroTitle";
 import { ArrowUpRightIcon } from "@/components/icons";
 
 export default async function PreviewHome({
@@ -42,35 +43,17 @@ export default async function PreviewHome({
           poster="/clinic/hero-panorama.jpg"
           className="pointer-events-none absolute inset-0 h-full w-full object-cover object-center"
         />
-        {/* 좌측만 살짝 어둡게 (텍스트 가독성) — 사진 원본 최대한 유지 */}
+        {/* 중앙 대비를 위한 부드러운 방사형 어둡기 */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(10,6,3,0.78) 0%, rgba(10,6,3,0.55) 45%, rgba(10,6,3,0.28) 100%)",
+              "radial-gradient(circle at center, rgba(10,6,3,0.35) 0%, rgba(10,6,3,0.55) 70%, rgba(10,6,3,0.7) 100%)",
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:min-h-[75vh] lg:px-8 lg:pb-40 lg:pt-40">
-          <Reveal>
-            <div className="max-w-3xl">
-              <p className="hidden items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand-soft sm:flex">
-                <span className="h-px w-8 bg-brand-soft" />
-                {t("heroKicker")}
-              </p>
-              <h1 className="mt-8 font-serif text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-cream">
-                {t("heroTitleLine1")}
-                <br />
-                <span className="text-brand-soft">{t("heroTitleAccent")}</span>
-              </h1>
-              <p className="mt-8 max-w-md text-base leading-relaxed text-cream/75 lg:text-lg">
-                {t("heroDescLine1")}
-                <br />
-                {t("heroDescLine2")}
-              </p>
-
-            </div>
-          </Reveal>
+        <div className="relative mx-auto flex min-h-[85vh] max-w-7xl items-center justify-center px-5 py-24 lg:min-h-[90vh] lg:px-8">
+          <HeroTitle />
         </div>
       </section>
 
