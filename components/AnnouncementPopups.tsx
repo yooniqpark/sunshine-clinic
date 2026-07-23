@@ -73,7 +73,7 @@ export function AnnouncementPopups() {
         onClick={close}
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
-      <div className="pointer-events-auto relative flex h-[92vh] max-h-[720px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl">
+      <div className="pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl">
         {current.variant === "event" ? <EventCarousel /> : <HolidayCard />}
 
         <div className="flex shrink-0 items-center justify-between border-t border-white/15 bg-ink/40 px-5 py-3 text-xs text-cream backdrop-blur">
