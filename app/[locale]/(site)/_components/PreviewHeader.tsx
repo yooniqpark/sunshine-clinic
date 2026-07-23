@@ -79,7 +79,7 @@ export function PreviewHeader() {
   ];
 
   return (
-    <header className="relative z-50 border-b border-line/60 bg-transparent">
+    <header className="sticky top-0 z-50 border-b border-line/60 bg-cream/80 backdrop-blur-lg">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
           href="/home"

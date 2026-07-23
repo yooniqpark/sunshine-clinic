@@ -54,7 +54,7 @@ export function AnnouncementPopups() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[95] flex items-end justify-center px-4 py-6 sm:items-center sm:p-8">
-      <div className="pointer-events-auto relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/40 bg-white/25 shadow-2xl shadow-ink/20 backdrop-blur-xl">
+      <div className="pointer-events-auto relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/60 bg-cream/65 shadow-2xl shadow-ink/20 backdrop-blur-xl">
         <button
           type="button"
           onClick={close}
