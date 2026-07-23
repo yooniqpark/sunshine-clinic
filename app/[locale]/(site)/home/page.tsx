@@ -33,7 +33,7 @@ export default async function PreviewHome({
         className="relative overflow-hidden text-ink"
         style={{ backgroundColor: "#F5F0EA" }}
       >
-        <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-32 lg:min-h-[80vh] lg:px-8 lg:pb-28 lg:pt-48">
+        <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-20 lg:min-h-[76vh] lg:px-8 lg:pb-28 lg:pt-32">
           <Reveal>
             <div className="max-w-3xl">
               <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand">

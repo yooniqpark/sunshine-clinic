@@ -53,8 +53,8 @@ export function AnnouncementPopups() {
   }
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-end justify-center bg-ink/40 backdrop-blur-sm px-4 py-6 sm:items-center sm:p-8">
-      <div className="relative w-full max-w-sm overflow-hidden rounded-3xl bg-cream shadow-2xl shadow-ink/30">
+    <div className="pointer-events-none fixed inset-0 z-[95] flex items-end justify-center px-4 py-6 sm:items-center sm:p-8">
+      <div className="pointer-events-auto relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/40 bg-white/25 shadow-2xl shadow-ink/20 backdrop-blur-xl">
         <button
           type="button"
           onClick={close}
@@ -93,13 +93,7 @@ export function AnnouncementPopups() {
 function EventCard() {
   const t = useTranslations("v2.popups.event");
   return (
-    <div
-      className="px-8 pt-14 pb-10 text-center"
-      style={{
-        background:
-          "linear-gradient(155deg, #efe4d3 0%, #e2d0b6 40%, #d4bd97 100%)",
-      }}
-    >
+    <div className="px-8 pt-14 pb-10 text-center">
       <p className="text-[10px] font-medium tracking-[0.3em] text-ink-soft">
         {t("kicker")}
       </p>
@@ -133,7 +127,7 @@ function HolidayCard() {
   }[];
 
   return (
-    <div className="bg-cream px-6 pt-14 pb-8 text-center">
+    <div className="px-6 pt-14 pb-8 text-center">
       <p className="text-[10px] font-medium tracking-[0.3em] text-ink-soft">
         {t("brand")}
       </p>

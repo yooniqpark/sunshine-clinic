@@ -1002,14 +1002,14 @@
       "holiday": {
         "brand": "SUNSHINE CLINIC",
         "title": "8月 诊疗安排",
-        "body1": "8月15日(周五) 光复节 正常诊疗",
+        "body1": "8月15日(周六) 光复节 正常诊疗",
         "body2": "8月17日(周一) 补假日 休诊。",
         "openLabel": "正常诊疗",
         "closedLabel": "休诊",
         "days": [
           {
             "date": "8.15",
-            "weekday": "五",
+            "weekday": "六",
             "label": "光复节",
             "status": "open",
             "hours": "10:00 – 18:00"
