@@ -280,7 +280,7 @@
         ],
         "anti-aging": [
           {
-            "label": "리쥬란 · 리쥬란 아이",
+            "label": "리쥬란",
             "href": "/treatments/anti-aging/rejuran"
           },
           {
@@ -302,10 +302,6 @@
           {
             "label": "물광 주사",
             "href": "/treatments/anti-aging/mulgwang"
-          },
-          {
-            "label": "엘란쎄",
-            "href": "/treatments/anti-aging/ellanse-antiaging"
           },
           {
             "label": "레디어스",
@@ -795,7 +791,7 @@
           "fallbackItems": [
             {
               "slug": "rejuran",
-              "name": "리쥬란 · 리쥬란 아이",
+              "name": "리쥬란",
               "desc": "연어 PN(폴리뉴클레오타이드) 성분으로 피부 자체의 재생력을 깨우다",
               "image": "/devices/rejuran.jpg"
             },
@@ -827,12 +823,6 @@
               "slug": "mulgwang",
               "name": "물광 주사",
               "desc": "히알루론산 기반 수분 부스터로 얇고 촉촉한 결 만들기"
-            },
-            {
-              "slug": "ellanse-antiaging",
-              "name": "엘란쎄",
-              "desc": "PCL 콜라겐 부스터로 최장 4년까지 지속되는 자연 볼륨",
-              "image": "/devices/ellanse.jpg"
             },
             {
               "slug": "radiesse",

@@ -39,7 +39,7 @@ export function LiftingDeviceSlider({ devices }: { devices: Device[] }) {
               alt={d.name}
               fill
               sizes="(max-width: 1024px) 100vw, 60vw"
-              className="object-contain p-8"
+              className="object-contain p-2 sm:p-3"
             />
           </div>
         ))}
