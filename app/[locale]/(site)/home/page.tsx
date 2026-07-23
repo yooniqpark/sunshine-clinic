@@ -52,15 +52,13 @@ export default async function PreviewHome({
           }}
         />
 
-        <div className="relative mx-auto flex h-full max-w-7xl flex-col justify-center px-5 lg:px-8">
+        <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-5 text-center lg:px-8">
           <Reveal>
-            <div className="max-w-3xl">
-              <h1 className="font-serif text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-cream">
-                {t("heroTitleLine1")}
-                <br />
-                <span className="text-brand-soft">{t("heroTitleAccent")}</span>
-              </h1>
-            </div>
+            <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.1] tracking-tight text-cream">
+              Refine Your Glow
+              <br />
+              Find Your <span className="text-brand-soft">SUNSHINE</span>
+            </h1>
           </Reveal>
         </div>
       </section>

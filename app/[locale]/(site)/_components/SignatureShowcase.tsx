@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 
 type Item = {
@@ -18,6 +18,8 @@ const AUTO_ROTATE_MS = 5500;
 export function SignatureShowcase({ items }: { items: Item[] }) {
   const [idx, setIdx] = useState(0);
   const total = items.length;
+  const startX = useRef<number | null>(null);
+  const startY = useRef<number | null>(null);
 
   useEffect(() => {
     if (total <= 1) return;
@@ -26,6 +28,22 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     }, AUTO_ROTATE_MS);
     return () => window.clearInterval(id);
   }, [total]);
+
+  function onTouchStart(e: React.TouchEvent) {
+    startX.current = e.touches[0].clientX;
+    startY.current = e.touches[0].clientY;
+  }
+  function onTouchEnd(e: React.TouchEvent) {
+    if (startX.current == null || startY.current == null) return;
+    const dx = e.changedTouches[0].clientX - startX.current;
+    const dy = e.changedTouches[0].clientY - startY.current;
+    // 가로 스와이프만 (세로 스크롤 방해 X)
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      setIdx((i) => (i + (dx < 0 ? 1 : -1) + total) % total);
+    }
+    startX.current = null;
+    startY.current = null;
+  }
 
   const cur = items[idx];
 
@@ -37,7 +55,11 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       <div className="grid gap-10 lg:grid-cols-[1.05fr_1fr] lg:items-center lg:gap-16">
         {/* Image side */}
         <div className="relative">
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-cream/5">
+          <div
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-cream/5 touch-pan-y select-none"
+            onTouchStart={onTouchStart}
+            onTouchEnd={onTouchEnd}
+          >
             {items.map((d, i) => (
               <div
                 key={d.slug}
