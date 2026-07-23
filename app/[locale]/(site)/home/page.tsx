@@ -3,6 +3,7 @@ import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
+import { EventSlideBanner } from "../_components/EventSlideBanner";
 import { ArrowUpRightIcon } from "@/components/icons";
 
 export default async function PreviewHome({
@@ -62,20 +63,13 @@ export default async function PreviewHome({
                 {t("heroDescLine2")}
               </p>
 
-              <Link
-                href="/community/events#grand-open-2026-07"
-                className="group mt-10 inline-flex items-center gap-3 rounded-full border border-ink/25 bg-white/40 px-5 py-2.5 text-xs font-semibold tracking-[0.2em] text-ink backdrop-blur transition hover:border-ink hover:bg-white/70"
-              >
-                <span className="rounded-full bg-brand-dark px-2 py-0.5 text-[10px] font-bold tracking-[0.15em] text-cream">
-                  {t("grandOpenBadge")}
-                </span>
-                <span>{t("grandOpenDate")}</span>
-                <span aria-hidden className="text-ink-soft transition group-hover:translate-x-0.5">→</span>
-              </Link>
             </div>
           </Reveal>
         </div>
       </section>
+
+      {/* ═══════ EVENT SLIDE BANNER ═══════ */}
+      <EventSlideBanner />
 
       {/* ═══════ 2. TRUST BAR ═══════ */}
       <section className="border-b border-line bg-cream">

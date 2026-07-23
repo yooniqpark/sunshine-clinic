@@ -616,7 +616,8 @@
           "highlights": []
         }
       ],
-      "ctaBook": "Book a consultation"
+      "ctaBook": "Book a consultation",
+      "ctaSeeMore": "View details"
     },
     "prices": {
       "kicker": "PRICE",

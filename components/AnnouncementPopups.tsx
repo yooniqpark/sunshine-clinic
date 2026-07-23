@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { CloseIcon } from "@/components/icons";
 import { Link } from "@/i18n/navigation";
 
 type Popup = {
@@ -56,15 +55,6 @@ export function AnnouncementPopups() {
   return (
     <div className="pointer-events-none fixed inset-0 z-[95] flex items-end justify-center px-4 py-6 sm:items-center sm:p-8">
       <div className="pointer-events-auto relative w-full max-w-md overflow-hidden rounded-[2rem] border border-white/60 bg-cream/65 shadow-2xl shadow-ink/20 backdrop-blur-xl sm:max-w-lg">
-        <button
-          type="button"
-          onClick={close}
-          aria-label={t("close")}
-          className="absolute right-4 top-4 z-10 grid h-8 w-8 place-items-center rounded-full text-ink-soft transition hover:bg-ink/5 hover:text-ink"
-        >
-          <CloseIcon className="h-4 w-4" />
-        </button>
-
         {current.variant === "event" ? <EventCard /> : <HolidayCard />}
 
         <div className="flex items-center justify-between border-t border-line/60 px-5 py-3 text-xs">

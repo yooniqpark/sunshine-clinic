@@ -616,7 +616,8 @@
           "highlights": []
         }
       ],
-      "ctaBook": "상담 예약하기"
+      "ctaBook": "상담 예약하기",
+      "ctaSeeMore": "자세히 보기"
     },
     "prices": {
       "kicker": "PRICE",

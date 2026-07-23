@@ -616,7 +616,8 @@
           "highlights": []
         }
       ],
-      "ctaBook": "カウンセリング予約"
+      "ctaBook": "カウンセリング予約",
+      "ctaSeeMore": "詳しく見る"
     },
     "prices": {
       "kicker": "PRICE",

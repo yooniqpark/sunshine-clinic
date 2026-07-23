@@ -616,7 +616,8 @@
           "highlights": []
         }
       ],
-      "ctaBook": "预约咨询"
+      "ctaBook": "预约咨询",
+      "ctaSeeMore": "查看详情"
     },
     "prices": {
       "kicker": "PRICE",
