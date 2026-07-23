@@ -30,17 +30,6 @@ export default async function PreviewHome({
         className="relative overflow-hidden text-ink"
         style={{ backgroundColor: "#F5F0EA" }}
       >
-        {/* 우측 누드 헤이즈 - 아주 희미하게 (엔트리와 브랜드 연결) */}
-        <div
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] opacity-[0.07] lg:block"
-          style={{
-            backgroundImage: "url('/splash.jpg')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            mixBlendMode: "multiply",
-          }}
-        />
-
         <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-32 lg:min-h-[80vh] lg:px-8 lg:pb-28 lg:pt-48">
           <Reveal>
             <div className="max-w-3xl">
