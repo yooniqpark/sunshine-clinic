@@ -22,9 +22,9 @@ export function PreviewHeader() {
 
   // 항상 subtle cream 배경 + 다크 텍스트 (라이트 히어로에서도 가독성 유지)
   const solid = true;
-  const nameColor = "text-ink";
-  const subColor = "text-ink-soft/80";
-  const linkColor = "text-ink";
+  const nameColor = "text-cream drop-shadow-md";
+  const subColor = "text-cream/80 drop-shadow";
+  const linkColor = "text-cream drop-shadow-md";
 
   const subMenu = (slug: string) =>
     (t.raw(`subMenus.${slug}`) as SubItem[]) ?? [];
@@ -35,31 +35,31 @@ export function PreviewHeader() {
       key: "lifting",
       label: t("cols.lifting"),
       href: "/treatments/lifting",
-      children: [{ title: t("cols.lifting"), href: "/treatments/lifting", items: subMenu("lifting") }],
+      children: [{ title: t("cols.lifting"), items: subMenu("lifting") }],
     },
     {
       key: "antiAging",
       label: t("cols.antiAging"),
       href: "/treatments/anti-aging",
-      children: [{ title: t("cols.antiAging"), href: "/treatments/anti-aging", items: subMenu("anti-aging") }],
+      children: [{ title: t("cols.antiAging"), items: subMenu("anti-aging") }],
     },
     {
       key: "whitening",
       label: t("cols.whitening"),
       href: "/treatments/whitening",
-      children: [{ title: t("cols.whitening"), href: "/treatments/whitening", items: subMenu("whitening") }],
+      children: [{ title: t("cols.whitening"), items: subMenu("whitening") }],
     },
     {
       key: "acne",
       label: t("cols.acne"),
       href: "/treatments/acne",
-      children: [{ title: t("cols.acne"), href: "/treatments/acne", items: subMenu("acne") }],
+      children: [{ title: t("cols.acne"), items: subMenu("acne") }],
     },
     {
       key: "skinDisease",
       label: t("cols.skinDisease"),
       href: "/treatments/skin-disease",
-      children: [{ title: t("cols.skinDisease"), href: "/treatments/skin-disease", items: subMenu("skin-disease") }],
+      children: [{ title: t("cols.skinDisease"), items: subMenu("skin-disease") }],
     },
     {
       key: "community",
@@ -79,7 +79,7 @@ export function PreviewHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/60 bg-cream/80 backdrop-blur-lg">
+    <header className="absolute inset-x-0 top-0 z-50 bg-transparent">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
         <Link
           href="/home"
@@ -116,13 +116,21 @@ export function PreviewHeader() {
               onMouseEnter={() => setHovered(item.key)}
               onMouseLeave={() => setHovered(null)}
             >
-              <Link
-                href={item.href}
-                className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition hover:text-brand-dark ${linkColor}`}
-              >
-                {item.label}
-                {item.children && <ChevronDownIcon className="h-3 w-3" />}
-              </Link>
+              {item.children ? (
+                <span
+                  className={`flex cursor-default items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition ${linkColor}`}
+                >
+                  {item.label}
+                  <ChevronDownIcon className="h-3 w-3" />
+                </span>
+              ) : (
+                <Link
+                  href={item.href}
+                  className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition hover:text-brand-dark ${linkColor}`}
+                >
+                  {item.label}
+                </Link>
+              )}
 
               {/* Per-item dropdown (narrow, positioned under the nav item) */}
               {item.children && (
@@ -175,7 +183,7 @@ export function PreviewHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="grid h-11 w-11 place-items-center rounded-full border border-line text-ink"
+            className="grid h-11 w-11 place-items-center rounded-full border border-cream/40 text-cream"
             aria-label={open ? t("menuClose") : t("menuOpen")}
           >
             {open ? <CloseIcon className="h-5 w-5" /> : <MenuIcon className="h-5 w-5" />}

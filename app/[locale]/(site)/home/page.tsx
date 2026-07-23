@@ -30,8 +30,7 @@ export default async function PreviewHome({
 
       {/* ═══════ 1. HERO — clean editorial (light) ═══════ */}
       <section
-        className="relative overflow-hidden text-ink"
-        style={{ backgroundColor: "#F5F0EA" }}
+        className="relative overflow-hidden bg-ink text-cream"
       >
         {/* 병원 리셉션 파노라마 배경 */}
         <Image
@@ -40,30 +39,30 @@ export default async function PreviewHome({
           fill
           priority
           sizes="100vw"
-          className="pointer-events-none absolute inset-0 object-cover object-center opacity-40"
+          className="pointer-events-none absolute inset-0 object-cover object-center"
         />
-        {/* 왼쪽에서 오른쪽으로 페이드 (좌측 텍스트 가독성) */}
+        {/* 좌측만 살짝 어둡게 (텍스트 가독성) — 사진 원본 최대한 유지 */}
         <div
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "linear-gradient(to right, rgba(245,240,234,0.92) 0%, rgba(245,240,234,0.65) 45%, rgba(245,240,234,0.35) 100%)",
+              "linear-gradient(to right, rgba(10,6,3,0.78) 0%, rgba(10,6,3,0.55) 45%, rgba(10,6,3,0.28) 100%)",
           }}
         />
 
-        <div className="relative mx-auto max-w-7xl px-5 pb-16 pt-20 lg:min-h-[76vh] lg:px-8 lg:pb-28 lg:pt-32">
+        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:min-h-[75vh] lg:px-8 lg:pb-40 lg:pt-40">
           <Reveal>
             <div className="max-w-3xl">
-              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand">
-                <span className="h-px w-8 bg-brand" />
+              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.32em] text-brand-soft">
+                <span className="h-px w-8 bg-brand-soft" />
                 {t("heroKicker")}
               </p>
-              <h1 className="mt-8 font-serif text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-ink">
+              <h1 className="mt-8 font-serif text-[clamp(2.5rem,6vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-cream">
                 {t("heroTitleLine1")}
                 <br />
-                <span className="text-brand-dark">{t("heroTitleAccent")}</span>
+                <span className="text-brand-soft">{t("heroTitleAccent")}</span>
               </h1>
-              <p className="mt-8 max-w-md text-base leading-relaxed text-ink-soft lg:text-lg">
+              <p className="mt-8 max-w-md text-base leading-relaxed text-cream/75 lg:text-lg">
                 {t("heroDescLine1")}
                 <br />
                 {t("heroDescLine2")}

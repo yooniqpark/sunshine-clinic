@@ -120,9 +120,7 @@ export default async function DevicePage({
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
             <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
             <span>/</span>
-            <Link href={`/treatments/${category}`} className="hover:text-cream">
-              {catLabel.toUpperCase()}
-            </Link>
+            <span className="text-cream/80">{catLabel.toUpperCase()}</span>
             <span>/</span>
             <span className="text-cream/70">{d.name}</span>
           </nav>
@@ -388,12 +386,6 @@ export default async function DevicePage({
                   {t("siblingsTitle")}
                 </h2>
               </div>
-              <Link
-                href={`/treatments/${category}`}
-                className="hidden items-center gap-1 text-xs font-semibold text-ink-soft hover:text-brand-dark md:inline-flex"
-              >
-                {t("viewAllSiblings")} <ArrowIcon className="h-3 w-3" />
-              </Link>
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -481,9 +473,7 @@ async function ConcernPage({
               {t("crumbHome")}
             </Link>
             <span>/</span>
-            <Link href={`/treatments/${category}`} className="hover:text-cream">
-              {catLabel.toUpperCase()}
-            </Link>
+            <span className="text-cream/80">{catLabel.toUpperCase()}</span>
             <span>/</span>
             <span className="text-cream/70">{concern.name}</span>
           </nav>
@@ -677,12 +667,6 @@ async function ConcernPage({
                   {t("siblingsTitle")}
                 </h2>
               </div>
-              <Link
-                href={`/treatments/${category}`}
-                className="hidden items-center gap-1 text-xs font-semibold text-ink-soft hover:text-brand-dark md:inline-flex"
-              >
-                {t("viewAllSiblings")} <ArrowIcon className="h-3 w-3" />
-              </Link>
             </div>
 
             <div className="mt-12 grid gap-6 md:grid-cols-3">

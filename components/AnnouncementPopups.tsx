@@ -54,7 +54,7 @@ export function AnnouncementPopups() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[95] flex items-end justify-center px-4 py-6 sm:items-center sm:p-8">
-      <div className="pointer-events-auto relative w-full max-w-md overflow-hidden rounded-[2rem] border border-white/60 bg-cream/65 shadow-2xl shadow-ink/20 backdrop-blur-xl sm:max-w-lg">
+      <div className="pointer-events-auto relative w-full max-w-md overflow-hidden rounded-[2rem] border border-white/70 bg-white/65 shadow-2xl shadow-ink/25 backdrop-blur-2xl sm:max-w-lg">
         {current.variant === "event" ? <EventCard /> : <HolidayCard />}
 
         <div className="flex items-center justify-between border-t border-line/60 px-5 py-3 text-xs">
