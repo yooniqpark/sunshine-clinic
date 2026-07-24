@@ -5,7 +5,6 @@ import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
-import { SunshineStandard } from "../_components/SunshineStandard";
 import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
 import { getConcernsByCategory } from "@/lib/concerns";
 import type { AppLocale } from "@/i18n/routing";
@@ -74,8 +73,6 @@ export default async function PreviewHome({
         </div>
       </section>
 
-      {/* ═══════ 1.2 THE SUNSHINE STANDARD — 4-chapter narrative ═══════ */}
-      <SunshineStandard />
 
       {/* ═══════ 1.5 EVENTS — 이벤트 카드 (3-slot grid, 현재 GRAND OPEN 1개) ═══════ */}
       <section className="border-b border-line bg-cream py-20 lg:py-28">
