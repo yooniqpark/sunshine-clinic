@@ -83,7 +83,8 @@
     "deviceSlugs": [
       "clarity-ii",
       "fotona-starwalker",
-      "secret-rf"
+      "secret-rf",
+      "inmode-morpheus"
     ],
     "recommendedFor": [
       "頬・こ temples に青灰色の色素がある方（オタモバン・ABNOM）",
@@ -193,8 +194,7 @@
     "intro": "思春期のにきびはホルモン・皮脂過剰が主な原因であり、成人のにきびはストレス・生活習慣・ホルモンバランスの乱れが複合的に作用します。薬物・抗生物質だけでなく、光熱治療と毛穴洗浄で再発を減少させることができます。",
     "approach": "1) キュアジェット(CUREJET)で毛穴の皮脂・角質を洗浄、2) ゴールドPTTでP. acnes菌と皮脂腺を同時に鎮静、3) 薬物処方を併用、4) 6週間ごとに3～5回の施術 + 生活習慣管理で累積効果。",
     "deviceSlugs": [
-      "gold-ptt",
-      "curajet"
+      "mirajet-forte"
     ],
     "recommendedFor": [
       "慢性・再発性のにきびに悩んでいる方",
@@ -269,7 +269,8 @@
     "approach": "1) 跡の種類診断後、施術計画を立てる、2) カプリ(CO2)フラクショナルで凹んだ跡を再建、3) シークレットRFマイクロニードルで真皮再生を補助、4) 1〜2ヶ月間隔で3〜5回段階的に進める。",
     "deviceSlugs": [
       "carpri-co2",
-      "secret-rf"
+      "secret-rf",
+      "inmode-morpheus"
     ],
     "recommendedFor": [
       "ニキビ跡（アイスピック・ボックスカー・ローリング）がある方",
@@ -307,7 +308,8 @@
     "deviceSlugs": [
       "carpri-co2",
       "secret-rf",
-      "curajet"
+      "inmode-morpheus",
+      "mirajet-forte"
     ],
     "recommendedFor": [
       "鼻・頬の毛穴が開いている方",

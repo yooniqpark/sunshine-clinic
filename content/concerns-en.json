@@ -83,7 +83,8 @@
     "deviceSlugs": [
       "clarity-ii",
       "fotona-starwalker",
-      "secret-rf"
+      "secret-rf",
+      "inmode-morpheus"
     ],
     "recommendedFor": [
       "Individuals with bluish-gray pigments on the cheeks and temples (Ota nevus, ABNOM)",
@@ -193,8 +194,7 @@
     "intro": "Teenage acne is primarily caused by hormones and excess sebum, while adult acne is influenced by a combination of stress, lifestyle habits, and hormonal imbalances. Both medication and antibiotics, as well as light and heat treatment combined with pore cleansing, can reduce recurrence.",
     "approach": "1) Cleansing sebum and dead skin cells in the pores with CUREJET, 2) Calming P. acnes bacteria and sebaceous glands simultaneously with Gold PTT, 3) Concurrent medication prescription, 4) Cumulative effect with 3-5 treatments at 6-week intervals + lifestyle management.",
     "deviceSlugs": [
-      "gold-ptt",
-      "curajet"
+      "mirajet-forte"
     ],
     "recommendedFor": [
       "Those struggling with chronic and recurrent acne",
@@ -269,7 +269,8 @@
     "approach": "1) Diagnosis of scar type and establishment of treatment plan, 2) Reconstruction of depressed scars with Capri (CO2) fractional, 3) Dermal regeneration assistance with Secret RF microneedling, 4) Stepwise progress with 3-5 sessions at intervals of 1-2 months.",
     "deviceSlugs": [
       "carpri-co2",
-      "secret-rf"
+      "secret-rf",
+      "inmode-morpheus"
     ],
     "recommendedFor": [
       "Individuals with acne scars (ice pick, boxcar, rolling)",
@@ -307,7 +308,8 @@
     "deviceSlugs": [
       "carpri-co2",
       "secret-rf",
-      "curajet"
+      "inmode-morpheus",
+      "mirajet-forte"
     ],
     "recommendedFor": [
       "Those with enlarged pores on the nose and cheeks",

@@ -263,19 +263,19 @@
             "href": "/treatments/acne/carpri-co2"
           },
           {
-            "label": "Gold PTT",
-            "sub": "GOLD PTT",
-            "href": "/treatments/acne/gold-ptt"
-          },
-          {
-            "label": "Curejet",
-            "sub": "CUREJET",
-            "href": "/treatments/acne/curajet"
+            "label": "Mirajet Forte",
+            "sub": "MIRAJET FORTE",
+            "href": "/treatments/acne/mirajet-forte"
           },
           {
             "label": "Secret RF",
             "sub": "SECRET RF",
             "href": "/treatments/acne/secret-rf"
+          },
+          {
+            "label": "InMode Morpheus",
+            "sub": "INMODE MORPHEUS",
+            "href": "/treatments/acne/inmode-morpheus"
           }
         ],
         "anti-aging": [
@@ -710,7 +710,7 @@
           "rows": [
             {
               "label": "Anti-inflammatory injection",
-              "basis": "per site",
+              "basis": "",
               "amount": "KRW 20,000"
             },
             {

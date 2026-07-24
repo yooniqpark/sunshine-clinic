@@ -294,16 +294,16 @@
           "desc": "分段CO2激光。逐微列单元重建凹陷的痤疮疤痕和扩大的毛孔。"
         },
         {
-          "name": "Gold PTT",
-          "desc": "光热治疗(Photothermal Therapy)。金纳米颗粒吸收光源的光并转化为热，同时护理皮脂腺和痤疮菌。"
-        },
-        {
-          "name": "CUREJET",
+          "name": "米拉喷 强效",
           "desc": "高压医疗用灭菌盐水喷射，非侵入性清洁毛孔内的皮脂·角质。"
         },
         {
           "name": "Secret RF",
           "desc": "绝缘微针 + 射频。重建凹陷疤痕和扩大的毛孔。"
+        },
+        {
+          "name": "InMode Morpheus",
+          "desc": "InMode Morpheus8 — 微针 + 射频分段治疗，改善痤疮凹疤、毛孔与肤质。"
         },
         {
           "name": "VBeam (VBeam)",

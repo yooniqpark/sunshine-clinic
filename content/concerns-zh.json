@@ -83,7 +83,8 @@
     "deviceSlugs": [
       "clarity-ii",
       "fotona-starwalker",
-      "secret-rf"
+      "secret-rf",
+      "inmode-morpheus"
     ],
     "recommendedFor": [
       "面颊·太阳穴有灰蓝色色素的人（Ota斑·ABNOM）",
@@ -193,8 +194,7 @@
     "intro": "青少年痤疮的主要原因是激素和皮脂过多，而成人痤疮则是由于压力、生活习惯和激素失衡的综合作用。通过药物、抗生素以及光热治疗和毛孔清洁可以减少复发。",
     "approach": "1) 使用큐어젯(CUREJET)清洁毛孔内的皮脂和角质，2) 使用黄金PTT同时舒缓P. acnes菌和皮脂腺，3) 结合药物处方，4) 每6周进行3~5次治疗 + 生活习惯管理以获得累积效果。",
     "deviceSlugs": [
-      "gold-ptt",
-      "curajet"
+      "mirajet-forte"
     ],
     "recommendedFor": [
       "为慢性·反复性痤疮而烦恼的人",
@@ -269,7 +269,8 @@
     "approach": "1) 诊断疤痕类型后制定治疗计划，2) 使用卡普里（CO2）分段激光重建凹陷疤痕，3) 使用秘密RF微针辅助真皮再生，4) 每1~2个月进行3~5次分阶段治疗。",
     "deviceSlugs": [
       "carpri-co2",
-      "secret-rf"
+      "secret-rf",
+      "inmode-morpheus"
     ],
     "recommendedFor": [
       "有痤疮疤痕（冰刺型·盒型·滚动型）的人",
@@ -307,7 +308,8 @@
     "deviceSlugs": [
       "carpri-co2",
       "secret-rf",
-      "curajet"
+      "inmode-morpheus",
+      "mirajet-forte"
     ],
     "recommendedFor": [
       "鼻子和脸颊毛孔变大的人",

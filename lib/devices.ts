@@ -65,13 +65,13 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
     englishName: "CARPRI CO2",
     featureKeywords: ["FRACTIONAL", "DEPTH", "RENEW", "REFINE"],
   },
-  "gold-ptt": {
-    englishName: "GOLD PTT",
-    featureKeywords: ["SELECTIVE", "DUAL", "MINIMAL", "SAFE"],
-  },
-  curajet: {
-    englishName: "CUREJET",
+  "mirajet-forte": {
+    englishName: "MIRAJET FORTE",
     featureKeywords: ["STERILE", "JET", "INSTANT", "GENTLE"],
+  },
+  "inmode-morpheus": {
+    englishName: "INMODE MORPHEUS",
+    featureKeywords: ["MICRONEEDLE", "RF", "FRACTIONAL", "RESURFACE"],
   },
 };
 
@@ -89,7 +89,7 @@ const DEVICE_IMAGES: Record<string, string> = {
   vbeam: "/devices/vbeam.png",
   "secret-rf": "/devices/secret-rf.png",
   "carpri-co2": "/devices/carpri-co2.png",
-  curajet: "/devices/curajet.png",
+  "mirajet-forte": "/devices/mirajet-forte.png",
   ellanse: "/devices/ellanse.jpg",
 };
 
@@ -107,7 +107,7 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode", "ellanse"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam", "secret-rf"],
-  acne: ["carpri-co2", "gold-ptt", "curajet", "secret-rf"],
+  acne: ["carpri-co2", "mirajet-forte", "secret-rf", "inmode-morpheus"],
 };
 
 export function getDevicesByCategory(

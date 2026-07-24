@@ -263,19 +263,19 @@
             "href": "/treatments/acne/carpri-co2"
           },
           {
-            "label": "골드 PTT",
-            "sub": "GOLD PTT",
-            "href": "/treatments/acne/gold-ptt"
-          },
-          {
-            "label": "큐어젯",
-            "sub": "CUREJET",
-            "href": "/treatments/acne/curajet"
+            "label": "미라젯 포르테",
+            "sub": "MIRAJET FORTE",
+            "href": "/treatments/acne/mirajet-forte"
           },
           {
             "label": "시크릿 RF",
             "sub": "SECRET RF",
             "href": "/treatments/acne/secret-rf"
+          },
+          {
+            "label": "인모드 모피우스",
+            "sub": "INMODE MORPHEUS",
+            "href": "/treatments/acne/inmode-morpheus"
           }
         ],
         "anti-aging": [
@@ -710,7 +710,7 @@
           "rows": [
             {
               "label": "염증주사",
-              "basis": "1부위",
+              "basis": "",
               "amount": "20,000원"
             },
             {

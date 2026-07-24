@@ -547,71 +547,10 @@
       }
     ]
   },
-  "gold-ptt": {
-    "slug": "gold-ptt",
+  "mirajet-forte": {
+    "slug": "mirajet-forte",
     "category": "acne",
-    "name": "Gold PTT",
-    "tagline": "Gold nanoparticle photothermal therapy, soothing sebaceous glands and acne bacteria simultaneously",
-    "intro": "A tonic containing gold nanoparticles penetrates the pores and is activated by an 800nm light source. The gold particles convert light energy into heat, providing photothermal therapy that soothes both P. acnes bacteria and sebaceous glands.",
-    "manufacturer": "Sebacia / Various",
-    "tech": [
-      "Photothermal Therapy (PTT)",
-      "Gold nanoparticles",
-      "Non-absorbent"
-    ],
-    "highlightStat": {
-      "value": "Photothermal Therapy",
-      "label": "Photothermal Therapy"
-    },
-    "features": [
-      {
-        "title": "Selective photothermal effect",
-        "body": "Heat is generated only from the gold particles within the pores without irritating the epidermis, precisely targeting the sebaceous glands."
-      },
-      {
-        "title": "Simultaneous bacteria and sebum treatment",
-        "body": "Addresses the two main causes of acne in a single treatment, reducing the likelihood of recurrence."
-      },
-      {
-        "title": "Minimal downtime",
-        "body": "After slight redness subsides immediately post-treatment, you can return to your daily activities."
-      },
-      {
-        "title": "Low risk of scarring",
-        "body": "The non-invasive photothermal method poses almost no risk of scarring after treatment."
-      }
-    ],
-    "howItWorks": "After gold nanoparticles penetrate deep into the pores, exposure to the 800nm light source allows the gold particles to efficiently convert light energy into heat. This heat soothes P. acnes bacteria and overactive sebaceous glands, addressing the causes of acne simultaneously.",
-    "recommendedFor": [
-      "Individuals with chronic recurring acne",
-      "Those with enlarged pores due to excess sebum",
-      "Individuals concerned about downtime",
-      "Those who wish to manage without antibiotics or isotretinoin",
-      "Individuals needing regular maintenance treatments"
-    ],
-    "faq": [
-      {
-        "q": "What type of acne is it effective for?",
-        "a": "It is effective for pustular and inflammatory acne, while scar stages may require additional treatments."
-      },
-      {
-        "q": "How long does the treatment take?",
-        "a": "The total time is approximately 50 minutes, consisting of 30 minutes for tonic penetration and 20 minutes for light exposure."
-      },
-      {
-        "q": "Is there any pain?",
-        "a": "There is little to no pain, just a cool or slightly warm sensation."
-      },
-      {
-        "q": "How many sessions are needed?",
-        "a": "Three sessions are recommended at six-week intervals, followed by maintenance care to continue the effects."
-      }
-    ]
-  },
-  "curajet": {
-    "slug": "curajet",
-    "category": "acne",
-    "name": "Curejet",
+    "name": "Mirajet Forte",
     "tagline": "High-pressure sterilized saline spray for non-invasive pore cleansing",
     "intro": "Medical-grade high-pressure sterilized saline penetrates deeply into the pores to non-invasively cleanse sebum, dead skin cells, and impurities. It soothes trouble spots and provides immediate skin texture improvement, making it a regular care treatment that is easy to receive frequently.",
     "manufacturer": "CUREJET",
@@ -666,6 +605,59 @@
       {
         "q": "Can it be done with other treatments?",
         "a": "Performing pore cleansing before treatments like toning or RF can enhance absorption and effectiveness."
+      }
+    ]
+  },
+  "inmode-morpheus": {
+    "slug": "inmode-morpheus",
+    "category": "acne",
+    "name": "InMode Morpheus",
+    "tagline": "Microneedle + RF fractional resurfacing",
+    "intro": "InMode Morpheus8 combines microneedles with RF energy to deliver deep dermal heating, rebuilding acne scars, pores, and skin texture.",
+    "manufacturer": "InMode (Israel)",
+    "tech": [
+      "Microneedle",
+      "RF",
+      "Fractional resurfacing",
+      "Depth control"
+    ],
+    "highlightStat": {
+      "value": "~4mm",
+      "label": "Dermal depth"
+    },
+    "features": [
+      {
+        "title": "Scar & pore rebuild",
+        "body": "Micro-columns treat pitted acne scars and enlarged pores."
+      },
+      {
+        "title": "Adjustable depth",
+        "body": "Needle depth tuned to zone and goal for precise treatment."
+      },
+      {
+        "title": "Collagen remodeling",
+        "body": "Deep dermal heat drives new collagen formation."
+      },
+      {
+        "title": "Short downtime",
+        "body": "Mild redness immediately after; rapid return to daily life."
+      }
+    ],
+    "howItWorks": "Fine needles enter the skin and emit RF energy at their tips, minimizing epidermal damage while triggering coagulation in the deeper dermis.",
+    "recommendedFor": [
+      "Acne scars",
+      "Enlarged pores",
+      "Skin texture · resurfacing",
+      "Hypertrophic scars"
+    ],
+    "faq": [
+      {
+        "q": "Is it painful?",
+        "a": "Topical anesthetic is applied; most patients tolerate it well."
+      },
+      {
+        "q": "How many sessions?",
+        "a": "Typically 3–4 sessions at 3–4 week intervals."
       }
     ]
   }

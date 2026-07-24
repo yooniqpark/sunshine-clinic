@@ -294,16 +294,16 @@
           "desc": "Fractional CO2 laser. Reconstructs depressed acne scars and enlarged pores at a micro-column level."
         },
         {
-          "name": "Gold PTT",
-          "desc": "Photothermal Therapy. Gold nanoparticles absorb light from the light source and convert it into heat, simultaneously caring for sebaceous glands and acne bacteria."
-        },
-        {
-          "name": "CUREJET",
+          "name": "Mirajet Forte",
           "desc": "Sprays high-pressure medical saline to non-invasively cleanse sebum and dead skin cells from pores."
         },
         {
           "name": "Secret RF",
           "desc": "Insulated microneedle + radiofrequency. Reconstructs depressed scars and enlarged pores."
+        },
+        {
+          "name": "InMode Morpheus",
+          "desc": "InMode Morpheus8 — microneedle + RF fractional resurfacing for acne scars, pores, and skin texture."
         },
         {
           "name": "VBeam (VBeam)",

@@ -263,19 +263,19 @@
             "href": "/treatments/acne/carpri-co2"
           },
           {
-            "label": "ゴールドPTT",
-            "sub": "GOLD PTT",
-            "href": "/treatments/acne/gold-ptt"
-          },
-          {
-            "label": "キュアジェット",
-            "sub": "CUREJET",
-            "href": "/treatments/acne/curajet"
+            "label": "ミラジェット フォルテ",
+            "sub": "MIRAJET FORTE",
+            "href": "/treatments/acne/mirajet-forte"
           },
           {
             "label": "シークレット RF",
             "sub": "SECRET RF",
             "href": "/treatments/acne/secret-rf"
+          },
+          {
+            "label": "インモード モーフィアス",
+            "sub": "INMODE MORPHEUS",
+            "href": "/treatments/acne/inmode-morpheus"
           }
         ],
         "anti-aging": [
@@ -710,7 +710,7 @@
           "rows": [
             {
               "label": "消炎注射",
-              "basis": "1部位",
+              "basis": "",
               "amount": "20,000ウォン"
             },
             {
