@@ -82,9 +82,7 @@
     "approach": "1) 使用长脉冲Nd:YAG到达真皮深层色素，2) 通过Q-Switched模式进行额外分解，3) 使用Secret RF辅助真皮再生，4) 以3~5周为间隔进行10~20次的长期计划。",
     "deviceSlugs": [
       "clarity-ii",
-      "fotona-starwalker",
-      "secret-rf",
-      "inmode-morpheus"
+      "fotona-starwalker"
     ],
     "recommendedFor": [
       "面颊·太阳穴有灰蓝色色素的人（Ota斑·ABNOM）",

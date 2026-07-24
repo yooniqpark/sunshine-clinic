@@ -82,9 +82,7 @@
     "approach": "1) Long-pulsed Nd:YAGで真皮深部の色素に到達、2) Q-Switchedモードで追加分解、3) シークレットRFで真皮再生を補助、4) 3〜5週間隔で10〜20回の長期プランで進めます。",
     "deviceSlugs": [
       "clarity-ii",
-      "fotona-starwalker",
-      "secret-rf",
-      "inmode-morpheus"
+      "fotona-starwalker"
     ],
     "recommendedFor": [
       "頬・こ temples に青灰色の色素がある方（オタモバン・ABNOM）",

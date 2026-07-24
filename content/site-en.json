@@ -257,10 +257,6 @@
         {
           "name": "VBeam (VBeam)",
           "desc": "595㎚ PDL vascular-specific laser from Candela. Selectively targets hemoglobin to calm redness and capillary expansion."
-        },
-        {
-          "name": "Secret RF",
-          "desc": "Insulated microneedle + radiofrequency system. Assists in improving skin texture, regeneration after pigmentation, and fine scars."
         }
       ]
     },

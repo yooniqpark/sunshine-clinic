@@ -106,7 +106,7 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
 
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode", "ellanse"],
-  whitening: ["clarity-ii", "fotona-starwalker", "vbeam", "secret-rf"],
+  whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
   acne: ["carpri-co2", "mirajet-forte", "secret-rf", "inmode-morpheus"],
 };
 

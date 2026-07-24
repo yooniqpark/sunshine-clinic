@@ -249,11 +249,6 @@
             "label": "ブイビーム (VBeam)",
             "sub": "VBEAM",
             "href": "/treatments/whitening/vbeam"
-          },
-          {
-            "label": "シークレット RF",
-            "sub": "SECRET RF",
-            "href": "/treatments/whitening/secret-rf"
           }
         ],
         "acne": [

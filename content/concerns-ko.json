@@ -82,9 +82,7 @@
     "approach": "정확한 감별 진단을 바탕으로 진피층 깊숙이 도달하는 레이저 토닝 치료를 진행하며, 병변의 종류에 따라 1주일 간격으로 수십 회 치료하기도 합니다.",
     "deviceSlugs": [
       "clarity-ii",
-      "fotona-starwalker",
-      "secret-rf",
-      "inmode-morpheus"
+      "fotona-starwalker"
     ],
     "recommendedFor": [
       "양 볼·관자놀이에 회청색 색소가 있는 분 (오타모반·ABNOM)",

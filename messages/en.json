@@ -249,11 +249,6 @@
             "label": "VBeam",
             "sub": "VBEAM",
             "href": "/treatments/whitening/vbeam"
-          },
-          {
-            "label": "Secret RF",
-            "sub": "SECRET RF",
-            "href": "/treatments/whitening/secret-rf"
           }
         ],
         "acne": [
