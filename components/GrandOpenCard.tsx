@@ -45,21 +45,21 @@ export function GrandOpenCard({
     <div className={`relative ${scale.pad}`}>
       {showHeader && (
         <header className="text-center">
-          <p className="text-[10px] font-medium tracking-[0.28em] text-cream drop-shadow sm:text-[11px]">
+          <p className="text-[10px] font-medium tracking-[0.28em] text-cream sm:text-[11px]">
             {GRAND_OPEN_META.eyebrow}
           </p>
           <h2
-            className={`mt-2 font-serif font-normal leading-none tracking-tight text-brand-soft drop-shadow-md ${scale.title}`}
+            className={`mt-2 font-serif font-normal leading-none tracking-tight text-brand-soft ${scale.title}`}
           >
             Grand Open
           </h2>
           <p
-            className="-mt-1 font-serif italic leading-none tracking-tight text-cream drop-shadow-md"
+            className="-mt-1 font-serif italic leading-none tracking-tight text-cream"
             style={{ fontSize: scale.eventSize }}
           >
             Event
           </p>
-          <p className="mt-2 text-[10px] tracking-[0.18em] text-cream drop-shadow sm:text-[11px]">
+          <p className="mt-2 text-[10px] tracking-[0.18em] text-cream sm:text-[11px]">
             {GRAND_OPEN_META.period} · {GRAND_OPEN_META.vatNote}
           </p>
         </header>
@@ -73,7 +73,7 @@ export function GrandOpenCard({
           {category.name}
         </span>
         {category.slug === "lifting" && category.note && (
-          <p className="text-[10px] text-cream/80 drop-shadow sm:text-[11px]">
+          <p className="text-[10px] text-cream/80 sm:text-[11px]">
             {category.note}
           </p>
         )}
@@ -134,10 +134,10 @@ function LiftingBody({
           <ul className="space-y-2">
             {g.rows.map((r) => (
               <li key={r.name} className="flex items-baseline justify-between gap-3">
-                <span className={`text-cream drop-shadow-md ${rowText}`}>{r.name}</span>
-                <span className={`font-serif tabular-nums text-cream drop-shadow-md ${rowPrice}`}>
+                <span className={`text-cream text-legible ${rowText}`}>{r.name}</span>
+                <span className={`font-serif tabular-nums text-cream text-legible ${rowPrice}`}>
                   {r.price.replace("만원", "")}
-                  <span className="ml-1 text-[10px] text-cream drop-shadow">만원</span>
+                  <span className="ml-1 text-[10px] text-cream">만원</span>
                 </span>
               </li>
             ))}
@@ -180,17 +180,17 @@ function WhiteningBody({
             {g.rows.map((r) => (
               <li key={r.name} className={gridCls}>
                 <div className="min-w-0">
-                  <p className={`font-semibold text-cream drop-shadow-md ${rowText}`}>{r.name}</p>
+                  <p className={`font-semibold text-cream text-legible ${rowText}`}>{r.name}</p>
                   {r.desc && (
-                    <p className="mt-0.5 text-xs leading-snug text-cream drop-shadow">{r.desc}</p>
+                    <p className="mt-0.5 text-xs leading-snug text-cream">{r.desc}</p>
                   )}
                 </div>
-                <span className="text-right text-xs text-cream/60 drop-shadow line-through tabular-nums">
+                <span className="text-right text-xs text-cream/60 line-through tabular-nums">
                   {r.original ?? ""}
                 </span>
-                <span className={`text-right font-serif tabular-nums text-cream drop-shadow-md ${rowPrice}`}>
+                <span className={`text-right font-serif tabular-nums text-cream text-legible ${rowPrice}`}>
                   {r.event.replace("만원", "")}
-                  <span className="ml-0.5 text-[10px] text-cream drop-shadow">만원</span>
+                  <span className="ml-0.5 text-[10px] text-cream">만원</span>
                 </span>
               </li>
             ))}
@@ -225,13 +225,13 @@ function SkinboosterBody({
       <ul className="divide-y divide-ink/10">
         {category.rows.map((r) => (
           <li key={r.name} className={`${gridCls} py-3`}>
-            <span className={`text-cream drop-shadow-md ${rowText}`}>{r.name}</span>
-            <span className="text-right text-xs text-cream/60 drop-shadow line-through tabular-nums">
+            <span className={`text-cream ${rowText}`}>{r.name}</span>
+            <span className="text-right text-xs text-cream/60 line-through tabular-nums">
               {r.original}
             </span>
-            <span className={`text-right font-serif tabular-nums text-cream drop-shadow-md ${rowPrice}`}>
+            <span className={`text-right font-serif tabular-nums text-cream text-legible ${rowPrice}`}>
               {r.event.replace("만원", "")}
-              <span className="ml-0.5 text-[10px] text-cream drop-shadow">만원</span>
+              <span className="ml-0.5 text-[10px] text-cream">만원</span>
             </span>
           </li>
         ))}
@@ -269,17 +269,17 @@ function BotoxBody({
             className="grid grid-cols-[1.15fr_1fr_1fr_1fr] items-baseline gap-2 py-3"
           >
             <span
-              className={`whitespace-pre-line text-cream drop-shadow-md ${rowText}`}
+              className={`whitespace-pre-line text-cream text-legible ${rowText}`}
             >
               {r.name}
             </span>
             {r.prices.map((p, i) => (
               <span
                 key={i}
-                className={`text-center font-serif tabular-nums text-cream drop-shadow-md ${rowPrice}`}
+                className={`text-center font-serif tabular-nums text-cream text-legible ${rowPrice}`}
               >
                 {p.replace("만원", "")}
-                <span className="ml-0.5 text-[10px] text-cream drop-shadow">만원</span>
+                <span className="ml-0.5 text-[10px] text-cream">만원</span>
               </span>
             ))}
           </li>

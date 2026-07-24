@@ -100,6 +100,17 @@ body {
   letter-spacing: -0.01em;
 }
 
+/* legibility for cream text on transparent dark glass (used in GRAND OPEN popup).
+   uses text-shadow instead of filter: drop-shadow to avoid subpixel blur on retina. */
+.text-legible {
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 1px rgba(0, 0, 0, 0.35);
+}
+.text-legible-soft {
+  text-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.4);
+}
+
 /* chat orb */
 @keyframes floaty {
   0%,
