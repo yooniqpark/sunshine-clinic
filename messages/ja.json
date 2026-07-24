@@ -175,7 +175,7 @@
         "lifting": "リフティング",
         "antiAging": "アンチエイジング",
         "whitening": "ホワイトニング・赤ら顔",
-        "acne": "ニキビ・傷跡",
+        "acne": "ニキビ · ニキビ跡 · 毛穴",
         "skinDisease": "皮膚疾患",
         "community": "コミュニティ"
       },
@@ -236,41 +236,51 @@
         ],
         "whitening": [
           {
-            "label": "クレアリティ II",
-            "sub": "CLARITY II",
-            "href": "/treatments/whitening/clarity-ii"
+            "label": "肝斑",
+            "sub": "",
+            "href": "/treatments/whitening/melasma"
           },
           {
-            "label": "フォトナ スターウォーカー MAQX",
-            "sub": "STARWALKER",
-            "href": "/treatments/whitening/fotona-starwalker"
+            "label": "そばかす · 黒子 · 老人性色素斑",
+            "sub": "",
+            "href": "/treatments/whitening/freckles"
           },
           {
-            "label": "ブイビーム (VBeam)",
-            "sub": "VBEAM",
-            "href": "/treatments/whitening/vbeam"
+            "label": "難治性色素",
+            "sub": "",
+            "href": "/treatments/whitening/resistant-pigment"
+          },
+          {
+            "label": "赤ら顔 · 毛細血管拡張",
+            "sub": "",
+            "href": "/treatments/whitening/redness"
           }
         ],
         "acne": [
           {
-            "label": "カプリ",
-            "sub": "CARPRI CO2",
-            "href": "/treatments/acne/carpri-co2"
+            "label": "思春期 · 成人ニキビ",
+            "sub": "",
+            "href": "/treatments/acne/acne-active"
           },
           {
-            "label": "ミラジェット フォルテ",
-            "sub": "MIRAJET FORTE",
-            "href": "/treatments/acne/mirajet-forte"
+            "label": "ニキビ後の色素沈着",
+            "sub": "",
+            "href": "/treatments/acne/acne-pigment"
           },
           {
-            "label": "シークレット RF",
-            "sub": "SECRET RF",
-            "href": "/treatments/acne/secret-rf"
+            "label": "ニキビ跡",
+            "sub": "",
+            "href": "/treatments/acne/acne-scar"
           },
           {
-            "label": "インモード モーフィアス",
-            "sub": "INMODE MORPHEUS",
-            "href": "/treatments/acne/inmode-morpheus"
+            "label": "毛穴",
+            "sub": "",
+            "href": "/treatments/acne/pores"
+          },
+          {
+            "label": "一般的な傷跡",
+            "sub": "",
+            "href": "/treatments/acne/general-scar"
           }
         ],
         "anti-aging": [

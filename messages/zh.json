@@ -175,7 +175,7 @@
         "lifting": "提升",
         "antiAging": "抗衰老",
         "whitening": "美白 · 潮红",
-        "acne": "痤疮 · 疤痕",
+        "acne": "痤疮 · 疤痕 · 毛孔",
         "skinDisease": "皮肤疾病",
         "community": "社区"
       },
@@ -236,41 +236,51 @@
         ],
         "whitening": [
           {
-            "label": "克拉里蒂 II",
-            "sub": "CLARITY II",
-            "href": "/treatments/whitening/clarity-ii"
+            "label": "黄褐斑",
+            "sub": "",
+            "href": "/treatments/whitening/melasma"
           },
           {
-            "label": "Fotona StarWalker MAQX",
-            "sub": "STARWALKER",
-            "href": "/treatments/whitening/fotona-starwalker"
+            "label": "雀斑 · 黑子 · 老年斑",
+            "sub": "",
+            "href": "/treatments/whitening/freckles"
           },
           {
-            "label": "VBeam",
-            "sub": "VBEAM",
-            "href": "/treatments/whitening/vbeam"
+            "label": "难治性色素",
+            "sub": "",
+            "href": "/treatments/whitening/resistant-pigment"
+          },
+          {
+            "label": "泛红 · 毛细血管扩张",
+            "sub": "",
+            "href": "/treatments/whitening/redness"
           }
         ],
         "acne": [
           {
-            "label": "卡普里",
-            "sub": "CARPRI CO2",
-            "href": "/treatments/acne/carpri-co2"
+            "label": "青少年 · 成人痤疮",
+            "sub": "",
+            "href": "/treatments/acne/acne-active"
           },
           {
-            "label": "米拉喷 强效",
-            "sub": "MIRAJET FORTE",
-            "href": "/treatments/acne/mirajet-forte"
+            "label": "痤疮后色沉",
+            "sub": "",
+            "href": "/treatments/acne/acne-pigment"
           },
           {
-            "label": "秘密 RF",
-            "sub": "SECRET RF",
-            "href": "/treatments/acne/secret-rf"
+            "label": "痤疮凹疤",
+            "sub": "",
+            "href": "/treatments/acne/acne-scar"
           },
           {
-            "label": "InMode Morpheus",
-            "sub": "INMODE MORPHEUS",
-            "href": "/treatments/acne/inmode-morpheus"
+            "label": "毛孔",
+            "sub": "",
+            "href": "/treatments/acne/pores"
+          },
+          {
+            "label": "一般疤痕",
+            "sub": "",
+            "href": "/treatments/acne/general-scar"
           }
         ],
         "anti-aging": [

@@ -175,7 +175,7 @@
         "lifting": "리프팅",
         "antiAging": "안티에이징",
         "whitening": "화이트닝 · 홍조",
-        "acne": "여드름 · 흉터",
+        "acne": "여드름 · 흉터 · 모공",
         "skinDisease": "피부질환",
         "community": "커뮤니티"
       },
@@ -236,41 +236,51 @@
         ],
         "whitening": [
           {
-            "label": "클라리티 II",
-            "sub": "CLARITY II",
-            "href": "/treatments/whitening/clarity-ii"
+            "label": "기미",
+            "sub": "",
+            "href": "/treatments/whitening/melasma"
           },
           {
-            "label": "포토나 스타워커 MAQX",
-            "sub": "STARWALKER",
-            "href": "/treatments/whitening/fotona-starwalker"
+            "label": "주근깨 · 흑자 · 검버섯",
+            "sub": "",
+            "href": "/treatments/whitening/freckles"
           },
           {
-            "label": "브이빔 (VBeam)",
-            "sub": "VBEAM",
-            "href": "/treatments/whitening/vbeam"
+            "label": "난치성 색소",
+            "sub": "",
+            "href": "/treatments/whitening/resistant-pigment"
+          },
+          {
+            "label": "홍조 · 모세혈관확장",
+            "sub": "",
+            "href": "/treatments/whitening/redness"
           }
         ],
         "acne": [
           {
-            "label": "카프리",
-            "sub": "CARPRI CO2",
-            "href": "/treatments/acne/carpri-co2"
+            "label": "청소년 · 성인 여드름",
+            "sub": "",
+            "href": "/treatments/acne/acne-active"
           },
           {
-            "label": "미라젯 포르테",
-            "sub": "MIRAJET FORTE",
-            "href": "/treatments/acne/mirajet-forte"
+            "label": "여드름 색소침착",
+            "sub": "",
+            "href": "/treatments/acne/acne-pigment"
           },
           {
-            "label": "시크릿 RF",
-            "sub": "SECRET RF",
-            "href": "/treatments/acne/secret-rf"
+            "label": "여드름 흉터",
+            "sub": "",
+            "href": "/treatments/acne/acne-scar"
           },
           {
-            "label": "인모드 모피우스",
-            "sub": "INMODE MORPHEUS",
-            "href": "/treatments/acne/inmode-morpheus"
+            "label": "모공",
+            "sub": "",
+            "href": "/treatments/acne/pores"
+          },
+          {
+            "label": "일반 흉터",
+            "sub": "",
+            "href": "/treatments/acne/general-scar"
           }
         ],
         "anti-aging": [

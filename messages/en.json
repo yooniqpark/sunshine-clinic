@@ -175,7 +175,7 @@
         "lifting": "Lifting",
         "antiAging": "Anti-Aging",
         "whitening": "Whitening · Redness",
-        "acne": "Acne · Scars",
+        "acne": "Acne · Scar · Pore",
         "skinDisease": "Skin Conditions",
         "community": "Community"
       },
@@ -236,41 +236,51 @@
         ],
         "whitening": [
           {
-            "label": "Clarity II",
-            "sub": "CLARITY II",
-            "href": "/treatments/whitening/clarity-ii"
+            "label": "Melasma",
+            "sub": "",
+            "href": "/treatments/whitening/melasma"
           },
           {
-            "label": "Fotona StarWalker MAQX",
-            "sub": "STARWALKER",
-            "href": "/treatments/whitening/fotona-starwalker"
+            "label": "Freckles · Lentigo · Age spots",
+            "sub": "",
+            "href": "/treatments/whitening/freckles"
           },
           {
-            "label": "VBeam",
-            "sub": "VBEAM",
-            "href": "/treatments/whitening/vbeam"
+            "label": "Resistant pigment",
+            "sub": "",
+            "href": "/treatments/whitening/resistant-pigment"
+          },
+          {
+            "label": "Redness · Telangiectasia",
+            "sub": "",
+            "href": "/treatments/whitening/redness"
           }
         ],
         "acne": [
           {
-            "label": "Carpri",
-            "sub": "CARPRI CO2",
-            "href": "/treatments/acne/carpri-co2"
+            "label": "Teen · Adult acne",
+            "sub": "",
+            "href": "/treatments/acne/acne-active"
           },
           {
-            "label": "Mirajet Forte",
-            "sub": "MIRAJET FORTE",
-            "href": "/treatments/acne/mirajet-forte"
+            "label": "Post-acne pigmentation",
+            "sub": "",
+            "href": "/treatments/acne/acne-pigment"
           },
           {
-            "label": "Secret RF",
-            "sub": "SECRET RF",
-            "href": "/treatments/acne/secret-rf"
+            "label": "Acne scars",
+            "sub": "",
+            "href": "/treatments/acne/acne-scar"
           },
           {
-            "label": "InMode Morpheus",
-            "sub": "INMODE MORPHEUS",
-            "href": "/treatments/acne/inmode-morpheus"
+            "label": "Pores",
+            "sub": "",
+            "href": "/treatments/acne/pores"
+          },
+          {
+            "label": "General scars",
+            "sub": "",
+            "href": "/treatments/acne/general-scar"
           }
         ],
         "anti-aging": [
