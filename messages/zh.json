@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "SUNSHINE",
-    "label": "Dermatology Clinic"
+    "label": "Skin Clinic"
   },
   "nav": {
     "about": "诊所介绍",
@@ -357,7 +357,7 @@
       "business": "商号 阳光皮肤科诊所 · 院长 金炳贤 · 营业执照号 878-37-01499 · 松坡区保健所备案 第 2026-3230034-00049 号"
     },
     "home": {
-      "heroKicker": "DERMATOLOGY CLINIC · SINCE 2026",
+      "heroKicker": "SKIN CLINIC · SINCE 2026",
       "heroTitleLine1": "肌肤纹理",
       "heroTitleAccent": "日常之光",
       "heroDescLine1": "为每一位患者量身定制的细致而诚实的诊疗。",
@@ -393,7 +393,7 @@
       "directorQuoteAccent": "肌肤与心灵",
       "directorQuoteEnd": "”",
       "directorName": "金炳贤",
-      "directorRole": "院长 · Sunshine Dermatology Clinic",
+      "directorRole": "院长 · Sunshine Skin Clinic",
       "viewDoctors": "医疗团队",
       "categoriesKicker": "TREATMENTS",
       "categoriesTitleLead": "针对不同需求的 ",
@@ -887,7 +887,7 @@
         },
         "skin-disease": {
           "label": "皮肤疾病",
-          "kicker": "MEDICAL DERMATOLOGY",
+          "kicker": "MEDICAL SKIN CLINIC",
           "heroLine1": "精准诊断",
           "heroLine2": "诚实治疗",
           "intro": "作为皮肤科专科医生,我们为从常见皮肤疾病到慢性疾病提供循证诊疗。",

@@ -51,7 +51,7 @@ async function buildSystemPrompt(locale: Locale): Promise<string> {
   const manual = await getChatbotManual(locale);
   const language = LOCALE_LANG[locale];
   const fallback = FALLBACK_BY_LOCALE[locale];
-  return `You are the friendly guide assistant for Sunshine Dermatology Clinic.
+  return `You are the friendly guide assistant for Sunshine Skin Clinic.
 
 Rules:
 1. Answer ONLY using facts from the [MANUAL] below. Keep it concise (2–4 sentences).

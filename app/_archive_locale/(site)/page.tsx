@@ -40,7 +40,7 @@ export default async function Home({
   const carouselBrand = {
     tagline: content.clinic.marketingTagline,
     clinicName: content.clinic.clinicNameFull,
-    englishName: "SUNSHINE DERMATOLOGY CLINIC",
+    englishName: "SUNSHINE SKIN CLINIC",
   };
 
   function categoryItems(category: "lifting" | "whitening" | "acne"): CarouselItem[] {

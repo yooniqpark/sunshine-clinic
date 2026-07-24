@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "SUNSHINE",
-    "label": "Dermatology Clinic"
+    "label": "Skin Clinic"
   },
   "nav": {
     "about": "병원소개",
@@ -357,7 +357,7 @@
       "business": "상호 선샤인의원 · 대표원장 김병현 · 사업자등록번호 878-37-01499 · 송파구보건소 신고 제 2026-3230034-00049 호"
     },
     "home": {
-      "heroKicker": "DERMATOLOGY CLINIC · SINCE 2026",
+      "heroKicker": "SKIN CLINIC · SINCE 2026",
       "heroTitleLine1": "피부의 결",
       "heroTitleAccent": "일상의 빛",
       "heroDescLine1": "환자 한 분 한 분에게 맞춘 섬세하고 정직한 진료.",
@@ -393,7 +393,7 @@
       "directorQuoteAccent": "피부와 마음",
       "directorQuoteEnd": "까지 함께 살피는 진료를 지향합니다”",
       "directorName": "김병현",
-      "directorRole": "대표원장 · Sunshine Dermatology Clinic",
+      "directorRole": "대표원장 · Sunshine Skin Clinic",
       "viewDoctors": "의료진 소개",
       "categoriesKicker": "TREATMENTS",
       "categoriesTitleLead": "고민별 ",
@@ -887,7 +887,7 @@
         },
         "skin-disease": {
           "label": "피부질환",
-          "kicker": "MEDICAL DERMATOLOGY",
+          "kicker": "MEDICAL SKIN CLINIC",
           "heroLine1": "정확한 진단",
           "heroLine2": "정직한 치료",
           "intro": "피부과 전문의로서 흔한 피부 질환부터 만성 질환까지, 근거 기반의 진료를 제공합니다.",

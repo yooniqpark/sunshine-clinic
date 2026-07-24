@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "SUNSHINE",
-    "label": "Dermatology Clinic"
+    "label": "Skin Clinic"
   },
   "nav": {
     "about": "クリニック紹介",
@@ -357,7 +357,7 @@
       "business": "商号 サンシャインクリニック · 院長 キム・ビョンヒョン · 事業者登録番号 878-37-01499 · 松坡区保健所届出 第 2026-3230034-00049 号"
     },
     "home": {
-      "heroKicker": "DERMATOLOGY CLINIC · SINCE 2026",
+      "heroKicker": "SKIN CLINIC · SINCE 2026",
       "heroTitleLine1": "肌のキメ",
       "heroTitleAccent": "日常の光",
       "heroDescLine1": "一人ひとりに寄り添う、繊細で誠実な診療。",
@@ -393,7 +393,7 @@
       "directorQuoteAccent": "肌と心",
       "directorQuoteEnd": "まで、共に寄り添う診療を目指しています。」",
       "directorName": "キム・ビョンヒョン",
-      "directorRole": "院長 · Sunshine Dermatology Clinic",
+      "directorRole": "院長 · Sunshine Skin Clinic",
       "viewDoctors": "医師紹介",
       "categoriesKicker": "TREATMENTS",
       "categoriesTitleLead": "お悩み別の ",
@@ -887,7 +887,7 @@
         },
         "skin-disease": {
           "label": "皮膚疾患",
-          "kicker": "MEDICAL DERMATOLOGY",
+          "kicker": "MEDICAL SKIN CLINIC",
           "heroLine1": "正確な診断",
           "heroLine2": "誠実な治療",
           "intro": "皮膚科専門医として、一般的な皮膚疾患から慢性疾患まで、エビデンスに基づく診療をご提供します。",

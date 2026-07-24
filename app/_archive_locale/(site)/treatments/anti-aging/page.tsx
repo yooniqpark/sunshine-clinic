@@ -71,7 +71,7 @@ export default async function AntiAgingPage({ params }: Props) {
   const brand = {
     tagline: content.clinic.marketingTagline,
     clinicName: content.clinic.clinicNameFull,
-    englishName: "SUNSHINE DERMATOLOGY CLINIC",
+    englishName: "SUNSHINE SKIN CLINIC",
   };
 
   return (

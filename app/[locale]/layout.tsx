@@ -10,7 +10,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { Analytics } from "@/components/Analytics";
 
 export const metadata: Metadata = {
-  title: "Sunshine Dermatology Clinic",
+  title: "Sunshine Skin Clinic",
 };
 
 export function generateStaticParams() {

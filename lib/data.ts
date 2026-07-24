@@ -1,6 +1,6 @@
 export const clinic = {
   name: "Sunshine 피부과",
-  nameEn: "SUNSHINE DERMATOLOGY",
+  nameEn: "SUNSHINE SKIN CLINIC",
   tagline: "당신의 피부에 빛을 더하다",
   description:
     "리프팅·안티에이징부터 색소·여드름·피부질환까지, 근거 중심 진료와 프리미엄 장비로 건강한 피부를 디자인합니다.",

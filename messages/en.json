@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "SUNSHINE",
-    "label": "Dermatology Clinic"
+    "label": "Skin Clinic"
   },
   "nav": {
     "about": "About",
@@ -94,7 +94,7 @@
     "clearLabel": "Clear conversation",
     "headerTitle": "Sunshine Assistant",
     "headerSubtitle": "Ask anything — we'll help.",
-    "greeting": "Hi! I'm the Sunshine Dermatology assistant ☀️ Pick a question below or type your own.",
+    "greeting": "Hi! I'm the Sunshine Skin Clinic assistant ☀️ Pick a question below or type your own.",
     "fallback": "I'm not sure I can answer that precisely. Please contact us by phone or KakaoTalk for detailed help.",
     "disclaimer": "Use the menu above to book or contact us.\nFor accurate diagnosis, please visit the clinic.",
     "attachTranscript": "Booking input mode",
@@ -354,10 +354,10 @@
       "hoursWeekday": "Weekdays 10:00 – 20:00",
       "hoursSat": "Saturday 10:00 – 16:00",
       "hoursClosed": "Closed Sundays & holidays",
-      "business": "Sunshine Dermatology Clinic · Director Kim Byung-hyun · Business Reg. 878-37-01499 · Songpa Public Health Center Reg. No. 2026-3230034-00049"
+      "business": "Sunshine Skin Clinic · Director Kim Byung-hyun · Business Reg. 878-37-01499 · Songpa Public Health Center Reg. No. 2026-3230034-00049"
     },
     "home": {
-      "heroKicker": "DERMATOLOGY CLINIC · SINCE 2026",
+      "heroKicker": "SKIN CLINIC · SINCE 2026",
       "heroTitleLine1": "Texture of skin",
       "heroTitleAccent": "light of every day",
       "heroDescLine1": "Attentive, honest care tailored to each patient.",
@@ -393,7 +393,7 @@
       "directorQuoteAccent": "skin, but the heart",
       "directorQuoteEnd": " of every patient who visits us”",
       "directorName": "Kim Byung-hyun",
-      "directorRole": "Director · Sunshine Dermatology Clinic",
+      "directorRole": "Director · Sunshine Skin Clinic",
       "viewDoctors": "Meet the Doctor",
       "categoriesKicker": "TREATMENTS",
       "categoriesTitleLead": "Tailored care for ",
@@ -463,7 +463,7 @@
       "heroKicker": "ABOUT SUNSHINE",
       "heroTitleLine1": "Refining texture",
       "heroTitleAccent": "brightening every day",
-      "heroDesc": "Sunshine Dermatology Clinic is a local practice led by a board-certified dermatologist with years of experience at university hospitals. We favor lasting beauty over trends, and healthy recovery over spectacle.",
+      "heroDesc": "Sunshine Skin Clinic is a local practice led by a board-certified dermatologist with years of experience at university hospitals. We favor lasting beauty over trends, and healthy recovery over spectacle.",
       "directorKicker": "DIRECTOR",
       "directorName": "Kim Byung-hyun",
       "directorTitle": "Director",
@@ -572,8 +572,8 @@
         {
           "tag": "OPEN",
           "date": "2026.07.15",
-          "title": "Sunshine Dermatology Clinic Grand Opening",
-          "excerpt": "Sunshine Dermatology Clinic officially opens on Olympic-ro, Songpa-gu. A grand-opening consultation event is running alongside."
+          "title": "Sunshine Skin Clinic Grand Opening",
+          "excerpt": "Sunshine Skin Clinic officially opens on Olympic-ro, Songpa-gu. A grand-opening consultation event is running alongside."
         },
         {
           "tag": "INFO",
@@ -887,7 +887,7 @@
         },
         "skin-disease": {
           "label": "Skin Conditions",
-          "kicker": "MEDICAL DERMATOLOGY",
+          "kicker": "MEDICAL SKIN CLINIC",
           "heroLine1": "Accurate diagnosis",
           "heroLine2": "honest treatment",
           "intro": "As board-certified dermatologists, we provide evidence-based care from common conditions to chronic disease.",
