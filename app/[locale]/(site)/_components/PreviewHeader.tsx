@@ -228,18 +228,21 @@ export function PreviewHeader() {
                           onClick={() =>
                             setMobileOpen((v) => (v === item.key ? null : item.key))
                           }
-                          className={`flex w-full items-center justify-between rounded-xl px-3 py-3.5 text-left text-[17px] font-semibold transition active:bg-brand/10 ${
-                            isExpanded
-                              ? "bg-brand/15 text-brand-dark ring-1 ring-brand/25"
-                              : "text-ink"
-                          }`}
+                          className="relative flex w-full items-center justify-start px-3 py-3.5 text-left text-[17px] font-semibold transition"
                         >
-                          <span>{item.label}</span>
-                          <ChevronDownIcon
-                            className={`h-5 w-5 transition ${
-                              isExpanded ? "rotate-180 text-brand-dark" : "text-ink-soft"
+                          <span
+                            className={`relative inline-block pb-0.5 transition ${
+                              isExpanded ? "text-brand-dark" : "text-ink"
                             }`}
-                          />
+                          >
+                            {item.label}
+                            <span
+                              aria-hidden
+                              className={`absolute inset-x-0 -bottom-0.5 h-[2px] origin-left rounded-full bg-brand transition-transform duration-300 ${
+                                isExpanded ? "scale-x-100" : "scale-x-0"
+                              }`}
+                            />
+                          </span>
                         </button>
                         {isExpanded && (
                           <div className="space-y-1 pb-3 pl-1">
