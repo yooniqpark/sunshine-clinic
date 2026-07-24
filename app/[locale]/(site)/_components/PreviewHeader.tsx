@@ -91,8 +91,8 @@ export function PreviewHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         solid
-          ? "border-b border-line/60 bg-cream/85 backdrop-blur-lg"
-          : "border-b border-cream/40 bg-transparent"
+          ? "border-b border-line/40 bg-cream/85 backdrop-blur-lg [border-bottom-width:0.5px]"
+          : "border-b border-cream/30 bg-transparent [border-bottom-width:0.5px]"
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
