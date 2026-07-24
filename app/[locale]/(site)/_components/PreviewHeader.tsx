@@ -91,11 +91,11 @@ export function PreviewHeader() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         solid
-          ? "border-b border-line/40 bg-cream/85 backdrop-blur-lg [border-bottom-width:0.5px]"
-          : "border-b border-cream/30 bg-transparent [border-bottom-width:0.5px]"
+          ? "bg-cream/85 backdrop-blur-lg after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-y-50 after:bg-ink/15"
+          : "bg-transparent after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-y-50 after:bg-cream/25"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 lg:h-20 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:h-28 lg:px-8">
         <Link
           href="/home"
           onClick={() => setOpen(false)}
@@ -211,10 +211,10 @@ export function PreviewHeader() {
       {open && (
         <>
           <div
-            className="fixed inset-0 top-16 z-30 bg-ink/50 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 top-20 z-30 bg-ink/50 backdrop-blur-sm lg:hidden"
             onClick={() => setOpen(false)}
           />
-          <div className="fixed inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 lg:hidden">
+          <div className="fixed inset-x-0 top-20 z-40 max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 lg:hidden">
             <nav className="mx-auto max-w-7xl px-5 py-3">
               {NAV.map((item) => {
                 const isExpanded = mobileOpen === item.key;
