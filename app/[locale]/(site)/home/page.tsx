@@ -210,6 +210,57 @@ export default async function PreviewHome({
         </div>
       </section>
 
+      {/* ═══════ 5.5 CLINIC — 피부과 소개 (모델 이미지 자리) ═══════ */}
+      <section className="bg-cream py-24 lg:py-32">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:px-8">
+          {/* Model image placeholder */}
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-sand">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-[11px] font-medium tracking-[0.3em] text-ink/25">
+                MODEL IMAGE
+              </span>
+            </div>
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "radial-gradient(ellipse at 30% 30%, rgba(232,205,175,0.18) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(196,144,116,0.12) 0%, transparent 60%)",
+              }}
+            />
+          </div>
+
+          {/* Description */}
+          <div className="flex flex-col justify-center">
+            <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
+              ABOUT SUNSHINE
+            </p>
+            <h2 className="mt-5 font-serif text-4xl font-normal leading-[1.2] tracking-tight text-ink lg:text-[3rem]">
+              아름다움보다 먼저,
+              <br />
+              <span className="text-ink/50">피부를 대하는 기준.</span>
+            </h2>
+            <span aria-hidden className="mt-8 block h-px w-16 bg-ink/25" />
+            <p className="mt-6 max-w-lg text-sm leading-[1.8] text-ink-soft lg:text-base">
+              선샤인 스킨 클리닉은 대학병원에서 오랜 임상 경험을 쌓은
+              피부과 전문의가 직접 진료하는 로컬 클리닉입니다.
+              <br />
+              <br />
+              유행보다는 오래가는 아름다움을, 화려함보다는 건강한 회복을
+              지향하며 — 시술을 정하기 전에 지금의 피부와 원하는 변화의
+              방향을 충분히 이해합니다.
+            </p>
+            <Link
+              href="/about"
+              className="mt-10 inline-flex items-center gap-3 self-start border-b border-ink/30 pb-1.5 text-xs font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
+            >
+              병원 소개 자세히
+              <span aria-hidden className="text-brand-dark">↗</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════ 6. CONCEPT · WHY ═══════ */}
       <section className="bg-cream py-24 lg:py-32">
         <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
