@@ -15,10 +15,12 @@ export function GrandOpenCard({
   category,
   variant = "compact",
   showHeader = true,
+  showDate = true,
 }: {
   category: GrandOpenCategory;
   variant?: "compact" | "full";
   showHeader?: boolean;
+  showDate?: boolean;
 }) {
   const scale =
     variant === "compact"
@@ -49,19 +51,25 @@ export function GrandOpenCard({
             {GRAND_OPEN_META.eyebrow}
           </p>
           <h2
-            className={`mt-2 font-serif font-normal leading-none tracking-tight text-brand-soft ${scale.title}`}
+            className={`mt-2 whitespace-nowrap font-serif font-normal leading-none tracking-tight text-brand-soft ${scale.title}`}
           >
             Grand Open
           </h2>
           <p
-            className="-mt-1 font-serif italic leading-none tracking-tight text-cream"
-            style={{ fontSize: scale.eventSize }}
+            className="-mt-1 leading-none tracking-tight text-cream"
+            style={{ fontSize: scale.eventSize, fontFamily: '"Allura", cursive' }}
           >
             Event
           </p>
-          <p className="mt-2 text-[10px] tracking-[0.18em] text-cream sm:text-[11px]">
-            {GRAND_OPEN_META.period} · {GRAND_OPEN_META.vatNote}
-          </p>
+          {showDate && (
+            <p
+              className={`mt-2 text-[10px] tracking-[0.18em] text-cream sm:text-[11px] ${
+                variant === "compact" ? "lg:hidden" : ""
+              }`}
+            >
+              {GRAND_OPEN_META.period} · {GRAND_OPEN_META.vatNote}
+            </p>
+          )}
         </header>
       )}
 

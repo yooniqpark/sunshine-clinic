@@ -157,16 +157,14 @@ function EventPopup({
             <p className="text-[10px] font-medium tracking-[0.4em] text-brand-soft">
               INVITATION
             </p>
-            <h2 className="mt-5 font-serif text-[3.75rem] leading-[0.95] tracking-tight text-cream">
-              Grand
-              <br />
-              Open.
+            <h2 className="mt-5 whitespace-nowrap font-serif text-[3.25rem] leading-[1] tracking-tight text-cream">
+              Grand Open
             </h2>
             <p
-              className="mt-3 font-serif italic leading-none tracking-tight text-brand-soft"
-              style={{ fontSize: "1.5rem" }}
+              className="mt-2 leading-none tracking-tight text-brand-soft"
+              style={{ fontSize: "3rem", fontFamily: '"Allura", cursive' }}
             >
-              — an editorial event
+              Event
             </p>
           </div>
 
@@ -178,11 +176,15 @@ function EventPopup({
             </p>
           </div>
 
-          {/* 카피 */}
-          <p className="mt-8 max-w-[280px] text-[13px] leading-[1.75] text-cream/70">
-            선샤인의 첫 인사.
+          {/* 오픈 메시지 */}
+          <p className="mt-8 max-w-[300px] text-[13px] leading-[1.85] text-cream/75">
+            <span className="text-cream">오랜 준비 끝에</span>,
             <br />
-            대표 시술 네 갈래를 특별한 가격으로 준비했습니다.
+            선샤인 스킨 클리닉이 문을 엽니다.
+            <br />
+            <br />
+            첫 여름을 시작하는 자리에 <br />
+            여러분을 정중히 초대합니다.
           </p>
         </div>
 
@@ -192,7 +194,7 @@ function EventPopup({
             onClick={onToggleDetail}
             className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-cream/40 bg-transparent px-6 py-3.5 text-xs font-semibold tracking-[0.2em] text-cream transition hover:border-cream hover:bg-cream/10"
           >
-            <span>{desktopDetail ? "DETAIL — 닫기" : "DETAIL — 자세히 보기"}</span>
+            <span>{desktopDetail ? "PROMOTION DETAIL — 닫기" : "PROMOTION DETAIL"}</span>
             <span
               aria-hidden
               className={`inline-flex h-6 w-6 items-center justify-center rounded-full border border-cream/40 text-sm transition-transform duration-500 ${
@@ -207,13 +209,13 @@ function EventPopup({
 
       {/* Desktop: 확장되는 상세 패널 (오른쪽) */}
       <div
-        className={`hidden overflow-hidden transition-[max-width,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:block ${
+        className={`hidden overflow-hidden transition-[max-width,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:flex lg:h-full ${
           desktopDetail
             ? "lg:max-w-[560px] lg:opacity-100"
             : "lg:max-w-0 lg:opacity-0"
         }`}
       >
-        <div className="h-full w-[560px] border-l border-white/15">
+        <div className="flex h-full w-[560px] flex-col border-l border-white/15">
           <EventCarousel />
         </div>
       </div>
