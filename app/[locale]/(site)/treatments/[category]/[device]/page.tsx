@@ -373,53 +373,6 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* SIBLINGS */}
-      {siblings.length > 0 && (
-        <section className="bg-cream py-24 lg:py-32">
-          <div className="mx-auto max-w-6xl px-5 lg:px-8">
-            <div className="flex items-end justify-between gap-6">
-              <div>
-                <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-                  {t("moreInPrefix")}{catLabel.toUpperCase()}
-                </p>
-                <h2 className="mt-3 font-serif text-3xl leading-tight lg:text-4xl">
-                  {t("siblingsTitle")}
-                </h2>
-              </div>
-            </div>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {siblings.slice(0, 3).map((s) => {
-                const sImg = getDeviceImage(s.slug);
-                return (
-                  <Link
-                    key={s.slug}
-                    href={`/treatments/${category}/${s.slug}`}
-                    className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5"
-                  >
-                    {sImg && (
-                      <Image
-                        src={sImg}
-                        alt={s.name}
-                        fill
-                        className="object-cover transition duration-700 group-hover:scale-105"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-                    <div className="absolute inset-x-6 bottom-6 text-cream">
-                      <h3 className="font-serif text-2xl leading-tight">{s.name}</h3>
-                      <p className="mt-2 line-clamp-2 text-xs text-cream/70">{s.tagline}</p>
-                      <div className="mt-4 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.15em] text-brand-soft">
-                        {t("siblingsView")} <ArrowUpRightIcon className="h-3 w-3 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 }
@@ -654,56 +607,6 @@ async function ConcernPage({
         </div>
       </section>
 
-      {/* SIBLINGS */}
-      {siblings.length > 0 && (
-        <section className="bg-cream py-24 lg:py-32">
-          <div className="mx-auto max-w-6xl px-5 lg:px-8">
-            <div className="flex items-end justify-between gap-6">
-              <div>
-                <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-                  {t("moreInPrefix")}
-                  {catLabel.toUpperCase()}
-                </p>
-                <h2 className="mt-3 font-serif text-3xl leading-tight lg:text-4xl">
-                  {t("siblingsTitle")}
-                </h2>
-              </div>
-            </div>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
-              {siblings.map((s) => (
-                <Link
-                  key={s.slug}
-                  href={`/treatments/${category}/${s.slug}`}
-                  className="group relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5"
-                >
-                  {s.image ? (
-                    <Image
-                      src={s.image}
-                      alt={s.name}
-                      fill
-                      className="object-cover transition duration-700 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 bg-gradient-to-br from-ink/70 via-ink/50 to-ink/80" />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
-                  <div className="absolute inset-x-6 bottom-6 text-cream">
-                    <h3 className="font-serif text-2xl leading-tight">{s.name}</h3>
-                    <p className="mt-2 line-clamp-2 text-xs text-cream/70">
-                      {s.tagline}
-                    </p>
-                    <div className="mt-4 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.15em] text-brand-soft">
-                      {t("siblingsView")}{" "}
-                      <ArrowUpRightIcon className="h-3 w-3 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
     </>
   );
 }
