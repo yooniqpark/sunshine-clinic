@@ -124,33 +124,6 @@ export default async function AboutPage({
         </div>
       </section>
 
-      {/* ══════ CONSULT ROOM ══════ */}
-      <section className="bg-white py-24 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-2 lg:gap-24 lg:px-8">
-          <Reveal>
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-ink/5">
-              <Image
-                src="/clinic/consult-room.jpg"
-                alt={t("consultTitle")}
-                fill
-                className="object-cover"
-              />
-            </div>
-          </Reveal>
-          <div className="flex flex-col justify-center">
-            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
-              {t("consultKicker")}
-            </p>
-            <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
-              {t("consultTitle")}
-            </h2>
-            <p className="mt-8 text-base leading-relaxed text-ink-soft lg:text-lg">
-              {t("consultBody")}
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* ══════ SPACE GALLERY ══════ */}
       <section className="bg-cream py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
