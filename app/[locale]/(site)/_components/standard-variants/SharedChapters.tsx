@@ -58,6 +58,8 @@ export function ChaptersRight({
               key={c.key}
               onMouseEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
+              onClick={() => setActive(i)}
+              className="cursor-pointer"
             >
               <div className="grid w-full grid-cols-[48px_1fr_auto_24px] items-center gap-6 py-6">
                 <span

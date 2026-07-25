@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ChaptersRight,
   STD_CHAPTERS,
@@ -12,10 +12,35 @@ import {
  * · 뒤로 흐르는 깊이 층 밴드 (표피 → SMAS)
  * · 각 챕터의 브랜드 컬러 세로 웨이브 (활성 웨이브 발광)
  * · 우측: THE SUNSHINE STANDARD 헤딩 + 4챕터 hover 리스트
+ * · 모바일: 3.5s 간격 자동 순환 (터치 시 3초 일시정지 후 재개)
  */
 export function SunshineStandardSplit() {
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const pauseTimer = useRef<number | null>(null);
   const c = STD_CHAPTERS[active];
+
+  // 자동 순환 (일시정지 중이 아닐 때)
+  useEffect(() => {
+    if (paused) return;
+    const id = window.setInterval(() => {
+      setActive((a) => (a + 1) % STD_CHAPTERS.length);
+    }, 3500);
+    return () => window.clearInterval(id);
+  }, [paused]);
+
+  // 사용자 인터랙션 → 즉시 활성 챕터 변경 + 3초 후 자동 재개
+  function pick(i: number) {
+    setActive(i);
+    setPaused(true);
+    if (pauseTimer.current) window.clearTimeout(pauseTimer.current);
+    pauseTimer.current = window.setTimeout(() => setPaused(false), 3000);
+  }
+  useEffect(() => {
+    return () => {
+      if (pauseTimer.current) window.clearTimeout(pauseTimer.current);
+    };
+  }, []);
 
   return (
     <section className="relative bg-[#f2ebde] text-ink">
@@ -52,9 +77,9 @@ export function SunshineStandardSplit() {
                       "linear-gradient(to right, transparent 0%, rgba(255,240,220,0.18) 20%, rgba(255,240,220,0.22) 50%, rgba(255,240,220,0.18) 80%, transparent 100%)",
                   }}
                 />
-                {/* 층 라벨 (좌측) */}
+                {/* 층 라벨 (좌측) — 모바일 숨김 */}
                 <div
-                  className="absolute left-6 top-2 flex flex-col text-[9px] font-medium tracking-[0.28em] text-cream/30 lg:left-10"
+                  className="absolute left-6 top-2 hidden flex-col text-[9px] font-medium tracking-[0.28em] text-cream/30 lg:left-10 lg:flex"
                 >
                   <span className="font-serif not-italic">{l.label}</span>
                   <span className="text-cream/25">{l.sub}</span>
@@ -71,8 +96,8 @@ export function SunshineStandardSplit() {
                   "linear-gradient(to right, transparent 0%, rgba(255,240,220,0.18) 20%, rgba(255,240,220,0.22) 50%, rgba(255,240,220,0.18) 80%, transparent 100%)",
               }}
             />
-            {/* 우측 depth ruler */}
-            <div className="pointer-events-none absolute right-6 top-[10%] flex flex-col items-end gap-4 text-[8px] font-medium tracking-[0.2em] text-cream/25 lg:right-10">
+            {/* 우측 depth ruler — 모바일 숨김 */}
+            <div className="pointer-events-none absolute right-6 top-[10%] hidden flex-col items-end gap-4 text-[8px] font-medium tracking-[0.2em] text-cream/25 lg:right-10 lg:flex">
               <span>0.1 mm</span>
               <span className="mt-6">1.5 mm</span>
               <span className="mt-10">4 mm</span>
@@ -101,7 +126,7 @@ export function SunshineStandardSplit() {
                     }}
                   />
                   <div
-                    className={`mt-1.5 flex items-center gap-3 px-6 text-[9px] font-medium tracking-[0.28em] transition-all duration-700 lg:px-10 ${
+                    className={`mt-1.5 hidden items-center gap-3 px-6 text-[9px] font-medium tracking-[0.28em] transition-all duration-700 lg:flex lg:px-10 ${
                       isActive ? "text-cream" : "text-cream/25"
                     }`}
                   >
@@ -254,7 +279,7 @@ export function SunshineStandardSplit() {
           </div>
         </div>
 
-        <ChaptersRight active={active} setActive={setActive} />
+        <ChaptersRight active={active} setActive={pick} />
       </div>
     </section>
   );
