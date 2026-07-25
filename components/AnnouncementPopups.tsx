@@ -26,8 +26,9 @@ function todayStr() {
 export function AnnouncementPopups() {
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
-  // Desktop 팝업은 기본으로 가격표가 열린 상태에서 시작 (닫기 눌러도 사용자가 가격 정보를 놓치지 않도록)
-  const [desktopDetail, setDesktopDetail] = useState(true);
+  const [desktopDetail, setDesktopDetail] = useState(false);
+  const [desktopDetailSeen, setDesktopDetailSeen] = useState(false);
+  const [pricingFallback, setPricingFallback] = useState(false);
   const t = useTranslations("v2.popups");
 
   useEffect(() => {
@@ -46,16 +47,36 @@ export function AnnouncementPopups() {
   const close = useCallback(() => {
     setQueue((q) => q.slice(1));
     setDesktopDetail(false);
+    setDesktopDetailSeen(false);
+    setPricingFallback(false);
   }, []);
+
+  // 티저를 닫을 때: 데스크탑에서 아직 가격표(디테일)를 열어보지 않았고
+  // 현재 event 팝업이면 → 팝업을 완전히 닫지 말고 가격표 팝업으로 전환
+  const requestClose = useCallback(() => {
+    const cur = queue[0];
+    const isDesktop =
+      typeof window !== "undefined" && window.innerWidth >= 1024;
+    if (
+      cur?.variant === "event" &&
+      isDesktop &&
+      !desktopDetailSeen &&
+      !pricingFallback
+    ) {
+      setPricingFallback(true);
+      return;
+    }
+    close();
+  }, [queue, desktopDetailSeen, pricingFallback, close]);
 
   useEffect(() => {
     if (queue.length === 0) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+      if (e.key === "Escape") requestClose();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [queue.length, close]);
+  }, [queue.length, requestClose]);
 
   if (!mounted || queue.length === 0) return null;
   const current = queue[0];
@@ -73,19 +94,30 @@ export function AnnouncementPopups() {
       <button
         type="button"
         aria-label={t("close")}
-        onClick={close}
+        onClick={requestClose}
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
       <div
         className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
-          desktopDetail ? "lg:max-w-6xl" : "lg:max-w-md"
+          desktopDetail
+            ? "lg:max-w-6xl"
+            : pricingFallback
+              ? "lg:max-w-xl"
+              : "lg:max-w-md"
         }`}
       >
         {current.variant === "event" ? (
-          <EventPopup
-            desktopDetail={desktopDetail}
-            onToggleDetail={() => setDesktopDetail((v) => !v)}
-          />
+          pricingFallback ? (
+            <EventCarousel />
+          ) : (
+            <EventPopup
+              desktopDetail={desktopDetail}
+              onToggleDetail={() => {
+                setDesktopDetail((v) => !v);
+                setDesktopDetailSeen(true);
+              }}
+            />
+          )
         ) : (
           <HolidayCard />
         )}
@@ -103,7 +135,7 @@ export function AnnouncementPopups() {
           </label>
           <button
             type="button"
-            onClick={close}
+            onClick={requestClose}
             className="font-semibold text-cream hover:text-brand-soft"
           >
             {t("close")}
