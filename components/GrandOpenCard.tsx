@@ -62,13 +62,22 @@ export function GrandOpenCard({
             Event
           </p>
           {showDate && (
-            <p
-              className={`mt-2 text-[10px] tracking-[0.18em] text-cream sm:text-[11px] ${
-                variant === "compact" ? "lg:hidden" : ""
-              }`}
-            >
-              {GRAND_OPEN_META.period} · {GRAND_OPEN_META.vatNote}
-            </p>
+            <>
+              {/* 모바일: 기간 + VAT 함께 표시 */}
+              <p
+                className={`mt-2 text-[10px] tracking-[0.18em] text-cream sm:text-[11px] ${
+                  variant === "compact" ? "lg:hidden" : ""
+                }`}
+              >
+                {GRAND_OPEN_META.period} · {GRAND_OPEN_META.vatNote}
+              </p>
+              {/* 데스크탑 compact: 기간은 숨기고 VAT 안내만 표시 */}
+              {variant === "compact" && (
+                <p className="mt-2 hidden text-[10px] tracking-[0.18em] text-cream/70 lg:block">
+                  {GRAND_OPEN_META.vatNote}
+                </p>
+              )}
+            </>
           )}
         </header>
       )}

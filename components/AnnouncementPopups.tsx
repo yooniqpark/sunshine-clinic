@@ -77,7 +77,7 @@ export function AnnouncementPopups() {
       />
       <div
         className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
-          desktopDetail ? "lg:max-w-5xl" : "lg:max-w-md"
+          desktopDetail ? "lg:max-w-6xl" : "lg:max-w-md"
         }`}
       >
         {current.variant === "event" ? (
@@ -152,8 +152,8 @@ function EventPopup({
             <span>SS 2026</span>
           </div>
 
-          {/* 타이틀 */}
-          <div className="mt-10">
+          {/* 타이틀 — 중앙 정렬 */}
+          <div className="mt-10 text-center">
             <p className="text-[10px] font-medium tracking-[0.4em] text-brand-soft">
               INVITATION
             </p>
@@ -211,11 +211,11 @@ function EventPopup({
       <div
         className={`hidden overflow-hidden transition-[max-width,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:flex lg:h-full ${
           desktopDetail
-            ? "lg:max-w-[560px] lg:opacity-100"
+            ? "lg:max-w-[680px] lg:opacity-100"
             : "lg:max-w-0 lg:opacity-0"
         }`}
       >
-        <div className="flex h-full w-[560px] flex-col border-l border-white/15">
+        <div className="flex h-full w-[680px] flex-col border-l border-white/15">
           <EventCarousel />
         </div>
       </div>
