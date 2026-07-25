@@ -177,7 +177,8 @@
         "whitening": "Whitening · Redness",
         "acne": "Acne · Scar · Pore",
         "skinDisease": "Skin Conditions",
-        "community": "Community"
+        "community": "Community",
+        "about": "About"
       },
       "items": {
         "botox": "Botox",
@@ -345,6 +346,33 @@
           {
             "label": "Burns",
             "href": "/treatments/skin-disease/burns"
+          }
+        ],
+        "about": [
+          {
+            "label": "Vision",
+            "sub": "VISION",
+            "href": "/about#vision"
+          },
+          {
+            "label": "Doctors",
+            "sub": "DOCTORS",
+            "href": "/about#doctors"
+          },
+          {
+            "label": "Devices",
+            "sub": "DEVICES",
+            "href": "/about#devices"
+          },
+          {
+            "label": "Tour",
+            "sub": "TOUR",
+            "href": "/about#tour"
+          },
+          {
+            "label": "Location",
+            "sub": "LOCATION",
+            "href": "/about#location"
           }
         ]
       }

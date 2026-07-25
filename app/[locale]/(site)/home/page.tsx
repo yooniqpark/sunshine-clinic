@@ -5,8 +5,7 @@ import { Reveal } from "@/components/Reveal";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
-import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
-import { getConcernsByCategory } from "@/lib/concerns";
+import { getDevicesByCategory, getDeviceImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 
@@ -185,62 +184,28 @@ export default async function PreviewHome({
       </section>
       )}
 
-      {/* ═══════ 5. SIGNATURE — 대표 시술 에디토리얼 쇼케이스 ═══════ */}
-      <section className="relative overflow-hidden bg-ink py-24 text-cream lg:py-36">
-        {/* 배경 미묘한 방사형 하이라이트 */}
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at 20% 20%, rgba(232,205,175,0.06) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(154,110,84,0.08) 0%, transparent 55%)",
-          }}
-        />
+      {/* ═══════ 5. SIGNATURE SELECTION — 제품 슬라이드 (레퍼런스 톤) ═══════ */}
+      <section className="relative overflow-hidden bg-[#e9e0d5] py-24 text-ink lg:py-32">
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
-          {/* Section header */}
-          <div className="mb-16 flex items-end justify-between gap-6">
-            <div>
-              <p className="text-[10px] font-bold tracking-[0.32em] text-brand-soft">
-                SIGNATURE
-              </p>
-              <h2 className="mt-3 font-serif text-5xl font-normal leading-none tracking-tight lg:text-6xl">
-                대표 시술
-              </h2>
-              <p
-                className="-mt-1 font-serif italic leading-none tracking-tight text-brand-soft/80"
-                style={{ fontSize: "2rem" }}
-              >
-                &amp; Devices
-              </p>
-            </div>
-            <Link
-              href="/about#devices"
-              className="hidden text-xs font-semibold tracking-[0.2em] text-cream/60 underline underline-offset-8 hover:text-brand-soft sm:inline"
-            >
-              전체 장비 보기 →
-            </Link>
-          </div>
-
           <SignatureShowcase
-            items={[
-              ...getDevicesByCategory(locale as AppLocale, "lifting").map((d) => ({
+            items={getDevicesByCategory(locale as AppLocale, "lifting").map((d) => {
+              const parts = d.tagline?.split(/[,,·]|—|\s-\s/).map((s) => s.trim()).filter(Boolean) ?? [];
+              const st: [string, string] | undefined =
+                parts.length >= 2 ? [parts[0] + ",", parts.slice(1).join(" ") + "."] : undefined;
+              const mk = getDeviceMarketing(d.slug);
+              return {
                 slug: d.slug,
                 name: d.name,
                 tagline: d.tagline,
+                english: mk?.englishName,
                 img: getDeviceImage(d.slug) ?? "",
                 category: "lifting",
                 categoryLabel: "LIFTING",
-              })),
-              ...getConcernsByCategory(locale as AppLocale, "anti-aging")
-                .filter((c) => c.image)
-                .map((c) => ({
-                  slug: c.slug,
-                  name: c.name,
-                  tagline: c.tagline,
-                  img: c.image ?? "",
-                  category: "anti-aging",
-                  categoryLabel: "ANTI-AGING",
-                })),
-            ]}
+                meta: "LIFTING",
+                statement: st,
+                description: d.intro?.slice(0, 100),
+              };
+            })}
           />
         </div>
       </section>

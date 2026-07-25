@@ -39,7 +39,12 @@ export function PreviewHeader() {
     (t.raw(`subMenus.${slug}`) as SubItem[]) ?? [];
 
   const NAV: NavItem[] = [
-    { key: "about", label: t("nav.about"), href: "/about" },
+    {
+      key: "about",
+      label: t("nav.about"),
+      href: "/about",
+      children: [{ title: t("cols.about"), items: subMenu("about") }],
+    },
     {
       key: "lifting",
       label: t("cols.lifting"),

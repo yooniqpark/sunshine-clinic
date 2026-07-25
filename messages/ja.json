@@ -177,7 +177,8 @@
         "whitening": "ホワイトニング・赤ら顔",
         "acne": "ニキビ · ニキビ跡 · 毛穴",
         "skinDisease": "皮膚疾患",
-        "community": "コミュニティ"
+        "community": "コミュニティ",
+        "about": "クリニック紹介"
       },
       "items": {
         "botox": "ボトックス",
@@ -345,6 +346,33 @@
           {
             "label": "やけど",
             "href": "/treatments/skin-disease/burns"
+          }
+        ],
+        "about": [
+          {
+            "label": "クリニック紹介・理念",
+            "sub": "VISION",
+            "href": "/about#vision"
+          },
+          {
+            "label": "院長紹介",
+            "sub": "DOCTORS",
+            "href": "/about#doctors"
+          },
+          {
+            "label": "使用機器のご案内",
+            "sub": "DEVICES",
+            "href": "/about#devices"
+          },
+          {
+            "label": "院内見学",
+            "sub": "TOUR",
+            "href": "/about#tour"
+          },
+          {
+            "label": "診療案内・アクセス",
+            "sub": "LOCATION",
+            "href": "/about#location"
           }
         ]
       }

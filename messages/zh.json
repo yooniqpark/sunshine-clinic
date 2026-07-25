@@ -177,7 +177,8 @@
         "whitening": "美白 · 潮红",
         "acne": "痤疮 · 疤痕 · 毛孔",
         "skinDisease": "皮肤疾病",
-        "community": "社区"
+        "community": "社区",
+        "about": "诊所简介"
       },
       "items": {
         "botox": "肉毒素",
@@ -345,6 +346,33 @@
           {
             "label": "烧伤",
             "href": "/treatments/skin-disease/burns"
+          }
+        ],
+        "about": [
+          {
+            "label": "诊所简介 · 理念",
+            "sub": "VISION",
+            "href": "/about#vision"
+          },
+          {
+            "label": "医生介绍",
+            "sub": "DOCTORS",
+            "href": "/about#doctors"
+          },
+          {
+            "label": "使用设备",
+            "sub": "DEVICES",
+            "href": "/about#devices"
+          },
+          {
+            "label": "诊所参观",
+            "sub": "TOUR",
+            "href": "/about#tour"
+          },
+          {
+            "label": "就诊指南 · 交通",
+            "sub": "LOCATION",
+            "href": "/about#location"
           }
         ]
       }

@@ -177,7 +177,8 @@
         "whitening": "화이트닝 · 홍조",
         "acne": "여드름 · 흉터 · 모공",
         "skinDisease": "피부질환",
-        "community": "커뮤니티"
+        "community": "커뮤니티",
+        "about": "병원 소개"
       },
       "items": {
         "botox": "보톡스",
@@ -345,6 +346,33 @@
           {
             "label": "화상",
             "href": "/treatments/skin-disease/burns"
+          }
+        ],
+        "about": [
+          {
+            "label": "병원 소개 · 비전",
+            "sub": "VISION",
+            "href": "/about#vision"
+          },
+          {
+            "label": "의료진 소개",
+            "sub": "DOCTORS",
+            "href": "/about#doctors"
+          },
+          {
+            "label": "사용 장비 안내",
+            "sub": "DEVICES",
+            "href": "/about#devices"
+          },
+          {
+            "label": "병원 둘러보기",
+            "sub": "TOUR",
+            "href": "/about#tour"
+          },
+          {
+            "label": "진료 안내 · 오시는 길",
+            "sub": "LOCATION",
+            "href": "/about#location"
           }
         ]
       }
