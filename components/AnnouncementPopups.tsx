@@ -26,6 +26,7 @@ function todayStr() {
 export function AnnouncementPopups() {
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
+  const [desktopDetail, setDesktopDetail] = useState(false);
   const t = useTranslations("v2.popups");
 
   useEffect(() => {
@@ -43,6 +44,7 @@ export function AnnouncementPopups() {
 
   const close = useCallback(() => {
     setQueue((q) => q.slice(1));
+    setDesktopDetail(false);
   }, []);
 
   useEffect(() => {
@@ -73,8 +75,19 @@ export function AnnouncementPopups() {
         onClick={close}
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
-      <div className="pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl">
-        {current.variant === "event" ? <EventCarousel /> : <HolidayCard />}
+      <div
+        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
+          desktopDetail ? "lg:max-w-5xl" : "lg:max-w-md"
+        }`}
+      >
+        {current.variant === "event" ? (
+          <EventPopup
+            desktopDetail={desktopDetail}
+            onToggleDetail={() => setDesktopDetail((v) => !v)}
+          />
+        ) : (
+          <HolidayCard />
+        )}
 
         <div className="flex shrink-0 items-center justify-between border-t border-white/15 bg-ink/40 px-5 py-3 text-xs text-cream backdrop-blur">
           <label className="flex cursor-pointer items-center gap-2 text-cream/80">
@@ -94,6 +107,89 @@ export function AnnouncementPopups() {
           >
             {t("close")}
           </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EventPopup({
+  desktopDetail,
+  onToggleDetail,
+}: {
+  desktopDetail: boolean;
+  onToggleDetail: () => void;
+}) {
+  return (
+    <div className="relative flex min-h-0 flex-1 flex-col lg:flex-row">
+      {/* Mobile: 기존 캐러셀 그대로 */}
+      <div className="flex min-h-0 flex-1 flex-col lg:hidden">
+        <EventCarousel />
+      </div>
+
+      {/* Desktop: 심플 GRAND OPEN 티저 (왼쪽) */}
+      <div className="relative hidden min-h-0 flex-col justify-between px-8 py-12 text-cream lg:flex lg:w-[440px] lg:shrink-0">
+        {/* 배경 그로우 */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 30% 30%, rgba(232,205,175,0.20) 0%, transparent 55%), radial-gradient(ellipse at 70% 80%, rgba(154,110,84,0.20) 0%, transparent 55%)",
+          }}
+        />
+        <div className="relative">
+          <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft/40 bg-brand-soft/10 px-3 py-1 text-[10px] font-bold tracking-[0.22em] text-brand-soft">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-soft" />
+            OPEN
+          </span>
+          <p className="mt-8 text-[10px] font-medium tracking-[0.32em] text-cream/55">
+            2026.07.13 – 08.30
+          </p>
+          <h2 className="mt-6 font-serif text-5xl leading-none tracking-tight">
+            Grand Open
+          </h2>
+          <p
+            className="-mt-1 font-serif italic leading-none tracking-tight text-brand-soft"
+            style={{ fontSize: "2.5rem" }}
+          >
+            Event
+          </p>
+          <span aria-hidden className="mt-10 block h-px w-16 bg-cream/25" />
+          <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/75">
+            리프팅 · 화이트닝 · 스킨부스터 · 보톡스
+            <br />
+            <span className="text-brand-soft">4개 카테고리 오픈 특별가</span>
+          </p>
+        </div>
+
+        <button
+          type="button"
+          onClick={onToggleDetail}
+          className="relative mt-8 inline-flex w-fit items-center gap-3 rounded-full border border-cream/40 bg-transparent px-6 py-3 text-xs font-semibold tracking-[0.18em] text-cream transition hover:border-cream hover:bg-cream/10"
+        >
+          {desktopDetail ? "디테일 닫기" : "디테일 보기"}
+          <span
+            aria-hidden
+            className={`transition-transform duration-500 ${
+              desktopDetail ? "rotate-45" : ""
+            }`}
+          >
+            {desktopDetail ? "+" : "→"}
+          </span>
+        </button>
+      </div>
+
+      {/* Desktop: 확장되는 상세 패널 (오른쪽) */}
+      <div
+        className={`hidden overflow-hidden transition-[max-width,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:block ${
+          desktopDetail
+            ? "lg:max-w-[560px] lg:opacity-100"
+            : "lg:max-w-0 lg:opacity-0"
+        }`}
+      >
+        <div className="h-full w-[560px] border-l border-white/15">
+          <EventCarousel />
         </div>
       </div>
     </div>
