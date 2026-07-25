@@ -26,7 +26,8 @@ function todayStr() {
 export function AnnouncementPopups() {
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
-  const [desktopDetail, setDesktopDetail] = useState(false);
+  // Desktop 팝업은 기본으로 가격표가 열린 상태에서 시작 (닫기 눌러도 사용자가 가격 정보를 놓치지 않도록)
+  const [desktopDetail, setDesktopDetail] = useState(true);
   const t = useTranslations("v2.popups");
 
   useEffect(() => {
