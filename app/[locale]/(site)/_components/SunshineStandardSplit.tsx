@@ -26,7 +26,7 @@ const CHAPTERS: Chapter[] = [
     num: "02",
     key: "LIFTING",
     short: "리프팅",
-    x: 68,
+    x: 73,
     y: 48, // 오른쪽 볼 (하이라이트 지점)
     color: "#c49074", // brand gold
   },
@@ -34,7 +34,7 @@ const CHAPTERS: Chapter[] = [
     num: "03",
     key: "ANTI-AGING",
     short: "안티에이징",
-    x: 56,
+    x: 62,
     y: 52, // 입술 쪽
     color: "#8fb389", // soft green
   },
