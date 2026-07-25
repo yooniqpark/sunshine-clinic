@@ -1016,7 +1016,6 @@
       "faqKicker": "FAQ",
       "faqTitle": "Frequently Asked Questions",
       "byPrefix": "BY",
-      "ctaTitle": "Book a <accent>consultation</accent><br></br>for {name}",
       "ctaOnline": "Book Online",
       "ctaPhone": "+82-2-421-7588",
       "moreInPrefix": "MORE IN ",
@@ -1029,7 +1028,10 @@
         "whitening": "Whitening · Redness",
         "acne": "Acne · Scars",
         "skin-disease": "Skin Conditions"
-      }
+      },
+      "ctaTitleLead": "Book a ",
+      "ctaTitleAccent": "consultation",
+      "ctaTitleTail": ""
     },
     "location": {
       "kicker": "LOCATION",

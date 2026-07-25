@@ -348,11 +348,11 @@ export default async function DevicePage({
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
           <Reveal>
             <h2 className="font-serif text-4xl leading-tight lg:text-6xl">
-              {t.rich("ctaTitle", {
-                name: d.name,
-                accent: (c) => <span className="text-brand-soft">{c}</span>,
-                br: () => <br />,
-              })}
+              {t("ctaTitleLead")}
+              {d.name}
+              <br />
+              <span className="text-brand-soft">{t("ctaTitleAccent")}</span>
+              {t("ctaTitleTail")}
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
@@ -629,11 +629,11 @@ async function ConcernPage({
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
           <Reveal>
             <h2 className="font-serif text-4xl leading-tight lg:text-6xl">
-              {t.rich("ctaTitle", {
-                name: concern.name,
-                accent: (c) => <span className="text-brand-soft">{c}</span>,
-                br: () => <br />,
-              })}
+              {t("ctaTitleLead")}
+              {concern.name}
+              <br />
+              <span className="text-brand-soft">{t("ctaTitleAccent")}</span>
+              {t("ctaTitleTail")}
             </h2>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link

@@ -1016,7 +1016,6 @@
       "faqKicker": "FAQ",
       "faqTitle": "よくある質問",
       "byPrefix": "BY",
-      "ctaTitle": "{name}<br></br><accent>相談予約</accent>する",
       "ctaOnline": "オンライン相談予約",
       "ctaPhone": "02-421-7588",
       "moreInPrefix": "MORE IN ",
@@ -1029,7 +1028,10 @@
         "whitening": "ホワイトニング · 赤ら顔",
         "acne": "ニキビ · 傷跡",
         "skin-disease": "皮膚疾患"
-      }
+      },
+      "ctaTitleLead": "",
+      "ctaTitleAccent": "相談予約",
+      "ctaTitleTail": "する"
     },
     "location": {
       "kicker": "LOCATION",
