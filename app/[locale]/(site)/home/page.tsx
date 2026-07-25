@@ -82,91 +82,91 @@ export default async function PreviewHome({
       {/* ═══════ 1.2 THE SUNSHINE STANDARD — 참고 사이트 스플릿 레이아웃 (모델 자리 + 챕터 아코디언) ═══════ */}
       <SunshineStandardSplit />
 
-      {/* ═══════ 1.5 EVENTS — 이벤트 카드 (3-slot grid, 현재 GRAND OPEN 1개) ═══════ */}
-      <section className="border-b border-line bg-cream py-20 lg:py-28">
+      {/* ═══════ 1.5 EVENTS — 임상/피부과 톤 리스트 ═══════ */}
+      <section className="border-b border-ink/10 bg-cream py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <div className="mb-12 flex items-end justify-between gap-6">
+          {/* Section header */}
+          <div className="mb-14 flex items-end justify-between gap-6 lg:mb-16">
             <div>
-              <p className="text-[10px] font-bold tracking-[0.28em] text-brand-dark">
+              <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
                 EVENTS
               </p>
-              <h2 className="mt-3 font-serif text-4xl font-normal leading-tight tracking-tight text-ink lg:text-5xl">
+              <h2 className="mt-4 font-serif text-4xl font-normal leading-[1.15] tracking-tight text-ink lg:text-[3rem]">
                 진행 중인 이벤트
               </h2>
             </div>
             <Link
               href="/community/events"
-              className="hidden text-xs font-semibold tracking-[0.18em] text-ink-soft underline underline-offset-4 hover:text-brand-dark sm:inline"
+              className="hidden items-center gap-2 border-b border-ink/30 pb-1.5 text-[11px] font-medium tracking-[0.2em] text-ink transition hover:border-brand-dark hover:text-brand-dark sm:inline-flex"
             >
-              전체 이벤트 →
+              전체 이벤트
+              <span aria-hidden className="text-brand-dark">↗</span>
             </Link>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {/* 이벤트 리스트 — 임상 톤 */}
+          <ul className="border-t border-ink/15">
             <Reveal>
-              <Link
-                href="/community/events#grand-open-2026-07"
-                className="group relative flex aspect-[4/5] h-full flex-col justify-between overflow-hidden rounded-[2rem] bg-ink p-8 text-cream shadow-xl shadow-ink/15 transition duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-ink/25 lg:p-10"
-              >
-                {/* 배경 그라디언트 · 노이즈 · 오너먼트 */}
-                <div
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background:
-                      "radial-gradient(ellipse at top right, rgba(232,205,175,0.20) 0%, transparent 55%), radial-gradient(ellipse at bottom left, rgba(154,110,84,0.18) 0%, transparent 55%)",
-                  }}
-                />
-                <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-brand-soft/10 blur-3xl transition duration-700 group-hover:bg-brand-soft/20" />
-                <div className="pointer-events-none absolute left-6 top-6 h-8 w-8 border-l border-t border-cream/25" />
-                <div className="pointer-events-none absolute right-6 bottom-6 h-8 w-8 border-b border-r border-cream/25" />
-
-                <div className="relative">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft/40 bg-brand-soft/10 px-3 py-1 text-[10px] font-bold tracking-[0.22em] text-brand-soft backdrop-blur">
-                    <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-soft" />
+              <li className="border-b border-ink/15">
+                <Link
+                  href="/community/events#grand-open-2026-07"
+                  className="group grid grid-cols-[64px_1fr_28px] items-center gap-6 py-8 transition md:grid-cols-[110px_1fr_180px_28px] md:py-10"
+                >
+                  {/* Tag */}
+                  <span className="inline-flex w-fit items-center gap-1.5 border-b border-brand-dark pb-1 text-[10px] font-medium tracking-[0.28em] text-brand-dark">
+                    <span
+                      aria-hidden
+                      className="h-1 w-1 animate-pulse rounded-full bg-brand-dark"
+                    />
                     OPEN
                   </span>
-                  <p className="mt-8 text-[10px] font-medium tracking-[0.32em] text-cream/55">
-                    2026.07.13 – 08.30
-                  </p>
-                  <h3 className="mt-6 font-serif text-4xl leading-none tracking-tight lg:text-5xl">
-                    Grand Open
-                  </h3>
-                  <p
-                    className="-mt-1 font-serif italic leading-none tracking-tight text-brand-soft"
-                    style={{ fontSize: "2.25rem" }}
-                  >
-                    Event
-                  </p>
 
-                  <div className="mt-10 h-px w-16 bg-cream/25" />
-
-                  <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/75 lg:text-base">
-                    리프팅 · 화이트닝 · 스킨부스터 · 보톡스
-                    <br />
-                    <span className="text-brand-soft">4개 카테고리 오픈 특별가</span>
-                  </p>
-                </div>
-
-                <div className="relative mt-8 flex items-center justify-between">
-                  <div className="inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-cream transition group-hover:text-brand-soft">
-                    자세히 보기
-                    <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  {/* Title + subtitle */}
+                  <div className="min-w-0">
+                    <h3 className="font-serif text-2xl leading-snug tracking-tight text-ink transition group-hover:text-brand-dark lg:text-[1.75rem]">
+                      Grand Open{" "}
+                      <span
+                        className="align-baseline text-brand-dark"
+                        style={{
+                          fontFamily: '"Allura", cursive',
+                          fontSize: "1.3em",
+                        }}
+                      >
+                        Event
+                      </span>
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-ink/55">
+                      리프팅 · 화이트닝 · 스킨부스터 · 보톡스{" "}
+                      <span className="text-ink/70">— 4개 카테고리 오픈 특별가</span>
+                    </p>
                   </div>
-                  <span className="rounded-full border border-cream/20 px-3 py-1 text-[9px] tracking-[0.15em] text-cream/50">
-                    VAT 별도
-                  </span>
-                </div>
-              </Link>
-            </Reveal>
 
-            {/* 향후 이벤트 자리 (플레이스홀더) */}
-            <div className="hidden aspect-[4/5] items-center justify-center rounded-[2rem] border border-dashed border-line bg-white/40 text-center text-xs tracking-[0.15em] text-ink-soft/60 md:flex">
-              추가 이벤트 준비 중
-            </div>
-            <div className="hidden aspect-[4/5] items-center justify-center rounded-[2rem] border border-dashed border-line bg-white/40 text-center text-xs tracking-[0.15em] text-ink-soft/60 lg:flex">
-              추가 이벤트 준비 중
-            </div>
-          </div>
+                  {/* Date range */}
+                  <div className="hidden text-right md:block">
+                    <p className="font-serif text-sm tabular-nums text-ink/55">
+                      2026.07.13
+                      <br />
+                      <span className="text-ink/35">— 2026.08.30</span>
+                    </p>
+                  </div>
+
+                  {/* Arrow marker */}
+                  <span
+                    aria-hidden
+                    className="flex h-7 w-7 shrink-0 items-center justify-center justify-self-end rounded-full border border-ink/25 text-ink/45 transition group-hover:border-brand-dark group-hover:text-brand-dark"
+                  >
+                    <ArrowUpRightIcon className="h-3 w-3 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </span>
+                </Link>
+              </li>
+            </Reveal>
+          </ul>
+
+          {/* 안내 캡션 */}
+          <p className="mt-6 flex items-center gap-3 text-[11px] tracking-[0.2em] text-ink/40">
+            <span aria-hidden className="h-px w-8 bg-ink/20" />
+            추가 이벤트가 준비되는 대로 이곳에 안내드립니다 · VAT 별도
+          </p>
         </div>
       </section>
 
