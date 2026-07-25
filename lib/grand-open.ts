@@ -57,7 +57,7 @@ export const GRAND_OPEN_CATEGORIES: GrandOpenCategory[] = [
         ],
       },
       {
-        heading: "울써마지 + 리쥬란HB 2cc + 아이리쥬란 2cc 서비스",
+        heading: "울써마지 + 리쥬란HB 2cc + 아이리쥬란 1cc 서비스",
         rows: [
           { name: "울쎄라 300샷 + 써마지 600샷", price: "290만원" },
           { name: "울쎄라 600샷 + 써마지 300샷", price: "310만원" },
