@@ -1016,7 +1016,7 @@
       "faqKicker": "FAQ",
       "faqTitle": "常见问题",
       "byPrefix": "BY",
-      "ctaTitle": "预约 {name}<br/><accent>咨询</accent>",
+      "ctaTitle": "预约 {name}<br></br><accent>咨询</accent>",
       "ctaOnline": "在线预约咨询",
       "ctaPhone": "02-421-7588",
       "moreInPrefix": "MORE IN ",

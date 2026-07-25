@@ -1016,7 +1016,7 @@
       "faqKicker": "FAQ",
       "faqTitle": "よくある質問",
       "byPrefix": "BY",
-      "ctaTitle": "{name}<br/><accent>相談予約</accent>する",
+      "ctaTitle": "{name}<br></br><accent>相談予約</accent>する",
       "ctaOnline": "オンライン相談予約",
       "ctaPhone": "02-421-7588",
       "moreInPrefix": "MORE IN ",

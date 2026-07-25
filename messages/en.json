@@ -1016,7 +1016,7 @@
       "faqKicker": "FAQ",
       "faqTitle": "Frequently Asked Questions",
       "byPrefix": "BY",
-      "ctaTitle": "Book a <accent>consultation</accent><br/>for {name}",
+      "ctaTitle": "Book a <accent>consultation</accent><br></br>for {name}",
       "ctaOnline": "Book Online",
       "ctaPhone": "+82-2-421-7588",
       "moreInPrefix": "MORE IN ",

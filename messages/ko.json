@@ -1016,7 +1016,7 @@
       "faqKicker": "FAQ",
       "faqTitle": "자주 묻는 질문",
       "byPrefix": "BY",
-      "ctaTitle": "{name}<br/><accent>상담 예약</accent>하기",
+      "ctaTitle": "{name}<br></br><accent>상담 예약</accent>하기",
       "ctaOnline": "온라인 상담 예약",
       "ctaPhone": "02-421-7588",
       "moreInPrefix": "MORE IN ",
