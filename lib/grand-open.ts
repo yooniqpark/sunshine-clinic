@@ -107,7 +107,7 @@ export const GRAND_OPEN_CATEGORIES: GrandOpenCategory[] = [
     rows: [
       { name: "리쥬란 HB 2cc", original: "40만원", event: "20만원" },
       { name: "리쥬란힐러 2cc", original: "25만원", event: "13만원" },
-      { name: "아이리쥬란 1cc", original: "20만원", event: "서비스" },
+      { name: "아이리쥬란 1cc", original: "20만원", event: "10만원" },
       { name: "엘라비에리투오 1병", original: "70만원", event: "50만원" },
       { name: "셀르디엠 1병", original: "60만원", event: "45만원" },
     ],
