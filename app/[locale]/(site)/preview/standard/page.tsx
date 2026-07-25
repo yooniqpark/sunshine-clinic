@@ -6,6 +6,18 @@ import { VariantE } from "../../_components/standard-variants/VariantE";
 import { VariantF } from "../../_components/standard-variants/VariantF";
 import { VariantG } from "../../_components/standard-variants/VariantG";
 import { VariantH } from "../../_components/standard-variants/VariantH";
+import { VariantI } from "../../_components/standard-variants/VariantI";
+import { VariantJ } from "../../_components/standard-variants/VariantJ";
+import { VariantK } from "../../_components/standard-variants/VariantK";
+import { VariantL } from "../../_components/standard-variants/VariantL";
+import { VariantM } from "../../_components/standard-variants/VariantM";
+import { VariantN } from "../../_components/standard-variants/VariantN";
+import { VariantO } from "../../_components/standard-variants/VariantO";
+import { VariantP } from "../../_components/standard-variants/VariantP";
+import { VariantQ } from "../../_components/standard-variants/VariantQ";
+import { VariantR } from "../../_components/standard-variants/VariantR";
+import { VariantS } from "../../_components/standard-variants/VariantS";
+import { VariantT } from "../../_components/standard-variants/VariantT";
 
 export const metadata = { title: "STANDARD variants preview" };
 
@@ -94,8 +106,92 @@ export default function StandardPreviewPage() {
       />
       <VariantH />
 
+      <Header
+        code="I"
+        name="Ripple · 원형 파문"
+        desc="어두운 배경 중앙에서 4겹의 원형 파문이 밖으로 퍼짐. 활성 파문이 브랜드 컬러로 발광. 수분·스킨 케어 톤."
+      />
+      <VariantI />
+
+      <Header
+        code="J"
+        name="Bloom · 꽃잎 개화"
+        desc="세리프 얇은 라인으로 그린 4개의 꽃잎이 중앙에서 방사형으로 펼쳐짐. 활성 꽃잎이 골드 아웃라인. 오르가닉 럭셔리 톤."
+      />
+      <VariantJ />
+
+      <Header
+        code="K"
+        name="Sunshine Ray · 브랜드 광선"
+        desc="하단에서 태양처럼 빛나는 서클 + 18갈래 광선이 위로 뻗어감. 챕터마다 광선 컬러 페이드. 브랜드명 SUNSHINE 정체성 매핑."
+      />
+      <VariantK />
+
+      <Header
+        code="L"
+        name="Contour · 얼굴 등고선"
+        desc="얼굴 실루엣을 등고선처럼 8겹 안쪽으로 축소. 활성 챕터의 강조 등고선이 브랜드 컬러로 발광. 임상 다이어그램 + 편집 톤."
+      />
+      <VariantL />
+
+      <Header
+        code="M"
+        name="Ink Wash · 먹 번짐"
+        desc="세로 붓 스트로크 4개 + Gaussian blur로 먹 번짐 효과. 활성 스트로크가 브랜드 컬러로 채색. 우측 하단 낙관(印) 오너먼트."
+      />
+      <VariantM />
+
+      <Header
+        code="N"
+        name="Crystal Facet · 크리스털 격자"
+        desc="삼각형 facet 11개로 구성된 크리스털. 챕터에 매핑된 facet이 컬러 채워지며 반사. 스킨의 결·표면 물성 은유."
+      />
+      <VariantN />
+
+      <Header
+        code="O"
+        name="Reclining · 누운 얼굴"
+        desc="얼굴을 90° 왼쪽으로 회전 (뒤로 누워 하늘을 보는 자세). 층 밴드는 세로 방향으로 흐름. 감은 눈 · 스파/명상 톤."
+      />
+      <VariantO />
+
+      <Header
+        code="P"
+        name="Cascade · 얼굴 잔상"
+        desc="얼굴 실루엣 4겹이 살짝씩 어긋나게 반복 (모션 잔상). 활성 챕터의 겹이 브랜드 컬러로 발광."
+      />
+      <VariantP />
+
+      <Header
+        code="Q"
+        name="Fragmented Portrait · 편집 프레임"
+        desc="눈/광대/입술/턱선 4개 프레임에 얼굴 부위 클로즈업이 분리 배치. 활성 챕터 프레임이 컬러 발광. 잡지 편집 톤."
+      />
+      <VariantQ />
+
+      <Header
+        code="R"
+        name="Editorial Statement · Alchemy 43 톤"
+        desc="'The best work goes unnoticed.' 대형 세리프 스테이트먼트 + 좌측 웜톤 텍스처 · 넘버링 원칙 리스트."
+      />
+      <VariantR />
+
+      <Header
+        code="S"
+        name="Ornament System · Ever/Body 톤"
+        desc="원 안의 세리프 S 시그니처 마크. 챕터마다 외곽 획 각도/두께 미세 변주 + 코너 브라켓."
+      />
+      <VariantS />
+
+      <Header
+        code="T"
+        name="Typographic Wall · Heyday 톤"
+        desc="카피 자체가 히어로. 'Skin, first. / Only what’s needed.' 초대형 세리프 + 인라인 챕터 리스트."
+      />
+      <VariantT />
+
       <div className="bg-cream px-6 py-16 text-center text-sm text-ink/60 lg:px-16">
-        위 7가지 중 원하시는 방향 알려주시면 홈에 적용합니다.
+        위 20가지 중 원하시는 방향 알려주시면 홈에 적용합니다.
       </div>
     </main>
   );
