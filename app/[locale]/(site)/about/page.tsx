@@ -60,10 +60,11 @@ export default async function AboutPage({
             alt=""
             fill
             priority
-            className="object-cover opacity-55"
+            sizes="100vw"
+            className="object-cover opacity-70"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/40 to-ink" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/25 via-ink/30 to-ink/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/40 via-transparent to-transparent" />
         </div>
         <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-24 lg:px-8 lg:pb-36 lg:pt-32">
           <p className="text-[10px] font-bold tracking-[0.35em] text-brand-soft">
@@ -89,6 +90,7 @@ export default async function AboutPage({
                 src="/team/kim.jpg"
                 alt={t("directorName")}
                 fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"
               />
             </div>
@@ -168,7 +170,7 @@ export default async function AboutPage({
                     sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover transition duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/40 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/65 via-ink/25 to-transparent" />
                   <figcaption className="absolute inset-x-5 bottom-5 text-cream">
                     <p className="text-[10px] font-bold tracking-[0.2em] text-brand-soft">
                       {s.label}
@@ -184,9 +186,9 @@ export default async function AboutPage({
 
       {/* ══════ PHILOSOPHY ══════ */}
       <section className="relative overflow-hidden bg-ink py-24 text-cream lg:py-32">
-        <div className="absolute inset-0 opacity-25">
-          <Image src="/clinic/corridor.jpg" alt="" fill className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/40" />
+        <div className="absolute inset-0 opacity-40">
+          <Image src="/clinic/corridor.jpg" alt="" fill sizes="100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/45 to-ink/20" />
         </div>
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <p className="text-[10px] font-bold tracking-[0.3em] text-brand-soft">

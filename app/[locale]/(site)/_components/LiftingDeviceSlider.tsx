@@ -38,7 +38,7 @@ export function LiftingDeviceSlider({ devices }: { devices: Device[] }) {
               src={d.img}
               alt={d.name}
               fill
-              sizes="(max-width: 1024px) 100vw, 60vw"
+              sizes="(max-width: 1024px) 100vw, 55vw"
               className="object-contain"
             />
           </div>

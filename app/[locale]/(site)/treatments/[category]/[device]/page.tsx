@@ -110,10 +110,11 @@ export default async function DevicePage({
               alt=""
               fill
               priority
-              className="object-cover object-center opacity-25"
+              sizes="100vw"
+              className="object-cover object-center opacity-45"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/60 to-ink" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/70" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
@@ -239,8 +240,8 @@ export default async function DevicePage({
       {/* HOW IT WORKS */}
       <section className="relative overflow-hidden bg-ink py-32 text-cream lg:py-44">
         {img && (
-          <div className="absolute inset-0 opacity-10">
-            <Image src={img} alt="" fill className="object-cover" />
+          <div className="absolute inset-0 opacity-20">
+            <Image src={img} alt="" fill sizes="100vw" className="object-cover" />
           </div>
         )}
         <div className="relative mx-auto max-w-4xl px-5 lg:px-8">
@@ -415,10 +416,11 @@ async function ConcernPage({
               alt=""
               fill
               priority
-              className="object-cover object-center opacity-25"
+              sizes="100vw"
+              className="object-cover object-center opacity-45"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/60 to-ink" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/70" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">

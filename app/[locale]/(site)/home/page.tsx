@@ -340,7 +340,7 @@ function BentoCard({
               sizes="(max-width: 1024px) 100vw, 40vw"
               className="object-cover object-[center_25%] opacity-90 transition-transform duration-700 group-hover:scale-105 group-hover:opacity-100"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/25 to-transparent" />
           </>
         ) : (
           <>
