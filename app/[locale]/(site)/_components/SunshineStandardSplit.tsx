@@ -140,23 +140,6 @@ export function SunshineStandardSplit() {
             })}
           </ul>
 
-          {/* Bottom message — 활성 챕터 본문이 하단 고정 영역에서 부드럽게 전환 */}
-          <div className="mt-10 min-h-[110px]">
-            <div
-              key={CHAPTERS[active]?.key ?? "none"}
-              className="grid grid-cols-[80px_1fr] gap-6"
-              style={{ animation: "sss-fade 0.6s cubic-bezier(0.22,1,0.36,1) both" }}
-            >
-              <span className="text-sm text-ink/55">
-                {CHAPTERS[active]?.short}
-              </span>
-              <p className="max-w-lg text-sm leading-[1.85] text-ink/65 lg:text-[15px]">
-                {CHAPTERS[active]?.body}
-              </p>
-            </div>
-          </div>
-
-          <style>{`@keyframes sss-fade { 0% { opacity: 0; transform: translateY(6px);} 100% { opacity: 1; transform: translateY(0);} }`}</style>
         </div>
       </div>
     </section>
