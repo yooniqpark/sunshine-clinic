@@ -72,38 +72,60 @@ export default async function PreviewHome({
         </div>
       </section>
 
-      {/* ═══════ 1.2 ABOUT SUNSHINE — 피부과 소개 (2컬럼, 모델 자리 · 참고 사이트 톤) ═══════ */}
-      <section className="bg-cream py-24 lg:py-32">
-        <div className="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-[1.05fr_1fr] lg:gap-20 lg:px-8">
-          {/* Model image placeholder */}
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem] bg-sand">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-[11px] font-medium tracking-[0.3em] text-ink/25">
-                MODEL IMAGE
-              </span>
-            </div>
-            <span
-              aria-hidden
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 30% 30%, rgba(232,205,175,0.18) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(196,144,116,0.12) 0%, transparent 60%)",
-              }}
-            />
-          </div>
+      {/* ═══════ 1.2 ABOUT SUNSHINE — 참고 사이트 THE SUNSHINE STANDARD 톤 (다크 에디토리얼) ═══════ */}
+      <section className="relative overflow-hidden bg-ink py-28 text-cream lg:py-40">
+        {/* Ambient warm glow */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 78% 45%, rgba(196,144,116,0.28) 0%, rgba(154,110,84,0.14) 30%, rgba(0,0,0,0) 65%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute right-[-10%] top-[8%] h-[70vh] w-[70vh] rounded-full opacity-30 blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(232,205,175,0.55) 0%, rgba(196,144,116,0.15) 55%, transparent 80%)",
+          }}
+        />
+        {/* Decorative concentric rings on right */}
+        <span
+          aria-hidden
+          className="pointer-events-none absolute right-[-18%] top-1/2 h-[80vh] w-[80vh] -translate-y-1/2 rounded-full border border-cream/[0.04]"
+        />
+        <span
+          aria-hidden
+          className="pointer-events-none absolute right-[-12%] top-1/2 h-[60vh] w-[60vh] -translate-y-1/2 rounded-full border border-cream/[0.06]"
+        />
 
-          {/* Description */}
-          <div className="flex flex-col justify-center">
-            <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
-              ABOUT SUNSHINE
+        <div className="relative mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[minmax(260px,340px)_1fr] lg:gap-24 lg:px-8">
+          {/* Left — kicker + big heading */}
+          <div>
+            <p className="text-[10px] font-medium tracking-[0.32em] text-cream/60 lg:text-[11px]">
+              THE SUNSHINE STANDARD
             </p>
-            <h2 className="mt-5 font-serif text-4xl font-normal leading-[1.2] tracking-tight text-ink lg:text-[3rem]">
+            <h2 className="mt-6 font-serif text-3xl font-normal leading-[1.2] tracking-tight text-cream lg:text-[2.5rem]">
               아름다움보다 먼저,
               <br />
-              <span className="text-ink/50">피부를 대하는 기준.</span>
+              <span className="text-cream/70">피부를 대하는 기준.</span>
             </h2>
-            <span aria-hidden className="mt-8 block h-px w-16 bg-ink/25" />
-            <p className="mt-6 max-w-lg text-sm leading-[1.8] text-ink-soft lg:text-base">
+          </div>
+
+          {/* Right — big statement + rule + body */}
+          <div className="flex flex-col justify-center lg:pl-8">
+            <p className="text-[10px] font-medium tracking-[0.32em] text-cream/60 lg:text-[11px]">
+              01 — ABOUT
+            </p>
+            <h3 className="mt-6 font-serif text-4xl font-normal leading-[1.15] tracking-tight text-cream lg:text-[3.75rem] lg:leading-[1.1]">
+              선샤인이 대하는
+              <br />
+              피부의 기준.
+            </h3>
+            <span aria-hidden className="mt-10 block h-px w-16 bg-cream/40" />
+            <p className="mt-8 max-w-xl text-sm leading-[1.8] text-cream/70 lg:text-[15px]">
               선샤인 스킨 클리닉은 대학병원에서 오랜 임상 경험을 쌓은
               피부과 전문의가 직접 진료하는 로컬 클리닉입니다.
               <br />
@@ -113,6 +135,12 @@ export default async function PreviewHome({
               방향을 충분히 이해합니다.
             </p>
           </div>
+        </div>
+
+        {/* Bottom page indicator (참고 사이트 하단 01 / 04와 동일 톤) */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-6 mx-auto flex max-w-7xl items-center justify-between px-5 text-[10px] font-medium tracking-[0.32em] text-cream/40 lg:px-8">
+          <span>01</span>
+          <span>01</span>
         </div>
       </section>
 
