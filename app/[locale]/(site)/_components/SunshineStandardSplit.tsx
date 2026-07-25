@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   ChaptersRight,
   STD_CHAPTERS,
@@ -11,36 +11,11 @@ import {
  * · 얇은 여성 얼굴 실루엣 (line-art)
  * · 뒤로 흐르는 깊이 층 밴드 (표피 → SMAS)
  * · 각 챕터의 브랜드 컬러 세로 웨이브 (활성 웨이브 발광)
- * · 우측: THE SUNSHINE STANDARD 헤딩 + 4챕터 hover 리스트
- * · 모바일: 3.5s 간격 자동 순환 (터치 시 3초 일시정지 후 재개)
+ * · 챕터: 마우스 hover · 탭으로 활성화 (자동 순환 없음)
  */
 export function SunshineStandardSplit() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-  const pauseTimer = useRef<number | null>(null);
   const c = STD_CHAPTERS[active];
-
-  // 자동 순환 (일시정지 중이 아닐 때)
-  useEffect(() => {
-    if (paused) return;
-    const id = window.setInterval(() => {
-      setActive((a) => (a + 1) % STD_CHAPTERS.length);
-    }, 3500);
-    return () => window.clearInterval(id);
-  }, [paused]);
-
-  // 사용자 인터랙션 → 즉시 활성 챕터 변경 + 3초 후 자동 재개
-  function pick(i: number) {
-    setActive(i);
-    setPaused(true);
-    if (pauseTimer.current) window.clearTimeout(pauseTimer.current);
-    pauseTimer.current = window.setTimeout(() => setPaused(false), 3000);
-  }
-  useEffect(() => {
-    return () => {
-      if (pauseTimer.current) window.clearTimeout(pauseTimer.current);
-    };
-  }, []);
 
   return (
     <section className="relative bg-[#f2ebde] text-ink">
@@ -279,7 +254,7 @@ export function SunshineStandardSplit() {
           </div>
         </div>
 
-        <ChaptersRight active={active} setActive={pick} />
+        <ChaptersRight active={active} setActive={setActive} />
       </div>
     </section>
   );
