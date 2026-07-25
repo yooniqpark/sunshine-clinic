@@ -20,7 +20,14 @@ export function SunshineStandardSplit() {
   return (
     <section className="relative bg-[#f2ebde] text-ink">
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative aspect-[3/4] w-full overflow-hidden bg-ink lg:aspect-auto lg:min-h-[720px]">
+        <button
+          type="button"
+          onClick={() =>
+            setActive((a) => (a + 1) % STD_CHAPTERS.length)
+          }
+          aria-label="다음 챕터"
+          className="relative block aspect-[3/4] w-full cursor-pointer overflow-hidden bg-ink text-left lg:aspect-auto lg:min-h-[720px]"
+        >
           {/* Ambient glow — 활성 챕터 컬러로 물듦 */}
           <span
             aria-hidden
@@ -247,12 +254,12 @@ export function SunshineStandardSplit() {
 
           {/* 하단 라벨 */}
           <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex items-center justify-between px-6 text-[10px] font-medium tracking-[0.32em] text-cream/60 lg:px-10">
-            <span>SKIN OBSERVATION</span>
+            <span>TAP TO CONTINUE</span>
             <span className="font-serif tabular-nums text-cream">
               {String(active + 1).padStart(2, "0")} / 04
             </span>
           </div>
-        </div>
+        </button>
 
         <ChaptersRight active={active} setActive={setActive} />
       </div>
