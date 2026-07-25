@@ -84,6 +84,16 @@ export function SunshineStandardSplit() {
             정해진 답보다 한 사람의 피부에서 시작하는 선샤인의 진료 기준.
           </p>
 
+          <p className="mt-8 max-w-lg text-sm leading-[1.8] text-ink/70 lg:text-[15px]">
+            선샤인 스킨 클리닉은 대학병원에서 오랜 임상 경험을 쌓은
+            피부과 전문의가 직접 진료하는 로컬 클리닉입니다.
+            <br />
+            <br />
+            유행보다는 오래가는 아름다움을, 화려함보다는 건강한 회복을
+            지향하며 — 시술을 정하기 전에 지금의 피부와 원하는 변화의
+            방향을 충분히 이해합니다.
+          </p>
+
           {/* Divider */}
           <span aria-hidden className="mt-14 block h-px w-full bg-ink/15" />
 
