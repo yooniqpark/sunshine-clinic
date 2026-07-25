@@ -168,24 +168,32 @@ function EventPopup({
             </p>
           </div>
 
-          {/* 골드 룰 + 날짜 */}
-          <div className="mt-10 flex items-center gap-3">
-            <span aria-hidden className="h-px w-10 bg-brand-soft" />
+          {/* 골드 룰 + 날짜 (오른쪽 정렬) */}
+          <div className="mt-10 flex items-center justify-end gap-3">
             <p className="text-[11px] font-medium tracking-[0.24em] text-cream/80 tabular-nums">
               07.13 <span className="text-cream/45">—</span> 08.30
             </p>
+            <span aria-hidden className="h-px w-10 bg-brand-soft" />
           </div>
 
-          {/* 오픈 메시지 */}
-          <p className="mt-8 max-w-[300px] text-[13px] leading-[1.85] text-cream/75">
-            <span className="text-cream">오랜 준비 끝에</span>,
-            <br />
-            선샤인 스킨 클리닉이 문을 엽니다.
-            <br />
-            <br />
-            첫 여름을 시작하는 자리에 <br />
-            여러분을 정중히 초대합니다.
-          </p>
+          {/* 오픈 안내 — 3문단 */}
+          <div className="mt-8 space-y-5 text-[13px] leading-[1.85] text-cream/75">
+            <p>
+              <span className="text-cream">오랜 준비 끝에</span>,
+              <br />
+              선샤인 스킨 클리닉이 문을 엽니다.
+            </p>
+            <p>
+              정확한 진단이 앞선 시술의 시작이 된다는 믿음으로{" "}
+              <br />
+              대학병원 임상 경험을 이어갑니다.
+            </p>
+            <p>
+              선샤인의 시작을 함께해 주실 분들께
+              <br />
+              특별한 프로모션을 준비했습니다.
+            </p>
+          </div>
         </div>
 
         <div className="relative">
