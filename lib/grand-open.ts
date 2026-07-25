@@ -107,7 +107,7 @@ export const GRAND_OPEN_CATEGORIES: GrandOpenCategory[] = [
     rows: [
       { name: "리쥬란 HB 2cc", original: "40만원", event: "20만원" },
       { name: "리쥬란힐러 2cc", original: "25만원", event: "13만원" },
-      { name: "아이리쥬란 1cc", original: "20만원", event: "10만원" },
+      { name: "아이리쥬란 1cc", original: "20만원", event: "서비스" },
       { name: "엘라비에리투오 1병", original: "70만원", event: "50만원" },
       { name: "셀르디엠 1병", original: "60만원", event: "45만원" },
     ],
@@ -119,7 +119,7 @@ export const GRAND_OPEN_CATEGORIES: GrandOpenCategory[] = [
     rows: [
       { name: "주름 1부위", prices: ["2만원", "9만원", "20만원"] },
       { name: "주름 3부위", prices: ["4만원", "25만원", "55만원"] },
-      { name: "턱 / 측두근 / 침샘", prices: ["5만원", "30만원", "50만원"] },
+      { name: "턱 / 측두근 / 침샘", prices: ["5만원", "18만원", "50만원"] },
       { name: "승모근 / 종아리", prices: ["20만원", "30만원", "60만원"] },
       { name: "커스텀 스킨보톡스\n(얼굴 전체)", prices: ["20만원", "30만원", "60만원"] },
     ],

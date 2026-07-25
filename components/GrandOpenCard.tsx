@@ -231,7 +231,9 @@ function SkinboosterBody({
             </span>
             <span className={`text-right font-serif tabular-nums text-cream text-legible ${rowPrice}`}>
               {r.event.replace("만원", "")}
-              <span className="ml-0.5 text-[10px] text-cream">만원</span>
+              {r.event.includes("만원") && (
+                <span className="ml-0.5 text-[10px] text-cream">만원</span>
+              )}
             </span>
           </li>
         ))}
