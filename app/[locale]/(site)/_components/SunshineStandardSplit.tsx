@@ -18,32 +18,32 @@ const CHAPTERS: Chapter[] = [
     num: "01",
     key: "ACNE",
     short: "여드름",
-    x: 60,
-    y: 20,
+    x: 62,
+    y: 28, // 이마
     color: "#e08a5b", // warm orange
   },
   {
     num: "02",
     key: "LIFTING",
     short: "리프팅",
-    x: 52,
-    y: 68,
+    x: 51,
+    y: 58, // 턱선 (왼쪽 - 손이 없는 쪽)
     color: "#c49074", // brand gold
   },
   {
     num: "03",
     key: "ANTI-AGING",
     short: "안티에이징",
-    x: 55,
-    y: 42,
+    x: 62,
+    y: 41, // 눈가
     color: "#8fb389", // soft green
   },
   {
     num: "04",
     key: "WHITENING",
     short: "화이트닝",
-    x: 49,
-    y: 55,
+    x: 56,
+    y: 48, // 광대
     color: "#a3b3cf", // editorial blue
   },
 ];
@@ -89,7 +89,7 @@ export function SunshineStandardSplit() {
                   fill="none"
                 />
               </pattern>
-              <radialGradient id="mesh-mask" cx="55%" cy="45%" r="42%">
+              <radialGradient id="mesh-mask" cx="60%" cy="42%" r="32%">
                 <stop offset="0%" stopColor="white" stopOpacity="1" />
                 <stop offset="70%" stopColor="white" stopOpacity="0.4" />
                 <stop offset="100%" stopColor="white" stopOpacity="0" />
@@ -111,7 +111,7 @@ export function SunshineStandardSplit() {
             aria-hidden
             className="pointer-events-none absolute top-0 h-full w-px animate-sss-scan"
             style={{
-              left: "55%",
+              left: "60%",
               background:
                 "linear-gradient(to bottom, transparent 0%, rgba(255,240,215,0.9) 20%, rgba(255,235,200,0.75) 50%, rgba(255,240,215,0.9) 80%, transparent 100%)",
               boxShadow:
@@ -131,8 +131,8 @@ export function SunshineStandardSplit() {
                 }`}
                 style={{ left: `${c.x}%`, top: `${c.y}%` }}
               >
-                {/* Bracket frame */}
-                <div className="relative h-12 w-24 lg:h-14 lg:w-28">
+                {/* Bracket frame — 얼굴에 맞게 축소 */}
+                <div className="relative h-9 w-16 lg:h-10 lg:w-20">
                   {[
                     "left-0 top-0 border-l border-t",
                     "right-0 top-0 border-r border-t",
