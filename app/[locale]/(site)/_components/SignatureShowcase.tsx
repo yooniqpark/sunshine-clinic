@@ -155,31 +155,52 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             {String(idx + 1).padStart(2, "0")}
           </span>
 
-          {/* Image slides */}
-          {items.map((d, i) => (
-            <div
-              key={d.slug}
-              aria-hidden={i !== idx}
-              className={`absolute inset-0 flex items-center justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                i === idx
-                  ? "translate-x-0 opacity-100"
-                  : i < idx
-                    ? "-translate-x-8 opacity-0"
-                    : "translate-x-8 opacity-0"
-              }`}
-            >
-              {d.img && (
-                <Image
-                  src={d.img}
-                  alt=""
-                  fill
-                  draggable={false}
-                  sizes="(max-width: 1024px) 100vw, 55vw"
-                  className="object-contain"
-                />
-              )}
-            </div>
-          ))}
+          {/* Image slides — 활성 카드 옆으로 이전/다음이 살짝 겹쳐 보임 */}
+          {items.map((d, i) => {
+            // relative offset in [-N..N] range, wrap
+            let offset = i - idx;
+            if (offset > total / 2) offset -= total;
+            if (offset < -total / 2) offset += total;
+
+            let cls = "opacity-0 scale-75 pointer-events-none";
+            let z = 0;
+            if (offset === 0) {
+              cls = "translate-x-0 scale-100 opacity-100";
+              z = 30;
+            } else if (offset === -1) {
+              cls = "-translate-x-[38%] scale-[0.72] opacity-30 blur-[1px]";
+              z = 10;
+            } else if (offset === 1) {
+              cls = "translate-x-[38%] scale-[0.72] opacity-30 blur-[1px]";
+              z = 10;
+            } else if (offset === -2) {
+              cls = "-translate-x-[62%] scale-[0.55] opacity-10 blur-[2px]";
+              z = 5;
+            } else if (offset === 2) {
+              cls = "translate-x-[62%] scale-[0.55] opacity-10 blur-[2px]";
+              z = 5;
+            }
+
+            return (
+              <div
+                key={d.slug}
+                aria-hidden={i !== idx}
+                style={{ zIndex: z }}
+                className={`absolute inset-0 flex items-center justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${cls}`}
+              >
+                {d.img && (
+                  <Image
+                    src={d.img}
+                    alt=""
+                    fill
+                    draggable={false}
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-contain"
+                  />
+                )}
+              </div>
+            );
+          })}
 
           {/* Reflection */}
           <span
