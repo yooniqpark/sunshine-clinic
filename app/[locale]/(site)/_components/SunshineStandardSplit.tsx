@@ -102,34 +102,34 @@ export function SunshineStandardSplit() {
                   onMouseEnter={() => setActive(i)}
                   onFocus={() => setActive(i)}
                 >
-                  <div
-                    className="grid w-full grid-cols-[48px_1fr_auto_24px] items-center gap-6 py-6 transition-colors duration-500"
-                  >
+                  <div className="grid w-full grid-cols-[48px_1fr_auto_24px] items-center gap-6 py-6">
                     <span
-                      className={`text-[11px] font-medium tracking-[0.24em] transition-colors duration-500 ${
-                        isActive ? "text-ink" : "text-ink/35"
+                      className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] tracking-[0.24em] font-medium ${
+                        isActive ? "text-[13px] text-ink" : "text-[11px] text-ink/35"
                       }`}
                     >
                       {c.num}
                     </span>
                     <span
-                      className={`font-serif text-xl tracking-tight transition-colors duration-500 lg:text-2xl ${
-                        isActive ? "text-ink" : "text-ink/35"
+                      className={`font-serif tracking-tight transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        isActive
+                          ? "text-2xl text-ink lg:text-[2rem]"
+                          : "text-lg text-ink/35 lg:text-xl"
                       }`}
                     >
                       {c.key}
                     </span>
                     <span
-                      className={`text-sm transition-colors duration-500 ${
-                        isActive ? "text-ink" : "text-ink/40"
+                      className={`transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        isActive ? "text-base text-ink" : "text-sm text-ink/40"
                       }`}
                     >
                       {c.short}
                     </span>
                     <span
                       aria-hidden
-                      className={`justify-self-end text-lg transition-colors duration-500 ${
-                        isActive ? "text-ink" : "text-ink/35"
+                      className={`justify-self-end transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        isActive ? "text-xl text-ink" : "text-base text-ink/35"
                       }`}
                     >
                       {isActive ? "×" : "+"}
