@@ -226,18 +226,18 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                 {cur.english}
               </p>
             )}
-            <h3 className="mt-3 font-serif text-4xl font-normal leading-[1.15] tracking-tight text-ink lg:text-6xl">
+            <h3 className="mt-3 font-serif text-3xl font-normal leading-[1.15] tracking-tight text-ink [word-break:keep-all] lg:text-[2.75rem] xl:text-5xl">
               {cur.name}
             </h3>
 
             {cur.statement && (
-              <p className="mt-6 font-serif text-2xl leading-[1.35] tracking-tight text-ink lg:text-[2rem]">
+              <p className="mt-6 font-serif text-xl leading-[1.4] tracking-tight text-ink [word-break:keep-all] lg:text-[1.625rem]">
                 <span className="block">{cur.statement[0]}</span>
                 <span className="block">{cur.statement[1]}</span>
               </p>
             )}
             {!cur.statement && (
-              <p className="mt-6 font-serif text-2xl leading-[1.35] tracking-tight text-ink lg:text-[2rem]">
+              <p className="mt-6 font-serif text-xl leading-[1.4] tracking-tight text-ink [word-break:keep-all] lg:text-[1.625rem]">
                 {cur.tagline}
               </p>
             )}
