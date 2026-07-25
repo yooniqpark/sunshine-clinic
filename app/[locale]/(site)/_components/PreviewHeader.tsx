@@ -109,18 +109,18 @@ export function PreviewHeader() {
           <Image
             src="/logo-mark.svg"
             alt=""
-            width={40}
-            height={40}
-            className="h-9 w-9 -translate-y-[3px] object-contain lg:h-10 lg:w-10"
+            width={64}
+            height={64}
+            className="h-12 w-12 -translate-y-[3px] object-contain lg:h-16 lg:w-16"
           />
           <div className="flex flex-col leading-none">
             <span
-              className={`font-serif text-[15px] font-normal tracking-tight transition lg:text-base ${nameColor}`}
+              className={`font-serif text-lg font-normal tracking-tight transition lg:text-2xl ${nameColor}`}
             >
               {tBrand("name")}
             </span>
             <span
-              className={`mt-1 text-[9px] font-medium uppercase tracking-[0.24em] transition ${subColor}`}
+              className={`mt-1.5 text-[11px] font-medium uppercase tracking-[0.24em] transition lg:text-[13px] ${subColor}`}
             >
               {tBrand("label")}
             </span>
