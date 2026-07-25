@@ -30,7 +30,57 @@ export function SunshineStandardSplit() {
             }}
           />
 
-          {/* 층 밴드 (표피 → SMAS) */}
+          {/* 피부 층 배경 밴드 (표피 · 진피 · SMAS) — 얼굴 뒤로 은은한 tint */}
+          <div className="pointer-events-none absolute inset-0">
+            {[
+              { top: 8, height: 15, tint: "rgba(255,240,220,0.06)", label: "EPIDERMIS", sub: "표피" },
+              { top: 23, height: 42, tint: "rgba(196,144,116,0.08)", label: "DERMIS", sub: "진피" },
+              { top: 65, height: 25, tint: "rgba(154,110,84,0.10)", label: "SUBCUTANEOUS · SMAS", sub: "피하 · SMAS" },
+            ].map((l) => (
+              <div key={l.label} className="absolute inset-x-0" style={{ top: `${l.top}%`, height: `${l.height}%` }}>
+                <span
+                  aria-hidden
+                  className="absolute inset-0"
+                  style={{ background: l.tint }}
+                />
+                {/* 층 경계선 */}
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px"
+                  style={{
+                    background:
+                      "linear-gradient(to right, transparent 0%, rgba(255,240,220,0.18) 20%, rgba(255,240,220,0.22) 50%, rgba(255,240,220,0.18) 80%, transparent 100%)",
+                  }}
+                />
+                {/* 층 라벨 (좌측) */}
+                <div
+                  className="absolute left-6 top-2 flex flex-col text-[9px] font-medium tracking-[0.28em] text-cream/30 lg:left-10"
+                >
+                  <span className="font-serif not-italic">{l.label}</span>
+                  <span className="text-cream/25">{l.sub}</span>
+                </div>
+              </div>
+            ))}
+            {/* 하단 경계선 (SMAS 아래) */}
+            <span
+              aria-hidden
+              className="absolute inset-x-0 h-px"
+              style={{
+                top: "90%",
+                background:
+                  "linear-gradient(to right, transparent 0%, rgba(255,240,220,0.18) 20%, rgba(255,240,220,0.22) 50%, rgba(255,240,220,0.18) 80%, transparent 100%)",
+              }}
+            />
+            {/* 우측 depth ruler */}
+            <div className="pointer-events-none absolute right-6 top-[10%] flex flex-col items-end gap-4 text-[8px] font-medium tracking-[0.2em] text-cream/25 lg:right-10">
+              <span>0.1 mm</span>
+              <span className="mt-6">1.5 mm</span>
+              <span className="mt-10">4 mm</span>
+              <span className="mt-8">SMAS</span>
+            </div>
+          </div>
+
+          {/* 챕터 depth 하이라이트 라인 */}
           <div className="pointer-events-none absolute inset-0">
             {STD_CHAPTERS.map((ch, i) => {
               const isActive = i === active;
