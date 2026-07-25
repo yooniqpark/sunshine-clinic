@@ -48,7 +48,7 @@ export default async function PreviewHome({
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at center, rgba(10,6,3,0.30) 0%, rgba(10,6,3,0.55) 70%, rgba(10,6,3,0.75) 100%)",
+              "radial-gradient(circle at center, rgba(10,6,3,0.15) 0%, rgba(10,6,3,0.32) 70%, rgba(10,6,3,0.48) 100%)",
           }}
         />
 
@@ -65,11 +65,17 @@ export default async function PreviewHome({
           </Reveal>
         </div>
 
-        {/* SCROLL cue */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center">
-          <p className="text-[10px] font-medium tracking-[0.36em] text-cream/70">
+        {/* SCROLL cue — 세로 라인 + 흐르는 도트 */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-10 flex flex-col items-center gap-4">
+          <p className="text-[10px] font-medium tracking-[0.4em] text-cream/70 lg:text-[11px]">
             SCROLL TO DISCOVER
           </p>
+          <span
+            aria-hidden
+            className="relative block h-12 w-px overflow-hidden bg-cream/25"
+          >
+            <span className="absolute left-0 top-0 h-1/2 w-full animate-scroll-cue bg-cream" />
+          </span>
         </div>
       </section>
 
