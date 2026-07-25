@@ -1,19 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import {
-  ChaptersRight,
-  STD_CHAPTERS,
-} from "./standard-variants/SharedChapters";
+import { ChaptersRight, STD_CHAPTERS } from "./SharedChapters";
 
-/**
- * THE SUNSHINE STANDARD — Face × Layers × Waves 융합 버전
- * · 얇은 여성 얼굴 실루엣 (line-art)
- * · 뒤로 흐르는 깊이 층 밴드 (표피 → SMAS)
- * · 각 챕터의 브랜드 컬러 세로 웨이브 (활성 웨이브 발광)
- * · 우측: THE SUNSHINE STANDARD 헤딩 + 4챕터 hover 리스트
- */
-export function SunshineStandardSplit() {
+/* H. FACE × LAYERS × WAVES — A + B + F 융합
+   · A: 어두운 배경 + 얇은 흰 라인 얼굴 실루엣
+   · B: 표피/진피/SMAS 층이 얼굴 뒤로 가로로 흐름
+   · F: 각 챕터의 브랜드 컬러 웨이브 라인이 세로로 흐름 (활성 웨이브만 발광) */
+export function VariantH() {
   const [active, setActive] = useState(0);
   const c = STD_CHAPTERS[active];
 
@@ -30,7 +24,7 @@ export function SunshineStandardSplit() {
             }}
           />
 
-          {/* 층 밴드 (표피 → SMAS) */}
+          {/* 층 밴드 (B에서 가져옴) — 얼굴 뒤로 얇은 가로 라인 */}
           <div className="pointer-events-none absolute inset-0">
             {STD_CHAPTERS.map((ch, i) => {
               const isActive = i === active;
@@ -40,6 +34,7 @@ export function SunshineStandardSplit() {
                   className="absolute inset-x-0 transition-all duration-700"
                   style={{ top: `${ch.layerY}%` }}
                 >
+                  {/* 얇은 층 라인 */}
                   <span
                     className="block h-px transition-all duration-700"
                     style={{
@@ -50,6 +45,7 @@ export function SunshineStandardSplit() {
                       boxShadow: isActive ? `0 0 8px ${ch.color}80` : "none",
                     }}
                   />
+                  {/* 층 라벨 */}
                   <div
                     className={`mt-1.5 flex items-center gap-3 px-6 text-[9px] font-medium tracking-[0.28em] transition-all duration-700 lg:px-10 ${
                       isActive ? "text-cream" : "text-cream/25"
@@ -59,9 +55,7 @@ export function SunshineStandardSplit() {
                       className="h-px transition-all duration-700"
                       style={{
                         width: isActive ? "24px" : "12px",
-                        background: isActive
-                          ? ch.color
-                          : "rgba(255,240,220,0.35)",
+                        background: isActive ? ch.color : "rgba(255,240,220,0.35)",
                       }}
                     />
                     <span className="font-serif normal-case not-italic tracking-[0.24em]">
@@ -81,7 +75,7 @@ export function SunshineStandardSplit() {
             })}
           </div>
 
-          {/* 브랜드 컬러 세로 웨이브 */}
+          {/* 브랜드 컬러 웨이브 (F에서 가져옴) — 세로 웨이브 4개 */}
           <svg
             viewBox="0 0 400 800"
             preserveAspectRatio="none"
@@ -114,7 +108,7 @@ export function SunshineStandardSplit() {
             })}
           </svg>
 
-          {/* 여성 얼굴 실루엣 */}
+          {/* 얼굴 실루엣 — 여성 프로필 (부드러운 곡선, 긴 머리) */}
           <svg
             viewBox="0 0 400 500"
             preserveAspectRatio="xMidYMid meet"
@@ -127,25 +121,19 @@ export function SunshineStandardSplit() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              {/* 긴 웨이브 헤어 */}
+              {/* Hair back (long, flowing) */}
               <path
                 d="M228 78 C 250 85, 258 120, 254 160 C 250 200, 244 240, 240 280 C 236 320, 230 360, 226 400 C 224 424, 232 448, 246 468"
                 opacity="0.6"
               />
-              {/* 얼굴 프로필 */}
+              {/* Forehead + face profile (softer, feminine curves) */}
               <path d="M228 82 C 214 74, 196 72, 180 78 C 158 86, 144 108, 138 132 C 134 156, 138 180, 142 198 C 144 208, 146 216, 144 224 C 140 236, 130 244, 128 254 C 126 266, 132 276, 146 282 L 158 288 L 160 306 C 162 322, 168 336, 178 348 C 186 358, 196 366, 204 372" />
-              {/* 앞머리 */}
+              {/* Hairline (bangs feathered) */}
               <path d="M182 84 C 198 74, 220 68, 240 78" opacity="0.55" />
               <path d="M188 90 C 200 84, 216 82, 232 90" opacity="0.35" />
-              {/* 눈 + 속눈썹 */}
-              <path
-                d="M158 168 C 164 162, 178 162, 186 168"
-                strokeWidth="1.2"
-              />
-              <path
-                d="M158 168 C 164 172, 178 172, 186 168"
-                opacity="0.6"
-              />
+              {/* Eyelash + eye (upper lash line, more prominent) */}
+              <path d="M158 168 C 164 162, 178 162, 186 168" strokeWidth="1.2" />
+              <path d="M158 168 C 164 172, 178 172, 186 168" opacity="0.6" />
               <circle
                 cx="172"
                 cy="171"
@@ -153,38 +141,24 @@ export function SunshineStandardSplit() {
                 fill="rgba(255,240,220,0.75)"
                 stroke="none"
               />
-              {/* 눈썹 */}
+              {/* Eyebrow (delicate arch) */}
               <path
                 d="M158 156 C 168 150, 182 152, 190 158"
                 opacity="0.7"
                 strokeWidth="0.9"
               />
-              {/* 코 */}
+              {/* Nose (delicate) */}
               <path d="M148 175 C 142 195, 138 210, 144 216 C 148 220, 156 219, 158 216" />
-              {/* 입술 */}
-              <path
-                d="M152 244 C 160 240, 174 240, 180 244"
-                opacity="0.85"
-              />
-              <path
-                d="M152 250 C 160 254, 174 254, 180 250"
-                opacity="0.7"
-              />
-              {/* 턱 */}
-              <path
-                d="M158 288 C 164 296, 172 302, 178 300"
-                opacity="0.35"
-              />
-              {/* 목 */}
-              <path
-                d="M204 372 L 198 420 L 232 420"
-                opacity="0.85"
-              />
-              {/* 귀 + 귀걸이 */}
-              <path
-                d="M204 190 C 214 192, 220 204, 216 218 C 212 230, 202 232, 200 226"
-                opacity="0.55"
-              />
+              {/* Lips — 위/아래 입술 (더 통통) */}
+              <path d="M152 244 C 160 240, 174 240, 180 244" opacity="0.85" />
+              <path d="M152 250 C 160 254, 174 254, 180 250" opacity="0.7" />
+              {/* Chin (pointed feminine) */}
+              <path d="M158 288 C 164 296, 172 302, 178 300" opacity="0.35" />
+              {/* Slender neck */}
+              <path d="M204 372 L 198 420 L 232 420" opacity="0.85" />
+              {/* Ear */}
+              <path d="M204 190 C 214 192, 220 204, 216 218 C 212 230, 202 232, 200 226" opacity="0.55" />
+              {/* Small earring */}
               <circle
                 cx="212"
                 cy="230"
@@ -197,7 +171,7 @@ export function SunshineStandardSplit() {
 
           {/* 하단 라벨 */}
           <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex items-center justify-between px-6 text-[10px] font-medium tracking-[0.32em] text-cream/60 lg:px-10">
-            <span>SKIN OBSERVATION</span>
+            <span>H · FACE × LAYERS × WAVES</span>
             <span className="font-serif tabular-nums text-cream">
               {String(active + 1).padStart(2, "0")} / 04
             </span>
