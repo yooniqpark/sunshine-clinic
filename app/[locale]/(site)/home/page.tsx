@@ -196,6 +196,11 @@ export default async function PreviewHome({
               const st: [string, string] | undefined =
                 parts.length >= 2 ? [parts[0] + ",", parts.slice(1).join(" ") + "."] : undefined;
               const mk = getDeviceMarketing(d.slug);
+              // 짧게 요약: 첫 문장(마침표까지)만 사용, 없으면 tagline 사용
+              const firstSentence = d.intro?.split(/[.。]/)[0]?.trim();
+              const shortDesc = firstSentence && firstSentence.length <= 80
+                ? firstSentence + "."
+                : d.tagline;
               return {
                 slug: d.slug,
                 name: d.name,
@@ -206,7 +211,7 @@ export default async function PreviewHome({
                 categoryLabel: "LIFTING",
                 meta: "LIFTING",
                 statement: st,
-                description: d.intro?.slice(0, 100),
+                description: shortDesc,
               };
             })}
           />
