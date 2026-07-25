@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 type Chapter = {
@@ -42,34 +43,28 @@ export function SunshineStandardSplit() {
   return (
     <section className="relative bg-[#f2ebde] text-ink">
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        {/* Left — model image (placeholder for now) */}
+        {/* Left — model image */}
         <div className="relative aspect-[3/4] w-full overflow-hidden bg-sand lg:aspect-auto lg:min-h-[720px]">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-[11px] font-medium tracking-[0.3em] text-ink/25">
-              MODEL IMAGE
-            </span>
-          </div>
-          {/* subtle warm gradient */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse at 30% 30%, rgba(232,205,175,0.24) 0%, transparent 55%), radial-gradient(ellipse at 70% 80%, rgba(196,144,116,0.14) 0%, transparent 55%)",
-            }}
+          <Image
+            src="/clinic/model-consult.png"
+            alt=""
+            fill
+            priority={false}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover object-center"
           />
           {/* Corner bracket ornament (upper-right area) */}
           <span
             aria-hidden
-            className="pointer-events-none absolute right-6 top-24 h-24 w-32 lg:right-10 lg:top-32 lg:h-28 lg:w-40"
+            className="pointer-events-none absolute right-6 top-24 z-10 h-24 w-32 lg:right-10 lg:top-32 lg:h-28 lg:w-40"
           >
             <span className="absolute right-0 top-0 h-full w-px bg-ink/25" />
             <span className="absolute right-0 top-0 h-px w-full bg-ink/25" />
           </span>
           {/* Bottom-left label + page indicator */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-between px-6 text-[10px] font-medium tracking-[0.32em] text-ink/50 lg:px-10">
-            <span>SKIN OBSERVATION</span>
-            <span className="font-serif tabular-nums text-ink/60">
+          <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex items-center justify-between px-6 text-[10px] font-medium tracking-[0.32em] text-cream lg:px-10">
+            <span className="drop-shadow">SKIN OBSERVATION</span>
+            <span className="font-serif tabular-nums text-cream drop-shadow">
               {String(active + 1).padStart(2, "0")} / {String(CHAPTERS.length).padStart(2, "0")}
             </span>
           </div>
