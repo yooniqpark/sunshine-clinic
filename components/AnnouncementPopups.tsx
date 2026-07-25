@@ -127,57 +127,82 @@ function EventPopup({
         <EventCarousel />
       </div>
 
-      {/* Desktop: 심플 GRAND OPEN 티저 (왼쪽) */}
-      <div className="relative hidden min-h-0 flex-col justify-between px-8 py-12 text-cream lg:flex lg:w-[440px] lg:shrink-0">
-        {/* 배경 그로우 */}
+      {/* Desktop: 에디토리얼 GRAND OPEN 티저 (왼쪽) */}
+      <div className="relative hidden min-h-0 flex-col justify-between px-10 py-14 text-cream lg:flex lg:w-[440px] lg:shrink-0">
+        {/* 앰비언트 웜톤 그로우 */}
         <span
           aria-hidden
           className="pointer-events-none absolute inset-0"
           style={{
             background:
-              "radial-gradient(ellipse at 30% 30%, rgba(232,205,175,0.20) 0%, transparent 55%), radial-gradient(ellipse at 70% 80%, rgba(154,110,84,0.20) 0%, transparent 55%)",
+              "radial-gradient(ellipse at 25% 20%, rgba(232,205,175,0.22) 0%, transparent 55%), radial-gradient(ellipse at 75% 85%, rgba(154,110,84,0.22) 0%, transparent 55%)",
           }}
         />
+        {/* 코너 브라켓 오너먼트 */}
+        <span aria-hidden className="pointer-events-none absolute left-6 top-6 h-6 w-6 border-l border-t border-cream/30" />
+        <span aria-hidden className="pointer-events-none absolute right-6 top-6 h-6 w-6 border-r border-t border-cream/30" />
+        <span aria-hidden className="pointer-events-none absolute bottom-6 left-6 h-6 w-6 border-b border-l border-cream/30" />
+        <span aria-hidden className="pointer-events-none absolute bottom-6 right-6 h-6 w-6 border-b border-r border-cream/30" />
+
         <div className="relative">
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-soft/40 bg-brand-soft/10 px-3 py-1 text-[10px] font-bold tracking-[0.22em] text-brand-soft">
-            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-brand-soft" />
-            OPEN
-          </span>
-          <p className="mt-8 text-[10px] font-medium tracking-[0.32em] text-cream/55">
-            2026.07.13 – 08.30
-          </p>
-          <h2 className="mt-6 font-serif text-5xl leading-none tracking-tight">
-            Grand Open
-          </h2>
-          <p
-            className="-mt-1 font-serif italic leading-none tracking-tight text-brand-soft"
-            style={{ fontSize: "2.5rem" }}
-          >
-            Event
-          </p>
-          <span aria-hidden className="mt-10 block h-px w-16 bg-cream/25" />
-          <p className="mt-6 max-w-xs text-sm leading-relaxed text-cream/75">
-            리프팅 · 화이트닝 · 스킨부스터 · 보톡스
+          {/* 상단 세리얼 인디케이터 */}
+          <div className="flex items-baseline gap-3 text-[10px] font-medium tracking-[0.32em] text-cream/55">
+            <span className="font-serif text-cream/80">N°01</span>
+            <span aria-hidden className="h-px flex-1 bg-cream/25" />
+            <span>SS 2026</span>
+          </div>
+
+          {/* 타이틀 */}
+          <div className="mt-10">
+            <p className="text-[10px] font-medium tracking-[0.4em] text-brand-soft">
+              INVITATION
+            </p>
+            <h2 className="mt-5 font-serif text-[3.75rem] leading-[0.95] tracking-tight text-cream">
+              Grand
+              <br />
+              Open.
+            </h2>
+            <p
+              className="mt-3 font-serif italic leading-none tracking-tight text-brand-soft"
+              style={{ fontSize: "1.5rem" }}
+            >
+              — an editorial event
+            </p>
+          </div>
+
+          {/* 골드 룰 + 날짜 */}
+          <div className="mt-10 flex items-center gap-3">
+            <span aria-hidden className="h-px w-10 bg-brand-soft" />
+            <p className="text-[11px] font-medium tracking-[0.24em] text-cream/80 tabular-nums">
+              07.13 <span className="text-cream/45">—</span> 08.30
+            </p>
+          </div>
+
+          {/* 카피 */}
+          <p className="mt-8 max-w-[280px] text-[13px] leading-[1.75] text-cream/70">
+            선샤인의 첫 인사.
             <br />
-            <span className="text-brand-soft">4개 카테고리 오픈 특별가</span>
+            대표 시술 네 갈래를 특별한 가격으로 준비했습니다.
           </p>
         </div>
 
-        <button
-          type="button"
-          onClick={onToggleDetail}
-          className="relative mt-8 inline-flex w-fit items-center gap-3 rounded-full border border-cream/40 bg-transparent px-6 py-3 text-xs font-semibold tracking-[0.18em] text-cream transition hover:border-cream hover:bg-cream/10"
-        >
-          {desktopDetail ? "디테일 닫기" : "디테일 보기"}
-          <span
-            aria-hidden
-            className={`transition-transform duration-500 ${
-              desktopDetail ? "rotate-45" : ""
-            }`}
+        <div className="relative">
+          <button
+            type="button"
+            onClick={onToggleDetail}
+            className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-cream/40 bg-transparent px-6 py-3.5 text-xs font-semibold tracking-[0.2em] text-cream transition hover:border-cream hover:bg-cream/10"
           >
-            {desktopDetail ? "+" : "→"}
-          </span>
-        </button>
+            <span>{desktopDetail ? "DETAIL — 닫기" : "DETAIL — 자세히 보기"}</span>
+            <span
+              aria-hidden
+              className={`inline-flex h-6 w-6 items-center justify-center rounded-full border border-cream/40 text-sm transition-transform duration-500 ${
+                desktopDetail ? "rotate-45" : "group-hover:translate-x-0.5"
+              }`}
+            >
+              {desktopDetail ? "+" : "→"}
+            </span>
+          </button>
+        </div>
       </div>
 
       {/* Desktop: 확장되는 상세 패널 (오른쪽) */}
@@ -199,6 +224,7 @@ function EventPopup({
 function EventCarousel() {
   const [idx, setIdx] = useState(0);
   const startX = useRef<number | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("v2.popups.event");
   const total = GRAND_OPEN_CATEGORIES.length;
 
@@ -216,6 +242,11 @@ function EventCarousel() {
     return () => window.removeEventListener("keydown", onKey);
   }, [go]);
 
+  // 카테고리 바뀌면 스크롤 최상단으로 리셋 → 하단 dots/CTA는 항상 화면 바닥에 고정된 것처럼 보임
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0, behavior: "auto" });
+  }, [idx]);
+
   function onTouchStart(e: React.TouchEvent) {
     startX.current = e.touches[0].clientX;
   }
@@ -230,9 +261,10 @@ function EventCarousel() {
 
   return (
     <div className="relative flex min-h-0 flex-1 flex-col">
-      {/* Slide viewport — uniform height so all slides look the same */}
+      {/* Slide viewport — 카테고리 콘텐츠는 스크롤, 하단 dots/CTA는 flex 바깥 고정 */}
       <div className="relative min-h-0 flex-1">
         <div
+          ref={scrollRef}
           className="h-full overflow-y-auto"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
