@@ -92,68 +92,71 @@ export function SunshineStandardSplit() {
           {/* Divider */}
           <span aria-hidden className="mt-14 block h-px w-full bg-ink/15" />
 
-          {/* Chapter list — accordion */}
+          {/* Chapter list — hover selects, no inline expand */}
           <ul className="divide-y divide-ink/15">
             {CHAPTERS.map((c, i) => {
               const isActive = i === active;
               return (
-                <li key={c.key}>
-                  <button
-                    type="button"
-                    onClick={() => setActive(isActive ? -1 : i)}
-                    aria-expanded={isActive}
-                    className="grid w-full grid-cols-[48px_1fr_auto_24px] items-center gap-6 py-6 text-left transition"
+                <li
+                  key={c.key}
+                  onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
+                >
+                  <div
+                    className="grid w-full grid-cols-[48px_1fr_auto_24px] items-center gap-6 py-6 transition-colors duration-500"
                   >
                     <span
-                      className={`text-[11px] font-medium tracking-[0.24em] transition ${
-                        isActive ? "text-ink" : "text-ink/40"
+                      className={`text-[11px] font-medium tracking-[0.24em] transition-colors duration-500 ${
+                        isActive ? "text-ink" : "text-ink/35"
                       }`}
                     >
                       {c.num}
                     </span>
                     <span
-                      className={`font-serif text-xl tracking-tight transition lg:text-2xl ${
-                        isActive ? "text-ink" : "text-ink/40"
+                      className={`font-serif text-xl tracking-tight transition-colors duration-500 lg:text-2xl ${
+                        isActive ? "text-ink" : "text-ink/35"
                       }`}
                     >
                       {c.key}
                     </span>
                     <span
-                      className={`text-sm transition ${
-                        isActive ? "text-ink" : "text-ink/45"
+                      className={`text-sm transition-colors duration-500 ${
+                        isActive ? "text-ink" : "text-ink/40"
                       }`}
                     >
                       {c.short}
                     </span>
                     <span
                       aria-hidden
-                      className={`justify-self-end text-lg transition ${
-                        isActive ? "text-ink" : "text-ink/40"
+                      className={`justify-self-end text-lg transition-colors duration-500 ${
+                        isActive ? "text-ink" : "text-ink/35"
                       }`}
                     >
                       {isActive ? "×" : "+"}
                     </span>
-                  </button>
-
-                  {/* Expanded body */}
-                  <div
-                    className={`grid overflow-hidden transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                      isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                    }`}
-                  >
-                    <div className="min-h-0">
-                      <div className="grid grid-cols-[48px_1fr] gap-6 pb-7">
-                        <span className="text-sm text-ink/55">{c.short}</span>
-                        <p className="max-w-lg text-sm leading-[1.8] text-ink/65 lg:text-[15px]">
-                          {c.body}
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </li>
               );
             })}
           </ul>
+
+          {/* Bottom message — 활성 챕터 본문이 하단 고정 영역에서 부드럽게 전환 */}
+          <div className="mt-10 min-h-[110px]">
+            <div
+              key={CHAPTERS[active]?.key ?? "none"}
+              className="grid grid-cols-[80px_1fr] gap-6"
+              style={{ animation: "sss-fade 0.6s cubic-bezier(0.22,1,0.36,1) both" }}
+            >
+              <span className="text-sm text-ink/55">
+                {CHAPTERS[active]?.short}
+              </span>
+              <p className="max-w-lg text-sm leading-[1.85] text-ink/65 lg:text-[15px]">
+                {CHAPTERS[active]?.body}
+              </p>
+            </div>
+          </div>
+
+          <style>{`@keyframes sss-fade { 0% { opacity: 0; transform: translateY(6px);} 100% { opacity: 1; transform: translateY(0);} }`}</style>
         </div>
       </div>
     </section>
