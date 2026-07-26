@@ -115,8 +115,8 @@ export function SunshineStandardSplit() {
                       boxShadow: isActive ? `0 0 8px ${ch.color}80` : "none",
                     }}
                   />
-                  {/* 챕터 라벨 — 데스크탑은 좌측(영문 + 활성 시 국문),
-                      모바일은 우측에 국문만 상시 노출 */}
+                  {/* 챕터 라벨 (좌측) — 데스크탑은 영문 + 활성 시 국문,
+                      모바일은 국문만 상시 노출 */}
                   <div
                     className={`mt-1.5 flex items-center gap-3 px-6 text-[9px] font-medium tracking-[0.28em] transition-all duration-700 lg:px-10 ${
                       isActive ? "text-cream" : "text-cream/25"
