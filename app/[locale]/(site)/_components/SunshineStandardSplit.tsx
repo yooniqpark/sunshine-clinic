@@ -28,25 +28,12 @@ export function SunshineStandardSplit() {
           aria-label="다음 챕터"
           className="relative block aspect-[3/4] w-full cursor-pointer overflow-hidden bg-ink text-left lg:aspect-auto lg:min-h-[720px]"
         >
-          {/* 시각화 패널 상단 텍스트 오버레이.
-              데스크탑에서는 헤딩/서브카피를 숨겨 피부 층·챕터 라벨이 가려지지 않게 한다. */}
-          <div className="absolute inset-x-0 top-0 z-20 px-6 pt-8 text-cream lg:px-10 lg:pt-12">
+          {/* 시각화 패널 상단 텍스트 오버레이 — 키커만 남긴다.
+              헤딩/서브카피는 피부 층·챕터 라벨을 가려 데스크탑·모바일 모두 제거. */}
+          <div className="absolute inset-x-0 top-0 z-20 px-6 pt-5 text-cream lg:px-10 lg:pt-12">
             <p className="text-[10px] font-medium tracking-[0.32em] text-cream/60 lg:text-[11px]">
               THE SUNSHINE STANDARD
             </p>
-            <div className="lg:hidden">
-              <h2
-                className="mt-4 max-w-[62%] font-serif font-normal leading-[1.15] tracking-tight text-cream"
-                style={{ fontSize: "clamp(1.5rem, 6vw, 2rem)" }}
-              >
-                피부를 먼저 보고,
-                <br />
-                <span className="text-cream/60">필요한 만큼만.</span>
-              </h2>
-              <p className="mt-4 max-w-[62%] text-[13px] leading-[1.65] text-cream/65">
-                정해진 답보다 한 사람의 피부에서 시작하는 선샤인의 진료 기준.
-              </p>
-            </div>
           </div>
 
           {/* Ambient glow — 활성 챕터 컬러로 물듦 */}
@@ -80,9 +67,8 @@ export function SunshineStandardSplit() {
                       "linear-gradient(to right, transparent 0%, rgba(255,240,220,0.18) 20%, rgba(255,240,220,0.22) 50%, rgba(255,240,220,0.18) 80%, transparent 100%)",
                   }}
                 />
-                {/* 층 라벨 — 데스크탑은 좌측(영문+국문), 모바일은 우측 국문만
-                    (좌측 상단은 헤딩 카피가 쓰므로 겹치지 않게 우측으로 보낸다) */}
-                <div className="absolute right-6 top-2 flex flex-col items-end text-right text-[9px] font-medium tracking-[0.28em] text-cream/35 lg:left-10 lg:right-auto lg:items-start lg:text-left lg:text-cream/30">
+                {/* 층 라벨 (좌측) — 데스크탑은 영문+국문, 모바일은 국문만 */}
+                <div className="absolute left-6 top-2 flex flex-col text-[9px] font-medium tracking-[0.28em] text-cream/35 lg:left-10 lg:text-cream/30">
                   <span className="hidden font-serif not-italic lg:inline">
                     {l.label}
                   </span>
@@ -129,10 +115,10 @@ export function SunshineStandardSplit() {
                       boxShadow: isActive ? `0 0 8px ${ch.color}80` : "none",
                     }}
                   />
-                  {/* 챕터 라벨 — 데스크탑은 좌측(영문 + 활성 시 국문),
-                      모바일은 우측에 국문만 상시 노출 */}
+                  {/* 챕터 라벨 (좌측) — 데스크탑은 영문 + 활성 시 국문,
+                      모바일은 국문만 상시 노출 */}
                   <div
-                    className={`mt-1.5 flex items-center justify-end gap-3 px-6 text-[9px] font-medium tracking-[0.28em] transition-all duration-700 lg:justify-start lg:px-10 ${
+                    className={`mt-1.5 flex items-center gap-3 px-6 text-[9px] font-medium tracking-[0.28em] transition-all duration-700 lg:px-10 ${
                       isActive ? "text-cream" : "text-cream/25"
                     }`}
                   >

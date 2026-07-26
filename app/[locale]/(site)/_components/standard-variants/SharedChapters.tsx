@@ -24,7 +24,8 @@ export function ChaptersRight({
   title = "피부를 먼저 보고,",
   titleSecond = "필요한 만큼만.",
   subtitle = "정해진 답보다 한 사람의 피부에서 시작하는 선샤인의 진료 기준.",
-  body = "유행보다는 오래가는 아름다움을, 화려함보다는 건강한 회복을 지향하며 — 시술을 정하기 전에 지금의 피부와 원하는 변화의 방향을 충분히 이해합니다.",
+  // 두 줄로 고정 (\n + whitespace-pre-line). "시술" 앞의 em dash는 제거.
+  body = "유행보다는 오래가는 아름다움을, 화려함보다는 건강한 회복을 지향하며\n시술을 정하기 전에 지금의 피부와 원하는 변화의 방향을 충분히 이해합니다.",
 }: {
   active: number;
   setActive: (i: number) => void;
@@ -39,7 +40,7 @@ export function ChaptersRight({
       <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/55 lg:hidden lg:text-[11px]">
         THE SUNSHINE STANDARD
       </p>
-      <p className="max-w-lg text-sm leading-[1.85] text-ink/70 lg:text-[15px]">
+      <p className="max-w-lg whitespace-pre-line text-sm leading-[1.85] text-ink/70 lg:max-w-xl lg:text-[15px]">
         {body}
       </p>
       <span aria-hidden className="mt-10 block h-px w-full bg-ink/15" />
