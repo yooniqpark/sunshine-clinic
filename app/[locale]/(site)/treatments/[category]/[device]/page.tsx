@@ -472,7 +472,27 @@ async function ConcernPage({
       {/* APPROACH */}
       {concern.approach && (
         <section className="border-y border-line bg-white py-32 lg:py-40">
-          <div className="mx-auto max-w-4xl px-5 lg:px-8">
+          <div
+            className={`mx-auto px-5 lg:px-8 ${
+              concern.image
+                ? "grid max-w-6xl items-center gap-12 lg:grid-cols-[1fr_1.15fr] lg:gap-20"
+                : "max-w-4xl"
+            }`}
+          >
+            {/* 제품 사진 — 히어로 배경 외에 설명 옆에서 한 번 더 보여준다 */}
+            {concern.image && (
+              <Reveal>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-cream">
+                  <Image
+                    src={concern.image}
+                    alt={concern.name}
+                    fill
+                    sizes="(min-width: 1024px) 40vw, 100vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+              </Reveal>
+            )}
             <Reveal>
               <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
                 APPROACH

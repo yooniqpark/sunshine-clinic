@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30d
+    // Next 16: 로컬 이미지에 쿼리스트링을 쓰려면 localPatterns 등록이 필수.
+    // 첫 항목으로 쿼리 없는 모든 로컬 경로를 허용하고,
+    // 캐시 버스터(?v=2)를 쓰는 /devices/* 만 예외로 추가한다.
+    localPatterns: [
+      { pathname: "/**", search: "" },
+      { pathname: "/devices/**", search: "?v=2" },
+    ],
   },
   async rewrites() {
     return {
