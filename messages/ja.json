@@ -287,6 +287,11 @@
             "label": "マークビュー CO2",
             "sub": "MARKVIEW CO2",
             "href": "/treatments/acne/markview-co2"
+          },
+          {
+            "label": "アクアピール",
+            "sub": "AQUA PEEL",
+            "href": "/treatments/acne/aqua-peel"
           }
         ],
         "anti-aging": [

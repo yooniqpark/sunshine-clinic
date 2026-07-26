@@ -287,6 +287,11 @@
             "label": "MarkView CO2",
             "sub": "MARKVIEW CO2",
             "href": "/treatments/acne/markview-co2"
+          },
+          {
+            "label": "Aqua Peel",
+            "sub": "AQUA PEEL",
+            "href": "/treatments/acne/aqua-peel"
           }
         ],
         "anti-aging": [

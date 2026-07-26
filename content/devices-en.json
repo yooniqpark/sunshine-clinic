@@ -713,5 +713,58 @@
         "a": "Topical anesthetic is applied; you may feel warmth during treatment."
       }
     ]
+  },
+  "aqua-peel": {
+    "slug": "aqua-peel",
+    "category": "acne",
+    "name": "Aqua Peel",
+    "tagline": "3-step hydro peel for a smooth, luminous glow",
+    "intro": "Aqua Peel is a three-step hydro-peeling system combining mild acidic solutions with water jets. It gently removes dead skin and impurities while infusing soothing and hydrating ampoules for an immediate glow.",
+    "manufacturer": "Aqua Peel",
+    "tech": [
+      "3-STEP",
+      "Hydro peel",
+      "Ampoule infusion",
+      "Non-invasive"
+    ],
+    "highlightStat": {
+      "value": "3-STEP",
+      "label": "S1 · S2 · S3"
+    },
+    "features": [
+      {
+        "title": "Three-step program",
+        "body": "S1 exfoliation · S2 deep cleansing · S3 soothing hydration in sequence."
+      },
+      {
+        "title": "Gentle exfoliation",
+        "body": "Micro water-jet + mild solution lifts dead skin and sebum without irritation."
+      },
+      {
+        "title": "Instant radiance",
+        "body": "Clears impurities so skin looks smoother and brighter right after treatment."
+      },
+      {
+        "title": "Zero downtime",
+        "body": "Cleanse and apply makeup immediately — ideal for pre-event care."
+      }
+    ],
+    "howItWorks": "S1 prep ampoule → S2 deep cleansing ampoule → S3 soothing ampoule are sprayed sequentially while the water jet gently removes debris and delivers active ingredients.",
+    "recommendedFor": [
+      "Dull skin tone",
+      "Congested pores",
+      "Rough texture · thick dead skin",
+      "Immediate glow before events"
+    ],
+    "faq": [
+      {
+        "q": "How often?",
+        "a": "Every 2–4 weeks for maintenance is recommended."
+      },
+      {
+        "q": "Safe for sensitive skin?",
+        "a": "Low-irritation; intensity is adjusted per consultation."
+      }
+    ]
   }
 }

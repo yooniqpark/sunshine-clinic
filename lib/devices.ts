@@ -77,6 +77,10 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
     englishName: "MARKVIEW CO2",
     featureKeywords: ["FRACTIONAL", "CO2", "PRECISE", "RENEW"],
   },
+  "aqua-peel": {
+    englishName: "AQUA PEEL",
+    featureKeywords: ["HYDRO", "PEEL", "GENTLE", "GLOW"],
+  },
 };
 
 export function getDeviceMarketing(slug: string): DeviceMarketingMeta | null {
@@ -95,6 +99,7 @@ const DEVICE_IMAGES: Record<string, string> = {
   "carpri-co2": "/devices/carpri-co2.png",
   "mirajet-forte": "/devices/mirajet-forte.png",
   "markview-co2": "/devices/markview-co2.png",
+  "aqua-peel": "/devices/aqua-peel.png",
   ellanse: "/devices/ellanse.jpg",
 };
 
@@ -112,7 +117,7 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode", "ellanse"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
-  acne: ["carpri-co2", "mirajet-forte", "secret-rf", "inmode-morpheus", "markview-co2"],
+  acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2"],
 };
 
 export function getDevicesByCategory(
