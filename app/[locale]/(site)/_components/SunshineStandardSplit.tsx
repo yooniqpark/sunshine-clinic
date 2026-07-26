@@ -28,20 +28,20 @@ export function SunshineStandardSplit() {
           aria-label="다음 챕터"
           className="relative block aspect-[3/4] w-full cursor-pointer overflow-hidden bg-ink text-left lg:aspect-auto lg:min-h-[720px]"
         >
-          {/* 모바일 상단 텍스트 오버레이 — 데스크탑에선 우측 컬럼이 있으므로 숨김 */}
-          <div className="absolute inset-x-0 top-0 z-20 px-6 pt-8 text-cream lg:hidden">
-            <p className="text-[10px] font-medium tracking-[0.32em] text-cream/60">
+          {/* 시각화 패널 상단 텍스트 오버레이 — 데스크탑·모바일 모두 노출 */}
+          <div className="absolute inset-x-0 top-0 z-20 px-6 pt-8 text-cream lg:px-10 lg:pt-12">
+            <p className="text-[10px] font-medium tracking-[0.32em] text-cream/60 lg:text-[11px]">
               THE SUNSHINE STANDARD
             </p>
             <h2
-              className="mt-4 font-serif font-normal leading-[1.15] tracking-tight text-cream"
-              style={{ fontSize: "clamp(1.75rem, 7vw, 2.5rem)" }}
+              className="mt-4 font-serif font-normal leading-[1.15] tracking-tight text-cream lg:mt-6"
+              style={{ fontSize: "clamp(1.75rem, 4.5vw, 3.25rem)" }}
             >
               피부를 먼저 보고,
               <br />
               <span className="text-cream/60">필요한 만큼만.</span>
             </h2>
-            <p className="mt-4 max-w-xs text-[13px] leading-[1.65] text-cream/65">
+            <p className="mt-4 max-w-xs text-[13px] leading-[1.65] text-cream/65 lg:mt-5 lg:max-w-sm lg:text-[14px]">
               정해진 답보다 한 사람의 피부에서 시작하는 선샤인의 진료 기준.
             </p>
           </div>

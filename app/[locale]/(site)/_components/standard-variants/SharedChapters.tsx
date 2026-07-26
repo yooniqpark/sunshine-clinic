@@ -35,21 +35,16 @@ export function ChaptersRight({
 }) {
   return (
     <div className="flex flex-col justify-center px-6 py-16 sm:px-10 lg:px-20 lg:py-24">
-      <p className="text-[10px] font-medium tracking-[0.32em] text-ink/55 lg:text-[11px]">
+      {/* 데스크탑에서 헤딩은 좌측 그래픽 패널로 이동 — 우측은 본문 + 챕터 리스트만 */}
+      <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/55 lg:hidden lg:text-[11px]">
         THE SUNSHINE STANDARD
       </p>
-      <h2 className="mt-8 font-serif text-4xl font-normal leading-[1.15] tracking-tight text-ink lg:text-[3.75rem] lg:leading-[1.05]">
-        {title}
-        <br />
-        <span className="text-ink/55">{titleSecond}</span>
-      </h2>
-      <p className="mt-6 max-w-lg text-sm leading-[1.7] text-ink/60 lg:text-[15px]">
-        {subtitle}
-      </p>
-      <p className="mt-8 max-w-lg text-sm leading-[1.8] text-ink/70 lg:text-[15px]">
+      <p className="max-w-lg text-sm leading-[1.85] text-ink/70 lg:text-[15px]">
         {body}
       </p>
-      <span aria-hidden className="mt-14 block h-px w-full bg-ink/15" />
+      <span aria-hidden className="mt-10 block h-px w-full bg-ink/15" />
+      {/* silence unused params (title/titleSecond/subtitle 이제 그래픽 패널에서 표시) */}
+      <span aria-hidden className="hidden">{title}{titleSecond}{subtitle}</span>
       <ul className="divide-y divide-ink/15">
         {STD_CHAPTERS.map((c, i) => {
           const isActive = i === active;
