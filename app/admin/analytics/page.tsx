@@ -22,13 +22,37 @@ export default async function AnalyticsPage() {
         </p>
       </header>
 
-      {/* Top-line totals */}
+      {/* Top-line totals — 방문자(UV)를 대표 지표로, 페이지뷰(PV)는 서브 */}
       <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard label="오늘" value={stats.pv.today} sub={`유니크 ${stats.uv.today}명`} accent />
-        <StatCard label="이번 주" value={stats.pv.week} sub={`유니크 ${stats.uv.week}명`} />
-        <StatCard label="이번 달" value={stats.pv.month} sub={`유니크 ${stats.uv.month}명`} />
-        <StatCard label="누적" value={stats.pv.total} sub={`유니크 ${stats.uv.total}명`} />
+        <StatCard
+          label="오늘 방문자"
+          value={stats.uv.today}
+          unit="명"
+          sub={`페이지뷰 ${stats.pv.today.toLocaleString()}회`}
+          accent
+        />
+        <StatCard
+          label="이번 주 방문자"
+          value={stats.uv.week}
+          unit="명"
+          sub={`페이지뷰 ${stats.pv.week.toLocaleString()}회`}
+        />
+        <StatCard
+          label="이번 달 방문자"
+          value={stats.uv.month}
+          unit="명"
+          sub={`페이지뷰 ${stats.pv.month.toLocaleString()}회`}
+        />
+        <StatCard
+          label="누적 방문자"
+          value={stats.uv.total}
+          unit="명"
+          sub={`페이지뷰 ${stats.pv.total.toLocaleString()}회`}
+        />
       </section>
+      <p className="mt-3 text-[11px] leading-relaxed text-ink-soft/70">
+        · <strong className="text-ink">방문자</strong>는 실제 사람 수(중복 제거) · <strong className="text-ink">페이지뷰</strong>는 열람한 페이지 총 수(한 사람이 여러 페이지 열면 각각 카운트).
+      </p>
 
       {/* Daily trend */}
       <section className="mt-10">
@@ -130,11 +154,13 @@ export default async function AnalyticsPage() {
 function StatCard({
   label,
   value,
+  unit,
   sub,
   accent = false,
 }: {
   label: string;
   value: number;
+  unit?: string;
   sub?: string;
   accent?: boolean;
 }) {
@@ -153,10 +179,11 @@ function StatCard({
             : "text-xs font-semibold tracking-[0.18em] text-ink-soft"
         }
       >
-        {label.toUpperCase()}
+        {label}
       </p>
       <p className={`mt-2 text-3xl font-bold tabular-nums ${accent ? "text-brand-dark" : ""}`}>
         {value.toLocaleString()}
+        {unit && <span className="ml-1 text-lg font-semibold text-ink-soft">{unit}</span>}
       </p>
       {sub && <p className="mt-1 text-[11px] text-ink-soft">{sub}</p>}
     </div>
