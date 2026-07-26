@@ -100,7 +100,7 @@ export function AnnouncementPopups() {
       <div
         className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
           desktopDetail
-            ? "lg:max-w-6xl"
+            ? "lg:max-w-[1120px]"
             : pricingFallback
               ? "lg:max-w-xl"
               : "lg:max-w-md"
@@ -308,7 +308,7 @@ function EventCarousel() {
       <div className="relative min-h-0 flex-1">
         <div
           ref={scrollRef}
-          className="h-full overflow-y-auto"
+          className="popup-scroll h-full overflow-y-auto"
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >

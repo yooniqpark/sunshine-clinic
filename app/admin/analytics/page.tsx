@@ -22,37 +22,32 @@ export default async function AnalyticsPage() {
         </p>
       </header>
 
-      {/* Top-line totals — 방문자(UV)를 대표 지표로, 페이지뷰(PV)는 서브 */}
+      {/* Top-line totals — 방문자(UV)만 노출: 페이지 이동해도 늘어나지 않음 */}
       <section className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <StatCard
-          label="오늘 방문자"
-          value={stats.uv.today}
-          unit="명"
-          sub={`페이지뷰 ${stats.pv.today.toLocaleString()}회`}
-          accent
-        />
-        <StatCard
-          label="이번 주 방문자"
-          value={stats.uv.week}
-          unit="명"
-          sub={`페이지뷰 ${stats.pv.week.toLocaleString()}회`}
-        />
-        <StatCard
-          label="이번 달 방문자"
-          value={stats.uv.month}
-          unit="명"
-          sub={`페이지뷰 ${stats.pv.month.toLocaleString()}회`}
-        />
-        <StatCard
-          label="누적 방문자"
-          value={stats.uv.total}
-          unit="명"
-          sub={`페이지뷰 ${stats.pv.total.toLocaleString()}회`}
-        />
+        <StatCard label="오늘 방문자" value={stats.uv.today} unit="명" accent />
+        <StatCard label="이번 주 방문자" value={stats.uv.week} unit="명" />
+        <StatCard label="이번 달 방문자" value={stats.uv.month} unit="명" />
+        <StatCard label="누적 방문자" value={stats.uv.total} unit="명" />
       </section>
       <p className="mt-3 text-[11px] leading-relaxed text-ink-soft/70">
-        · <strong className="text-ink">방문자</strong>는 실제 사람 수(중복 제거) · <strong className="text-ink">페이지뷰</strong>는 열람한 페이지 총 수(한 사람이 여러 페이지 열면 각각 카운트).
+        · <strong className="text-ink">방문자</strong> = 실제 사람 수(중복 제거). 같은 방문자가 여러 페이지를 열어도 하루 1명으로 카운트됩니다.
       </p>
+
+      {/* Page view — 참고용으로 하단에만 소형 표시 */}
+      <section className="mt-6 rounded-2xl border border-line bg-sand/30 p-5">
+        <p className="text-[10px] font-semibold tracking-[0.22em] text-ink-soft">
+          PAGE VIEWS · 참고용
+        </p>
+        <div className="mt-2 grid grid-cols-2 gap-4 text-sm text-ink-soft sm:grid-cols-4">
+          <PVLine label="오늘" value={stats.pv.today} />
+          <PVLine label="이번 주" value={stats.pv.week} />
+          <PVLine label="이번 달" value={stats.pv.month} />
+          <PVLine label="누적" value={stats.pv.total} />
+        </div>
+        <p className="mt-3 text-[11px] leading-relaxed text-ink-soft/70">
+          한 방문자가 여러 페이지를 볼 때마다 누적되므로 <strong className="text-ink">방문자 수와는 별개</strong>의 지표입니다.
+        </p>
+      </section>
 
       {/* Daily trend */}
       <section className="mt-10">
@@ -148,6 +143,18 @@ export default async function AnalyticsPage() {
       </p>
 
     </>
+  );
+}
+
+function PVLine({ label, value }: { label: string; value: number }) {
+  return (
+    <div>
+      <p className="text-[10px] font-medium tracking-[0.2em] text-ink-soft/70">{label}</p>
+      <p className="mt-1 font-serif text-lg tabular-nums text-ink">
+        {value.toLocaleString()}
+        <span className="ml-1 text-[10px] font-medium text-ink-soft/60">회</span>
+      </p>
+    </div>
   );
 }
 
