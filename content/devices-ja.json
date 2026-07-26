@@ -872,5 +872,111 @@
         "a": "単独でも可能で、他の施術との併用で回復が早まります。"
       }
     ]
+  },
+  "juvederm": {
+    "slug": "juvederm",
+    "category": "anti-aging",
+    "name": "ジュビダーム ヴォリフト",
+    "tagline": "自然なボリュームと小じわ改善のためのHAフィラー",
+    "intro": "Juvéderm VOLIFTは米国Allergan社のHAフィラーで、特許VYCROSS技術により柔らかく自然なボリュームを作り、ほうれい線・頬・口角を精密に整えます。",
+    "manufacturer": "Allergan (USA)",
+    "tech": [
+      "HAフィラー",
+      "VYCROSS",
+      "リドカイン",
+      "2 × 1mL"
+    ],
+    "highlightStat": {
+      "value": "~15ヶ月",
+      "label": "平均持続"
+    },
+    "features": [
+      {
+        "title": "滑らかなボリューム",
+        "body": "VYCROSSが組織と自然に馴染む滑らかなボリューム。"
+      },
+      {
+        "title": "長時間持続",
+        "body": "平均12~15ヶ月持続で維持ケアの負担を軽減。"
+      },
+      {
+        "title": "痛み軽減",
+        "body": "リドカイン配合で施術中の不快感を軽減。"
+      },
+      {
+        "title": "精密な輪郭",
+        "body": "ほうれい線・口元・頬を精密にデザイン。"
+      }
+    ],
+    "howItWorks": "真皮層に微細カニューレや針で注入、HA粒子が組織間に留まりボリュームを支えます。",
+    "recommendedFor": [
+      "ほうれい線・口元",
+      "頬のボリュームダウン",
+      "自然な仕上がり",
+      "長持ちフィラー"
+    ],
+    "faq": [
+      {
+        "q": "痛みは?",
+        "a": "リドカイン配合で施術中の痛みが少ないです。"
+      },
+      {
+        "q": "腫れ・内出血は?",
+        "a": "通常2~5日で自然に落ち着きます。"
+      }
+    ]
+  },
+  "belotero": {
+    "slug": "belotero",
+    "category": "anti-aging",
+    "name": "ベロテロ",
+    "tagline": "CPM技術で組織に馴染むHAフィラーライン",
+    "intro": "Belotero はドイツMerz社のHAフィラーラインで、特許CPM(Cohesive Polydensified Matrix)技術により組織に自然に馴染み、表情を自然に維持します。Soft・Balance・Intense・Volumeの4ラインで部位別のカスタムが可能です。",
+    "manufacturer": "Merz (Germany)",
+    "tech": [
+      "HAフィラー",
+      "CPM",
+      "4-Line",
+      "リドカイン"
+    ],
+    "highlightStat": {
+      "value": "4 Lines",
+      "label": "Soft · Balance · Intense · Volume"
+    },
+    "features": [
+      {
+        "title": "自然な表情",
+        "body": "CPMが組織に馴染み表情の動きに自然に反応。"
+      },
+      {
+        "title": "ライン別カスタム",
+        "body": "目下・ほうれい線・唇・ボリュームなど部位別に4種類。"
+      },
+      {
+        "title": "滑らかな仕上がり",
+        "body": "塊なく均一に広がり滑らかな表面。"
+      },
+      {
+        "title": "痛み軽減",
+        "body": "リドカイン配合で不快感を軽減。"
+      }
+    ],
+    "howItWorks": "多層密度のHAゲルが組織に均一に馴染み、ボリューム・肌質・表情を自然にサポートします。",
+    "recommendedFor": [
+      "目下・涙袋",
+      "ほうれい線・口元",
+      "唇ボリューム",
+      "自然な表情"
+    ],
+    "faq": [
+      {
+        "q": "どのラインが合う?",
+        "a": "部位と希望に合わせて相談で決定します。"
+      },
+      {
+        "q": "持続期間は?",
+        "a": "ラインと部位により6~12ヶ月持続します。"
+      }
+    ]
   }
 }

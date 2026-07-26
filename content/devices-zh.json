@@ -872,5 +872,111 @@
         "a": "可单独进行，也可与其他治疗联合加速恢复。"
       }
     ]
+  },
+  "juvederm": {
+    "slug": "juvederm",
+    "category": "anti-aging",
+    "name": "乔雅登 沃利芙",
+    "tagline": "自然丰盈与细纹改善的HA填充剂",
+    "intro": "Juvéderm VOLIFT 是艾尔健的透明质酸填充剂，采用专利 VYCROSS 技术，创造柔软自然的容量，精细修饰法令纹、面颊与口角。",
+    "manufacturer": "Allergan (USA)",
+    "tech": [
+      "HA 填充",
+      "VYCROSS",
+      "利多卡因",
+      "2 × 1mL"
+    ],
+    "highlightStat": {
+      "value": "~15 个月",
+      "label": "平均维持"
+    },
+    "features": [
+      {
+        "title": "柔软丰盈",
+        "body": "VYCROSS 与组织自然融合，柔软的容量。"
+      },
+      {
+        "title": "长效持续",
+        "body": "平均维持 12–15 个月，减少补做频率。"
+      },
+      {
+        "title": "舒适",
+        "body": "含利多卡因，术中不适感更小。"
+      },
+      {
+        "title": "精细轮廓",
+        "body": "精准塑造法令、口角、面颊。"
+      }
+    ],
+    "howItWorks": "以细针/钝针注入真皮层，HA 微粒安定于组织间，自然支撑容量。",
+    "recommendedFor": [
+      "法令纹",
+      "面颊凹陷",
+      "追求自然效果",
+      "希望长效维持"
+    ],
+    "faq": [
+      {
+        "q": "疼吗？",
+        "a": "含利多卡因，术中不适较小。"
+      },
+      {
+        "q": "肿胀多久？",
+        "a": "通常 2–5 天自然消退。"
+      }
+    ]
+  },
+  "belotero": {
+    "slug": "belotero",
+    "category": "anti-aging",
+    "name": "贝罗特罗",
+    "tagline": "CPM 工艺融入组织的 HA 填充剂系列",
+    "intro": "Belotero 是德国 Merz 的透明质酸填充剂，专利 CPM 工艺让填充剂自然融入组织并保留表情。Soft·Balance·Intense·Volume 四条产品线可按部位与目的定制。",
+    "manufacturer": "Merz (Germany)",
+    "tech": [
+      "HA 填充",
+      "CPM",
+      "4-Line",
+      "利多卡因"
+    ],
+    "highlightStat": {
+      "value": "4 Lines",
+      "label": "Soft · Balance · Intense · Volume"
+    },
+    "features": [
+      {
+        "title": "自然表情",
+        "body": "CPM 融入组织，随表情自然移动。"
+      },
+      {
+        "title": "按线定制",
+        "body": "眼下·法令·唇·容量按 4 款产品选择。"
+      },
+      {
+        "title": "平滑效果",
+        "body": "均匀铺散不结块，表面平滑。"
+      },
+      {
+        "title": "舒适",
+        "body": "含利多卡因，减少术中不适。"
+      }
+    ],
+    "howItWorks": "多层密度的 HA 凝胶均匀融入组织，支撑容量、肤质与表情。",
+    "recommendedFor": [
+      "眼下·卧蚕",
+      "法令纹·口角",
+      "唇部容量",
+      "追求自然表情"
+    ],
+    "faq": [
+      {
+        "q": "哪条线适合我？",
+        "a": "根据部位与需求咨询后决定。"
+      },
+      {
+        "q": "维持时间？",
+        "a": "因产品线与部位不同，通常 6–12 个月。"
+      }
+    ]
   }
 }

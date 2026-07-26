@@ -872,5 +872,111 @@
         "a": "Works well alone and accelerates recovery when combined with other treatments."
       }
     ]
+  },
+  "juvederm": {
+    "slug": "juvederm",
+    "category": "anti-aging",
+    "name": "Juvéderm VOLIFT",
+    "tagline": "Natural volume & wrinkle correction with HA filler",
+    "intro": "Juvéderm VOLIFT is a hyaluronic-acid filler from Allergan (USA) using patented VYCROSS technology to create smooth, natural-looking volume — refining nasolabial folds, cheeks and lip corners.",
+    "manufacturer": "Allergan (USA)",
+    "tech": [
+      "HA filler",
+      "VYCROSS",
+      "Lidocaine",
+      "2 × 1mL"
+    ],
+    "highlightStat": {
+      "value": "~15 months",
+      "label": "Avg. duration"
+    },
+    "features": [
+      {
+        "title": "Smooth volume",
+        "body": "VYCROSS integrates naturally with tissue for supple volume."
+      },
+      {
+        "title": "Long lasting",
+        "body": "Averages 12–15 months, reducing touch-up frequency."
+      },
+      {
+        "title": "Comfort",
+        "body": "Contains lidocaine to minimize procedure discomfort."
+      },
+      {
+        "title": "Precise contouring",
+        "body": "Refines facial lines around nose, mouth, and cheeks."
+      }
+    ],
+    "howItWorks": "Injected into the dermis with fine needles or cannulas, HA particles settle into tissue and support volume naturally.",
+    "recommendedFor": [
+      "Nasolabial folds",
+      "Cheek volume loss",
+      "Those seeking natural results",
+      "Longer-lasting filler"
+    ],
+    "faq": [
+      {
+        "q": "Is it painful?",
+        "a": "Lidocaine included minimizes discomfort during treatment."
+      },
+      {
+        "q": "Swelling/bruising?",
+        "a": "Typically resolves in 2–5 days."
+      }
+    ]
+  },
+  "belotero": {
+    "slug": "belotero",
+    "category": "anti-aging",
+    "name": "Belotero",
+    "tagline": "CPM-formulated HA filler line that integrates smoothly",
+    "intro": "Belotero from Merz (Germany) uses patented CPM (Cohesive Polydensified Matrix) technology to blend seamlessly with tissue while preserving natural expression. Available in Soft · Balance · Intense · Volume for zone-specific customization.",
+    "manufacturer": "Merz (Germany)",
+    "tech": [
+      "HA filler",
+      "CPM",
+      "4-Line",
+      "Lidocaine"
+    ],
+    "highlightStat": {
+      "value": "4 Lines",
+      "label": "Soft · Balance · Intense · Volume"
+    },
+    "features": [
+      {
+        "title": "Natural expression",
+        "body": "CPM blends into tissue and moves with your face."
+      },
+      {
+        "title": "Zone-specific",
+        "body": "Choose from 4 formulas for tear troughs, folds, lips, or volume."
+      },
+      {
+        "title": "Smooth finish",
+        "body": "Even spread with no lumping for a smooth surface."
+      },
+      {
+        "title": "Comfort",
+        "body": "Contains lidocaine to minimize discomfort."
+      }
+    ],
+    "howItWorks": "CPM-formulated HA gels with layered density integrate uniformly, supporting volume, texture, and expression.",
+    "recommendedFor": [
+      "Tear troughs",
+      "Nasolabial folds",
+      "Lip volume",
+      "Those wanting natural expression"
+    ],
+    "faq": [
+      {
+        "q": "Which line is right for me?",
+        "a": "We decide together based on zone and desired result."
+      },
+      {
+        "q": "Duration?",
+        "a": "6–12 months depending on line and area."
+      }
+    ]
   }
 }

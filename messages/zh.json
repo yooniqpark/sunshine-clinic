@@ -340,6 +340,16 @@
           {
             "label": "填充剂",
             "href": "/treatments/anti-aging/filler"
+          },
+          {
+            "label": "乔雅登 沃利芙",
+            "sub": "JUVÉDERM VOLIFT",
+            "href": "/treatments/anti-aging/juvederm"
+          },
+          {
+            "label": "贝罗特罗",
+            "sub": "BELOTERO",
+            "href": "/treatments/anti-aging/belotero"
           }
         ],
         "skin-disease": [

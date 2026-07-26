@@ -340,6 +340,16 @@
           {
             "label": "フィラー",
             "href": "/treatments/anti-aging/filler"
+          },
+          {
+            "label": "ジュビダーム ヴォリフト",
+            "sub": "JUVÉDERM VOLIFT",
+            "href": "/treatments/anti-aging/juvederm"
+          },
+          {
+            "label": "ベロテロ",
+            "sub": "BELOTERO",
+            "href": "/treatments/anti-aging/belotero"
           }
         ],
         "skin-disease": [

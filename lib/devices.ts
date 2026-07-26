@@ -89,6 +89,14 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
     englishName: "BELLALUX LED",
     featureKeywords: ["LED", "RED · BLUE", "PHOTOTHERAPY", "CALM"],
   },
+  juvederm: {
+    englishName: "JUVÉDERM VOLIFT",
+    featureKeywords: ["HA FILLER", "VYCROSS", "NATURAL", "LASTING"],
+  },
+  belotero: {
+    englishName: "BELOTERO",
+    featureKeywords: ["HA FILLER", "CPM", "SOFT", "NATURAL"],
+  },
 };
 
 export function getDeviceMarketing(slug: string): DeviceMarketingMeta | null {
@@ -111,6 +119,8 @@ const DEVICE_IMAGES: Record<string, string> = {
   "aqua-peel": "/devices/aqua-peel.png",
   ldm: "/devices/ldm.png",
   bellalux: "/devices/bellalux.png",
+  juvederm: "/devices/juvederm.png",
+  belotero: "/devices/belotero.png",
   ellanse: "/devices/ellanse.jpg",
 };
 
@@ -129,6 +139,7 @@ const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode", "ellanse"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
   acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2", "ldm", "bellalux"],
+  "anti-aging": ["juvederm", "belotero"],
 };
 
 export function getDevicesByCategory(

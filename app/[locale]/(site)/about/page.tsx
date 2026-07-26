@@ -7,12 +7,13 @@ import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 
 const DEVICE_CATEGORIES: {
-  slug: "lifting" | "whitening" | "acne";
+  slug: "lifting" | "whitening" | "acne" | "anti-aging";
   labelKey: string;
 }[] = [
   { slug: "lifting", labelKey: "리프팅" },
   { slug: "whitening", labelKey: "화이트닝 · 홍조" },
   { slug: "acne", labelKey: "여드름 · 흉터" },
+  { slug: "anti-aging", labelKey: "안티에이징" },
 ];
 
 type HistoryItem = { year: string; event: string };
