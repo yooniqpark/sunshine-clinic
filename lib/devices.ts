@@ -81,6 +81,10 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
     englishName: "AQUA PEEL",
     featureKeywords: ["HYDRO", "PEEL", "GENTLE", "GLOW"],
   },
+  ldm: {
+    englishName: "LDM SMART 1S",
+    featureKeywords: ["ULTRASOUND", "DUAL-FREQ", "BARRIER", "CALM"],
+  },
 };
 
 export function getDeviceMarketing(slug: string): DeviceMarketingMeta | null {
@@ -100,6 +104,7 @@ const DEVICE_IMAGES: Record<string, string> = {
   "mirajet-forte": "/devices/mirajet-forte.png",
   "markview-co2": "/devices/markview-co2.png",
   "aqua-peel": "/devices/aqua-peel.png",
+  ldm: "/devices/ldm.png",
   ellanse: "/devices/ellanse.jpg",
 };
 
@@ -117,7 +122,7 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode", "ellanse"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
-  acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2"],
+  acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2", "ldm"],
 };
 
 export function getDevicesByCategory(

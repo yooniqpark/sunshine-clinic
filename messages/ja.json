@@ -292,6 +292,11 @@
             "label": "アクアピール",
             "sub": "AQUA PEEL",
             "href": "/treatments/acne/aqua-peel"
+          },
+          {
+            "label": "LDM",
+            "sub": "LDM SMART 1S",
+            "href": "/treatments/acne/ldm"
           }
         ],
         "anti-aging": [

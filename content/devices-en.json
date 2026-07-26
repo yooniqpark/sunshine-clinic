@@ -766,5 +766,58 @@
         "a": "Low-irritation; intensity is adjusted per consultation."
       }
     ]
+  },
+  "ldm": {
+    "slug": "ldm",
+    "category": "acne",
+    "name": "LDM (Local Dynamic Micromassage)",
+    "tagline": "Dual-frequency ultrasound for barrier repair",
+    "intro": "LDM by Wellcomet uses two ultrasound frequencies alternating hundreds of times per second, delivering a micro-massage effect at the cellular level to calm and restore compromised skin.",
+    "manufacturer": "Wellcomet (Germany)",
+    "tech": [
+      "Dual-frequency",
+      "Ultrasound",
+      "Micro-massage",
+      "Non-invasive"
+    ],
+    "highlightStat": {
+      "value": "3 · 10 MHz",
+      "label": "Dual frequency"
+    },
+    "features": [
+      {
+        "title": "Barrier restoration",
+        "body": "Dual-frequency ultrasound calms the barrier and boosts hydration retention."
+      },
+      {
+        "title": "Post-laser recovery",
+        "body": "Rapidly reduces redness and heat after lasers or peels."
+      },
+      {
+        "title": "Inflammation calming",
+        "body": "Gently treats post-acne inflammation and sensitized skin."
+      },
+      {
+        "title": "No pain · no downtime",
+        "body": "Minimal stimulation — return to daily life immediately."
+      }
+    ],
+    "howItWorks": "Two frequencies (3MHz · 10MHz) alternate rapidly, inducing cellular vibration that boosts interstitial fluid circulation and cell regeneration signals.",
+    "recommendedFor": [
+      "Post-laser/peel recovery",
+      "Sensitive · redness-prone skin",
+      "Post-acne inflammation",
+      "Compromised skin barrier"
+    ],
+    "faq": [
+      {
+        "q": "How often?",
+        "a": "Weekly or bi-weekly sessions work best."
+      },
+      {
+        "q": "Pregnancy-safe?",
+        "a": "Facial use is generally safe; consultation confirms suitability."
+      }
+    ]
   }
 }
