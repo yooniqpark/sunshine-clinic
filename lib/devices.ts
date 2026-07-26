@@ -85,6 +85,10 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
     englishName: "LDM SMART 1S",
     featureKeywords: ["ULTRASOUND", "DUAL-FREQ", "BARRIER", "CALM"],
   },
+  bellalux: {
+    englishName: "BELLALUX LED",
+    featureKeywords: ["LED", "RED · BLUE", "PHOTOTHERAPY", "CALM"],
+  },
 };
 
 export function getDeviceMarketing(slug: string): DeviceMarketingMeta | null {
@@ -102,9 +106,11 @@ const DEVICE_IMAGES: Record<string, string> = {
   "secret-rf": "/devices/secret-rf.png",
   "carpri-co2": "/devices/carpri-co2.png",
   "mirajet-forte": "/devices/mirajet-forte.png",
+  "inmode-morpheus": "/devices/inmode-morpheus.png",
   "markview-co2": "/devices/markview-co2.png",
   "aqua-peel": "/devices/aqua-peel.png",
   ldm: "/devices/ldm.png",
+  bellalux: "/devices/bellalux.png",
   ellanse: "/devices/ellanse.jpg",
 };
 
@@ -122,7 +128,7 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode", "ellanse"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
-  acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2", "ldm"],
+  acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2", "ldm", "bellalux"],
 };
 
 export function getDevicesByCategory(

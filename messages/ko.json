@@ -297,6 +297,11 @@
             "label": "LDM",
             "sub": "LDM SMART 1S",
             "href": "/treatments/acne/ldm"
+          },
+          {
+            "label": "벨라룩스 LED",
+            "sub": "BELLALUX LED",
+            "href": "/treatments/acne/bellalux"
           }
         ],
         "anti-aging": [

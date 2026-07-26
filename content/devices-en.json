@@ -819,5 +819,58 @@
         "a": "Facial use is generally safe; consultation confirms suitability."
       }
     ]
+  },
+  "bellalux": {
+    "slug": "bellalux",
+    "category": "acne",
+    "name": "BellaLux LED",
+    "tagline": "Medical-grade multi-wavelength LED phototherapy",
+    "intro": "BellaLux delivers medical-grade LED light in multiple wavelengths — red, blue, and near-infrared — for targeted acne, calming, healing, and redness care.",
+    "manufacturer": "BellaLux",
+    "tech": [
+      "Multi-wavelength LED",
+      "Red · Blue · NIR",
+      "Photobiomodulation",
+      "Non-invasive"
+    ],
+    "highlightStat": {
+      "value": "415 · 630 · 830 nm",
+      "label": "Wavelengths"
+    },
+    "features": [
+      {
+        "title": "Acne bacteria control",
+        "body": "415nm blue light selectively suppresses P. acnes."
+      },
+      {
+        "title": "Calming · redness care",
+        "body": "630nm red light soothes inflammation and reduces redness."
+      },
+      {
+        "title": "Regeneration",
+        "body": "830nm NIR reaches deep dermis for cellular renewal."
+      },
+      {
+        "title": "Painless",
+        "body": "No heat or discomfort during treatment."
+      }
+    ],
+    "howItWorks": "Multi-wavelength LEDs trigger photobiological responses in the epidermis and dermis, activating cellular processes specific to each wavelength.",
+    "recommendedFor": [
+      "Inflammatory acne",
+      "Post-laser/peel recovery",
+      "Redness · sensitive skin",
+      "Collagen renewal"
+    ],
+    "faq": [
+      {
+        "q": "Is it painful?",
+        "a": "No pain or discomfort — very relaxing."
+      },
+      {
+        "q": "Standalone treatment?",
+        "a": "Works well alone and accelerates recovery when combined with other treatments."
+      }
+    ]
   }
 }
