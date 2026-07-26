@@ -282,6 +282,11 @@
             "label": "일반 흉터",
             "sub": "",
             "href": "/treatments/acne/general-scar"
+          },
+          {
+            "label": "마크뷰 CO2",
+            "sub": "MARKVIEW CO2",
+            "href": "/treatments/acne/markview-co2"
           }
         ],
         "anti-aging": [

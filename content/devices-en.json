@@ -660,5 +660,58 @@
         "a": "Typically 3–4 sessions at 3–4 week intervals."
       }
     ]
+  },
+  "markview-co2": {
+    "slug": "markview-co2",
+    "category": "acne",
+    "name": "MarkView CO2",
+    "tagline": "Fractional CO2 laser for scars, pigmentation and pores",
+    "intro": "MarkView CO2 is a fractional carbon-dioxide laser that precisely resurfaces scars, pores, and pigmented lesions. Micro-columns trigger dermal collagen renewal.",
+    "manufacturer": "MarkView",
+    "tech": [
+      "Fractional CO2",
+      "10600nm",
+      "Depth control",
+      "Scanner"
+    ],
+    "highlightStat": {
+      "value": "10600nm",
+      "label": "CO₂ wavelength"
+    },
+    "features": [
+      {
+        "title": "Scar & pore rebuild",
+        "body": "Precise micro-columns treat pitted scars and enlarged pores."
+      },
+      {
+        "title": "Pigmented lesion removal",
+        "body": "Safely removes age spots, milia and warts on the surface."
+      },
+      {
+        "title": "Depth & density control",
+        "body": "Fine-tune depth and scan density for each zone."
+      },
+      {
+        "title": "Collagen remodeling",
+        "body": "Deep dermal stimulation drives new collagen for lasting results."
+      }
+    ],
+    "howItWorks": "10600nm CO₂ laser is absorbed by water molecules, creating micro-columns that trigger surrounding tissue's natural healing response.",
+    "recommendedFor": [
+      "Acne scars",
+      "Enlarged pores",
+      "Age spots · milia · warts",
+      "Skin texture refinement"
+    ],
+    "faq": [
+      {
+        "q": "How much downtime?",
+        "a": "Depending on zone and intensity, typically 3–7 days of recovery."
+      },
+      {
+        "q": "Is it painful?",
+        "a": "Topical anesthetic is applied; you may feel warmth during treatment."
+      }
+    ]
   }
 }

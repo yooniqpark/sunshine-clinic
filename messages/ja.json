@@ -282,6 +282,11 @@
             "label": "一般的な傷跡",
             "sub": "",
             "href": "/treatments/acne/general-scar"
+          },
+          {
+            "label": "マークビュー CO2",
+            "sub": "MARKVIEW CO2",
+            "href": "/treatments/acne/markview-co2"
           }
         ],
         "anti-aging": [
