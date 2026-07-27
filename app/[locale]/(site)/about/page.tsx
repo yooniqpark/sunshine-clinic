@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+
+// 콘텐츠(장비/이미지) 변경이 즉시 반영되도록 60초 revalidate
+export const revalidate = 60;
+
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
