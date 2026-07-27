@@ -282,26 +282,6 @@
             "label": "일반 흉터",
             "sub": "",
             "href": "/treatments/acne/general-scar"
-          },
-          {
-            "label": "마크뷰 CO2",
-            "sub": "MARKVIEW CO2",
-            "href": "/treatments/acne/markview-co2"
-          },
-          {
-            "label": "아쿠아필",
-            "sub": "AQUA PEEL",
-            "href": "/treatments/acne/aqua-peel"
-          },
-          {
-            "label": "LDM",
-            "sub": "LDM SMART 1S",
-            "href": "/treatments/acne/ldm"
-          },
-          {
-            "label": "벨라룩스 LED",
-            "sub": "BELLALUX LED",
-            "href": "/treatments/acne/bellalux"
           }
         ],
         "anti-aging": [

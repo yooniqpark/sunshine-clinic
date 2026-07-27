@@ -282,26 +282,6 @@
             "label": "General scars",
             "sub": "",
             "href": "/treatments/acne/general-scar"
-          },
-          {
-            "label": "MarkView CO2",
-            "sub": "MARKVIEW CO2",
-            "href": "/treatments/acne/markview-co2"
-          },
-          {
-            "label": "Aqua Peel",
-            "sub": "AQUA PEEL",
-            "href": "/treatments/acne/aqua-peel"
-          },
-          {
-            "label": "LDM",
-            "sub": "LDM SMART 1S",
-            "href": "/treatments/acne/ldm"
-          },
-          {
-            "label": "BellaLux LED",
-            "sub": "BELLALUX LED",
-            "href": "/treatments/acne/bellalux"
           }
         ],
         "anti-aging": [
