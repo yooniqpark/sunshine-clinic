@@ -110,10 +110,15 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             const absOffset = Math.abs(offset);
             if (absOffset > 3) return null;
             const isActive = offset === 0;
-            const translateX = offset * 250;
-            const rotateY = offset * -32;
+            // 뒤로 밀린 느낌 강화: translateX 확대 + translateZ 뒤로 + 회전 각도 증가
+            const translateX = offset * 260;
+            const translateZ = isActive ? 0 : -140 * absOffset;
+            const rotateY = offset * -38;
             const z = isActive ? 100 : 50 - absOffset * 10;
-            const opacity = 1 - absOffset * 0.2;
+            const opacity = isActive ? 1 : 0.7 - (absOffset - 1) * 0.18;
+            // 필러(가로 이미지)는 세로가 안 맞으므로 중앙 정렬, 장비는 하단 정렬
+            const isFillerLike = d.slug === "juvederm" || d.slug === "belotero";
+            const imgPos = isFillerLike ? "object-center" : "object-bottom";
             return (
               <button
                 key={d.slug}
@@ -123,11 +128,11 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                 aria-current={isActive}
                 className={`absolute left-1/2 top-1/2 h-[450px] w-[300px] overflow-hidden rounded-2xl border transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-[600px] lg:w-[400px] ${
                   isActive
-                    ? "border-brand-dark bg-white shadow-2xl shadow-ink/25"
-                    : "border-ink/15 bg-white"
+                    ? "border-brand-dark bg-[#f5eee1] shadow-2xl shadow-ink/25"
+                    : "border-ink/15 bg-[#f5eee1]"
                 }`}
                 style={{
-                  transform: `translate(-50%, -50%) translateX(${translateX}px) rotateY(${rotateY}deg)`,
+                  transform: `translate(-50%, -50%) translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`,
                   zIndex: z,
                   opacity,
                 }}
@@ -139,7 +144,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     fill
                     draggable={false}
                     sizes="(max-width: 1024px) 300px, 400px"
-                    className="object-contain object-bottom"
+                    className={`object-contain ${imgPos}`}
                   />
                 )}
                 {/* 활성 카드 하단 그라디언트 + 라벨 */}
