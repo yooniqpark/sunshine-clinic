@@ -54,26 +54,35 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     if (prefersReduced) return;
 
     let raf = 0;
-    let lastTs = performance.now();
-    const SPEED = 240; // px/sec — 한 카드(약 300px)가 약 1.25초에 지나감
+    let lastTs = 0;
+    const SPEED = 600; // px/sec — 한 카드(약 300px)가 약 0.5초에 지나감
 
     const tick = (ts: number) => {
-      const dt = Math.min(64, ts - lastTs);
+      // 첫 프레임은 dt=0으로 시작해 워밍업 (초반 큰 점프 방지)
+      const dt = lastTs === 0 ? 0 : Math.min(64, ts - lastTs);
       lastTs = ts;
       if (!document.hidden && ts > pausedUntilRef.current) {
         const delta = (SPEED * dt) / 1000;
         const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
         if (nearEnd) {
           el.scrollTo({ left: 0, behavior: "smooth" });
-          pausedUntilRef.current = ts + 900; // 되감기 스무스 스크롤 방해 방지
+          pausedUntilRef.current = ts + 1000; // 되감기 스무스 스크롤 방해 방지
         } else {
           el.scrollLeft += delta;
         }
       }
       raf = window.requestAnimationFrame(tick);
     };
-    raf = window.requestAnimationFrame(tick);
-    return () => window.cancelAnimationFrame(raf);
+
+    // 이미지/레이아웃 안정화 대기 후 자동 스크롤 시작 (초기 버벅임 방지)
+    const startId = window.setTimeout(() => {
+      raf = window.requestAnimationFrame(tick);
+    }, 600);
+
+    return () => {
+      window.clearTimeout(startId);
+      if (raf) window.cancelAnimationFrame(raf);
+    };
   }, [items.length]);
 
   function scrollByCard(dir: 1 | -1) {
@@ -139,6 +148,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     src={d.img}
                     alt=""
                     fill
+                    priority={i < 5}
                     sizes="(max-width: 1024px) 300px, 420px"
                     className="object-cover object-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
                   />
