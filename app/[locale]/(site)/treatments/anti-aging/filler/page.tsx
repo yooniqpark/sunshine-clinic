@@ -32,18 +32,39 @@ export default async function FillerPage({
   return (
     <>
       {/* Hero */}
-      <section className="bg-cream py-20 lg:py-28">
-        <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
-          <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
-            ANTI-AGING · FILLER
+      <section className="relative overflow-hidden bg-ink text-cream">
+        <div className="absolute inset-0">
+          <Image
+            src="/models/anti-aging.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-45"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/70" />
+        </div>
+
+        <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-32 lg:px-8 lg:pb-32 lg:pt-40">
+          <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
+            <Link href="/home" className="hover:text-cream">HOME</Link>
+            <span>/</span>
+            <span className="text-cream/80">ANTI-AGING</span>
+            <span>/</span>
+            <span className="text-cream/70">필러</span>
+          </nav>
+
+          <p className="mt-16 text-[11px] font-bold tracking-[0.4em] text-brand-soft">
+            FILLER
           </p>
-          <h1 className="mt-6 font-serif text-4xl font-normal leading-[1.1] tracking-tight text-ink lg:text-[3.5rem]">
+          <h1 className="mt-6 font-serif text-[clamp(3rem,8vw,6.5rem)] font-normal leading-[1.02] tracking-tight">
             필러
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-[1.8] text-ink/65 lg:text-base">
-            볼륨·윤곽·잔주름 개선을 위한 HA · CaHA 필러를 개인의 얼굴 균형과
-            연조직 상태에 맞춰 안전하게 시술합니다. 종류별 특성을 이해하고
-            자연스러운 결과를 위한 최적 조합을 상담해 드립니다.
+          <p className="mt-8 max-w-2xl font-serif text-lg leading-relaxed text-cream/75 lg:text-2xl">
+            &ldquo;볼륨·윤곽·잔주름 개선을 위한 HA · CaHA 필러&rdquo;
+          </p>
+          <p className="mt-12 text-[10px] tracking-[0.3em] text-cream/40">
+            JUVÉDERM · BELOTERO · RADIESSE
           </p>
         </div>
       </section>
