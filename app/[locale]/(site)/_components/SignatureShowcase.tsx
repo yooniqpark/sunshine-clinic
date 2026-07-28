@@ -219,16 +219,16 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           aria-live="polite"
         >
           <div key={cur.slug + "-a"} style={{ animation: "sig-fade 0.7s cubic-bezier(0.22,1,0.36,1) both" }}>
-            <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
+            <p className="text-[9px] font-medium tracking-[0.28em] text-brand-dark lg:text-[10px]">
               {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
               {cur.meta ? ` · ${cur.meta}` : ` · ${cur.categoryLabel}`}
             </p>
             {cur.english && (
-              <p className="mt-3 font-serif text-[13px] tracking-[0.18em] text-ink/70">
+              <p className="mt-2.5 font-serif text-[11px] tracking-[0.18em] text-ink/70">
                 {cur.english}
               </p>
             )}
-            <h3 className="mt-2 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-ink [word-break:keep-all] lg:text-[2.75rem] xl:text-5xl">
+            <h3 className="mt-1.5 font-serif text-2xl font-normal leading-[1.1] tracking-tight text-ink [word-break:keep-all] lg:text-[2rem] xl:text-[2.5rem]">
               {cur.name}
             </h3>
           </div>
@@ -238,12 +238,12 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             className="flex flex-col justify-end"
             style={{ animation: "sig-fade 0.7s 80ms cubic-bezier(0.22,1,0.36,1) both" }}
           >
-            <p className="max-w-xl text-sm leading-[1.75] text-ink/70 lg:text-[15px]">
+            <p className="max-w-xl text-[12.5px] leading-[1.7] text-ink/70 lg:text-[13.5px]">
               {cur.description ?? cur.tagline}
             </p>
             <Link
               href={`/treatments/${cur.category}/${cur.slug}`}
-              className="mt-5 inline-flex w-fit items-center gap-3 border-b border-ink/30 pb-1.5 text-[11px] font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
+              className="mt-4 inline-flex w-fit items-center gap-2.5 border-b border-ink/30 pb-1 text-[10px] font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
             >
               제품 자세히 보기
               <span aria-hidden className="text-brand-dark">↗</span>
@@ -252,27 +252,52 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </article>
       </div>
 
-      {/* Controls */}
-      <div className="mt-10 flex items-center justify-between gap-6 lg:mt-12">
-        <div className="flex items-center justify-center gap-2 flex-1" aria-label="슬라이드 선택">
-          {items.map((it, i) => (
-            <button
-              key={it.slug}
-              type="button"
-              onClick={() => setIdx(i)}
-              aria-label={`${it.name} 보기`}
-              aria-current={i === idx}
-              className="group relative flex h-8 items-center px-1"
-            >
-              <span
-                className={`block h-[3px] rounded-full transition-all duration-500 ${
-                  i === idx ? "w-10 bg-brand-dark" : "w-4 bg-ink/25 group-hover:bg-ink/40"
+      {/* Thumbnail strip — 모든 제품 한 눈에, 클릭으로 이동 */}
+      <div className="mt-8 flex items-center gap-4 lg:mt-10">
+        <div
+          className="flex flex-1 gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-3"
+          aria-label="슬라이드 선택"
+        >
+          {items.map((it, i) => {
+            const isActive = i === idx;
+            return (
+              <button
+                key={it.slug}
+                type="button"
+                onClick={() => setIdx(i)}
+                aria-label={`${it.name} 보기`}
+                aria-current={isActive}
+                className={`group relative flex shrink-0 flex-col items-center overflow-hidden rounded-xl border transition-all duration-500 ${
+                  isActive
+                    ? "border-brand-dark bg-white shadow-md shadow-ink/10"
+                    : "border-ink/15 bg-white/60 hover:border-ink/40"
                 }`}
-              />
-            </button>
-          ))}
+                style={{ width: 92, height: 92 }}
+              >
+                {it.img && (
+                  <div className="relative h-full w-full">
+                    <Image
+                      src={it.img}
+                      alt=""
+                      fill
+                      sizes="92px"
+                      className={`object-contain p-2 transition ${
+                        isActive ? "opacity-100" : "opacity-70 group-hover:opacity-90"
+                      }`}
+                    />
+                  </div>
+                )}
+                {isActive && (
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-brand-dark"
+                  />
+                )}
+              </button>
+            );
+          })}
         </div>
-        <p className="font-serif text-sm tabular-nums text-ink/60">
+        <p className="hidden shrink-0 font-serif text-sm tabular-nums text-ink/60 sm:block">
           <span className="text-ink">{String(idx + 1).padStart(2, "0")}</span>
           <span aria-hidden className="mx-2 inline-block h-px w-4 align-middle bg-ink/30" />
           {String(total).padStart(2, "0")}
