@@ -139,7 +139,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     fill
                     draggable={false}
                     sizes="(max-width: 1024px) 300px, 400px"
-                    className="object-cover"
+                    className="object-contain"
                   />
                 )}
                 {/* 활성 카드 하단 그라디언트 + 라벨 */}
