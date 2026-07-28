@@ -55,7 +55,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
 
     let raf = 0;
     let lastTs = performance.now();
-    const SPEED = 120; // px/sec — 한 카드(약 300px)가 약 2.5초에 지나감
+    const SPEED = 240; // px/sec — 한 카드(약 300px)가 약 1.25초에 지나감
 
     const tick = (ts: number) => {
       const dt = Math.min(64, ts - lastTs);
