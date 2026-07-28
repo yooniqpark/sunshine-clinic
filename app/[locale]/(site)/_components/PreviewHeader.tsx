@@ -113,7 +113,7 @@ export function PreviewHeader() {
             height={64}
             className="h-12 w-12 -translate-y-[3px] object-contain lg:h-16 lg:w-16"
           />
-          <div className="flex items-baseline gap-2 leading-none">
+          <div className="flex items-baseline gap-2 whitespace-nowrap leading-none">
             <span
               className={`font-serif text-lg font-normal tracking-tight transition lg:text-2xl ${nameColor}`}
             >

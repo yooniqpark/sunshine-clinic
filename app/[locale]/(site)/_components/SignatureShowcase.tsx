@@ -76,7 +76,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
 
       {/* Coverflow stage */}
       <div
-        className="relative h-[440px] w-full overflow-hidden lg:h-[560px]"
+        className="relative h-[500px] w-full overflow-hidden lg:h-[640px]"
         style={{ perspective: "1400px" }}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
@@ -121,7 +121,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                 onClick={() => setIdx(i)}
                 aria-label={d.name}
                 aria-current={isActive}
-                className={`absolute left-1/2 top-1/2 h-[400px] w-[300px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-[520px] lg:w-[400px] ${
+                className={`absolute left-1/2 top-1/2 h-[450px] w-[300px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-[600px] lg:w-[400px] ${
                   isActive
                     ? "border-brand-dark bg-white shadow-2xl shadow-ink/25"
                     : "border-ink/15 bg-white"
@@ -139,7 +139,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     fill
                     draggable={false}
                     sizes="(max-width: 1024px) 300px, 400px"
-                    className="object-contain"
+                    className="object-contain object-bottom"
                   />
                 )}
                 {/* 활성 카드 하단 그라디언트 + 라벨 */}
