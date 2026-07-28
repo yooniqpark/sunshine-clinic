@@ -47,8 +47,11 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   function scrollByCard(dir: 1 | -1) {
     const el = scrollerRef.current;
     if (!el) return;
+    // 데스크톱: 한 페이지(≈4카드) 이동, 모바일: 1카드 이동
+    const isDesktop = window.innerWidth >= 1024;
     const first = el.querySelector<HTMLElement>("[data-card]");
-    const step = first ? first.offsetWidth + 24 : el.clientWidth * 0.8;
+    const cardStep = first ? first.offsetWidth + 24 : el.clientWidth * 0.8;
+    const step = isDesktop ? el.clientWidth - 32 : cardStep;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   }
 
@@ -74,7 +77,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(-1)}
           disabled={!canPrev}
           aria-label="이전"
-          className="absolute left-4 top-[220px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[300px] lg:grid"
+          className="absolute left-4 top-[210px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[200px] lg:grid"
         >
           ←
         </button>
@@ -83,7 +86,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(1)}
           disabled={!canNext}
           aria-label="다음"
-          className="absolute right-4 top-[220px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[300px] lg:grid"
+          className="absolute right-4 top-[210px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[200px] lg:grid"
         >
           →
         </button>
@@ -100,7 +103,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
-                className="group relative block h-[440px] w-[300px] overflow-hidden rounded-3xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 hover:border-brand-dark hover:shadow-xl hover:shadow-ink/15 lg:h-[600px] lg:w-[420px]"
+                className="group relative block h-[420px] w-[300px] overflow-hidden rounded-3xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 hover:border-brand-dark hover:shadow-xl hover:shadow-ink/15 lg:h-[400px] lg:w-[calc((100vw-6rem-72px)/4)] lg:max-w-[300px]"
               >
                 {/* Full-bleed image */}
                 {d.img && (
@@ -108,7 +111,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     src={d.img}
                     alt=""
                     fill
-                    sizes="(max-width: 1024px) 300px, 420px"
+                    sizes="(max-width: 1024px) 300px, 300px"
                     className="object-cover object-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
                   />
                 )}
