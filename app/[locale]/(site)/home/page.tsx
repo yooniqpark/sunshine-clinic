@@ -197,27 +197,26 @@ export default async function PreviewHome({
       <section className="relative overflow-hidden bg-[#e9e0d5] py-24 text-ink lg:py-32">
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <SignatureShowcase
-            items={getDevicesByCategory(locale as AppLocale, "lifting").map((d) => {
+            items={[
+              ...getDevicesByCategory(locale as AppLocale, "lifting"),
+              ...getDevicesByCategory(locale as AppLocale, "anti-aging"),
+            ].map((d) => {
               const parts = d.tagline?.split(/[,,·]|—|\s-\s/).map((s) => s.trim()).filter(Boolean) ?? [];
               const st: [string, string] | undefined =
                 parts.length >= 2 ? [parts[0] + ",", parts.slice(1).join(" ") + "."] : undefined;
               const mk = getDeviceMarketing(d.slug);
-              // 짧게 요약: 첫 문장(마침표까지)만 사용, 없으면 tagline 사용
-              const firstSentence = d.intro?.split(/[.。]/)[0]?.trim();
-              const shortDesc = firstSentence && firstSentence.length <= 80
-                ? firstSentence + "."
-                : d.tagline;
+              const catLabel = d.category === "anti-aging" ? "ANTI-AGING" : "LIFTING";
               return {
                 slug: d.slug,
                 name: d.name,
                 tagline: d.tagline,
                 english: mk?.englishName,
                 img: getDeviceImage(d.slug) ?? "",
-                category: "lifting",
-                categoryLabel: "LIFTING",
-                meta: "LIFTING",
+                category: d.category,
+                categoryLabel: catLabel,
+                meta: catLabel,
                 statement: st,
-                description: shortDesc,
+                description: d.tagline, // 짧게: tagline 한 줄만
               };
             })}
           />

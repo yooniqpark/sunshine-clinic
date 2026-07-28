@@ -110,14 +110,14 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       {/* Stage */}
       <div
         ref={stageRef}
-        className="grid grid-cols-1 gap-10 lg:grid-cols-[1.22fr_1fr] lg:gap-16"
+        className="grid grid-cols-1 gap-8 lg:grid-cols-[1.7fr_1fr] lg:gap-12"
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/* Visual */}
-        <div className="relative aspect-[4/5] w-full select-none overflow-hidden lg:aspect-[1.15/1]">
+        {/* Visual — 이미지 크게 */}
+        <div className="relative aspect-[3/4] w-full select-none overflow-hidden lg:aspect-[1.35/1]">
           {/* Mobile-only arrows overlaid on image */}
           <button
             type="button"
@@ -222,35 +222,23 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
 
           <div key={cur.slug} className="min-h-0" style={{ animation: "sig-fade 0.7s cubic-bezier(0.22,1,0.36,1) both" }}>
             {cur.english && (
-              <p className="mt-6 font-serif text-sm tracking-[0.18em] text-ink/70">
+              <p className="mt-4 font-serif text-[13px] tracking-[0.18em] text-ink/70">
                 {cur.english}
               </p>
             )}
-            <h3 className="mt-3 font-serif text-3xl font-normal leading-[1.15] tracking-tight text-ink [word-break:keep-all] lg:text-[2.75rem] xl:text-5xl">
+            <h3 className="mt-2 font-serif text-2xl font-normal leading-[1.15] tracking-tight text-ink [word-break:keep-all] lg:text-[2.25rem] xl:text-[2.75rem]">
               {cur.name}
             </h3>
 
-            {cur.statement && (
-              <p className="mt-6 font-serif text-xl leading-[1.4] tracking-tight text-ink [word-break:keep-all] lg:text-[1.625rem]">
-                <span className="block">{cur.statement[0]}</span>
-                <span className="block">{cur.statement[1]}</span>
-              </p>
-            )}
-            {!cur.statement && (
-              <p className="mt-6 font-serif text-xl leading-[1.4] tracking-tight text-ink [word-break:keep-all] lg:text-[1.625rem]">
-                {cur.tagline}
-              </p>
-            )}
-
-            <span aria-hidden className="mt-8 block h-px w-16 bg-ink/25" />
-
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-ink/70">
+            <p className="mt-4 max-w-sm text-[13px] leading-[1.7] text-ink/70 lg:text-sm">
               {cur.description ?? cur.tagline}
             </p>
 
+            <span aria-hidden className="mt-6 block h-px w-14 bg-ink/25" />
+
             <Link
               href={`/treatments/${cur.category}/${cur.slug}`}
-              className="mt-8 inline-flex items-center gap-3 border-b border-ink/30 pb-1.5 text-xs font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
+              className="mt-6 inline-flex items-center gap-3 border-b border-ink/30 pb-1.5 text-[11px] font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
             >
               제품 자세히 보기
               <span aria-hidden className="text-brand-dark">↗</span>
