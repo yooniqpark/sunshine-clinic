@@ -116,101 +116,77 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/* Visual — 풀와이드 · 큰 이미지 */}
-        <div className="relative aspect-[3/4] w-full select-none overflow-hidden sm:aspect-[4/3] lg:aspect-[2.4/1] lg:min-h-[520px]">
-          {/* Mobile-only arrows overlaid on image */}
-          <button
-            type="button"
-            onClick={prev}
-            aria-label="이전"
-            className="absolute left-2 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink backdrop-blur transition hover:bg-white lg:hidden"
-          >
-            ←
-          </button>
-          <button
-            type="button"
-            onClick={next}
-            aria-label="다음"
-            className="absolute right-2 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink backdrop-blur transition hover:bg-white lg:hidden"
-          >
-            →
-          </button>
-
-          {/* Halo circles */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[90%] w-[90%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-soft/50"
-          />
-          <span
-            aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-brand-soft/40"
-          />
-
-          {/* Ghost number */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute left-4 top-2 select-none font-serif leading-none text-ink/[0.06] lg:text-[14rem]"
-            style={{ fontSize: "clamp(6rem, 14vw, 14rem)" }}
-          >
-            {String(idx + 1).padStart(2, "0")}
-          </span>
-
-          {/* Image slides — 활성 카드 옆으로 이전/다음이 살짝 겹쳐 보임 */}
-          {items.map((d, i) => {
-            // relative offset in [-N..N] range, wrap
-            let offset = i - idx;
-            if (offset > total / 2) offset -= total;
-            if (offset < -total / 2) offset += total;
-
-            let cls = "opacity-0 scale-75 pointer-events-none";
-            let z = 0;
-            if (offset === 0) {
-              cls = "translate-x-0 scale-100 opacity-100";
-              z = 30;
-            } else if (offset === -1) {
-              cls = "-translate-x-[38%] scale-[0.72] opacity-30 blur-[1px]";
-              z = 10;
-            } else if (offset === 1) {
-              cls = "translate-x-[38%] scale-[0.72] opacity-30 blur-[1px]";
-              z = 10;
-            } else if (offset === -2) {
-              cls = "-translate-x-[62%] scale-[0.55] opacity-10 blur-[2px]";
-              z = 5;
-            } else if (offset === 2) {
-              cls = "translate-x-[62%] scale-[0.55] opacity-10 blur-[2px]";
-              z = 5;
-            }
-
-            return (
-              <div
-                key={d.slug}
-                aria-hidden={i !== idx}
-                style={{ zIndex: z }}
-                className={`absolute inset-0 flex items-center justify-center transition-all duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${cls}`}
-              >
-                {d.img && (
-                  <Image
-                    src={d.img}
-                    alt=""
-                    fill
-                    draggable={false}
-                    sizes="(max-width: 1024px) 100vw, 55vw"
-                    className="object-contain"
-                  />
-                )}
-              </div>
-            );
-          })}
-
-          {/* Reflection */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute inset-x-[10%] bottom-0 h-24 rounded-[50%] blur-2xl"
-            style={{
-              background:
-                "radial-gradient(ellipse at center, rgba(24,19,15,0.14) 0%, rgba(24,19,15,0) 70%)",
-            }}
-          />
+        {/* Visual — 모든 제품을 가로 스트립으로 · 활성 카드 크게 · 나머지도 다 보임 */}
+        <div className="relative w-full select-none">
+          <div className="flex items-stretch gap-3 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5">
+            {items.map((d, i) => {
+              const isActive = i === idx;
+              return (
+                <button
+                  key={d.slug}
+                  type="button"
+                  onClick={() => setIdx(i)}
+                  aria-label={`${d.name} 보기`}
+                  aria-current={isActive}
+                  className={`group relative flex shrink-0 flex-col items-center overflow-hidden rounded-2xl border transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isActive
+                      ? "border-brand-dark bg-white shadow-xl shadow-ink/15"
+                      : "border-ink/15 bg-white/50 hover:border-ink/40 hover:bg-white/80"
+                  }`}
+                  style={{
+                    width: isActive ? "min(56vw, 460px)" : "min(28vw, 220px)",
+                    height: "min(70vw, 520px)",
+                    maxHeight: 520,
+                    minHeight: 320,
+                  }}
+                >
+                  {d.img && (
+                    <div className="relative h-full w-full">
+                      <Image
+                        src={d.img}
+                        alt=""
+                        fill
+                        draggable={false}
+                        sizes="(max-width: 1024px) 60vw, 40vw"
+                        className={`object-contain p-4 transition duration-500 ${
+                          isActive
+                            ? "opacity-100 scale-100"
+                            : "opacity-75 scale-95 group-hover:opacity-95 group-hover:scale-100"
+                        }`}
+                      />
+                    </div>
+                  )}
+                  {/* 하단 라벨 */}
+                  <div
+                    className={`pointer-events-none absolute inset-x-0 bottom-0 px-4 pb-4 text-center transition ${
+                      isActive ? "opacity-100" : "opacity-70 group-hover:opacity-100"
+                    }`}
+                  >
+                    <p
+                      className={`text-[9px] font-medium tracking-[0.24em] ${
+                        isActive ? "text-brand-dark" : "text-ink/45"
+                      }`}
+                    >
+                      {String(i + 1).padStart(2, "0")}
+                    </p>
+                    <p
+                      className={`mt-1 font-serif tracking-tight ${
+                        isActive ? "text-base text-ink lg:text-lg" : "text-xs text-ink/60 lg:text-sm"
+                      }`}
+                    >
+                      {d.name}
+                    </p>
+                  </div>
+                  {isActive && (
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-x-6 top-3 h-px bg-brand-dark/40"
+                    />
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Copy — 이미지 아래, 풀와이드 · 좌측: 카테고리+영문+이름, 우측: 설명+CTA */}
@@ -252,52 +228,9 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </article>
       </div>
 
-      {/* Thumbnail strip — 모든 제품 한 눈에, 클릭으로 이동 */}
-      <div className="mt-8 flex items-center gap-4 lg:mt-10">
-        <div
-          className="flex flex-1 gap-2 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-3"
-          aria-label="슬라이드 선택"
-        >
-          {items.map((it, i) => {
-            const isActive = i === idx;
-            return (
-              <button
-                key={it.slug}
-                type="button"
-                onClick={() => setIdx(i)}
-                aria-label={`${it.name} 보기`}
-                aria-current={isActive}
-                className={`group relative flex shrink-0 flex-col items-center overflow-hidden rounded-xl border transition-all duration-500 ${
-                  isActive
-                    ? "border-brand-dark bg-white shadow-md shadow-ink/10"
-                    : "border-ink/15 bg-white/60 hover:border-ink/40"
-                }`}
-                style={{ width: 92, height: 92 }}
-              >
-                {it.img && (
-                  <div className="relative h-full w-full">
-                    <Image
-                      src={it.img}
-                      alt=""
-                      fill
-                      sizes="92px"
-                      className={`object-contain p-2 transition ${
-                        isActive ? "opacity-100" : "opacity-70 group-hover:opacity-90"
-                      }`}
-                    />
-                  </div>
-                )}
-                {isActive && (
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-brand-dark"
-                  />
-                )}
-              </button>
-            );
-          })}
-        </div>
-        <p className="hidden shrink-0 font-serif text-sm tabular-nums text-ink/60 sm:block">
+      {/* 우측 카운터만 유지 */}
+      <div className="mt-6 flex items-center justify-end lg:mt-8">
+        <p className="font-serif text-sm tabular-nums text-ink/60">
           <span className="text-ink">{String(idx + 1).padStart(2, "0")}</span>
           <span aria-hidden className="mx-2 inline-block h-px w-4 align-middle bg-ink/30" />
           {String(total).padStart(2, "0")}
