@@ -105,12 +105,6 @@ export async function POST(req: Request) {
   const visitorId = hashVisitor(ip, ua);
   const deviceType = detectDevice(ua);
 
-  // Vercel Edge geo 헤더 (배포 시 자동 주입)
-  const country = req.headers.get("x-vercel-ip-country") || null;
-  const region = req.headers.get("x-vercel-ip-country-region") || null;
-  const cityRaw = req.headers.get("x-vercel-ip-city") || null;
-  const city = cityRaw ? decodeURIComponent(cityRaw) : null;
-
   try {
     await prisma.pageView.create({
       data: {
@@ -119,9 +113,6 @@ export async function POST(req: Request) {
         visitorId,
         referrer,
         deviceType,
-        country,
-        region,
-        city,
         utmSource,
         utmMedium,
         utmCampaign,
