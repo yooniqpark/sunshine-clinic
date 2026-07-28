@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useRef, useState } from "react";
 import { Link } from "@/i18n/navigation";
 
 type Item = {
@@ -18,41 +15,12 @@ type Item = {
 };
 
 /**
- * SIGNATURE SHOWCASE — Coverflow 3D 캐러셀
- * · 활성 카드가 중앙에서 앞으로, 좌우 카드는 각도 회전으로 뒤로
- * · 카드 전체를 제품 사진으로 꽉 채움 (여백 없음)
- * · 하단 카피(카테고리·이름·설명·CTA)는 활성 카드 기준으로 노출
+ * SIGNATURE SELECTION — 에디토리얼 인덱스 리스트
+ * · 카드/캐러셀 없음. 일렬 리스트로 전체 장비 노출
+ * · 좌측 넘버·카테고리 · 중앙 한글명·영문명·설명 · 우측 썸네일
  */
 export function SignatureShowcase({ items }: { items: Item[] }) {
-  const [idx, setIdx] = useState(0);
-  const total = items.length;
-  const startX = useRef<number | null>(null);
-  const startY = useRef<number | null>(null);
-
-  function next() {
-    setIdx((i) => (i + 1) % total);
-  }
-  function prev() {
-    setIdx((i) => (i - 1 + total) % total);
-  }
-
-  function onTouchStart(e: React.TouchEvent) {
-    startX.current = e.touches[0].clientX;
-    startY.current = e.touches[0].clientY;
-  }
-  function onTouchEnd(e: React.TouchEvent) {
-    if (startX.current == null || startY.current == null) return;
-    const dx = e.changedTouches[0].clientX - startX.current;
-    const dy = e.changedTouches[0].clientY - startY.current;
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.4) {
-      dx < 0 ? next() : prev();
-    }
-    startX.current = null;
-    startY.current = null;
-  }
-
-  if (total === 0) return null;
-  const cur = items[idx];
+  if (items.length === 0) return null;
 
   return (
     <div className="relative w-full">
@@ -64,155 +32,63 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           </p>
         </div>
         <p className="hidden items-center gap-3 text-[10px] font-medium tracking-[0.32em] text-ink/50 md:flex">
-          DRAG TO EXPLORE
+          TOTAL {String(items.length).padStart(2, "0")}
           <span aria-hidden className="block h-px w-16 bg-ink/30" />
         </p>
       </div>
 
-      {/* Coverflow stage */}
-      <div
-        className="relative h-[500px] w-full overflow-hidden lg:h-[640px]"
-        style={{ perspective: "1400px" }}
-        onTouchStart={onTouchStart}
-        onTouchEnd={onTouchEnd}
-      >
-        {/* Prev/Next arrows */}
-        <button
-          type="button"
-          onClick={prev}
-          aria-label="이전"
-          className="absolute left-4 top-1/2 z-30 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink backdrop-blur transition hover:border-ink hover:bg-white lg:left-8"
-        >
-          ←
-        </button>
-        <button
-          type="button"
-          onClick={next}
-          aria-label="다음"
-          className="absolute right-4 top-1/2 z-30 grid h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink backdrop-blur transition hover:border-ink hover:bg-white lg:right-8"
-        >
-          →
-        </button>
+      {/* List */}
+      <ul className="border-t border-ink/15">
+        {items.map((d, i) => (
+          <li
+            key={d.slug}
+            className="group border-b border-ink/15"
+          >
+            <Link
+              href={`/treatments/${d.category}/${d.slug}`}
+              className="grid grid-cols-[36px_1fr_72px] items-center gap-4 py-5 transition-colors hover:bg-ink/[0.03] lg:grid-cols-[60px_1fr_1fr_88px] lg:gap-8 lg:py-7"
+            >
+              {/* Index */}
+              <span className="font-serif text-sm italic text-ink/45 lg:text-base">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-        <div
-          className="relative h-full w-full"
-          style={{ transformStyle: "preserve-3d" }}
-        >
-          {items.map((d, i) => {
-            let offset = i - idx;
-            if (offset > total / 2) offset -= total;
-            if (offset < -total / 2) offset += total;
-            const absOffset = Math.abs(offset);
-            if (absOffset > 3) return null;
-            const isActive = offset === 0;
-            // 뒤로 밀린 느낌 강화: translateX 확대 + translateZ 뒤로 + 회전 각도 증가
-            const translateX = offset * 260;
-            const translateZ = isActive ? 0 : -140 * absOffset;
-            const rotateY = offset * -38;
-            const z = isActive ? 100 : 50 - absOffset * 10;
-            const opacity = isActive ? 1 : 0.7 - (absOffset - 1) * 0.18;
-            // 필러(가로 이미지)는 세로가 안 맞으므로 중앙 정렬, 장비는 하단 정렬
-            const imgPos = "object-center";
-            return (
-              <button
-                key={d.slug}
-                type="button"
-                onClick={() => setIdx(i)}
-                aria-label={d.name}
-                aria-current={isActive}
-                className={`absolute left-1/2 top-1/2 h-[450px] w-[300px] overflow-hidden rounded-2xl border transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-[600px] lg:w-[400px] ${
-                  isActive
-                    ? "border-brand-dark bg-[#f5eee1] shadow-2xl shadow-ink/25"
-                    : "border-ink/15 bg-[#f5eee1]"
-                }`}
-                style={{
-                  transform: `translate(-50%, -50%) translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg)`,
-                  zIndex: z,
-                  opacity,
-                }}
-              >
+              {/* Name + english */}
+              <div className="min-w-0">
+                <p className="text-[9px] font-medium tracking-[0.28em] text-brand-dark lg:text-[10px]">
+                  {d.categoryLabel}
+                </p>
+                <h3 className="mt-1.5 truncate font-serif text-xl font-normal tracking-tight text-ink lg:text-2xl">
+                  {d.name}
+                </h3>
+                {d.english && (
+                  <p className="mt-1 font-serif text-[11px] tracking-[0.16em] text-ink/45 lg:text-xs">
+                    {d.english}
+                  </p>
+                )}
+              </div>
+
+              {/* Description (desktop only) */}
+              <p className="hidden text-[13px] leading-[1.7] text-ink/60 lg:block">
+                {d.description ?? d.tagline}
+              </p>
+
+              {/* Thumbnail */}
+              <div className="relative aspect-square w-full overflow-hidden rounded-md bg-[#f5eee1]">
                 {d.img && (
                   <Image
                     src={d.img}
                     alt=""
                     fill
-                    draggable={false}
-                    sizes="(max-width: 1024px) 300px, 400px"
-                    className={`object-contain ${imgPos}`}
+                    sizes="(max-width: 1024px) 72px, 88px"
+                    className="object-contain object-center p-1.5 transition-transform duration-500 group-hover:scale-105"
                   />
                 )}
-                {/* 활성 카드 하단 그라디언트 + 라벨 */}
-                {isActive && (
-                  <>
-                    <span
-                      aria-hidden
-                      className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-ink/70 via-ink/25 to-transparent"
-                    />
-                    <div className="pointer-events-none absolute inset-x-0 bottom-4 z-10 px-5 text-center text-cream">
-                      <p className="text-[9px] font-medium tracking-[0.28em] text-brand-soft">
-                        {String(i + 1).padStart(2, "0")} · {d.categoryLabel}
-                      </p>
-                      <p className="mt-1 font-serif text-lg tracking-tight lg:text-xl">
-                        {d.name}
-                      </p>
-                    </div>
-                  </>
-                )}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Copy — 활성 카드 정보 */}
-      <div
-        key={cur.slug + "-copy"}
-        className="mt-10 grid gap-6 lg:mt-12 lg:grid-cols-[1fr_1.15fr] lg:gap-16"
-        style={{ animation: "sig-fade 0.7s cubic-bezier(0.22,1,0.36,1) both" }}
-      >
-        <div>
-          <p className="text-[10px] font-medium tracking-[0.28em] text-brand-dark lg:text-[11px]">
-            {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")} · {cur.categoryLabel}
-          </p>
-          {cur.english && (
-            <p className="mt-3 font-serif text-[12px] tracking-[0.18em] text-ink/70">
-              {cur.english}
-            </p>
-          )}
-          <h3 className="mt-2 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-ink [word-break:keep-all] lg:text-[2.75rem] xl:text-5xl">
-            {cur.name}
-          </h3>
-        </div>
-        <div className="flex flex-col justify-end">
-          <p className="max-w-xl text-[13px] leading-[1.75] text-ink/70 lg:text-[14px]">
-            {cur.description ?? cur.tagline}
-          </p>
-          <Link
-            href={`/treatments/${cur.category}/${cur.slug}`}
-            className="mt-5 inline-flex w-fit items-center gap-2.5 border-b border-ink/30 pb-1 text-[11px] font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
-          >
-            제품 자세히 보기
-            <span aria-hidden className="text-brand-dark">↗</span>
-          </Link>
-        </div>
-      </div>
-
-      {/* 도트 인디케이터 */}
-      <div className="mt-8 flex items-center justify-center gap-2">
-        {items.map((_, i) => (
-          <button
-            key={i}
-            type="button"
-            onClick={() => setIdx(i)}
-            aria-label={`슬라이드 ${i + 1}`}
-            className={`h-1 rounded-full transition-all duration-500 ${
-              i === idx ? "w-10 bg-brand-dark" : "w-2 bg-ink/25 hover:bg-ink/45"
-            }`}
-          />
+              </div>
+            </Link>
+          </li>
         ))}
-      </div>
-
-      <style>{`@keyframes sig-fade { 0% { opacity: 0; transform: translateY(10px);} 100% { opacity: 1; transform: translateY(0);} }`}</style>
+      </ul>
     </div>
   );
 }
