@@ -27,6 +27,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   const scrollerRef = useRef<HTMLUListElement | null>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const pausedUntilRef = useRef(0);
 
   useEffect(() => {
     const el = scrollerRef.current;
@@ -54,16 +55,17 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
 
     let raf = 0;
     let lastTs = performance.now();
-    const SPEED = 40; // px/sec — 한 카드(약 300px)가 약 7~8초에 지나감
+    const SPEED = 120; // px/sec — 한 카드(약 300px)가 약 2.5초에 지나감
 
     const tick = (ts: number) => {
       const dt = Math.min(64, ts - lastTs);
       lastTs = ts;
-      if (!document.hidden) {
+      if (!document.hidden && ts > pausedUntilRef.current) {
         const delta = (SPEED * dt) / 1000;
         const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
         if (nearEnd) {
           el.scrollTo({ left: 0, behavior: "smooth" });
+          pausedUntilRef.current = ts + 900; // 되감기 스무스 스크롤 방해 방지
         } else {
           el.scrollLeft += delta;
         }
@@ -77,11 +79,10 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   function scrollByCard(dir: 1 | -1) {
     const el = scrollerRef.current;
     if (!el) return;
-    // 데스크톱: 한 페이지(≈4카드) 이동, 모바일: 1카드 이동
-    const isDesktop = window.innerWidth >= 1024;
-    const first = el.querySelector<HTMLElement>("[data-card]");
-    const cardStep = first ? first.offsetWidth + 24 : el.clientWidth * 0.8;
-    const step = isDesktop ? el.clientWidth - 32 : cardStep;
+    // 화살표 클릭 시엔 rAF 자동 스크롤이 방해되지 않도록 잠시 pause
+    pausedUntilRef.current = performance.now() + 900;
+    // 화살표는 페이지 단위(가시 영역 폭)로 크게 이동
+    const step = el.clientWidth;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   }
 
