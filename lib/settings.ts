@@ -33,7 +33,7 @@ export type SiteSettings = {
 };
 
 export const SETTINGS_DEFAULTS: SiteSettings = {
-  clinicName: "Sunshine 피부과",
+  clinicName: "선샤인 클리닉",
   clinicNameEn: "SUNSHINE CLINIC",
   phone: "02-421-7588",
   phoneHref: "tel:024217588",

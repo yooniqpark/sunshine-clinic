@@ -501,7 +501,7 @@
       "heroKicker": "ABOUT SUNSHINE",
       "heroTitleLine1": "결을 다듬고",
       "heroTitleAccent": "일상을 밝히다",
-      "heroDesc": "선샤인의원은 대학병원에서 오랜 임상 경험을 쌓은 피부과 전문의가 직접 진료하는 로컬 클리닉입니다. 유행보다는 오래가는 아름다움을, 화려함보다는 건강한 회복을 지향합니다.",
+      "heroDesc": "선샤인의원은 대학병원에서 오랜 임상 경험을 쌓은 임상 경험을 바탕으로 진료하는 로컬 클리닉입니다. 유행보다는 오래가는 아름다움을, 화려함보다는 건강한 회복을 지향합니다.",
       "directorKicker": "DIRECTOR",
       "directorName": "김병현",
       "directorTitle": "대표원장",
@@ -928,7 +928,7 @@
           "kicker": "MEDICAL SKIN CLINIC",
           "heroLine1": "정확한 진단",
           "heroLine2": "정직한 치료",
-          "intro": "피부과 전문의로서 흔한 피부 질환부터 만성 질환까지, 근거 기반의 진료를 제공합니다.",
+          "intro": "흔한 피부 질환부터 만성 질환까지, 근거 기반의 진료를 제공합니다.",
           "process": [
             {
               "step": "01",

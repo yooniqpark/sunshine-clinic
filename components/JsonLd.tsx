@@ -38,7 +38,7 @@ export async function ClinicJsonLd({ locale }: { locale: string }) {
     url,
     telephone: s.phone,
     description:
-      "송파구 잠실 위치, 리프팅·안티에이징·화이트닝·여드름·피부질환을 전문의가 진료하는 피부과 의원.",
+      "선샤인 클리닉 · 리프팅 · 안티에이징 · 화이트닝 · 여드름 · 피부질환을 진료합니다.",
     address: {
       "@type": "PostalAddress",
       streetAddress: "올림픽로 102 서일빌딩 10층",
@@ -179,7 +179,7 @@ export function WebSiteJsonLd() {
     "@type": "WebSite",
     "@id": `${SITE_URL}/#website`,
     url: SITE_URL,
-    name: "Sunshine 피부과",
+    name: "선샤인 클리닉",
     inLanguage: ["ko", "en", "ja", "zh"],
     publisher: { "@id": `${SITE_URL}/#clinic` },
   };

@@ -501,7 +501,7 @@
       "heroKicker": "ABOUT SUNSHINE",
       "heroTitleLine1": "打磨肌肤纹理",
       "heroTitleAccent": "点亮平凡日常",
-      "heroDesc": "阳光皮肤科诊所是一家由在大学医院积累多年临床经验的皮肤科专科医生亲自诊疗的社区诊所。我们追求经得起时间考验的美,而非流行;追求健康的恢复,而非浮华。",
+      "heroDesc": "阳光皮肤科诊所是一家基于大学医院多年临床经验开设的社区诊所。我们追求经得起时间考验的美,而非流行;追求健康的恢复,而非浮华。",
       "directorKicker": "DIRECTOR",
       "directorName": "金炳贤",
       "directorTitle": "院长",
@@ -928,7 +928,7 @@
           "kicker": "MEDICAL SKIN CLINIC",
           "heroLine1": "精准诊断",
           "heroLine2": "诚实治疗",
-          "intro": "作为皮肤科专科医生,我们为从常见皮肤疾病到慢性疾病提供循证诊疗。",
+          "intro": "从常见皮肤疾病到慢性疾病,我们提供循证诊疗。",
           "process": [
             {
               "step": "01",

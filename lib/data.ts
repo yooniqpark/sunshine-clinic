@@ -201,9 +201,9 @@ export const categories: Record<string, Category> = {
     slug: "skin-disease",
     label: "피부질환",
     eyebrow: "SKIN DISEASE",
-    headline: "전문의가 진료하는\n피부 건강",
+    headline: "임상 경험 기반의\n피부 건강",
     description:
-      "미용 시술에 앞서, 피부과 전문의가 질환의 원인을 진단하고 근거 중심으로 치료합니다.",
+      "미용 시술에 앞서, 질환의 원인을 진단하고 근거 중심으로 치료합니다.",
     image: "",
     treatments: [
       { name: "무좀", summary: "곰팡이 감염을 정확히 진단하고 재발을 줄이는 치료." },
@@ -254,7 +254,7 @@ export const events: EventItem[] = [
     body: [
       "처짐과 주름이 신경 쓰이는 분들을 위해, 대표 리프팅 장비인 울쎄라와 써마지를 함께 받는 5월 한정 패키지를 준비했습니다.",
       "초음파(울쎄라)로 깊은 층을, 고주파(써마지)로 표층 탄력을 동시에 케어해 더 자연스럽고 탄탄한 결과를 기대할 수 있습니다.",
-      "시술 전 피부과 전문의의 상담을 통해 부위와 샷 수를 맞춤 설계해 드립니다.",
+      "시술 전 상담을 통해 부위와 샷 수를 맞춤 설계해 드립니다.",
     ],
   },
   {
@@ -262,7 +262,7 @@ export const events: EventItem[] = [
     tag: "FIRST VISIT",
     title: "첫 방문 피부 진단",
     period: "상시 진행",
-    desc: "피부과 전문의가 1:1로 분석하고 맞춤 플랜을 제안해 드립니다",
+    desc: "1:1로 분석하고 맞춤 플랜을 제안해 드립니다",
     image: "/events/event-2.svg",
     photo: "/models/concept.png",
     bgColor: "#ede7e2",
@@ -317,7 +317,7 @@ export const faq: FaqItem[] = [
   },
   {
     q: "상담 비용이 있나요?",
-    a: "방문 상담은 무료입니다. 피부과 전문의가 1:1로 피부 상태를 진단하고 맞춤 플랜을 제안해 드립니다.",
+    a: "방문 상담은 무료입니다. 1:1로 피부 상태를 진단하고 맞춤 플랜을 제안해 드립니다.",
     keywords: ["상담", "무료", "진단", "첫상담"],
   },
   {
