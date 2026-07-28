@@ -15,9 +15,9 @@ type Item = {
 };
 
 /**
- * SIGNATURE SELECTION — 에디토리얼 인덱스 리스트
- * · 카드/캐러셀 없음. 일렬 리스트로 전체 장비 노출
- * · 좌측 넘버·카테고리 · 중앙 한글명·영문명·설명 · 우측 썸네일
+ * SIGNATURE SELECTION — 카드 일렬 리스트 (가로 스크롤 스트립)
+ * · 모든 제품 카드가 일렬로 나열, 좌우 스크롤로 탐색
+ * · 각 카드: 정사각 이미지 + 카테고리 · 이름 · 영문
  */
 export function SignatureShowcase({ items }: { items: Item[] }) {
   if (items.length === 0) return null;
@@ -26,69 +26,59 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     <div className="relative w-full">
       {/* Heading row */}
       <div className="mb-10 flex items-end justify-between gap-6 lg:mb-14">
-        <div>
-          <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
-            SIGNATURE SELECTION
-          </p>
-        </div>
+        <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
+          SIGNATURE SELECTION
+        </p>
         <p className="hidden items-center gap-3 text-[10px] font-medium tracking-[0.32em] text-ink/50 md:flex">
-          TOTAL {String(items.length).padStart(2, "0")}
+          SCROLL →
           <span aria-hidden className="block h-px w-16 bg-ink/30" />
         </p>
       </div>
 
-      {/* List */}
-      <ul className="border-t border-ink/15">
-        {items.map((d, i) => (
-          <li
-            key={d.slug}
-            className="group border-b border-ink/15"
-          >
-            <Link
-              href={`/treatments/${d.category}/${d.slug}`}
-              className="grid grid-cols-[36px_1fr_72px] items-center gap-4 py-5 transition-colors hover:bg-ink/[0.03] lg:grid-cols-[60px_1fr_1fr_88px] lg:gap-8 lg:py-7"
-            >
-              {/* Index */}
-              <span className="font-serif text-sm italic text-ink/45 lg:text-base">
-                {String(i + 1).padStart(2, "0")}
-              </span>
+      {/* Horizontal card strip */}
+      <div className="-mx-5 overflow-x-auto pb-4 lg:-mx-8">
+        <ul className="flex gap-4 px-5 lg:gap-6 lg:px-8">
+          {items.map((d, i) => (
+            <li key={d.slug} className="shrink-0">
+              <Link
+                href={`/treatments/${d.category}/${d.slug}`}
+                className="group block w-[220px] lg:w-[260px]"
+              >
+                {/* Image tile */}
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 group-hover:border-brand-dark group-hover:shadow-lg group-hover:shadow-ink/10">
+                  {d.img && (
+                    <Image
+                      src={d.img}
+                      alt=""
+                      fill
+                      sizes="(max-width: 1024px) 220px, 260px"
+                      className="object-contain object-center p-6 transition-transform duration-700 group-hover:scale-105"
+                    />
+                  )}
+                  <span className="absolute left-4 top-4 font-serif text-[11px] italic text-ink/45">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
 
-              {/* Name + english */}
-              <div className="min-w-0">
-                <p className="text-[9px] font-medium tracking-[0.28em] text-brand-dark lg:text-[10px]">
-                  {d.categoryLabel}
-                </p>
-                <h3 className="mt-1.5 truncate font-serif text-xl font-normal tracking-tight text-ink lg:text-2xl">
-                  {d.name}
-                </h3>
-                {d.english && (
-                  <p className="mt-1 font-serif text-[11px] tracking-[0.16em] text-ink/45 lg:text-xs">
-                    {d.english}
+                {/* Caption */}
+                <div className="mt-4">
+                  <p className="text-[9px] font-medium tracking-[0.28em] text-brand-dark lg:text-[10px]">
+                    {d.categoryLabel}
                   </p>
-                )}
-              </div>
-
-              {/* Description (desktop only) */}
-              <p className="hidden text-[13px] leading-[1.7] text-ink/60 lg:block">
-                {d.description ?? d.tagline}
-              </p>
-
-              {/* Thumbnail */}
-              <div className="relative aspect-square w-full overflow-hidden rounded-md bg-[#f5eee1]">
-                {d.img && (
-                  <Image
-                    src={d.img}
-                    alt=""
-                    fill
-                    sizes="(max-width: 1024px) 72px, 88px"
-                    className="object-contain object-center p-1.5 transition-transform duration-500 group-hover:scale-105"
-                  />
-                )}
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+                  <h3 className="mt-1.5 font-serif text-lg font-normal tracking-tight text-ink transition-colors group-hover:text-brand-dark lg:text-xl">
+                    {d.name}
+                  </h3>
+                  {d.english && (
+                    <p className="mt-1 font-serif text-[10px] tracking-[0.16em] text-ink/45 lg:text-[11px]">
+                      {d.english}
+                    </p>
+                  )}
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
