@@ -55,11 +55,9 @@ export function AnnouncementPopups() {
   // 현재 event 팝업이면 → 팝업을 완전히 닫지 말고 가격표 팝업으로 전환
   const requestClose = useCallback(() => {
     const cur = queue[0];
-    const isDesktop =
-      typeof window !== "undefined" && window.innerWidth >= 1024;
+    // event 팝업이고 아직 가격표를 보지 않았다면 → 가격표 fallback 뷰로 전환
     if (
       cur?.variant === "event" &&
-      isDesktop &&
       !desktopDetailSeen &&
       !pricingFallback
     ) {
@@ -89,7 +87,7 @@ export function AnnouncementPopups() {
   }
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-center justify-center px-3 pb-28 pt-4 sm:p-8">
+    <div className="fixed inset-0 z-[95] flex items-center justify-center px-3 py-4 sm:p-8">
       {/* backdrop click closes */}
       <button
         type="button"
