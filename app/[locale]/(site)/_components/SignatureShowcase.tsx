@@ -76,7 +76,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     };
   }, []);
 
-  // 자동 스크롤: 3.5초마다 한 카드씩 이동, 끝에 도달하면 처음으로 되감기
+  // 자동 스크롤: rAF로 매 프레임 소량씩 이동 → 마르퀴 같은 연속 흐름
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el || items.length <= 1) return;
@@ -84,21 +84,26 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
 
-    const tick = () => {
-      if (pausedRef.current) return;
-      if (document.hidden) return;
-      const first = el.querySelector<HTMLElement>("[data-card]");
-      const step = first ? first.offsetWidth + 24 : el.clientWidth * 0.8;
-      const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
-      if (nearEnd) {
-        el.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        el.scrollBy({ left: step, behavior: "smooth" });
-      }
-    };
+    let raf = 0;
+    let lastTs = performance.now();
+    const SPEED = 40; // px/sec — 한 카드(약 300px)가 약 7~8초에 지나감
 
-    const id = window.setInterval(tick, 3500);
-    return () => window.clearInterval(id);
+    const tick = (ts: number) => {
+      const dt = Math.min(64, ts - lastTs);
+      lastTs = ts;
+      if (!pausedRef.current && !document.hidden) {
+        const delta = (SPEED * dt) / 1000;
+        const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+        if (nearEnd) {
+          el.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          el.scrollLeft += delta;
+        }
+      }
+      raf = window.requestAnimationFrame(tick);
+    };
+    raf = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(raf);
   }, [items.length]);
 
   function scrollByCard(dir: 1 | -1) {
@@ -150,14 +155,14 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </button>
         <ul
           ref={scrollerRef}
-          className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
+          className="flex gap-4 overflow-x-auto px-5 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
           style={{ scrollBehavior: "smooth" }}
         >
           {items.map((d, i) => (
             <li
               key={d.slug}
               data-card
-              className="shrink-0 snap-start"
+              className="shrink-0"
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
