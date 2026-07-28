@@ -74,8 +74,12 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
     featureKeywords: ["MICRONEEDLE", "RF", "FRACTIONAL", "RESURFACE"],
   },
   "markview-co2": {
-    englishName: "MARKVIEW CO2",
+    englishName: "CO2",
     featureKeywords: ["FRACTIONAL", "CO2", "PRECISE", "RENEW"],
+  },
+  markview: {
+    englishName: "MARK-VU",
+    featureKeywords: ["AI", "ANALYSIS", "MULTI-WAVE", "REPORT"],
   },
   "aqua-peel": {
     englishName: "AQUA PEEL",
@@ -144,6 +148,7 @@ const DEVICE_IMAGES: Record<string, string> = {
   "mirajet-forte": "/devices/mirajet-forte.png?v=3",
   "inmode-morpheus": "/devices/inmode-morpheus.png",
   "markview-co2": "/devices/markview-co2.png",
+  markview: "/devices/markview.png",
   "aqua-peel": "/devices/aqua-peel.png?v=3",
   ldm: "/devices/ldm.png",
   bellalux: "/devices/bellalux.png",
@@ -173,7 +178,7 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
-  acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2", "ldm", "bellalux"],
+  acne: ["markview", "carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2", "ldm", "bellalux"],
   "anti-aging": ["rejuran", "rejuran-i", "juvelook", "elravie-re20", "cellredm", "skinvive", "radiesse", "juvederm", "belotero", "ellanse"],
 };
 
