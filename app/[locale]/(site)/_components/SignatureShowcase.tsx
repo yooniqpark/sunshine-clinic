@@ -61,37 +61,32 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
           SIGNATURE SELECTION
         </p>
-        <div className="hidden items-center gap-3 md:flex">
-          <p className="text-[10px] font-medium tracking-[0.32em] text-ink/50">
-            TOTAL {String(items.length).padStart(2, "0")}
-          </p>
-          <span aria-hidden className="block h-px w-12 bg-ink/25" />
-          {/* Desktop nav buttons */}
-          <div className="hidden gap-2 lg:flex">
-            <button
-              type="button"
-              onClick={() => scrollByCard(-1)}
-              disabled={!canPrev}
-              aria-label="이전"
-              className="grid h-11 w-11 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink transition hover:border-ink hover:bg-white disabled:opacity-30 disabled:hover:border-ink/25 disabled:hover:bg-white/70"
-            >
-              ←
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollByCard(1)}
-              disabled={!canNext}
-              aria-label="다음"
-              className="grid h-11 w-11 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink transition hover:border-ink hover:bg-white disabled:opacity-30 disabled:hover:border-ink/25 disabled:hover:bg-white/70"
-            >
-              →
-            </button>
-          </div>
-        </div>
+        <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/50 md:block">
+          TOTAL {String(items.length).padStart(2, "0")}
+        </p>
       </div>
 
       {/* Horizontal snap strip */}
-      <div className="-mx-5 lg:-mx-8">
+      <div className="relative -mx-5 lg:-mx-8">
+        {/* Desktop nav buttons — 슬라이드 세로 중심 */}
+        <button
+          type="button"
+          onClick={() => scrollByCard(-1)}
+          disabled={!canPrev}
+          aria-label="이전"
+          className="absolute left-4 top-[220px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[300px] lg:grid"
+        >
+          ←
+        </button>
+        <button
+          type="button"
+          onClick={() => scrollByCard(1)}
+          disabled={!canNext}
+          aria-label="다음"
+          className="absolute right-4 top-[220px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[300px] lg:grid"
+        >
+          →
+        </button>
         <ul
           ref={scrollerRef}
           className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
