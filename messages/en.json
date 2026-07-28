@@ -608,6 +608,12 @@
       "tagInfo": "INFO",
       "items": [
         {
+          "tag": "Notice",
+          "date": "2026.07.28",
+          "title": "Sedation monitoring system introduced",
+          "excerpt": "For safer, more comfortable care, we've introduced a sedation monitoring system. Vitals are continuously checked before, during, and after treatment. Use is decided in consultation with our staff based on the procedure and your condition."
+        },
+        {
           "tag": "OPEN",
           "date": "2026.07.15",
           "title": "Sunshine Clinic Grand Opening",
@@ -1089,6 +1095,20 @@
           }
         ],
         "footer": "Please refer to this schedule for your visit. Thank you."
+      },
+      "sedation": {
+        "brand": "SUNSHINE CLINIC",
+        "kicker": "SAFETY & COMFORT",
+        "title": "Sedation Monitoring System",
+        "subtitle": "For safer, more comfortable care",
+        "lead": "Sunshine Clinic has introduced a sedation monitoring system.",
+        "points": [
+          "Thorough pre-procedure health check",
+          "Continuous vital monitoring during the procedure",
+          "Careful post-procedure recovery observation"
+        ],
+        "note": "Whether sedation is used depends on the procedure and the patient's condition, decided after consultation with medical staff.",
+        "footer": "For details, please contact the clinic — we're happy to help."
       }
     }
   }

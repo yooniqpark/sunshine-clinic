@@ -8,12 +8,13 @@ import { GrandOpenCard } from "@/components/GrandOpenCard";
 
 type Popup = {
   id: string;
-  variant: "event" | "holiday";
+  variant: "event" | "holiday" | "sedation";
 };
 
 const POPUPS: Popup[] = [
   { id: "grand-open-2026-07-v3", variant: "event" },
   { id: "aug-2026-holiday", variant: "holiday" },
+  { id: "sedation-2026-07", variant: "sedation" },
 ];
 
 const KEY_PREFIX = "sunshine-popup:";
@@ -116,6 +117,8 @@ export function AnnouncementPopups() {
               }}
             />
           )
+        ) : current.variant === "sedation" ? (
+          <SedationCard />
         ) : (
           <HolidayCard />
         )}
@@ -547,6 +550,56 @@ function HolidayCard() {
       </div>
 
       <p className="pt-2 text-[11px] leading-relaxed text-cream/70">
+        {t("footer")}
+      </p>
+    </div>
+  );
+}
+
+function SedationCard() {
+  const t = useTranslations("v2.popups.sedation");
+  const points = t.raw("points") as string[];
+
+  return (
+    <div className="flex h-full flex-col overflow-y-auto px-8 pt-12 pb-10 text-cream sm:px-12 sm:pt-16 sm:pb-12">
+      <p className="text-center text-[10px] font-medium tracking-[0.3em] text-cream/70 drop-shadow">
+        {t("brand")} · {t("kicker")}
+      </p>
+      <h2 className="mt-5 text-center font-serif text-3xl leading-tight tracking-tight text-cream drop-shadow-md sm:text-4xl">
+        {t("title")}
+      </h2>
+      <p className="mt-3 text-center font-serif text-sm italic tracking-wide text-brand-soft drop-shadow sm:text-base">
+        {t("subtitle")}
+      </p>
+
+      <div className="my-auto py-6">
+        <p className="text-center text-[13px] leading-relaxed text-cream/85 drop-shadow sm:text-sm">
+          {t("lead")}
+        </p>
+
+        <ul className="mt-6 space-y-3">
+          {points.map((p, i) => (
+            <li
+              key={i}
+              className="flex items-start gap-3 rounded-2xl bg-white/10 px-4 py-3 text-[12px] leading-relaxed text-cream/90 ring-1 ring-white/15 backdrop-blur sm:text-[13px]"
+            >
+              <span
+                aria-hidden
+                className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-soft/25 font-serif text-[11px] text-brand-soft"
+              >
+                {i + 1}
+              </span>
+              <span>{p}</span>
+            </li>
+          ))}
+        </ul>
+
+        <p className="mt-6 rounded-xl border border-white/15 bg-ink/40 px-4 py-3 text-center text-[11px] leading-relaxed text-cream/75 backdrop-blur">
+          {t("note")}
+        </p>
+      </div>
+
+      <p className="pt-2 text-center text-[11px] leading-relaxed text-cream/70">
         {t("footer")}
       </p>
     </div>
