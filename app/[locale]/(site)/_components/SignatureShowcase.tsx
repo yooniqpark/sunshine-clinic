@@ -118,7 +118,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(-1)}
           disabled={!canPrev}
           aria-label="이전"
-          className="absolute left-4 top-[210px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[300px] lg:grid"
+          className="absolute left-4 top-[210px] z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 lg:top-[300px]"
         >
           ←
         </button>
@@ -127,7 +127,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(1)}
           disabled={!canNext}
           aria-label="다음"
-          className="absolute right-4 top-[210px] z-20 hidden h-12 w-12 -translate-y-1/2 place-items-center rounded-full border border-ink/20 bg-white/90 text-ink shadow-lg shadow-ink/10 backdrop-blur transition hover:border-ink hover:bg-white disabled:opacity-0 disabled:pointer-events-none lg:top-[300px] lg:grid"
+          className="absolute right-4 top-[210px] z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 lg:top-[300px]"
         >
           →
         </button>
