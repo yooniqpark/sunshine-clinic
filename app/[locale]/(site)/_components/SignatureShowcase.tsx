@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRef, useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
 
 type Item = {
@@ -15,11 +18,40 @@ type Item = {
 };
 
 /**
- * SIGNATURE SELECTION — 카드 일렬 리스트 (가로 스크롤 스트립)
- * · 모든 제품 카드가 일렬로 나열, 좌우 스크롤로 탐색
- * · 각 카드: 정사각 이미지 + 카테고리 · 이름 · 영문
+ * SIGNATURE SELECTION — 풀블리드 카드 가로 스크롤 스트립
+ * · 이미지가 카드 전체를 꽉 채움 (여백 없음)
+ * · 하단 그라디언트 위 이름 + 간단 설명 오버레이
+ * · 스크롤 스냅으로 부드럽게 이동, 데스크톱은 좌우 버튼
  */
 export function SignatureShowcase({ items }: { items: Item[] }) {
+  const scrollerRef = useRef<HTMLUListElement | null>(null);
+  const [canPrev, setCanPrev] = useState(false);
+  const [canNext, setCanNext] = useState(true);
+
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const update = () => {
+      setCanPrev(el.scrollLeft > 4);
+      setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+    };
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      el.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [items.length]);
+
+  function scrollByCard(dir: 1 | -1) {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const first = el.querySelector<HTMLElement>("[data-card]");
+    const step = first ? first.offsetWidth + 24 : el.clientWidth * 0.8;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  }
+
   if (items.length === 0) return null;
 
   return (
@@ -29,50 +61,90 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
           SIGNATURE SELECTION
         </p>
-        <p className="hidden items-center gap-3 text-[10px] font-medium tracking-[0.32em] text-ink/50 md:flex">
-          SCROLL →
-          <span aria-hidden className="block h-px w-16 bg-ink/30" />
-        </p>
+        <div className="hidden items-center gap-3 md:flex">
+          <p className="text-[10px] font-medium tracking-[0.32em] text-ink/50">
+            TOTAL {String(items.length).padStart(2, "0")}
+          </p>
+          <span aria-hidden className="block h-px w-12 bg-ink/25" />
+          {/* Desktop nav buttons */}
+          <div className="hidden gap-2 lg:flex">
+            <button
+              type="button"
+              onClick={() => scrollByCard(-1)}
+              disabled={!canPrev}
+              aria-label="이전"
+              className="grid h-11 w-11 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink transition hover:border-ink hover:bg-white disabled:opacity-30 disabled:hover:border-ink/25 disabled:hover:bg-white/70"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => scrollByCard(1)}
+              disabled={!canNext}
+              aria-label="다음"
+              className="grid h-11 w-11 place-items-center rounded-full border border-ink/25 bg-white/70 text-ink transition hover:border-ink hover:bg-white disabled:opacity-30 disabled:hover:border-ink/25 disabled:hover:bg-white/70"
+            >
+              →
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Horizontal card strip */}
-      <div className="-mx-5 overflow-x-auto pb-4 lg:-mx-8">
-        <ul className="flex gap-4 px-5 lg:gap-6 lg:px-8">
+      {/* Horizontal snap strip */}
+      <div className="-mx-5 lg:-mx-8">
+        <ul
+          ref={scrollerRef}
+          className="flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-5 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
+          style={{ scrollBehavior: "smooth" }}
+        >
           {items.map((d, i) => (
-            <li key={d.slug} className="shrink-0">
+            <li
+              key={d.slug}
+              data-card
+              className="shrink-0 snap-start"
+            >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
-                className="group block w-[320px] lg:w-[440px]"
+                className="group relative block h-[440px] w-[300px] overflow-hidden rounded-3xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 hover:border-brand-dark hover:shadow-xl hover:shadow-ink/15 lg:h-[600px] lg:w-[420px]"
               >
-                {/* Image tile */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 group-hover:border-brand-dark group-hover:shadow-xl group-hover:shadow-ink/15">
-                  {d.img && (
-                    <Image
-                      src={d.img}
-                      alt=""
-                      fill
-                      sizes="(max-width: 1024px) 320px, 440px"
-                      className="object-contain object-center p-10 transition-transform duration-700 group-hover:scale-105"
-                    />
-                  )}
-                  <span className="absolute left-6 top-6 font-serif text-sm italic text-ink/45 lg:text-base">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
+                {/* Full-bleed image */}
+                {d.img && (
+                  <Image
+                    src={d.img}
+                    alt=""
+                    fill
+                    sizes="(max-width: 1024px) 300px, 420px"
+                    className="object-cover object-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+                  />
+                )}
 
-                {/* Caption */}
-                <div className="mt-6">
-                  <p className="text-[10px] font-medium tracking-[0.28em] text-brand-dark lg:text-[11px]">
+                {/* Index badge */}
+                <span className="absolute left-5 top-5 z-10 rounded-full bg-white/70 px-3 py-1 font-serif text-xs italic text-ink/70 backdrop-blur">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+
+                {/* Bottom gradient */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent"
+                />
+
+                {/* Caption overlay */}
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-cream lg:p-7">
+                  <p className="text-[9px] font-medium tracking-[0.28em] text-brand-soft lg:text-[10px]">
                     {d.categoryLabel}
                   </p>
-                  <h3 className="mt-2 font-serif text-2xl font-normal tracking-tight text-ink transition-colors group-hover:text-brand-dark lg:text-3xl">
+                  <h3 className="mt-2 font-serif text-2xl font-normal leading-tight tracking-tight lg:text-3xl">
                     {d.name}
                   </h3>
                   {d.english && (
-                    <p className="mt-1.5 font-serif text-xs tracking-[0.16em] text-ink/45 lg:text-[13px]">
+                    <p className="mt-1 font-serif text-[11px] tracking-[0.16em] text-cream/60 lg:text-xs">
                       {d.english}
                     </p>
                   )}
+                  <p className="mt-3 line-clamp-2 text-[12px] leading-[1.55] text-cream/75 lg:text-[13px]">
+                    {d.description ?? d.tagline}
+                  </p>
                 </div>
               </Link>
             </li>
