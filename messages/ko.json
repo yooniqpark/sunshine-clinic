@@ -319,17 +319,8 @@
           },
           {
             "label": "필러",
-            "href": "/treatments/anti-aging/filler"
-          },
-          {
-            "label": "쥬비덤 볼리프트",
-            "sub": "JUVÉDERM VOLIFT",
-            "href": "/treatments/anti-aging/juvederm"
-          },
-          {
-            "label": "벨로테로",
-            "sub": "BELOTERO",
-            "href": "/treatments/anti-aging/belotero"
+            "href": "/treatments/anti-aging/filler",
+            "sub": "JUVÉDERM · BELOTERO · RADIESSE"
           }
         ],
         "skin-disease": [

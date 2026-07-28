@@ -319,17 +319,8 @@
           },
           {
             "label": "Filler",
-            "href": "/treatments/anti-aging/filler"
-          },
-          {
-            "label": "Juvéderm VOLIFT",
-            "sub": "JUVÉDERM VOLIFT",
-            "href": "/treatments/anti-aging/juvederm"
-          },
-          {
-            "label": "Belotero",
-            "sub": "BELOTERO",
-            "href": "/treatments/anti-aging/belotero"
+            "href": "/treatments/anti-aging/filler",
+            "sub": "JUVÉDERM · BELOTERO · RADIESSE"
           }
         ],
         "skin-disease": [
