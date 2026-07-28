@@ -155,9 +155,13 @@ function EventPopup({
 }) {
   return (
     <div className="relative flex min-h-0 flex-1 flex-col lg:flex-row">
-      {/* Mobile: 기존 캐러셀 그대로 */}
+      {/* Mobile: 티저 ↔ 가격표 스왑 (데스크탑과 같은 desktopDetail 상태 재사용, 폭 확장 없음) */}
       <div className="flex min-h-0 flex-1 flex-col lg:hidden">
-        <EventCarousel />
+        {desktopDetail ? (
+          <EventCarousel />
+        ) : (
+          <MobileTeaser onOpen={onToggleDetail} />
+        )}
       </div>
 
       {/* Desktop: 에디토리얼 GRAND OPEN 티저 (왼쪽) */}
@@ -275,6 +279,107 @@ function EventPopup({
         <div className="flex h-full w-[680px] flex-col border-l border-white/15">
           <EventCarousel />
         </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileTeaser({ onOpen }: { onOpen: () => void }) {
+  return (
+    <div className="relative flex flex-1 flex-col justify-between overflow-y-auto px-7 py-9 text-cream">
+      {/* 웜톤 앰비언트 */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 25% 20%, rgba(232,205,175,0.20) 0%, transparent 55%), radial-gradient(ellipse at 75% 85%, rgba(154,110,84,0.22) 0%, transparent 55%)",
+        }}
+      />
+      {/* 코너 브라켓 */}
+      <span aria-hidden className="pointer-events-none absolute left-4 top-4 h-5 w-5 border-l border-t border-cream/25" />
+      <span aria-hidden className="pointer-events-none absolute right-4 top-4 h-5 w-5 border-r border-t border-cream/25" />
+      <span aria-hidden className="pointer-events-none absolute bottom-4 left-4 h-5 w-5 border-b border-l border-cream/25" />
+      <span aria-hidden className="pointer-events-none absolute bottom-4 right-4 h-5 w-5 border-b border-r border-cream/25" />
+
+      <div className="relative">
+        {/* 세리얼 */}
+        <div className="flex items-baseline gap-3 text-[9px] font-medium tracking-[0.28em] text-cream/55">
+          <span className="font-serif text-cream/80">N°01</span>
+          <span aria-hidden className="h-px flex-1 bg-cream/25" />
+          <span>SS 2026</span>
+        </div>
+
+        {/* 타이틀 */}
+        <div className="mt-7 text-center">
+          <p className="text-[9px] font-medium tracking-[0.4em] text-brand-soft">
+            INVITATION
+          </p>
+          <h2 className="mt-4 whitespace-nowrap font-serif text-[2.35rem] font-normal leading-[1] tracking-tight text-cream">
+            Grand Open
+          </h2>
+          <p
+            className="mt-1.5 leading-none tracking-tight text-brand-soft"
+            style={{ fontSize: "2.1rem", fontFamily: '"Allura", cursive' }}
+          >
+            Event
+          </p>
+        </div>
+
+        {/* 날짜 */}
+        <div className="mt-8 flex items-center justify-end gap-3">
+          <p className="text-[10px] font-medium tracking-[0.24em] text-cream/80 tabular-nums">
+            07.13 <span className="text-cream/45">—</span> 08.30
+          </p>
+          <span aria-hidden className="h-px w-8 bg-brand-soft" />
+        </div>
+
+        {/* 카피 */}
+        <div className="mt-6 space-y-4 text-[12.5px] leading-[1.8] text-cream/75">
+          <p>
+            <span className="text-cream">오랜 준비 끝에</span>,
+            <br />
+            선샤인 스킨 클리닉이 문을 엽니다.
+          </p>
+          <p>
+            <span className="text-cream">리프팅</span> ·{" "}
+            <span className="text-cream">화이트닝 &amp; 여드름</span> ·{" "}
+            <span className="text-cream">스킨부스터</span> ·{" "}
+            <span className="text-cream">보톡스</span>
+            <br />4개 카테고리에서 오픈 특별가를 진행 중입니다.
+          </p>
+        </div>
+
+        {/* 카테고리 뱃지 */}
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          {["리프팅", "화이트닝 & 여드름", "스킨부스터", "보톡스"].map((cat) => (
+            <span
+              key={cat}
+              className="rounded-full border border-cream/25 bg-cream/5 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-cream/85"
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="relative mt-6">
+        <p className="mb-2.5 text-center text-[10px] font-medium tracking-[0.28em] text-cream/55">
+          오픈 특별가 안내 →
+        </p>
+        <button
+          type="button"
+          onClick={onOpen}
+          className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-brand-soft/60 bg-brand-soft/10 px-5 py-3 text-xs font-semibold tracking-[0.18em] text-cream transition hover:border-brand-soft hover:bg-brand-soft/20"
+        >
+          <span>가격표 · 카테고리별 자세히 보기</span>
+          <span
+            aria-hidden
+            className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-brand-soft/60 text-sm transition-transform group-hover:translate-x-0.5"
+          >
+            →
+          </span>
+        </button>
       </div>
     </div>
   );
