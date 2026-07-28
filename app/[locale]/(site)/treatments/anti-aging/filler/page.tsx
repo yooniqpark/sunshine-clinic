@@ -6,7 +6,7 @@ import {
   getDeviceMarketing,
   type DeviceDetail,
 } from "@/lib/devices";
-const FILLER_SLUGS = ["juvederm", "belotero", "radiesse"];
+const FILLER_SLUGS = ["juvederm", "belotero"];
 
 export const metadata = {
   title: "필러",
@@ -54,7 +54,7 @@ export default async function FillerPage({
             &ldquo;볼륨·윤곽·잔주름 개선을 위한 HA · CaHA 필러&rdquo;
           </p>
           <p className="mt-12 text-[10px] tracking-[0.3em] text-cream/40">
-            JUVÉDERM · BELOTERO · RADIESSE
+            JUVÉDERM · BELOTERO
           </p>
         </div>
       </section>
