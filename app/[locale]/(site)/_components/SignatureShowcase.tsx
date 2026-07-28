@@ -121,7 +121,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                 onClick={() => setIdx(i)}
                 aria-label={d.name}
                 aria-current={isActive}
-                className={`absolute left-1/2 top-1/2 h-[450px] w-[300px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-2xl border transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-[600px] lg:w-[400px] ${
+                className={`absolute left-1/2 top-1/2 h-[450px] w-[300px] overflow-hidden rounded-2xl border transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:h-[600px] lg:w-[400px] ${
                   isActive
                     ? "border-brand-dark bg-white shadow-2xl shadow-ink/25"
                     : "border-ink/15 bg-white"
