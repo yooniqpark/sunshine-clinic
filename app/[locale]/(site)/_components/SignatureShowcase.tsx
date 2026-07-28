@@ -27,7 +27,6 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   const scrollerRef = useRef<HTMLUListElement | null>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
-  const pausedRef = useRef(false);
 
   useEffect(() => {
     const el = scrollerRef.current;
@@ -45,37 +44,6 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     };
   }, [items.length]);
 
-  // 사용자 인터랙션 중에는 자동 스크롤 일시정지
-  useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-
-    const pause = () => {
-      pausedRef.current = true;
-    };
-    const resumeSoon = () => {
-      window.setTimeout(() => {
-        pausedRef.current = false;
-      }, 3500);
-    };
-
-    el.addEventListener("pointerenter", pause);
-    el.addEventListener("pointerleave", resumeSoon);
-    el.addEventListener("touchstart", pause, { passive: true });
-    el.addEventListener("touchend", resumeSoon);
-    el.addEventListener("focusin", pause);
-    el.addEventListener("focusout", resumeSoon);
-
-    return () => {
-      el.removeEventListener("pointerenter", pause);
-      el.removeEventListener("pointerleave", resumeSoon);
-      el.removeEventListener("touchstart", pause);
-      el.removeEventListener("touchend", resumeSoon);
-      el.removeEventListener("focusin", pause);
-      el.removeEventListener("focusout", resumeSoon);
-    };
-  }, []);
-
   // 자동 스크롤: rAF로 매 프레임 소량씩 이동 → 마르퀴 같은 연속 흐름
   useEffect(() => {
     const el = scrollerRef.current;
@@ -91,7 +59,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     const tick = (ts: number) => {
       const dt = Math.min(64, ts - lastTs);
       lastTs = ts;
-      if (!pausedRef.current && !document.hidden) {
+      if (!document.hidden) {
         const delta = (SPEED * dt) / 1000;
         const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
         if (nearEnd) {
@@ -109,10 +77,6 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   function scrollByCard(dir: 1 | -1) {
     const el = scrollerRef.current;
     if (!el) return;
-    pausedRef.current = true;
-    window.setTimeout(() => {
-      pausedRef.current = false;
-    }, 5000);
     // 데스크톱: 한 페이지(≈4카드) 이동, 모바일: 1카드 이동
     const isDesktop = window.innerWidth >= 1024;
     const first = el.querySelector<HTMLElement>("[data-card]");
