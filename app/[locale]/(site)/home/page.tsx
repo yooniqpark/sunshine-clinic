@@ -111,10 +111,14 @@ export default async function PreviewHome({
           <SignatureShowcase
             items={[
               ...getDevicesByCategory(locale as AppLocale, "lifting"),
-              ...getDevicesByCategory(locale as AppLocale, "anti-aging"),
-              // Acne 카테고리에서는 마크뷰 CO2만 노출
+              ...getDevicesByCategory(locale as AppLocale, "whitening"),
               ...getDevicesByCategory(locale as AppLocale, "acne").filter(
-                (d) => d.slug === "markview-co2",
+                (d) => d.slug !== "markview",
+              ),
+              ...getDevicesByCategory(locale as AppLocale, "anti-aging"),
+              // MARK-VU는 마지막
+              ...getDevicesByCategory(locale as AppLocale, "acne").filter(
+                (d) => d.slug === "markview",
               ),
             ].map((d) => {
               const parts = d.tagline?.split(/[,,·]|—|\s-\s/).map((s) => s.trim()).filter(Boolean) ?? [];
@@ -122,11 +126,15 @@ export default async function PreviewHome({
                 parts.length >= 2 ? [parts[0] + ",", parts.slice(1).join(" ") + "."] : undefined;
               const mk = getDeviceMarketing(d.slug);
               const catLabel =
-                d.category === "anti-aging"
-                  ? "ANTI-AGING"
-                  : d.category === "acne"
-                    ? "ACNE · SCAR"
-                    : "LIFTING";
+                d.slug === "markview"
+                  ? "SKIN ANALYSIS"
+                  : d.category === "anti-aging"
+                    ? "ANTI-AGING"
+                    : d.category === "whitening"
+                      ? "WHITENING · REDNESS"
+                      : d.category === "acne"
+                        ? "ACNE · SCAR"
+                        : "LIFTING";
               return {
                 slug: d.slug,
                 name: d.name,
