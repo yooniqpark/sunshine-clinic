@@ -256,10 +256,12 @@ export default async function AboutPage({
                     )}
                   </div>
                   <div className="px-4 py-3">
-                    <p className="text-[9px] font-bold tracking-[0.2em] text-brand-dark">
-                      {d.categoryLabel}
-                    </p>
-                    <p className="mt-1 text-sm font-semibold text-ink">{d.name}</p>
+                    {d.slug !== "markview" && (
+                      <p className="text-[9px] font-bold tracking-[0.2em] text-brand-dark">
+                        {d.categoryLabel}
+                      </p>
+                    )}
+                    <p className={`text-sm font-semibold text-ink ${d.slug === "markview" ? "" : "mt-1"}`}>{d.name}</p>
                   </div>
                 </Link>
               </Reveal>
