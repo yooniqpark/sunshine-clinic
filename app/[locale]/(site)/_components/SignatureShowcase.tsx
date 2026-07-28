@@ -112,8 +112,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             const z = isActive ? 100 : 50 - absOffset * 10;
             const opacity = isActive ? 1 : 0.7 - (absOffset - 1) * 0.18;
             // 필러(가로 이미지)는 세로가 안 맞으므로 중앙 정렬, 장비는 하단 정렬
-            const isFillerLike = d.slug === "juvederm" || d.slug === "belotero";
-            const imgPos = isFillerLike ? "object-center" : "object-bottom";
+            const imgPos = "object-center";
             return (
               <button
                 key={d.slug}
