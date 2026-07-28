@@ -11,7 +11,7 @@ import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 
 const DEVICE_CATEGORIES: {
-  slug: "lifting" | "whitening" | "acne";
+  slug: "lifting" | "anti-aging" | "whitening" | "acne";
   labelKey: string;
 }[] = [
   { slug: "lifting", labelKey: "리프팅" },
