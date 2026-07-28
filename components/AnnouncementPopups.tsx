@@ -209,7 +209,7 @@ function EventPopup({
             <span aria-hidden className="h-px w-10 bg-brand-soft" />
           </div>
 
-          {/* 오픈 안내 — 3문단 */}
+          {/* 오픈 안내 + 카테고리 가이드 */}
           <div className="mt-8 space-y-5 text-[13px] leading-[1.85] text-cream/75">
             <p>
               <span className="text-cream">오랜 준비 끝에</span>,
@@ -217,28 +217,44 @@ function EventPopup({
               선샤인 스킨 클리닉이 문을 엽니다.
             </p>
             <p>
-              화려함보다 결과,
-              <br />
-              유행보다 오래가는 아름다움에 집중합니다.
+              <span className="text-cream">리프팅</span> ·{" "}
+              <span className="text-cream">화이트닝 &amp; 여드름</span> ·{" "}
+              <span className="text-cream">스킨부스터</span> ·{" "}
+              <span className="text-cream">보톡스</span>
+              <br />4개 카테고리에서 오픈 특별가를 진행 중입니다.
             </p>
-            <p>
-              선샤인의 시작을 함께해 주실 분들께
-              <br />
-              특별한 프로모션을 준비했습니다.
-            </p>
+          </div>
+
+          {/* 카테고리 뱃지 4개 */}
+          <div className="mt-6 flex flex-wrap gap-1.5">
+            {["리프팅", "화이트닝 & 여드름", "스킨부스터", "보톡스"].map((cat) => (
+              <span
+                key={cat}
+                className="rounded-full border border-cream/25 bg-cream/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.14em] text-cream/85"
+              >
+                {cat}
+              </span>
+            ))}
           </div>
         </div>
 
         <div className="relative">
+          {!desktopDetail && (
+            <p className="mb-3 text-center text-[10px] font-medium tracking-[0.28em] text-cream/55">
+              오픈 특별가 안내 →
+            </p>
+          )}
           <button
             type="button"
             onClick={onToggleDetail}
-            className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-cream/40 bg-transparent px-6 py-3.5 text-xs font-semibold tracking-[0.2em] text-cream transition hover:border-cream hover:bg-cream/10"
+            className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-brand-soft/60 bg-brand-soft/10 px-6 py-3.5 text-xs font-semibold tracking-[0.2em] text-cream transition hover:border-brand-soft hover:bg-brand-soft/20"
           >
-            <span>{desktopDetail ? "PROMOTION DETAIL — 닫기" : "PROMOTION DETAIL"}</span>
+            <span>
+              {desktopDetail ? "가격표 닫기" : "가격표 · 카테고리별 자세히 보기"}
+            </span>
             <span
               aria-hidden
-              className={`inline-flex h-6 w-6 items-center justify-center rounded-full border border-cream/40 text-sm transition-transform duration-500 ${
+              className={`inline-flex h-6 w-6 items-center justify-center rounded-full border border-brand-soft/60 text-sm transition-transform duration-500 ${
                 desktopDetail ? "rotate-45" : "group-hover:translate-x-0.5"
               }`}
             >
