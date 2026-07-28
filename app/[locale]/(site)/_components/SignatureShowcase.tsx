@@ -27,6 +27,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   const scrollerRef = useRef<HTMLUListElement | null>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
+  const pausedRef = useRef(false);
 
   useEffect(() => {
     const el = scrollerRef.current;
@@ -44,9 +45,69 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     };
   }, [items.length]);
 
+  // 사용자 인터랙션 중에는 자동 스크롤 일시정지
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    const pause = () => {
+      pausedRef.current = true;
+    };
+    const resumeSoon = () => {
+      window.setTimeout(() => {
+        pausedRef.current = false;
+      }, 3500);
+    };
+
+    el.addEventListener("pointerenter", pause);
+    el.addEventListener("pointerleave", resumeSoon);
+    el.addEventListener("touchstart", pause, { passive: true });
+    el.addEventListener("touchend", resumeSoon);
+    el.addEventListener("focusin", pause);
+    el.addEventListener("focusout", resumeSoon);
+
+    return () => {
+      el.removeEventListener("pointerenter", pause);
+      el.removeEventListener("pointerleave", resumeSoon);
+      el.removeEventListener("touchstart", pause);
+      el.removeEventListener("touchend", resumeSoon);
+      el.removeEventListener("focusin", pause);
+      el.removeEventListener("focusout", resumeSoon);
+    };
+  }, []);
+
+  // 자동 스크롤: 3.5초마다 한 카드씩 이동, 끝에 도달하면 처음으로 되감기
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el || items.length <= 1) return;
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const tick = () => {
+      if (pausedRef.current) return;
+      if (document.hidden) return;
+      const first = el.querySelector<HTMLElement>("[data-card]");
+      const step = first ? first.offsetWidth + 24 : el.clientWidth * 0.8;
+      const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 8;
+      if (nearEnd) {
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        el.scrollBy({ left: step, behavior: "smooth" });
+      }
+    };
+
+    const id = window.setInterval(tick, 3500);
+    return () => window.clearInterval(id);
+  }, [items.length]);
+
   function scrollByCard(dir: 1 | -1) {
     const el = scrollerRef.current;
     if (!el) return;
+    pausedRef.current = true;
+    window.setTimeout(() => {
+      pausedRef.current = false;
+    }, 5000);
     // 데스크톱: 한 페이지(≈4카드) 이동, 모바일: 1카드 이동
     const isDesktop = window.innerWidth >= 1024;
     const first = el.querySelector<HTMLElement>("[data-card]");
