@@ -463,16 +463,16 @@ function EventCarousel() {
               type="button"
               onClick={() => setIdx(i)}
               aria-current={isActive}
-              className={`relative flex items-center justify-center gap-1.5 border-r border-white/10 px-2 py-1.5 text-center transition-colors last:border-r-0 ${
+              className={`relative flex items-center justify-center gap-2 border-r border-white/10 px-2 py-2.5 text-center transition-colors last:border-r-0 ${
                 isActive
                   ? "bg-white/8 text-cream"
                   : "text-cream/55 hover:bg-white/5 hover:text-cream/85"
               }`}
             >
-              <span className="text-[9px] font-medium tracking-[0.2em] tabular-nums text-cream/60">
+              <span className="text-[11px] font-medium tracking-[0.18em] tabular-nums text-cream/60">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <span className="text-[11px] font-semibold tracking-tight">
+              <span className="text-[13px] font-semibold tracking-tight lg:text-[14px]">
                 {cat.name}
               </span>
               {isActive && (
