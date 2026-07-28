@@ -42,34 +42,34 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             <li key={d.slug} className="shrink-0">
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
-                className="group block w-[220px] lg:w-[260px]"
+                className="group block w-[320px] lg:w-[440px]"
               >
                 {/* Image tile */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 group-hover:border-brand-dark group-hover:shadow-lg group-hover:shadow-ink/10">
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-3xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 group-hover:border-brand-dark group-hover:shadow-xl group-hover:shadow-ink/15">
                   {d.img && (
                     <Image
                       src={d.img}
                       alt=""
                       fill
-                      sizes="(max-width: 1024px) 220px, 260px"
-                      className="object-contain object-center p-6 transition-transform duration-700 group-hover:scale-105"
+                      sizes="(max-width: 1024px) 320px, 440px"
+                      className="object-contain object-center p-10 transition-transform duration-700 group-hover:scale-105"
                     />
                   )}
-                  <span className="absolute left-4 top-4 font-serif text-[11px] italic text-ink/45">
+                  <span className="absolute left-6 top-6 font-serif text-sm italic text-ink/45 lg:text-base">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Caption */}
-                <div className="mt-4">
-                  <p className="text-[9px] font-medium tracking-[0.28em] text-brand-dark lg:text-[10px]">
+                <div className="mt-6">
+                  <p className="text-[10px] font-medium tracking-[0.28em] text-brand-dark lg:text-[11px]">
                     {d.categoryLabel}
                   </p>
-                  <h3 className="mt-1.5 font-serif text-lg font-normal tracking-tight text-ink transition-colors group-hover:text-brand-dark lg:text-xl">
+                  <h3 className="mt-2 font-serif text-2xl font-normal tracking-tight text-ink transition-colors group-hover:text-brand-dark lg:text-3xl">
                     {d.name}
                   </h3>
                   {d.english && (
-                    <p className="mt-1 font-serif text-[10px] tracking-[0.16em] text-ink/45 lg:text-[11px]">
+                    <p className="mt-1.5 font-serif text-xs tracking-[0.16em] text-ink/45 lg:text-[13px]">
                       {d.english}
                     </p>
                   )}
