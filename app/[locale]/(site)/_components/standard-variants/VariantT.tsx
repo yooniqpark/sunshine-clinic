@@ -22,7 +22,7 @@ export function VariantT() {
             THE SUNSHINE STANDARD
           </p>
           <p className="font-serif italic text-ink/45 lg:text-lg">
-            — Sunshine Skin Clinic
+            — Sunshine Clinic
           </p>
         </div>
 

@@ -34,7 +34,7 @@ export type SiteSettings = {
 
 export const SETTINGS_DEFAULTS: SiteSettings = {
   clinicName: "Sunshine 피부과",
-  clinicNameEn: "SUNSHINE SKIN CLINIC",
+  clinicNameEn: "SUNSHINE CLINIC",
   phone: "02-421-7588",
   phoneHref: "tel:024217588",
   kakaoHref: "https://pf.kakao.com/_xoVzwX",

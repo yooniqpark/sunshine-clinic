@@ -216,7 +216,7 @@ function EventPopup({
             <p>
               <span className="text-cream">오랜 준비 끝에</span>,
               <br />
-              선샤인 스킨 클리닉이 문을 엽니다.
+              선샤인 클리닉이 문을 엽니다.
             </p>
             <p>
               <span className="text-cream">리프팅</span> ·{" "}
@@ -337,7 +337,7 @@ function MobileTeaser({ onOpen }: { onOpen: () => void }) {
           <p>
             <span className="text-cream">오랜 준비 끝에</span>,
             <br />
-            선샤인 스킨 클리닉이 문을 엽니다.
+            선샤인 클리닉이 문을 엽니다.
           </p>
           <p>
             <span className="text-cream">리프팅</span> ·{" "}

@@ -7,7 +7,7 @@ export const clinicManual = `
 # Sunshine 피부과 운영 매뉴얼
 
 ## 1. 병원 기본 정보
-- 병원명: Sunshine 피부과 (SUNSHINE SKIN CLINIC)
+- 병원명: Sunshine 피부과 (SUNSHINE CLINIC)
 - 주소: 서울특별시 송파구 올림픽로 102, 서일빌딩 10층
 - 위치 안내: 2호선 잠실새내역 4번 출구에서 도보 3분 거리, 건물 내 주차 가능
 - 대표 전화: 02-421-7588

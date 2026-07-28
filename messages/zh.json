@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "SUNSHINE",
-    "label": "Skin Clinic"
+    "label": "Clinic"
   },
   "nav": {
     "about": "诊所介绍",
@@ -441,7 +441,7 @@
       "directorQuoteAccent": "肌肤与心灵",
       "directorQuoteEnd": "”",
       "directorName": "金炳贤",
-      "directorRole": "院长 · Sunshine Skin Clinic",
+      "directorRole": "院长 · Sunshine Clinic",
       "viewDoctors": "医疗团队",
       "categoriesKicker": "TREATMENTS",
       "categoriesTitleLead": "针对不同需求的 ",

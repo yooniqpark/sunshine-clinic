@@ -22,7 +22,7 @@ export async function PreviewFooter() {
             <div className="leading-none">
               <p className="font-serif text-lg text-cream">{tBrand("name")}</p>
               <p className="mt-1 text-[10px] uppercase tracking-[0.24em] text-cream/50">
-                Sunshine Skin Clinic
+                Sunshine Clinic
               </p>
             </div>
           </Link>

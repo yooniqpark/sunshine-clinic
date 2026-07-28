@@ -144,7 +144,7 @@ export default async function LiftingPage({ params }: Props) {
                         brand={{
                           tagline: content.clinic.marketingTagline,
                           clinicName: content.clinic.clinicNameFull,
-                          englishName: "SUNSHINE SKIN CLINIC",
+                          englishName: "SUNSHINE CLINIC",
                         }}
                       />
                     );

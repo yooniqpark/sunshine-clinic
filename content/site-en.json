@@ -1,6 +1,6 @@
 {
   "clinic": {
-    "name": "Sunshine Skin Clinic",
+    "name": "Sunshine Clinic",
     "addressLine": "10F, Seoil Bldg, 102 Olympic-ro, Songpa-gu, Seoul",
     "addressSub": "3 minutes on foot from Jamsillaenae Station Exit 4 (Line 2) · Parking available in the building",
     "doctorTitle": "Director",
@@ -10,7 +10,7 @@
     "legalNameLabel": "Legal name",
     "legalName": "Sunshine Clinic (선샤인의원)",
     "marketingTagline": "At Sunshine, your skin's light awakens again.",
-    "clinicNameFull": "Sunshine Skin Clinic"
+    "clinicNameFull": "Sunshine Clinic"
   },
   "hours": [
     {
@@ -44,7 +44,7 @@
     "conceptEyebrow": "WHY SUNSHINE",
     "conceptHeadlineL1": "Confidence for your daily life,",
     "conceptHeadlineL2": "your personal skin doctor.",
-    "conceptBody": "While skin concerns may seem similar, the causes are all different. Sunshine Skin Clinic proposes the most suitable solutions by considering each patient's skin condition, lifestyle patterns, and desired future.",
+    "conceptBody": "While skin concerns may seem similar, the causes are all different. Sunshine Clinic proposes the most suitable solutions by considering each patient's skin condition, lifestyle patterns, and desired future.",
     "conceptImageAlt": "Clear and Healthy Skin",
     "eventsLabel": "EVENT",
     "eventsTitle": "Ongoing Events",
@@ -56,18 +56,18 @@
     "philosophyBody": "We pursue necessary treatments over excessive ones, verified results over flashy advertisements, and healthy changes over temporary improvements. We aim to be your personal skin doctor who restores the natural health and beauty of your skin, giving you greater confidence in your daily life.",
     "locationLabel": "LOCATION",
     "locationTitle": "How to Get Here",
-    "mapTitle": "Location of Sunshine Skin Clinic",
+    "mapTitle": "Location of Sunshine Clinic",
     "deviceAltSuffix": "Equipment",
     "doctorAltSuffix": "Director"
   },
   "about": {
     "metaTitle": "About Us",
-    "metaDesc": "Learn about the treatment philosophy, our medical staff, treatment guidance, and space of Sunshine Skin Clinic all on one page.",
+    "metaDesc": "Learn about the treatment philosophy, our medical staff, treatment guidance, and space of Sunshine Clinic all on one page.",
     "breadcrumb": "About Us",
     "heroTitleL1": "Beyond treating skin,",
     "heroTitleL2": "we restore confidence in life.",
     "valuesLabel": "PRINCIPLES",
-    "valuesTitle": "Four Principles of Sunshine Skin Clinic",
+    "valuesTitle": "Four Principles of Sunshine Clinic",
     "values": [
       {
         "title": "Customized Treatment",
@@ -87,7 +87,7 @@
       }
     ],
     "spaceImageAlt": "Treatment Space",
-    "philosophyBody1": "Sunshine Skin Clinic is not just a place to solve skin concerns. We propose the most suitable solutions by considering each patient's skin condition, lifestyle patterns, and desired future.",
+    "philosophyBody1": "Sunshine Clinic is not just a place to solve skin concerns. We propose the most suitable solutions by considering each patient's skin condition, lifestyle patterns, and desired future.",
     "philosophyBody2": "We prioritize necessary treatments over excessive care, verified results over flashy advertisements, and healthy changes over temporary improvements. We aim to be your personal skin doctor who restores the inherent health and beauty of the skin, gifting greater confidence and happiness to our clients' daily lives.",
     "directorLabel": "DIRECTOR",
     "directorTitle": "Director Introduction",
@@ -133,7 +133,7 @@
   },
   "events": {
     "metaTitle": "Events",
-    "metaDesc": "Check out the treatment events and promotions currently happening at Sunshine Skin Clinic.",
+    "metaDesc": "Check out the treatment events and promotions currently happening at Sunshine Clinic.",
     "breadcrumb": "Events",
     "heroLabel": "EVENT",
     "heroTitle": "Ongoing Events",

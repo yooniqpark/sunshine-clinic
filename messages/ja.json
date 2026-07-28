@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "SUNSHINE",
-    "label": "Skin Clinic"
+    "label": "Clinic"
   },
   "nav": {
     "about": "クリニック紹介",
@@ -441,7 +441,7 @@
       "directorQuoteAccent": "肌と心",
       "directorQuoteEnd": "まで、共に寄り添う診療を目指しています。」",
       "directorName": "キム・ビョンヒョン",
-      "directorRole": "院長 · Sunshine Skin Clinic",
+      "directorRole": "院長 · Sunshine Clinic",
       "viewDoctors": "医師紹介",
       "categoriesKicker": "TREATMENTS",
       "categoriesTitleLead": "お悩み別の ",

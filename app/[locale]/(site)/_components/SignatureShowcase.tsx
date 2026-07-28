@@ -62,11 +62,6 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
             SIGNATURE SELECTION
           </p>
-          <h2 className="mt-5 font-serif text-4xl font-normal leading-[1.15] tracking-tight text-ink lg:text-[3.5rem]">
-            선샤인이 선택한
-            <br />
-            <span className="text-ink/50">정교한 도구들.</span>
-          </h2>
         </div>
         <p className="hidden items-center gap-3 text-[10px] font-medium tracking-[0.32em] text-ink/50 md:flex">
           DRAG TO EXPLORE

@@ -1,7 +1,7 @@
 {
   "brand": {
     "name": "SUNSHINE",
-    "label": "Skin Clinic"
+    "label": "Clinic"
   },
   "nav": {
     "about": "병원소개",
@@ -441,7 +441,7 @@
       "directorQuoteAccent": "피부와 마음",
       "directorQuoteEnd": "까지 함께 살피는 진료를 지향합니다”",
       "directorName": "김병현",
-      "directorRole": "대표원장 · Sunshine Skin Clinic",
+      "directorRole": "대표원장 · Sunshine Clinic",
       "viewDoctors": "의료진 소개",
       "categoriesKicker": "TREATMENTS",
       "categoriesTitleLead": "고민별 ",

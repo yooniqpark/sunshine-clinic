@@ -54,7 +54,7 @@ export default async function PreviewHome({
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-5 text-center lg:px-8">
           <p className="mb-6 text-[10px] font-medium tracking-[0.36em] text-cream/70 lg:text-[11px]">
-            SUNSHINE SKIN CLINIC
+            SUNSHINE CLINIC
           </p>
           <Reveal>
             <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.1] tracking-tight text-cream">

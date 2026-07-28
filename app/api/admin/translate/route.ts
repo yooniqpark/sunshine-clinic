@@ -18,7 +18,7 @@ RULES:
 - Translate the values of every string in the JSON. Keys stay identical.
 - Preserve newlines, bullet markers (-, 1)), and number/percent formats.
 - DO NOT translate device names: Ulthera, Thermage FLX, Shurink, InMode, Fotona StarWalker, Clarity, VBeam, Rejuran, Ellanse, Juvelook, Exosomes, HIFU, RF, PDL, SMAS, PDT.
-- "Sunshine 피부과" → "Sunshine Skin Clinic" (en) / "Sunshine 皮膚科" (ja) / "Sunshine 皮肤科" (zh).
+- "Sunshine 피부과" → "Sunshine Clinic" (en) / "Sunshine 皮膚科" (ja) / "Sunshine 皮肤科" (zh).
 - "원장" → "Director" / "院長" / "院长".
 - "피부과 의료진" → "our medical staff" / "当院の医療スタッフ" / "本院的医务人员" (NEVER "board-certified dermatologist").
 - "상시 진행" → "Year-round" / "常時開催" / "常年进行".
@@ -60,7 +60,7 @@ export async function POST(req: Request) {
   try {
     const out: Record<L, Record<string, string>> = {} as Record<L, Record<string, string>>;
     for (const locale of LOCALES) {
-      const system = `You are a professional medical translator for Sunshine Skin Clinic. Translate Korean → ${LANG_LABEL[locale]}.\n${RULES}`;
+      const system = `You are a professional medical translator for Sunshine Clinic. Translate Korean → ${LANG_LABEL[locale]}.\n${RULES}`;
       const completion = await client.chat.completions.create({
         model: "gpt-4o-mini",
         temperature: 0.2,
