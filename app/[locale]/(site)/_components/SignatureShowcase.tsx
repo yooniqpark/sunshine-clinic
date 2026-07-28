@@ -113,11 +113,6 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                   />
                 )}
 
-                {/* Index badge */}
-                <span className="absolute left-5 top-5 z-10 rounded-full bg-white/70 px-3 py-1 font-serif text-xs italic text-ink/70 backdrop-blur">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
                 {/* Bottom gradient */}
                 <span
                   aria-hidden
