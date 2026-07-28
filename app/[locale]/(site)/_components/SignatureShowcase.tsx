@@ -69,8 +69,8 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </p>
       </div>
 
-      {/* Horizontal snap strip — 뷰포트 좌우 끝까지 확장 */}
-      <div className="relative left-1/2 w-screen -translate-x-1/2">
+      {/* Horizontal snap strip — 뷰포트 좌우 살짝 여백 (~4vw) */}
+      <div className="relative left-1/2 w-[calc(100vw-4rem)] -translate-x-1/2 lg:w-[calc(100vw-6rem)]">
         {/* Desktop nav buttons — 슬라이드 세로 중심 */}
         <button
           type="button"
