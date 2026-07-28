@@ -53,7 +53,6 @@ export async function ClinicJsonLd({ locale }: { locale: string }) {
       longitude: 127.0821,
     },
     openingHoursSpecification: OPENING_HOURS_SPEC,
-    medicalSpecialty: "Dermatology",
     availableService: MEDICAL_SPECIALTIES.map((m) => ({
       "@type": "MedicalTherapy",
       name: m.name,

@@ -33,10 +33,10 @@ const SEO_BY_LOCALE: Record<
     ],
   },
   en: {
-    title: "Sunshine Clinic | Daegu Dermatology · Lifting · Anti-Aging",
+    title: "Sunshine Clinic | Skin Care · Lifting · Anti-Aging",
     description:
-      "Sunshine Clinic is a local dermatology clinic led by a specialist with extensive university-hospital experience. Ulthera, Thermage, Shurink, and InMode for lifting, anti-aging, pigmentation, and acne care.",
-    keywords: ["Sunshine Clinic", "Daegu dermatology", "Ulthera", "Thermage", "Shurink", "InMode", "lifting", "anti-aging"],
+      "Sunshine Clinic is a local skin clinic led by a specialist with extensive university-hospital experience. Ulthera, Thermage, Shurink, and InMode for lifting, anti-aging, pigmentation, and acne care.",
+    keywords: ["Sunshine Clinic", "Daegu skin care", "Ulthera", "Thermage", "Shurink", "InMode", "lifting", "anti-aging"],
   },
   ja: {
     title: "Sunshine Clinic | 大邱 皮膚科 · リフティング · アンチエイジング",

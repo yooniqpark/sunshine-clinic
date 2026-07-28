@@ -511,11 +511,11 @@
       "heroKicker": "ABOUT SUNSHINE",
       "heroTitleLine1": "Refining texture",
       "heroTitleAccent": "brightening every day",
-      "heroDesc": "Sunshine Clinic is a local practice led by a board-certified dermatologist with years of experience at university hospitals. We favor lasting beauty over trends, and healthy recovery over spectacle.",
+      "heroDesc": "Sunshine Clinic is a local practice led by a board-certified specialist with years of experience at university hospitals. We favor lasting beauty over trends, and healthy recovery over spectacle.",
       "directorKicker": "DIRECTOR",
       "directorName": "Kim Byung-hyun",
       "directorTitle": "Director",
-      "directorBio": "Graduated from Keimyung University College of Medicine and completed residency at the National Medical Center. Served as director at Y&T Plastic Surgery in Apgujeong, A-Top Plastic Surgery, Prima Dermatology, and The One Clinic, building extensive clinical experience. Rather than following trends, we design a treatment plan that respects each patient's own tone and texture.",
+      "directorBio": "Graduated from Keimyung University College of Medicine and completed residency at the National Medical Center. Served as director at Y&T Plastic Surgery in Apgujeong, A-Top Plastic Surgery, Prima Clinic, and The One Clinic, building extensive clinical experience. Rather than following trends, we design a treatment plan that respects each patient's own tone and texture.",
       "historyLabel": "HISTORY",
       "history": [
         {
@@ -532,7 +532,7 @@
         },
         {
           "year": "",
-          "event": "Member, Korean Society of Laser Dermatology and Trichology"
+          "event": "Member, Korean Society of Laser Medicine and Trichology"
         },
         {
           "year": "",
@@ -544,7 +544,7 @@
         },
         {
           "year": "",
-          "event": "Former Director, Prima Dermatology"
+          "event": "Former Director, Prima Clinic"
         },
         {
           "year": "",
@@ -938,7 +938,7 @@
           "kicker": "MEDICAL SKIN CLINIC",
           "heroLine1": "Accurate diagnosis",
           "heroLine2": "honest treatment",
-          "intro": "As board-certified dermatologists, we provide evidence-based care from common conditions to chronic disease.",
+          "intro": "As board-certified specialists, we provide evidence-based care from common conditions to chronic disease.",
           "process": [
             {
               "step": "01",
