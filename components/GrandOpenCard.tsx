@@ -30,7 +30,7 @@ export function GrandOpenCard({
           eventSize: "2.25rem",
           badge: "text-xs",
           rowText: "text-[13px] sm:text-sm",
-          rowPrice: "text-base sm:text-lg",
+          rowPrice: "text-xl sm:text-2xl font-semibold",
           gap: "gap-3",
         }
       : {
@@ -39,7 +39,7 @@ export function GrandOpenCard({
           eventSize: "3rem",
           badge: "text-sm",
           rowText: "text-base",
-          rowPrice: "text-xl sm:text-2xl",
+          rowPrice: "text-2xl sm:text-3xl font-semibold",
           gap: "gap-8",
         };
 
