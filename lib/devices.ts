@@ -97,6 +97,34 @@ const DEVICE_MARKETING: Record<string, DeviceMarketingMeta> = {
     englishName: "BELOTERO",
     featureKeywords: ["HA FILLER", "CPM", "SOFT", "NATURAL"],
   },
+  rejuran: {
+    englishName: "REJURAN",
+    featureKeywords: ["PN", "SKIN-BOOSTER", "REGEN", "TEXTURE"],
+  },
+  "rejuran-i": {
+    englishName: "REJURAN i",
+    featureKeywords: ["EYE", "PN", "FINE-LINES", "GENTLE"],
+  },
+  juvelook: {
+    englishName: "JUVELOOK",
+    featureKeywords: ["PDLLA", "COLLAGEN", "TEXTURE", "LASTING"],
+  },
+  "elravie-re20": {
+    englishName: "ELRAVIE RE20",
+    featureKeywords: ["HA", "BOOSTER", "HYDRATION", "GLOW"],
+  },
+  cellredm: {
+    englishName: "CELLREDM",
+    featureKeywords: ["COLLAGEN", "AMINO", "BOOSTER", "CALM"],
+  },
+  skinvive: {
+    englishName: "SKINVIVE",
+    featureKeywords: ["HA", "MICRODROP", "GLOW", "CHEEK"],
+  },
+  radiesse: {
+    englishName: "RADIESSE",
+    featureKeywords: ["CaHA", "COLLAGEN", "LIFT", "LASTING"],
+  },
 };
 
 export function getDeviceMarketing(slug: string): DeviceMarketingMeta | null {
@@ -122,6 +150,13 @@ const DEVICE_IMAGES: Record<string, string> = {
   juvederm: "/devices/juvederm.png",
   belotero: "/devices/belotero.png",
   ellanse: "/devices/ellanse.jpg",
+  rejuran: "/devices/rejuran.jpg",
+  "rejuran-i": "/devices/rejuran-i.jpg",
+  juvelook: "/devices/juvelook.jpg",
+  "elravie-re20": "/devices/elravie-re20.jpg",
+  cellredm: "/devices/cellredm.jpg",
+  skinvive: "/devices/skinvive.jpg",
+  radiesse: "/devices/radiesse.jpg",
 };
 
 export function getDeviceImage(slug: string): string | null {
@@ -139,7 +174,7 @@ const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
   acne: ["carpri-co2", "mirajet-forte", "aqua-peel", "secret-rf", "inmode-morpheus", "markview-co2", "ldm", "bellalux"],
-  "anti-aging": ["juvederm", "belotero"],
+  "anti-aging": ["rejuran", "rejuran-i", "juvelook", "elravie-re20", "cellredm", "skinvive", "radiesse", "juvederm", "belotero", "ellanse"],
 };
 
 export function getDevicesByCategory(
