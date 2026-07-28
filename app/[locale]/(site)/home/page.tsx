@@ -200,12 +200,21 @@ export default async function PreviewHome({
             items={[
               ...getDevicesByCategory(locale as AppLocale, "lifting"),
               ...getDevicesByCategory(locale as AppLocale, "anti-aging"),
+              // Acne 카테고리에서는 마크뷰 CO2만 노출
+              ...getDevicesByCategory(locale as AppLocale, "acne").filter(
+                (d) => d.slug === "markview-co2",
+              ),
             ].map((d) => {
               const parts = d.tagline?.split(/[,,·]|—|\s-\s/).map((s) => s.trim()).filter(Boolean) ?? [];
               const st: [string, string] | undefined =
                 parts.length >= 2 ? [parts[0] + ",", parts.slice(1).join(" ") + "."] : undefined;
               const mk = getDeviceMarketing(d.slug);
-              const catLabel = d.category === "anti-aging" ? "ANTI-AGING" : "LIFTING";
+              const catLabel =
+                d.category === "anti-aging"
+                  ? "ANTI-AGING"
+                  : d.category === "acne"
+                    ? "ACNE · SCAR"
+                    : "LIFTING";
               return {
                 slug: d.slug,
                 name: d.name,
