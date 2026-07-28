@@ -15,6 +15,7 @@ const DEVICE_CATEGORIES: {
   labelKey: string;
 }[] = [
   { slug: "lifting", labelKey: "리프팅" },
+  { slug: "anti-aging", labelKey: "안티에이징" },
   { slug: "whitening", labelKey: "화이트닝 · 홍조" },
   { slug: "acne", labelKey: "여드름 · 흉터" },
 ];
