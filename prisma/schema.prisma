@@ -178,9 +178,21 @@ model PageView {
   visitorId String?  // sha256(ip + salt), only for unique visitor counts (never the raw IP)
   referrer  String?  // trimmed to origin only
   deviceType String? // 'mobile' | 'tablet' | 'desktop'
+
+  // Geo (Vercel edge headers, ISO country + city)
+  country    String? // 'KR', 'JP', ...
+  region     String? // 'Seoul', 'Osaka' (ip-country-region)
+  city       String? // 'Seoul', 'Busan', ...
+
+  // Traffic source (UTM params if present)
+  utmSource   String? // 'naver', 'google', 'instagram', ...
+  utmMedium   String? // 'cpc', 'organic', 'social', ...
+  utmCampaign String?
+
   createdAt DateTime @default(now())
 
   @@index([createdAt])
   @@index([path])
   @@index([visitorId, createdAt])
+  @@index([country, createdAt])
 }

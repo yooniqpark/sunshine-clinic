@@ -1,25 +1,55 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import { getStats } from "@/lib/analytics";
+import { ExcludeMeToggle } from "./ExcludeMeToggle";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = { title: "방문 통계 — Sunshine Admin" };
+
+// ISO country → 한글 라벨
+const COUNTRY_KO: Record<string, string> = {
+  KR: "🇰🇷 대한민국",
+  JP: "🇯🇵 일본",
+  CN: "🇨🇳 중국",
+  US: "🇺🇸 미국",
+  GB: "🇬🇧 영국",
+  DE: "🇩🇪 독일",
+  FR: "🇫🇷 프랑스",
+  TW: "🇹🇼 대만",
+  HK: "🇭🇰 홍콩",
+  VN: "🇻🇳 베트남",
+  TH: "🇹🇭 태국",
+  SG: "🇸🇬 싱가포르",
+  PH: "🇵🇭 필리핀",
+  ID: "🇮🇩 인도네시아",
+  MY: "🇲🇾 말레이시아",
+  AU: "🇦🇺 호주",
+  CA: "🇨🇦 캐나다",
+};
 
 export default async function AnalyticsPage() {
   const session = await auth();
   if (!session?.user) redirect("/admin/login");
 
   const stats = await getStats();
+  const ck = await cookies();
+  const excluded = ck.get("sunshine-noanalytics")?.value === "1";
 
   return (
     <>
       <header className="border-b border-line pb-6">
-        <p className="text-xs font-semibold tracking-[0.2em] text-brand">ANALYTICS</p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight">방문 통계</h1>
-        <p className="mt-2 text-sm text-ink-soft">
-          홈페이지 방문 지표 (익명 · 쿠키 없음 · 개인 식별 정보 미저장).
-        </p>
+        <div className="flex flex-wrap items-start justify-between gap-4">
+          <div>
+            <p className="text-xs font-semibold tracking-[0.2em] text-brand">ANALYTICS</p>
+            <h1 className="mt-2 text-3xl font-bold tracking-tight">방문 통계</h1>
+            <p className="mt-2 text-sm text-ink-soft">
+              홈페이지 방문 지표 (익명 · 개인 식별 정보 미저장).
+            </p>
+          </div>
+          <ExcludeMeToggle initialEnabled={excluded} />
+        </div>
       </header>
 
       {/* Top-line totals — 방문자(UV)만 노출: 페이지 이동해도 늘어나지 않음 */}
@@ -59,6 +89,75 @@ export default async function AnalyticsPage() {
             </p>
           ) : (
             <BarChart items={stats.daily14} />
+          )}
+        </div>
+      </section>
+
+      {/* Today's traffic sources (referrer + UTM) */}
+      <section className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-2xl border border-line bg-white p-6">
+          <h2 className="text-lg font-bold">오늘 유입 경로 (referrer)</h2>
+          <p className="mt-1 text-[11px] text-ink-soft">외부에서 우리 사이트로 들어온 주소</p>
+          {stats.todayReferrers.length === 0 ? (
+            <p className="mt-4 text-sm text-ink-soft">오늘 아직 데이터 없음</p>
+          ) : (
+            <ol className="mt-4 space-y-2">
+              {stats.todayReferrers.map((r, i) => (
+                <li key={r.referrer} className="grid grid-cols-[24px_1fr_auto] items-center gap-3 text-sm">
+                  <span className="text-xs font-semibold text-ink-soft">{i + 1}</span>
+                  <span className="truncate text-ink">{r.referrer}</span>
+                  <span className="tabular-nums font-semibold">{r.count}</span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </div>
+
+        <div className="rounded-2xl border border-line bg-white p-6">
+          <h2 className="text-lg font-bold">오늘 유입 캠페인 (UTM)</h2>
+          <p className="mt-1 text-[11px] text-ink-soft">
+            <code className="rounded bg-sand/50 px-1 text-[10px]">?utm_source=naver&utm_medium=cpc</code> 형태 링크 유입
+          </p>
+          {stats.todayUtm.length === 0 ? (
+            <p className="mt-4 text-sm text-ink-soft">오늘 UTM 유입 없음</p>
+          ) : (
+            <ol className="mt-4 space-y-2">
+              {stats.todayUtm.map((u, i) => (
+                <li key={`${u.source}-${u.medium}`} className="grid grid-cols-[24px_1fr_auto] items-center gap-3 text-sm">
+                  <span className="text-xs font-semibold text-ink-soft">{i + 1}</span>
+                  <span className="truncate text-ink">
+                    {u.source}
+                    {u.medium && <span className="ml-2 text-ink-soft">· {u.medium}</span>}
+                  </span>
+                  <span className="tabular-nums font-semibold">{u.count}</span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </div>
+      </section>
+
+      {/* Region breakdown (이번 달) */}
+      <section className="mt-10">
+        <h2 className="text-lg font-bold">지역별 방문 (이번 달)</h2>
+        <div className="mt-4 rounded-2xl border border-line bg-white p-6">
+          {stats.byRegion.length === 0 ? (
+            <p className="py-4 text-sm text-ink-soft">
+              지역 데이터는 Vercel 배포 환경에서만 수집됩니다 (로컬 개발에서는 안 잡힘).
+            </p>
+          ) : (
+            <ol className="grid gap-3 sm:grid-cols-2">
+              {stats.byRegion.map((r, i) => (
+                <li key={`${r.country}-${r.city}`} className="grid grid-cols-[24px_1fr_auto] items-center gap-3 text-sm">
+                  <span className="text-xs font-semibold text-ink-soft">{i + 1}</span>
+                  <span className="truncate text-ink">
+                    {COUNTRY_KO[r.country] ?? `🌐 ${r.country}`}
+                    {r.city && <span className="ml-2 text-ink-soft">· {r.city}</span>}
+                  </span>
+                  <span className="tabular-nums font-semibold">{r.count}</span>
+                </li>
+              ))}
+            </ol>
           )}
         </div>
       </section>

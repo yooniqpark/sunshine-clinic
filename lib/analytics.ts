@@ -21,6 +21,9 @@ export type AnalyticsStats = {
   topReferrers: { referrer: string; count: number }[];
   byLocale: { locale: string; count: number }[];
   byDevice: { device: string; count: number }[];
+  byRegion: { country: string; city: string | null; count: number }[];
+  todayReferrers: { referrer: string; count: number }[];
+  todayUtm: { source: string; medium: string | null; count: number }[];
 };
 
 async function countPV(fromDate?: Date) {
@@ -119,6 +122,48 @@ export async function getStats(): Promise<AnalyticsStats> {
     .filter((r) => r.deviceType)
     .map((r) => ({ device: r.deviceType as string, count: r._count._all }));
 
+  // By region (country + city) — 이번 달, 상위 10
+  const regionRows = await prisma.pageView.findMany({
+    where: { createdAt: { gte: monthStart }, country: { not: null } },
+    select: { country: true, city: true },
+  });
+  const regionMap = new Map<string, { country: string; city: string | null; count: number }>();
+  for (const r of regionRows) {
+    if (!r.country) continue;
+    const key = `${r.country}|${r.city ?? ""}`;
+    const cur = regionMap.get(key);
+    if (cur) cur.count += 1;
+    else regionMap.set(key, { country: r.country, city: r.city ?? null, count: 1 });
+  }
+  const byRegion = [...regionMap.values()].sort((a, b) => b.count - a.count).slice(0, 10);
+
+  // Today's referrers
+  const todayRefRaw = await prisma.pageView.groupBy({
+    by: ["referrer"],
+    where: { createdAt: { gte: dayStart }, referrer: { not: null } },
+    _count: { _all: true },
+    orderBy: { _count: { referrer: "desc" } },
+    take: 8,
+  });
+  const todayReferrers = todayRefRaw
+    .filter((r) => r.referrer)
+    .map((r) => ({ referrer: r.referrer as string, count: r._count._all }));
+
+  // Today's UTM sources
+  const todayUtmRaw = await prisma.pageView.findMany({
+    where: { createdAt: { gte: dayStart }, utmSource: { not: null } },
+    select: { utmSource: true, utmMedium: true },
+  });
+  const utmMap = new Map<string, { source: string; medium: string | null; count: number }>();
+  for (const r of todayUtmRaw) {
+    if (!r.utmSource) continue;
+    const key = `${r.utmSource}|${r.utmMedium ?? ""}`;
+    const cur = utmMap.get(key);
+    if (cur) cur.count += 1;
+    else utmMap.set(key, { source: r.utmSource, medium: r.utmMedium ?? null, count: 1 });
+  }
+  const todayUtm = [...utmMap.values()].sort((a, b) => b.count - a.count).slice(0, 8);
+
   return {
     pv: { today: pvToday, week: pvWeek, month: pvMonth, total: pvTotal },
     uv: { today: uvToday, week: uvWeek, month: uvMonth, total: uvTotal },
@@ -127,5 +172,8 @@ export async function getStats(): Promise<AnalyticsStats> {
     topReferrers,
     byLocale,
     byDevice,
+    byRegion,
+    todayReferrers,
+    todayUtm,
   };
 }

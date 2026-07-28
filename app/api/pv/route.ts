@@ -41,8 +41,26 @@ function detectDevice(ua: string): "mobile" | "tablet" | "desktop" {
 
 const LOCALES = new Set(["ko", "en", "ja", "zh"]);
 const PATH_MAX = 200;
+const UTM_MAX = 80;
+
+// admin·개인 접속 제외용 쿠키. 어드민 페이지에서 토글해 세팅.
+const EXCLUDE_COOKIE = "sunshine-noanalytics";
+
+function readCookie(req: Request, name: string): string | null {
+  const raw = req.headers.get("cookie") ?? "";
+  for (const part of raw.split(";")) {
+    const [k, v] = part.trim().split("=");
+    if (k === name) return decodeURIComponent(v ?? "");
+  }
+  return null;
+}
 
 export async function POST(req: Request) {
+  // 사용자가 '내 접속 통계 제외' 토글을 켜뒀으면 즉시 skip
+  if (readCookie(req, EXCLUDE_COOKIE) === "1") {
+    return NextResponse.json({ ok: true, skipped: "excluded" });
+  }
+
   let body: Record<string, unknown> = {};
   try {
     body = (await req.json()) as Record<string, unknown>;
@@ -66,14 +84,48 @@ export async function POST(req: Request) {
   const locale = LOCALES.has(localeRaw) ? localeRaw : null;
   const referrer = originOnly(String(body.referrer ?? ""));
 
+  // UTM params — 클라이언트가 window.location.search를 함께 전송
+  const search = String(body.search ?? "");
+  let utmSource: string | null = null;
+  let utmMedium: string | null = null;
+  let utmCampaign: string | null = null;
+  if (search) {
+    try {
+      const sp = new URLSearchParams(search.startsWith("?") ? search.slice(1) : search);
+      utmSource = sp.get("utm_source")?.slice(0, UTM_MAX) || null;
+      utmMedium = sp.get("utm_medium")?.slice(0, UTM_MAX) || null;
+      utmCampaign = sp.get("utm_campaign")?.slice(0, UTM_MAX) || null;
+    } catch {
+      /* ignore */
+    }
+  }
+
   const ip = clientIp(req);
   const ua = req.headers.get("user-agent") ?? "";
   const visitorId = hashVisitor(ip, ua);
   const deviceType = detectDevice(ua);
 
+  // Vercel Edge geo 헤더 (배포 시 자동 주입)
+  const country = req.headers.get("x-vercel-ip-country") || null;
+  const region = req.headers.get("x-vercel-ip-country-region") || null;
+  const cityRaw = req.headers.get("x-vercel-ip-city") || null;
+  const city = cityRaw ? decodeURIComponent(cityRaw) : null;
+
   try {
     await prisma.pageView.create({
-      data: { path, locale, visitorId, referrer, deviceType },
+      data: {
+        path,
+        locale,
+        visitorId,
+        referrer,
+        deviceType,
+        country,
+        region,
+        city,
+        utmSource,
+        utmMedium,
+        utmCampaign,
+      },
     });
   } catch (e) {
     console.error("[pv] insert failed:", e);

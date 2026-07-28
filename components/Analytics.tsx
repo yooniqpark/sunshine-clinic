@@ -20,6 +20,7 @@ export function Analytics() {
       path: pathname,
       locale,
       referrer: document.referrer || "",
+      search: typeof window !== "undefined" ? window.location.search : "",
     });
     try {
       if (navigator.sendBeacon) {
