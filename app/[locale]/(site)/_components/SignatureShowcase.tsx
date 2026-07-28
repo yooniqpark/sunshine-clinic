@@ -60,12 +60,9 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   return (
     <div className="relative w-full">
       {/* Heading row */}
-      <div className="mb-10 flex items-end justify-between gap-6 lg:mb-14">
+      <div className="mb-10 lg:mb-14">
         <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
           SIGNATURE SELECTION
-        </p>
-        <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/50 md:block">
-          TOTAL {String(items.length).padStart(2, "0")}
         </p>
       </div>
 
