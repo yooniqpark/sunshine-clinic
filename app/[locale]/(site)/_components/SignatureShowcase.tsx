@@ -45,7 +45,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     };
   }, [items.length]);
 
-  // 자동 스크롤: rAF로 매 프레임 소량씩 이동 → 마르퀴 같은 연속 흐름
+  // 자동 스크롤: 데스크톱 전용 (모바일은 사용자 스와이프 우선)
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el || items.length <= 1) return;
@@ -53,12 +53,17 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
 
+    // 터치 기기(모바일/태블릿)에서는 자동 스크롤을 완전히 끔 →
+    // 사용자 스와이프가 rAF와 충돌하지 않게
+    const isTouchDevice =
+      window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    if (isTouchDevice) return;
+
     let raf = 0;
     let lastTs = 0;
-    const SPEED = 600; // px/sec — 한 카드(약 300px)가 약 0.5초에 지나감
+    const SPEED = 600;
 
     const tick = (ts: number) => {
-      // 첫 프레임은 dt=0으로 시작해 워밍업 (초반 큰 점프 방지)
       const dt = lastTs === 0 ? 0 : Math.min(64, ts - lastTs);
       lastTs = ts;
       if (!document.hidden && ts > pausedUntilRef.current) {
@@ -66,7 +71,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
         if (nearEnd) {
           el.scrollTo({ left: 0, behavior: "smooth" });
-          pausedUntilRef.current = ts + 1000; // 되감기 스무스 스크롤 방해 방지
+          pausedUntilRef.current = ts + 1000;
         } else {
           el.scrollLeft += delta;
         }
@@ -74,28 +79,13 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       raf = window.requestAnimationFrame(tick);
     };
 
-    // 이미지/레이아웃 안정화 대기 후 자동 스크롤 시작 (초기 버벅임 방지)
     const startId = window.setTimeout(() => {
       raf = window.requestAnimationFrame(tick);
     }, 600);
 
-    // 사용자가 손가락/포인터로 직접 스와이프하면 자동 스크롤이 방해되지 않도록
-    // 잠시 pause (마지막 터치 이후 2초 뒤 재개)
-    const holdOnInteract = () => {
-      pausedUntilRef.current = performance.now() + 2000;
-    };
-    el.addEventListener("touchstart", holdOnInteract, { passive: true });
-    el.addEventListener("touchmove", holdOnInteract, { passive: true });
-    el.addEventListener("pointerdown", holdOnInteract);
-    el.addEventListener("wheel", holdOnInteract, { passive: true });
-
     return () => {
       window.clearTimeout(startId);
       if (raf) window.cancelAnimationFrame(raf);
-      el.removeEventListener("touchstart", holdOnInteract);
-      el.removeEventListener("touchmove", holdOnInteract);
-      el.removeEventListener("pointerdown", holdOnInteract);
-      el.removeEventListener("wheel", holdOnInteract);
     };
   }, [items.length]);
 
@@ -143,14 +133,14 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </button>
         <ul
           ref={scrollerRef}
-          className="flex touch-pan-x gap-4 overflow-x-auto overscroll-x-contain px-5 pb-6 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain px-5 pb-6 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
           style={{ scrollBehavior: "smooth" }}
         >
           {items.map((d, i) => (
             <li
               key={d.slug}
               data-card
-              className="shrink-0"
+              className="shrink-0 snap-start"
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
