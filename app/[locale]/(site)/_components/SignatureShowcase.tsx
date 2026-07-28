@@ -79,9 +79,23 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       raf = window.requestAnimationFrame(tick);
     }, 600);
 
+    // 사용자가 손가락/포인터로 직접 스와이프하면 자동 스크롤이 방해되지 않도록
+    // 잠시 pause (마지막 터치 이후 2초 뒤 재개)
+    const holdOnInteract = () => {
+      pausedUntilRef.current = performance.now() + 2000;
+    };
+    el.addEventListener("touchstart", holdOnInteract, { passive: true });
+    el.addEventListener("touchmove", holdOnInteract, { passive: true });
+    el.addEventListener("pointerdown", holdOnInteract);
+    el.addEventListener("wheel", holdOnInteract, { passive: true });
+
     return () => {
       window.clearTimeout(startId);
       if (raf) window.cancelAnimationFrame(raf);
+      el.removeEventListener("touchstart", holdOnInteract);
+      el.removeEventListener("touchmove", holdOnInteract);
+      el.removeEventListener("pointerdown", holdOnInteract);
+      el.removeEventListener("wheel", holdOnInteract);
     };
   }, [items.length]);
 
@@ -129,7 +143,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </button>
         <ul
           ref={scrollerRef}
-          className="flex gap-4 overflow-x-auto px-5 pb-6 [-ms-overflow-style:none] [scrollbar-width:none] lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x gap-4 overflow-x-auto overscroll-x-contain px-5 pb-6 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
           style={{ scrollBehavior: "smooth" }}
         >
           {items.map((d, i) => (
@@ -150,7 +164,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     fill
                     priority={i < 5}
                     sizes="(max-width: 1024px) 300px, 420px"
-                    className="object-cover object-center transition-transform duration-[900ms] ease-out group-hover:scale-[1.04]"
+                    className="object-cover object-center"
                   />
                 )}
 
