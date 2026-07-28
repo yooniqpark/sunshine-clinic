@@ -350,30 +350,41 @@ function EventCarousel() {
         </button>
       </div>
 
-      {/* Dots + CTA */}
-      <div className="flex shrink-0 items-center justify-between border-t border-white/15 bg-ink/40 px-5 py-3 text-cream backdrop-blur">
-        <div className="flex items-center gap-1.5">
-          {GRAND_OPEN_CATEGORIES.map((_, i) => (
+      {/* 4개 카테고리 탭 — 하단 전체 폭 채움 */}
+      <div className="grid shrink-0 grid-cols-4 border-t border-white/15 bg-ink/40 text-cream backdrop-blur">
+        {GRAND_OPEN_CATEGORIES.map((cat, i) => {
+          const isActive = i === idx;
+          return (
             <button
-              key={i}
+              key={cat.slug}
               type="button"
               onClick={() => setIdx(i)}
-              aria-label={`Slide ${i + 1}`}
-              aria-current={i === idx}
-              className={`h-1.5 rounded-full transition-all ${
-                i === idx ? "w-6 bg-cream" : "w-1.5 bg-cream/40"
+              aria-current={isActive}
+              className={`relative flex flex-col items-center justify-center gap-1 border-r border-white/10 px-2 py-3 text-center transition-colors last:border-r-0 ${
+                isActive
+                  ? "bg-white/8 text-cream"
+                  : "text-cream/55 hover:bg-white/5 hover:text-cream/85"
               }`}
-            />
-          ))}
-        </div>
-        <Link
-          href="/community/events#grand-open-2026-07"
-          className="group inline-flex items-center gap-2 text-xs font-semibold tracking-[0.15em] text-brand-soft hover:text-cream"
-        >
-          {t("ctaSeeMore")}
-          <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-        </Link>
+            >
+              <span className="text-[9px] font-medium tracking-[0.24em] tabular-nums">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="text-[11px] font-semibold tracking-tight">
+                {cat.name}
+              </span>
+              {isActive && (
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-px bg-brand-soft"
+                />
+              )}
+            </button>
+          );
+        })}
       </div>
+
+      {/* Hidden legacy CTA — 사용 안 함 */}
+      <span className="hidden">{t("ctaSeeMore")}</span>
     </div>
   );
 }
