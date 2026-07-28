@@ -138,27 +138,54 @@ export default async function AnalyticsPage() {
       </section>
 
       {/* Region breakdown (이번 달) */}
-      <section className="mt-10">
-        <h2 className="text-lg font-bold">지역별 방문 (이번 달)</h2>
-        <div className="mt-4 rounded-2xl border border-line bg-white p-6">
-          {stats.byRegion.length === 0 ? (
-            <p className="py-4 text-sm text-ink-soft">
-              지역 데이터는 Vercel 배포 환경에서만 수집됩니다 (로컬 개발에서는 안 잡힘).
+      <section className="mt-10 grid gap-6 lg:grid-cols-2">
+        <div>
+          <h2 className="text-lg font-bold">국내 도시별 방문 (이번 달)</h2>
+          <div className="mt-4 rounded-2xl border border-line bg-white p-6">
+            {stats.byKrCity.length === 0 ? (
+              <p className="py-4 text-sm text-ink-soft">
+                국내 도시 데이터가 아직 없습니다.
+              </p>
+            ) : (
+              <ol className="space-y-2">
+                {stats.byKrCity.map((c, i) => (
+                  <li key={c.city} className="grid grid-cols-[24px_1fr_auto] items-center gap-3 text-sm">
+                    <span className="text-xs font-semibold text-ink-soft">{i + 1}</span>
+                    <span className="truncate text-ink">🇰🇷 {c.city}</span>
+                    <span className="tabular-nums font-semibold">{c.count}</span>
+                  </li>
+                ))}
+              </ol>
+            )}
+            <p className="mt-4 text-[11px] leading-relaxed text-ink-soft/70">
+              IP 기반 위치 추정 한계로 <strong className="text-ink">서울 구·동 단위 분류는 불가능</strong>합니다
+              (Seoul / Busan / Daegu 등 도시 레벨까지). 정확한 지역 분포가 필요하면 예약 폼에 지역 선택 항목을 추가하는 게 유일합니다.
             </p>
-          ) : (
-            <ol className="grid gap-3 sm:grid-cols-2">
-              {stats.byRegion.map((r, i) => (
-                <li key={`${r.country}-${r.city}`} className="grid grid-cols-[24px_1fr_auto] items-center gap-3 text-sm">
-                  <span className="text-xs font-semibold text-ink-soft">{i + 1}</span>
-                  <span className="truncate text-ink">
-                    {COUNTRY_KO[r.country] ?? `🌐 ${r.country}`}
-                    {r.city && <span className="ml-2 text-ink-soft">· {r.city}</span>}
-                  </span>
-                  <span className="tabular-nums font-semibold">{r.count}</span>
-                </li>
-              ))}
-            </ol>
-          )}
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-lg font-bold">해외 방문 (이번 달)</h2>
+          <div className="mt-4 rounded-2xl border border-line bg-white p-6">
+            {stats.byRegion.filter((r) => r.country !== "KR").length === 0 ? (
+              <p className="py-4 text-sm text-ink-soft">해외 방문 없음</p>
+            ) : (
+              <ol className="space-y-2">
+                {stats.byRegion
+                  .filter((r) => r.country !== "KR")
+                  .map((r, i) => (
+                    <li key={`${r.country}-${r.city}`} className="grid grid-cols-[24px_1fr_auto] items-center gap-3 text-sm">
+                      <span className="text-xs font-semibold text-ink-soft">{i + 1}</span>
+                      <span className="truncate text-ink">
+                        {COUNTRY_KO[r.country] ?? `🌐 ${r.country}`}
+                        {r.city && <span className="ml-2 text-ink-soft">· {r.city}</span>}
+                      </span>
+                      <span className="tabular-nums font-semibold">{r.count}</span>
+                    </li>
+                  ))}
+              </ol>
+            )}
+          </div>
         </div>
       </section>
 

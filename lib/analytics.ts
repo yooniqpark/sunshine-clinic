@@ -22,6 +22,7 @@ export type AnalyticsStats = {
   byLocale: { locale: string; count: number }[];
   byDevice: { device: string; count: number }[];
   byRegion: { country: string; city: string | null; count: number }[];
+  byKrCity: { city: string; count: number }[];
   todayReferrers: { referrer: string; count: number }[];
   todayUtm: { source: string; medium: string | null; count: number }[];
 };
@@ -137,6 +138,21 @@ export async function getStats(): Promise<AnalyticsStats> {
   }
   const byRegion = [...regionMap.values()].sort((a, b) => b.count - a.count).slice(0, 10);
 
+  // 국내 도시별 (country=KR만 필터, 이번 달)
+  const krCityRows = await prisma.pageView.findMany({
+    where: { createdAt: { gte: monthStart }, country: "KR", city: { not: null } },
+    select: { city: true },
+  });
+  const krCityMap = new Map<string, number>();
+  for (const r of krCityRows) {
+    if (!r.city) continue;
+    krCityMap.set(r.city, (krCityMap.get(r.city) ?? 0) + 1);
+  }
+  const byKrCity = [...krCityMap.entries()]
+    .map(([city, count]) => ({ city, count }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 20);
+
   // Today's referrers
   const todayRefRaw = await prisma.pageView.groupBy({
     by: ["referrer"],
@@ -173,6 +189,7 @@ export async function getStats(): Promise<AnalyticsStats> {
     byLocale,
     byDevice,
     byRegion,
+    byKrCity,
     todayReferrers,
     todayUtm,
   };
