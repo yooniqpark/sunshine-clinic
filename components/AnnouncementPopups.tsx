@@ -460,33 +460,26 @@ function EventCarousel() {
       <div className="grid shrink-0 grid-cols-4 border-t border-white/15 bg-ink/40 text-cream backdrop-blur">
         {GRAND_OPEN_CATEGORIES.map((cat, i) => {
           const isActive = i === idx;
-          const TAB_COLORS: Record<
-            string,
-            { active: string; inactive: string; accent: string; badge: string }
-          > = {
+          const TAB_COLORS: Record<string, { active: string; inactive: string; accent: string }> = {
             lifting: {
-              active: "bg-amber-400/20 text-amber-100",
-              inactive: "text-amber-200/70 hover:bg-amber-400/10 hover:text-amber-100",
+              active: "bg-amber-400/20",
+              inactive: "hover:bg-amber-400/10",
               accent: "bg-amber-300",
-              badge: "text-amber-200/70",
             },
             "whitening-acne": {
-              active: "bg-rose-400/20 text-rose-100",
-              inactive: "text-rose-200/70 hover:bg-rose-400/10 hover:text-rose-100",
+              active: "bg-rose-400/20",
+              inactive: "hover:bg-rose-400/10",
               accent: "bg-rose-300",
-              badge: "text-rose-200/70",
             },
             skinbooster: {
-              active: "bg-emerald-400/20 text-emerald-100",
-              inactive: "text-emerald-200/70 hover:bg-emerald-400/10 hover:text-emerald-100",
+              active: "bg-emerald-400/20",
+              inactive: "hover:bg-emerald-400/10",
               accent: "bg-emerald-300",
-              badge: "text-emerald-200/70",
             },
             botox: {
-              active: "bg-sky-400/20 text-sky-100",
-              inactive: "text-sky-200/70 hover:bg-sky-400/10 hover:text-sky-100",
+              active: "bg-sky-400/20",
+              inactive: "hover:bg-sky-400/10",
               accent: "bg-sky-300",
-              badge: "text-sky-200/70",
             },
           };
           const c = TAB_COLORS[cat.slug] ?? TAB_COLORS.lifting;
@@ -497,10 +490,10 @@ function EventCarousel() {
               onClick={() => setIdx(i)}
               aria-current={isActive}
               className={`relative flex items-center justify-center gap-2 border-r border-white/10 px-2 py-2.5 text-center transition-colors last:border-r-0 ${
-                isActive ? c.active : c.inactive
+                isActive ? `${c.active} text-cream` : `text-cream/60 ${c.inactive} hover:text-cream`
               }`}
             >
-              <span className={`text-[11px] font-medium tracking-[0.18em] tabular-nums ${c.badge}`}>
+              <span className="text-[11px] font-medium tracking-[0.18em] tabular-nums text-cream/60">
                 {String(i + 1).padStart(2, "0")}
               </span>
               <span className="text-[13px] font-semibold tracking-tight lg:text-[14px]">
