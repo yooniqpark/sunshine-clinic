@@ -107,17 +107,17 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </p>
       </div>
 
-      {/* Stage */}
+      {/* Stage — 이미지 위 · 텍스트 하단 (풀와이드) */}
       <div
         ref={stageRef}
-        className="grid grid-cols-1 gap-8 lg:grid-cols-[1.7fr_1fr] lg:gap-12"
+        className="flex flex-col gap-8 lg:gap-10"
         onPointerDown={onPointerDown}
         onPointerUp={onPointerUp}
         onTouchStart={onTouchStart}
         onTouchEnd={onTouchEnd}
       >
-        {/* Visual — 이미지 크게 */}
-        <div className="relative aspect-[3/4] w-full select-none overflow-hidden lg:aspect-[1.35/1]">
+        {/* Visual — 풀와이드 · 큰 이미지 */}
+        <div className="relative aspect-[3/4] w-full select-none overflow-hidden sm:aspect-[4/3] lg:aspect-[2.4/1] lg:min-h-[520px]">
           {/* Mobile-only arrows overlaid on image */}
           <button
             type="button"
@@ -213,32 +213,37 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           />
         </div>
 
-        {/* Copy */}
-        <article className="relative flex flex-col justify-center px-1 lg:pl-14 lg:pr-6" aria-live="polite">
-          <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
-            {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-            {cur.meta ? ` · ${cur.meta}` : ` · ${cur.categoryLabel}`}
-          </p>
-
-          <div key={cur.slug} className="min-h-0" style={{ animation: "sig-fade 0.7s cubic-bezier(0.22,1,0.36,1) both" }}>
+        {/* Copy — 이미지 아래, 풀와이드 · 좌측: 카테고리+영문+이름, 우측: 설명+CTA */}
+        <article
+          className="relative grid gap-6 lg:grid-cols-[1fr_1.15fr] lg:gap-16"
+          aria-live="polite"
+        >
+          <div key={cur.slug + "-a"} style={{ animation: "sig-fade 0.7s cubic-bezier(0.22,1,0.36,1) both" }}>
+            <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
+              {String(idx + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+              {cur.meta ? ` · ${cur.meta}` : ` · ${cur.categoryLabel}`}
+            </p>
             {cur.english && (
-              <p className="mt-4 font-serif text-[13px] tracking-[0.18em] text-ink/70">
+              <p className="mt-3 font-serif text-[13px] tracking-[0.18em] text-ink/70">
                 {cur.english}
               </p>
             )}
-            <h3 className="mt-2 font-serif text-2xl font-normal leading-[1.15] tracking-tight text-ink [word-break:keep-all] lg:text-[2.25rem] xl:text-[2.75rem]">
+            <h3 className="mt-2 font-serif text-3xl font-normal leading-[1.1] tracking-tight text-ink [word-break:keep-all] lg:text-[2.75rem] xl:text-5xl">
               {cur.name}
             </h3>
+          </div>
 
-            <p className="mt-4 max-w-sm text-[13px] leading-[1.7] text-ink/70 lg:text-sm">
+          <div
+            key={cur.slug + "-b"}
+            className="flex flex-col justify-end"
+            style={{ animation: "sig-fade 0.7s 80ms cubic-bezier(0.22,1,0.36,1) both" }}
+          >
+            <p className="max-w-xl text-sm leading-[1.75] text-ink/70 lg:text-[15px]">
               {cur.description ?? cur.tagline}
             </p>
-
-            <span aria-hidden className="mt-6 block h-px w-14 bg-ink/25" />
-
             <Link
               href={`/treatments/${cur.category}/${cur.slug}`}
-              className="mt-6 inline-flex items-center gap-3 border-b border-ink/30 pb-1.5 text-[11px] font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
+              className="mt-5 inline-flex w-fit items-center gap-3 border-b border-ink/30 pb-1.5 text-[11px] font-medium tracking-[0.18em] text-ink transition hover:border-brand-dark hover:text-brand-dark"
             >
               제품 자세히 보기
               <span aria-hidden className="text-brand-dark">↗</span>
