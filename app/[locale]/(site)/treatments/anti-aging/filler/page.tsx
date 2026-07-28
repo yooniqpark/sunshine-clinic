@@ -33,17 +33,7 @@ export default async function FillerPage({
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink text-cream">
-        <div className="absolute inset-0">
-          <Image
-            src="/models/anti-aging.jpg"
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-45"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/70" />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink to-[#1a1310]" />
 
         <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-32 lg:px-8 lg:pb-32 lg:pt-40">
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
