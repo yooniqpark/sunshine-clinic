@@ -47,7 +47,8 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       const abs = Math.abs(t);
       const angle = -t * MAX_ANGLE;
       const translateZ = -abs * MAX_Z;
-      card.style.transform = `translateZ(${translateZ}px) rotateY(${angle}deg)`;
+      // 요소별 perspective → 부모 overflow가 3D를 flatten해도 회전 유지
+      card.style.transform = `perspective(1600px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
       card.style.transformOrigin = "center bottom";
     });
   }
