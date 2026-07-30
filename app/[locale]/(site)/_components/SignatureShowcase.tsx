@@ -37,6 +37,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     const centerX = rect.left + rect.width / 2;
     const MAX_ANGLE = 30;
     const MAX_Z = 40;
+    const MAX_LIFT = 60; // 중앙 카드 위로, 좌우로 갈수록 내려와 상단이 아치
     const FALLOFF = rect.width / 2;
     const cards = el.querySelectorAll<HTMLElement>("[data-card]");
     cards.forEach((card) => {
@@ -47,9 +48,10 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       const abs = Math.abs(t);
       const angle = -t * MAX_ANGLE;
       const translateZ = -abs * MAX_Z;
-      // 요소별 perspective → 부모 overflow가 3D를 flatten해도 회전 유지
-      card.style.transform = `perspective(1600px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
-      card.style.transformOrigin = "center bottom";
+      // 중앙 카드 위로 lift · 좌우로 갈수록 원위치 → 상단이 아치(∩) 형태
+      const translateY = -(1 - abs * abs) * MAX_LIFT;
+      card.style.transform = `perspective(1600px) translateY(${translateY}px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
+      card.style.transformOrigin = "center center";
     });
   }
 
