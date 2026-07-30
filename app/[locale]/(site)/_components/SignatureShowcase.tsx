@@ -48,8 +48,8 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       const abs = Math.abs(t);
       const angle = -t * MAX_ANGLE;
       const translateZ = -abs * MAX_Z;
-      // 중앙 카드 위로 lift · 좌우로 갈수록 원위치 → 상단이 아치(∩) 형태
-      const translateY = -(1 - abs * abs) * MAX_LIFT;
+      // 중앙 카드 아래로 · 좌우로 갈수록 원위치 → 중앙 볼록(∪) 형태
+      const translateY = (1 - abs * abs) * MAX_LIFT;
       card.style.transform = `perspective(1600px) translateY(${translateY}px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
       card.style.transformOrigin = "center center";
     });
