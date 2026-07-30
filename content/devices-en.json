@@ -1141,52 +1141,57 @@
   "elravie-re20": {
     "slug": "elravie-re20",
     "category": "anti-aging",
-    "name": "엘라비에 리투오",
-    "tagline": "HA 스킨부스터로 즉각적 수분·결·탄력 개선",
-    "intro": "엘라비에 리투오는 HA 기반 스킨부스터로, 진피층에 수분과 영양을 공급해 결·탄력·톤을 종합적으로 개선합니다.",
-    "manufacturer": "Humedix (KR)",
+    "name": "Elravie Rituo",
+    "tagline": "hADM (acellular dermal matrix) regenerative volume filler",
+    "intro": "Elravie Rituo is a premium regenerative treatment that injects processed human-derived acellular dermal matrix (hADM) into the dermal layer. The implanted matrix acts as a 3D scaffold for new collagen, allowing the patient's own fibroblasts to migrate in and produce autologous collagen. Sunken areas and thinned skin are refilled with the patient's own regenerated tissue, restoring dermal thickness and lasting elasticity.",
+    "manufacturer": "Humedix / L&C Bio",
     "tech": [
-      "HA 스킨부스터",
-      "리도카인",
-      "2mL"
+      "hADM (Acellular Dermal Matrix)",
+      "Scaffold Regeneration",
+      "Autologous Collagen Induction",
+      "Biocompatible"
     ],
     "highlightStat": {
-      "value": "3회",
-      "label": "권장 시술"
+      "value": "12–18 mo",
+      "label": "Expected duration"
     },
     "features": [
       {
-        "title": "즉각적 수분",
-        "body": "촉촉한 결과 광채를 바로 느낄 수 있습니다."
+        "title": "3D Scaffold",
+        "body": "The hADM matrix forms a framework for new collagen growth."
       },
       {
-        "title": "결·탄력",
-        "body": "결 정돈과 탄력 개선을 동시에 진행합니다."
+        "title": "Autologous Collagen",
+        "body": "Fibroblasts migrate in and produce the patient's own collagen and vasculature."
       },
       {
-        "title": "예민 피부",
-        "body": "예민한 피부에도 부담이 적습니다."
+        "title": "Integrated Tissue",
+        "body": "The implant fuses into native tissue for natural feel with no foreign-body sensation."
       },
       {
-        "title": "톤 개선",
-        "body": "칙칙한 톤을 밝고 균일하게 정돈합니다."
+        "title": "Long-lasting",
+        "body": "Longer duration than standard HA fillers; results refine over time."
       }
     ],
-    "howItWorks": "진피 상부에 마이크로 주입 → HA가 수분·영양 공급 → 결·탄력·톤 개선.",
+    "howItWorks": "Three-stage mechanism: 1) 3D scaffold formation, 2) fibroblast migration and autologous collagen synthesis, 3) tissue integration.",
     "recommendedFor": [
-      "건조·거친 결",
-      "톤 저하",
-      "예민·복합성 피부",
-      "당일 결혼·행사"
+      "Thin, lax skin with generalized elasticity loss or sagging",
+      "Those seeking natural improvement without an artificial look",
+      "Complex aging concerns (fine lines, rough texture, dullness) addressed together",
+      "Those who want results that integrate into their own tissue rather than fading over time"
     ],
     "faq": [
       {
-        "q": "다운타임?",
-        "a": "미세 팽진이 잠깐 있고 반나절 내 가라앉습니다."
+        "q": "How does this differ from a standard filler?",
+        "a": "Rituo uses hADM to induce the patient's own collagen and vasculature at the treated area. The material fuses into native tissue for natural feel without foreign-body sensation."
       },
       {
-        "q": "몇 회?",
-        "a": "2~3주 간격 3회 권장, 이후 유지 관리 시술."
+        "q": "Is donor-derived dermis safe?",
+        "a": "Epidermal and cellular components that could trigger immune response are 100% removed (acellularized); only the pure dermal matrix is used — an established biocompatible material used in burn and reconstructive surgery."
+      },
+      {
+        "q": "When do results appear?",
+        "a": "Immediate volume from the scaffold; from ~3–4 weeks the patient's own cells migrate in and produce collagen, filling in gradually and naturally."
       }
     ]
   },
