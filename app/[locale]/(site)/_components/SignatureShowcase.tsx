@@ -29,19 +29,43 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   const [canNext, setCanNext] = useState(true);
   const pausedUntilRef = useRef(0);
 
+  // 카드 회전(coverflow) 계산 — 뷰포트 중앙에서 멀수록 rotateY 커짐
+  function applyCoverflow() {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const MAX_ANGLE = 32; // deg
+    const FALLOFF = rect.width / 2; // 카드가 스트립 반쪽 밖으로 나가면 최대 각
+    const cards = el.querySelectorAll<HTMLElement>("[data-card]");
+    cards.forEach((card) => {
+      const cr = card.getBoundingClientRect();
+      const cardCenter = cr.left + cr.width / 2;
+      const dist = cardCenter - centerX;
+      const t = Math.max(-1, Math.min(1, dist / FALLOFF));
+      const angle = -t * MAX_ANGLE;
+      const translateZ = -Math.abs(t) * 90;
+      card.style.transform = `translateZ(${translateZ}px) rotateY(${angle}deg)`;
+    });
+  }
+
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
     const update = () => {
       setCanPrev(el.scrollLeft > 4);
       setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+      applyCoverflow();
     };
     update();
     el.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
+    // 이미지 로드 후 위치 확정된 뒤 한 번 더
+    const t = window.setTimeout(update, 700);
     return () => {
       el.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
+      window.clearTimeout(t);
     };
   }, [items.length]);
 
@@ -76,6 +100,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           el.scrollLeft += delta;
         }
       }
+      applyCoverflow();
       raf = window.requestAnimationFrame(tick);
     };
 
@@ -134,13 +159,17 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         <ul
           ref={scrollerRef}
           className="flex touch-pan-x snap-x snap-proximity gap-4 overflow-x-auto overscroll-x-contain px-5 pb-6 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-6 lg:px-8 [&::-webkit-scrollbar]:hidden"
-          style={{ scrollBehavior: "smooth" }}
+          style={{
+            scrollBehavior: "smooth",
+            perspective: "1600px",
+            transformStyle: "preserve-3d",
+          }}
         >
           {items.map((d, i) => (
             <li
               key={d.slug}
               data-card
-              className="shrink-0 snap-start"
+              className="shrink-0 snap-start [transform-style:preserve-3d] will-change-transform [transition:transform_120ms_linear]"
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
