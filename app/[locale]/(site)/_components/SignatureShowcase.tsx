@@ -29,15 +29,14 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   const [canNext, setCanNext] = useState(true);
   const pausedUntilRef = useRef(0);
 
-  // 아치형 coverflow: 중앙 카드 정면·위, 좌우로 갈수록 회전 + 아래로 곡선
+  // 라인 맞춘 coverflow: 카드 하단 일직선, 좌우로 갈수록 rotateY 회전만
   function applyCoverflow() {
     const el = scrollerRef.current;
     if (!el) return;
     const rect = el.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
-    const MAX_ANGLE = 28;
-    const MAX_DROP = 50; // px 아래로 (아치 곡률)
-    const MAX_Z = 60;
+    const MAX_ANGLE = 30;
+    const MAX_Z = 40;
     const FALLOFF = rect.width / 2;
     const cards = el.querySelectorAll<HTMLElement>("[data-card]");
     cards.forEach((card) => {
@@ -48,9 +47,8 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       const abs = Math.abs(t);
       const angle = -t * MAX_ANGLE;
       const translateZ = -abs * MAX_Z;
-      // 아치: 중앙 0, 끝 MAX_DROP (parabola)
-      const translateY = abs * abs * MAX_DROP;
-      card.style.transform = `translateY(${translateY}px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
+      card.style.transform = `translateZ(${translateZ}px) rotateY(${angle}deg)`;
+      card.style.transformOrigin = "center bottom";
     });
   }
 
@@ -163,7 +161,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         </button>
         <ul
           ref={scrollerRef}
-          className="flex touch-pan-x snap-x snap-proximity items-center gap-3 overflow-x-auto overscroll-x-contain px-5 pb-16 pt-10 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-4 lg:px-8 lg:pb-24 lg:pt-14 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x snap-x snap-proximity items-end gap-3 overflow-x-auto overscroll-x-contain px-5 pb-10 pt-6 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-4 lg:px-8 lg:pb-14 lg:pt-8 [&::-webkit-scrollbar]:hidden"
           style={{
             scrollBehavior: "smooth",
             perspective: "1800px",
