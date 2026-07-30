@@ -28,50 +28,81 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
   const pausedUntilRef = useRef(0);
+  const cardMetaRef = useRef<{ center: number; halfW: number; el: HTMLElement }[]>([]);
+  const viewportRef = useRef({ width: 0, halfW: 0 });
+  const rafPendingRef = useRef(0);
 
-  // 라인 맞춘 coverflow: 카드 하단 일직선, 좌우로 갈수록 rotateY 회전만
+  // 카드 위치 캐싱 — layout 읽기를 rAF 밖에서만 수행
+  function measure() {
+    const el = scrollerRef.current;
+    if (!el) return;
+    viewportRef.current.width = el.clientWidth;
+    viewportRef.current.halfW = el.clientWidth / 2;
+    const cards = el.querySelectorAll<HTMLElement>("[data-card]");
+    const meta: { center: number; halfW: number; el: HTMLElement }[] = [];
+    cards.forEach((card) => {
+      // offsetLeft/offsetWidth는 layout thrash 없이 캐시 가능
+      const halfW = card.offsetWidth / 2;
+      meta.push({ center: card.offsetLeft + halfW, halfW, el: card });
+    });
+    cardMetaRef.current = meta;
+  }
+
+  // 캐시된 좌표만 사용 → getBoundingClientRect 호출 0회
   function applyCoverflow() {
     const el = scrollerRef.current;
     if (!el) return;
-    const rect = el.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
+    const scrollLeft = el.scrollLeft;
+    const viewportCenter = scrollLeft + viewportRef.current.halfW;
+    const FALLOFF = viewportRef.current.halfW || 1;
     const MAX_ANGLE = 30;
     const MAX_Z = 40;
-    const MAX_LIFT = 60; // 중앙 카드 위로, 좌우로 갈수록 내려와 상단이 아치
-    const FALLOFF = rect.width / 2;
-    const cards = el.querySelectorAll<HTMLElement>("[data-card]");
-    cards.forEach((card) => {
-      const cr = card.getBoundingClientRect();
-      const cardCenter = cr.left + cr.width / 2;
-      const dist = cardCenter - centerX;
+    const MAX_LIFT = 60;
+    for (const m of cardMetaRef.current) {
+      const dist = m.center - viewportCenter;
       const t = Math.max(-1, Math.min(1, dist / FALLOFF));
       const abs = Math.abs(t);
       const angle = -t * MAX_ANGLE;
       const translateZ = -abs * MAX_Z;
-      // 중앙 카드 아래로 · 좌우로 갈수록 원위치 → 중앙 볼록(∪) 형태
       const translateY = (1 - abs * abs) * MAX_LIFT;
-      card.style.transform = `perspective(1600px) translateY(${translateY}px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
-      card.style.transformOrigin = "center center";
+      m.el.style.transform = `perspective(1600px) translateY(${translateY}px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
+    }
+  }
+
+  function scheduleApply() {
+    if (rafPendingRef.current) return;
+    rafPendingRef.current = window.requestAnimationFrame(() => {
+      rafPendingRef.current = 0;
+      applyCoverflow();
     });
   }
 
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el) return;
-    const update = () => {
+    measure();
+    applyCoverflow();
+    setCanPrev(el.scrollLeft > 4);
+    setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+
+    const onScroll = () => {
       setCanPrev(el.scrollLeft > 4);
       setCanNext(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
-      applyCoverflow();
+      scheduleApply();
     };
-    update();
-    el.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    // 이미지 로드 후 위치 확정된 뒤 한 번 더
-    const t = window.setTimeout(update, 700);
+    const onResize = () => {
+      measure();
+      scheduleApply();
+    };
+    el.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+    // 이미지 로드 후 offsetLeft 확정된 뒤 한 번 더
+    const t = window.setTimeout(() => { measure(); applyCoverflow(); }, 700);
     return () => {
-      el.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
       window.clearTimeout(t);
+      if (rafPendingRef.current) window.cancelAnimationFrame(rafPendingRef.current);
     };
   }, [items.length]);
 
@@ -104,9 +135,9 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           pausedUntilRef.current = ts + 1000;
         } else {
           el.scrollLeft += delta;
+          applyCoverflow(); // 스크롤 이벤트 자동 발화하지만 즉시 반영
         }
       }
-      applyCoverflow();
       raf = window.requestAnimationFrame(tick);
     };
 
@@ -175,7 +206,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             <li
               key={d.slug}
               data-card
-              className="shrink-0 snap-start [transform-style:preserve-3d] will-change-transform [transition:transform_120ms_linear]"
+              className="shrink-0 snap-start"
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}

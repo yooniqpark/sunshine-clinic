@@ -8,6 +8,7 @@ import { PreviewFooter } from "./(site)/_components/PreviewFooter";
 import { ChatWidget } from "@/components/ChatWidget";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Analytics } from "@/components/Analytics";
+import { NoDownloadGuard } from "@/components/NoDownloadGuard";
 
 const SITE_URL = "https://mysunshineclinic.com";
 
@@ -119,6 +120,7 @@ export default async function PreviewLayout({
         <ChatWidget />
         <ScrollToTop />
         <Analytics />
+        <NoDownloadGuard />
       </div>
     </NextIntlClientProvider>
   );

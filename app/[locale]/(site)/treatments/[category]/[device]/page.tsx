@@ -100,7 +100,7 @@ export default async function DevicePage({
   const defaultProcess = t.raw("defaultProcess") as ProcessStep[];
 
   return (
-    <>
+    <div className="no-download">
       {/* HERO */}
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
@@ -374,7 +374,7 @@ export default async function DevicePage({
         </div>
       </section>
 
-    </>
+    </div>
   );
 }
 
@@ -406,7 +406,7 @@ async function ConcernPage({
   const introParagraphs = concern.intro.split(/\n\n+/).filter(Boolean);
 
   return (
-    <>
+    <div className="no-download">
       {/* HERO */}
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
@@ -629,6 +629,6 @@ async function ConcernPage({
         </div>
       </section>
 
-    </>
+    </div>
   );
 }

@@ -30,7 +30,7 @@ export default async function FillerPage({
   const fillers = FILLER_SLUGS.map((slug) => dict[slug]).filter(Boolean);
 
   return (
-    <>
+    <div className="no-download">
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink to-[#1a1310]" />
@@ -117,6 +117,6 @@ export default async function FillerPage({
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }

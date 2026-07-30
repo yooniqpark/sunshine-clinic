@@ -288,3 +288,12 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* 이미지 다운로드/드래그 방지 (시술 페이지 등) */
+.no-download img,
+.no-download picture {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
