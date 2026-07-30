@@ -57,15 +57,16 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     const FALLOFF = viewportRef.current.halfW || 1;
     const MAX_ANGLE = 30;
     const MAX_Z = 40;
-    const MAX_LIFT = 60;
+    const MIN_SCALE = 0.72; // 좌우 끝 카드 크기 비율 (중앙은 1)
     for (const m of cardMetaRef.current) {
       const dist = m.center - viewportCenter;
       const t = Math.max(-1, Math.min(1, dist / FALLOFF));
       const abs = Math.abs(t);
       const angle = -t * MAX_ANGLE;
       const translateZ = -abs * MAX_Z;
-      const translateY = (1 - abs * abs) * MAX_LIFT;
-      m.el.style.transform = `perspective(1600px) translateY(${translateY}px) translateZ(${translateZ}px) rotateY(${angle}deg)`;
+      const scale = 1 - (1 - MIN_SCALE) * abs;
+      m.el.style.transform = `perspective(1600px) translateZ(${translateZ}px) rotateY(${angle}deg) scale(${scale})`;
+      m.el.style.transformOrigin = "center bottom";
     }
   }
 
