@@ -123,7 +123,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
 
     let raf = 0;
     let lastTs = 0;
-    const SPEED = 600;
+    const SPEED = 280;
 
     const tick = (ts: number) => {
       const dt = lastTs === 0 ? 0 : Math.min(64, ts - lastTs);
