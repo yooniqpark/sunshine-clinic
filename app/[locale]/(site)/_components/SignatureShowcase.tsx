@@ -49,15 +49,18 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   }
 
   // 캐시된 좌표만 사용 → getBoundingClientRect 호출 0회
+  // 레퍼런스 스타일: 중앙 카드는 정면·선명, 가장자리로 갈수록
+  // 완만한 rotateY 아치 + 살짝 축소 + 페이드아웃
   function applyCoverflow() {
     const el = scrollerRef.current;
     if (!el) return;
     const scrollLeft = el.scrollLeft;
     const viewportCenter = scrollLeft + viewportRef.current.halfW;
     const FALLOFF = viewportRef.current.halfW || 1;
-    const MAX_ANGLE = 30;
-    const MAX_Z = 40;
-    const MIN_SCALE = 0.72; // 좌우 끝 카드 크기 비율 (중앙은 1)
+    const MAX_ANGLE = 14; // 은은한 기울기 — 변화 과하지 않게
+    const MAX_Z = 30;
+    const MIN_SCALE = 0.95; // 좌우 끝 카드 크기 비율 (중앙은 1)
+    const MIN_OPACITY = 0.4; // 가장자리 페이드
     for (const m of cardMetaRef.current) {
       const dist = m.center - viewportCenter;
       const t = Math.max(-1, Math.min(1, dist / FALLOFF));
@@ -66,7 +69,8 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       const translateZ = -abs * MAX_Z;
       const scale = 1 - (1 - MIN_SCALE) * abs;
       m.el.style.transform = `perspective(1600px) translateZ(${translateZ}px) rotateY(${angle}deg) scale(${scale})`;
-      m.el.style.transformOrigin = "center bottom";
+      m.el.style.transformOrigin = "center center";
+      m.el.style.opacity = String(1 - (1 - MIN_OPACITY) * abs * abs);
     }
   }
 
@@ -123,7 +127,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
 
     let raf = 0;
     let lastTs = 0;
-    const SPEED = 280;
+    const SPEED = 55;
 
     const tick = (ts: number) => {
       const dt = lastTs === 0 ? 0 : Math.min(64, ts - lastTs);
@@ -133,7 +137,9 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
         if (nearEnd) {
           el.scrollTo({ left: 0, behavior: "smooth" });
-          pausedUntilRef.current = ts + 1000;
+          // 되감기 애니메이션이 끝나기 전에 tick이 다시 밀면 두 스크롤이
+          // 싸우며 이음새가 끊긴다 → 넉넉히 대기
+          pausedUntilRef.current = ts + 2000;
         } else {
           el.scrollLeft += delta;
           applyCoverflow(); // 스크롤 이벤트 자동 발화하지만 즉시 반영
@@ -181,7 +187,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(-1)}
           disabled={!canPrev}
           aria-label="이전"
-          className="absolute left-4 top-[210px] z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 lg:top-[300px]"
+          className="absolute left-4 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
         >
           ←
         </button>
@@ -190,15 +196,18 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(1)}
           disabled={!canNext}
           aria-label="다음"
-          className="absolute right-4 top-[210px] z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 lg:top-[300px]"
+          className="absolute right-4 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
         >
           →
         </button>
+        {/* scroll-behavior: smooth를 여기 걸면 rAF 자동 스크롤의 scrollLeft
+            대입이 매 프레임 smooth 애니메이션을 재시작해 덜컹거린다.
+            부드러운 이동이 필요한 곳(화살표·되감기)은 scrollTo/scrollBy에
+            behavior: "smooth"를 명시적으로 넘긴다. */}
         <ul
           ref={scrollerRef}
-          className="flex touch-pan-x snap-x snap-proximity items-end gap-3 overflow-x-auto overscroll-x-contain px-5 pb-10 pt-6 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-4 lg:px-8 lg:pb-14 lg:pt-8 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x snap-x snap-proximity items-center gap-4 overflow-x-auto overscroll-x-contain px-5 pb-12 pt-8 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-7 lg:px-8 lg:pb-16 lg:pt-10 [&::-webkit-scrollbar]:hidden"
           style={{
-            scrollBehavior: "smooth",
             perspective: "1800px",
             transformStyle: "preserve-3d",
           }}
@@ -211,7 +220,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
-                className="group relative block h-[360px] w-[220px] overflow-hidden rounded-2xl border border-ink/10 bg-[#f5eee1] transition-all duration-500 hover:border-brand-dark hover:shadow-xl hover:shadow-ink/15 lg:h-[500px] lg:w-[300px]"
+                className="group relative block h-[340px] w-[220px] overflow-hidden rounded-[4px] border border-ink/[0.06] bg-[#f5eee1] shadow-[0_18px_40px_-24px_rgba(28,25,23,0.35)] transition-shadow duration-500 hover:shadow-[0_28px_56px_-24px_rgba(28,25,23,0.45)] lg:h-[460px] lg:w-[300px]"
               >
                 {/* Full-bleed image */}
                 {d.img && (
@@ -225,28 +234,25 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                   />
                 )}
 
-                {/* Bottom gradient */}
+                {/* Bottom gradient — 은은하게, 텍스트 가독만 확보 */}
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent"
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/70 via-ink/25 to-transparent"
                 />
 
-                {/* Caption overlay */}
-                <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-cream lg:p-7">
-                  <p className="text-[9px] font-medium tracking-[0.28em] text-brand-soft lg:text-[10px]">
+                {/* Caption overlay — 미니멀: 카테고리 + 이름만 */}
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-cream lg:p-6">
+                  <p className="text-[9px] font-medium tracking-[0.3em] text-cream/70 lg:text-[10px]">
                     {d.categoryLabel}
                   </p>
-                  <h3 className="mt-2 font-serif text-2xl font-normal leading-tight tracking-tight lg:text-3xl">
+                  <h3 className="mt-1.5 font-serif text-xl font-normal leading-tight tracking-tight lg:text-2xl">
                     {d.name}
                   </h3>
                   {d.english && (
-                    <p className="mt-1 font-serif text-[11px] tracking-[0.16em] text-cream/60 lg:text-xs">
+                    <p className="mt-1 font-serif text-[10px] tracking-[0.18em] text-cream/55 lg:text-[11px]">
                       {d.english}
                     </p>
                   )}
-                  <p className="mt-3 line-clamp-2 text-[12px] leading-[1.55] text-cream/75 lg:text-[13px]">
-                    {d.description ?? d.tagline}
-                  </p>
                 </div>
               </Link>
             </li>
