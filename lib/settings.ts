@@ -96,7 +96,14 @@ export const SETTINGS_GROUPS: { label: string; keys: (keyof SiteSettings)[] }[] 
 ];
 
 async function loadAll(): Promise<SiteSettings> {
-  const rows = await prisma.setting.findMany();
+  let rows: Awaited<ReturnType<typeof prisma.setting.findMany>>;
+  try {
+    rows = await prisma.setting.findMany();
+  } catch {
+    // DB 미준비·일시 오류 시 기본값으로 렌더 지속 — 레이아웃(JSON-LD)이
+    // getSettings에 의존하므로 여기서 던지면 사이트 전체가 500이 된다.
+    return { ...SETTINGS_DEFAULTS };
+  }
   const map: Record<string, string> = {};
   for (const r of rows) map[r.key] = r.value;
   const result = { ...SETTINGS_DEFAULTS } as SiteSettings;

@@ -1,6 +1,5 @@
 import { getSettings } from "@/lib/settings";
-
-const SITE_URL = "https://mysunshineclinic.com";
+import { SITE_URL } from "@/lib/seo";
 
 const OPENING_HOURS_SPEC = [
   {
@@ -164,6 +163,39 @@ export function FaqPageJsonLd({
         text: qa.a,
       },
     })),
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  );
+}
+
+export function MedicalProcedureJsonLd({
+  url,
+  name,
+  alternateName,
+  description,
+  howPerformed,
+}: {
+  url: string;
+  name: string;
+  alternateName?: string;
+  description: string;
+  howPerformed?: string;
+}) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    "@id": url,
+    url,
+    name,
+    ...(alternateName ? { alternateName } : {}),
+    description,
+    ...(howPerformed ? { howPerformed } : {}),
+    procedureType: "PercutaneousProcedure",
+    bodyLocation: "Skin",
   };
   return (
     <script

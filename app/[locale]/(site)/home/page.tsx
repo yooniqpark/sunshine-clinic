@@ -9,6 +9,17 @@ import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
 import { getDevicesByCategory, getDeviceImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
+import { pageSeo } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  // title/description은 레이아웃 기본값 상속, canonical/hreflang/OG url만 페이지 경로로
+  return pageSeo({ locale, path: "/home" });
+}
 
 export default async function PreviewHome({
   params,

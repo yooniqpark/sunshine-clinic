@@ -14,6 +14,12 @@ import concernsKoData from "@/content/concerns-ko.json";
 import { getConcern, type Concern } from "@/lib/concerns";
 import type { DeviceDetail } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
+import { pageSeo, truncateDescription, localeUrl } from "@/lib/seo";
+import {
+  MedicalProcedureJsonLd,
+  FaqPageJsonLd,
+  BreadcrumbJsonLd,
+} from "@/components/JsonLd";
 
 const ALL_DEVICES_KO = koData as Record<string, DeviceDetail>;
 const ALL_CONCERNS_KO = concernsKoData as Record<string, Concern>;
@@ -46,23 +52,28 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; category: string; device: string }>;
 }) {
-  const { locale, device } = await params;
+  const { locale, category, device } = await params;
+  const path = `/treatments/${category}/${device}`;
   const dict = (
     await import(`@/content/devices-${locale}.json`).catch(() => ({ default: ALL_DEVICES_KO }))
   ).default as Record<string, DeviceDetail>;
   const d = dict[device] ?? ALL_DEVICES_KO[device];
   if (d) {
-    return {
+    return pageSeo({
+      locale,
+      path,
       title: d.name,
-      robots: { index: false, follow: false },
-    };
+      description: truncateDescription(`${d.tagline} — ${d.intro}`),
+    });
   }
   const concern = getConcern(locale as AppLocale, device);
   if (concern) {
-    return {
+    return pageSeo({
+      locale,
+      path,
       title: concern.name,
-      robots: { index: false, follow: false },
-    };
+      description: truncateDescription(`${concern.tagline} — ${concern.intro}`),
+    });
   }
   return {};
 }
@@ -98,9 +109,25 @@ export default async function DevicePage({
     (x) => x.slug !== d.slug,
   );
   const defaultProcess = t.raw("defaultProcess") as ProcessStep[];
+  const pageUrl = localeUrl(locale, `/treatments/${category}/${d.slug}`);
 
   return (
     <div className="no-download">
+      <MedicalProcedureJsonLd
+        url={pageUrl}
+        name={d.name}
+        alternateName={meta?.englishName ?? d.manufacturer}
+        description={d.tagline}
+        howPerformed={d.howItWorks}
+      />
+      {d.faq.length > 0 && <FaqPageJsonLd items={d.faq} />}
+      <BreadcrumbJsonLd
+        items={[
+          { name: "HOME", url: localeUrl(locale, "/home") },
+          { name: catLabel, url: localeUrl(locale, `/treatments/${category}`) },
+          { name: d.name, url: pageUrl },
+        ]}
+      />
       {/* HERO */}
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
@@ -404,9 +431,18 @@ async function ConcernPage({
     .slice(0, 3);
 
   const introParagraphs = concern.intro.split(/\n\n+/).filter(Boolean);
+  const pageUrl = localeUrl(locale, `/treatments/${category}/${concern.slug}`);
 
   return (
     <div className="no-download">
+      {concern.faq.length > 0 && <FaqPageJsonLd items={concern.faq} />}
+      <BreadcrumbJsonLd
+        items={[
+          { name: "HOME", url: localeUrl(locale, "/home") },
+          { name: catLabel, url: localeUrl(locale, `/treatments/${category}`) },
+          { name: concern.name, url: pageUrl },
+        ]}
+      />
       {/* HERO */}
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">

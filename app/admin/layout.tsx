@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { auth, signOut } from "@/auth";
 
-export const metadata: Metadata = { title: "관리자 — Sunshine" };
+export const metadata: Metadata = {
+  title: "관리자 — Sunshine",
+  robots: { index: false, follow: false },
+};
 
 const nav = [
   { label: "대시보드", href: "/admin" },

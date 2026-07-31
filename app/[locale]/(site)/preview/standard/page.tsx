@@ -19,7 +19,10 @@ import { VariantR } from "../../_components/standard-variants/VariantR";
 import { VariantS } from "../../_components/standard-variants/VariantS";
 import { VariantT } from "../../_components/standard-variants/VariantT";
 
-export const metadata = { title: "STANDARD variants preview" };
+export const metadata = {
+  title: "STANDARD variants preview",
+  robots: { index: false, follow: false },
+};
 
 function Header({
   code,
