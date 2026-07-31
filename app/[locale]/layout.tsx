@@ -9,8 +9,8 @@ import { ChatWidget } from "@/components/ChatWidget";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Analytics } from "@/components/Analytics";
 import { NoDownloadGuard } from "@/components/NoDownloadGuard";
-
-const SITE_URL = "https://mysunshineclinic.com";
+import { ClinicJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import { SITE_URL, seoAlternates, localeUrl } from "@/lib/seo";
 
 const SEO_BY_LOCALE: Record<
   string,
@@ -68,27 +68,21 @@ export async function generateMetadata({
     description: seo.description,
     keywords: seo.keywords,
     applicationName: "Sunshine Clinic",
-    alternates: {
-      canonical: `/${locale}`,
-      languages: {
-        ko: "/ko",
-        en: "/en",
-        ja: "/ja",
-        "zh-CN": "/zh",
-      },
-    },
+    alternates: seoAlternates(locale, ""),
     openGraph: {
       type: "website",
       siteName: "Sunshine Clinic",
       title: seo.title,
       description: seo.description,
-      url: `${SITE_URL}/${locale}`,
+      url: localeUrl(locale, ""),
       locale: locale === "ko" ? "ko_KR" : locale === "ja" ? "ja_JP" : locale === "zh" ? "zh_CN" : "en_US",
+      images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
       title: seo.title,
       description: seo.description,
+      images: [{ url: "/og.jpg", width: 1200, height: 630 }],
     },
     robots: { index: true, follow: true },
   };
@@ -113,6 +107,8 @@ export default async function PreviewLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <div data-theme={locale} className={`theme-${locale} min-h-screen bg-cream text-ink antialiased`}>
+        <ClinicJsonLd locale={locale} />
+        <WebSiteJsonLd />
         <PreviewHeader />
         <main>{children}</main>
         <PreviewFooter />

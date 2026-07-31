@@ -9,6 +9,29 @@ import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
+import { pageSeo, truncateDescription } from "@/lib/seo";
+
+const ABOUT_TITLE: Record<string, string> = {
+  ko: "병원 소개",
+  en: "About",
+  ja: "医院紹介",
+  zh: "医院介绍",
+};
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "v2.about" });
+  return pageSeo({
+    locale,
+    path: "/about",
+    title: ABOUT_TITLE[locale] ?? ABOUT_TITLE.ko,
+    description: truncateDescription(t("heroDesc")),
+  });
+}
 
 const DEVICE_CATEGORIES: {
   slug: "lifting" | "anti-aging" | "whitening" | "acne";

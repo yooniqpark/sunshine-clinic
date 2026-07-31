@@ -1,5 +1,6 @@
 import "./globals.css";
 import type { Viewport } from "next";
+import { getLocale } from "next-intl/server";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -7,13 +8,15 @@ export const viewport: Viewport = {
   viewportFit: "cover",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // admin 등 intl 미들웨어 밖 경로는 getLocale이 실패할 수 있어 ko로 폴백
+  const locale = await getLocale().catch(() => "ko");
   return (
-    <html lang="ko" className="h-full">
+    <html lang={locale} className="h-full">
       <head>
         <link
           rel="stylesheet"

@@ -2,6 +2,17 @@ import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon } from "@/components/icons";
+import { pageSeo } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "v2.notices" });
+  return pageSeo({ locale, path: "/community/notices", title: t("title") });
+}
 
 type NoticeItem = { tag: string; date: string; title: string; excerpt: string };
 

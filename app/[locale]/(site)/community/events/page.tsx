@@ -1,5 +1,16 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { EventsBoard, type EventEntry } from "./EventsBoard";
+import { pageSeo } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "v2.events" });
+  return pageSeo({ locale, path: "/community/events", title: t("title") });
+}
 
 export default async function EventsPage({
   params,

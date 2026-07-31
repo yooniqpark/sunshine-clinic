@@ -8,7 +8,10 @@ import { SlideD } from "../../_components/slide-variants/SlideD";
 import { SlideE } from "../../_components/slide-variants/SlideE";
 import type { SlideItem } from "../../_components/slide-variants/SlideShared";
 
-export const metadata = { title: "슬라이드 디자인 프리뷰" };
+export const metadata = {
+  title: "슬라이드 디자인 프리뷰",
+  robots: { index: false, follow: false },
+};
 
 async function loadItems(locale: string): Promise<SlideItem[]> {
   const lifting = getDevicesByCategory(locale as AppLocale, "lifting");

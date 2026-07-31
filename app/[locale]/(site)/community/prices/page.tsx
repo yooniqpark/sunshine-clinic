@@ -1,5 +1,21 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
+import { pageSeo, truncateDescription } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "v2.prices" });
+  return pageSeo({
+    locale,
+    path: "/community/prices",
+    title: t("title"),
+    description: truncateDescription(t("desc")),
+  });
+}
 
 type FeeRow = { label: string; basis: string; amount: string };
 type FeeSection = { heading: string; rows: FeeRow[] };

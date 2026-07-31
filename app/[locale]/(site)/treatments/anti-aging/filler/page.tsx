@@ -6,12 +6,47 @@ import {
   getDeviceMarketing,
   type DeviceDetail,
 } from "@/lib/devices";
+import { pageSeo, localeUrl } from "@/lib/seo";
+import { BreadcrumbJsonLd } from "@/components/JsonLd";
 const FILLER_SLUGS = ["juvederm", "belotero"];
 
-export const metadata = {
-  title: "필러",
-  robots: { index: false, follow: false },
+const FILLER_SEO: Record<string, { title: string; description: string }> = {
+  ko: {
+    title: "필러",
+    description:
+      "볼륨·윤곽·잔주름 개선을 위한 HA · CaHA 필러 — 쥬비덤 볼리프트, 벨로테로 등 정품 필러로 자연스러운 볼륨을 설계합니다.",
+  },
+  en: {
+    title: "Dermal Filler",
+    description:
+      "HA · CaHA dermal fillers for volume, contour, and fine lines — Juvéderm Volift, Belotero, and more.",
+  },
+  ja: {
+    title: "ヒアルロン酸フィラー",
+    description:
+      "ボリューム・輪郭・小じわ改善のための HA・CaHA フィラー — ジュビダーム、ベロテロなど正規品のみ使用。",
+  },
+  zh: {
+    title: "填充注射",
+    description:
+      "用于容量、轮廓与细纹改善的 HA · CaHA 填充剂 — Juvéderm、Belotero 等正品填充。",
+  },
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const seo = FILLER_SEO[locale] ?? FILLER_SEO.ko;
+  return pageSeo({
+    locale,
+    path: "/treatments/anti-aging/filler",
+    title: seo.title,
+    description: seo.description,
+  });
+}
 
 export default async function FillerPage({
   params,
@@ -31,6 +66,13 @@ export default async function FillerPage({
 
   return (
     <div className="no-download">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "HOME", url: localeUrl(locale, "/home") },
+          { name: "ANTI-AGING", url: localeUrl(locale, "/treatments/anti-aging") },
+          { name: "필러", url: localeUrl(locale, "/treatments/anti-aging/filler") },
+        ]}
+      />
       {/* Hero */}
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0 bg-gradient-to-b from-ink via-ink to-[#1a1310]" />
