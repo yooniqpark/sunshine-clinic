@@ -56,21 +56,33 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     if (!el) return;
     const scrollLeft = el.scrollLeft;
     const viewportCenter = scrollLeft + viewportRef.current.halfW;
-    const FALLOFF = viewportRef.current.halfW || 1;
-    const MAX_ANGLE = 14; // 은은한 기울기 — 변화 과하지 않게
-    const MAX_Z = 30;
-    const MIN_SCALE = 0.95; // 좌우 끝 카드 크기 비율 (중앙은 1)
-    const MIN_OPACITY = 0.4; // 가장자리 페이드
+    // falloff를 뷰포트 절반보다 넓게 — 카드가 화면을 가로지르는 동안
+    // 각도 변화가 완만해서 "그대로 쭉 미끄러지는" 느낌 (레퍼런스와 동일)
+    const FALLOFF = (viewportRef.current.width || 1) * 0.72;
+    // 레퍼런스(Lumière) 매칭: 중앙 정면·플랫, 옆으로 갈수록 중앙을 향해
+    // 뚜렷하게 꺾이는 아치. 페이드는 맨 끝 카드만.
+    // 볼록 원통의 표면 노멀 방향(바깥쪽)으로 살짝만 —
+    // 각도를 낮춰 "묘하게 바라보는" 느낌 제거, 곡면의 자연스러운 접선처럼
+    const MAX_ANGLE = 18;
+    const BULGE = 70; // 중앙이 관찰자 쪽으로 볼록 (원통 곡면)
+    const MAX_Z = 80; // 가장자리는 뒤로 후퇴
+    const MIN_SCALE = 0.9; // 깊이가 크기감을 만들므로 scale 변화는 살짝만
     for (const m of cardMetaRef.current) {
       const dist = m.center - viewportCenter;
       const t = Math.max(-1, Math.min(1, dist / FALLOFF));
       const abs = Math.abs(t);
-      const angle = -t * MAX_ANGLE;
-      const translateZ = -abs * MAX_Z;
+      // rotateY(+θ): 카드가 오른쪽을 바라봄. 우측(t>0) 카드 → 오른쪽,
+      // 좌측(t<0) 카드 → 왼쪽 (볼록 곡면의 바깥 방향)
+      const angle = t * MAX_ANGLE;
+      // 포물선 깊이: 중앙 +BULGE(앞) → 가장자리 -MAX_Z(뒤). 볼록한 원통 곡면.
+      const translateZ = BULGE * (1 - abs * abs) - MAX_Z * abs;
       const scale = 1 - (1 - MIN_SCALE) * abs;
-      m.el.style.transform = `perspective(1600px) translateZ(${translateZ}px) rotateY(${angle}deg) scale(${scale})`;
+      // per-card perspective()를 쓰면 카드마다 소실점이 달라 아치가 끊겨 보인다.
+      // 부모 ul의 공유 perspective 하나로 통일해 이어진 곡면처럼.
+      m.el.style.transform = `translateZ(${translateZ}px) rotateY(${angle}deg) scale(${scale})`;
       m.el.style.transformOrigin = "center center";
-      m.el.style.opacity = String(1 - (1 - MIN_OPACITY) * abs * abs);
+      // abs^4 커브 — 중앙~중간은 선명(1), 맨 끝에서만 급격히 사라짐
+      m.el.style.opacity = String(1 - 0.85 * abs ** 4);
     }
   }
 
@@ -206,9 +218,9 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             behavior: "smooth"를 명시적으로 넘긴다. */}
         <ul
           ref={scrollerRef}
-          className="flex touch-pan-x snap-x snap-proximity items-center gap-4 overflow-x-auto overscroll-x-contain px-5 pb-12 pt-8 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-7 lg:px-8 lg:pb-16 lg:pt-10 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x snap-x snap-proximity items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-16 pt-12 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
           style={{
-            perspective: "1800px",
+            perspective: "1400px",
             transformStyle: "preserve-3d",
           }}
         >
@@ -220,40 +232,20 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
-                className="group relative block h-[340px] w-[220px] overflow-hidden rounded-[4px] border border-ink/[0.06] bg-[#f5eee1] shadow-[0_18px_40px_-24px_rgba(28,25,23,0.35)] transition-shadow duration-500 hover:shadow-[0_28px_56px_-24px_rgba(28,25,23,0.45)] lg:h-[460px] lg:w-[300px]"
+                aria-label={`${d.categoryLabel} — ${d.name}`}
+                className="group relative block h-[266px] w-[200px] overflow-hidden rounded-[2px] border border-ink/[0.08] bg-white shadow-[0_12px_28px_-16px_rgba(28,25,23,0.35)] lg:h-[373px] lg:w-[280px]"
               >
-                {/* Full-bleed image */}
+                {/* 레퍼런스 스타일: 캡션 없는 순수 이미지 카드 */}
                 {d.img && (
                   <Image
                     src={d.img}
-                    alt=""
+                    alt={`${d.categoryLabel} ${d.name}`}
                     fill
                     priority={i < 5}
-                    sizes="(max-width: 1024px) 220px, 300px"
+                    sizes="(max-width: 1024px) 200px, 280px"
                     className="object-cover object-center"
                   />
                 )}
-
-                {/* Bottom gradient — 은은하게, 텍스트 가독만 확보 */}
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-ink/70 via-ink/25 to-transparent"
-                />
-
-                {/* Caption overlay — 미니멀: 카테고리 + 이름만 */}
-                <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-cream lg:p-6">
-                  <p className="text-[9px] font-medium tracking-[0.3em] text-cream/70 lg:text-[10px]">
-                    {d.categoryLabel}
-                  </p>
-                  <h3 className="mt-1.5 font-serif text-xl font-normal leading-tight tracking-tight lg:text-2xl">
-                    {d.name}
-                  </h3>
-                  {d.english && (
-                    <p className="mt-1 font-serif text-[10px] tracking-[0.18em] text-cream/55 lg:text-[11px]">
-                      {d.english}
-                    </p>
-                  )}
-                </div>
               </Link>
             </li>
           ))}
