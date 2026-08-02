@@ -68,7 +68,7 @@ export default async function AboutPage({
   const spaces = t.raw("spaces") as SpaceItem[];
   const values = t.raw("values") as ValueItem[];
 
-  const allDevices = DEVICE_CATEGORIES.flatMap((cat) =>
+  const flatDevices = DEVICE_CATEGORIES.flatMap((cat) =>
     getDevicesByCategory(locale as AppLocale, cat.slug).map((d) => ({
       slug: d.slug,
       name: d.name,
@@ -77,6 +77,23 @@ export default async function AboutPage({
       image: getDeviceImage(d.slug),
     })),
   );
+  // 병원소개 노출 순서: 안티에이징 블록(리쥬란~엘란쎄)을 LDM 바로 앞으로
+  const antiAging = flatDevices.filter((d) => d.category === "anti-aging");
+  const rest = flatDevices.filter((d) => d.category !== "anti-aging");
+  const ldmIdx = rest.findIndex((d) => d.slug === "ldm");
+  const merged =
+    ldmIdx === -1
+      ? flatDevices
+      : [...rest.slice(0, ldmIdx), ...antiAging, ...rest.slice(ldmIdx)];
+  // 아쿠아필은 LDM 바로 뒤로
+  const aqua = merged.filter((d) => d.slug === "aqua-peel");
+  const withoutAqua = merged.filter((d) => d.slug !== "aqua-peel");
+  const afterLdm = withoutAqua.findIndex((d) => d.slug === "ldm") + 1;
+  const allDevices = [
+    ...withoutAqua.slice(0, afterLdm),
+    ...aqua,
+    ...withoutAqua.slice(afterLdm),
+  ];
 
   return (
     <>
@@ -266,26 +283,29 @@ export default async function AboutPage({
               <Reveal key={d.slug} delay={i * 40}>
                 <Link
                   href={`/treatments/${d.category}/${d.slug}`}
-                  className="group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-cream/40 transition hover:border-brand-dark hover:shadow-md"
+                  className="group relative block aspect-[4/5] overflow-hidden rounded-2xl border border-line transition hover:border-brand-dark hover:shadow-md"
                 >
-                  <div className="relative aspect-square overflow-hidden bg-white">
-                    {d.image && (
-                      <Image
-                        src={d.image}
-                        alt={d.name}
-                        fill
-                        sizes="(max-width: 768px) 45vw, 22vw"
-                        className="object-contain p-4 transition group-hover:scale-105"
-                      />
-                    )}
-                  </div>
-                  <div className="px-4 py-3">
+                  {d.image && (
+                    <Image
+                      src={d.image}
+                      alt={d.name}
+                      fill
+                      sizes="(max-width: 768px) 45vw, 22vw"
+                      className="object-cover transition group-hover:scale-105"
+                    />
+                  )}
+                  {/* 라벨 — 투명 그라디언트 오버레이, 사진이 카드 전체로 확장 */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-ink/75 via-ink/25 to-transparent"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 px-4 py-3 text-cream">
                     {d.slug !== "markview" && (
-                      <p className="text-[9px] font-bold tracking-[0.2em] text-brand-dark">
+                      <p className="text-[9px] font-bold tracking-[0.2em] text-cream/75">
                         {d.categoryLabel}
                       </p>
                     )}
-                    <p className={`text-sm font-semibold text-ink ${d.slug === "markview" ? "" : "mt-1"}`}>{d.name}</p>
+                    <p className={`text-sm font-semibold ${d.slug === "markview" ? "" : "mt-1"}`}>{d.name}</p>
                   </div>
                 </Link>
               </Reveal>
