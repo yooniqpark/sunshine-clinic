@@ -138,14 +138,14 @@ export function PreviewHeader() {
             >
               {item.children ? (
                 <span
-                  className={`flex cursor-default items-center gap-1 rounded-full px-4 py-2 text-[15px] font-medium lg:text-base transition ${linkColor}`}
+                  className={`flex cursor-default items-center gap-1 rounded-full px-4 py-2 text-base font-medium lg:text-lg transition ${linkColor}`}
                 >
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 rounded-full px-4 py-2 text-[15px] font-medium lg:text-base transition hover:text-brand-dark ${linkColor}`}
+                  className={`flex items-center gap-1 rounded-full px-4 py-2 text-base font-medium lg:text-lg transition hover:text-brand-dark ${linkColor}`}
                 >
                   {item.label}
                 </Link>
