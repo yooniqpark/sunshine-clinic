@@ -128,25 +128,18 @@ export default async function DevicePage({
           { name: d.name, url: pageUrl },
         ]}
       />
-      {/* HERO */}
+      {/* HERO — Marquee Outline */}
       <section className="relative overflow-hidden bg-ink text-cream">
-        <div className="absolute inset-0">
-          {img && (
-            <div className="absolute inset-y-0 right-0 hidden w-[45%] lg:block">
-              <Image
-                src={img}
-                alt=""
-                fill
-                priority
-                sizes="45vw"
-                className="object-contain object-right p-16 opacity-70"
-              />
-              {/* 좌측 텍스트 가독성 유지용 소프트 페이드 */}
-              <span aria-hidden className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+        {meta?.englishName && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 flex items-center overflow-hidden"
+          >
+            <div className="whitespace-nowrap font-serif text-[24vw] leading-none tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(230,222,205,0.18)]">
+              {meta.englishName}&nbsp;{meta.englishName}&nbsp;{meta.englishName}
             </div>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/25 to-ink/60" />
-        </div>
+          </div>
+        )}
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/40">
@@ -456,23 +449,15 @@ async function ConcernPage({
           { name: concern.name, url: pageUrl },
         ]}
       />
-      {/* HERO */}
+      {/* HERO — Marquee Outline */}
       <section className="relative overflow-hidden bg-ink text-cream">
-        <div className="absolute inset-0">
-          {heroBg && (
-            <div className="absolute inset-y-0 right-0 hidden w-[45%] lg:block">
-              <Image
-                src={heroBg}
-                alt=""
-                fill
-                priority
-                sizes="45vw"
-                className="object-contain object-right p-16 opacity-70"
-              />
-              <span aria-hidden className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
-            </div>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/25 to-ink/60" />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 flex items-center overflow-hidden"
+        >
+          <div className="whitespace-nowrap font-serif text-[24vw] leading-none tracking-tight text-transparent [-webkit-text-stroke:1px_rgba(230,222,205,0.18)] uppercase">
+            {concern.name}&nbsp;{concern.name}&nbsp;{concern.name}
+          </div>
         </div>
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
