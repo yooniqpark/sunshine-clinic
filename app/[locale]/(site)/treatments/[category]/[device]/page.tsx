@@ -128,60 +128,74 @@ export default async function DevicePage({
           { name: d.name, url: pageUrl },
         ]}
       />
-      {/* HERO — 다크 톤에서 살짝 밝은 배경 · 왼쪽 텍스트 · 오른쪽 제품 사진 */}
+      {/* HERO — 다크 톤 배경에 제품 이미지가 오른쪽에 은은하게 깔린 느낌 */}
       <section className="relative overflow-hidden bg-[#3a322d] text-cream">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-28 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-36">
-          <div>
-            <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
-              <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
-              <span>/</span>
-              <span className="text-cream/70">{catLabel.toUpperCase()}</span>
-              <span>/</span>
-              <span className="text-cream/60">{d.name}</span>
-            </nav>
-
-            {meta && (
-              <p className="mt-14 text-[11px] font-bold tracking-[0.4em] text-brand-soft">
-                {meta.englishName}
-              </p>
-            )}
-            <h1 className="mt-6 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
-              {d.name}
-            </h1>
-            <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
-              &ldquo;{d.tagline}&rdquo;
-            </p>
-            <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
-              {t("byPrefix")} {d.manufacturer.toUpperCase()}
-            </p>
+        {img && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] opacity-40 [mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] lg:block"
+          >
+            <Image
+              src={img}
+              alt=""
+              fill
+              priority
+              sizes="55vw"
+              className="object-contain object-right p-12"
+            />
           </div>
+        )}
+        <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
+          <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
+            <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
+            <span>/</span>
+            <span className="text-cream/70">{catLabel.toUpperCase()}</span>
+            <span>/</span>
+            <span className="text-cream/60">{d.name}</span>
+          </nav>
 
-          {img && (
-            <div className="relative mx-auto aspect-square w-full max-w-[340px] lg:max-w-[420px] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)]">
-              <Image
-                src={img}
-                alt={d.name}
-                fill
-                priority
-                sizes="(min-width: 1024px) 380px, 320px"
-                className="object-contain object-center"
-              />
-            </div>
+          {meta && (
+            <p className="mt-14 text-[11px] font-bold tracking-[0.4em] text-brand-soft">
+              {meta.englishName}
+            </p>
           )}
+          <h1 className="mt-6 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
+            {d.name}
+          </h1>
+          <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
+            &ldquo;{d.tagline}&rdquo;
+          </p>
+          <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
+            {t("byPrefix")} {d.manufacturer.toUpperCase()}
+          </p>
         </div>
       </section>
 
-      {/* INTRO — 텍스트 전체 폭 (사진은 히어로로 이동) */}
+      {/* INTRO + PRODUCT SHOT — 왼쪽 소개, 오른쪽 제품 사진 */}
       <section className="bg-cream py-32 lg:py-44">
-        <div className="mx-auto max-w-4xl px-5 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-14 px-5 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20 lg:px-8">
           <Reveal>
             <p className="text-[10px] font-bold tracking-[0.35em] text-brand-dark">
               {t("introKicker")}
             </p>
-            <p className="mt-12 font-serif text-2xl leading-[1.5] text-ink lg:text-[32px] lg:leading-[1.45]">
+            <p className="mt-10 font-serif text-2xl leading-[1.5] text-ink lg:text-[30px] lg:leading-[1.4]">
               {d.intro}
             </p>
           </Reveal>
+
+          {img && (
+            <Reveal>
+              <div className="relative aspect-[4/5] lg:aspect-[3/4]">
+                <Image
+                  src={img}
+                  alt={d.name}
+                  fill
+                  sizes="(min-width: 1024px) 480px, 100vw"
+                  className="object-contain object-center"
+                />
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 
@@ -439,44 +453,44 @@ async function ConcernPage({
           { name: concern.name, url: pageUrl },
         ]}
       />
-      {/* HERO — 다크 톤에서 살짝 밝은 배경 · 왼쪽 텍스트 · 오른쪽 이미지 */}
+      {/* HERO — 다크 톤 배경에 이미지가 오른쪽에 은은하게 깔린 느낌 */}
       <section className="relative overflow-hidden bg-[#3a322d] text-cream">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-28 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-36">
-          <div>
-            <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
-              <Link href="/home" className="hover:text-cream">
-                {t("crumbHome")}
-              </Link>
-              <span>/</span>
-              <span className="text-cream/70">{catLabel.toUpperCase()}</span>
-              <span>/</span>
-              <span className="text-cream/60">{concern.name}</span>
-            </nav>
-
-            <h1 className="mt-10 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
-              {concern.name}
-            </h1>
-            <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
-              &ldquo;{concern.tagline}&rdquo;
-            </p>
-            {concern.manufacturer && (
-              <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
-                {t("byPrefix")} {concern.manufacturer.toUpperCase()}
-              </p>
-            )}
+        {heroBg && (
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] opacity-40 [mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] lg:block"
+          >
+            <Image
+              src={heroBg}
+              alt=""
+              fill
+              priority
+              sizes="55vw"
+              className="object-contain object-right p-12"
+            />
           </div>
+        )}
+        <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
+          <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
+            <Link href="/home" className="hover:text-cream">
+              {t("crumbHome")}
+            </Link>
+            <span>/</span>
+            <span className="text-cream/70">{catLabel.toUpperCase()}</span>
+            <span>/</span>
+            <span className="text-cream/60">{concern.name}</span>
+          </nav>
 
-          {heroBg && (
-            <div className="relative mx-auto aspect-square w-full max-w-[340px] lg:max-w-[420px] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)]">
-              <Image
-                src={heroBg}
-                alt=""
-                fill
-                priority
-                sizes="(min-width: 1024px) 380px, 320px"
-                className="object-contain object-center"
-              />
-            </div>
+          <h1 className="mt-14 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
+            {concern.name}
+          </h1>
+          <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
+            &ldquo;{concern.tagline}&rdquo;
+          </p>
+          {concern.manufacturer && (
+            <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
+              {t("byPrefix")} {concern.manufacturer.toUpperCase()}
+            </p>
           )}
         </div>
       </section>
