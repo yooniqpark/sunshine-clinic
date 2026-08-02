@@ -54,6 +54,14 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   function applyCoverflow() {
     const el = scrollerRef.current;
     if (!el) return;
+    // 모바일: 3D 아치 없이 작은 카드가 평평하게 한 줄로 정렬 (레퍼런스 스타일)
+    if (window.innerWidth < 1024) {
+      for (const m of cardMetaRef.current) {
+        m.el.style.transform = "";
+        m.el.style.opacity = "";
+      }
+      return;
+    }
     const scrollLeft = el.scrollLeft;
     const viewportCenter = scrollLeft + viewportRef.current.halfW;
     // falloff를 뷰포트 절반보다 넓게 — 카드가 화면을 가로지르는 동안
@@ -199,7 +207,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(-1)}
           disabled={!canPrev}
           aria-label="이전"
-          className="absolute left-4 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
+          className="absolute left-4 top-1/2 z-20 hidden lg:grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
         >
           ←
         </button>
@@ -208,7 +216,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           onClick={() => scrollByCard(1)}
           disabled={!canNext}
           aria-label="다음"
-          className="absolute right-4 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
+          className="absolute right-4 top-1/2 z-20 hidden lg:grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-white/60 bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
         >
           →
         </button>
@@ -218,7 +226,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             behavior: "smooth"를 명시적으로 넘긴다. */}
         <ul
           ref={scrollerRef}
-          className="flex touch-pan-x snap-x snap-proximity items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-16 pt-12 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x snap-x snap-proximity items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-10 pt-6 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
           style={{
             perspective: "1400px",
             transformStyle: "preserve-3d",
@@ -233,7 +241,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
                 aria-label={`${d.categoryLabel} — ${d.name}`}
-                className="group relative block h-[266px] w-[200px] overflow-hidden rounded-[2px] border border-ink/[0.08] bg-white shadow-[0_12px_28px_-16px_rgba(28,25,23,0.35)] lg:h-[373px] lg:w-[280px]"
+                className="group relative block h-[180px] w-[135px] overflow-hidden rounded-lg border border-ink/[0.08] bg-white shadow-[0_12px_28px_-16px_rgba(28,25,23,0.35)] lg:h-[373px] lg:w-[280px] lg:rounded-[2px]"
               >
                 {/* 레퍼런스 스타일: 캡션 없는 순수 이미지 카드 */}
                 {d.img && (
@@ -242,7 +250,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     alt={`${d.categoryLabel} ${d.name}`}
                     fill
                     priority={i < 5}
-                    sizes="(max-width: 1024px) 200px, 280px"
+                    sizes="(max-width: 1024px) 135px, 280px"
                     className="object-cover object-center"
                   />
                 )}
