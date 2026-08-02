@@ -280,11 +280,6 @@ export default async function DevicePage({
 
       {/* HOW IT WORKS */}
       <section className="relative overflow-hidden bg-ink py-32 text-cream lg:py-44">
-        {img && (
-          <div className="absolute inset-0 opacity-20">
-            <Image src={img} alt="" fill sizes="100vw" className="object-cover" />
-          </div>
-        )}
         <div className="relative mx-auto max-w-4xl px-5 lg:px-8">
           <p className="text-[10px] font-bold tracking-[0.3em] text-brand-soft">
             {t("howKicker")}
