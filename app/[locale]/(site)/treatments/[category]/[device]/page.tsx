@@ -184,20 +184,15 @@ export default async function DevicePage({
 
           {img && (
             <Reveal>
-              <figure className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-ink/[0.08] bg-[#f5eee1] shadow-[0_18px_48px_-24px_rgba(28,25,23,0.35)] lg:aspect-[3/4]">
+              <div className="relative aspect-[4/5] lg:aspect-[3/4]">
                 <Image
                   src={img}
                   alt={d.name}
                   fill
                   sizes="(min-width: 1024px) 480px, 100vw"
-                  className="object-contain object-center p-8 lg:p-12"
+                  className="object-contain object-center"
                 />
-                {meta?.englishName && (
-                  <figcaption className="absolute left-6 bottom-6 rounded-full bg-ink/80 px-4 py-1.5 font-serif text-[11px] tracking-[0.28em] text-cream backdrop-blur">
-                    {meta.englishName}
-                  </figcaption>
-                )}
-              </figure>
+              </div>
             </Reveal>
           )}
         </div>
