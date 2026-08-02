@@ -184,6 +184,30 @@ export default async function DevicePage({
         </div>
       </section>
 
+      {/* PRODUCT SHOT — 히어로 사진을 본문에서 다시 한 번 노출 */}
+      {img && (
+        <section className="bg-cream pb-24 lg:pb-32">
+          <div className="mx-auto max-w-5xl px-5 lg:px-8">
+            <Reveal>
+              <figure className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-ink/[0.08] bg-white shadow-[0_18px_48px_-24px_rgba(28,25,23,0.35)]">
+                <Image
+                  src={img}
+                  alt={d.name}
+                  fill
+                  sizes="(min-width: 1024px) 960px, 100vw"
+                  className="object-cover object-center"
+                />
+                {meta?.englishName && (
+                  <figcaption className="absolute left-6 bottom-6 rounded-full bg-ink/80 px-4 py-1.5 font-serif text-[11px] tracking-[0.28em] text-cream backdrop-blur">
+                    {meta.englishName}
+                  </figcaption>
+                )}
+              </figure>
+            </Reveal>
+          </div>
+        </section>
+      )}
+
       {/* HIGHLIGHT STAT + TECH */}
       <section className="border-y border-line bg-white py-20 lg:py-24">
         <div className="mx-auto grid max-w-6xl gap-16 px-5 lg:grid-cols-[1fr_1.4fr] lg:gap-24 lg:px-8">
