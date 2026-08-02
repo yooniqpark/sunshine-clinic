@@ -184,18 +184,18 @@ export default async function DevicePage({
         </div>
       </section>
 
-      {/* PRODUCT SHOT — 히어로 사진을 본문에서 다시 한 번 노출 */}
+      {/* PRODUCT SHOT — 잘리지 않는 전체 이미지 */}
       {img && (
         <section className="bg-cream pb-24 lg:pb-32">
-          <div className="mx-auto max-w-5xl px-5 lg:px-8">
+          <div className="mx-auto max-w-4xl px-5 lg:px-8">
             <Reveal>
-              <figure className="relative aspect-[16/9] overflow-hidden rounded-3xl border border-ink/[0.08] bg-white shadow-[0_18px_48px_-24px_rgba(28,25,23,0.35)]">
+              <figure className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-ink/[0.08] bg-[#f5eee1] shadow-[0_18px_48px_-24px_rgba(28,25,23,0.35)] sm:aspect-[3/4] lg:aspect-[4/3]">
                 <Image
                   src={img}
                   alt={d.name}
                   fill
-                  sizes="(min-width: 1024px) 960px, 100vw"
-                  className="object-cover object-center"
+                  sizes="(min-width: 1024px) 800px, 100vw"
+                  className="object-contain object-center p-8 lg:p-12"
                 />
                 {meta?.englishName && (
                   <figcaption className="absolute left-6 bottom-6 rounded-full bg-ink/80 px-4 py-1.5 font-serif text-[11px] tracking-[0.28em] text-cream backdrop-blur">
