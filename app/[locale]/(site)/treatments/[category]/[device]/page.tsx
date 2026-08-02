@@ -133,19 +133,19 @@ export default async function DevicePage({
         {img && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] opacity-40 [mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] lg:block"
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[70%] opacity-55 [mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] [-webkit-mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] lg:block"
           >
             <Image
               src={img}
               alt=""
               fill
               priority
-              sizes="55vw"
-              className="object-contain object-right p-12"
+              sizes="70vw"
+              className="object-contain object-right p-8 lg:p-14"
             />
           </div>
         )}
-        <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
+        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:px-12 lg:pb-40 lg:pt-40">
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
             <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
             <span>/</span>
@@ -458,19 +458,19 @@ async function ConcernPage({
         {heroBg && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[55%] opacity-40 [mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_at_70%_50%,black_30%,transparent_75%)] lg:block"
+            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[70%] opacity-55 [mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] [-webkit-mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] lg:block"
           >
             <Image
               src={heroBg}
               alt=""
               fill
               priority
-              sizes="55vw"
-              className="object-contain object-right p-12"
+              sizes="70vw"
+              className="object-contain object-right p-8 lg:p-14"
             />
           </div>
         )}
-        <div className="relative mx-auto max-w-6xl px-5 pb-24 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
+        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:px-12 lg:pb-40 lg:pt-40">
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
             <Link href="/home" className="hover:text-cream">
               {t("crumbHome")}
