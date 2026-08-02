@@ -96,7 +96,7 @@
     "headerSubtitle": "有任何问题都可以问我",
     "greeting": "您好!我是 Sunshine 皮肤科咨询助手 ☀️ 可以选择常见问题或直接输入提问。",
     "fallback": "这个问题我可能无法准确回答,详情请通过电话或微信/卡卡通联系我们。",
-    "disclaimer": "请通过上方菜单进行预约或咨询。\n准确诊断请到院咨询。",
+    "disclaimer": "准确诊断请到院咨询。",
     "attachTranscript": "预约填写方式",
     "attachTranscriptHint": "您与机器人的对话将附加到预约消息中。",
     "modeUseChat": "使用对话",
