@@ -190,6 +190,7 @@ export function getDeviceHeroImage(slug: string): string | null {
 
 // 모바일(세로 1080x1620) 히어로 — 없으면 데스크톱 히어로 사용
 const DEVICE_HERO_MOBILE: Record<string, string> = {
+  ellanse: "/devices/ellanse-hero-m.jpg",
   rejuran: "/devices/rejuran-hero-m.jpg",
   juvelook: "/devices/juvelook-hero-m.jpg",
   "elravie-re20": "/devices/elravie-re20-hero-m.jpg",
