@@ -191,7 +191,13 @@ export default async function DevicePage({
             <h1 className="mt-3 font-serif text-[clamp(2.4rem,5vw,4.2rem)] font-normal leading-[0.98]">
               {d.name}
             </h1>
-            <p className="mx-auto mt-5 max-w-lg font-serif text-base text-cream/85">
+            <p
+              className={`mx-auto mt-5 max-w-lg break-keep font-serif ${
+                d.slug === "ulthera-prime" || d.slug === "thermage-flx"
+                  ? "whitespace-nowrap text-[11.5px]"
+                  : "text-[13.5px]"
+              } text-cream/85 lg:whitespace-normal lg:text-base`}
+            >
               &ldquo;{d.tagline}&rdquo;
             </p>
           </div>
