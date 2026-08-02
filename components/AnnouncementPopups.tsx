@@ -27,8 +27,26 @@ function todayStr() {
 export function AnnouncementPopups() {
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
+  // 데스크톱은 처음부터 가격표 펼침 (모바일은 그대로 티저)
   const [desktopDetail, setDesktopDetail] = useState(false);
   const [desktopDetailSeen, setDesktopDetailSeen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia("(min-width: 1024px)");
+    if (mq.matches) {
+      setDesktopDetail(true);
+      setDesktopDetailSeen(true);
+    }
+    const onChange = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        setDesktopDetail(true);
+        setDesktopDetailSeen(true);
+      }
+    };
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
   const [pricingFallback, setPricingFallback] = useState(false);
   const t = useTranslations("v2.popups");
 
