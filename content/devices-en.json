@@ -4,7 +4,7 @@
     "category": "lifting",
     "name": "Ulthera Prime",
     "tagline": "Lifting that elevates from the root, reaching the SMAS with ultrasound",
-    "intro": "This treatment precisely stimulates the SMAS layer (the deepest fascia of the skin) with ultrasound to induce collagen regeneration. As the next-generation model of the Ulthera, a leading HIFU device approved by the FDA, the procedure is conducted while monitoring the treatment area and depth in real-time.",
+    "intro": "Precision 1:1 premium lifting,\nguided by real-time ultrasound\nimaging of the skin layers.",
     "manufacturer": "Merz Aesthetics",
     "tech": [
       "HIFU",
@@ -58,7 +58,8 @@
         "q": "Is there any downtime?",
         "a": "Most patients can return to their daily activities immediately after the treatment, and any slight swelling typically subsides naturally within 1 to 3 days."
       }
-    ]
+    ],
+    "introBody": "This treatment precisely stimulates the SMAS layer (the deepest fascia of the skin) with ultrasound to induce collagen regeneration. As the next-generation model of the Ulthera, a leading HIFU device approved by the FDA, the procedure is conducted while monitoring the treatment area and depth in real-time."
   },
   "thermage-flx": {
     "slug": "thermage-flx",

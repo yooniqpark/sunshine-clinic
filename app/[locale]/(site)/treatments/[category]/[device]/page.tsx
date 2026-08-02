@@ -7,6 +7,7 @@ import { ArrowUpRightIcon, ArrowIcon } from "@/components/icons";
 import {
   getDevicesByCategory,
   getDeviceImage,
+  getDeviceHeroImage,
   getDeviceMarketing,
 } from "@/lib/devices";
 import koData from "@/content/devices-ko.json";
@@ -104,6 +105,7 @@ export default async function DevicePage({
   const t = await getTranslations("v2.device");
   const catLabel = t(`categoryLabels.${category}` as never);
   const img = getDeviceImage(d.slug);
+  const heroImg = getDeviceHeroImage(d.slug);
   const meta = getDeviceMarketing(d.slug);
   const siblings = getDevicesByCategory(locale as AppLocale, category).filter(
     (x) => x.slug !== d.slug,
@@ -128,46 +130,59 @@ export default async function DevicePage({
           { name: d.name, url: pageUrl },
         ]}
       />
-      {/* HERO — 다크 톤 배경에 제품 이미지가 오른쪽에 은은하게 깔린 느낌 */}
-      <section className="relative overflow-hidden bg-[#3a322d] text-cream">
-        {img && (
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-25 blur-[2px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)]"
-          >
+      {/* HERO — 매거진 프레임 커버 (다크 배경 · 여백 있는 판형) */}
+      <section className="bg-[#3a322d] px-4 pb-12 pt-20 lg:px-6 lg:pt-28">
+        <div className="relative mx-auto h-[64vh] min-h-[460px] overflow-hidden rounded-[8px] bg-[#efe4d3] shadow-[0_40px_90px_-40px_rgba(0,0,0,0.7)]">
+          {heroImg && (
             <Image
-              src={img}
-              alt=""
+              src={heroImg}
+              alt={d.name}
               fill
               priority
               sizes="100vw"
-              className="object-cover object-center"
+              className="object-cover object-[center_30%]"
             />
-          </div>
-        )}
-        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:px-12 lg:pb-40 lg:pt-40">
-          <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
+          )}
+          <span
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-[#1c1613]/85 via-transparent to-[#1c1613]/30"
+          />
+          {/* 브레드크럼 — 커버 좌상단 오버레이 */}
+          <nav className="absolute left-6 top-6 z-10 hidden items-center gap-2 text-[10px] tracking-[0.15em] text-cream/60 lg:flex">
             <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
             <span>/</span>
-            <span className="text-cream/70">{catLabel.toUpperCase()}</span>
+            <span>{catLabel.toUpperCase()}</span>
             <span>/</span>
-            <span className="text-cream/60">{d.name}</span>
+            <span className="text-cream/80">{d.name}</span>
           </nav>
-
-          {meta && (
-            <p className="mt-14 text-[11px] font-bold tracking-[0.4em] text-brand-soft">
-              {meta.englishName}
+          {/* 마스트헤드 */}
+          <div className="absolute inset-x-0 top-6 px-8 text-center text-cream">
+            <p className="font-serif text-2xl tracking-[0.35em] lg:text-4xl">SUNSHINE</p>
+            <p className="mt-1.5 text-[9px] tracking-[0.45em] text-cream/70">
+              SKIN JOURNAL · {category.replace("-", " ").toUpperCase()} · N°01
             </p>
-          )}
-          <h1 className="mt-6 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
-            {d.name}
-          </h1>
-          <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
-            &ldquo;{d.tagline}&rdquo;
-          </p>
-          <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
+          </div>
+          {/* 세로 커버라인 */}
+          <p className="absolute left-8 top-1/2 hidden -translate-y-1/2 text-[10px] tracking-[0.3em] text-cream/70 [writing-mode:vertical-rl] lg:block">
             {t("byPrefix")} {d.manufacturer.toUpperCase()}
           </p>
+          <p className="absolute right-8 top-1/2 hidden -translate-y-1/2 text-[10px] tracking-[0.3em] text-cream/70 [writing-mode:vertical-rl] lg:block">
+            SUNSHINE STANDARD — SEOUL
+          </p>
+          {/* 타이틀 */}
+          <div className="absolute inset-x-0 bottom-9 px-8 text-center text-cream">
+            {meta && (
+              <p className="text-[10px] font-bold tracking-[0.4em] text-cream/70">
+                {meta.englishName}
+              </p>
+            )}
+            <h1 className="mt-3 font-serif text-[clamp(2.4rem,5vw,4.2rem)] font-normal leading-[0.98]">
+              {d.name}
+            </h1>
+            <p className="mx-auto mt-5 max-w-lg font-serif text-base text-cream/85">
+              &ldquo;{d.tagline}&rdquo;
+            </p>
+          </div>
         </div>
       </section>
 
@@ -178,9 +193,17 @@ export default async function DevicePage({
             <p className="text-[10px] font-bold tracking-[0.35em] text-brand-dark">
               {t("introKicker")}
             </p>
-            <p className="mt-10 font-serif text-2xl leading-[1.5] text-ink lg:text-[30px] lg:leading-[1.4]">
+            <h2 className="mt-8 whitespace-pre-line font-serif text-[26px] leading-[1.45] text-ink lg:text-[34px] lg:leading-[1.4]">
               {d.intro}
-            </p>
+            </h2>
+            {d.introBody && (
+              <>
+                <span aria-hidden className="mt-8 block h-px w-16 bg-brand-dark/50" />
+                <p className="mt-8 max-w-lg text-[15px] leading-[1.95] text-ink/60">
+                  {d.introBody}
+                </p>
+              </>
+            )}
           </Reveal>
 
           {img && (
@@ -453,32 +476,92 @@ async function ConcernPage({
           { name: concern.name, url: pageUrl },
         ]}
       />
-      {/* HERO — 다크 톤 · 이미지는 헤더에 넣지 않고 하단 섹션에서 노출 */}
-      <section className="relative overflow-hidden bg-[#3a322d] text-cream">
-        <div className="relative mx-auto max-w-7xl px-5 pb-24 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
-          <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
-            <Link href="/home" className="hover:text-cream">
-              {t("crumbHome")}
-            </Link>
-            <span>/</span>
-            <span className="text-cream/70">{catLabel.toUpperCase()}</span>
-            <span>/</span>
-            <span className="text-cream/60">{concern.name}</span>
-          </nav>
-
-          <h1 className="mt-14 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
-            {concern.name}
-          </h1>
-          <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
-            &ldquo;{concern.tagline}&rdquo;
-          </p>
-          {concern.manufacturer && (
-            <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
-              {t("byPrefix")} {concern.manufacturer.toUpperCase()}
+      {/* HERO — 매거진 프레임 커버 (Magazine Framed) */}
+      {heroBg ? (
+        <section className="bg-[#3a322d] px-4 pb-12 pt-20 lg:px-6 lg:pt-28">
+          <div className="relative mx-auto h-[64vh] min-h-[460px] overflow-hidden rounded-[8px] shadow-[0_40px_90px_-40px_rgba(0,0,0,0.7)]">
+            <Image
+              src={heroBg}
+              alt={concern.name}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[center_25%]"
+            />
+            <span
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-[#1c1613]/85 via-transparent to-[#1c1613]/35"
+            />
+            {/* 브레드크럼 — 커버 좌상단 오버레이 */}
+            <nav className="absolute left-6 top-6 z-10 hidden items-center gap-2 text-[10px] tracking-[0.15em] text-cream/60 lg:flex">
+              <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
+              <span>/</span>
+              <span>{catLabel.toUpperCase()}</span>
+              <span>/</span>
+              <span className="text-cream/80">{concern.name}</span>
+            </nav>
+            {/* 마스트헤드 */}
+            <div className="absolute inset-x-0 top-6 px-8 text-center text-cream">
+              <p className="font-serif text-2xl tracking-[0.35em] lg:text-4xl">SUNSHINE</p>
+              <p className="mt-1.5 text-[9px] tracking-[0.45em] text-cream/70">
+                SKIN JOURNAL · {category.replace("-", " ").toUpperCase()} · N°01
+              </p>
+            </div>
+            {/* 세로 커버라인 */}
+            <p className="absolute left-8 top-1/2 hidden -translate-y-1/2 text-[10px] tracking-[0.3em] text-cream/70 [writing-mode:vertical-rl] lg:block">
+              {catLabel}
             </p>
-          )}
-        </div>
-      </section>
+            <p className="absolute right-8 top-1/2 hidden -translate-y-1/2 text-[10px] tracking-[0.3em] text-cream/70 [writing-mode:vertical-rl] lg:block">
+              SUNSHINE STANDARD — SEOUL
+            </p>
+            {/* 타이틀 */}
+            <div className="absolute inset-x-0 bottom-9 px-8 text-center text-cream">
+              <h1 className="font-serif text-[clamp(2.4rem,5.5vw,4.6rem)] font-normal leading-[0.98]">
+                {concern.name}
+              </h1>
+              <p className="mx-auto mt-5 max-w-lg font-serif text-base text-cream/85">
+                &ldquo;{concern.tagline}&rdquo;
+              </p>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <section className="relative overflow-hidden bg-[#3a322d] text-cream">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute -bottom-6 left-0 hidden select-none whitespace-nowrap font-serif text-[11rem] leading-none text-cream/[0.045] lg:block"
+          >
+            {category.replace("-", " ").toUpperCase()}
+          </span>
+          <span
+            aria-hidden
+            className="pointer-events-none absolute right-[-10%] top-[-30%] h-[480px] w-[480px] rounded-full bg-[#c49074]/20 blur-[120px]"
+          />
+          <div className="relative mx-auto max-w-7xl px-5 pb-24 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
+            <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
+              <Link href="/home" className="hover:text-cream">
+                {t("crumbHome")}
+              </Link>
+              <span>/</span>
+              <span className="text-cream/70">{catLabel.toUpperCase()}</span>
+              <span>/</span>
+              <span className="text-cream/60">{concern.name}</span>
+            </nav>
+
+            <h1 className="mt-14 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
+              {concern.name}
+            </h1>
+            <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
+              &ldquo;{concern.tagline}&rdquo;
+            </p>
+            {concern.manufacturer && (
+              <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
+                {t("byPrefix")} {concern.manufacturer.toUpperCase()}
+              </p>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* INTRO + IMAGE — 왼쪽 소개, 오른쪽 concern 이미지 */}
       <section className="bg-cream py-32 lg:py-44">
@@ -515,18 +598,25 @@ async function ConcernPage({
         </div>
       </section>
 
-      {/* APPROACH */}
+      {/* APPROACH — 다크 인용 밴드 */}
       {concern.approach && (
-        <section className="border-y border-line bg-white py-32 lg:py-40">
-          <div className="mx-auto max-w-4xl px-5 lg:px-8">
+        <section className="relative overflow-hidden bg-[#241e1a] py-32 text-cream lg:py-40">
+          <span
+            aria-hidden
+            className="pointer-events-none absolute left-[-8%] top-[-40%] h-[420px] w-[420px] rounded-full bg-[#c49074]/15 blur-[110px]"
+          />
+          <div className="relative mx-auto max-w-4xl px-5 lg:px-8">
             <Reveal>
-              <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+              <span aria-hidden className="block font-serif text-7xl leading-none text-brand-soft/40">
+                &ldquo;
+              </span>
+              <p className="mt-2 text-[10px] font-bold tracking-[0.3em] text-brand-soft">
                 APPROACH
               </p>
               <h2 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
                 {t("howTitle")}
               </h2>
-              <p className="mt-10 text-lg leading-relaxed text-ink-soft lg:text-xl">
+              <p className="mt-10 text-lg leading-relaxed text-cream/75 lg:text-xl">
                 {concern.approach}
               </p>
             </Reveal>

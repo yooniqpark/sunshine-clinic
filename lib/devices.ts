@@ -10,6 +10,7 @@ export type DeviceDetail = {
   name: string;
   tagline: string;
   intro: string;
+  introBody?: string;
   manufacturer: string;
   tech: string[];
   highlightStat: { value: string; label: string };
@@ -136,8 +137,8 @@ export function getDeviceMarketing(slug: string): DeviceMarketingMeta | null {
 }
 
 const DEVICE_IMAGES: Record<string, string> = {
-  "ulthera-prime": "/devices/ulthera-prime.png",
-  "thermage-flx": "/devices/thermage-flx.png",
+  "ulthera-prime": "/devices/ulthera-prime.png?v=4",
+  "thermage-flx": "/devices/thermage-flx.png?v=3",
   "shurink-universe": "/devices/shurink-universe.png",
   inmode: "/devices/inmode.png",
   "clarity-ii": "/devices/clarity-ii.png",
@@ -166,6 +167,22 @@ const DEVICE_IMAGES: Record<string, string> = {
 
 export function getDeviceImage(slug: string): string | null {
   return DEVICE_IMAGES[slug] ?? null;
+}
+
+// 히어로(매거진 커버) 전용 울트라와이드 컷 — 없으면 기본 이미지 사용
+const DEVICE_HERO_IMAGES: Record<string, string> = {
+  "ulthera-prime": "/devices/ulthera-prime-hero.png",
+  "thermage-flx": "/devices/thermage-flx-hero.png",
+  rejuran: "/devices/rejuran-hero.png",
+  juvelook: "/devices/juvelook-hero.png",
+  "elravie-re20": "/devices/elravie-re20-hero.png",
+  cellredm: "/devices/cellredm-hero.png",
+  skinvive: "/devices/skinvive-hero.png",
+  radiesse: "/devices/radiesse-hero.png",
+};
+
+export function getDeviceHeroImage(slug: string): string | null {
+  return DEVICE_HERO_IMAGES[slug] ?? getDeviceImage(slug);
 }
 
 const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {

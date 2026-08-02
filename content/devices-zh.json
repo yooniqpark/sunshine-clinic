@@ -4,7 +4,7 @@
     "category": "lifting",
     "name": "Ulthera Prime",
     "tagline": "通过超声波提升至SMAS，从根本上提拉",
-    "intro": "通过超声波精确刺激导致松弛的SMAS层（皮肤最深的筋膜），诱导胶原蛋白再生。作为美国FDA批准的代表性HIFU设备Ulthera的下一代模型，施术部位和深度可实时通过影像确认。",
+    "intro": "在实时超声引导下\n确认皮肤层次进行的\n精准1:1高端定制提升。",
     "manufacturer": "Merz Aesthetics",
     "tech": [
       "HIFU",
@@ -58,7 +58,8 @@
         "q": "有恢复期吗？",
         "a": "大多数情况下施术后可以立即恢复日常活动，轻微肿胀会在1~3天内自然消退。"
       }
-    ]
+    ],
+    "introBody": "通过超声波精确刺激导致松弛的SMAS层（皮肤最深的筋膜），诱导胶原蛋白再生。作为美国FDA批准的代表性HIFU设备Ulthera的下一代模型，施术部位和深度可实时通过影像确认。"
   },
   "thermage-flx": {
     "slug": "thermage-flx",

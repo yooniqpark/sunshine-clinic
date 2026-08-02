@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
       { pathname: "/**", search: "" },
       { pathname: "/devices/**", search: "?v=2" },
       { pathname: "/devices/**", search: "?v=3" },
+      { pathname: "/devices/**", search: "?v=4" },
     ],
   },
   async rewrites() {

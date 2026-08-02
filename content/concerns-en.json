@@ -34,7 +34,8 @@
         "q": "What equipment is used?",
         "a": "Primarily, Clarity II dual-wavelength toning and Fotona StarWalker multi-wavelength toning are combined according to the depth of the pigment."
       }
-    ]
+    ],
+    "image": "/concerns/melasma.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -219,7 +220,8 @@
         "q": "How can I prevent recurrence?",
         "a": "Regular maintenance treatments + lifestyle habits (sleep, diet, stress management) are key."
       }
-    ]
+    ],
+    "image": "/concerns/acne-active.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -257,7 +259,8 @@
         "q": "Will it recur?",
         "a": "If new acne forms, pigmentation may return, so managing active acne is a priority."
       }
-    ]
+    ],
+    "image": "/concerns/acne-pigment.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -334,7 +337,8 @@
         "q": "What is the regular care cycle?",
         "a": "CUREJET once or twice a month, dermal regeneration treatments every 1-2 months followed by maintenance treatments."
       }
-    ]
+    ],
+    "image": "/concerns/pores.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",

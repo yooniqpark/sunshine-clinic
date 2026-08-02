@@ -34,7 +34,8 @@
         "q": "使用什么设备？",
         "a": "主要结合 Clarity II 双波长调理和 Fotona StarWalker 多波长调理，针对色素深度进行组合。"
       }
-    ]
+    ],
+    "image": "/concerns/melasma.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -219,7 +220,8 @@
         "q": "如何防止复发？",
         "a": "定期维持治疗 + 生活习惯（睡眠·饮食·压力管理）的结合是关键。"
       }
-    ]
+    ],
+    "image": "/concerns/acne-active.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -257,7 +259,8 @@
         "q": "会复发吗？",
         "a": "如果出现新的痤疮，可能会再次留下色素，因此优先处理活动性痤疮。"
       }
-    ]
+    ],
+    "image": "/concerns/acne-pigment.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -334,7 +337,8 @@
         "q": "定期护理的周期是？",
         "a": "CUREJET每月1~2次，真皮再生治疗在1~2个月间隔进行后进行维持治疗。"
       }
-    ]
+    ],
+    "image": "/concerns/pores.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",
