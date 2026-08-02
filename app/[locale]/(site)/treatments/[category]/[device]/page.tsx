@@ -130,7 +130,7 @@ export default async function DevicePage({
       />
       {/* HERO — 다크 톤에서 살짝 밝은 배경 · 왼쪽 텍스트 · 오른쪽 제품 사진 */}
       <section className="relative overflow-hidden bg-[#3a322d] text-cream">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-14 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-28 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-36">
           <div>
             <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
               <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
@@ -157,7 +157,7 @@ export default async function DevicePage({
           </div>
 
           {img && (
-            <div className="relative mx-auto aspect-square w-full max-w-[320px] lg:max-w-[380px]">
+            <div className="relative mx-auto aspect-square w-full max-w-[340px] lg:max-w-[420px] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)]">
               <Image
                 src={img}
                 alt={d.name}
@@ -441,7 +441,7 @@ async function ConcernPage({
       />
       {/* HERO — 다크 톤에서 살짝 밝은 배경 · 왼쪽 텍스트 · 오른쪽 이미지 */}
       <section className="relative overflow-hidden bg-[#3a322d] text-cream">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-14 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-20">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-28 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-36">
           <div>
             <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
               <Link href="/home" className="hover:text-cream">
@@ -467,7 +467,7 @@ async function ConcernPage({
           </div>
 
           {heroBg && (
-            <div className="relative mx-auto aspect-square w-full max-w-[320px] lg:max-w-[380px]">
+            <div className="relative mx-auto aspect-square w-full max-w-[340px] lg:max-w-[420px] [mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_55%,transparent_88%)]">
               <Image
                 src={heroBg}
                 alt=""
