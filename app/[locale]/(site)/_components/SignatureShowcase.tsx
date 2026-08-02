@@ -233,19 +233,44 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
                 aria-label={`${d.categoryLabel} — ${d.name}`}
-                className="group relative block h-[266px] w-[200px] overflow-hidden rounded-[2px] border border-ink/[0.08] bg-white shadow-[0_12px_28px_-16px_rgba(28,25,23,0.35)] lg:h-[373px] lg:w-[280px]"
+                className="group relative block h-[320px] w-[240px] overflow-hidden rounded-[2px] border border-ink/[0.08] bg-white shadow-[0_12px_28px_-16px_rgba(28,25,23,0.35)] lg:h-[480px] lg:w-[360px]"
               >
-                {/* 레퍼런스 스타일: 캡션 없는 순수 이미지 카드 */}
                 {d.img && (
                   <Image
                     src={d.img}
                     alt={`${d.categoryLabel} ${d.name}`}
                     fill
                     priority={i < 5}
-                    sizes="(max-width: 1024px) 200px, 280px"
+                    sizes="(max-width: 1024px) 240px, 360px"
                     className="object-cover object-center"
                   />
                 )}
+
+                {/* Bottom gradient — 캡션 가독용 */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/85 via-ink/45 to-transparent"
+                />
+
+                {/* Caption — 카테고리 · 이름 · 영문 · 설명 */}
+                <div className="absolute inset-x-0 bottom-0 z-10 p-5 text-cream lg:p-6">
+                  <p className="text-[9px] font-medium tracking-[0.3em] text-cream/70 lg:text-[10px]">
+                    {d.categoryLabel}
+                  </p>
+                  <h3 className="mt-1.5 font-serif text-xl font-normal leading-tight tracking-tight lg:text-2xl">
+                    {d.name}
+                  </h3>
+                  {d.english && (
+                    <p className="mt-1 font-serif text-[10px] tracking-[0.18em] text-cream/55 lg:text-[11px]">
+                      {d.english}
+                    </p>
+                  )}
+                  {(d.description ?? d.tagline) && (
+                    <p className="mt-2 line-clamp-2 text-[11px] leading-[1.55] text-cream/80 lg:text-[12px]">
+                      {d.description ?? d.tagline}
+                    </p>
+                  )}
+                </div>
               </Link>
             </li>
           ))}
