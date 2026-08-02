@@ -71,7 +71,8 @@
         "q": "再発しますか？",
         "a": "そばかすは紫外線にさらされると再発の可能性がありますが、シミは一度除去すればほとんど再発しません。"
       }
-    ]
+    ],
+    "image": "/concerns/freckles.png"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",

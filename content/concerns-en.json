@@ -71,7 +71,8 @@
         "q": "Will it recur?",
         "a": "Freckles may recur with UV exposure, while seborrheic keratosis rarely recurs once removed."
       }
-    ]
+    ],
+    "image": "/concerns/freckles.png"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",

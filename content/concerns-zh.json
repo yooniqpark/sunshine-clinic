@@ -71,7 +71,8 @@
         "q": "会复发吗？",
         "a": "雀斑在紫外线照射下有复发的可能，老年斑一旦去除几乎不会复发。"
       }
-    ]
+    ],
+    "image": "/concerns/freckles.png"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",
