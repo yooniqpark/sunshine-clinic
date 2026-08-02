@@ -497,7 +497,7 @@
       "heroKicker": "ABOUT SUNSHINE",
       "heroTitleLine1": "Refining texture",
       "heroTitleAccent": "brightening every day",
-      "heroDesc": "Sunshine Clinic is not a treatment-first practice. We aim to genuinely understand each patient's skin concerns and feelings.\n\nDrawing on extensive clinical experience in dermatology and aesthetics, we deliver care tailored to each patient's skin. Visit us with ease — through thorough consultation and careful assessment, we recommend only the treatments you truly need.\n\nWith premium high-end devices and a systematic protocol, we work to deliver the best possible outcomes.\n\nSunshine Clinic promises to bring a little light and comfort into your everyday life.",
+      "heroDesc": "Sunshine Clinic is a local practice led by a experienced practitioner with years of experience at university hospitals. We favor lasting beauty over trends, and healthy recovery over spectacle.",
       "directorKicker": "DIRECTOR",
       "directorName": "Kim Byung-hyun",
       "directorTitle": "Director",
@@ -595,7 +595,8 @@
       "ctaTitleLine2Lead": "is the nearest ",
       "ctaTitleAccent": "beginning",
       "ctaTitleTail": "",
-      "ctaTreatments": "Explore Treatments"
+      "ctaTreatments": "Explore Treatments",
+      "philosophyBody": "Sunshine Clinic is not a treatment-first practice. We aim to genuinely understand each patient's skin concerns and feelings.\n\nDrawing on extensive clinical experience in dermatology and aesthetics, we deliver care tailored to each patient's skin. Visit us with ease — through thorough consultation and careful assessment, we recommend only the treatments you truly need.\n\nWith premium high-end devices and a systematic protocol, we work to deliver the best possible outcomes.\n\nSunshine Clinic promises to bring a little light and comfort into your everyday life."
     },
     "notices": {
       "kicker": "COMMUNITY",

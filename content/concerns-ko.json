@@ -36,7 +36,8 @@
       }
     ],
     "image": "/concerns/melasma.jpg",
-    "heroImage": "/concerns/melasma-hero.jpg"
+    "heroImage": "/concerns/melasma-hero.jpg",
+    "heroImageMobile": "/concerns/melasma-hero-m.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -75,7 +76,8 @@
       }
     ],
     "image": "/concerns/freckles.png",
-    "heroImage": "/concerns/freckles-hero.jpg"
+    "heroImage": "/concerns/freckles-hero.jpg",
+    "heroImageMobile": "/concerns/freckles-hero-m.jpg"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",
@@ -113,7 +115,8 @@
         "a": "치료 초반에는 진피 깊은 곳에 뭉쳐 있던 색소 입자가 잘게 쪼개지며 표면으로 퍼져 일시적으로 진해 보일 수 있습니다. 색소가 효과적으로 부서지고 있다는 신호로, 회차가 거듭될수록 배출되며 흐려지므로 안심하고 치료를 이어가시면 됩니다."
       }
     ],
-    "heroImage": "/concerns/resistant-pigment-hero.jpg"
+    "heroImage": "/concerns/resistant-pigment-hero.jpg",
+    "heroImageMobile": "/concerns/resistant-pigment-hero-m.jpg"
   },
   "ota-cafe": {
     "slug": "ota-cafe",
@@ -188,7 +191,8 @@
         "a": "혈관의 깊이·확장 정도에 따라 다르지만 통상 2주 간격으로 최소 3~5회 이상을 권장합니다. 심한 만성 홍조는 10회 이상의 꾸준한 치료와 진피 재생 관리를 병행할 때 가장 안정적인 개선을 보입니다."
       }
     ],
-    "heroImage": "/concerns/redness-hero.jpg"
+    "heroImage": "/concerns/redness-hero.jpg",
+    "heroImageMobile": "/concerns/redness-hero-m.jpg"
   },
   "acne-active": {
     "slug": "acne-active",
@@ -226,7 +230,8 @@
       }
     ],
     "image": "/concerns/acne-active.jpg",
-    "heroImage": "/concerns/acne-active-hero.jpg"
+    "heroImage": "/concerns/acne-active-hero.jpg",
+    "heroImageMobile": "/concerns/acne-active-hero-m.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -266,7 +271,8 @@
       }
     ],
     "image": "/concerns/acne-pigment.jpg",
-    "heroImage": "/concerns/acne-pigment-hero.jpg"
+    "heroImage": "/concerns/acne-pigment-hero.jpg",
+    "heroImageMobile": "/concerns/acne-pigment-hero-m.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -346,7 +352,8 @@
       }
     ],
     "image": "/concerns/pores.jpg",
-    "heroImage": "/concerns/pores-hero.jpg"
+    "heroImage": "/concerns/pores-hero.jpg",
+    "heroImageMobile": "/concerns/pores-hero-m.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",
@@ -760,7 +767,8 @@
       }
     ],
     "image": "/concerns/general-scar.jpg",
-    "heroImage": "/concerns/general-scar-hero.jpg"
+    "heroImage": "/concerns/general-scar-hero.jpg",
+    "heroImageMobile": "/concerns/general-scar-hero-m.jpg"
   },
   "herpes": {
     "slug": "herpes",

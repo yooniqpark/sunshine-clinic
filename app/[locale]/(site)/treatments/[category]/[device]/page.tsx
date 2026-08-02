@@ -8,6 +8,7 @@ import {
   getDevicesByCategory,
   getDeviceImage,
   getDeviceHeroImage,
+  getDeviceHeroMobileImage,
   getDeviceMarketing,
 } from "@/lib/devices";
 import koData from "@/content/devices-ko.json";
@@ -106,6 +107,7 @@ export default async function DevicePage({
   const catLabel = t(`categoryLabels.${category}` as never);
   const img = getDeviceImage(d.slug);
   const heroImg = getDeviceHeroImage(d.slug);
+  const heroImgMobile = getDeviceHeroMobileImage(d.slug);
   const meta = getDeviceMarketing(d.slug);
   const siblings = getDevicesByCategory(locale as AppLocale, category).filter(
     (x) => x.slug !== d.slug,
@@ -140,7 +142,17 @@ export default async function DevicePage({
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[center_30%]"
+              className="hidden object-cover object-[center_30%] lg:block"
+            />
+          )}
+          {heroImgMobile && (
+            <Image
+              src={heroImgMobile}
+              alt={d.name}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[center_30%] lg:hidden"
             />
           )}
           <span
@@ -486,7 +498,15 @@ async function ConcernPage({
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[center_25%]"
+              className="hidden object-cover object-[center_25%] lg:block"
+            />
+            <Image
+              src={concern.heroImageMobile ?? heroBg}
+              alt={concern.name}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[center_25%] lg:hidden"
             />
             <span
               aria-hidden

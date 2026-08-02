@@ -17,6 +17,7 @@ export type Concern = {
   manufacturer?: string;
   image?: string;
   heroImage?: string;
+  heroImageMobile?: string;
 };
 
 const BY_LOCALE: Record<Locale, Record<string, Concern>> = {

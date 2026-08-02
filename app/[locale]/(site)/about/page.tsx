@@ -171,6 +171,36 @@ export default async function AboutPage({
         </div>
       </section>
 
+      {/* ══════ PHILOSOPHY ══════ */}
+      <section className="border-y border-line bg-white py-24 lg:py-32">
+        <div className="mx-auto max-w-4xl px-5 lg:px-8">
+          <Reveal>
+            <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
+              {t("philosophyKicker")}
+            </p>
+            {(() => {
+              const paras = (t("philosophyBody") as string)
+                .split(/\n\n+/)
+                .filter(Boolean);
+              const [lead, ...rest] = paras;
+              return (
+                <>
+                  <p className="mt-8 whitespace-pre-line font-serif text-2xl leading-[1.55] text-ink lg:text-[28px] lg:leading-[1.5]">
+                    {lead}
+                  </p>
+                  <span aria-hidden className="mt-8 block h-px w-16 bg-brand-dark/50" />
+                  <div className="mt-8 space-y-5 text-[15px] leading-[1.95] text-ink/65">
+                    {rest.map((p, i) => (
+                      <p key={i}>{p}</p>
+                    ))}
+                  </div>
+                </>
+              );
+            })()}
+          </Reveal>
+        </div>
+      </section>
+
       {/* ══════ SPACE GALLERY ══════ */}
       <section className="bg-cream py-24 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">

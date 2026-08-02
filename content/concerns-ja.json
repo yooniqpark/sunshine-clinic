@@ -36,7 +36,8 @@
       }
     ],
     "image": "/concerns/melasma.jpg",
-    "heroImage": "/concerns/melasma-hero.jpg"
+    "heroImage": "/concerns/melasma-hero.jpg",
+    "heroImageMobile": "/concerns/melasma-hero-m.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -75,7 +76,8 @@
       }
     ],
     "image": "/concerns/freckles.png",
-    "heroImage": "/concerns/freckles-hero.jpg"
+    "heroImage": "/concerns/freckles-hero.jpg",
+    "heroImageMobile": "/concerns/freckles-hero-m.jpg"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",
@@ -113,7 +115,8 @@
         "a": "保湿・紫外線対策・皮膚バリアケアと併用すると効果的です。"
       }
     ],
-    "heroImage": "/concerns/resistant-pigment-hero.jpg"
+    "heroImage": "/concerns/resistant-pigment-hero.jpg",
+    "heroImageMobile": "/concerns/resistant-pigment-hero-m.jpg"
   },
   "ota-cafe": {
     "slug": "ota-cafe",
@@ -188,7 +191,8 @@
         "a": "1週間はサウナ・激しい運動・紫外線を避け、保湿・紫外線対策を徹底します。"
       }
     ],
-    "heroImage": "/concerns/redness-hero.jpg"
+    "heroImage": "/concerns/redness-hero.jpg",
+    "heroImageMobile": "/concerns/redness-hero-m.jpg"
   },
   "acne-active": {
     "slug": "acne-active",
@@ -226,7 +230,8 @@
       }
     ],
     "image": "/concerns/acne-active.jpg",
-    "heroImage": "/concerns/acne-active-hero.jpg"
+    "heroImage": "/concerns/acne-active-hero.jpg",
+    "heroImageMobile": "/concerns/acne-active-hero-m.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -266,7 +271,8 @@
       }
     ],
     "image": "/concerns/acne-pigment.jpg",
-    "heroImage": "/concerns/acne-pigment-hero.jpg"
+    "heroImage": "/concerns/acne-pigment-hero.jpg",
+    "heroImageMobile": "/concerns/acne-pigment-hero-m.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -346,7 +352,8 @@
       }
     ],
     "image": "/concerns/pores.jpg",
-    "heroImage": "/concerns/pores-hero.jpg"
+    "heroImage": "/concerns/pores-hero.jpg",
+    "heroImageMobile": "/concerns/pores-hero-m.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",

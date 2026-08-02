@@ -188,6 +188,21 @@ export function getDeviceHeroImage(slug: string): string | null {
   return DEVICE_HERO_IMAGES[slug] ?? getDeviceImage(slug);
 }
 
+// 모바일(세로 1080x1620) 히어로 — 없으면 데스크톱 히어로 사용
+const DEVICE_HERO_MOBILE: Record<string, string> = {
+  rejuran: "/devices/rejuran-hero-m.jpg",
+  juvelook: "/devices/juvelook-hero-m.jpg",
+  "elravie-re20": "/devices/elravie-re20-hero-m.jpg",
+  cellredm: "/devices/cellredm-hero-m.jpg",
+  skinvive: "/devices/skinvive-hero-m.jpg",
+  radiesse: "/devices/radiesse-hero-m.jpg",
+};
+
+export function getDeviceHeroMobileImage(slug: string): string | null {
+  return DEVICE_HERO_MOBILE[slug] ?? getDeviceHeroImage(slug);
+}
+
+
 const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
   ko: koData as Record<string, DeviceDetail>,
   en: enData as Record<string, DeviceDetail>,
