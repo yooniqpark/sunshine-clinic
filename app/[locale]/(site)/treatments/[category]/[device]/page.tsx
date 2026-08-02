@@ -219,7 +219,14 @@ export default async function DevicePage({
           </Reveal>
 
           {img && (
-            <Reveal>
+            // 리프팅·안티에이징 외 카테고리는 히어로에 같은 사진이 쓰여 모바일에서 중복 노출됨
+            <Reveal
+              className={
+                category === "lifting" || category === "anti-aging"
+                  ? undefined
+                  : "hidden lg:block"
+              }
+            >
               <div className="relative aspect-[4/5] lg:aspect-[3/4]">
                 <Image
                   src={img}
