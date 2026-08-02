@@ -113,14 +113,14 @@ export function PreviewHeader() {
             height={64}
             className="h-12 w-12 -translate-y-[3px] object-contain lg:h-16 lg:w-16"
           />
-          <div className="flex items-baseline gap-2 whitespace-nowrap leading-none">
+          <div className="flex flex-col leading-none">
             <span
               className={`font-serif text-lg font-normal tracking-tight transition lg:text-2xl ${nameColor}`}
             >
               {tBrand("name")}
             </span>
             <span
-              className={`text-[11px] font-medium uppercase tracking-[0.24em] transition lg:text-[13px] ${subColor}`}
+              className={`mt-1 text-[11px] font-medium uppercase tracking-[0.24em] transition lg:text-[13px] ${subColor}`}
             >
               {tBrand("label")}
             </span>
