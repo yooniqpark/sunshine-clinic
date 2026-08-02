@@ -453,24 +453,9 @@ async function ConcernPage({
           { name: concern.name, url: pageUrl },
         ]}
       />
-      {/* HERO — 다크 톤 배경에 이미지가 오른쪽에 은은하게 깔린 느낌 */}
+      {/* HERO — 다크 톤 · 이미지는 헤더에 넣지 않고 하단 섹션에서 노출 */}
       <section className="relative overflow-hidden bg-[#3a322d] text-cream">
-        {heroBg && (
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 opacity-25 blur-[2px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)]"
-          >
-            <Image
-              src={heroBg}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center"
-            />
-          </div>
-        )}
-        <div className="relative mx-auto max-w-7xl px-5 pb-28 pt-28 lg:px-12 lg:pb-40 lg:pt-40">
+        <div className="relative mx-auto max-w-7xl px-5 pb-24 pt-28 lg:px-12 lg:pb-32 lg:pt-36">
           <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
             <Link href="/home" className="hover:text-cream">
               {t("crumbHome")}
@@ -495,24 +480,38 @@ async function ConcernPage({
         </div>
       </section>
 
-      {/* INTRO */}
+      {/* INTRO + IMAGE — 왼쪽 소개, 오른쪽 concern 이미지 */}
       <section className="bg-cream py-32 lg:py-44">
-        <div className="mx-auto max-w-4xl px-5 lg:px-8">
+        <div className="mx-auto grid max-w-6xl gap-14 px-5 lg:grid-cols-[1.1fr_1fr] lg:items-center lg:gap-20 lg:px-8">
           <Reveal>
             <p className="text-[10px] font-bold tracking-[0.35em] text-brand-dark">
               {t("introKicker")}
             </p>
-            <div className="mt-12 space-y-8">
+            <div className="mt-10 space-y-8">
               {introParagraphs.map((p, i) => (
                 <p
                   key={i}
-                  className="font-serif text-2xl leading-[1.5] text-ink lg:text-[32px] lg:leading-[1.45]"
+                  className="font-serif text-2xl leading-[1.5] text-ink lg:text-[30px] lg:leading-[1.4]"
                 >
                   {p}
                 </p>
               ))}
             </div>
           </Reveal>
+
+          {concern.image && (
+            <Reveal>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl lg:aspect-[3/4]">
+                <Image
+                  src={concern.image}
+                  alt={concern.name}
+                  fill
+                  sizes="(min-width: 1024px) 480px, 100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 
