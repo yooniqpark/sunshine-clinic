@@ -35,7 +35,8 @@
         "a": "主にClarity IIデュアル波長トーニングとFotona StarWalkerマルチ波長トーニングを色素の深さに合わせて組み合わせます。"
       }
     ],
-    "image": "/concerns/melasma.jpg"
+    "image": "/concerns/melasma.jpg",
+    "heroImage": "/concerns/melasma-hero.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -73,7 +74,8 @@
         "a": "そばかすは紫外線にさらされると再発の可能性がありますが、シミは一度除去すればほとんど再発しません。"
       }
     ],
-    "image": "/concerns/freckles.png"
+    "image": "/concerns/freckles.png",
+    "heroImage": "/concerns/freckles-hero.jpg"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",
@@ -110,7 +112,8 @@
         "q": "他の施術と併用できますか？",
         "a": "保湿・紫外線対策・皮膚バリアケアと併用すると効果的です。"
       }
-    ]
+    ],
+    "heroImage": "/concerns/resistant-pigment-hero.jpg"
   },
   "ota-cafe": {
     "slug": "ota-cafe",
@@ -221,7 +224,8 @@
         "a": "定期的な維持施術 + 生活習慣（睡眠・食事・ストレス管理）の併用が重要です。"
       }
     ],
-    "image": "/concerns/acne-active.jpg"
+    "image": "/concerns/acne-active.jpg",
+    "heroImage": "/concerns/acne-active-hero.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -260,7 +264,8 @@
         "a": "新しいニキビができると再び色素が残る可能性があるため、活動性ニキビの管理が優先です。"
       }
     ],
-    "image": "/concerns/acne-pigment.jpg"
+    "image": "/concerns/acne-pigment.jpg",
+    "heroImage": "/concerns/acne-pigment-hero.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -298,7 +303,8 @@
         "q": "活動性のニキビがあっても受けられますか？",
         "a": "活動性が落ち着いてから受けるのが安全です。まずは薬物・光熱治療で落ち着かせます。"
       }
-    ]
+    ],
+    "heroImage": "/concerns/acne-scar-hero.jpg"
   },
   "pores": {
     "slug": "pores",
@@ -338,7 +344,8 @@
         "a": "キュアジェットは月1～2回、真皮再生施術は1～2ヶ月間隔で回数を進めた後、維持施術。"
       }
     ],
-    "image": "/concerns/pores.jpg"
+    "image": "/concerns/pores.jpg",
+    "heroImage": "/concerns/pores-hero.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",

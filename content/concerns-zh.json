@@ -35,7 +35,8 @@
         "a": "主要结合 Clarity II 双波长调理和 Fotona StarWalker 多波长调理，针对色素深度进行组合。"
       }
     ],
-    "image": "/concerns/melasma.jpg"
+    "image": "/concerns/melasma.jpg",
+    "heroImage": "/concerns/melasma-hero.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -73,7 +74,8 @@
         "a": "雀斑在紫外线照射下有复发的可能，老年斑一旦去除几乎不会复发。"
       }
     ],
-    "image": "/concerns/freckles.png"
+    "image": "/concerns/freckles.png",
+    "heroImage": "/concerns/freckles-hero.jpg"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",
@@ -110,7 +112,8 @@
         "q": "可以与其他治疗同时进行吗？",
         "a": "与保湿·防晒·皮肤屏障护理同时进行效果更佳。"
       }
-    ]
+    ],
+    "heroImage": "/concerns/resistant-pigment-hero.jpg"
   },
   "ota-cafe": {
     "slug": "ota-cafe",
@@ -221,7 +224,8 @@
         "a": "定期维持治疗 + 生活习惯（睡眠·饮食·压力管理）的结合是关键。"
       }
     ],
-    "image": "/concerns/acne-active.jpg"
+    "image": "/concerns/acne-active.jpg",
+    "heroImage": "/concerns/acne-active-hero.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -260,7 +264,8 @@
         "a": "如果出现新的痤疮，可能会再次留下色素，因此优先处理活动性痤疮。"
       }
     ],
-    "image": "/concerns/acne-pigment.jpg"
+    "image": "/concerns/acne-pigment.jpg",
+    "heroImage": "/concerns/acne-pigment-hero.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -298,7 +303,8 @@
         "q": "即使有活动性痤疮也可以接受治疗吗？",
         "a": "在活动性痤疮平稳后接受治疗是安全的。首先通过药物和光热治疗进行平稳。"
       }
-    ]
+    ],
+    "heroImage": "/concerns/acne-scar-hero.jpg"
   },
   "pores": {
     "slug": "pores",
@@ -338,7 +344,8 @@
         "a": "CUREJET每月1~2次，真皮再生治疗在1~2个月间隔进行后进行维持治疗。"
       }
     ],
-    "image": "/concerns/pores.jpg"
+    "image": "/concerns/pores.jpg",
+    "heroImage": "/concerns/pores-hero.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",

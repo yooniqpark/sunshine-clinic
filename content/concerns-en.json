@@ -35,7 +35,8 @@
         "a": "Primarily, Clarity II dual-wavelength toning and Fotona StarWalker multi-wavelength toning are combined according to the depth of the pigment."
       }
     ],
-    "image": "/concerns/melasma.jpg"
+    "image": "/concerns/melasma.jpg",
+    "heroImage": "/concerns/melasma-hero.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -73,7 +74,8 @@
         "a": "Freckles may recur with UV exposure, while seborrheic keratosis rarely recurs once removed."
       }
     ],
-    "image": "/concerns/freckles.png"
+    "image": "/concerns/freckles.png",
+    "heroImage": "/concerns/freckles-hero.jpg"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",
@@ -110,7 +112,8 @@
         "q": "Can it be combined with other treatments?",
         "a": "It is effective when combined with moisturizing, sun protection, and skin barrier care."
       }
-    ]
+    ],
+    "heroImage": "/concerns/resistant-pigment-hero.jpg"
   },
   "ota-cafe": {
     "slug": "ota-cafe",
@@ -221,7 +224,8 @@
         "a": "Regular maintenance treatments + lifestyle habits (sleep, diet, stress management) are key."
       }
     ],
-    "image": "/concerns/acne-active.jpg"
+    "image": "/concerns/acne-active.jpg",
+    "heroImage": "/concerns/acne-active-hero.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -260,7 +264,8 @@
         "a": "If new acne forms, pigmentation may return, so managing active acne is a priority."
       }
     ],
-    "image": "/concerns/acne-pigment.jpg"
+    "image": "/concerns/acne-pigment.jpg",
+    "heroImage": "/concerns/acne-pigment-hero.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -298,7 +303,8 @@
         "q": "Can I receive treatment if I have active acne?",
         "a": "It is safer to receive treatment after the active acne has settled. We first calm it down with medication and light therapy."
       }
-    ]
+    ],
+    "heroImage": "/concerns/acne-scar-hero.jpg"
   },
   "pores": {
     "slug": "pores",
@@ -338,7 +344,8 @@
         "a": "CUREJET once or twice a month, dermal regeneration treatments every 1-2 months followed by maintenance treatments."
       }
     ],
-    "image": "/concerns/pores.jpg"
+    "image": "/concerns/pores.jpg",
+    "heroImage": "/concerns/pores-hero.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",

@@ -35,7 +35,8 @@
         "a": "치료의 절반은 일상에서 이루어집니다. 실내외 불문 자외선 차단제(SPF 30 이상)를 꼼꼼히 바르고, 스크럽·때 밀기 등 강한 마찰은 피하며, 수분 크림을 평소보다 듬뿍 발라 진피층 수분을 채워야 재생이 잘 됩니다."
       }
     ],
-    "image": "/concerns/melasma.jpg"
+    "image": "/concerns/melasma.jpg",
+    "heroImage": "/concerns/melasma-hero.jpg"
   },
   "freckles": {
     "slug": "freckles",
@@ -73,7 +74,8 @@
         "a": "딱지가 떨어진 직후의 피부는 얇고 붉은 기를 띱니다. 새살이 정상 피부로 동화되는 자연스러운 재생 과정이며, 자외선 차단과 재생 크림을 꼼꼼히 발라야 색소침착을 예방할 수 있습니다."
       }
     ],
-    "image": "/concerns/freckles.png"
+    "image": "/concerns/freckles.png",
+    "heroImage": "/concerns/freckles-hero.jpg"
   },
   "resistant-pigment": {
     "slug": "resistant-pigment",
@@ -110,7 +112,8 @@
         "q": "치료 중 색소가 전보다 더 진해진 것 같아요. 부작용인가요?",
         "a": "치료 초반에는 진피 깊은 곳에 뭉쳐 있던 색소 입자가 잘게 쪼개지며 표면으로 퍼져 일시적으로 진해 보일 수 있습니다. 색소가 효과적으로 부서지고 있다는 신호로, 회차가 거듭될수록 배출되며 흐려지므로 안심하고 치료를 이어가시면 됩니다."
       }
-    ]
+    ],
+    "heroImage": "/concerns/resistant-pigment-hero.jpg"
   },
   "ota-cafe": {
     "slug": "ota-cafe",
@@ -221,7 +224,8 @@
         "a": "정기 유지 시술과 생활 습관(수면·식단·스트레스 관리) 병행이 핵심입니다."
       }
     ],
-    "image": "/concerns/acne-active.jpg"
+    "image": "/concerns/acne-active.jpg",
+    "heroImage": "/concerns/acne-active-hero.jpg"
   },
   "acne-pigment": {
     "slug": "acne-pigment",
@@ -260,7 +264,8 @@
         "a": "특별한 경우를 제외하고는 다운타임이 거의 없습니다."
       }
     ],
-    "image": "/concerns/acne-pigment.jpg"
+    "image": "/concerns/acne-pigment.jpg",
+    "heroImage": "/concerns/acne-pigment-hero.jpg"
   },
   "acne-scar": {
     "slug": "acne-scar",
@@ -298,7 +303,8 @@
         "q": "시술 후 자가 관리에서 가장 중요한 점은?",
         "a": "유도한 상처가 건강한 새살로 재생되도록 일주일간 재생 크림·보습제를 수시로 듬뿍 바르고, 새살이 색소침착되지 않도록 외출 시 자외선 차단을 강력히 하며, 음주·사우나는 일주일간 금하셔야 합니다."
       }
-    ]
+    ],
+    "heroImage": "/concerns/acne-scar-hero.jpg"
   },
   "pores": {
     "slug": "pores",
@@ -338,7 +344,8 @@
         "a": "자가 압출은 절대 금하셔야 하며, 모공 스케일링과 피지 조절 치료로 블랙헤드가 자연스럽게 배출·용해되도록 관리해야 합니다."
       }
     ],
-    "image": "/concerns/pores.jpg"
+    "image": "/concerns/pores.jpg",
+    "heroImage": "/concerns/pores-hero.jpg"
   },
   "athletes-foot": {
     "slug": "athletes-foot",
@@ -751,7 +758,8 @@
         "a": "흉터 병변의 위치·상태·종류에 따라 다르며, 시술 후 재생 관리와 자외선 차단이 중요합니다."
       }
     ],
-    "image": "/concerns/general-scar.jpg"
+    "image": "/concerns/general-scar.jpg",
+    "heroImage": "/concerns/general-scar-hero.jpg"
   },
   "herpes": {
     "slug": "herpes",

@@ -16,6 +16,7 @@ export type Concern = {
   faq: { q: string; a: string }[];
   manufacturer?: string;
   image?: string;
+  heroImage?: string;
 };
 
 const BY_LOCALE: Record<Locale, Record<string, Concern>> = {
