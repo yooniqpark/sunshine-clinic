@@ -132,16 +132,20 @@ export default async function DevicePage({
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
           {img && (
-            <Image
-              src={img}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center opacity-45"
-            />
+            <div className="absolute inset-y-0 right-0 hidden w-[45%] lg:block">
+              <Image
+                src={img}
+                alt=""
+                fill
+                priority
+                sizes="45vw"
+                className="object-contain object-right p-16 opacity-70"
+              />
+              {/* 좌측 텍스트 가독성 유지용 소프트 페이드 */}
+              <span aria-hidden className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+            </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/25 to-ink/60" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
@@ -456,16 +460,19 @@ async function ConcernPage({
       <section className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
           {heroBg && (
-            <Image
-              src={heroBg}
-              alt=""
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover object-center opacity-45"
-            />
+            <div className="absolute inset-y-0 right-0 hidden w-[45%] lg:block">
+              <Image
+                src={heroBg}
+                alt=""
+                fill
+                priority
+                sizes="45vw"
+                className="object-contain object-right p-16 opacity-70"
+              />
+              <span aria-hidden className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ink via-ink/60 to-transparent" />
+            </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/40 to-ink/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/20 via-ink/25 to-ink/60" />
         </div>
 
         <div className="relative mx-auto max-w-6xl px-5 pb-32 pt-24 lg:px-8 lg:pb-40 lg:pt-32">
