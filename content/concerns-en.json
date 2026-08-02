@@ -187,7 +187,8 @@
         "q": "What care is needed after treatment?",
         "a": "Avoid saunas, intense exercise, and UV exposure for one week, and ensure thorough moisturizing and sun protection."
       }
-    ]
+    ],
+    "heroImage": "/concerns/redness-hero.jpg"
   },
   "acne-active": {
     "slug": "acne-active",

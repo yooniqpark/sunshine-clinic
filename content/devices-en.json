@@ -4,7 +4,7 @@
     "category": "lifting",
     "name": "Ulthera Prime",
     "tagline": "Lifting that elevates from the root, reaching the SMAS with ultrasound",
-    "intro": "Precision 1:1 premium lifting,\nguided by real-time ultrasound\nimaging of the skin layers.",
+    "intro": "Precision 1:1 premium lifting,\nguided by real-time ultrasound\nimaging of the skin layers",
     "manufacturer": "Merz Aesthetics",
     "tech": [
       "HIFU",
@@ -66,7 +66,7 @@
     "category": "lifting",
     "name": "Thermage FLX",
     "tagline": "A 4th generation lifting treatment that enhances skin texture and elasticity with radiofrequency.",
-    "intro": "Radiofrequency (RF) energy is delivered throughout the dermis to rearrange and strengthen collagen. The 4th generation Thermage FLX features a wider tip, faster treatment time, and automatic output adjustment (AccuREP) for improved safety and comfort compared to previous generations.",
+    "intro": "Premium firming lift that delivers\nradiofrequency energy deep into the skin\nto stimulate collagen renewal",
     "manufacturer": "Solta Medical",
     "tech": [
       "Monopolar RF",
@@ -120,14 +120,15 @@
         "q": "How long do the effects last?",
         "a": "Collagen regeneration occurs over 6 months, and effects can last for 1 to 2 years or more (individual variations apply)."
       }
-    ]
+    ],
+    "introBody": "Radiofrequency (RF) energy is delivered throughout the dermis to rearrange and strengthen collagen. The 4th generation Thermage FLX features a wider tip, faster treatment time, and automatic output adjustment (AccuREP) for improved safety and comfort compared to previous generations."
   },
   "shurink-universe": {
     "slug": "shurink-universe",
     "category": "lifting",
     "name": "Shurink Universe",
     "tagline": "Precision tailored for each area with depth-specific cartridges",
-    "intro": "A next-generation HIFU lifting developed by Classys. Various depth cartridges ranging from 1.5mm to 13mm are combined based on the area and skin condition. High output and fast treatment speed lead to high satisfaction.",
+    "intro": "Daily lifting that delivers HIFU energy\ndown to the SMAS layer, improving\nfirmness and lift at once",
     "manufacturer": "Classys",
     "tech": [
       "HIFU",
@@ -181,14 +182,15 @@
         "q": "What is the recommended interval for re-treatment?",
         "a": "Typically, 1 to 2 times a year is appropriate, and adjustments can be made after consulting with our medical staff based on skin condition and goals."
       }
-    ]
+    ],
+    "introBody": "Shurink uses High Intensity Focused Ultrasound to precisely stimulate the SMAS layer — the source of sagging — without damaging the skin surface, coagulating and contracting the tissue. Depending on the tip, it can also induce collagen regeneration, delivering energy accurately to deep layers to lift sagging skin naturally."
   },
   "inmode": {
     "slug": "inmode",
     "category": "lifting",
     "name": "InMode",
     "tagline": "Simultaneous skin elasticity and contouring with RF",
-    "intro": "A monopolar/bipolar RF system from InMode (Israel). Forma is a handpiece for comprehensive facial elasticity care, while Mini is a compact handpiece for narrow areas and delicate lines. When used together, they can refine both contour and texture at the same time.",
+    "intro": "Contour lifting that delivers RF energy\nto the skin and subcutaneous fat,\ncaring for firmness and contour together",
     "manufacturer": "InMode (Israel)",
     "tech": [
       "Monopolar/Bipolar RF",
@@ -241,7 +243,8 @@
         "q": "Is it effective for fat care as well?",
         "a": "Separate InMode BodyTite/EvolveX lines are specialized for fat and cellulite, while Forma and Mini are primarily for elasticity and contour care."
       }
-    ]
+    ],
+    "introBody": "Bipolar RF is delivered to the dermis and subcutaneous fat, inducing collagen synthesis in the dermis and apoptosis of fat cells. Forma delivers RF to the dermis for full-face firmness, while Mini-FX induces fat reduction to refine the contour. Used together, they address skin firmness and facial contour at the same time."
   },
   "clarity-ii": {
     "slug": "clarity-ii",
@@ -985,7 +988,7 @@
     "category": "anti-aging",
     "name": "리쥬란",
     "tagline": "연어 DNA(PDRN·PN)로 진피 재생·피부결 개선",
-    "intro": "리쥬란은 연어 DNA(폴리뉴클레오타이드, PN)를 진피층에 주입해 손상된 조직 재생을 유도하고 피부결·탄력을 개선하는 스킨부스터입니다.",
+    "intro": "A signature skin booster that uses PN\nto improve the skin's regenerative environment,\ncalming inflammation and building collagen",
     "manufacturer": "PharmaResearch (KR)",
     "tech": [
       "PN 2%",
@@ -1031,7 +1034,8 @@
         "q": "부기·자국은?",
         "a": "당일 미세 팽진·붉음이 있을 수 있고 대부분 하루 내 가라앉습니다."
       }
-    ]
+    ],
+    "introBody": "PN (polynucleotide) is injected into the dermis to improve a damaged skin environment and induce collagen production and ECM (extracellular matrix) recovery. By activating the skin's own regenerative capacity, it supports firmness, texture, and anti-aging."
   },
   "rejuran-i": {
     "slug": "rejuran-i",
@@ -1091,7 +1095,7 @@
     "category": "anti-aging",
     "name": "쥬베룩",
     "tagline": "PDLLA 콜라겐 부스터로 결·탄력·볼륨 개선",
-    "intro": "쥬베룩은 생분해성 PDLLA(폴리락틱애씨드) 성분을 이용해 콜라겐 생성을 자극, 피부 결과 탄력을 서서히 회복시키는 콜라겐 부스터입니다.",
+    "intro": "A collagen booster that stimulates\ncollagen with PDLLA, improving pores,\nfine lines, and skin firmness",
     "manufacturer": "VAIM (KR)",
     "tech": [
       "PDLLA",
@@ -1137,14 +1141,15 @@
         "q": "몇 회 필요?",
         "a": "일반적으로 4~6주 간격 2~3회 권장합니다."
       }
-    ]
+    ],
+    "introBody": "A meeting of biodegradable PDLLA and hyaluronic acid (HA): PDLLA stimulates fibroblasts to induce collagen production, improving pores and fine lines while providing natural volume. Depending on how it is used, it is also applied in scar treatment."
   },
   "elravie-re20": {
     "slug": "elravie-re20",
     "category": "anti-aging",
     "name": "Elravie Rituo",
     "tagline": "hADM (acellular dermal matrix) regenerative volume filler",
-    "intro": "Elravie Rituo is a premium regenerative treatment that injects processed human-derived acellular dermal matrix (hADM) into the dermal layer. The implanted matrix acts as a 3D scaffold for new collagen, allowing the patient's own fibroblasts to migrate in and produce autologous collagen. Sunken areas and thinned skin are refilled with the patient's own regenerated tissue, restoring dermal thickness and lasting elasticity.",
+    "intro": "A skin booster that replenishes skin\nstructure and ECM with human-derived\nacellular dermal matrix (hADM)",
     "manufacturer": "Humedix / L&C Bio",
     "tech": [
       "hADM (Acellular Dermal Matrix)",
@@ -1194,14 +1199,15 @@
         "q": "When do results appear?",
         "a": "Immediate volume from the scaffold; from ~3–4 weeks the patient's own cells migrate in and produce collagen, filling in gradually and naturally."
       }
-    ]
+    ],
+    "introBody": "Using high-molecular human-derived acellular dermal matrix (hADM), this treatment grafts the skin's own structural components — ECM, collagen, and elastin. A premium skin booster that fundamentally reinforces dermal thickness and density to improve thin dermis and volume."
   },
   "cellredm": {
     "slug": "cellredm",
     "category": "anti-aging",
     "name": "셀르디엠",
     "tagline": "저분자 콜라겐·아미노산 복합 스킨부스터",
-    "intro": "셀르디엠은 저분자 콜라겐과 아미노산 복합체로 구성된 스킨부스터로, 결·탄력·수분을 종합적으로 케어합니다.",
+    "intro": "A skin booster with human-derived\ndermal matrix (hADM) that improves the skin\nenvironment, fine lines, and inner dryness",
     "manufacturer": "Regen Biotech (KR)",
     "tech": [
       "저분자 콜라겐",
@@ -1247,14 +1253,15 @@
         "q": "간격?",
         "a": "2~3주 간격 3회 권장."
       }
-    ]
+    ],
+    "introBody": "A treatment that helps rebuild the skin's ecosystem with low-molecular human-derived acellular dermal matrix (hADM). By directly replenishing the ECM, collagen, and elastin the skin needs, this premium skin booster eases fine lines and improves inner dryness."
   },
   "skinvive": {
     "slug": "skinvive",
     "category": "anti-aging",
     "name": "스킨바이브",
     "tagline": "볼 광채·수분 개선을 위한 HA 마이크로드롭",
-    "intro": "스킨바이브는 미국 Allergan의 HA 마이크로드롭 스킨부스터로, 볼 부위 광채·수분·매끈함을 개선합니다.",
+    "intro": "A skin booster with hyaluronic acid (HA)\nthat improves skin hydration,\nfor supple skin and a natural glow",
     "manufacturer": "Allergan (USA)",
     "tech": [
       "HA 마이크로드롭",
@@ -1300,7 +1307,8 @@
         "q": "필러와 차이?",
         "a": "필러는 볼륨, 스킨바이브는 결·수분·광채입니다."
       }
-    ]
+    ],
+    "introBody": "Cross-linked hyaluronic acid, finely bound in a mesh structure, delivers powerful hydration and improved retention. Providing moisture and a smooth skin texture, it is a premium skin booster for supple skin and a natural glow."
   },
   "radiesse": {
     "slug": "radiesse",

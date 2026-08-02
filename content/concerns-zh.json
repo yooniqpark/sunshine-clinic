@@ -187,7 +187,8 @@
         "q": "治疗后如何护理?",
         "a": "一周内避免桑拿·剧烈运动·紫外线，彻底保湿·防晒。"
       }
-    ]
+    ],
+    "heroImage": "/concerns/redness-hero.jpg"
   },
   "acne-active": {
     "slug": "acne-active",

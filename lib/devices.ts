@@ -173,12 +173,15 @@ export function getDeviceImage(slug: string): string | null {
 const DEVICE_HERO_IMAGES: Record<string, string> = {
   "ulthera-prime": "/devices/ulthera-prime-hero.png",
   "thermage-flx": "/devices/thermage-flx-hero.png",
-  rejuran: "/devices/rejuran-hero.png",
-  juvelook: "/devices/juvelook-hero.png",
-  "elravie-re20": "/devices/elravie-re20-hero.png",
-  cellredm: "/devices/cellredm-hero.png",
-  skinvive: "/devices/skinvive-hero.png",
-  radiesse: "/devices/radiesse-hero.png",
+  "shurink-universe": "/devices/shurink-universe-hero.png",
+  inmode: "/devices/inmode-hero.png",
+  ellanse: "/devices/ellanse-hero.png",
+  rejuran: "/devices/rejuran-hero.png?v=2",
+  juvelook: "/devices/juvelook-hero.png?v=2",
+  "elravie-re20": "/devices/elravie-re20-hero.png?v=3",
+  cellredm: "/devices/cellredm-hero.png?v=2",
+  skinvive: "/devices/skinvive-hero.png?v=3",
+  radiesse: "/devices/radiesse-hero.png?v=3",
 };
 
 export function getDeviceHeroImage(slug: string): string | null {

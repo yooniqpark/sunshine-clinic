@@ -22,6 +22,11 @@ export default async function RootLayout({
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css"
         />
+        {/* 마루부리 — 한글 세리프 (네이버 한글한글아름답게) */}
+        <link
+          rel="stylesheet"
+          href="https://hangeul.pstatic.net/hangeul_static/css/maru-buri.css"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link

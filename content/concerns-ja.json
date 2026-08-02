@@ -187,7 +187,8 @@
         "q": "施術後のケアは？",
         "a": "1週間はサウナ・激しい運動・紫外線を避け、保湿・紫外線対策を徹底します。"
       }
-    ]
+    ],
+    "heroImage": "/concerns/redness-hero.jpg"
   },
   "acne-active": {
     "slug": "acne-active",
