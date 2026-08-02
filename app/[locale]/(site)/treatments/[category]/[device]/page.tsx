@@ -133,15 +133,15 @@ export default async function DevicePage({
         {img && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[70%] opacity-55 [mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] [-webkit-mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] lg:block"
+            className="pointer-events-none absolute inset-0 opacity-25 blur-[2px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)]"
           >
             <Image
               src={img}
               alt=""
               fill
               priority
-              sizes="70vw"
-              className="object-contain object-right p-8 lg:p-14"
+              sizes="100vw"
+              className="object-cover object-center"
             />
           </div>
         )}
@@ -458,15 +458,15 @@ async function ConcernPage({
         {heroBg && (
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 hidden w-[70%] opacity-55 [mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] [-webkit-mask-image:radial-gradient(ellipse_at_75%_50%,black_35%,transparent_82%)] lg:block"
+            className="pointer-events-none absolute inset-0 opacity-25 blur-[2px] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_90%)]"
           >
             <Image
               src={heroBg}
               alt=""
               fill
               priority
-              sizes="70vw"
-              className="object-contain object-right p-8 lg:p-14"
+              sizes="100vw"
+              className="object-cover object-center"
             />
           </div>
         )}
