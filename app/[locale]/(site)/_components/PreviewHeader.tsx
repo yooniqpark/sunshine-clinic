@@ -138,14 +138,14 @@ export function PreviewHeader() {
             >
               {item.children ? (
                 <span
-                  className={`flex cursor-default items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition ${linkColor}`}
+                  className={`flex cursor-default items-center gap-1 rounded-full px-4 py-2 text-[15px] font-medium lg:text-base transition ${linkColor}`}
                 >
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition hover:text-brand-dark ${linkColor}`}
+                  className={`flex items-center gap-1 rounded-full px-4 py-2 text-[15px] font-medium lg:text-base transition hover:text-brand-dark ${linkColor}`}
                 >
                   {item.label}
                 </Link>
@@ -169,7 +169,7 @@ export function PreviewHeader() {
                           onClick={() => setHovered(null)}
                           className="group block rounded-xl px-3 py-2.5 transition hover:bg-brand/10"
                         >
-                          <span className="block text-sm font-medium text-ink transition group-hover:text-brand-dark">
+                          <span className="block text-[15px] font-medium text-ink transition group-hover:text-brand-dark">
                             {c.label}
                           </span>
                           {c.sub && (
