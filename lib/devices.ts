@@ -192,6 +192,8 @@ export function getDeviceHeroImage(slug: string): string | null {
 const DEVICE_HERO_MOBILE: Record<string, string> = {
   "ulthera-prime": "/devices/ulthera-prime-hero-m.jpg",
   "thermage-flx": "/devices/thermage-flx-hero-m.jpg",
+  "shurink-universe": "/devices/shurink-universe-hero-m.jpg",
+  inmode: "/devices/inmode-hero-m.jpg",
   ellanse: "/devices/ellanse-hero-m.jpg",
   rejuran: "/devices/rejuran-hero-m.jpg",
   juvelook: "/devices/juvelook-hero-m.jpg",
