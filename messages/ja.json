@@ -96,7 +96,7 @@
     "headerSubtitle": "何でもお気軽にどうぞ",
     "greeting": "こんにちは!Sunshine 皮膚科の案内アシスタントです ☀️ 質問を選ぶか自由にご入力ください。",
     "fallback": "正確にお答えできない内容です。詳しくはお電話または LINE / カカオトークでお問い合わせください。",
-    "disclaimer": "正確な診断は来院をおすすめします。",
+    "disclaimer": "",
     "attachTranscript": "予約内容の作成方法",
     "attachTranscriptHint": "チャットボットでの会話内容が予約メッセージに添付されます。",
     "modeUseChat": "チャット利用",
