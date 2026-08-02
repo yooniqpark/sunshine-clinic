@@ -18,6 +18,11 @@ import { VariantQ } from "../../_components/standard-variants/VariantQ";
 import { VariantR } from "../../_components/standard-variants/VariantR";
 import { VariantS } from "../../_components/standard-variants/VariantS";
 import { VariantT } from "../../_components/standard-variants/VariantT";
+import { VariantU } from "../../_components/standard-variants/VariantU";
+import { VariantV } from "../../_components/standard-variants/VariantV";
+import { VariantW } from "../../_components/standard-variants/VariantW";
+import { VariantX } from "../../_components/standard-variants/VariantX";
+import { VariantY } from "../../_components/standard-variants/VariantY";
 
 export const metadata = {
   title: "STANDARD variants preview",
@@ -193,8 +198,43 @@ export default function StandardPreviewPage() {
       />
       <VariantT />
 
+      <Header
+        code="U"
+        name="Kinetic Marquee · 흐르는 타이포 밴드"
+        desc="국내 트렌디 클리닉 레퍼런스 1탄 — 톡스앤필·브랜뉴클리닉 톤. 초대형 세리프 아웃라인 타이포 4밴드가 좌우로 흐르고, 활성 챕터 밴드만 브랜드 컬러로 채워지며 빨라짐."
+      />
+      <VariantU />
+
+      <Header
+        code="V"
+        name="Editorial Magazine · 화보 편집 그리드"
+        desc="바노바기 매거진·포레브 톤. 매거진 마스트헤드 + 세로쓰기 국문 헤드라인 + 목차(CONTENTS)형 챕터 리스트. 중앙 화보가 활성 챕터 컬러로 물듦."
+      />
+      <VariantV />
+
+      <Header
+        code="W"
+        name="Cheongdam Noir · 블랙 & 골드"
+        desc="뮤즈클리닉·글로우클리닉 톤. 딥 블랙 배경 + 골드 헤어라인 링과 세리프 모노그램 S. 챕터 전환 시 골드 아크가 90°씩 회전하고 챕터 컬러 글로우가 스밈."
+      />
+      <VariantW />
+
+      <Header
+        code="X"
+        name="Aurora Glow · 글로우 스킨 그라디언트"
+        desc="오라클피부과·피어나 톤. 아이보리 위 챕터 컬러 블러 오브가 숨쉬듯 번지는 클린 무드. 센터 세리프 카피 + 글래스 pill 챕터 내비게이션."
+      />
+      <VariantX />
+
+      <Header
+        code="Y"
+        name="Archive Index · 진료 기준 아카이브"
+        desc="닥터디자이너·디에이 포트폴리오 톤. NO/챕터/타깃층/깊이 인덱스 테이블 — hover 시 행이 펼쳐지며 노트 노출, 우측 다크 패널이 깊이 눈금과 컬러 워시로 응답."
+      />
+      <VariantY />
+
       <div className="bg-cream px-6 py-16 text-center text-sm text-ink/60 lg:px-16">
-        위 20가지 중 원하시는 방향 알려주시면 홈에 적용합니다.
+        위 25가지 중 원하시는 방향 알려주시면 홈에 적용합니다.
       </div>
     </main>
   );
