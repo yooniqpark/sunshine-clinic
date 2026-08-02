@@ -782,7 +782,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 ))}
               </div>
               <p className="mt-2 text-center text-[8px] uppercase tracking-[0.32em] text-ink-soft/55">
-                Sunshine — a warm light for your skin
+                A warm light for your skin
               </p>
             </div>
           </div>
