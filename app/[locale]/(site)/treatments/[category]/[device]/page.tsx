@@ -128,42 +128,42 @@ export default async function DevicePage({
           { name: d.name, url: pageUrl },
         ]}
       />
-      {/* HERO — 밝은 배경 · 왼쪽 텍스트 · 오른쪽 제품 사진 */}
-      <section className="relative overflow-hidden bg-cream text-ink">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 pb-24 pt-24 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-12 lg:pb-32 lg:pt-32">
+      {/* HERO — 다크 톤에서 살짝 밝은 배경 · 왼쪽 텍스트 · 오른쪽 제품 사진 */}
+      <section className="relative overflow-hidden bg-[#3a322d] text-cream">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-14 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-20">
           <div>
-            <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-ink-soft">
-              <Link href="/home" className="hover:text-ink">{t("crumbHome")}</Link>
+            <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
+              <Link href="/home" className="hover:text-cream">{t("crumbHome")}</Link>
               <span>/</span>
-              <span className="text-ink/70">{catLabel.toUpperCase()}</span>
+              <span className="text-cream/70">{catLabel.toUpperCase()}</span>
               <span>/</span>
-              <span className="text-ink/60">{d.name}</span>
+              <span className="text-cream/60">{d.name}</span>
             </nav>
 
             {meta && (
-              <p className="mt-14 text-[11px] font-bold tracking-[0.4em] text-brand-dark">
+              <p className="mt-14 text-[11px] font-bold tracking-[0.4em] text-brand-soft">
                 {meta.englishName}
               </p>
             )}
-            <h1 className="mt-6 font-serif text-[clamp(3rem,7vw,5.5rem)] font-normal leading-[1.02] tracking-tight">
+            <h1 className="mt-6 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
               {d.name}
             </h1>
-            <p className="mt-8 max-w-xl font-serif text-lg leading-relaxed text-ink-soft lg:text-2xl">
+            <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
               &ldquo;{d.tagline}&rdquo;
             </p>
-            <p className="mt-12 text-[10px] tracking-[0.3em] text-ink-soft/70">
+            <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
               {t("byPrefix")} {d.manufacturer.toUpperCase()}
             </p>
           </div>
 
           {img && (
-            <div className="relative aspect-[4/5] lg:aspect-[3/4]">
+            <div className="relative mx-auto aspect-square w-full max-w-[320px] lg:max-w-[380px]">
               <Image
                 src={img}
                 alt={d.name}
                 fill
                 priority
-                sizes="(min-width: 1024px) 45vw, 90vw"
+                sizes="(min-width: 1024px) 380px, 320px"
                 className="object-contain object-center"
               />
             </div>
@@ -439,41 +439,41 @@ async function ConcernPage({
           { name: concern.name, url: pageUrl },
         ]}
       />
-      {/* HERO — 밝은 배경 · 왼쪽 텍스트 · 오른쪽 이미지 */}
-      <section className="relative overflow-hidden bg-cream text-ink">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 pb-24 pt-24 lg:grid-cols-[1.15fr_1fr] lg:gap-16 lg:px-12 lg:pb-32 lg:pt-32">
+      {/* HERO — 다크 톤에서 살짝 밝은 배경 · 왼쪽 텍스트 · 오른쪽 이미지 */}
+      <section className="relative overflow-hidden bg-[#3a322d] text-cream">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 pb-14 pt-14 lg:grid-cols-[1.15fr_1fr] lg:gap-14 lg:px-12 lg:pb-20 lg:pt-20">
           <div>
-            <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-ink-soft">
-              <Link href="/home" className="hover:text-ink">
+            <nav className="flex flex-wrap items-center gap-2 text-[11px] tracking-[0.15em] text-cream/50">
+              <Link href="/home" className="hover:text-cream">
                 {t("crumbHome")}
               </Link>
               <span>/</span>
-              <span className="text-ink/70">{catLabel.toUpperCase()}</span>
+              <span className="text-cream/70">{catLabel.toUpperCase()}</span>
               <span>/</span>
-              <span className="text-ink/60">{concern.name}</span>
+              <span className="text-cream/60">{concern.name}</span>
             </nav>
 
-            <h1 className="mt-14 font-serif text-[clamp(3rem,7vw,5.5rem)] font-normal leading-[1.02] tracking-tight">
+            <h1 className="mt-10 font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-normal leading-[1.05] tracking-tight">
               {concern.name}
             </h1>
-            <p className="mt-8 max-w-xl font-serif text-lg leading-relaxed text-ink-soft lg:text-2xl">
+            <p className="mt-8 max-w-xl font-serif text-base leading-relaxed text-cream/75 lg:text-xl">
               &ldquo;{concern.tagline}&rdquo;
             </p>
             {concern.manufacturer && (
-              <p className="mt-12 text-[10px] tracking-[0.3em] text-ink-soft/70">
+              <p className="mt-10 text-[10px] tracking-[0.3em] text-cream/50">
                 {t("byPrefix")} {concern.manufacturer.toUpperCase()}
               </p>
             )}
           </div>
 
           {heroBg && (
-            <div className="relative aspect-[4/5] lg:aspect-[3/4]">
+            <div className="relative mx-auto aspect-square w-full max-w-[320px] lg:max-w-[380px]">
               <Image
                 src={heroBg}
                 alt=""
                 fill
                 priority
-                sizes="(min-width: 1024px) 45vw, 90vw"
+                sizes="(min-width: 1024px) 380px, 320px"
                 className="object-contain object-center"
               />
             </div>
