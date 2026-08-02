@@ -103,7 +103,7 @@ export default async function AboutPage({
             <br />
             <span className="text-brand-soft">{t("heroTitleAccent")}</span>
           </h1>
-          <p className="mt-10 max-w-2xl text-base leading-relaxed text-cream/75 lg:text-lg">
+          <p className="mt-10 max-w-2xl whitespace-pre-line text-base leading-relaxed text-cream/75 lg:text-lg">
             {t("heroDesc")}
           </p>
         </div>
