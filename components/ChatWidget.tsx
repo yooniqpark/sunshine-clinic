@@ -781,9 +781,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
                   <ActionChip key={a.key} action={a} chipClass="" />
                 ))}
               </div>
-              <p className="mt-2 whitespace-pre-line text-center text-[9px] leading-snug text-ink-soft/60">
-                {t("disclaimer")}
-              </p>
             </div>
           </div>
         </div>
