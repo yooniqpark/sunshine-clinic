@@ -778,9 +778,12 @@ export function ChatWidget(props: ClinicLinks = {}) {
             <div className="px-3.5 pb-3 pt-3">
               <div className="grid grid-cols-4 gap-1.5">
                 {actions.map((a) => (
-                  <ActionChip key={a.key} action={a} chipClass="" />
+                  <ActionChip key={a.key} action={a} chipClass="!py-1.5 !text-[10px]" />
                 ))}
               </div>
+              <p className="mt-2 text-center text-[8px] uppercase tracking-[0.32em] text-ink-soft/55">
+                Sunshine — a warm light for your skin
+              </p>
             </div>
           </div>
         </div>
