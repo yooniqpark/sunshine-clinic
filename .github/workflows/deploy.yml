@@ -92,7 +92,8 @@ jobs:
 
           # 2) swap server.js + .next + public (keep .env, node_modules, prisma/dev.db)
           cp -f release/server.js ~/app/server.js
-          rm -rf ~/app/.next
+          # 실행 중인 앱이 ISR 캐시를 쓰는 동안 rm이 레이스로 실패할 수 있어 재시도
+          rm -rf ~/app/.next || { sleep 3; rm -rf ~/app/.next; }
           mkdir -p ~/app/.next
           cp -R release/.next/* ~/app/.next/
           rm -rf ~/app/public
