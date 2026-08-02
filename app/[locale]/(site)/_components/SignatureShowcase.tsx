@@ -185,7 +185,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
   return (
     <div className="relative w-full">
       {/* Heading row */}
-      <div className="mb-10 lg:mb-14">
+      <div className="mb-6 lg:mb-14">
         <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
           SIGNATURE SELECTION
         </p>
@@ -218,7 +218,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             behavior: "smooth"를 명시적으로 넘긴다. */}
         <ul
           ref={scrollerRef}
-          className="flex touch-pan-x snap-x snap-proximity items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-16 pt-12 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x snap-x snap-proximity items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-8 pt-4 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
           style={{
             perspective: "1400px",
             transformStyle: "preserve-3d",
@@ -233,7 +233,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
                 aria-label={`${d.categoryLabel} — ${d.name}`}
-                className="group relative block h-[320px] w-[240px] overflow-hidden rounded-[2px] border border-ink/[0.08] bg-white shadow-[0_12px_28px_-16px_rgba(28,25,23,0.35)] lg:h-[480px] lg:w-[360px]"
+                className="group relative block h-[380px] w-[285px] overflow-hidden rounded-[2px] border border-ink/[0.08] bg-white shadow-[0_12px_28px_-16px_rgba(28,25,23,0.35)] lg:h-[480px] lg:w-[360px]"
               >
                 {d.img && (
                   <Image
@@ -241,7 +241,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
                     alt={`${d.categoryLabel} ${d.name}`}
                     fill
                     priority={i < 5}
-                    sizes="(max-width: 1024px) 240px, 360px"
+                    sizes="(max-width: 1024px) 285px, 360px"
                     className="object-cover object-center"
                   />
                 )}

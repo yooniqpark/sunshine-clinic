@@ -117,7 +117,7 @@ export default async function PreviewHome({
       )}
 
       {/* ═══════ 5. SIGNATURE SELECTION — 제품 슬라이드 (레퍼런스 톤) ═══════ */}
-      <section className="relative overflow-hidden bg-[#e9e0d5] py-24 text-ink lg:py-32">
+      <section className="relative overflow-hidden bg-[#e9e0d5] py-14 text-ink lg:py-32">
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <SignatureShowcase
             items={[
