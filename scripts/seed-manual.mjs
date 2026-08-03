@@ -1,18 +1,21 @@
 /**
- * Migrate the hardcoded clinic manual into ManualSection rows so it can be edited
- * from the admin UI. Idempotent — re-running upserts by exact title.
+ * 서버 배포 시 챗봇 매뉴얼(ManualSection)을 prisma/manual-sections.json 내용으로
+ * 갱신한다. 제목 기준 upsert — 재실행해도 안전 (idempotent).
  *
- * Run with: npx tsx prisma/seed-manual.ts
+ * Run with: node scripts/seed-manual.mjs  (앱 루트에서, @prisma/client 필요)
  */
 import { PrismaClient } from "@prisma/client";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 
 const prisma = new PrismaClient();
-
 const ADMIN_EMAIL = "admin@sunshine.local";
 
-import sectionsJson from "./manual-sections.json";
-
-const sections: { title: string; body: string }[] = sectionsJson;
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const sections = JSON.parse(
+  readFileSync(join(__dirname, "..", "prisma", "manual-sections.json"), "utf8"),
+);
 
 async function main() {
   const admin = await prisma.user.findUnique({ where: { email: ADMIN_EMAIL } });
