@@ -232,6 +232,54 @@ export function getDeviceHeroMobileImage(slug: string): string | null {
 }
 
 
+
+// 상세 페이지 INTRO 우측 이미지 — 데스크톱(1600x1000) / 모바일(1080x1350)
+const DEVICE_DETAIL_IMAGES: Record<string, string> = {
+  "aqua-peel": "/devices/aqua-peel-detail.jpg",
+  bellalux: "/devices/bellalux-detail.jpg",
+  "carpri-co2": "/devices/carpri-co2-detail.jpg",
+  "clarity-ii": "/devices/clarity-ii-detail.jpg",
+  "fotona-starwalker": "/devices/fotona-starwalker-detail.jpg",
+  inmode: "/devices/inmode-detail.jpg",
+  "inmode-morpheus": "/devices/inmode-morpheus-detail.jpg",
+  ldm: "/devices/ldm-detail.jpg",
+  markview: "/devices/markview-detail.jpg",
+  "markview-co2": "/devices/markview-co2-detail.jpg",
+  "mirajet-forte": "/devices/mirajet-forte-detail.jpg",
+  "secret-rf": "/devices/secret-rf-detail.jpg",
+  "shurink-universe": "/devices/shurink-universe-detail.jpg",
+  "thermage-flx": "/devices/thermage-flx-detail.jpg",
+  "ulthera-prime": "/devices/ulthera-prime-detail.jpg",
+  vbeam: "/devices/vbeam-detail.jpg",
+};
+
+const DEVICE_DETAIL_MOBILE: Record<string, string> = {
+  "aqua-peel": "/devices/aqua-peel-detail-m.jpg",
+  bellalux: "/devices/bellalux-detail-m.jpg",
+  "carpri-co2": "/devices/carpri-co2-detail-m.jpg",
+  "clarity-ii": "/devices/clarity-ii-detail-m.jpg",
+  "fotona-starwalker": "/devices/fotona-starwalker-detail-m.jpg",
+  inmode: "/devices/inmode-detail-m.jpg",
+  "inmode-morpheus": "/devices/inmode-morpheus-detail-m.jpg",
+  ldm: "/devices/ldm-detail-m.jpg",
+  markview: "/devices/markview-detail-m.jpg",
+  "markview-co2": "/devices/markview-co2-detail-m.jpg",
+  "mirajet-forte": "/devices/mirajet-forte-detail-m.jpg",
+  "secret-rf": "/devices/secret-rf-detail-m.jpg",
+  "shurink-universe": "/devices/shurink-universe-detail-m.jpg",
+  "thermage-flx": "/devices/thermage-flx-detail-m.jpg",
+  "ulthera-prime": "/devices/ulthera-prime-detail-m.jpg",
+  vbeam: "/devices/vbeam-detail-m.jpg",
+};
+
+export function getDeviceDetailImage(slug: string): string | null {
+  return DEVICE_DETAIL_IMAGES[slug] ?? null;
+}
+
+export function getDeviceDetailMobileImage(slug: string): string | null {
+  return DEVICE_DETAIL_MOBILE[slug] ?? null;
+}
+
 const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
   ko: koData as Record<string, DeviceDetail>,
   en: enData as Record<string, DeviceDetail>,

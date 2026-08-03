@@ -9,6 +9,8 @@ import {
   getDeviceImage,
   getDeviceHeroImage,
   getDeviceHeroMobileImage,
+  getDeviceDetailImage,
+  getDeviceDetailMobileImage,
   getDeviceMarketing,
 } from "@/lib/devices";
 import koData from "@/content/devices-ko.json";
@@ -108,6 +110,8 @@ export default async function DevicePage({
   const img = getDeviceImage(d.slug);
   const heroImg = getDeviceHeroImage(d.slug);
   const heroImgMobile = getDeviceHeroMobileImage(d.slug);
+  const detailImg = getDeviceDetailImage(d.slug);
+  const detailImgMobile = getDeviceDetailMobileImage(d.slug);
   const meta = getDeviceMarketing(d.slug);
   const siblings = getDevicesByCategory(locale as AppLocale, category).filter(
     (x) => x.slug !== d.slug,
@@ -224,7 +228,27 @@ export default async function DevicePage({
             )}
           </Reveal>
 
-          {img && (
+          {detailImg ? (
+            /* 전용 상세 컷 — 데스크톱 1600x1000 / 모바일 1080x1350 반응형 */
+            <Reveal>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl lg:aspect-[16/10]">
+                <Image
+                  src={detailImg}
+                  alt={d.name}
+                  fill
+                  sizes="(min-width: 1024px) 560px, 100vw"
+                  className="hidden object-cover lg:block"
+                />
+                <Image
+                  src={detailImgMobile ?? detailImg}
+                  alt={d.name}
+                  fill
+                  sizes="100vw"
+                  className="object-cover lg:hidden"
+                />
+              </div>
+            </Reveal>
+          ) : img ? (
             // 리프팅·안티에이징 외 카테고리는 히어로에 같은 사진이 쓰여 모바일에서 중복 노출됨
             <Reveal
               className={
@@ -243,7 +267,7 @@ export default async function DevicePage({
                 />
               </div>
             </Reveal>
-          )}
+          ) : null}
         </div>
       </section>
 
