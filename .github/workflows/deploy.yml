@@ -57,8 +57,10 @@ jobs:
           cp -R public release/public
           mkdir -p release/prisma
           cp prisma/schema.prisma release/prisma/schema.prisma
+          cp prisma/manual-sections.json release/prisma/manual-sections.json
           mkdir -p release/scripts
           cp scripts/migrate-content.mjs release/scripts/ || true
+          cp scripts/seed-manual.mjs release/scripts/
           # ensure schema/scripts overrides happen after rsync of standalone
           tar -czf release.tar.gz -C release .
           ls -lh release.tar.gz
@@ -101,13 +103,18 @@ jobs:
 
           # 3) sync prisma schema + scripts (no db destructive)
           cp -f release/prisma/schema.prisma ~/app/prisma/schema.prisma
+          cp -f release/prisma/manual-sections.json ~/app/prisma/manual-sections.json
           mkdir -p ~/app/scripts
           cp -f release/scripts/migrate-content.mjs ~/app/scripts/migrate-content.mjs 2>/dev/null || true
+          cp -f release/scripts/seed-manual.mjs ~/app/scripts/seed-manual.mjs
 
           # 4) prisma db push (only adds missing tables/columns; never drops)
           cd ~/app
           ./node_modules/.bin/prisma generate --schema=./prisma/schema.prisma
           ./node_modules/.bin/prisma db push --schema=./prisma/schema.prisma --skip-generate
+
+          # 4.5) 챗봇 매뉴얼 최신화 (제목 기준 upsert)
+          node scripts/seed-manual.mjs
 
           # 5) 챗봇(Qwen) 런타임 env 동기화 — 기존 값을 지우고 최신으로 유지
           touch ~/app/.env
@@ -120,12 +127,18 @@ jobs:
           sleep 2
           pm2 status
 
-          # 6.5) 챗봇 스모크 테스트 — Qwen 연동 확인 (실패해도 배포는 유지)
+          # 6.5) 챗봇 스모크 테스트 — Qwen 연동 + 오프토픽 차단 확인 (실패해도 배포는 유지)
           sleep 5
-          echo "--- chatbot smoke test ---"
+          echo "--- chatbot smoke test: 병원 위치 ---"
           curl -s -X POST http://localhost:3000/api/chat \
             -H 'Content-Type: application/json' \
             -d '{"message":"병원 위치가 어디인가요?","locale":"ko"}' \
+            --max-time 60 || true
+          echo
+          echo "--- chatbot smoke test: 오프토픽 ---"
+          curl -s -X POST http://localhost:3000/api/chat \
+            -H 'Content-Type: application/json' \
+            -d '{"message":"비트코인 시세 전망 알려줘","locale":"ko"}' \
             --max-time 60 || true
           echo
 
