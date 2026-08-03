@@ -120,7 +120,7 @@ export function PreviewHeader() {
               {tBrand("name")}
             </span>
             <span
-              className={`-mt-1 text-center font-serif text-[11px] font-normal uppercase tracking-[0.24em] transition lg:-mt-1.5 lg:text-[13px] ${subColor}`}
+              className={`-mt-1 pl-[0.24em] text-center font-serif text-[11px] font-normal uppercase tracking-[0.24em] transition lg:-mt-1.5 lg:text-[13px] ${subColor}`}
             >
               {tBrand("label")}
             </span>
