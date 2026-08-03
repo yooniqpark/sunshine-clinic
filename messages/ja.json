@@ -154,7 +154,9 @@
       "errorContact": "ご連絡先 (電話/メール/メッセンジャー ID) をご入力ください。",
       "errorConsent": "個人情報の取り扱いにご同意ください。",
       "errorGeneric": "一時的にお申し込みができません。しばらくしてから再度お試しください。"
-    }
+    },
+    "ctaAiShort": "AIチャット",
+    "bookingVisit": "来院予約"
   },
   "common": {
     "loading": "読み込み中…",

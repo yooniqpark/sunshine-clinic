@@ -154,7 +154,9 @@
       "errorContact": "请输入联系方式 (电话/邮箱/即时通讯 ID)。",
       "errorConsent": "请同意个人信息收集。",
       "errorGeneric": "暂时无法提交,请稍后再试。"
-    }
+    },
+    "ctaAiShort": "AI聊天",
+    "bookingVisit": "到院预约"
   },
   "common": {
     "loading": "加载中…",

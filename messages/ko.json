@@ -154,7 +154,9 @@
       "errorContact": "연락받을 수단(전화/이메일/메신저 ID 등)을 입력해 주세요.",
       "errorConsent": "개인정보 수집·이용에 동의해 주세요.",
       "errorGeneric": "일시적으로 신청이 어렵습니다. 잠시 후 다시 시도해 주세요."
-    }
+    },
+    "ctaAiShort": "AI 채팅",
+    "bookingVisit": "내원 예약"
   },
   "common": {
     "loading": "불러오는 중…",

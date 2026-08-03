@@ -154,7 +154,9 @@
       "errorContact": "Please enter a contact method (phone, email, messenger ID).",
       "errorConsent": "Please consent to data collection.",
       "errorGeneric": "Could not submit right now. Please try again shortly."
-    }
+    },
+    "ctaAiShort": "AI Chat",
+    "bookingVisit": "Clinic Booking"
   },
   "common": {
     "loading": "Loading…",
