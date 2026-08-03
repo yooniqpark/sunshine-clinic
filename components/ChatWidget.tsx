@@ -11,6 +11,7 @@ import {
   NaverIcon,
   PhoneIcon,
   SendIcon,
+  SparkleIcon,
 } from "./icons";
 import { LocalizedDatePicker } from "./LocalizedDatePicker";
 
@@ -49,6 +50,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const [desktopOpen, setDesktopOpen] = useState(true);
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMinimized, setChatMinimized] = useState(false);
+  const [bookingMenuOpen, setBookingMenuOpen] = useState(false);
 
   // AI chat state (desktop)
   type Msg = { role: "bot" | "user"; text: string };
@@ -523,8 +525,8 @@ export function ChatWidget(props: ClinicLinks = {}) {
       {chatOpen && (() => {
         const hasChat = (messages.length > 0 || loading) && !chatMinimized;
         return (
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] hidden justify-center lg:flex">
-          <div className="chat-in pointer-events-auto relative mb-6">
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center">
+          <div className="chat-in pointer-events-auto relative mb-4 w-[calc(100vw-1.5rem)] max-w-[560px] lg:mb-6 lg:w-auto">
             {/* Soft warm halo (같은 모바일 톤) */}
             <span
               aria-hidden
@@ -659,6 +661,15 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 }}
                 className="flex items-center gap-2 border-t border-white/40 px-4 py-3"
               >
+                {/* 모바일 전용 닫기 — 데스크톱은 오브 토글로 닫음 */}
+                <button
+                  type="button"
+                  onClick={() => setChatOpen(false)}
+                  aria-label={t("closeLabel")}
+                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/60 bg-white/70 text-ink-soft backdrop-blur transition hover:text-ink lg:hidden"
+                >
+                  <CloseIcon className="h-4 w-4" />
+                </button>
                 <div className="flex flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
                   <input
                     autoFocus
@@ -730,8 +741,42 @@ export function ChatWidget(props: ClinicLinks = {}) {
       })()}
 
       {/* ════════════ MOBILE — bottom glass bar with 4 chips ════════════ */}
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden">
+      <div
+        className={`pointer-events-none fixed inset-x-0 bottom-0 z-40 lg:hidden ${
+          chatOpen ? "hidden" : ""
+        }`}
+      >
         <div className="relative mx-auto mb-3 mt-3 w-[calc(100%-3rem)] max-w-[480px]">
+          {/* 예약 방식 선택 팝업 — 예약 버튼 위 */}
+          {bookingMenuOpen && (
+            <div className="pointer-events-auto absolute bottom-[calc(100%+10px)] left-[37.5%] z-10 -translate-x-1/2">
+              <div className="flex flex-col gap-1.5 rounded-2xl border border-white/50 bg-white/85 p-2 shadow-xl shadow-ink/20 backdrop-blur-xl">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setBookingMenuOpen(false);
+                    setView("booking");
+                    setBError(null);
+                    setBSuccess(null);
+                  }}
+                  className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand/90 px-4 py-2.5 text-[12px] font-semibold leading-none text-white"
+                >
+                  <CalendarIcon className="h-3.5 w-3.5 shrink-0" />
+                  {t("bookingVisit")}
+                </button>
+                <a
+                  href={clinic.naverBookingHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setBookingMenuOpen(false)}
+                  className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-white px-4 py-2.5 text-[12px] font-semibold leading-none text-ink"
+                >
+                  <NaverIcon className="h-3 w-3 shrink-0" />
+                  {t("ctaNaverShort")}
+                </a>
+              </div>
+            </div>
+          )}
           {/* Soft warm halo */}
           <span
             aria-hidden
@@ -777,9 +822,34 @@ export function ChatWidget(props: ClinicLinks = {}) {
           >
             <div className="px-3.5 pb-3 pt-3">
               <div className="grid grid-cols-4 gap-1.5">
-                {actions.map((a) => (
-                  <ActionChip key={a.key} action={a} chipClass="!py-1.5 !text-[10px]" />
-                ))}
+                {/* AI 채팅 — 기존 예약 버튼 자리 */}
+                <button
+                  type="button"
+                  onClick={() => {
+                    setBookingMenuOpen(false);
+                    setChatOpen(true);
+                    setChatMinimized(false);
+                  }}
+                  className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-1.5 text-[10px] font-semibold leading-none text-white transition hover:bg-brand-dark"
+                >
+                  <SparkleIcon className="block h-3.5 w-3.5 shrink-0" />
+                  {t("ctaAiShort")}
+                </button>
+                {/* 예약 — 내원/네이버 선택 팝업 토글 */}
+                <button
+                  type="button"
+                  aria-expanded={bookingMenuOpen}
+                  onClick={() => setBookingMenuOpen((v) => !v)}
+                  className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/40 bg-white/55 px-2 py-1.5 text-[10px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                >
+                  <CalendarIcon className="block h-3.5 w-3.5 shrink-0" />
+                  {t("ctaBookingShort")}
+                </button>
+                {actions
+                  .filter((a) => a.key === "kakao" || a.key === "phone")
+                  .map((a) => (
+                    <ActionChip key={a.key} action={a} chipClass="!py-1.5 !text-[10px]" />
+                  ))}
               </div>
               <p className="mt-2 text-center text-[8px] uppercase tracking-[0.32em] text-ink-soft/55">
                 A warm light for your skin
