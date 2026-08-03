@@ -194,6 +194,7 @@ const DEVICE_HERO_MOBILE: Record<string, string> = {
   "thermage-flx": "/devices/thermage-flx-hero-m.jpg",
   "shurink-universe": "/devices/shurink-universe-hero-m.jpg",
   inmode: "/devices/inmode-hero-m.jpg",
+  "clarity-ii": "/devices/clarity-ii-hero-m.jpg",
   ellanse: "/devices/ellanse-hero-m.jpg",
   rejuran: "/devices/rejuran-hero-m.jpg",
   juvelook: "/devices/juvelook-hero-m.jpg",
