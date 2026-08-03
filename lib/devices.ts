@@ -174,7 +174,7 @@ const DEVICE_HERO_IMAGES: Record<string, string> = {
   "ulthera-prime": "/devices/ulthera-prime-hero.jpg",
   "thermage-flx": "/devices/thermage-flx-hero.jpg",
   "shurink-universe": "/devices/shurink-universe-hero.jpg",
-  vbeam: "/devices/vbeam-hero.jpg",
+  vbeam: "/devices/vbeam-hero.jpg?v=2",
   "secret-rf": "/devices/secret-rf-hero.jpg",
   inmode: "/devices/inmode-hero.jpg",
   "fotona-starwalker": "/devices/fotona-starwalker-hero.jpg",
