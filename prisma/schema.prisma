@@ -155,6 +155,20 @@ model TokenUsage {
   @@index([source, createdAt])
 }
 
+// ===== ChatLog — 챗봇 대화 누적 기록 (admin에서 열람) =====
+model ChatLog {
+  id        String   @id @default(cuid())
+  locale    String   @default("ko") // ko | en | ja | zh
+  question  String   // 방문자가 보낸 메시지
+  answer    String   // 챗봇이 돌려준 답변 (fallback/오류 문구 포함)
+  status    String   @default("ok") // "ok" | "fallback" | "error"
+  model     String?  // 답변에 사용된 모델
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([status, createdAt])
+}
+
 // ===== SiteContent — editable text content (replaces JSON files) =====
 model SiteContent {
   id        String   @id @default(cuid())
