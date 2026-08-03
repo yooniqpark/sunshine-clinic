@@ -105,8 +105,6 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
 
     const onTouchStart = () => {
       pausedUntilRef.current = Number.MAX_SAFE_INTEGER;
-      // 손을 대면 CSS 스냅 복원 → 사용자 스와이프는 카드 단위로 착지
-      el.style.scrollSnapType = "";
     };
     const onTouchEnd = () => {
       pausedUntilRef.current = performance.now() + 2500;
@@ -118,24 +116,30 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     let raf = 0;
     let lastTs = 0;
     const SPEED = 55;
+    // scrollLeft 정수 반올림으로 소수점 이동량이 버려져 끊겨 보이는 것을 막기 위해
+    // 위치를 float으로 직접 관리하고, 사용자 스크롤로 어긋나면 재동기화한다.
+    let pos = el.scrollLeft;
 
     const tick = (ts: number) => {
       const dt = lastTs === 0 ? 0 : Math.min(64, ts - lastTs);
       lastTs = ts;
       if (!document.hidden && ts > pausedUntilRef.current) {
-        // 자동 이동 중에는 스냅을 꺼야 프레임 단위 scrollLeft 이동이 되돌려지지 않음
-        if (el.style.scrollSnapType !== "none") el.style.scrollSnapType = "none";
+        if (Math.abs(el.scrollLeft - pos) > 1.5) pos = el.scrollLeft; // 사용자 이동 반영
         const delta = (SPEED * dt) / 1000;
         const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
         if (nearEnd) {
           el.scrollTo({ left: 0, behavior: "smooth" });
+          pos = 0;
           // 되감기 애니메이션이 끝나기 전에 tick이 다시 밀면 두 스크롤이
           // 싸우며 이음새가 끊긴다 → 넉넉히 대기
           pausedUntilRef.current = ts + 2000;
         } else {
-          el.scrollLeft += delta;
+          pos += delta;
+          el.scrollLeft = pos;
           applyCoverflow(); // 스크롤 이벤트 자동 발화하지만 즉시 반영
         }
+      } else {
+        pos = el.scrollLeft;
       }
       raf = window.requestAnimationFrame(tick);
     };
@@ -201,13 +205,13 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
             behavior: "smooth"를 명시적으로 넘긴다. */}
         <ul
           ref={scrollerRef}
-          className="flex touch-pan-x snap-x snap-proximity items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-8 pt-4 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
+          className="flex touch-pan-x items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-8 pt-4 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
         >
           {items.map((d, i) => (
             <li
               key={d.slug}
               data-card
-              className="shrink-0 snap-start"
+              className="shrink-0"
             >
               <Link
                 href={`/treatments/${d.category}/${d.slug}`}
