@@ -14,6 +14,7 @@ const nav = [
   { label: "이벤트", href: "/admin/events" },
   { label: "콘텐츠", href: "/admin/content" },
   { label: "챗봇 매뉴얼", href: "/admin/manual" },
+  { label: "챗봇 대화", href: "/admin/chats" },
   { label: "설정", href: "/admin/settings" },
 ];
 

@@ -670,9 +670,16 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 >
                   <CloseIcon className="h-4 w-4" />
                 </button>
-                <div className="flex flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
+                <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
                   <input
                     autoFocus
+                    type="text"
+                    name="chat-message"
+                    autoComplete="off"
+                    autoCorrect="off"
+                    autoCapitalize="off"
+                    spellCheck={false}
+                    enterKeyHint="send"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onFocus={() => setChatMinimized(false)}
@@ -680,7 +687,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
                       loading ? t("inputPlaceholderLoading") : t("inputPlaceholder")
                     }
                     disabled={loading}
-                    className="flex-1 bg-transparent px-1 py-1.5 text-[16px] outline-none placeholder:text-ink-soft/60 disabled:opacity-60 lg:text-sm"
+                    className="min-w-0 flex-1 bg-transparent px-1 py-1.5 text-[16px] outline-none placeholder:text-[13px] placeholder:text-ink-soft/60 disabled:opacity-60 lg:text-sm lg:placeholder:text-sm"
                   />
                   <button
                     type="submit"
