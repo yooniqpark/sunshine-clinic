@@ -50,7 +50,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMinimized, setChatMinimized] = useState(false);
   const [bookingMenuOpen, setBookingMenuOpen] = useState(false);
-  const [inputFocused, setInputFocused] = useState(false);
 
   // AI chat state (desktop)
   type Msg = { role: "bot" | "user"; text: string };
@@ -546,8 +545,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
       {/* ════════════ DESKTOP — Chat mode (glass container, expands on chat) ════════════ */}
       {chatOpen && (() => {
         const hasChat = (messages.length > 0 || loading) && !chatMinimized;
-        // 패널 폭: 기본은 컴팩트, 입력 중이거나 대화가 있으면 확장
-        const wide = hasChat || inputFocused;
         return (
         <>
         {/* 모바일: 채팅창 바깥을 탭하면 닫힘 (X 버튼 대체) */}
@@ -589,9 +586,9 @@ export function ChatWidget(props: ClinicLinks = {}) {
 
             <div
               className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                wide
+                hasChat
                   ? "max-w-[560px] delay-0"
-                  : "max-w-[330px] delay-[500ms] lg:max-w-[420px]"
+                  : "max-w-[560px] delay-[500ms] lg:max-w-[420px]"
               }`}
               style={{
                 boxShadow: [
@@ -714,11 +711,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
                     enterKeyHint="send"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    onFocus={() => {
-                      setChatMinimized(false);
-                      setInputFocused(true);
-                    }}
-                    onBlur={() => setInputFocused(false)}
+                    onFocus={() => setChatMinimized(false)}
                     placeholder={
                       loading ? t("inputPlaceholderLoading") : t("inputPlaceholder")
                     }
@@ -873,6 +866,10 @@ export function ChatWidget(props: ClinicLinks = {}) {
                     setBookingMenuOpen(false);
                     setChatOpen(true);
                     setChatMinimized(false);
+                    // 대화 영역이 바로 펼쳐지도록 인사말을 먼저 띄운다
+                    if (messages.length === 0) {
+                      setMessages([{ role: "bot", text: t("greeting") }]);
+                    }
                   }}
                   className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-1.5 text-[10px] font-semibold leading-none text-white transition hover:bg-brand-dark"
                 >
