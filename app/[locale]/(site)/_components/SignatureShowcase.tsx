@@ -48,41 +48,12 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     cardMetaRef.current = meta;
   }
 
-  // 캐시된 좌표만 사용 → getBoundingClientRect 호출 0회
-  // 레퍼런스 스타일: 중앙 카드는 정면·선명, 가장자리로 갈수록
-  // 완만한 rotateY 아치 + 살짝 축소 + 페이드아웃
+  // 아치(커버플로우) 효과 제거 — 모든 카드를 동일한 크기·정면으로 평평하게 슬라이딩.
+  // 혹시 남아있을 수 있는 인라인 transform만 정리한다.
   function applyCoverflow() {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const scrollLeft = el.scrollLeft;
-    const viewportCenter = scrollLeft + viewportRef.current.halfW;
-    // falloff를 뷰포트 절반보다 넓게 — 카드가 화면을 가로지르는 동안
-    // 각도 변화가 완만해서 "그대로 쭉 미끄러지는" 느낌 (레퍼런스와 동일)
-    const FALLOFF = (viewportRef.current.width || 1) * 0.72;
-    // 레퍼런스(Lumière) 매칭: 중앙 정면·플랫, 옆으로 갈수록 중앙을 향해
-    // 뚜렷하게 꺾이는 아치. 페이드는 맨 끝 카드만.
-    // 볼록 원통의 표면 노멀 방향(바깥쪽)으로 살짝만 —
-    // 각도를 낮춰 "묘하게 바라보는" 느낌 제거, 곡면의 자연스러운 접선처럼
-    const MAX_ANGLE = 18;
-    const BULGE = 70; // 중앙이 관찰자 쪽으로 볼록 (원통 곡면)
-    const MAX_Z = 80; // 가장자리는 뒤로 후퇴
-    const MIN_SCALE = 0.9; // 깊이가 크기감을 만들므로 scale 변화는 살짝만
     for (const m of cardMetaRef.current) {
-      const dist = m.center - viewportCenter;
-      const t = Math.max(-1, Math.min(1, dist / FALLOFF));
-      const abs = Math.abs(t);
-      // rotateY(+θ): 카드가 오른쪽을 바라봄. 우측(t>0) 카드 → 오른쪽,
-      // 좌측(t<0) 카드 → 왼쪽 (볼록 곡면의 바깥 방향)
-      const angle = t * MAX_ANGLE;
-      // 포물선 깊이: 중앙 +BULGE(앞) → 가장자리 -MAX_Z(뒤). 볼록한 원통 곡면.
-      const translateZ = BULGE * (1 - abs * abs) - MAX_Z * abs;
-      const scale = 1 - (1 - MIN_SCALE) * abs;
-      // per-card perspective()를 쓰면 카드마다 소실점이 달라 아치가 끊겨 보인다.
-      // 부모 ul의 공유 perspective 하나로 통일해 이어진 곡면처럼.
-      m.el.style.transform = `translateZ(${translateZ}px) rotateY(${angle}deg) scale(${scale})`;
-      m.el.style.transformOrigin = "center center";
-      // abs^4 커브 — 중앙~중간은 선명(1), 맨 끝에서만 급격히 사라짐
-      m.el.style.opacity = String(1 - 0.85 * abs ** 4);
+      m.el.style.transform = "";
+      m.el.style.opacity = "";
     }
   }
 
@@ -231,10 +202,6 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
         <ul
           ref={scrollerRef}
           className="flex touch-pan-x snap-x snap-proximity items-center gap-2 overflow-x-auto overscroll-x-contain px-5 pb-8 pt-4 [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] [scrollbar-width:none] lg:snap-none lg:gap-3 lg:px-8 lg:pb-24 lg:pt-16 [&::-webkit-scrollbar]:hidden"
-          style={{
-            perspective: "1400px",
-            transformStyle: "preserve-3d",
-          }}
         >
           {items.map((d, i) => (
             <li
