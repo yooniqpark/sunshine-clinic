@@ -127,7 +127,7 @@ export default async function AboutPage({
       </section>
 
       {/* ══════ DIRECTOR ══════ */}
-      <section className="bg-cream py-24 lg:py-32">
+      <section id="doctors" className="scroll-mt-24 bg-cream py-24 lg:scroll-mt-32 lg:py-32">
         <div className="mx-auto grid max-w-7xl gap-16 px-5 lg:grid-cols-[1fr_1.1fr] lg:gap-24 lg:px-8">
           <Reveal>
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-ink/5">
@@ -172,7 +172,7 @@ export default async function AboutPage({
       </section>
 
       {/* ══════ PHILOSOPHY ══════ */}
-      <section className="border-y border-line bg-white py-24 lg:py-32">
+      <section id="vision" className="scroll-mt-24 border-y border-line bg-white py-24 lg:scroll-mt-32 lg:py-32">
         <div className="mx-auto max-w-4xl px-5 lg:px-8">
           <Reveal>
             <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
@@ -202,7 +202,7 @@ export default async function AboutPage({
       </section>
 
       {/* ══════ SPACE GALLERY ══════ */}
-      <section className="bg-cream py-24 lg:py-32">
+      <section id="tour" className="scroll-mt-24 bg-cream py-24 lg:scroll-mt-32 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
@@ -290,7 +290,7 @@ export default async function AboutPage({
       </section>
 
       {/* ══════ DEVICES — 전체 장비 그리드 ══════ */}
-      <section id="devices" className="scroll-mt-24 bg-white py-24 lg:py-32">
+      <section id="devices" className="scroll-mt-24 bg-white py-24 lg:scroll-mt-32 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <Reveal>
             <div className="mb-14 text-center">
@@ -375,7 +375,7 @@ export default async function AboutPage({
       </section>
 
       {/* ══════ LOCATION ══════ */}
-      <section className="border-t border-line bg-white py-24 lg:py-32">
+      <section id="location" className="scroll-mt-24 border-t border-line bg-white py-24 lg:scroll-mt-32 lg:py-32">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <div className="mb-14">
             <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
