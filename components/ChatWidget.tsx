@@ -6,7 +6,6 @@ import { clinic as clinicFallback } from "@/lib/data";
 import {
   CalendarIcon,
   ChevronDownIcon,
-  CloseIcon,
   KakaoIcon,
   NaverIcon,
   PhoneIcon,
@@ -547,6 +546,12 @@ export function ChatWidget(props: ClinicLinks = {}) {
       {chatOpen && (() => {
         const hasChat = (messages.length > 0 || loading) && !chatMinimized;
         return (
+        <>
+        {/* 모바일: 채팅창 바깥을 탭하면 닫힘 (X 버튼 대체) */}
+        <div
+          className="fixed inset-0 z-[54] lg:hidden"
+          onClick={() => setChatOpen(false)}
+        />
         <div
           className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center transition-transform duration-200 ease-out"
           style={kbOffset ? { transform: `translateY(-${kbOffset}px)` } : undefined}
@@ -691,15 +696,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 }}
                 className="flex items-center gap-2 border-t border-white/40 px-4 py-3"
               >
-                {/* 모바일 전용 닫기 — 데스크톱은 오브 토글로 닫음 */}
-                <button
-                  type="button"
-                  onClick={() => setChatOpen(false)}
-                  aria-label={t("closeLabel")}
-                  className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/60 bg-white/70 text-ink-soft backdrop-blur transition hover:text-ink lg:hidden"
-                >
-                  <CloseIcon className="h-4 w-4" />
-                </button>
                 <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
                   <input
                     autoFocus
@@ -774,6 +770,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
             </div>
           </div>
         </div>
+        </>
         );
       })()}
 
