@@ -6,7 +6,7 @@ import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
-import { getDevicesByCategory, getDeviceImage, getDeviceMarketing } from "@/lib/devices";
+import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { pageSeo } from "@/lib/seo";
@@ -151,7 +151,7 @@ export default async function PreviewHome({
                 name: d.name,
                 tagline: d.tagline,
                 english: mk?.englishName,
-                img: getDeviceImage(d.slug) ?? "",
+                img: getDeviceHeroMobileImage(d.slug) ?? "",
                 category: d.category,
                 categoryLabel: catLabel,
                 meta: catLabel,
