@@ -57,6 +57,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
@@ -64,6 +65,43 @@ export function ChatWidget(props: ClinicLinks = {}) {
       behavior: "smooth",
     });
   }, [messages, chatOpen, loading]);
+
+  // 모바일 채팅 패널 등장/퇴장 애니메이션 상태
+  // panelIn: 마운트 직후 false → true 로 바뀌며 좌우로 넓어짐
+  // closing: 닫는 중 — 대화창이 먼저 내려가고 이어서 좌우로 줄어든 뒤 언마운트
+  const [panelIn, setPanelIn] = useState(false);
+  const [closing, setClosing] = useState(false);
+  useEffect(() => {
+    if (chatOpen) {
+      setClosing(false);
+      const id = requestAnimationFrame(() =>
+        requestAnimationFrame(() => setPanelIn(true))
+      );
+      return () => cancelAnimationFrame(id);
+    }
+    setPanelIn(false);
+  }, [chatOpen]);
+
+  // 채팅이 열려 있는 동안 body에 플래그 — 스크롤 상단 버튼 숨김용
+  useEffect(() => {
+    if (chatOpen) {
+      document.body.dataset.chatOpen = "1";
+    } else {
+      delete document.body.dataset.chatOpen;
+    }
+    return () => {
+      delete document.body.dataset.chatOpen;
+    };
+  }, [chatOpen]);
+
+  function closeChat() {
+    // 대화창 하강(500ms) → 좌우 축소(350ms 지연 후) → 언마운트
+    setClosing(true);
+    setTimeout(() => {
+      setChatOpen(false);
+      setClosing(false);
+    }, 900);
+  }
 
   // iOS/모바일 키보드가 올라오면 fixed 하단 패널이 키보드에 가려진다.
   // visualViewport로 가려진 높이를 재서 패널을 키보드 위로 올린다.
@@ -544,13 +582,15 @@ export function ChatWidget(props: ClinicLinks = {}) {
 
       {/* ════════════ DESKTOP — Chat mode (glass container, expands on chat) ════════════ */}
       {chatOpen && (() => {
-        const hasChat = (messages.length > 0 || loading) && !chatMinimized;
+        const hasChat = (messages.length > 0 || loading) && !chatMinimized && !closing;
+        // 모바일 폭 단계: 등장 전 270 → 입력박스 상태 330 → 대화 중 전체 폭
+        const mobileIdle = panelIn && !closing;
         return (
         <>
         {/* 모바일: 채팅창 바깥을 탭하면 닫힘 (X 버튼 대체) */}
         <div
           className="fixed inset-0 z-[54] lg:hidden"
-          onClick={() => setChatOpen(false)}
+          onClick={closeChat}
         />
         <div
           className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center transition-transform duration-200 ease-out"
@@ -586,9 +626,17 @@ export function ChatWidget(props: ClinicLinks = {}) {
 
             <div
               className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                hasChat && panelIn
+                  ? "max-w-[calc(100vw-1.5rem)] delay-0"
+                  : mobileIdle
+                    ? "max-w-[330px] delay-[100ms]"
+                    : closing
+                      ? "max-w-[270px] delay-[350ms]"
+                      : "max-w-[270px]"
+              } ${
                 hasChat
-                  ? "max-w-[560px] delay-0"
-                  : "max-w-[560px] delay-[500ms] lg:max-w-[420px]"
+                  ? "lg:max-w-[560px] lg:delay-0"
+                  : "lg:max-w-[420px] lg:delay-[500ms]"
               }`}
               style={{
                 boxShadow: [
@@ -688,7 +736,14 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 </div>
               </div>
 
-              {/* Input box */}
+              {/* Input box — 모바일에서는 좌우 확장 후 바 위로 펼쳐지며 등장 */}
+              <div
+                className={`overflow-hidden transition-[max-height,opacity] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:max-h-none lg:opacity-100 lg:transition-none ${
+                  mobileIdle
+                    ? "max-h-24 opacity-100 delay-[450ms]"
+                    : "max-h-0 opacity-0 delay-0"
+                }`}
+              >
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -698,6 +753,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
               >
                 <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
                   <input
+                    ref={inputRef}
                     autoFocus={
                       typeof window !== "undefined" &&
                       window.matchMedia("(min-width: 1024px)").matches
@@ -728,9 +784,11 @@ export function ChatWidget(props: ClinicLinks = {}) {
                   </button>
                 </div>
               </form>
+              </div>
 
-              {/* Booking action row (Naver / Kakao / Phone) — 최하단 */}
-              <div className="border-t border-white/40 px-4 py-2.5">
+              {/* Booking action row (Naver / Kakao / Phone) — 최하단, 데스크톱 전용
+                  (모바일은 순수 AI 채팅 버전 — 예약류 버튼은 채팅을 닫으면 하단 바에서) */}
+              <div className="hidden border-t border-white/40 px-4 py-2.5 lg:block">
                 <div className="grid grid-cols-4 gap-1.5">
                   <button
                     type="button"
@@ -769,6 +827,69 @@ export function ChatWidget(props: ClinicLinks = {}) {
                     {t("ctaPhoneShort")}
                   </a>
                 </div>
+              </div>
+
+              {/* 모바일 — 하단 바(첫 구성) 그대로 유지: AI 채팅 · 예약 · 카카오톡 · 전화 */}
+              <div className="relative border-t border-white/40 px-3.5 pb-3 pt-2.5 lg:hidden">
+                {bookingMenuOpen && (
+                  <div className="absolute bottom-[calc(100%+10px)] left-[37.5%] z-10 -translate-x-1/2">
+                    <div className="flex flex-col gap-1.5 rounded-2xl border border-white/50 bg-white/85 p-2 shadow-xl shadow-ink/20 backdrop-blur-xl">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setBookingMenuOpen(false);
+                          setView("booking");
+                          setBError(null);
+                          setBSuccess(null);
+                        }}
+                        className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand/90 px-4 py-2.5 text-[12px] font-semibold leading-none text-white"
+                      >
+                        <CalendarIcon className="h-3.5 w-3.5 shrink-0" />
+                        {t("bookingVisit")}
+                      </button>
+                      <a
+                        href={clinic.naverBookingHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setBookingMenuOpen(false)}
+                        className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-white px-4 py-2.5 text-[12px] font-semibold leading-none text-ink"
+                      >
+                        <NaverIcon className="h-3 w-3 shrink-0" />
+                        {t("ctaNaverShort")}
+                      </a>
+                    </div>
+                  </div>
+                )}
+                <div className="grid grid-cols-4 gap-1.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setBookingMenuOpen(false);
+                      inputRef.current?.focus();
+                    }}
+                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-1.5 text-[10px] font-semibold leading-none text-white transition hover:bg-brand-dark"
+                  >
+                    <SparkleIcon className="block h-3.5 w-3.5 shrink-0" />
+                    {t("ctaAiShort")}
+                  </button>
+                  <button
+                    type="button"
+                    aria-expanded={bookingMenuOpen}
+                    onClick={() => setBookingMenuOpen((v) => !v)}
+                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/40 bg-white/55 px-2 py-1.5 text-[10px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                  >
+                    <CalendarIcon className="block h-3.5 w-3.5 shrink-0" />
+                    {t("ctaBookingShort")}
+                  </button>
+                  {actions
+                    .filter((a) => a.key === "kakao" || a.key === "phone")
+                    .map((a) => (
+                      <ActionChip key={a.key} action={a} chipClass="!py-1.5 !text-[10px]" />
+                    ))}
+                </div>
+                <p className="mt-2 text-center text-[8px] uppercase tracking-[0.32em] text-ink-soft/55">
+                  A warm light for your skin
+                </p>
               </div>
             </div>
           </div>
@@ -866,10 +987,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
                     setBookingMenuOpen(false);
                     setChatOpen(true);
                     setChatMinimized(false);
-                    // 대화 영역이 바로 펼쳐지도록 인사말을 먼저 띄운다
-                    if (messages.length === 0) {
-                      setMessages([{ role: "bot", text: t("greeting") }]);
-                    }
                   }}
                   className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-1.5 text-[10px] font-semibold leading-none text-white transition hover:bg-brand-dark"
                 >
