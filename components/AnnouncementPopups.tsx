@@ -406,7 +406,7 @@ function MobileTeaser({ onOpen }: { onOpen: () => void }) {
 
 function EventCarousel() {
   const [idx, setIdx] = useState(0);
-  const startX = useRef<number | null>(null);
+  const start = useRef<{ x: number; y: number } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("v2.popups.event");
   const total = GRAND_OPEN_CATEGORIES.length;
@@ -431,13 +431,16 @@ function EventCarousel() {
   }, [idx]);
 
   function onTouchStart(e: React.TouchEvent) {
-    startX.current = e.touches[0].clientX;
+    start.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
   }
   function onTouchEnd(e: React.TouchEvent) {
-    if (startX.current == null) return;
-    const dx = e.changedTouches[0].clientX - startX.current;
-    if (Math.abs(dx) > 40) go(dx < 0 ? 1 : -1);
-    startX.current = null;
+    if (start.current == null) return;
+    const dx = e.changedTouches[0].clientX - start.current.x;
+    const dy = e.changedTouches[0].clientY - start.current.y;
+    // 세로 스크롤 중 손가락이 비스듬히 움직여도 탭이 넘어가지 않도록
+    // 가로 이동이 세로 이동보다 확실히 클 때만 스와이프로 판정
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+    start.current = null;
   }
 
   const current = GRAND_OPEN_CATEGORIES[idx];

@@ -115,12 +115,12 @@ export function PreviewHeader() {
           />
           <div className="flex flex-col leading-none">
             <span
-              className={`font-serif text-lg font-normal tracking-tight transition lg:text-2xl ${nameColor}`}
+              className={`font-serif text-xl font-normal tracking-tight transition lg:text-[26px] ${nameColor}`}
             >
               {tBrand("name")}
             </span>
             <span
-              className={`mt-1 text-[11px] font-medium uppercase tracking-[0.24em] transition lg:text-[13px] ${subColor}`}
+              className={`-mt-1 text-center font-serif text-[11px] font-normal uppercase tracking-[0.24em] transition lg:-mt-1.5 lg:text-[13px] ${subColor}`}
             >
               {tBrand("label")}
             </span>
