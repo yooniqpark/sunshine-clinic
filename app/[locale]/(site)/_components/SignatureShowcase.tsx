@@ -123,7 +123,8 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     };
   }, [items.length]);
 
-  // 자동 스크롤: 데스크톱 전용 (모바일은 사용자 스와이프 우선)
+  // 자동 스크롤: 데스크톱·모바일 공통. 모바일은 터치하는 동안 멈추고
+  // 손을 떼면 잠시 후(관성 스크롤이 끝날 때쯤) 다시 흐른다.
   useEffect(() => {
     const el = scrollerRef.current;
     if (!el || items.length <= 1) return;
@@ -131,11 +132,17 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (prefersReduced) return;
 
-    // 터치 기기(모바일/태블릿)에서는 자동 스크롤을 완전히 끔 →
-    // 사용자 스와이프가 rAF와 충돌하지 않게
-    const isTouchDevice =
-      window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-    if (isTouchDevice) return;
+    const onTouchStart = () => {
+      pausedUntilRef.current = Number.MAX_SAFE_INTEGER;
+      // 손을 대면 CSS 스냅 복원 → 사용자 스와이프는 카드 단위로 착지
+      el.style.scrollSnapType = "";
+    };
+    const onTouchEnd = () => {
+      pausedUntilRef.current = performance.now() + 2500;
+    };
+    el.addEventListener("touchstart", onTouchStart, { passive: true });
+    el.addEventListener("touchend", onTouchEnd, { passive: true });
+    el.addEventListener("touchcancel", onTouchEnd, { passive: true });
 
     let raf = 0;
     let lastTs = 0;
@@ -145,6 +152,8 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
       const dt = lastTs === 0 ? 0 : Math.min(64, ts - lastTs);
       lastTs = ts;
       if (!document.hidden && ts > pausedUntilRef.current) {
+        // 자동 이동 중에는 스냅을 꺼야 프레임 단위 scrollLeft 이동이 되돌려지지 않음
+        if (el.style.scrollSnapType !== "none") el.style.scrollSnapType = "none";
         const delta = (SPEED * dt) / 1000;
         const nearEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
         if (nearEnd) {
@@ -167,6 +176,9 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
     return () => {
       window.clearTimeout(startId);
       if (raf) window.cancelAnimationFrame(raf);
+      el.removeEventListener("touchstart", onTouchStart);
+      el.removeEventListener("touchend", onTouchEnd);
+      el.removeEventListener("touchcancel", onTouchEnd);
     };
   }, [items.length]);
 
