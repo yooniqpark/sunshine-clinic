@@ -18,7 +18,7 @@ export function EntrySplash({ locale }: { locale: string }) {
     >
       {/* Mobile portrait video */}
       <video
-        src="/splash-mobile.webm"
+        src="/splash-mobile.webm?v=2"
         autoPlay
         muted
         loop
@@ -27,7 +27,7 @@ export function EntrySplash({ locale }: { locale: string }) {
       />
       {/* Desktop landscape video */}
       <video
-        src="/splash.webm"
+        src="/splash.webm?v=2"
         autoPlay
         muted
         loop
