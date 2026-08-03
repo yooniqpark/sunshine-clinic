@@ -588,7 +588,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
               className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 hasChat
                   ? "max-w-[560px] delay-0"
-                  : "max-w-[330px] delay-[500ms] lg:max-w-[420px]"
+                  : "max-w-[560px] delay-[500ms] lg:max-w-[420px]"
               }`}
               style={{
                 boxShadow: [
