@@ -680,7 +680,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
                       loading ? t("inputPlaceholderLoading") : t("inputPlaceholder")
                     }
                     disabled={loading}
-                    className="flex-1 bg-transparent px-1 py-1.5 text-sm outline-none placeholder:text-ink-soft/60 disabled:opacity-60"
+                    className="flex-1 bg-transparent px-1 py-1.5 text-[16px] outline-none placeholder:text-ink-soft/60 disabled:opacity-60 lg:text-sm"
                   />
                   <button
                     type="submit"
