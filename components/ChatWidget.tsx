@@ -95,12 +95,12 @@ export function ChatWidget(props: ClinicLinks = {}) {
   }, [chatOpen]);
 
   function closeChat() {
-    // 대화창 하강(500ms) → 좌우 축소(350ms 지연 후) → 언마운트
+    // 위쪽(대화창·입력박스) 먼저 하강 → 좌우 축소(550ms 지연) → 언마운트
     setClosing(true);
     setTimeout(() => {
       setChatOpen(false);
       setClosing(false);
-    }, 900);
+    }, 1050);
   }
 
   // iOS/모바일 키보드가 올라오면 fixed 하단 패널이 키보드에 가려진다.
@@ -626,13 +626,11 @@ export function ChatWidget(props: ClinicLinks = {}) {
 
             <div
               className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                hasChat && panelIn
+                mobileIdle
                   ? "max-w-[calc(100vw-1.5rem)] delay-0"
-                  : mobileIdle
-                    ? "max-w-[330px] delay-[100ms]"
-                    : closing
-                      ? "max-w-[270px] delay-[350ms]"
-                      : "max-w-[270px]"
+                  : closing
+                    ? "max-w-[calc(100vw-3rem)] delay-[550ms]"
+                    : "max-w-[calc(100vw-3rem)]"
               } ${
                 hasChat
                   ? "lg:max-w-[560px] lg:delay-0"
