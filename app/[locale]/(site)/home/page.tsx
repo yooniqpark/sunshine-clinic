@@ -201,7 +201,7 @@ export default async function PreviewHome({
             <span className="text-brand-soft">{t("ctaTitleAccent")}</span>
             {t("ctaTitleTail")}
           </h2>
-          <p className="mx-auto mt-6 max-w-md text-sm text-cream/70">
+          <p className="mx-auto mt-6 max-w-md whitespace-pre-line break-keep text-[13px] text-cream/70 lg:text-sm">
             {t("ctaDesc")}
           </p>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
@@ -220,7 +220,7 @@ export default async function PreviewHome({
               {t("ctaNaver")}
             </a>
           </div>
-          <p className="mt-16 text-[11px] tracking-[0.2em] text-cream/50">
+          <p className="mt-16 whitespace-pre-line text-[11px] leading-relaxed tracking-[0.2em] text-cream/50">
             {t("address")}
           </p>
         </div>
