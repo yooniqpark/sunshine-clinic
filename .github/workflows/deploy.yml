@@ -109,12 +109,27 @@ jobs:
           ./node_modules/.bin/prisma generate --schema=./prisma/schema.prisma
           ./node_modules/.bin/prisma db push --schema=./prisma/schema.prisma --skip-generate
 
-          # 5) restart
+          # 5) 챗봇(Qwen) 런타임 env 동기화 — 기존 값을 지우고 최신으로 유지
+          touch ~/app/.env
+          sed -i '/^QWEN_API_KEY=/d;/^QWEN_MODEL=/d' ~/app/.env
+          echo 'QWEN_API_KEY=sk-ws-H.DMMMMHH.k3lb.MEUCIQCTUloJaaxHwYxYmUIR_tehUcuuhDM8nBMyEqM5nvHoPwIgF9jQA7XHBd1VhbgjeGO880X4NzA4019jKEZV_WLTDOQ' >> ~/app/.env
+          echo 'QWEN_MODEL=qwen3.7-plus' >> ~/app/.env
+
+          # 6) restart
           pm2 restart clinic
           sleep 2
           pm2 status
 
-          # 6) cleanup
+          # 6.5) 챗봇 스모크 테스트 — Qwen 연동 확인 (실패해도 배포는 유지)
+          sleep 5
+          echo "--- chatbot smoke test ---"
+          curl -s -X POST http://localhost:3000/api/chat \
+            -H 'Content-Type: application/json' \
+            -d '{"message":"병원 위치가 어디인가요?","locale":"ko"}' \
+            --max-time 60 || true
+          echo
+
+          # 7) cleanup
           rm -rf ~/release
           REMOTE
 

@@ -84,17 +84,23 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: REQUEST_LONG_BY_LOCALE[locale] }, { status: 400 });
   }
 
-  if (!process.env.OPENAI_API_KEY) {
+  if (!process.env.QWEN_API_KEY) {
     return NextResponse.json(
-      { error: "OPENAI_API_KEY is not configured." },
+      { error: "QWEN_API_KEY is not configured." },
       { status: 500 }
     );
   }
 
   try {
-    const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+    // Qwen (Alibaba Model Studio) — OpenAI 호환 엔드포인트로 호출
+    const client = new OpenAI({
+      apiKey: process.env.QWEN_API_KEY,
+      baseURL:
+        process.env.QWEN_BASE_URL ??
+        "https://dashscope-intl.aliyuncs.com/compatible-mode/v1",
+    });
     const systemPrompt = await buildSystemPrompt(locale);
-    const model = "gpt-4o-mini";
+    const model = process.env.QWEN_MODEL ?? "qwen3.7-plus";
     const completion = await client.chat.completions.create({
       model,
       temperature: 0.3,
