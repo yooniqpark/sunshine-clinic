@@ -43,6 +43,7 @@ next-env.d.ts
 # local dev DB + user uploads
 prisma/dev.db
 prisma/dev.db-journal
+prisma/prisma/
 public/uploads
 
 # work artifacts — root-level screenshots, recordings, playwright outputs
