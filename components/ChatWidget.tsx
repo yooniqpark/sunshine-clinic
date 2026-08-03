@@ -596,7 +596,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
           className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center transition-transform duration-200 ease-out"
           style={kbOffset ? { transform: `translateY(-${kbOffset}px)` } : undefined}
         >
-          <div className="chat-in pointer-events-auto relative mb-4 w-[calc(100vw-1.5rem)] max-w-[560px] lg:mb-6 lg:w-auto">
+          <div className="chat-in pointer-events-auto relative mb-3 w-[calc(100vw-1.5rem)] max-w-[560px] lg:mb-6 lg:w-auto">
             {/* Soft warm halo (같은 모바일 톤) */}
             <span
               aria-hidden
@@ -629,8 +629,8 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 mobileIdle
                   ? "max-w-[calc(100vw-1.5rem)] delay-0"
                   : closing
-                    ? "max-w-[calc(100vw-3rem)] delay-[550ms]"
-                    : "max-w-[calc(100vw-3rem)]"
+                    ? "max-w-[330px] delay-[550ms]"
+                    : "max-w-[330px]"
               } ${
                 hasChat
                   ? "lg:max-w-[560px] lg:delay-0"
@@ -659,7 +659,14 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 <div className="flex items-center justify-between border-b border-white/25 px-2.5 py-1">
                   <button
                     type="button"
-                    onClick={() => setChatMinimized(true)}
+                    onClick={() => {
+                      // 모바일: 최소화도 종료처럼 전부 접고 폭 축소
+                      if (window.matchMedia("(min-width: 1024px)").matches) {
+                        setChatMinimized(true);
+                      } else {
+                        closeChat();
+                      }
+                    }}
                     aria-label={t("closeLabel")}
                     title={t("closeLabel")}
                     className="grid h-6 w-6 place-items-center rounded-full text-ink-soft/70 transition hover:bg-white/30 hover:text-ink"
@@ -961,7 +968,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
           />
 
           <div
-            className="pointer-events-auto relative mx-auto flex w-full max-w-[420px] flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/20 backdrop-blur-2xl"
+            className="pointer-events-auto relative mx-auto flex w-full max-w-[330px] flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/20 backdrop-blur-2xl"
             style={{
               boxShadow: [
                 "-12px -12px 28px rgba(255,255,255,0.4)",
