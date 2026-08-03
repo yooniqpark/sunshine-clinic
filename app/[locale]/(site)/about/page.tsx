@@ -98,7 +98,7 @@ export default async function AboutPage({
   return (
     <>
       {/* ══════ HERO ══════ */}
-      <section className="relative overflow-hidden bg-ink text-cream">
+      <section id="vision" className="relative overflow-hidden bg-ink text-cream">
         <div className="absolute inset-0">
           <Image
             src="/clinic/reception-v2.jpg"
@@ -172,7 +172,7 @@ export default async function AboutPage({
       </section>
 
       {/* ══════ PHILOSOPHY ══════ */}
-      <section id="vision" className="scroll-mt-24 border-y border-line bg-white py-24 lg:scroll-mt-32 lg:py-32">
+      <section className="border-y border-line bg-white py-24 lg:py-32">
         <div className="mx-auto max-w-4xl px-5 lg:px-8">
           <Reveal>
             <p className="text-[10px] font-bold tracking-[0.3em] text-brand-dark">
