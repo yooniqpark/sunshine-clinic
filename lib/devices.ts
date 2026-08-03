@@ -193,7 +193,7 @@ const DEVICE_HERO_MOBILE: Record<string, string> = {
   "ulthera-prime": "/devices/ulthera-prime-hero-m.jpg?v=2",
   "thermage-flx": "/devices/thermage-flx-hero-m.jpg?v=2",
   "shurink-universe": "/devices/shurink-universe-hero-m.jpg?v=2",
-  vbeam: "/devices/vbeam-hero-m.jpg",
+  vbeam: "/devices/vbeam-hero-m.jpg?v=2",
   "secret-rf": "/devices/secret-rf-hero-m.jpg",
   inmode: "/devices/inmode-hero-m.jpg?v=2",
   "clarity-ii": "/devices/clarity-ii-hero-m.jpg?v=2",
