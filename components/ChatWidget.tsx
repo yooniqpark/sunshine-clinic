@@ -625,12 +625,12 @@ export function ChatWidget(props: ClinicLinks = {}) {
             />
 
             <div
-              className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] ease-[cubic-bezier(0.22,1,0.36,1)] ${
                 mobileIdle
-                  ? "max-w-[calc(100vw-1.5rem)] delay-0"
+                  ? "max-w-[calc(100vw-1.5rem)] duration-[1100ms] delay-0"
                   : closing
-                    ? "max-w-[330px] delay-[550ms]"
-                    : "max-w-[330px]"
+                    ? "max-w-[330px] duration-[400ms] delay-[550ms]"
+                    : "max-w-[330px] duration-[1100ms]"
               } ${
                 hasChat
                   ? "lg:max-w-[560px] lg:delay-0"
@@ -651,7 +651,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
               {/* Expandable messages section — height starts mid-width-transition for smooth handoff */}
               <div
                 className={`overflow-hidden transition-[max-height,opacity] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                  hasChat
+                  hasChat && panelIn
                     ? "max-h-[60vh] opacity-100 duration-[1100ms] delay-[300ms]"
                     : "max-h-0 opacity-0 duration-[500ms] delay-0"
                 }`}
@@ -683,9 +683,18 @@ export function ChatWidget(props: ClinicLinks = {}) {
                   <button
                     type="button"
                     onClick={() => {
-                      setMessages([]);
-                      setInput("");
-                      setChatMinimized(false);
+                      if (window.matchMedia("(min-width: 1024px)").matches) {
+                        setMessages([]);
+                        setInput("");
+                        setChatMinimized(false);
+                      } else {
+                        // 모바일: X도 전체 접힘 → 폭 축소로 닫고, 닫힌 뒤 대화 초기화
+                        closeChat();
+                        setTimeout(() => {
+                          setMessages([]);
+                          setInput("");
+                        }, 1150);
+                      }
                     }}
                     aria-label={t("clearLabel")}
                     title={t("clearLabel")}
@@ -835,7 +844,8 @@ export function ChatWidget(props: ClinicLinks = {}) {
               </div>
 
               {/* 모바일 — 하단 바(첫 구성) 그대로 유지: AI 채팅 · 예약 · 카카오톡 · 전화 */}
-              <div className="relative border-t border-white/40 px-3.5 pb-3 pt-2.5 lg:hidden">
+              {/* pt 11px + border 1px = 하단 바의 pt-3(12px)과 높이 일치 — 전환 시 위치 튐 방지 */}
+              <div className="relative border-t border-white/40 px-3.5 pb-3 pt-[11px] lg:hidden">
                 {bookingMenuOpen && (
                   <div className="absolute bottom-[calc(100%+10px)] left-[37.5%] z-10 -translate-x-1/2">
                     <div className="flex flex-col gap-1.5 rounded-2xl border border-white/50 bg-white/85 p-2 shadow-xl shadow-ink/20 backdrop-blur-xl">
