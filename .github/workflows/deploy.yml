@@ -120,7 +120,7 @@ jobs:
           touch ~/app/.env
           sed -i '/^QWEN_API_KEY=/d;/^QWEN_MODEL=/d' ~/app/.env
           echo 'QWEN_API_KEY=sk-ws-H.DMMMMHH.k3lb.MEUCIQCTUloJaaxHwYxYmUIR_tehUcuuhDM8nBMyEqM5nvHoPwIgF9jQA7XHBd1VhbgjeGO880X4NzA4019jKEZV_WLTDOQ' >> ~/app/.env
-          echo 'QWEN_MODEL=qwen3.7-plus' >> ~/app/.env
+          echo 'QWEN_MODEL=qwen3.6-flash' >> ~/app/.env
 
           # 6) restart
           pm2 restart clinic
@@ -129,6 +129,12 @@ jobs:
 
           # 6.5) 챗봇 스모크 테스트 — Qwen 연동 + 오프토픽 차단 확인 (실패해도 배포는 유지)
           sleep 5
+          echo "--- chatbot smoke test: 인사 ---"
+          curl -s -X POST http://localhost:3000/api/chat \
+            -H 'Content-Type: application/json' \
+            -d '{"message":"안녕하세요!","locale":"ko"}' \
+            --max-time 60 || true
+          echo
           echo "--- chatbot smoke test: 병원 위치 ---"
           curl -s -X POST http://localhost:3000/api/chat \
             -H 'Content-Type: application/json' \
