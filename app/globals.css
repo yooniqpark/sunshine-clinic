@@ -221,18 +221,10 @@ body {
 .chat-in {
   animation: chat-in 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
-/* 모바일: 위치 이동 없이 페이드만 — 입력박스는 바 위로 펼쳐지며 생긴다 */
-@keyframes chat-in-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+/* 모바일: 등장 애니메이션 없음 — 바 자리에서 즉시 좌우 확장 + 위로 펼쳐짐만 */
 @media (max-width: 1023px) {
   .chat-in {
-    animation: chat-in-fade 0.3s ease-out both;
+    animation: none;
   }
   /* 채팅 입력박스가 떠 있는 동안 스크롤 상단 버튼 숨김 */
   body[data-chat-open="1"] .scroll-top-btn {
