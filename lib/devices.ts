@@ -190,9 +190,11 @@ export function getDeviceHeroImage(slug: string): string | null {
 
 // 모바일(세로 1080x1620) 히어로 — 없으면 데스크톱 히어로 사용
 const DEVICE_HERO_MOBILE: Record<string, string> = {
-  "ulthera-prime": "/devices/ulthera-prime-hero-m.jpg",
-  "thermage-flx": "/devices/thermage-flx-hero-m.jpg",
-  "shurink-universe": "/devices/shurink-universe-hero-m.jpg",
+  "ulthera-prime": "/devices/ulthera-prime-hero-m.jpg?v=2",
+  "thermage-flx": "/devices/thermage-flx-hero-m.jpg?v=2",
+  "shurink-universe": "/devices/shurink-universe-hero-m.jpg?v=2",
+  vbeam: "/devices/vbeam-hero-m.jpg",
+  "secret-rf": "/devices/secret-rf-hero-m.jpg",
   inmode: "/devices/inmode-hero-m.jpg?v=2",
   "clarity-ii": "/devices/clarity-ii-hero-m.jpg?v=2",
   "fotona-starwalker": "/devices/fotona-starwalker-hero-m.jpg",
