@@ -50,6 +50,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const [chatOpen, setChatOpen] = useState(false);
   const [chatMinimized, setChatMinimized] = useState(false);
   const [bookingMenuOpen, setBookingMenuOpen] = useState(false);
+  const [inputFocused, setInputFocused] = useState(false);
 
   // AI chat state (desktop)
   type Msg = { role: "bot" | "user"; text: string };
@@ -545,6 +546,8 @@ export function ChatWidget(props: ClinicLinks = {}) {
       {/* ════════════ DESKTOP — Chat mode (glass container, expands on chat) ════════════ */}
       {chatOpen && (() => {
         const hasChat = (messages.length > 0 || loading) && !chatMinimized;
+        // 패널 폭: 기본은 컴팩트, 입력 중이거나 대화가 있으면 확장
+        const wide = hasChat || inputFocused;
         return (
         <>
         {/* 모바일: 채팅창 바깥을 탭하면 닫힘 (X 버튼 대체) */}
@@ -586,9 +589,9 @@ export function ChatWidget(props: ClinicLinks = {}) {
 
             <div
               className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                hasChat
+                wide
                   ? "max-w-[560px] delay-0"
-                  : "max-w-[560px] delay-[500ms] lg:max-w-[420px]"
+                  : "max-w-[330px] delay-[500ms] lg:max-w-[420px]"
               }`}
               style={{
                 boxShadow: [
@@ -698,7 +701,10 @@ export function ChatWidget(props: ClinicLinks = {}) {
               >
                 <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
                   <input
-                    autoFocus
+                    autoFocus={
+                      typeof window !== "undefined" &&
+                      window.matchMedia("(min-width: 1024px)").matches
+                    }
                     type="text"
                     name="chat-message"
                     autoComplete="off"
@@ -708,7 +714,11 @@ export function ChatWidget(props: ClinicLinks = {}) {
                     enterKeyHint="send"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    onFocus={() => setChatMinimized(false)}
+                    onFocus={() => {
+                      setChatMinimized(false);
+                      setInputFocused(true);
+                    }}
+                    onBlur={() => setInputFocused(false)}
                     placeholder={
                       loading ? t("inputPlaceholderLoading") : t("inputPlaceholder")
                     }
