@@ -171,9 +171,11 @@ export function getDeviceImage(slug: string): string | null {
 
 // 히어로(매거진 커버) 전용 울트라와이드 컷 — 없으면 기본 이미지 사용
 const DEVICE_HERO_IMAGES: Record<string, string> = {
-  "ulthera-prime": "/devices/ulthera-prime-hero.png",
-  "thermage-flx": "/devices/thermage-flx-hero.png",
-  "shurink-universe": "/devices/shurink-universe-hero.png",
+  "ulthera-prime": "/devices/ulthera-prime-hero.jpg",
+  "thermage-flx": "/devices/thermage-flx-hero.jpg",
+  "shurink-universe": "/devices/shurink-universe-hero.jpg",
+  vbeam: "/devices/vbeam-hero.jpg",
+  "secret-rf": "/devices/secret-rf-hero.jpg",
   inmode: "/devices/inmode-hero.jpg",
   "fotona-starwalker": "/devices/fotona-starwalker-hero.jpg",
   "inmode-morpheus": "/devices/inmode-morpheus-hero.jpg",
