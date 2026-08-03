@@ -66,6 +66,28 @@ export function ChatWidget(props: ClinicLinks = {}) {
     });
   }, [messages, chatOpen, loading]);
 
+  // iOS/모바일 키보드가 올라오면 fixed 하단 패널이 키보드에 가려진다.
+  // visualViewport로 가려진 높이를 재서 패널을 키보드 위로 올린다.
+  const [kbOffset, setKbOffset] = useState(0);
+  useEffect(() => {
+    if (!chatOpen) {
+      setKbOffset(0);
+      return;
+    }
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const update = () => {
+      setKbOffset(Math.max(0, window.innerHeight - vv.height - vv.offsetTop));
+    };
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+    };
+  }, [chatOpen]);
+
   useEffect(() => {
     setMessages([]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -525,7 +547,10 @@ export function ChatWidget(props: ClinicLinks = {}) {
       {chatOpen && (() => {
         const hasChat = (messages.length > 0 || loading) && !chatMinimized;
         return (
-        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center">
+        <div
+          className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center transition-transform duration-200 ease-out"
+          style={kbOffset ? { transform: `translateY(-${kbOffset}px)` } : undefined}
+        >
           <div className="chat-in pointer-events-auto relative mb-4 w-[calc(100vw-1.5rem)] max-w-[560px] lg:mb-6 lg:w-auto">
             {/* Soft warm halo (같은 모바일 톤) */}
             <span
@@ -622,6 +647,11 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 <div
                   ref={scrollRef}
                   className="max-h-[55vh] space-y-2 overflow-y-auto px-3.5 pb-2 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                  style={
+                    kbOffset
+                      ? { maxHeight: `max(120px, calc(100vh - ${kbOffset + 230}px))` }
+                      : undefined
+                  }
                 >
                   {messages.map((m, i) => (
                     <div
