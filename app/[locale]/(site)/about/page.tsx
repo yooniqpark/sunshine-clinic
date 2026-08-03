@@ -7,7 +7,7 @@ export const revalidate = 60;
 
 import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon } from "@/components/icons";
-import { getDevicesByCategory, getDeviceImage } from "@/lib/devices";
+import { getDevicesByCategory, getDeviceHeroMobileImage } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { pageSeo, truncateDescription } from "@/lib/seo";
 
@@ -74,7 +74,7 @@ export default async function AboutPage({
       name: d.name,
       category: cat.slug,
       categoryLabel: cat.labelKey,
-      image: getDeviceImage(d.slug),
+      image: getDeviceHeroMobileImage(d.slug),
     })),
   );
   // 병원소개 노출 순서: 안티에이징 블록(리쥬란~엘란쎄)을 LDM 바로 앞으로
