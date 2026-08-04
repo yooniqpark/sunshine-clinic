@@ -6,7 +6,6 @@ import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
-import { AiConsultationIntro } from "../_components/AiConsultationIntro";
 import { PhilosophyLines } from "../_components/PhilosophyLines";
 import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
@@ -94,9 +93,6 @@ export default async function PreviewHome({
 
       {/* ═══════ 1.2 THE SUNSHINE STANDARD — 참고 사이트 스플릿 레이아웃 (모델 자리 + 챕터 아코디언) ═══════ */}
       <SunshineStandardSplit />
-
-      {/* ═══════ 1.3 AI PRE-CONSULTATION — 예약 전 대화 맥락을 상담으로 연결 ═══════ */}
-      <AiConsultationIntro locale={locale} />
 
       {/* ═══════ 2. TRUST BAR (removed) ═══════ */}
       {false && (
