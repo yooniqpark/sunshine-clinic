@@ -173,23 +173,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
     return () => window.removeEventListener("hashchange", handleHash);
   }, []);
 
-  // Home AI introduction section can open the existing chat without coupling
-  // its layout to this widget's internal state.
-  useEffect(() => {
-    function handleOpenChat() {
-      setBookingMenuOpen(false);
-      setView("actions");
-      setDesktopOpen(true);
-      setChatMinimized(false);
-      setChatOpen(true);
-      requestAnimationFrame(() => inputRef.current?.focus());
-    }
-
-    window.addEventListener("sunshine:open-chat", handleOpenChat);
-    return () =>
-      window.removeEventListener("sunshine:open-chat", handleOpenChat);
-  }, []);
-
   // Booking form state
   const [bName, setBName] = useState("");
   const [bContactType, setBContactType] = useState("PHONE");
