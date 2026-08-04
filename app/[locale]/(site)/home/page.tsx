@@ -6,6 +6,7 @@ import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
+import { PhilosophyLines } from "../_components/PhilosophyLines";
 import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
@@ -169,19 +170,7 @@ export default async function PreviewHome({
           <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
             OUR PHILOSOPHY
           </p>
-          <h2 className="mt-8 font-serif text-3xl font-normal leading-[1.35] tracking-tight text-ink lg:text-[3rem] lg:leading-[1.3]">
-            <span className="text-ink/40">과잉 진료보다</span>{" "}
-            <span className="text-brand-dark">필요한 진료</span>
-            <span className="text-ink/40">를</span>
-            <br />
-            <span className="text-ink/40">화려한 광고보다</span>{" "}
-            <span className="text-brand-dark">검증된 결과</span>
-            <span className="text-ink/40">를</span>
-            <br />
-            <span className="text-ink/40">일시적 개선보다</span>{" "}
-            <span className="text-brand-dark">건강한 변화</span>
-            <span className="text-ink/40">를</span>
-          </h2>
+          <PhilosophyLines />
           <Link
             href="/home#book"
             className="mt-14 inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-ink transition hover:text-brand-dark"
