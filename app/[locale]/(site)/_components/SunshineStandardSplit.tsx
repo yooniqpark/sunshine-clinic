@@ -279,7 +279,10 @@ export function SunshineStandardSplit() {
           </div>
         </button>
 
-        <ChaptersRight active={active} setActive={setActive} />
+        {/* 모바일: 본문 문구 + 챕터 리스트 숨김 — 그래픽 패널만 노출 */}
+        <div className="hidden lg:block">
+          <ChaptersRight active={active} setActive={setActive} />
+        </div>
       </div>
     </section>
   );

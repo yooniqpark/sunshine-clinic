@@ -13,7 +13,27 @@ export function ScrollToTop() {
   }, []);
 
   function toTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    // 처음엔 천천히 출발했다가 부드럽게 올라가는 커스텀 이징 (easeInOutCubic)
+    const startY = window.scrollY;
+    if (startY <= 0) return;
+    const duration = Math.min(1600, 700 + startY * 0.25);
+    const start = performance.now();
+    const ease = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    // html의 scroll-behavior:smooth가 프레임 단위 scrollTo를 가로채지 않도록 잠시 해제
+    const html = document.documentElement;
+    const prevBehavior = html.style.scrollBehavior;
+    html.style.scrollBehavior = "auto";
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / duration);
+      window.scrollTo(0, startY * (1 - ease(p)));
+      if (p < 1) {
+        requestAnimationFrame(step);
+      } else {
+        html.style.scrollBehavior = prevBehavior;
+      }
+    };
+    requestAnimationFrame(step);
   }
 
   return (
