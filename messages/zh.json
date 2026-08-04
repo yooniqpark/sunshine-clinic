@@ -156,7 +156,10 @@
       "errorGeneric": "暂时无法提交,请稍后再试。"
     },
     "ctaAiShort": "AI聊天",
-    "bookingVisit": "到院预约"
+    "bookingVisit": "到院预约",
+    "bookingCardTitle": "预约助手",
+    "bookingCardDesc": "我可以根据刚才的咨询内容帮您预约到院。",
+    "bookingCardHint": "咨询内容将随预约信息一起提交。"
   },
   "common": {
     "loading": "加载中…",

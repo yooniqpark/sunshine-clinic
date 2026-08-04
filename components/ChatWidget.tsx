@@ -52,7 +52,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const [bookingMenuOpen, setBookingMenuOpen] = useState(false);
 
   // AI chat state (desktop)
-  type Msg = { role: "bot" | "user"; text: string };
+  type Msg = { role: "bot" | "user"; text: string; booking?: boolean };
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -133,6 +133,11 @@ export function ChatWidget(props: ClinicLinks = {}) {
   async function ask(question: string) {
     const text = question.trim();
     if (!text || loading) return;
+    // AI 실장이 상담 맥락을 이어가도록 이전 대화를 함께 전송 (예약 카드 제외)
+    const history = messages
+      .filter((m) => !m.booking && m.text)
+      .slice(-10)
+      .map(({ role, text: t2 }) => ({ role, text: t2 }));
     setMessages((m) => [...m, { role: "user", text }]);
     setInput("");
     setLoading(true);
@@ -140,19 +145,40 @@ export function ChatWidget(props: ClinicLinks = {}) {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, locale }),
+        body: JSON.stringify({ message: text, locale, history }),
       });
       const data = await res.json();
       const reply: string =
         (typeof data?.answer === "string" && data.answer) ||
         (typeof data?.error === "string" && data.error) ||
         t("fallback");
-      setMessages((m) => [...m, { role: "bot", text: reply }]);
+      setMessages((m) => [
+        ...m,
+        { role: "bot", text: reply },
+        // AI 실장이 예약 의사를 감지하면 대화에 예약 카드 템플릿을 띄운다
+        ...(data?.booking === true
+          ? [{ role: "bot" as const, text: "", booking: true }]
+          : []),
+      ]);
     } catch {
       setMessages((m) => [...m, { role: "bot", text: t("fallback") }]);
     } finally {
       setLoading(false);
     }
+  }
+
+  // 예약 카드 → 상담 내용을 예약 메시지에 담아 내원 예약 폼 열기
+  function startBookingFromChat() {
+    const transcript = messages
+      .filter((m) => !m.booking && m.text)
+      .map((m) => (m.role === "user" ? "고객: " : "실장: ") + m.text)
+      .join("\n");
+    setBMessage((prev) =>
+      prev.trim() ? prev : `[AI 실장 상담 내용]\n${transcript}`
+    );
+    setBError(null);
+    setBSuccess(null);
+    setView("booking");
   }
 
   const faqRaw = t.raw("faq");
@@ -720,7 +746,41 @@ export function ChatWidget(props: ClinicLinks = {}) {
                       : undefined
                   }
                 >
-                  {messages.map((m, i) => (
+                  {messages.map((m, i) =>
+                    m.booking ? (
+                      /* ── 예약 카드 템플릿 — AI 실장이 상담 기반 예약을 제안 ── */
+                      <div key={i} className="flex animate-msg-in justify-start">
+                        <div className="w-[88%] rounded-2xl rounded-bl-md border border-brand-soft/70 bg-white/85 p-3.5 shadow-sm shadow-ink/5 backdrop-blur">
+                          <p className="flex items-center gap-1.5 text-[11px] font-bold tracking-wide text-brand-dark">
+                            <CalendarIcon className="h-3.5 w-3.5" />
+                            {t("bookingCardTitle")}
+                          </p>
+                          <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink">
+                            {t("bookingCardDesc")}
+                          </p>
+                          <div className="mt-2.5 flex gap-1.5">
+                            <button
+                              type="button"
+                              onClick={startBookingFromChat}
+                              className="flex-1 rounded-full bg-brand/90 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-brand-dark"
+                            >
+                              {t("bookingVisit")}
+                            </button>
+                            <a
+                              href={clinic.naverBookingHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex-1 rounded-full border border-line bg-white px-3 py-2 text-center text-[11px] font-semibold text-ink transition hover:border-brand"
+                            >
+                              {t("ctaNaverShort")}
+                            </a>
+                          </div>
+                          <p className="mt-2 text-[10px] leading-relaxed text-ink-soft/75">
+                            {t("bookingCardHint")}
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
                     <div
                       key={i}
                       className={`flex animate-msg-in ${
@@ -737,7 +797,8 @@ export function ChatWidget(props: ClinicLinks = {}) {
                         {m.text}
                       </div>
                     </div>
-                  ))}
+                    )
+                  )}
                   {loading && (
                     <div className="flex animate-msg-in justify-start">
                       <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white/70 px-4 py-3 shadow-sm shadow-ink/5">

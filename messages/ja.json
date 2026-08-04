@@ -156,7 +156,10 @@
       "errorGeneric": "一時的にお申し込みができません。しばらくしてから再度お試しください。"
     },
     "ctaAiShort": "AIチャット",
-    "bookingVisit": "来院予約"
+    "bookingVisit": "来院予約",
+    "bookingCardTitle": "予約アシスタント",
+    "bookingCardDesc": "これまでのご相談内容をもとに、ご予約をお手伝いします。",
+    "bookingCardHint": "ご相談内容は予約メッセージに添付されます。"
   },
   "common": {
     "loading": "読み込み中…",

@@ -141,6 +141,12 @@ jobs:
             -d '{"message":"병원 위치가 어디인가요?","locale":"ko"}' \
             --max-time 60 || true
           echo
+          echo "--- chatbot smoke test: 실장 상담+예약 의사 (booking:true 기대) ---"
+          curl -s -X POST http://localhost:3000/api/chat \
+            -H 'Content-Type: application/json' \
+            -d '{"message":"네, 그 내용으로 예약하고 싶어요","locale":"ko","history":[{"role":"user","text":"볼에 여드름 자국이 심해서 고민이에요"},{"role":"bot","text":"오래 신경 쓰이셨겠어요. 언제부터 자국이 남기 시작하셨나요?"},{"role":"user","text":"2년쯤 됐어요"},{"role":"bot","text":"말씀 감사해요. 지금까지 상담해 주신 내용으로 예약을 도와드릴까요?"}]}' \
+            --max-time 60 || true
+          echo
           echo "--- chatbot smoke test: 오프토픽 ---"
           curl -s -X POST http://localhost:3000/api/chat \
             -H 'Content-Type: application/json' \
