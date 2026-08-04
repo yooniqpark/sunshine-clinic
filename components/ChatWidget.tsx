@@ -75,7 +75,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
     if (chatOpen) {
       setClosing(false);
       const id = requestAnimationFrame(() =>
-        requestAnimationFrame(() => setPanelIn(true))
+        requestAnimationFrame(() => setPanelIn(true)),
       );
       return () => cancelAnimationFrame(id);
     }
@@ -165,12 +165,33 @@ export function ChatWidget(props: ClinicLinks = {}) {
       if (h === "#booking" || h === "#book") {
         setView("booking");
         // clean the hash so a re-navigation reopens it
-        history.replaceState(null, "", window.location.pathname + window.location.search);
+        history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search,
+        );
       }
     }
     handleHash();
     window.addEventListener("hashchange", handleHash);
     return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  // Home AI introduction section can open the existing chat without coupling
+  // its layout to this widget's internal state.
+  useEffect(() => {
+    function handleOpenChat() {
+      setBookingMenuOpen(false);
+      setView("actions");
+      setDesktopOpen(true);
+      setChatMinimized(false);
+      setChatOpen(true);
+      requestAnimationFrame(() => inputRef.current?.focus());
+    }
+
+    window.addEventListener("sunshine:open-chat", handleOpenChat);
+    return () =>
+      window.removeEventListener("sunshine:open-chat", handleOpenChat);
   }, []);
 
   // Booking form state
@@ -281,7 +302,9 @@ export function ChatWidget(props: ClinicLinks = {}) {
           className="flex-1 space-y-3 overflow-y-auto px-5 py-4 text-sm"
         >
           <label className="block">
-            <span className="text-xs font-semibold text-ink">{tBook("name")} *</span>
+            <span className="text-xs font-semibold text-ink">
+              {tBook("name")} *
+            </span>
             <input
               value={bName}
               onChange={(e) => setBName(e.target.value)}
@@ -291,7 +314,9 @@ export function ChatWidget(props: ClinicLinks = {}) {
             />
           </label>
           <div className="block">
-            <span className="text-xs font-semibold text-ink">{tBook("contact")} *</span>
+            <span className="text-xs font-semibold text-ink">
+              {tBook("contact")} *
+            </span>
             <div className="mt-1 flex gap-2">
               <div className="relative w-32 shrink-0">
                 <select
@@ -326,10 +351,14 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 className="flex-1 rounded-xl border border-line bg-white px-3 py-2 text-[16px] outline-none transition focus:border-brand lg:text-sm focus:ring-2 focus:ring-brand/15"
               />
             </div>
-            <span className="mt-1 block text-[10px] text-ink-soft">{tBook("contactHint")}</span>
+            <span className="mt-1 block text-[10px] text-ink-soft">
+              {tBook("contactHint")}
+            </span>
           </div>
           <div className="block">
-            <span className="text-xs font-semibold text-ink">{tBook("preferred")}</span>
+            <span className="text-xs font-semibold text-ink">
+              {tBook("preferred")}
+            </span>
             <div className="mt-1 flex gap-2">
               <LocalizedDatePicker
                 value={bDate}
@@ -348,9 +377,22 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 >
                   <option value="">{tBook("timeAny")}</option>
                   {[
-                    "10:00","10:30","11:00","11:30","12:00","12:30",
-                    "14:00","14:30","15:00","15:30","16:00","16:30",
-                    "17:00","17:30","18:00","18:30",
+                    "10:00",
+                    "10:30",
+                    "11:00",
+                    "11:30",
+                    "12:00",
+                    "12:30",
+                    "14:00",
+                    "14:30",
+                    "15:00",
+                    "15:30",
+                    "16:00",
+                    "16:30",
+                    "17:00",
+                    "17:30",
+                    "18:00",
+                    "18:30",
                   ].map((slot) => (
                     <option key={slot} value={slot}>
                       {slot}
@@ -362,7 +404,9 @@ export function ChatWidget(props: ClinicLinks = {}) {
             </div>
           </div>
           <label className="block">
-            <span className="text-xs font-semibold text-ink">{tBook("interest")}</span>
+            <span className="text-xs font-semibold text-ink">
+              {tBook("interest")}
+            </span>
             <div className="relative mt-1">
               <select
                 value={bInterest}
@@ -379,7 +423,9 @@ export function ChatWidget(props: ClinicLinks = {}) {
             </div>
           </label>
           <label className="block">
-            <span className="text-xs font-semibold text-ink">{tBook("message")}</span>
+            <span className="text-xs font-semibold text-ink">
+              {tBook("message")}
+            </span>
             <textarea
               value={bMessage}
               onChange={(e) => setBMessage(e.target.value)}
@@ -396,10 +442,14 @@ export function ChatWidget(props: ClinicLinks = {}) {
               onChange={(e) => setBConsent(e.target.checked)}
               className="mt-0.5 h-4 w-4 shrink-0 accent-brand"
             />
-            <span className="text-[11px] leading-relaxed text-ink-soft">{tBook("consent")} *</span>
+            <span className="text-[11px] leading-relaxed text-ink-soft">
+              {tBook("consent")} *
+            </span>
           </label>
           {bError && (
-            <p className="rounded-lg bg-red-50 px-3 py-2 text-[11px] text-red-600">{bError}</p>
+            <p className="rounded-lg bg-red-50 px-3 py-2 text-[11px] text-red-600">
+              {bError}
+            </p>
           )}
           <button
             type="submit"
@@ -477,7 +527,12 @@ export function ChatWidget(props: ClinicLinks = {}) {
     );
     if (action.onClick) {
       return (
-        <button type="button" onClick={action.onClick} aria-label={action.aria} className={cls}>
+        <button
+          type="button"
+          onClick={action.onClick}
+          aria-label={action.aria}
+          className={cls}
+        >
           {inner}
         </button>
       );
@@ -581,337 +636,367 @@ export function ChatWidget(props: ClinicLinks = {}) {
       </div>
 
       {/* ════════════ DESKTOP — Chat mode (glass container, expands on chat) ════════════ */}
-      {chatOpen && (() => {
-        const hasChat = (messages.length > 0 || loading) && !chatMinimized && !closing;
-        // 모바일 폭 단계: 등장 전 270 → 입력박스 상태 330 → 대화 중 전체 폭
-        const mobileIdle = panelIn && !closing;
-        return (
-        <>
-        {/* 모바일: 채팅창 바깥을 탭하면 닫힘 (X 버튼 대체) */}
-        <div
-          className="fixed inset-0 z-[54] lg:hidden"
-          onClick={closeChat}
-        />
-        <div
-          className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center transition-transform duration-200 ease-out"
-          style={kbOffset ? { transform: `translateY(-${kbOffset}px)` } : undefined}
-        >
-          <div className="chat-in pointer-events-auto relative mb-3 w-[calc(100vw-1.5rem)] max-w-[560px] lg:mb-6 lg:w-auto">
-            {/* Soft warm halo (같은 모바일 톤) */}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -inset-10 -bottom-6 -top-2"
-              style={{
-                background:
-                  "radial-gradient(ellipse 80% 60% at 50% 60%, rgba(255,240,220,0.6) 0%, rgba(245,210,180,0.4) 25%, rgba(255,250,245,0.2) 55%, transparent 80%)",
-                filter: "blur(28px)",
-              }}
-            />
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -left-8 bottom-8 h-32 w-32 rounded-full opacity-55 blur-3xl"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(232,180,138,0.95) 0%, rgba(255,235,210,0.5) 50%, transparent 80%)",
-              }}
-            />
-            <span
-              aria-hidden
-              className="pointer-events-none absolute -right-8 bottom-8 h-32 w-32 rounded-full opacity-45 blur-3xl"
-              style={{
-                background:
-                  "radial-gradient(circle, rgba(168,192,224,0.85) 0%, rgba(230,240,250,0.45) 50%, transparent 80%)",
-              }}
-            />
-
-            <div
-              className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                mobileIdle
-                  ? "max-w-[calc(100vw-1.5rem)] duration-[1100ms] delay-0"
-                  : closing
-                    ? "max-w-[330px] duration-[400ms] delay-[550ms]"
-                    : "max-w-[330px] duration-[1100ms]"
-              } ${
-                hasChat
-                  ? "lg:max-w-[560px] lg:delay-0"
-                  : "lg:max-w-[420px] lg:delay-[500ms]"
-              }`}
-              style={{
-                boxShadow: [
-                  "-12px -12px 28px rgba(255,255,255,0.4)",
-                  "-7px -7px 16px rgba(255,240,225,0.28)",
-                  "12px 12px 30px rgba(196,144,116,0.2)",
-                  "7px 7px 16px rgba(232,205,175,0.22)",
-                  "0 6px 18px rgba(120,80,50,0.08)",
-                  "inset 0 1px 0 rgba(255,255,255,0.55)",
-                  "inset 0 -1px 0 rgba(150,110,80,0.05)",
-                ].join(", "),
-              }}
-            >
-              {/* Expandable messages section — height starts mid-width-transition for smooth handoff */}
+      {chatOpen &&
+        (() => {
+          const hasChat =
+            (messages.length > 0 || loading) && !chatMinimized && !closing;
+          // 모바일 폭 단계: 등장 전 270 → 입력박스 상태 330 → 대화 중 전체 폭
+          const mobileIdle = panelIn && !closing;
+          return (
+            <>
+              {/* 모바일: 채팅창 바깥을 탭하면 닫힘 (X 버튼 대체) */}
               <div
-                className={`overflow-hidden transition-[max-height,opacity] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                  hasChat && panelIn
-                    ? "max-h-[60vh] opacity-100 duration-[1100ms] delay-[300ms]"
-                    : "max-h-0 opacity-0 duration-[500ms] delay-0"
-                }`}
+                className="fixed inset-0 z-[54] lg:hidden"
+                onClick={closeChat}
+              />
+              <div
+                className="pointer-events-none fixed inset-x-0 bottom-0 z-[55] flex justify-center transition-transform duration-200 ease-out"
+                style={
+                  kbOffset
+                    ? { transform: `translateY(-${kbOffset}px)` }
+                    : undefined
+                }
               >
-                <div className="flex items-center justify-between border-b border-white/25 px-2.5 py-1">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      // 모바일: 최소화도 종료처럼 전부 접고 폭 축소
-                      if (window.matchMedia("(min-width: 1024px)").matches) {
-                        setChatMinimized(true);
-                      } else {
-                        closeChat();
-                      }
+                <div className="chat-in pointer-events-auto relative mb-3 w-[calc(100vw-1.5rem)] max-w-[560px] lg:mb-6 lg:w-auto">
+                  {/* Soft warm halo (같은 모바일 톤) */}
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-10 -bottom-6 -top-2"
+                    style={{
+                      background:
+                        "radial-gradient(ellipse 80% 60% at 50% 60%, rgba(255,240,220,0.6) 0%, rgba(245,210,180,0.4) 25%, rgba(255,250,245,0.2) 55%, transparent 80%)",
+                      filter: "blur(28px)",
                     }}
-                    aria-label={t("closeLabel")}
-                    title={t("closeLabel")}
-                    className="grid h-6 w-6 place-items-center rounded-full text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:bg-white/30"
-                  >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path
-                        d="M3 6h6"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      if (window.matchMedia("(min-width: 1024px)").matches) {
-                        setMessages([]);
-                        setInput("");
-                        setChatMinimized(false);
-                      } else {
-                        // 모바일: X도 전체 접힘 → 폭 축소로 닫고, 닫힌 뒤 대화 초기화
-                        closeChat();
-                        setTimeout(() => {
-                          setMessages([]);
-                          setInput("");
-                        }, 1150);
-                      }
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -left-8 bottom-8 h-32 w-32 rounded-full opacity-55 blur-3xl"
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(232,180,138,0.95) 0%, rgba(255,235,210,0.5) 50%, transparent 80%)",
                     }}
-                    aria-label={t("clearLabel")}
-                    title={t("clearLabel")}
-                    className="grid h-6 w-6 place-items-center rounded-full text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:bg-white/30"
-                  >
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                      <path
-                        d="M3 3l6 6M9 3l-6 6"
-                        stroke="currentColor"
-                        strokeWidth="1.6"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -right-8 bottom-8 h-32 w-32 rounded-full opacity-45 blur-3xl"
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(168,192,224,0.85) 0%, rgba(230,240,250,0.45) 50%, transparent 80%)",
+                    }}
+                  />
 
-                <div
-                  ref={scrollRef}
-                  className="max-h-[55vh] space-y-2 overflow-y-auto px-3.5 pb-2 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-                  style={
-                    kbOffset
-                      ? { maxHeight: `max(120px, calc(100vh - ${kbOffset + 230}px))` }
-                      : undefined
-                  }
-                >
-                  {messages.map((m, i) => (
+                  <div
+                    className={`relative mx-auto flex w-full flex-col overflow-hidden rounded-[1.75rem] border border-white/40 bg-white/25 backdrop-blur-2xl transition-[max-width] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                      mobileIdle
+                        ? "max-w-[calc(100vw-1.5rem)] duration-[1100ms] delay-0"
+                        : closing
+                          ? "max-w-[330px] duration-[400ms] delay-[550ms]"
+                          : "max-w-[330px] duration-[1100ms]"
+                    } ${
+                      hasChat
+                        ? "lg:max-w-[560px] lg:delay-0"
+                        : "lg:max-w-[420px] lg:delay-[500ms]"
+                    }`}
+                    style={{
+                      boxShadow: [
+                        "-12px -12px 28px rgba(255,255,255,0.4)",
+                        "-7px -7px 16px rgba(255,240,225,0.28)",
+                        "12px 12px 30px rgba(196,144,116,0.2)",
+                        "7px 7px 16px rgba(232,205,175,0.22)",
+                        "0 6px 18px rgba(120,80,50,0.08)",
+                        "inset 0 1px 0 rgba(255,255,255,0.55)",
+                        "inset 0 -1px 0 rgba(150,110,80,0.05)",
+                      ].join(", "),
+                    }}
+                  >
+                    {/* Expandable messages section — height starts mid-width-transition for smooth handoff */}
                     <div
-                      key={i}
-                      className={`flex animate-msg-in ${
-                        m.role === "user" ? "justify-end" : "justify-start"
+                      className={`overflow-hidden transition-[max-height,opacity] ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                        hasChat && panelIn
+                          ? "max-h-[60vh] opacity-100 duration-[1100ms] delay-[300ms]"
+                          : "max-h-0 opacity-0 duration-[500ms] delay-0"
                       }`}
                     >
+                      <div className="flex items-center justify-between border-b border-white/25 px-2.5 py-1">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            // 모바일: 최소화도 종료처럼 전부 접고 폭 축소
+                            if (
+                              window.matchMedia("(min-width: 1024px)").matches
+                            ) {
+                              setChatMinimized(true);
+                            } else {
+                              closeChat();
+                            }
+                          }}
+                          aria-label={t("closeLabel")}
+                          title={t("closeLabel")}
+                          className="grid h-6 w-6 place-items-center rounded-full text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:bg-white/30"
+                        >
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <path
+                              d="M3 6h6"
+                              stroke="currentColor"
+                              strokeWidth="1.6"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            if (
+                              window.matchMedia("(min-width: 1024px)").matches
+                            ) {
+                              setMessages([]);
+                              setInput("");
+                              setChatMinimized(false);
+                            } else {
+                              // 모바일: X도 전체 접힘 → 폭 축소로 닫고, 닫힌 뒤 대화 초기화
+                              closeChat();
+                              setTimeout(() => {
+                                setMessages([]);
+                                setInput("");
+                              }, 1150);
+                            }
+                          }}
+                          aria-label={t("clearLabel")}
+                          title={t("clearLabel")}
+                          className="grid h-6 w-6 place-items-center rounded-full text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:bg-white/30"
+                        >
+                          <svg
+                            width="12"
+                            height="12"
+                            viewBox="0 0 12 12"
+                            fill="none"
+                          >
+                            <path
+                              d="M3 3l6 6M9 3l-6 6"
+                              stroke="currentColor"
+                              strokeWidth="1.6"
+                              strokeLinecap="round"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+
                       <div
-                        className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
-                          m.role === "user"
-                            ? "rounded-br-md bg-brand/90 text-white shadow-sm shadow-brand/10"
-                            : "rounded-bl-md bg-white/70 text-ink shadow-sm shadow-ink/5"
-                        }`}
+                        ref={scrollRef}
+                        className="max-h-[55vh] space-y-2 overflow-y-auto px-3.5 pb-2 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+                        style={
+                          kbOffset
+                            ? {
+                                maxHeight: `max(120px, calc(100vh - ${kbOffset + 230}px))`,
+                              }
+                            : undefined
+                        }
                       >
-                        {m.text}
+                        {messages.map((m, i) => (
+                          <div
+                            key={i}
+                            className={`flex animate-msg-in ${
+                              m.role === "user"
+                                ? "justify-end"
+                                : "justify-start"
+                            }`}
+                          >
+                            <div
+                              className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed ${
+                                m.role === "user"
+                                  ? "rounded-br-md bg-brand/90 text-white shadow-sm shadow-brand/10"
+                                  : "rounded-bl-md bg-white/70 text-ink shadow-sm shadow-ink/5"
+                              }`}
+                            >
+                              {m.text}
+                            </div>
+                          </div>
+                        ))}
+                        {loading && (
+                          <div className="flex animate-msg-in justify-start">
+                            <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white/70 px-4 py-3 shadow-sm shadow-ink/5">
+                              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60 [animation-delay:-0.3s]" />
+                              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60 [animation-delay:-0.15s]" />
+                              <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60" />
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
-                  ))}
-                  {loading && (
-                    <div className="flex animate-msg-in justify-start">
-                      <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white/70 px-4 py-3 shadow-sm shadow-ink/5">
-                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60 [animation-delay:-0.3s]" />
-                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60 [animation-delay:-0.15s]" />
-                        <span className="h-1.5 w-1.5 animate-bounce rounded-full bg-ink-soft/60" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
 
-              {/* Input box — 모바일에서는 좌우 확장 후 바 위로 펼쳐지며 등장 */}
-              <div
-                className={`overflow-hidden transition-[max-height,opacity] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:max-h-none lg:opacity-100 lg:transition-none ${
-                  mobileIdle
-                    ? "max-h-24 opacity-100 delay-[450ms]"
-                    : "max-h-0 opacity-0 delay-0"
-                }`}
-              >
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  ask(input);
-                }}
-                className="flex items-center gap-2 border-t border-white/40 px-4 py-3"
-              >
-                <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
-                  <input
-                    ref={inputRef}
-                    autoFocus={
-                      typeof window !== "undefined" &&
-                      window.matchMedia("(min-width: 1024px)").matches
-                    }
-                    type="text"
-                    name="chat-message"
-                    autoComplete="off"
-                    autoCorrect="off"
-                    autoCapitalize="off"
-                    spellCheck={false}
-                    enterKeyHint="send"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onFocus={() => setChatMinimized(false)}
-                    placeholder={
-                      loading ? t("inputPlaceholderLoading") : t("inputPlaceholder")
-                    }
-                    disabled={loading}
-                    className="min-w-0 flex-1 bg-transparent px-1 py-1.5 text-[16px] outline-none placeholder:text-[13px] placeholder:text-ink-soft/60 disabled:opacity-60 lg:text-sm lg:placeholder:text-sm"
-                  />
-                  <button
-                    type="submit"
-                    aria-label={t("send")}
-                    className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand text-white transition hover:bg-brand-dark disabled:opacity-40"
-                    disabled={loading || !input.trim()}
-                  >
-                    <SendIcon className="h-4 w-4" />
-                  </button>
-                </div>
-              </form>
-              </div>
-
-              {/* Booking action row (Naver / Kakao / Phone) — 최하단, 데스크톱 전용
-                  (모바일은 순수 AI 채팅 버전 — 예약류 버튼은 채팅을 닫으면 하단 바에서) */}
-              <div className="hidden border-t border-white/40 px-4 py-2.5 lg:block">
-                <div className="grid grid-cols-4 gap-1.5">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setView("booking");
-                      setBError(null);
-                    }}
-                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-2 text-[11px] font-semibold leading-none text-white transition hover:bg-brand-dark"
-                  >
-                    <CalendarIcon className="h-3.5 w-3.5" />
-                    {t("ctaBookingShort")}
-                  </button>
-                  <a
-                    href={clinic.naverBookingHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
-                  >
-                    <NaverIcon className="h-3 w-3" />
-                    {t("ctaNaverShort")}
-                  </a>
-                  <a
-                    href={clinic.kakaoHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
-                  >
-                    <KakaoIcon className="h-3.5 w-3.5" />
-                    {t("ctaKakaoShort")}
-                  </a>
-                  <a
-                    href={clinic.phoneHref}
-                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
-                  >
-                    <PhoneIcon className="h-3.5 w-3.5" />
-                    {t("ctaPhoneShort")}
-                  </a>
-                </div>
-              </div>
-
-              {/* 모바일 — 하단 바(첫 구성) 그대로 유지: AI 채팅 · 예약 · 카카오톡 · 전화 */}
-              {/* pt 11px + border 1px = 하단 바의 pt-3(12px)과 높이 일치 — 전환 시 위치 튐 방지 */}
-              <div className="relative border-t border-white/40 px-3.5 pb-3 pt-[11px] lg:hidden">
-                {bookingMenuOpen && (
-                  <div className="absolute bottom-[calc(100%+10px)] left-[37.5%] z-10 -translate-x-1/2">
-                    <div className="flex flex-col gap-1.5 rounded-2xl border border-white/50 bg-white/85 p-2 shadow-xl shadow-ink/20 backdrop-blur-xl">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setBookingMenuOpen(false);
-                          setView("booking");
-                          setBError(null);
-                          setBSuccess(null);
+                    {/* Input box — 모바일에서는 좌우 확장 후 바 위로 펼쳐지며 등장 */}
+                    <div
+                      className={`overflow-hidden transition-[max-height,opacity] duration-[600ms] ease-[cubic-bezier(0.22,1,0.36,1)] lg:max-h-none lg:opacity-100 lg:transition-none ${
+                        mobileIdle
+                          ? "max-h-24 opacity-100 delay-[450ms]"
+                          : "max-h-0 opacity-0 delay-0"
+                      }`}
+                    >
+                      <form
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          ask(input);
                         }}
-                        className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand/90 px-4 py-2.5 text-[12px] font-semibold leading-none text-white"
+                        className="flex items-center gap-2 border-t border-white/40 px-4 py-3"
                       >
-                        <CalendarIcon className="h-3.5 w-3.5 shrink-0" />
-                        {t("bookingVisit")}
-                      </button>
-                      <a
-                        href={clinic.naverBookingHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setBookingMenuOpen(false)}
-                        className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-white px-4 py-2.5 text-[12px] font-semibold leading-none text-ink"
-                      >
-                        <NaverIcon className="h-3 w-3 shrink-0" />
-                        {t("ctaNaverShort")}
-                      </a>
+                        <div className="flex min-w-0 flex-1 items-center gap-2 rounded-full border border-white/60 bg-white/70 px-3 py-1.5 backdrop-blur">
+                          <input
+                            ref={inputRef}
+                            autoFocus={
+                              typeof window !== "undefined" &&
+                              window.matchMedia("(min-width: 1024px)").matches
+                            }
+                            type="text"
+                            name="chat-message"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            autoCapitalize="off"
+                            spellCheck={false}
+                            enterKeyHint="send"
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            onFocus={() => setChatMinimized(false)}
+                            placeholder={
+                              loading
+                                ? t("inputPlaceholderLoading")
+                                : t("inputPlaceholder")
+                            }
+                            disabled={loading}
+                            className="min-w-0 flex-1 bg-transparent px-1 py-1.5 text-[16px] outline-none placeholder:text-[13px] placeholder:text-ink-soft/60 disabled:opacity-60 lg:text-sm lg:placeholder:text-sm"
+                          />
+                          <button
+                            type="submit"
+                            aria-label={t("send")}
+                            className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand text-white transition hover:bg-brand-dark disabled:opacity-40"
+                            disabled={loading || !input.trim()}
+                          >
+                            <SendIcon className="h-4 w-4" />
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+
+                    {/* Booking action row (Naver / Kakao / Phone) — 최하단, 데스크톱 전용
+                  (모바일은 순수 AI 채팅 버전 — 예약류 버튼은 채팅을 닫으면 하단 바에서) */}
+                    <div className="hidden border-t border-white/40 px-4 py-2.5 lg:block">
+                      <div className="grid grid-cols-4 gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setView("booking");
+                            setBError(null);
+                          }}
+                          className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-2 text-[11px] font-semibold leading-none text-white transition hover:bg-brand-dark"
+                        >
+                          <CalendarIcon className="h-3.5 w-3.5" />
+                          {t("ctaBookingShort")}
+                        </button>
+                        <a
+                          href={clinic.naverBookingHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                        >
+                          <NaverIcon className="h-3 w-3" />
+                          {t("ctaNaverShort")}
+                        </a>
+                        <a
+                          href={clinic.kakaoHref}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                        >
+                          <KakaoIcon className="h-3.5 w-3.5" />
+                          {t("ctaKakaoShort")}
+                        </a>
+                        <a
+                          href={clinic.phoneHref}
+                          className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/50 bg-white/55 px-2 py-2 text-[11px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                        >
+                          <PhoneIcon className="h-3.5 w-3.5" />
+                          {t("ctaPhoneShort")}
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* 모바일 — 하단 바(첫 구성) 그대로 유지: AI 채팅 · 예약 · 카카오톡 · 전화 */}
+                    {/* pt 11px + border 1px = 하단 바의 pt-3(12px)과 높이 일치 — 전환 시 위치 튐 방지 */}
+                    <div className="relative border-t border-white/40 px-3.5 pb-3 pt-[11px] lg:hidden">
+                      {bookingMenuOpen && (
+                        <div className="absolute bottom-[calc(100%+10px)] left-[37.5%] z-10 -translate-x-1/2">
+                          <div className="flex flex-col gap-1.5 rounded-2xl border border-white/50 bg-white/85 p-2 shadow-xl shadow-ink/20 backdrop-blur-xl">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setBookingMenuOpen(false);
+                                setView("booking");
+                                setBError(null);
+                                setBSuccess(null);
+                              }}
+                              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-brand/90 px-4 py-2.5 text-[12px] font-semibold leading-none text-white"
+                            >
+                              <CalendarIcon className="h-3.5 w-3.5 shrink-0" />
+                              {t("bookingVisit")}
+                            </button>
+                            <a
+                              href={clinic.naverBookingHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={() => setBookingMenuOpen(false)}
+                              className="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-line bg-white px-4 py-2.5 text-[12px] font-semibold leading-none text-ink"
+                            >
+                              <NaverIcon className="h-3 w-3 shrink-0" />
+                              {t("ctaNaverShort")}
+                            </a>
+                          </div>
+                        </div>
+                      )}
+                      <div className="grid grid-cols-4 gap-1.5">
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setBookingMenuOpen(false);
+                            inputRef.current?.focus();
+                          }}
+                          className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-1.5 text-[10px] font-semibold leading-none text-white transition hover:bg-brand-dark"
+                        >
+                          <SparkleIcon className="block h-3.5 w-3.5 shrink-0" />
+                          {t("ctaAiShort")}
+                        </button>
+                        <button
+                          type="button"
+                          aria-expanded={bookingMenuOpen}
+                          onClick={() => setBookingMenuOpen((v) => !v)}
+                          className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/40 bg-white/55 px-2 py-1.5 text-[10px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
+                        >
+                          <CalendarIcon className="block h-3.5 w-3.5 shrink-0" />
+                          {t("ctaBookingShort")}
+                        </button>
+                        {actions
+                          .filter((a) => a.key === "kakao" || a.key === "phone")
+                          .map((a) => (
+                            <ActionChip
+                              key={a.key}
+                              action={a}
+                              chipClass="!py-1.5 !text-[10px]"
+                            />
+                          ))}
+                      </div>
+                      <p className="mt-2 text-center text-[8px] uppercase tracking-[0.32em] text-ink-soft/55">
+                        A warm light for your skin
+                      </p>
                     </div>
                   </div>
-                )}
-                <div className="grid grid-cols-4 gap-1.5">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setBookingMenuOpen(false);
-                      inputRef.current?.focus();
-                    }}
-                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full bg-brand/90 px-2 py-1.5 text-[10px] font-semibold leading-none text-white transition hover:bg-brand-dark"
-                  >
-                    <SparkleIcon className="block h-3.5 w-3.5 shrink-0" />
-                    {t("ctaAiShort")}
-                  </button>
-                  <button
-                    type="button"
-                    aria-expanded={bookingMenuOpen}
-                    onClick={() => setBookingMenuOpen((v) => !v)}
-                    className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/40 bg-white/55 px-2 py-1.5 text-[10px] font-semibold leading-none text-ink backdrop-blur transition hover:bg-white"
-                  >
-                    <CalendarIcon className="block h-3.5 w-3.5 shrink-0" />
-                    {t("ctaBookingShort")}
-                  </button>
-                  {actions
-                    .filter((a) => a.key === "kakao" || a.key === "phone")
-                    .map((a) => (
-                      <ActionChip key={a.key} action={a} chipClass="!py-1.5 !text-[10px]" />
-                    ))}
                 </div>
-                <p className="mt-2 text-center text-[8px] uppercase tracking-[0.32em] text-ink-soft/55">
-                  A warm light for your skin
-                </p>
               </div>
-            </div>
-          </div>
-        </div>
-        </>
-        );
-      })()}
+            </>
+          );
+        })()}
 
       {/* ════════════ MOBILE — bottom glass bar with 4 chips ════════════ */}
       <div
@@ -1021,7 +1106,11 @@ export function ChatWidget(props: ClinicLinks = {}) {
                 {actions
                   .filter((a) => a.key === "kakao" || a.key === "phone")
                   .map((a) => (
-                    <ActionChip key={a.key} action={a} chipClass="!py-1.5 !text-[10px]" />
+                    <ActionChip
+                      key={a.key}
+                      action={a}
+                      chipClass="!py-1.5 !text-[10px]"
+                    />
                   ))}
               </div>
               <p className="mt-2 text-center text-[8px] uppercase tracking-[0.32em] text-ink-soft/55">
