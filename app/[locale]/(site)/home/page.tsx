@@ -6,8 +6,13 @@ import { AnnouncementPopups } from "@/components/AnnouncementPopups";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
+import { AiConsultationIntro } from "../_components/AiConsultationIntro";
 import { PhilosophyLines } from "../_components/PhilosophyLines";
-import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } from "@/lib/devices";
+import {
+  getDevicesByCategory,
+  getDeviceHeroMobileImage,
+  getDeviceMarketing,
+} from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { pageSeo } from "@/lib/seo";
@@ -94,27 +99,30 @@ export default async function PreviewHome({
       {/* ═══════ 1.2 THE SUNSHINE STANDARD — 참고 사이트 스플릿 레이아웃 (모델 자리 + 챕터 아코디언) ═══════ */}
       <SunshineStandardSplit />
 
+      {/* ═══════ 1.3 AI PRE-CONSULTATION — 예약 전 대화 맥락을 상담으로 연결 ═══════ */}
+      <AiConsultationIntro locale={locale} />
+
       {/* ═══════ 2. TRUST BAR (removed) ═══════ */}
       {false && (
-      <section className="border-b border-line bg-cream">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-8 px-5 py-14 md:grid-cols-4 lg:px-8">
-          {STATS_KEYS.map((k, i) => (
-            <Reveal key={k} delay={i * 60}>
-              <div className="text-center">
-                <p className="font-serif text-5xl font-normal tracking-tight lg:text-6xl">
-                  {t(`stats.${k}.n`)}
-                  <span className="text-xl align-super text-brand">
-                    {t(`stats.${k}.u`)}
-                  </span>
-                </p>
-                <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.22em] text-ink-soft">
-                  {t(`stats.${k}.l`)}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+        <section className="border-b border-line bg-cream">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-y-8 px-5 py-14 md:grid-cols-4 lg:px-8">
+            {STATS_KEYS.map((k, i) => (
+              <Reveal key={k} delay={i * 60}>
+                <div className="text-center">
+                  <p className="font-serif text-5xl font-normal tracking-tight lg:text-6xl">
+                    {t(`stats.${k}.n`)}
+                    <span className="text-xl align-super text-brand">
+                      {t(`stats.${k}.u`)}
+                    </span>
+                  </p>
+                  <p className="mt-3 text-[11px] font-medium uppercase tracking-[0.22em] text-ink-soft">
+                    {t(`stats.${k}.l`)}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
       )}
 
       {/* ═══════ 5. SIGNATURE SELECTION — 제품 슬라이드 (레퍼런스 톤) ═══════ */}
@@ -133,9 +141,15 @@ export default async function PreviewHome({
                 (d) => d.slug === "markview",
               ),
             ].map((d) => {
-              const parts = d.tagline?.split(/[,,·]|—|\s-\s/).map((s) => s.trim()).filter(Boolean) ?? [];
+              const parts =
+                d.tagline
+                  ?.split(/[,,·]|—|\s-\s/)
+                  .map((s) => s.trim())
+                  .filter(Boolean) ?? [];
               const st: [string, string] | undefined =
-                parts.length >= 2 ? [parts[0] + ",", parts.slice(1).join(" ") + "."] : undefined;
+                parts.length >= 2
+                  ? [parts[0] + ",", parts.slice(1).join(" ") + "."]
+                  : undefined;
               const mk = getDeviceMarketing(d.slug);
               const catLabel =
                 d.slug === "markview"
@@ -176,7 +190,9 @@ export default async function PreviewHome({
             className="mt-14 inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-ink transition hover:text-brand-dark"
           >
             당신의 피부를 위한 첫 상담
-            <span aria-hidden className="text-brand-dark">↗</span>
+            <span aria-hidden className="text-brand-dark">
+              ↗
+            </span>
           </Link>
         </div>
       </section>
@@ -184,7 +200,9 @@ export default async function PreviewHome({
       {/* ═══════ 7. CTA / LOCATION ═══════ */}
       <section id="book" className="bg-ink py-24 text-cream lg:py-32">
         <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
-          <p className="text-[10px] font-bold tracking-[0.28em] text-brand-soft">{t("ctaKicker")}</p>
+          <p className="text-[10px] font-bold tracking-[0.28em] text-brand-soft">
+            {t("ctaKicker")}
+          </p>
           <h2 className="mt-4 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-6xl">
             {t("ctaTitleLead")}
             <span className="text-brand-soft">{t("ctaTitleAccent")}</span>
@@ -244,10 +262,7 @@ function BentoCard({
   wide?: boolean;
   tall?: boolean;
 }) {
-  const span = [
-    wide ? "lg:col-span-2" : "",
-    tall ? "lg:row-span-2" : "",
-  ]
+  const span = [wide ? "lg:col-span-2" : "", tall ? "lg:row-span-2" : ""]
     .filter(Boolean)
     .join(" ");
   const target = FIRST_ITEM[slug]
@@ -277,7 +292,9 @@ function BentoCard({
           </>
         )}
         <div className="relative mt-auto p-6 lg:p-7">
-          <p className="text-[10px] font-bold tracking-[0.22em] text-brand-soft">{label}</p>
+          <p className="text-[10px] font-bold tracking-[0.22em] text-brand-soft">
+            {label}
+          </p>
           <h3 className="mt-2 font-serif text-2xl font-normal leading-tight text-cream lg:text-3xl">
             {title}
           </h3>
