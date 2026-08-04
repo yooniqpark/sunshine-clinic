@@ -669,7 +669,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
                     }}
                     aria-label={t("closeLabel")}
                     title={t("closeLabel")}
-                    className="grid h-6 w-6 place-items-center rounded-full text-ink-soft/70 transition hover:bg-white/30 hover:text-ink"
+                    className="grid h-6 w-6 place-items-center rounded-full text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:bg-white/30"
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
@@ -698,7 +698,7 @@ export function ChatWidget(props: ClinicLinks = {}) {
                     }}
                     aria-label={t("clearLabel")}
                     title={t("clearLabel")}
-                    className="grid h-6 w-6 place-items-center rounded-full text-ink-soft/70 transition hover:bg-white/30 hover:text-ink"
+                    className="grid h-6 w-6 place-items-center rounded-full text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)] transition hover:bg-white/30"
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
                       <path
