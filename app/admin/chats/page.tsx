@@ -84,11 +84,17 @@ export default async function AdminChatSessions({
             const first = items[0];
             const errorCount = items.filter((l) => l.status === "error").length;
             return (
-              <section
+              <details
                 key={g.sessionId ?? "no-session"}
-                className="overflow-hidden rounded-2xl border border-line bg-white"
+                className="group overflow-hidden rounded-2xl border border-line bg-white"
               >
-                <div className="flex flex-wrap items-center gap-2 border-b border-line/70 bg-sand/40 px-5 py-3">
+                <summary className="flex cursor-pointer flex-wrap items-center gap-2 bg-sand/40 px-5 py-3 transition hover:bg-sand/70 [&::-webkit-details-marker]:hidden">
+                  <span
+                    aria-hidden
+                    className="text-[10px] text-ink-soft transition-transform group-open:rotate-90"
+                  >
+                    ▶
+                  </span>
                   <span className="text-sm font-semibold text-ink">
                     {g.sessionId === null
                       ? "이전 기록 (대화방 구분 없음)"
@@ -108,8 +114,14 @@ export default async function AdminChatSessions({
                       오류 {errorCount}
                     </span>
                   ) : null}
-                </div>
-                <div className="space-y-3 px-5 py-4">
+                  {first ? (
+                    <span className="w-full truncate pl-5 text-[11px] text-ink-soft/80 sm:w-auto sm:flex-1 sm:pl-2">
+                      “{first.question.slice(0, 40)}
+                      {first.question.length > 40 ? "…" : ""}”
+                    </span>
+                  ) : null}
+                </summary>
+                <div className="space-y-3 border-t border-line/70 px-5 py-4">
                   {items.map((log) => {
                     const st = STATUS_LABEL[log.status] ?? STATUS_LABEL.ok;
                     return (
@@ -143,7 +155,7 @@ export default async function AdminChatSessions({
                     </p>
                   ) : null}
                 </div>
-              </section>
+              </details>
             );
           })
         )}
