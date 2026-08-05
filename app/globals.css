@@ -233,6 +233,43 @@ body {
     transform: translateY(1rem);
   }
 }
+/* 스크롤 스크럽 단어 리빌 — --wp(0~1)에 따라 흐릿함 → 선명 */
+.philo-word {
+  display: inline-block;
+  opacity: calc(0.16 + 0.84 * var(--wp, 0));
+  filter: blur(calc((1 - var(--wp, 0)) * 5px));
+  transform: translateY(calc((1 - var(--wp, 0)) * 0.14em));
+  will-change: opacity, filter, transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  .philo-word {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+/* 유리 패널 섹션 상승 */
+.glass-rise {
+  opacity: 0;
+  transform: translateY(72px);
+  transition:
+    opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
+}
+.glass-rise.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass-rise {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 @keyframes orb-pop {
   from {
     opacity: 0;

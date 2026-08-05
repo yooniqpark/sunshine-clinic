@@ -7,6 +7,7 @@ import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
 import { PhilosophyLines } from "../_components/PhilosophyLines";
+import { GlassRise } from "@/components/GlassRise";
 import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
@@ -117,8 +118,8 @@ export default async function PreviewHome({
       </section>
       )}
 
-      {/* ═══════ 5. SIGNATURE SELECTION — 제품 슬라이드 (레퍼런스 톤) ═══════ */}
-      <section className="relative overflow-hidden bg-[#e9e0d5] py-14 text-ink lg:py-32">
+      {/* ═══════ 5. SIGNATURE SELECTION — 유리 패널로 떠오르는 제품 슬라이드 ═══════ */}
+      <GlassRise className="relative z-10 -mt-10 overflow-hidden rounded-t-[2.25rem] border-t border-white/50 bg-[#e9e0d5]/80 py-14 text-ink backdrop-blur-xl lg:-mt-14 lg:py-32">
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
           <SignatureShowcase
             items={[
@@ -162,10 +163,10 @@ export default async function PreviewHome({
             })}
           />
         </div>
-      </section>
+      </GlassRise>
 
-      {/* ═══════ 6. OUR PHILOSOPHY — 참고 사이트 톤 (센터, 크림 배경) ═══════ */}
-      <section className="bg-cream py-28 lg:py-36">
+      {/* ═══════ 6. OUR PHILOSOPHY — 유리 패널 + 스크럽 단어 리빌 ═══════ */}
+      <GlassRise className="relative z-20 -mt-8 rounded-t-[2.25rem] border-t border-white/60 bg-cream/80 py-28 backdrop-blur-xl lg:-mt-10 lg:py-36">
         <div className="mx-auto max-w-4xl px-5 text-center lg:px-8">
           <p className="text-[10px] font-medium tracking-[0.32em] text-brand-dark lg:text-[11px]">
             OUR PHILOSOPHY
@@ -179,7 +180,7 @@ export default async function PreviewHome({
             <span aria-hidden className="text-brand-dark">↗</span>
           </Link>
         </div>
-      </section>
+      </GlassRise>
 
       {/* ═══════ 7. CTA / LOCATION ═══════ */}
       <section id="book" className="bg-ink py-24 text-cream lg:py-32">

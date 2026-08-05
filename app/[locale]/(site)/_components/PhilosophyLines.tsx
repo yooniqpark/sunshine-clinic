@@ -1,63 +1,81 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * OUR PHILOSOPHY — 스크롤에 맞춰 강조 단어(필요한 진료·검증된 결과·건강한 변화)에
- * 한 줄씩 색이 들어온다. 내려오기 한 템포 전에 미리 켜져서 스크롤하며 자연스럽게 보인다.
+ * OUR PHILOSOPHY — 스크롤 스크럽 단어 리빌.
+ * 스크롤 진행에 맞춰 단어가 앞에서부터 순서대로 흐릿함(블러·저채도) → 선명한 색으로
+ * 살아난다. 강조 단어는 브랜드 컬러로 마무리.
  */
-const LINES = [
-  { lead: "과잉 진료보다", accent: "필요한 진료", tail: "를" },
-  { lead: "화려한 광고보다", accent: "검증된 결과", tail: "를" },
-  { lead: "일시적 개선보다", accent: "건강한 변화", tail: "를" },
+type Token = { w: string; accent?: boolean; br?: boolean };
+
+const TOKENS: Token[] = [
+  { w: "과잉" },
+  { w: "진료보다" },
+  { w: "필요한", accent: true },
+  { w: "진료를", accent: true, br: true },
+  { w: "화려한" },
+  { w: "광고보다" },
+  { w: "검증된", accent: true },
+  { w: "결과를", accent: true, br: true },
+  { w: "일시적" },
+  { w: "개선보다" },
+  { w: "건강한", accent: true },
+  { w: "변화를", accent: true },
 ];
 
 export function PhilosophyLines() {
   const ref = useRef<HTMLHeadingElement>(null);
-  const [lit, setLit] = useState<boolean[]>(() => LINES.map(() => false));
 
   useEffect(() => {
     const root = ref.current;
     if (!root) return;
-    const lines = [...root.querySelectorAll<HTMLElement>("[data-line]")];
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (!e.isIntersecting) continue;
-          const i = Number((e.target as HTMLElement).dataset.line);
-          setLit((prev) => {
-            if (prev[i]) return prev;
-            const next = [...prev];
-            next[i] = true;
-            return next;
-          });
-          io.unobserve(e.target);
-        }
-      },
-      // 화면 하단보다 12% 아래까지 관찰 범위를 넓혀 한 템포 빨리 점등
-      { rootMargin: "0px 0px 12% 0px", threshold: 0.6 }
-    );
-    lines.forEach((l) => io.observe(l));
-    return () => io.disconnect();
+    const words = [...root.querySelectorAll<HTMLElement>("[data-wi]")];
+    const n = words.length;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      words.forEach((w) => w.style.setProperty("--wp", "1"));
+      return;
+    }
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const rect = root.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // 화면 하단 90% 지점에 들어올 때 시작 → 상단 35% 지점에서 완료 (한 템포 빠르게)
+      const p = Math.min(1, Math.max(0, (vh * 0.9 - rect.top) / (vh * 0.62)));
+      for (let i = 0; i < n; i++) {
+        const local = Math.min(1, Math.max(0, p * (n + 2) - i));
+        words[i].style.setProperty("--wp", local.toFixed(3));
+      }
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   return (
     <h2
       ref={ref}
-      className="mt-8 font-serif text-3xl font-normal leading-[1.35] tracking-tight text-ink lg:text-[3rem] lg:leading-[1.3]"
+      className="mt-8 font-serif text-3xl font-normal leading-[1.35] tracking-tight lg:text-[3rem] lg:leading-[1.3]"
     >
-      {LINES.map((l, i) => (
-        <span key={i} data-line={i} className="block">
-          <span className="text-ink/40">{l.lead}</span>{" "}
+      {TOKENS.map((tk, i) => (
+        <span key={i}>
           <span
-            className={`transition-colors duration-700 ease-out ${
-              lit[i] ? "text-brand-dark" : "text-ink/40"
-            }`}
-            style={{ transitionDelay: lit[i] ? `${i * 120}ms` : "0ms" }}
+            data-wi={i}
+            className={tk.accent ? "philo-word text-brand-dark" : "philo-word text-ink"}
           >
-            {l.accent}
+            {tk.w}
           </span>
-          <span className="text-ink/40">{l.tail}</span>
+          {tk.br ? <br /> : " "}
         </span>
       ))}
     </h2>
