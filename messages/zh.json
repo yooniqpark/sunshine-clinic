@@ -158,8 +158,10 @@
     "ctaAiShort": "AI聊天",
     "bookingVisit": "到院预约",
     "bookingCardTitle": "预约助手",
-    "bookingCardDesc": "我可以根据刚才的咨询内容帮您预约到院。",
-    "bookingCardHint": "咨询内容将随预约信息一起提交。"
+    "bookingCardDesc": "咨询内容已保存。要现在帮您预约到院吗？",
+    "bookingCardHint": "咨询内容将随预约一起提交。",
+    "bookingCardYes": "好的，帮我预约",
+    "bookingCardDone": "预约申请已收到！确认后会尽快联系您 ☀️"
   },
   "common": {
     "loading": "加载中…",

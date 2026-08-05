@@ -158,8 +158,10 @@
     "ctaAiShort": "AI Chat",
     "bookingVisit": "Clinic Booking",
     "bookingCardTitle": "Booking Assistant",
-    "bookingCardDesc": "I can help you book a visit based on what we've talked about.",
-    "bookingCardHint": "Your consultation notes will be attached to the booking request."
+    "bookingCardDesc": "I've saved our consultation notes. Shall I help you book a visit now?",
+    "bookingCardHint": "Your consultation notes will be included with the booking.",
+    "bookingCardYes": "Yes, book a visit",
+    "bookingCardDone": "Your booking request has been received! We'll contact you shortly ☀️"
   },
   "common": {
     "loading": "Loading…",

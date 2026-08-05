@@ -12,12 +12,14 @@ type ChatLogArgs = {
   answer: string;
   status: "ok" | "fallback" | "error";
   model?: string | null;
+  sessionId?: string | null;
 };
 
 export async function logChatMessage(args: ChatLogArgs) {
   try {
     await prisma.chatLog.create({
       data: {
+        sessionId: args.sessionId ?? null,
         locale: args.locale,
         question: args.question.slice(0, 1000),
         answer: args.answer.slice(0, 2000),

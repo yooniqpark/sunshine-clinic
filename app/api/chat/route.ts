@@ -95,10 +95,15 @@ export async function POST(req: Request) {
   let message = "";
   let locale: Locale = "ko";
   let history: HistoryItem[] = [];
+  let sessionId: string | null = null;
   try {
     const body = await req.json();
     message = typeof body?.message === "string" ? body.message.trim() : "";
     locale = pickLocale(body?.locale);
+    sessionId =
+      typeof body?.sessionId === "string" && body.sessionId.trim()
+        ? body.sessionId.trim().slice(0, 64)
+        : null;
     // 대화 히스토리 (실장 페르소나가 상담 맥락을 이어가도록) — 최근 10개까지만
     if (Array.isArray(body?.history)) {
       history = body.history
@@ -168,6 +173,7 @@ export async function POST(req: Request) {
         answer,
         status: answer === FALLBACK_BY_LOCALE[locale] ? "fallback" : "ok",
         model,
+        sessionId,
       });
     }
     const usage = completion.usage;
@@ -191,6 +197,7 @@ export async function POST(req: Request) {
       question: message,
       answer: ERROR_BY_LOCALE[locale],
       status: "error",
+      sessionId,
     });
     return NextResponse.json({ error: ERROR_BY_LOCALE[locale] }, { status: 500 });
   }

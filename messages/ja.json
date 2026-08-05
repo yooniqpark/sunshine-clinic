@@ -158,8 +158,10 @@
     "ctaAiShort": "AIチャット",
     "bookingVisit": "来院予約",
     "bookingCardTitle": "予約アシスタント",
-    "bookingCardDesc": "これまでのご相談内容をもとに、ご予約をお手伝いします。",
-    "bookingCardHint": "ご相談内容は予約メッセージに添付されます。"
+    "bookingCardDesc": "ご相談内容は保存しました。このままご予約をお手伝いしましょうか？",
+    "bookingCardHint": "ご相談内容は予約受付に添付されます。",
+    "bookingCardYes": "はい、予約します",
+    "bookingCardDone": "ご予約を受け付けました！確認後ご連絡いたします ☀️"
   },
   "common": {
     "loading": "読み込み中…",
