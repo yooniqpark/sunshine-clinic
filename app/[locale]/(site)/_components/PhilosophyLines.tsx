@@ -7,21 +7,21 @@ import { useEffect, useRef } from "react";
  * 스크롤 진행에 맞춰 단어가 앞에서부터 순서대로 흐릿함(블러·저채도) → 선명한 색으로
  * 살아난다. 강조 단어는 브랜드 컬러로 마무리.
  */
-type Token = { w: string; accent?: boolean; br?: boolean };
+type Token = { w: string; suffix?: string; accent?: boolean; br?: boolean };
 
 const TOKENS: Token[] = [
   { w: "과잉" },
   { w: "진료보다" },
   { w: "필요한", accent: true },
-  { w: "진료를", accent: true, br: true },
+  { w: "진료", suffix: "를", accent: true, br: true },
   { w: "화려한" },
   { w: "광고보다" },
   { w: "검증된", accent: true },
-  { w: "결과를", accent: true, br: true },
+  { w: "결과", suffix: "를", accent: true, br: true },
   { w: "일시적" },
   { w: "개선보다" },
   { w: "건강한", accent: true },
-  { w: "변화를", accent: true },
+  { w: "변화", suffix: "를", accent: true },
 ];
 
 export function PhilosophyLines() {
@@ -74,6 +74,7 @@ export function PhilosophyLines() {
             className={tk.accent ? "philo-word text-brand-dark" : "philo-word text-ink"}
           >
             {tk.w}
+            {tk.suffix ? <span className="text-ink">{tk.suffix}</span> : null}
           </span>
           {tk.br ? <br /> : " "}
         </span>
