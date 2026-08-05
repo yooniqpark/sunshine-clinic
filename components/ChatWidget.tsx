@@ -52,12 +52,22 @@ export function ChatWidget(props: ClinicLinks = {}) {
   const [bookingMenuOpen, setBookingMenuOpen] = useState(false);
 
   // AI chat state (desktop)
-  type Msg = { role: "bot" | "user"; text: string };
+  type Msg = { role: "bot" | "user"; text: string; booking?: boolean };
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  // 대화방(세션) ID — 상담 내용이 서버에 대화 단위로 저장되도록 식별
+  const sessionIdRef = useRef("");
+
+  // 채팅 내 미니 예약폼 상태 (예약 도우미 카드)
+  const [cardStage, setCardStage] = useState<"ask" | "form" | "done">("ask");
+  const [cName, setCName] = useState("");
+  const [cContact, setCContact] = useState("");
+  const [cConsent, setCConsent] = useState(false);
+  const [cSending, setCSending] = useState(false);
+  const [cError, setCError] = useState<string | null>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({
@@ -133,6 +143,17 @@ export function ChatWidget(props: ClinicLinks = {}) {
   async function ask(question: string) {
     const text = question.trim();
     if (!text || loading) return;
+    // AI 실장이 상담 맥락을 이어가도록 이전 대화를 함께 전송 (예약 카드 제외)
+    const history = messages
+      .filter((m) => !m.booking && m.text)
+      .slice(-10)
+      .map(({ role, text: t2 }) => ({ role, text: t2 }));
+    if (!sessionIdRef.current) {
+      sessionIdRef.current =
+        typeof crypto !== "undefined" && "randomUUID" in crypto
+          ? crypto.randomUUID()
+          : `s-${Math.random().toString(36).slice(2)}${Date.now()}`;
+    }
     setMessages((m) => [...m, { role: "user", text }]);
     setInput("");
     setLoading(true);
@@ -140,18 +161,71 @@ export function ChatWidget(props: ClinicLinks = {}) {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, locale }),
+        body: JSON.stringify({
+          message: text,
+          locale,
+          history,
+          sessionId: sessionIdRef.current,
+        }),
       });
       const data = await res.json();
       const reply: string =
         (typeof data?.answer === "string" && data.answer) ||
         (typeof data?.error === "string" && data.error) ||
         t("fallback");
-      setMessages((m) => [...m, { role: "bot", text: reply }]);
+      if (data?.booking === true) {
+        // AI 실장이 예약 의사를 감지 → 예약 카드 템플릿 초기화 후 표시
+        setCardStage("ask");
+        setCError(null);
+      }
+      setMessages((m) => [
+        ...m,
+        { role: "bot", text: reply },
+        ...(data?.booking === true
+          ? [{ role: "bot" as const, text: "", booking: true }]
+          : []),
+      ]);
     } catch {
       setMessages((m) => [...m, { role: "bot", text: t("fallback") }]);
     } finally {
       setLoading(false);
+    }
+  }
+
+  // 상담 대화록 — 예약 접수 시 서버에 함께 저장된다 (방문자에게는 보이지 않음)
+  function chatTranscript() {
+    return messages
+      .filter((m) => !m.booking && m.text)
+      .map((m) => (m.role === "user" ? "고객: " : "실장: ") + m.text)
+      .join("\n");
+  }
+
+  // 예약 카드 미니폼 제출 — 채팅 안에서 이름·연락처만 받아 바로 예약 접수
+  async function submitChatBooking(e: React.FormEvent) {
+    e.preventDefault();
+    setCError(null);
+    if (!cName.trim()) return setCError(tBook("errorName"));
+    if (!cContact.trim()) return setCError(tBook("errorContact"));
+    if (!cConsent) return setCError(tBook("errorConsent"));
+    setCSending(true);
+    try {
+      const res = await fetch("/api/reservations", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: cName,
+          contact: cContact,
+          contactType: "PHONE",
+          message: `[AI 실장 상담 내용]\n${chatTranscript()}`,
+        }),
+      });
+      if (!res.ok) throw new Error("failed");
+      setCardStage("done");
+      setMessages((m) => [...m, { role: "bot", text: t("bookingCardDone") }]);
+    } catch {
+      setCError(tBook("errorGeneric"));
+    } finally {
+      setCSending(false);
     }
   }
 
@@ -687,12 +761,16 @@ export function ChatWidget(props: ClinicLinks = {}) {
                         setMessages([]);
                         setInput("");
                         setChatMinimized(false);
+                        sessionIdRef.current = "";
+                        setCardStage("ask");
                       } else {
                         // 모바일: X도 전체 접힘 → 폭 축소로 닫고, 닫힌 뒤 대화 초기화
                         closeChat();
                         setTimeout(() => {
                           setMessages([]);
                           setInput("");
+                          sessionIdRef.current = "";
+                          setCardStage("ask");
                         }, 1150);
                       }
                     }}
@@ -720,7 +798,91 @@ export function ChatWidget(props: ClinicLinks = {}) {
                       : undefined
                   }
                 >
-                  {messages.map((m, i) => (
+                  {messages.map((m, i) =>
+                    m.booking ? (
+                      /* ── 예약 도우미 카드 — 상담 내용 저장 안내 + 채팅 내 바로 예약 ── */
+                      <div key={i} className="flex animate-msg-in justify-start">
+                        <div className="w-[88%] rounded-2xl rounded-bl-md border border-brand-soft/70 bg-white/85 p-3.5 shadow-sm shadow-ink/5 backdrop-blur">
+                          <p className="flex items-center gap-1.5 text-[11px] font-bold tracking-wide text-brand-dark">
+                            <CalendarIcon className="h-3.5 w-3.5" />
+                            {t("bookingCardTitle")}
+                          </p>
+                          <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink">
+                            {t("bookingCardDesc")}
+                          </p>
+                          {cardStage === "ask" && (
+                            <div className="mt-2.5 flex gap-1.5">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setCardStage("form");
+                                  setCError(null);
+                                }}
+                                className="flex-1 rounded-full bg-brand/90 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-brand-dark"
+                              >
+                                {t("bookingCardYes")}
+                              </button>
+                              <a
+                                href={clinic.naverBookingHref}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex-1 rounded-full border border-line bg-white px-3 py-2 text-center text-[11px] font-semibold text-ink transition hover:border-brand"
+                              >
+                                {t("ctaNaverShort")}
+                              </a>
+                            </div>
+                          )}
+                          {cardStage === "form" && (
+                            <form onSubmit={submitChatBooking} className="mt-2.5 space-y-1.5">
+                              <input
+                                value={cName}
+                                onChange={(e) => setCName(e.target.value)}
+                                placeholder={tBook("name")}
+                                className="block w-full rounded-xl border border-line bg-white px-3 py-2 text-[16px] outline-none focus:border-brand lg:text-xs"
+                              />
+                              <input
+                                value={cContact}
+                                onChange={(e) => setCContact(e.target.value)}
+                                placeholder="010-1234-5678"
+                                inputMode="tel"
+                                className="block w-full rounded-xl border border-line bg-white px-3 py-2 text-[16px] outline-none focus:border-brand lg:text-xs"
+                              />
+                              <label className="flex cursor-pointer items-start gap-1.5 pt-0.5 text-[10px] leading-relaxed text-ink-soft">
+                                <input
+                                  type="checkbox"
+                                  checked={cConsent}
+                                  onChange={(e) => setCConsent(e.target.checked)}
+                                  className="mt-0.5 h-3 w-3 accent-brand"
+                                />
+                                {tBook("consent")}
+                              </label>
+                              {cError && (
+                                <p className="rounded-lg bg-red-50 px-2.5 py-1.5 text-[10px] text-red-600">
+                                  {cError}
+                                </p>
+                              )}
+                              <button
+                                type="submit"
+                                disabled={cSending}
+                                className="w-full rounded-full bg-brand/90 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-brand-dark disabled:opacity-50"
+                              >
+                                {cSending ? tBook("submitting") : tBook("submit")}
+                              </button>
+                            </form>
+                          )}
+                          {cardStage === "done" && (
+                            <p className="mt-2 rounded-xl bg-emerald-50 px-3 py-2 text-[11px] font-semibold text-emerald-700">
+                              ✓ {tBook("success")}
+                            </p>
+                          )}
+                          {cardStage !== "done" && (
+                            <p className="mt-2 text-[10px] leading-relaxed text-ink-soft/75">
+                              {t("bookingCardHint")}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ) : (
                     <div
                       key={i}
                       className={`flex animate-msg-in ${
@@ -737,7 +899,8 @@ export function ChatWidget(props: ClinicLinks = {}) {
                         {m.text}
                       </div>
                     </div>
-                  ))}
+                    )
+                  )}
                   {loading && (
                     <div className="flex animate-msg-in justify-start">
                       <div className="flex items-center gap-1.5 rounded-2xl rounded-bl-md bg-white/70 px-4 py-3 shadow-sm shadow-ink/5">

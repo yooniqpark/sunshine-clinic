@@ -156,7 +156,12 @@
       "errorGeneric": "일시적으로 신청이 어렵습니다. 잠시 후 다시 시도해 주세요."
     },
     "ctaAiShort": "AI 채팅",
-    "bookingVisit": "내원 예약"
+    "bookingVisit": "내원 예약",
+    "bookingCardTitle": "예약 도우미",
+    "bookingCardDesc": "지금까지의 상담 내용은 잘 저장해 두었어요. 이대로 예약을 도와드릴까요?",
+    "bookingCardHint": "상담 내용이 예약 접수에 함께 전달됩니다.",
+    "bookingCardYes": "네, 예약할게요",
+    "bookingCardDone": "예약 신청이 접수되었어요! 확인 후 연락드릴게요 ☀️"
   },
   "common": {
     "loading": "불러오는 중…",

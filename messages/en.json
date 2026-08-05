@@ -156,7 +156,12 @@
       "errorGeneric": "Could not submit right now. Please try again shortly."
     },
     "ctaAiShort": "AI Chat",
-    "bookingVisit": "Clinic Booking"
+    "bookingVisit": "Clinic Booking",
+    "bookingCardTitle": "Booking Assistant",
+    "bookingCardDesc": "I've saved our consultation notes. Shall I help you book a visit now?",
+    "bookingCardHint": "Your consultation notes will be included with the booking.",
+    "bookingCardYes": "Yes, book a visit",
+    "bookingCardDone": "Your booking request has been received! We'll contact you shortly ☀️"
   },
   "common": {
     "loading": "Loading…",
