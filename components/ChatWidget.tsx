@@ -61,14 +61,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
   // 대화방(세션) ID — 상담 내용이 서버에 대화 단위로 저장되도록 식별
   const sessionIdRef = useRef("");
 
-  // 채팅 내 미니 예약폼 상태 (예약 도우미 카드)
-  const [cardStage, setCardStage] = useState<"ask" | "form" | "done">("ask");
-  const [cName, setCName] = useState("");
-  const [cContact, setCContact] = useState("");
-  const [cConsent, setCConsent] = useState(false);
-  const [cSending, setCSending] = useState(false);
-  const [cError, setCError] = useState<string | null>(null);
-
   useEffect(() => {
     scrollRef.current?.scrollTo({
       top: scrollRef.current.scrollHeight,
@@ -173,11 +165,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
         (typeof data?.answer === "string" && data.answer) ||
         (typeof data?.error === "string" && data.error) ||
         t("fallback");
-      if (data?.booking === true) {
-        // AI 실장이 예약 의사를 감지 → 예약 카드 템플릿 초기화 후 표시
-        setCardStage("ask");
-        setCError(null);
-      }
       setMessages((m) => [
         ...m,
         { role: "bot", text: reply },
@@ -200,33 +187,14 @@ export function ChatWidget(props: ClinicLinks = {}) {
       .join("\n");
   }
 
-  // 예약 카드 미니폼 제출 — 채팅 안에서 이름·연락처만 받아 바로 예약 접수
-  async function submitChatBooking(e: React.FormEvent) {
-    e.preventDefault();
-    setCError(null);
-    if (!cName.trim()) return setCError(tBook("errorName"));
-    if (!cContact.trim()) return setCError(tBook("errorContact"));
-    if (!cConsent) return setCError(tBook("errorConsent"));
-    setCSending(true);
-    try {
-      const res = await fetch("/api/reservations", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: cName,
-          contact: cContact,
-          contactType: "PHONE",
-          message: `[AI 실장 상담 내용]\n${chatTranscript()}`,
-        }),
-      });
-      if (!res.ok) throw new Error("failed");
-      setCardStage("done");
-      setMessages((m) => [...m, { role: "bot", text: t("bookingCardDone") }]);
-    } catch {
-      setCError(tBook("errorGeneric"));
-    } finally {
-      setCSending(false);
-    }
+  // 예약 카드 → 상담 내용을 담은 채 예약 팝업(희망 일시 포함) 열기
+  function openBookingFromChat() {
+    setBMessage((prev) =>
+      prev.trim() ? prev : `[AI 실장 상담 내용]\n${chatTranscript()}`
+    );
+    setBError(null);
+    setBSuccess(null);
+    setView("booking");
   }
 
   const faqRaw = t.raw("faq");
@@ -762,7 +730,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
                         setInput("");
                         setChatMinimized(false);
                         sessionIdRef.current = "";
-                        setCardStage("ask");
                       } else {
                         // 모바일: X도 전체 접힘 → 폭 축소로 닫고, 닫힌 뒤 대화 초기화
                         closeChat();
@@ -770,7 +737,6 @@ export function ChatWidget(props: ClinicLinks = {}) {
                           setMessages([]);
                           setInput("");
                           sessionIdRef.current = "";
-                          setCardStage("ask");
                         }, 1150);
                       }
                     }}
@@ -810,76 +776,26 @@ export function ChatWidget(props: ClinicLinks = {}) {
                           <p className="mt-1.5 text-[12.5px] leading-relaxed text-ink">
                             {t("bookingCardDesc")}
                           </p>
-                          {cardStage === "ask" && (
-                            <div className="mt-2.5 flex gap-1.5">
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setCardStage("form");
-                                  setCError(null);
-                                }}
-                                className="flex-1 rounded-full bg-brand/90 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-brand-dark"
-                              >
-                                {t("bookingCardYes")}
-                              </button>
-                              <a
-                                href={clinic.naverBookingHref}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex-1 rounded-full border border-line bg-white px-3 py-2 text-center text-[11px] font-semibold text-ink transition hover:border-brand"
-                              >
-                                {t("ctaNaverShort")}
-                              </a>
-                            </div>
-                          )}
-                          {cardStage === "form" && (
-                            <form onSubmit={submitChatBooking} className="mt-2.5 space-y-1.5">
-                              <input
-                                value={cName}
-                                onChange={(e) => setCName(e.target.value)}
-                                placeholder={tBook("name")}
-                                className="block w-full rounded-xl border border-line bg-white px-3 py-2 text-[16px] outline-none focus:border-brand lg:text-xs"
-                              />
-                              <input
-                                value={cContact}
-                                onChange={(e) => setCContact(e.target.value)}
-                                placeholder="010-1234-5678"
-                                inputMode="tel"
-                                className="block w-full rounded-xl border border-line bg-white px-3 py-2 text-[16px] outline-none focus:border-brand lg:text-xs"
-                              />
-                              <label className="flex cursor-pointer items-start gap-1.5 pt-0.5 text-[10px] leading-relaxed text-ink-soft">
-                                <input
-                                  type="checkbox"
-                                  checked={cConsent}
-                                  onChange={(e) => setCConsent(e.target.checked)}
-                                  className="mt-0.5 h-3 w-3 accent-brand"
-                                />
-                                {tBook("consent")}
-                              </label>
-                              {cError && (
-                                <p className="rounded-lg bg-red-50 px-2.5 py-1.5 text-[10px] text-red-600">
-                                  {cError}
-                                </p>
-                              )}
-                              <button
-                                type="submit"
-                                disabled={cSending}
-                                className="w-full rounded-full bg-brand/90 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-brand-dark disabled:opacity-50"
-                              >
-                                {cSending ? tBook("submitting") : tBook("submit")}
-                              </button>
-                            </form>
-                          )}
-                          {cardStage === "done" && (
-                            <p className="mt-2 rounded-xl bg-emerald-50 px-3 py-2 text-[11px] font-semibold text-emerald-700">
-                              ✓ {tBook("success")}
-                            </p>
-                          )}
-                          {cardStage !== "done" && (
-                            <p className="mt-2 text-[10px] leading-relaxed text-ink-soft/75">
-                              {t("bookingCardHint")}
-                            </p>
-                          )}
+                          <div className="mt-2.5 flex gap-1.5">
+                            <button
+                              type="button"
+                              onClick={openBookingFromChat}
+                              className="flex-1 rounded-full bg-brand/90 px-3 py-2 text-[11px] font-semibold text-white transition hover:bg-brand-dark"
+                            >
+                              {t("bookingCardYes")}
+                            </button>
+                            <a
+                              href={clinic.naverBookingHref}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex-1 rounded-full border border-line bg-white px-3 py-2 text-center text-[11px] font-semibold text-ink transition hover:border-brand"
+                            >
+                              {t("ctaNaverShort")}
+                            </a>
+                          </div>
+                          <p className="mt-2 text-[10px] leading-relaxed text-ink-soft/75">
+                            {t("bookingCardHint")}
+                          </p>
                         </div>
                       </div>
                     ) : (
