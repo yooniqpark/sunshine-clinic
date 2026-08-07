@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { cookies } from "next/headers";
 import { getStats } from "@/lib/analytics";
 import { ExcludeMeToggle } from "./ExcludeMeToggle";
+import { ResetStatsButton } from "./ResetStatsButton";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,10 @@ export default async function AnalyticsPage() {
               홈페이지 방문 지표 (익명 · 개인 식별 정보 미저장).
             </p>
           </div>
-          <ExcludeMeToggle initialEnabled={excluded} />
+          <div className="flex items-center gap-2">
+            <ResetStatsButton />
+            <ExcludeMeToggle initialEnabled={excluded} />
+          </div>
         </div>
       </header>
 
