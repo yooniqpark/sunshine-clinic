@@ -3,7 +3,31 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { GRAND_OPEN_CATEGORIES } from "@/lib/grand-open";
+import { getGrandOpenCategories } from "@/lib/grand-open";
+import { useLocale } from "next-intl";
+
+// 오픈 이벤트 팝업 인트로 카피 — ko 외 로케일은 영문
+function eventCopy(locale: string) {
+  return locale === "ko"
+    ? {
+        lead1: "오랜 준비 끝에",
+        lead2: "{copy.lead2}",
+        cats: ["리프팅", "화이트닝 & 여드름", "스킨부스터", "보톡스"],
+        catsTail: "4개 카테고리에서 오픈 특별가를 진행 중입니다.",
+        cta: "{copy.cta}",
+        openTable: "가격표 · 카테고리별 자세히 보기",
+        closeTable: "가격표 닫기",
+      }
+    : {
+        lead1: "After long preparation",
+        lead2: "Sunshine Clinic is now open.",
+        cats: ["Lifting", "Whitening & Acne", "Skin Booster", "Botox"],
+        catsTail: "Opening specials are running in all four categories.",
+        cta: "See opening specials →",
+        openTable: "Price list · view by category",
+        closeTable: "Close price list",
+      };
+}
 import { GrandOpenCard } from "@/components/GrandOpenCard";
 
 type Popup = {
@@ -172,6 +196,7 @@ function EventPopup({
   desktopDetail: boolean;
   onToggleDetail: () => void;
 }) {
+  const copy = eventCopy(useLocale());
   return (
     <div className="relative flex min-h-0 flex-1 flex-col lg:flex-row">
       {/* Mobile: 티저 ↔ 가격표 스왑 (데스크탑과 같은 desktopDetail 상태 재사용, 폭 확장 없음) */}
@@ -235,22 +260,22 @@ function EventPopup({
           {/* 오픈 안내 + 카테고리 가이드 */}
           <div className="mt-8 space-y-5 text-[13px] leading-[1.85] text-cream/75">
             <p>
-              <span className="text-cream">오랜 준비 끝에</span>,
+              <span className="text-cream">{copy.lead1}</span>,
               <br />
-              선샤인 클리닉이 문을 엽니다.
+              {copy.lead2}
             </p>
             <p>
-              <span className="text-cream">리프팅</span> ·{" "}
-              <span className="text-cream">화이트닝 &amp; 여드름</span> ·{" "}
-              <span className="text-cream">스킨부스터</span> ·{" "}
-              <span className="text-cream">보톡스</span>
-              <br />4개 카테고리에서 오픈 특별가를 진행 중입니다.
+              <span className="text-cream">{copy.cats[0]}</span> ·{" "}
+              <span className="text-cream">{copy.cats[1]}</span> ·{" "}
+              <span className="text-cream">{copy.cats[2]}</span> ·{" "}
+              <span className="text-cream">{copy.cats[3]}</span>
+              <br />{copy.catsTail}
             </p>
           </div>
 
           {/* 카테고리 뱃지 4개 */}
           <div className="mt-6 flex flex-wrap gap-1.5">
-            {["리프팅", "화이트닝 & 여드름", "스킨부스터", "보톡스"].map((cat) => (
+            {copy.cats.map((cat) => (
               <span
                 key={cat}
                 className="rounded-full border border-cream/25 bg-cream/5 px-3 py-1.5 text-[10px] font-medium tracking-[0.14em] text-cream/85"
@@ -264,7 +289,7 @@ function EventPopup({
         <div className="relative">
           {!desktopDetail && (
             <p className="mb-3 text-center text-[10px] font-medium tracking-[0.28em] text-cream/55">
-              오픈 특별가 안내 →
+              {copy.cta}
             </p>
           )}
           <button
@@ -273,7 +298,7 @@ function EventPopup({
             className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-brand-soft/60 bg-brand-soft/10 px-6 py-3.5 text-xs font-semibold tracking-[0.2em] text-cream transition hover:border-brand-soft hover:bg-brand-soft/20"
           >
             <span>
-              {desktopDetail ? "가격표 닫기" : "가격표 · 카테고리별 자세히 보기"}
+              {desktopDetail ? copy.closeTable : copy.openTable}
             </span>
             <span
               aria-hidden
@@ -304,6 +329,7 @@ function EventPopup({
 }
 
 function MobileTeaser({ onOpen }: { onOpen: () => void }) {
+  const copy = eventCopy(useLocale());
   return (
     <div className="relative flex flex-1 flex-col justify-between overflow-y-auto px-7 py-9 text-cream">
       {/* 웜톤 앰비언트 */}
@@ -356,22 +382,22 @@ function MobileTeaser({ onOpen }: { onOpen: () => void }) {
         {/* 카피 */}
         <div className="mt-6 space-y-4 text-[12.5px] leading-[1.8] text-cream/75">
           <p>
-            <span className="text-cream">오랜 준비 끝에</span>,
+            <span className="text-cream">{copy.lead1}</span>,
             <br />
-            선샤인 클리닉이 문을 엽니다.
+            {copy.lead2}
           </p>
           <p>
-            <span className="text-cream">리프팅</span> ·{" "}
-            <span className="text-cream">화이트닝 &amp; 여드름</span> ·{" "}
-            <span className="text-cream">스킨부스터</span> ·{" "}
-            <span className="text-cream">보톡스</span>
-            <br />4개 카테고리에서 오픈 특별가를 진행 중입니다.
+            <span className="text-cream">{copy.cats[0]}</span> ·{" "}
+            <span className="text-cream">{copy.cats[1]}</span> ·{" "}
+            <span className="text-cream">{copy.cats[2]}</span> ·{" "}
+            <span className="text-cream">{copy.cats[3]}</span>
+            <br />{copy.catsTail}
           </p>
         </div>
 
         {/* 카테고리 뱃지 */}
         <div className="mt-5 flex flex-wrap gap-1.5">
-          {["리프팅", "화이트닝 & 여드름", "스킨부스터", "보톡스"].map((cat) => (
+          {copy.cats.map((cat) => (
             <span
               key={cat}
               className="rounded-full border border-cream/25 bg-cream/5 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-cream/85"
@@ -384,14 +410,14 @@ function MobileTeaser({ onOpen }: { onOpen: () => void }) {
 
       <div className="relative mt-6">
         <p className="mb-2.5 text-center text-[10px] font-medium tracking-[0.28em] text-cream/55">
-          오픈 특별가 안내 →
+          {copy.cta}
         </p>
         <button
           type="button"
           onClick={onOpen}
           className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-brand-soft/60 bg-brand-soft/10 px-5 py-3 text-xs font-semibold tracking-[0.18em] text-cream transition hover:border-brand-soft hover:bg-brand-soft/20"
         >
-          <span>가격표 · 카테고리별 자세히 보기</span>
+          <span>{copy.openTable}</span>
           <span
             aria-hidden
             className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-brand-soft/60 text-sm transition-transform group-hover:translate-x-0.5"
@@ -405,11 +431,12 @@ function MobileTeaser({ onOpen }: { onOpen: () => void }) {
 }
 
 function EventCarousel() {
+  const CATS = getGrandOpenCategories(useLocale());
   const [idx, setIdx] = useState(0);
   const start = useRef<{ x: number; y: number } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const t = useTranslations("v2.popups.event");
-  const total = GRAND_OPEN_CATEGORIES.length;
+  const total = CATS.length;
 
   const go = useCallback(
     (dir: 1 | -1) => setIdx((i) => (i + dir + total) % total),
@@ -443,7 +470,7 @@ function EventCarousel() {
     start.current = null;
   }
 
-  const current = GRAND_OPEN_CATEGORIES[idx];
+  const current = CATS[idx];
 
   return (
     <div className="relative flex min-h-0 flex-1 flex-col">
@@ -479,7 +506,7 @@ function EventCarousel() {
 
       {/* 4개 카테고리 탭 — 하단 전체 폭 채움 · 카테고리별 컬러 강조 */}
       <div className="grid shrink-0 grid-cols-4 border-t border-white/15 bg-ink/40 text-cream backdrop-blur">
-        {GRAND_OPEN_CATEGORIES.map((cat, i) => {
+        {CATS.map((cat, i) => {
           const isActive = i === idx;
           return (
             <button

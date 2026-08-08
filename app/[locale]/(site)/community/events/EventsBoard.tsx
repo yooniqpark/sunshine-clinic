@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import { ArrowUpRightIcon } from "@/components/icons";
-import { GRAND_OPEN_CATEGORIES } from "@/lib/grand-open";
+import { getGrandOpenCategories } from "@/lib/grand-open";
 import { GrandOpenCard } from "@/components/GrandOpenCard";
 
 export type EventImage = { src: string; label: string };
@@ -23,6 +24,7 @@ export function EventsBoard({
   items: EventEntry[];
   openTag: string;
 }) {
+  const GRAND_OPEN_CATEGORIES = getGrandOpenCategories(useLocale());
   const [openSlug, setOpenSlug] = useState<string | null>(items[0]?.slug ?? null);
 
   if (items.length === 0) {

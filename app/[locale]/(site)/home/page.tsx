@@ -176,7 +176,13 @@ export default async function PreviewHome({
             href="/home#book"
             className="mt-14 inline-flex items-center gap-2 text-xs font-medium tracking-[0.18em] text-ink transition hover:text-brand-dark"
           >
-            당신의 피부를 위한 첫 상담
+            {locale === "en"
+              ? "Your first consultation for your skin"
+              : locale === "ja"
+                ? "あなたの肌のための初回カウンセリング"
+                : locale === "zh"
+                  ? "为您的肌肤开启第一次咨询"
+                  : "당신의 피부를 위한 첫 상담"}
             <span aria-hidden className="text-brand-dark">↗</span>
           </Link>
         </div>
