@@ -2,20 +2,21 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { GRAND_OPEN_CATEGORIES } from "@/lib/grand-open";
 import { GrandOpenCard } from "@/components/GrandOpenCard";
+import {
+  DEFAULT_EVENT_PRESET_ID,
+  getEventPreset,
+  type EventPresetId,
+  type EventPresetVariant,
+} from "@/lib/event-presets";
 
 type Popup = {
   id: string;
-  variant: "event" | "holiday" | "sedation";
+  variant: EventPresetVariant;
 };
-
-const POPUPS: Popup[] = [
-  { id: "grand-open-2026-07-v3", variant: "event" },
-  { id: "aug-2026-holiday", variant: "holiday" },
-  { id: "sedation-2026-07", variant: "sedation" },
-];
 
 const KEY_PREFIX = "sunshine-popup:";
 
@@ -24,7 +25,15 @@ function todayStr() {
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
-export function AnnouncementPopups() {
+export function AnnouncementPopups({
+  activePreset,
+}: {
+  activePreset: EventPresetId;
+}) {
+  const preset =
+    getEventPreset(activePreset) ?? getEventPreset(DEFAULT_EVENT_PRESET_ID)!;
+  const supportsPricing =
+    preset.variant === "event" || preset.variant === "after-summer";
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
   // 데스크톱은 처음부터 가격표 펼침 (모바일은 그대로 티저)
@@ -34,34 +43,37 @@ export function AnnouncementPopups() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(min-width: 1024px)");
-    if (mq.matches) {
+    if (mq.matches && supportsPricing) {
       setDesktopDetail(true);
       setDesktopDetailSeen(true);
     }
     const onChange = (e: MediaQueryListEvent) => {
-      if (e.matches) {
+      if (e.matches && supportsPricing) {
         setDesktopDetail(true);
         setDesktopDetailSeen(true);
       }
     };
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
-  }, []);
+  }, [supportsPricing]);
   const [pricingFallback, setPricingFallback] = useState(false);
   const t = useTranslations("v2.popups");
 
   useEffect(() => {
     setMounted(true);
+    const popup: Popup = {
+      id: preset.popupId,
+      variant: preset.variant,
+    };
     const today = todayStr();
-    const remaining = POPUPS.filter((p) => {
-      try {
-        return localStorage.getItem(KEY_PREFIX + p.id) !== today;
-      } catch {
-        return true;
-      }
-    });
-    setQueue(remaining);
-  }, []);
+
+    try {
+      const hiddenToday = localStorage.getItem(KEY_PREFIX + popup.id) === today;
+      setQueue(hiddenToday ? [] : [popup]);
+    } catch {
+      setQueue([popup]);
+    }
+  }, [preset.popupId, preset.variant]);
 
   const close = useCallback(() => {
     setQueue((q) => q.slice(1));
@@ -76,7 +88,7 @@ export function AnnouncementPopups() {
     const cur = queue[0];
     // event 팝업이고 아직 가격표를 보지 않았다면 → 가격표 fallback 뷰로 전환
     if (
-      cur?.variant === "event" &&
+      (cur?.variant === "event" || cur?.variant === "after-summer") &&
       !desktopDetailSeen &&
       !pricingFallback
     ) {
@@ -116,7 +128,7 @@ export function AnnouncementPopups() {
       />
       <div
         className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
-          desktopDetail
+          desktopDetail && supportsPricing
             ? "lg:max-w-[1120px]"
             : pricingFallback
               ? "lg:max-w-xl"
@@ -131,6 +143,18 @@ export function AnnouncementPopups() {
               desktopDetail={desktopDetail}
               onToggleDetail={() => {
                 setDesktopDetail((v) => !v);
+                setDesktopDetailSeen(true);
+              }}
+            />
+          )
+        ) : current.variant === "after-summer" ? (
+          pricingFallback ? (
+            <EventCarousel />
+          ) : (
+            <AfterSummerPopup
+              desktopDetail={desktopDetail}
+              onToggleDetail={() => {
+                setDesktopDetail((value) => !value);
                 setDesktopDetailSeen(true);
               }}
             />
@@ -397,6 +421,96 @@ function MobileTeaser({ onOpen }: { onOpen: () => void }) {
             className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-brand-soft/60 text-sm transition-transform group-hover:translate-x-0.5"
           >
             →
+          </span>
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+function AfterSummerPopup({
+  desktopDetail,
+  onToggleDetail,
+}: {
+  desktopDetail: boolean;
+  onToggleDetail: () => void;
+}) {
+  return (
+    <div className="relative flex min-h-0 flex-1 flex-col lg:flex-row">
+      <div className="flex min-h-0 flex-1 flex-col lg:hidden">
+        {desktopDetail ? (
+          <EventCarousel />
+        ) : (
+          <AfterSummerPoster
+            detailOpen={desktopDetail}
+            onToggleDetail={onToggleDetail}
+          />
+        )}
+      </div>
+
+      <div className="relative hidden min-h-0 bg-[#dfac79] lg:flex lg:w-[440px] lg:shrink-0">
+        <AfterSummerPoster
+          detailOpen={desktopDetail}
+          onToggleDetail={onToggleDetail}
+        />
+      </div>
+
+      <div
+        className={`hidden overflow-hidden transition-[max-width,opacity] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:flex lg:h-full ${
+          desktopDetail
+            ? "lg:max-w-[680px] lg:opacity-100"
+            : "lg:max-w-0 lg:opacity-0"
+        }`}
+      >
+        <div className="flex h-full w-[680px] flex-col border-l border-white/15">
+          <EventCarousel />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AfterSummerPoster({
+  detailOpen,
+  onToggleDetail,
+}: {
+  detailOpen: boolean;
+  onToggleDetail: () => void;
+}) {
+  return (
+    <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden bg-[#dfac79]">
+      <button
+        type="button"
+        onClick={onToggleDetail}
+        aria-label="AFTER SUMMER 가을 이벤트 가격표 보기"
+        className="relative min-h-0 flex-1 cursor-pointer overflow-hidden"
+      >
+        <Image
+          src="/events/after-summer-2026.svg"
+          alt="SUNSHINE CLINIC AFTER SUMMER — 여름의 흔적을 지우는 계절"
+          fill
+          priority
+          sizes="(min-width: 1024px) 440px, 100vw"
+          className="object-contain"
+          draggable={false}
+        />
+      </button>
+
+      <div className="shrink-0 border-t border-[#5f331f]/15 bg-[#efbf8d]/95 px-4 py-3 backdrop-blur-sm">
+        <button
+          type="button"
+          onClick={onToggleDetail}
+          className="group inline-flex w-full items-center justify-between gap-3 rounded-full bg-[#352018] px-5 py-3 text-xs font-semibold tracking-[0.16em] text-[#f7d7b6] transition hover:bg-[#4a2b20]"
+        >
+          <span>{detailOpen ? "가격표 닫기" : "가을 특별가 · 자세히 보기"}</span>
+          <span
+            aria-hidden
+            className={`inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#f7d7b6]/60 text-sm transition-transform duration-500 ${
+              detailOpen ? "rotate-45" : "group-hover:translate-x-0.5"
+            }`}
+          >
+            {detailOpen ? "+" : "→"}
           </span>
         </button>
       </div>
