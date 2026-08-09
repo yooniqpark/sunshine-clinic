@@ -8,6 +8,8 @@ import crypto from "node:crypto";
 import { auth } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { formatPeriod } from "@/lib/period";
+import { ACTIVE_EVENT_PRESET_KEY } from "@/lib/active-event-preset";
+import { isEventPresetId } from "@/lib/event-presets";
 
 const UPLOAD_DIR = path.join(process.cwd(), "public", "uploads", "events");
 const PUBLIC_PREFIX = "/uploads/events";
@@ -222,4 +224,27 @@ export async function togglePublished(id: string, published: boolean) {
   revalidatePath("/admin/events");
   revalidatePath("/");
   revalidatePath("/community/events");
+}
+
+export async function activateEventPreset(presetId: string) {
+  const user = await requireUser();
+  if (!isEventPresetId(presetId)) {
+    throw new Error("존재하지 않는 이벤트 프리셋입니다.");
+  }
+
+  await prisma.setting.upsert({
+    where: { key: ACTIVE_EVENT_PRESET_KEY },
+    create: {
+      key: ACTIVE_EVENT_PRESET_KEY,
+      value: presetId,
+      updatedBy: user.id ?? user.email ?? null,
+    },
+    update: {
+      value: presetId,
+      updatedBy: user.id ?? user.email ?? null,
+    },
+  });
+
+  revalidatePath("/admin/events");
+  revalidatePath("/", "layout");
 }
