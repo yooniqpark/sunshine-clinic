@@ -564,11 +564,21 @@ function EventCarousel({
   const current = GRAND_OPEN_CATEGORIES[idx];
 
   return (
-    <div className="relative flex min-h-0 flex-1 flex-col">
+    <div
+      className="relative flex min-h-0 flex-1 flex-col"
+      style={
+        campaign === "after-summer"
+          ? {
+              background:
+                "linear-gradient(145deg, #fff9f2 0%, #f7e5d3 52%, #efcfac 100%)",
+            }
+          : undefined
+      }
+    >
       {campaign === "after-summer" && (
-        <div className="flex shrink-0 items-center justify-between border-b border-white/15 bg-[#352018] px-5 py-3 text-[#f7d7b6]">
+        <div className="flex shrink-0 items-center justify-between border-b border-[#74452f]/15 bg-[#f2cfa9] px-5 py-3 text-[#4c2f23]">
           <p className="font-serif text-lg tracking-tight">AFTER SUMMER</p>
-          <p className="text-[9px] font-medium tracking-[0.2em] text-[#f7d7b6]/70">
+          <p className="text-[9px] font-medium tracking-[0.2em] text-[#704832]/70">
             2026 AUTUMN
           </p>
         </div>
@@ -582,12 +592,14 @@ function EventCarousel({
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          <GrandOpenCard
-            category={current}
-            variant="compact"
-            showHeader={campaign === "event"}
-            showDate={campaign === "event"}
-          />
+          <div className={campaign === "after-summer" ? "after-summer-card" : undefined}>
+            <GrandOpenCard
+              category={current}
+              variant="compact"
+              showHeader={campaign === "event"}
+              showDate={campaign === "event"}
+            />
+          </div>
         </div>
 
         {/* Prev / Next arrows — top of viewport, translucent white */}
@@ -595,7 +607,9 @@ function EventCarousel({
           type="button"
           onClick={() => go(-1)}
           aria-label="Previous"
-          className="absolute left-3 top-16 z-10 grid h-9 w-9 place-items-center rounded-full border border-white/60 bg-transparent text-cream transition hover:border-white hover:bg-white/10 sm:left-4 sm:top-20"
+          className={`absolute left-3 top-16 z-10 grid h-9 w-9 place-items-center rounded-full border border-white/60 bg-transparent text-cream transition hover:border-white hover:bg-white/10 sm:left-4 sm:top-20 ${
+            campaign === "after-summer" ? "after-summer-arrow" : ""
+          }`}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="h-4 w-4"><path d="M15 6l-6 6 6 6" /></svg>
         </button>
@@ -603,14 +617,20 @@ function EventCarousel({
           type="button"
           onClick={() => go(1)}
           aria-label="Next"
-          className="absolute right-3 top-16 z-10 grid h-9 w-9 place-items-center rounded-full border border-white/60 bg-transparent text-cream transition hover:border-white hover:bg-white/10 sm:right-4 sm:top-20"
+          className={`absolute right-3 top-16 z-10 grid h-9 w-9 place-items-center rounded-full border border-white/60 bg-transparent text-cream transition hover:border-white hover:bg-white/10 sm:right-4 sm:top-20 ${
+            campaign === "after-summer" ? "after-summer-arrow" : ""
+          }`}
         >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" className="h-4 w-4"><path d="M9 6l6 6-6 6" /></svg>
         </button>
       </div>
 
       {/* 4개 카테고리 탭 — 하단 전체 폭 채움 · 카테고리별 컬러 강조 */}
-      <div className="grid shrink-0 grid-cols-4 border-t border-white/15 bg-ink/40 text-cream backdrop-blur">
+      <div
+        className={`grid shrink-0 grid-cols-4 border-t border-white/15 bg-ink/40 text-cream backdrop-blur ${
+          campaign === "after-summer" ? "after-summer-tabs" : ""
+        }`}
+      >
         {GRAND_OPEN_CATEGORIES.map((cat, i) => {
           const isActive = i === idx;
           return (
@@ -641,6 +661,56 @@ function EventCarousel({
           );
         })}
       </div>
+
+      {campaign === "after-summer" && (
+        <style>{`
+          .after-summer-card [class*="text-cream"] {
+            color: #4b3025 !important;
+          }
+          .after-summer-card [class*="text-brand-soft"] {
+            color: #a55f3d !important;
+          }
+          .after-summer-card [class*="bg-ink"] {
+            background-color: #5a3829 !important;
+          }
+          .after-summer-card [class*="bg-ink"][class*="text-cream"] {
+            color: #fff8ef !important;
+          }
+          .after-summer-card [class*="line-through"] {
+            color: rgba(75, 48, 37, 0.42) !important;
+          }
+          .after-summer-arrow {
+            border-color: rgba(116, 69, 47, 0.35) !important;
+            background: rgba(255, 255, 255, 0.48) !important;
+            color: #68402f !important;
+          }
+          .after-summer-arrow:hover {
+            border-color: rgba(116, 69, 47, 0.65) !important;
+            background: rgba(255, 255, 255, 0.72) !important;
+          }
+          .after-summer-tabs {
+            border-color: rgba(116, 69, 47, 0.14) !important;
+            background: rgba(240, 207, 172, 0.94) !important;
+            color: #603b2c !important;
+          }
+          .after-summer-tabs button {
+            border-color: rgba(116, 69, 47, 0.12) !important;
+          }
+          .after-summer-tabs button[aria-current="true"] {
+            background: rgba(255, 255, 255, 0.42) !important;
+            color: #8d4f31 !important;
+          }
+          .after-summer-tabs button:not([aria-current="true"]) {
+            color: rgba(86, 53, 39, 0.62) !important;
+          }
+          .after-summer-tabs button span {
+            color: inherit !important;
+          }
+          .after-summer-tabs button span[aria-hidden] {
+            background: #a55f3d !important;
+          }
+        `}</style>
+      )}
 
       {/* Hidden legacy CTA — 사용 안 함 */}
       <span className="hidden">{t("ctaSeeMore")}</span>
