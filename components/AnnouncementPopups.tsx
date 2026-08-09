@@ -149,7 +149,7 @@ export function AnnouncementPopups({
           )
         ) : current.variant === "after-summer" ? (
           pricingFallback ? (
-            <EventCarousel />
+            <EventCarousel campaign="after-summer" />
           ) : (
             <AfterSummerPopup
               desktopDetail={desktopDetail}
@@ -440,7 +440,7 @@ function AfterSummerPopup({
     <div className="relative flex min-h-0 flex-1 flex-col lg:flex-row">
       <div className="flex min-h-0 flex-1 flex-col lg:hidden">
         {desktopDetail ? (
-          <EventCarousel />
+          <EventCarousel campaign="after-summer" />
         ) : (
           <AfterSummerPoster
             detailOpen={desktopDetail}
@@ -464,7 +464,7 @@ function AfterSummerPopup({
         }`}
       >
         <div className="flex h-full w-[680px] flex-col border-l border-white/15">
-          <EventCarousel />
+          <EventCarousel campaign="after-summer" />
         </div>
       </div>
     </div>
@@ -518,7 +518,11 @@ function AfterSummerPoster({
   );
 }
 
-function EventCarousel() {
+function EventCarousel({
+  campaign = "event",
+}: {
+  campaign?: "event" | "after-summer";
+}) {
   const [idx, setIdx] = useState(0);
   const start = useRef<{ x: number; y: number } | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -561,6 +565,15 @@ function EventCarousel() {
 
   return (
     <div className="relative flex min-h-0 flex-1 flex-col">
+      {campaign === "after-summer" && (
+        <div className="flex shrink-0 items-center justify-between border-b border-white/15 bg-[#352018] px-5 py-3 text-[#f7d7b6]">
+          <p className="font-serif text-lg tracking-tight">AFTER SUMMER</p>
+          <p className="text-[9px] font-medium tracking-[0.2em] text-[#f7d7b6]/70">
+            2026 AUTUMN
+          </p>
+        </div>
+      )}
+
       {/* Slide viewport — 카테고리 콘텐츠는 스크롤, 하단 dots/CTA는 flex 바깥 고정 */}
       <div className="relative min-h-0 flex-1">
         <div
@@ -569,7 +582,12 @@ function EventCarousel() {
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          <GrandOpenCard category={current} variant="compact" />
+          <GrandOpenCard
+            category={current}
+            variant="compact"
+            showHeader={campaign === "event"}
+            showDate={campaign === "event"}
+          />
         </div>
 
         {/* Prev / Next arrows — top of viewport, translucent white */}
