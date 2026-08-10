@@ -17,6 +17,7 @@ export function MagazineEventPoster({
   const outerBgId = `${id}-outer-bg`;
   const glassId = `${id}-glass`;
   const softGlowId = `${id}-soft-glow`;
+  const priceGlowId = `${id}-price-glow`;
 
   return (
     <svg
@@ -55,6 +56,9 @@ export function MagazineEventPoster({
           <stop stopColor="#fff" stopOpacity=".82" />
           <stop offset="1" stopColor="#fff" stopOpacity="0" />
         </radialGradient>
+        <filter id={priceGlowId} x="-70%" y="-240%" width="240%" height="580%">
+          <feGaussianBlur stdDeviation="24" />
+        </filter>
       </defs>
 
       <rect width="1080" height="1620" fill={`url(#${outerBgId})`} />
@@ -245,7 +249,29 @@ export function MagazineEventPoster({
             }
             style={{ cursor: onOpenPriceList ? "pointer" : "default" }}
           >
-            <rect x="756" y="1320" width="230" height="64" rx="32" fill={colors.accent} />
+            <rect
+              x="742"
+              y="1306"
+              width="258"
+              height="92"
+              rx="46"
+              fill={colors.accent}
+              opacity=".32"
+              filter={`url(#${priceGlowId})`}
+            >
+              <animate attributeName="opacity" values=".24;.48;.24" dur="3.2s" repeatCount="indefinite" />
+            </rect>
+            <rect
+              x="756"
+              y="1320"
+              width="230"
+              height="64"
+              rx="32"
+              fill={colors.accent}
+              stroke="#fff"
+              strokeOpacity=".36"
+              strokeWidth="2"
+            />
             <PosterText x={784} y={1360} size={11} color="#fff" weight={700} spacing={1.2}>
               {footer.priceCta}
             </PosterText>
