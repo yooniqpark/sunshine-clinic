@@ -1,4 +1,8 @@
 import type { EventPresetId } from "@/lib/event-presets";
+import {
+  FIRST_VISIT_MAGAZINE_TEMPLATE,
+  type MagazineEventTemplate,
+} from "@/lib/magazine-event-templates";
 
 export type CampaignRow = {
   name: string;
@@ -21,6 +25,7 @@ export type Campaign = {
   id: Exclude<EventPresetId, "grand-open-2026">;
   popupId: string;
   posterUrl: string;
+  magazineTemplate?: MagazineEventTemplate;
   desktopImageUrl?: string;
   desktopTitle?: string;
   eyebrow: string;
@@ -37,6 +42,7 @@ const FIRST_VISIT: Campaign = {
   id: "first-visit-2026",
   popupId: "first-visit-2026-v1",
   posterUrl: "/events/first-visit-2026.svg",
+  magazineTemplate: FIRST_VISIT_MAGAZINE_TEMPLATE,
   desktopImageUrl: "/events/first-visit-model-2026.svg",
   desktopTitle: "FIRST VISIT WELCOME EVENT",
   eyebrow: "SUNSHINE FIRST VISIT",
