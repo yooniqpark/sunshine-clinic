@@ -179,7 +179,7 @@ function CampaignPricePanel({
             <h3 className="mt-2 text-2xl font-bold tracking-tight">{category.name}</h3>
           </div>
           <span className={`rounded-full px-3 py-1.5 text-[9px] font-semibold tracking-[0.12em] ${colors.badge}`}>
-            첫 방문 혜택
+            {warm ? "가을 특별가" : "첫 방문 혜택"}
           </span>
         </div>
         <p className="mt-3 text-[11px] leading-relaxed text-current/60">{category.copy}</p>
