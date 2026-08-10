@@ -4,8 +4,7 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
-import { EventPresetRail, EventPresetTabs } from "@/components/EventPresetRail";
-import { MagazineEventPoster } from "@/components/MagazineEventPoster";
+import { EventPresetRail } from "@/components/EventPresetRail";
 import { CAMPAIGNS, type Campaign, type CampaignCategory } from "@/lib/campaign-events";
 import type { EventPresetId } from "@/lib/event-presets";
 
@@ -87,16 +86,13 @@ function SeasonalCampaignPopup({
         className="absolute inset-0 h-full w-full cursor-default"
       />
 
-      <div className={`pointer-events-auto relative flex h-[92dvh] max-h-[900px] w-full flex-col lg:flex-row ${showEventRail ? "max-w-[500px] lg:max-w-[1232px]" : "max-w-md sm:max-w-xl lg:max-w-[1120px]"}`}>
+      <div className={`pointer-events-auto relative flex h-[92dvh] max-h-[900px] w-full ${showEventRail ? "max-w-[500px] lg:max-w-[1232px]" : "max-w-md sm:max-w-xl lg:max-w-[1120px]"}`}>
         {showEventRail && (
-          <>
-            <EventPresetTabs activePreset="first-visit-2026" onSelect={onSelectPreset} />
-            <EventPresetRail activePreset="first-visit-2026" onSelect={onSelectPreset} />
-          </>
+          <EventPresetRail activePreset="first-visit-2026" onSelect={onSelectPreset} />
         )}
       <section
         aria-label={campaign.title}
-        className={`relative flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden shadow-2xl shadow-black/35 ${showEventRail ? "rounded-b-[2rem] rounded-t-none lg:rounded-l-none lg:rounded-r-[2rem]" : "rounded-[2rem]"} ${shell}`}
+        className={`relative flex min-w-0 flex-1 flex-col overflow-hidden rounded-r-[2rem] shadow-2xl shadow-black/35 ${showEventRail ? "rounded-l-none" : "rounded-l-[2rem]"} ${shell}`}
       >
         <div className="relative flex min-h-0 flex-1 lg:flex-row">
           <div className={`${detail ? "hidden" : "flex"} min-h-0 flex-1 flex-col lg:flex lg:w-[500px] lg:flex-none`}>
@@ -104,26 +100,19 @@ function SeasonalCampaignPopup({
               type="button"
               onClick={() => setDetail(true)}
               aria-label={`${campaign.title} 상세 가격표 보기`}
-              className={`relative flex min-h-0 flex-1 items-center justify-center overflow-hidden ${warm ? "bg-[#a85436]" : "bg-[#dce6fa]"}`}
+              className={`relative min-h-0 flex-1 overflow-hidden ${warm ? "bg-[#a85436]" : "bg-[#dce6fa]"}`}
             >
               {campaign.desktopImageUrl ? (
                 <>
-                  {campaign.magazineTemplate ? (
-                    <MagazineEventPoster
-                      template={campaign.magazineTemplate}
-                      className="h-full w-full lg:hidden"
-                    />
-                  ) : (
-                    <Image
-                      src={campaign.posterUrl}
-                      alt={`${campaign.title} 이벤트 매거진`}
-                      fill
-                      priority
-                      sizes="100vw"
-                      className="object-contain lg:hidden"
-                      draggable={false}
-                    />
-                  )}
+                  <Image
+                    src={campaign.posterUrl}
+                    alt={`${campaign.title} 이벤트 매거진`}
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-cover object-left lg:hidden"
+                    draggable={false}
+                  />
                   <Image
                     src={campaign.desktopImageUrl}
                     alt={`${campaign.title} 이벤트 모델`}

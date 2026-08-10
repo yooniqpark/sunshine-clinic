@@ -30,7 +30,7 @@ function eventCopy(locale: string) {
       };
 }
 import { GrandOpenCard } from "@/components/GrandOpenCard";
-import { EventPresetRail, EventPresetTabs } from "@/components/EventPresetRail";
+import { EventPresetRail } from "@/components/EventPresetRail";
 import type { EventPresetId } from "@/lib/event-presets";
 
 type Popup = {
@@ -146,7 +146,7 @@ export function AnnouncementPopups({
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
       <div
-        className={`pointer-events-auto relative flex h-[92dvh] max-h-[900px] w-full max-w-[500px] flex-col transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-[632px] lg:flex-row ${
+        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-[500px] transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-[632px] ${
           desktopDetail
             ? "lg:max-w-[1192px]"
             : pricingFallback
@@ -155,12 +155,9 @@ export function AnnouncementPopups({
         }`}
       >
         {current.variant === "event" && (
-          <>
-            <EventPresetTabs activePreset="grand-open-2026" onSelect={onSelectPreset} />
-            <EventPresetRail activePreset="grand-open-2026" onSelect={onSelectPreset} />
-          </>
+          <EventPresetRail activePreset="grand-open-2026" onSelect={onSelectPreset} />
         )}
-        <div className={`relative flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md ${current.variant === "event" ? "rounded-b-[2rem] rounded-t-none lg:rounded-l-none lg:rounded-r-[2rem]" : "rounded-[2rem]"}`}>
+        <div className={`relative flex min-w-0 flex-1 flex-col overflow-hidden rounded-r-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md ${current.variant === "event" ? "rounded-l-none" : "rounded-l-[2rem]"}`}>
         {current.variant === "event" ? (
           pricingFallback ? (
             <EventCarousel />
