@@ -29,6 +29,8 @@ function eventCopy(locale: string) {
       };
 }
 import { GrandOpenCard } from "@/components/GrandOpenCard";
+import { EventPresetRail } from "@/components/EventPresetRail";
+import type { EventPresetId } from "@/lib/event-presets";
 
 type Popup = {
   id: string;
@@ -48,7 +50,11 @@ function todayStr() {
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
-export function AnnouncementPopups() {
+export function AnnouncementPopups({
+  onSelectPreset,
+}: {
+  onSelectPreset: (preset: EventPresetId) => void;
+}) {
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
   // 데스크톱은 처음부터 가격표 펼침 (모바일은 그대로 티저)
@@ -139,14 +145,18 @@ export function AnnouncementPopups() {
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
       <div
-        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
+        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-[500px] transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-[632px] ${
           desktopDetail
-            ? "lg:max-w-[1120px]"
+            ? "lg:max-w-[1192px]"
             : pricingFallback
-              ? "lg:max-w-xl"
-              : "lg:max-w-md"
+              ? "lg:max-w-[648px]"
+              : "lg:max-w-[520px]"
         }`}
       >
+        {current.variant === "event" && (
+          <EventPresetRail activePreset="grand-open-2026" onSelect={onSelectPreset} />
+        )}
+        <div className={`relative flex min-w-0 flex-1 flex-col overflow-hidden rounded-r-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md ${current.variant === "event" ? "rounded-l-none" : "rounded-l-[2rem]"}`}>
         {current.variant === "event" ? (
           pricingFallback ? (
             <EventCarousel />
@@ -183,6 +193,7 @@ export function AnnouncementPopups() {
           >
             {t("close")}
           </button>
+        </div>
         </div>
       </div>
     </div>
