@@ -135,11 +135,11 @@ function SeasonalCampaignPopup({
                 />
               )}
             </button>
-            <div className={`shrink-0 border-t border-white/15 px-4 py-3 lg:hidden ${warm ? "bg-[#7e3b2b]" : "bg-[#3d55bb]"}`}>
+            <div className={`shrink-0 border-t border-white/15 px-3 py-2.5 lg:hidden ${warm ? "bg-[#7e3b2b]" : "bg-[#3d55bb]"}`}>
               <button
                 type="button"
                 onClick={() => setDetail(true)}
-                className="group inline-flex w-full items-center justify-between rounded-full border border-white/35 bg-black/15 px-5 py-3 text-xs font-semibold tracking-[0.14em] text-white transition hover:bg-black/25"
+                className="group inline-flex w-full items-center justify-between rounded-full border border-white/35 bg-black/15 px-5 py-2.5 text-xs font-semibold tracking-[0.14em] text-white transition hover:bg-black/25"
               >
                 <span>전체 가격표 · 자세히 보기</span>
                 <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
@@ -152,7 +152,7 @@ function SeasonalCampaignPopup({
           </div>
         </div>
 
-        <div className={`flex shrink-0 items-center justify-between border-t border-white/15 px-5 py-3 text-xs text-white ${footer}`}>
+        <div className={`flex shrink-0 items-center justify-between border-t border-white/15 px-5 py-2 text-[11px] text-white ${footer}`}>
           <button type="button" onClick={closeToday} className="text-white/70 hover:text-white">
             오늘 하루 보지 않기
           </button>
