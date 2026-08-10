@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getGrandOpenCategories } from "@/lib/grand-open";
 import { useLocale } from "next-intl";
@@ -12,10 +11,10 @@ function eventCopy(locale: string) {
   return locale === "ko"
     ? {
         lead1: "오랜 준비 끝에",
-        lead2: "선샤인의원이 문을 열었습니다.",
+        lead2: "{copy.lead2}",
         cats: ["리프팅", "화이트닝 & 여드름", "스킨부스터", "보톡스"],
         catsTail: "4개 카테고리에서 오픈 특별가를 진행 중입니다.",
-        cta: "SUNSHINE GRAND OPEN",
+        cta: "{copy.cta}",
         openTable: "가격표 · 카테고리별 자세히 보기",
         closeTable: "가격표 닫기",
       }
@@ -30,8 +29,6 @@ function eventCopy(locale: string) {
       };
 }
 import { GrandOpenCard } from "@/components/GrandOpenCard";
-import { EventPresetRail } from "@/components/EventPresetRail";
-import type { EventPresetId } from "@/lib/event-presets";
 
 type Popup = {
   id: string;
@@ -51,11 +48,7 @@ function todayStr() {
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
-export function AnnouncementPopups({
-  onSelectPreset,
-}: {
-  onSelectPreset: (preset: EventPresetId) => void;
-}) {
+export function AnnouncementPopups() {
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
   // 데스크톱은 처음부터 가격표 펼침 (모바일은 그대로 티저)
@@ -146,18 +139,14 @@ export function AnnouncementPopups({
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
       <div
-        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-[500px] transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-[632px] ${
+        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
           desktopDetail
-            ? "lg:max-w-[1192px]"
+            ? "lg:max-w-[1120px]"
             : pricingFallback
-              ? "lg:max-w-[648px]"
-              : "lg:max-w-[520px]"
+              ? "lg:max-w-xl"
+              : "lg:max-w-md"
         }`}
       >
-        {current.variant === "event" && (
-          <EventPresetRail activePreset="grand-open-2026" onSelect={onSelectPreset} />
-        )}
-        <div className={`relative flex min-w-0 flex-1 flex-col overflow-hidden rounded-r-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md ${current.variant === "event" ? "rounded-l-none" : "rounded-l-[2rem]"}`}>
         {current.variant === "event" ? (
           pricingFallback ? (
             <EventCarousel />
@@ -194,7 +183,6 @@ export function AnnouncementPopups({
           >
             {t("close")}
           </button>
-        </div>
         </div>
       </div>
     </div>
@@ -343,64 +331,96 @@ function EventPopup({
 function MobileTeaser({ onOpen }: { onOpen: () => void }) {
   const copy = eventCopy(useLocale());
   return (
-    <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden bg-[#2b160e] text-cream">
-      <Image
-        src="/events/grand-open-mobile-2026.svg"
-        alt="선샤인의원 그랜드 오픈 이벤트"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-        draggable={false}
-      />
+    <div className="relative flex flex-1 flex-col justify-between overflow-y-auto px-7 py-9 text-cream">
+      {/* 웜톤 앰비언트 */}
       <span
         aria-hidden
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(255,246,226,0.06) 0%, rgba(40,20,13,0.02) 42%, rgba(30,14,9,0.38) 68%, rgba(25,12,8,0.9) 100%)",
+            "radial-gradient(ellipse at 25% 20%, rgba(232,205,175,0.20) 0%, transparent 55%), radial-gradient(ellipse at 75% 85%, rgba(154,110,84,0.22) 0%, transparent 55%)",
         }}
       />
-      <span aria-hidden className="pointer-events-none absolute left-4 top-4 h-5 w-5 border-l border-t border-[#3d251b]/35" />
-      <span aria-hidden className="pointer-events-none absolute right-4 top-4 h-5 w-5 border-r border-t border-[#3d251b]/35" />
+      {/* 코너 브라켓 */}
+      <span aria-hidden className="pointer-events-none absolute left-4 top-4 h-5 w-5 border-l border-t border-cream/25" />
+      <span aria-hidden className="pointer-events-none absolute right-4 top-4 h-5 w-5 border-r border-t border-cream/25" />
+      <span aria-hidden className="pointer-events-none absolute bottom-4 left-4 h-5 w-5 border-b border-l border-cream/25" />
+      <span aria-hidden className="pointer-events-none absolute bottom-4 right-4 h-5 w-5 border-b border-r border-cream/25" />
 
-      <div className="relative flex min-h-0 flex-1 flex-col px-5 pb-5 pt-5">
-        <div className="flex items-baseline gap-3 text-[8px] font-semibold tracking-[0.28em] text-[#4b2e22]/70">
-          <span className="font-serif">N°01</span>
-          <span aria-hidden className="h-px flex-1 bg-[#4b2e22]/25" />
+      <div className="relative">
+        {/* 세리얼 */}
+        <div className="flex items-baseline gap-3 text-[9px] font-medium tracking-[0.28em] text-cream/55">
+          <span className="font-serif text-cream/80">N°01</span>
+          <span aria-hidden className="h-px flex-1 bg-cream/25" />
           <span>SS 2026</span>
         </div>
 
-        <div className="mt-7 text-center text-[#2f1b14]">
-          <p className="text-[8px] font-bold tracking-[0.42em] text-[#70442f]">INVITATION</p>
-          <h2 className="mt-3 whitespace-nowrap font-serif text-[2.55rem] font-normal leading-none tracking-tight">
+        {/* 타이틀 */}
+        <div className="mt-7 text-center">
+          <p className="text-[9px] font-medium tracking-[0.4em] text-brand-soft">
+            INVITATION
+          </p>
+          <h2 className="mt-4 whitespace-nowrap font-serif text-[2.35rem] font-normal leading-[1] tracking-tight text-cream">
             Grand Open
           </h2>
-          <p className="mt-2 text-[1.35rem] font-light tracking-[0.18em] text-[#6b402d]">EVENT</p>
-          <div className="mt-4 inline-flex items-center gap-3 border-y border-[#5f3828]/30 px-4 py-2 text-[9px] font-semibold tracking-[0.24em] tabular-nums">
-            <span>07.13</span><span className="opacity-45">—</span><span>08.30</span>
-          </div>
-        </div>
-
-        <div className="mt-auto rounded-2xl border border-white/15 bg-[#24120c]/72 p-4 shadow-lg backdrop-blur-md">
-          <p className="text-[8px] font-bold tracking-[0.3em] text-[#e5b988]">{copy.cta}</p>
-          <p className="mt-2 text-[14px] font-semibold leading-relaxed text-[#fff8ed]">
-            {copy.lead1},<br />{copy.lead2}
-          </p>
-          <p className="mt-2 text-[9px] leading-relaxed text-[#f0ddca]/70">
-            {copy.cats.join(" · ")}<br />{copy.catsTail}
+          <p
+            className="mt-1.5 leading-none tracking-tight text-brand-soft"
+            style={{ fontSize: "2.1rem", fontFamily: '"Allura", cursive' }}
+          >
+            Event
           </p>
         </div>
 
+        {/* 날짜 */}
+        <div className="mt-8 flex items-center justify-end gap-3">
+          <p className="text-[10px] font-medium tracking-[0.24em] text-cream/80 tabular-nums">
+            07.13 <span className="text-cream/45">—</span> 08.30
+          </p>
+          <span aria-hidden className="h-px w-8 bg-brand-soft" />
+        </div>
+
+        {/* 카피 */}
+        <div className="mt-6 space-y-4 text-[12.5px] leading-[1.8] text-cream/75">
+          <p>
+            <span className="text-cream">{copy.lead1}</span>,
+            <br />
+            {copy.lead2}
+          </p>
+          <p>
+            <span className="text-cream">{copy.cats[0]}</span> ·{" "}
+            <span className="text-cream">{copy.cats[1]}</span> ·{" "}
+            <span className="text-cream">{copy.cats[2]}</span> ·{" "}
+            <span className="text-cream">{copy.cats[3]}</span>
+            <br />{copy.catsTail}
+          </p>
+        </div>
+
+        {/* 카테고리 뱃지 */}
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          {copy.cats.map((cat) => (
+            <span
+              key={cat}
+              className="rounded-full border border-cream/25 bg-cream/5 px-2.5 py-1 text-[10px] font-medium tracking-[0.12em] text-cream/85"
+            >
+              {cat}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="relative mt-6">
+        <p className="mb-2.5 text-center text-[10px] font-medium tracking-[0.28em] text-cream/55">
+          {copy.cta}
+        </p>
         <button
           type="button"
           onClick={onOpen}
-          className="group mt-3 inline-flex w-full items-center justify-between gap-3 rounded-full border border-[#edc69e]/55 bg-[#2b170f]/88 px-5 py-3 text-[11px] font-semibold tracking-[0.16em] text-[#fff5e8] transition hover:bg-[#3a2015]"
+          className="group inline-flex w-full items-center justify-between gap-3 rounded-full border border-brand-soft/60 bg-brand-soft/10 px-5 py-3 text-xs font-semibold tracking-[0.18em] text-cream transition hover:border-brand-soft hover:bg-brand-soft/20"
         >
           <span>{copy.openTable}</span>
           <span
             aria-hidden
-            className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-[#edc69e]/55 text-sm transition-transform group-hover:translate-x-0.5"
+            className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-brand-soft/60 text-sm transition-transform group-hover:translate-x-0.5"
           >
             →
           </span>
