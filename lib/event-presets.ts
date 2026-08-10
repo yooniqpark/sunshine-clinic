@@ -16,7 +16,7 @@ export const EVENT_PRESETS = [
     eyebrow: "WELCOME MAGAZINE",
     title: "첫 방문 매거진 이벤트",
     period: "첫 방문 고객 대상",
-    description: "모델·문구·색상·배경을 교체할 수 있는 매거진 템플릿",
+    description: "상단 OPEN EVENT · FIRST VISIT 탭으로 적용되는 매거진 템플릿",
     imageUrl: "/events/first-visit-2026.svg",
   },
   {
