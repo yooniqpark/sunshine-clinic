@@ -19,7 +19,7 @@ export function EventPresetRail({
   return (
     <nav
       aria-label="이벤트 전환"
-      className="flex w-11 shrink-0 flex-col overflow-hidden rounded-l-[1.75rem] border-r border-white/15 bg-[#eeeef7] shadow-lg sm:w-14 lg:w-[72px]"
+      className="hidden w-[72px] shrink-0 flex-col overflow-hidden rounded-l-[1.75rem] border-r border-white/15 bg-[#eeeef7] shadow-lg lg:flex"
     >
       {TABS.map((tab) => {
         const active = tab.id === activePreset;
@@ -49,6 +49,47 @@ export function EventPresetRail({
               <span className="text-[9px] font-bold tracking-[0.16em] sm:text-[10px]">{tab.label}</span>
             </span>
             {active && <span aria-hidden className="absolute inset-y-5 right-0 w-0.5 rounded-full bg-current" />}
+          </button>
+        );
+      })}
+    </nav>
+  );
+}
+
+export function EventPresetTabs({
+  activePreset,
+  onSelect,
+}: {
+  activePreset: SwitchableEventId;
+  onSelect: (preset: SwitchableEventId) => void;
+}) {
+  return (
+    <nav
+      aria-label="이벤트 전환"
+      className="grid h-16 shrink-0 grid-cols-2 overflow-hidden rounded-t-[2rem] border-b border-white/15 shadow-lg lg:hidden"
+    >
+      {TABS.map((tab) => {
+        const active = tab.id === activePreset;
+        const openEvent = tab.id === "grand-open-2026";
+
+        return (
+          <button
+            key={tab.id}
+            type="button"
+            aria-current={active ? "page" : undefined}
+            onClick={() => onSelect(tab.id)}
+            className={`flex min-w-0 flex-col items-center justify-center gap-1 border-r border-white/15 px-2 transition-colors last:border-r-0 ${
+              openEvent
+                ? "bg-[#2b201c] text-[#f4dfca]"
+                : active
+                  ? "bg-[#405dcb] text-white"
+                  : "bg-[#f0f2fc] text-[#2d4079]"
+            }`}
+          >
+            <span className="text-[7px] font-bold tracking-[0.18em] opacity-75">
+              {tab.index}{active ? " · ACTIVE" : ""}
+            </span>
+            <span className="text-[10px] font-bold tracking-[0.16em]">{tab.label}</span>
           </button>
         );
       })}
