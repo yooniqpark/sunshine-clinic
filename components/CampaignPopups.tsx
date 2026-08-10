@@ -84,7 +84,7 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
                     fill
                     priority
                     sizes="100vw"
-                    className="object-contain lg:hidden"
+                    className="object-cover object-center lg:hidden"
                     draggable={false}
                   />
                   <Image
@@ -178,7 +178,16 @@ function CampaignPricePanel({
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className={`text-[9px] font-bold tracking-[0.24em] ${colors.accent}`}>{campaign.eyebrow}</p>
-            <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">{campaign.title}</h2>
+            <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+              {campaign.desktopTitle ? (
+                <>
+                  <span className="lg:hidden">{campaign.title}</span>
+                  <span className="hidden lg:inline">{campaign.desktopTitle}</span>
+                </>
+              ) : (
+                campaign.title
+              )}
+            </h2>
           </div>
           <button
             type="button"
