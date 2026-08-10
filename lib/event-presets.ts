@@ -8,6 +8,7 @@ export const EVENT_PRESETS = [
     period: "첫 방문 고객 대상",
     description: "보톡스·필러·리프팅·콜라겐 볼륨 첫 방문 특별가",
     imageUrl: "/events/first-visit-2026.svg",
+    magazineTemplateId: "first-visit-editorial",
   },
   {
     id: "after-summer-2026",
@@ -18,6 +19,7 @@ export const EVENT_PRESETS = [
     period: "2026 가을",
     description: "여름의 흔적을 지우는 가을 피부 리셋 이벤트",
     imageUrl: "/events/after-summer-2026.svg",
+    magazineTemplateId: null,
   },
   {
     id: "grand-open-2026",
@@ -28,6 +30,7 @@ export const EVENT_PRESETS = [
     period: "기존 이벤트",
     description: "현재 운영 중인 기존 오픈 이벤트 팝업",
     imageUrl: null,
+    magazineTemplateId: null,
   },
 ] as const;
 
