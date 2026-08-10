@@ -48,6 +48,7 @@ export type MagazineEventTemplate = {
   footer: {
     eyebrow: string;
     headline: string;
+    priceCta?: string;
     description: string;
     steps: readonly [string, string, string];
     edition: string;
@@ -103,6 +104,7 @@ export const FIRST_VISIT_MAGAZINE_TEMPLATE: MagazineEventTemplate = {
   footer: {
     eyebrow: "FIRST VISIT PRINCIPLES",
     headline: "듣고 · 이해하고 · 필요한 만큼만",
+    priceCta: "상세 가격표",
     description: "좋은 시작은 많이 하는 것이 아니라, 잘 고르는 것에서 시작됩니다.",
     steps: ["01  LISTEN", "02  UNDERSTAND", "03  REFINE"],
     edition: "SUNSHINE FIRST VISIT · WELCOME EDIT",
