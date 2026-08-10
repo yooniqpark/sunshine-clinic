@@ -78,7 +78,7 @@ function SeasonalCampaignPopup({
   }
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/35 px-1 py-2 sm:p-8">
+    <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/35 px-3 py-4 sm:p-8">
       <button
         type="button"
         aria-label="팝업 닫기"
@@ -86,7 +86,7 @@ function SeasonalCampaignPopup({
         className="absolute inset-0 h-full w-full cursor-default"
       />
 
-      <div className={`pointer-events-auto relative flex h-[96dvh] max-h-[940px] w-full sm:h-[88vh] sm:max-h-[900px] ${showEventRail ? "max-w-[560px] lg:max-w-[1232px]" : "max-w-md sm:max-w-xl lg:max-w-[1120px]"}`}>
+      <div className={`pointer-events-auto relative flex h-[92dvh] max-h-[900px] w-full ${showEventRail ? "max-w-[500px] lg:max-w-[1232px]" : "max-w-md sm:max-w-xl lg:max-w-[1120px]"}`}>
         {showEventRail && (
           <EventPresetRail activePreset="first-visit-2026" onSelect={onSelectPreset} />
         )}
