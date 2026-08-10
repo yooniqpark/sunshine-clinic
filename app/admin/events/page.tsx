@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { prisma } from "@/lib/prisma";
 import { togglePublished } from "./actions";
-import { EventPresetSelector } from "./EventPresetSelector";
 
 export const dynamic = "force-dynamic";
 
@@ -28,8 +27,6 @@ export default async function AdminEventsList() {
           + 새 이벤트
         </Link>
       </header>
-
-      <EventPresetSelector />
 
       <div className="mt-8 overflow-hidden rounded-2xl border border-line">
         {events.length === 0 ? (
