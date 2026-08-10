@@ -76,17 +76,40 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
               aria-label={`${campaign.title} 상세 가격표 보기`}
               className={`relative min-h-0 flex-1 overflow-hidden ${warm ? "bg-[#a85436]" : "bg-[#dce6fa]"}`}
             >
-              <Image
-                src={campaign.posterUrl}
-                alt={`${campaign.title} 이벤트 포스터`}
-                fill
-                priority
-                sizes="(min-width: 1024px) 440px, 100vw"
-                className={warm ? "object-contain" : "object-cover object-center"}
-                draggable={false}
-              />
+              {campaign.desktopImageUrl ? (
+                <>
+                  <Image
+                    src={campaign.posterUrl}
+                    alt={`${campaign.title} 이벤트 매거진`}
+                    fill
+                    priority
+                    sizes="100vw"
+                    className="object-contain lg:hidden"
+                    draggable={false}
+                  />
+                  <Image
+                    src={campaign.desktopImageUrl}
+                    alt={`${campaign.title} 이벤트 모델`}
+                    fill
+                    priority
+                    sizes="440px"
+                    className="hidden object-cover object-center lg:block"
+                    draggable={false}
+                  />
+                </>
+              ) : (
+                <Image
+                  src={campaign.posterUrl}
+                  alt={`${campaign.title} 이벤트 포스터`}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 440px, 100vw"
+                  className="object-contain"
+                  draggable={false}
+                />
+              )}
             </button>
-            <div className={`shrink-0 border-t border-white/15 px-4 py-3 ${warm ? "bg-[#7e3b2b]" : "bg-[#3d55bb]"}`}>
+            <div className={`shrink-0 border-t border-white/15 px-4 py-3 lg:hidden ${warm ? "bg-[#7e3b2b]" : "bg-[#3d55bb]"}`}>
               <button
                 type="button"
                 onClick={() => setDetail(true)}
