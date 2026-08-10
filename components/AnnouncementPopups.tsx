@@ -5,16 +5,18 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { getGrandOpenCategories } from "@/lib/grand-open";
 import { useLocale } from "next-intl";
+import { EventPresetTabs } from "@/components/EventPresetRail";
+import type { EventPresetId } from "@/lib/event-presets";
 
 // 오픈 이벤트 팝업 인트로 카피 — ko 외 로케일은 영문
 function eventCopy(locale: string) {
   return locale === "ko"
     ? {
         lead1: "오랜 준비 끝에",
-        lead2: "{copy.lead2}",
+        lead2: "선샤인의원이 문을 열었습니다.",
         cats: ["리프팅", "화이트닝 & 여드름", "스킨부스터", "보톡스"],
         catsTail: "4개 카테고리에서 오픈 특별가를 진행 중입니다.",
-        cta: "{copy.cta}",
+        cta: "SUNSHINE GRAND OPEN",
         openTable: "가격표 · 카테고리별 자세히 보기",
         closeTable: "가격표 닫기",
       }
@@ -42,13 +44,21 @@ const POPUPS: Popup[] = [
 ];
 
 const KEY_PREFIX = "sunshine-popup:";
+type AnnouncementEventTabs = {
+  activePreset: Extract<EventPresetId, "grand-open-2026" | "first-visit-magazine-2026">;
+  onSelect: (preset: Extract<EventPresetId, "grand-open-2026" | "first-visit-magazine-2026">) => void;
+};
 
 function todayStr() {
   const d = new Date();
   return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
 }
 
-export function AnnouncementPopups() {
+export function AnnouncementPopups({
+  eventTabs,
+}: {
+  eventTabs?: AnnouncementEventTabs;
+} = {}) {
   const [mounted, setMounted] = useState(false);
   const [queue, setQueue] = useState<Popup[]>([]);
   // 데스크톱은 처음부터 가격표 펼침 (모바일은 그대로 티저)
@@ -77,15 +87,17 @@ export function AnnouncementPopups() {
   useEffect(() => {
     setMounted(true);
     const today = todayStr();
-    const remaining = POPUPS.filter((p) => {
-      try {
-        return localStorage.getItem(KEY_PREFIX + p.id) !== today;
-      } catch {
-        return true;
-      }
-    });
+    const remaining = eventTabs
+      ? [POPUPS[0]]
+      : POPUPS.filter((p) => {
+          try {
+            return localStorage.getItem(KEY_PREFIX + p.id) !== today;
+          } catch {
+            return true;
+          }
+        });
     setQueue(remaining);
-  }, []);
+  }, [Boolean(eventTabs)]);
 
   const close = useCallback(() => {
     setQueue((q) => q.slice(1));
@@ -139,7 +151,7 @@ export function AnnouncementPopups() {
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
       <div
-        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-xl ${
+        className={`pointer-events-auto relative flex w-full max-w-md flex-col overflow-hidden rounded-[2rem] bg-ink/45 shadow-2xl shadow-ink/40 backdrop-blur-md transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:max-w-xl ${eventTabs ? "h-[92dvh] max-h-[900px]" : "h-[78vh] max-h-[600px] sm:h-[820px] sm:max-h-[88vh]"} ${
           desktopDetail
             ? "lg:max-w-[1120px]"
             : pricingFallback
@@ -147,6 +159,17 @@ export function AnnouncementPopups() {
               : "lg:max-w-md"
         }`}
       >
+        {eventTabs && (
+          <EventPresetTabs
+            activePreset={eventTabs.activePreset}
+            firstVisitPreset="first-visit-magazine-2026"
+            onSelect={(preset) => {
+              if (preset === "grand-open-2026" || preset === "first-visit-magazine-2026") {
+                eventTabs.onSelect(preset);
+              }
+            }}
+          />
+        )}
         {current.variant === "event" ? (
           pricingFallback ? (
             <EventCarousel />
