@@ -46,6 +46,7 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
   if (!mounted || !open) return null;
 
   const warm = campaign.theme === "warm";
+  const isMagazineTemplate = Boolean(campaign.magazineTemplate);
   const shell = warm ? "bg-[#2c1713]" : "bg-[#20284f]";
   const footer = warm ? "bg-[#321b16]" : "bg-[#20284f]";
 
@@ -67,14 +68,11 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
 
       <section
         aria-label={campaign.title}
-        className={`pointer-events-auto relative flex h-[84vh] max-h-[760px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] shadow-2xl shadow-black/35 sm:max-w-xl lg:max-w-[1120px] ${shell}`}
+        className={`pointer-events-auto relative flex w-full max-w-md flex-col overflow-hidden rounded-[2rem] shadow-2xl shadow-black/35 sm:max-w-xl lg:max-w-[1120px] ${isMagazineTemplate ? "h-auto lg:h-[84vh] lg:max-h-[760px]" : "h-[84vh] max-h-[760px]"} ${shell}`}
       >
-        <div className="relative flex min-h-0 flex-1 lg:flex-row">
+        <div className={`relative flex min-h-0 lg:flex-row ${isMagazineTemplate ? "aspect-[2/3] shrink-0 lg:aspect-auto lg:flex-1" : "flex-1"}`}>
           <div className={`${detail ? "hidden" : "flex"} min-h-0 flex-1 flex-col lg:flex lg:w-[440px] lg:flex-none`}>
-            <button
-              type="button"
-              onClick={() => setDetail(true)}
-              aria-label={`${campaign.title} 상세 가격표 보기`}
+            <div
               className={`relative min-h-0 flex-1 overflow-hidden ${warm ? "bg-[#a85436]" : "bg-[#dce6fa]"}`}
             >
               {campaign.desktopImageUrl ? (
@@ -116,17 +114,27 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
                   draggable={false}
                 />
               )}
-            </button>
-            <div className={`shrink-0 border-t border-white/15 px-4 py-3 lg:hidden ${warm ? "bg-[#7e3b2b]" : "bg-[#3d55bb]"}`}>
-              <button
-                type="button"
-                onClick={() => setDetail(true)}
-                className="group inline-flex w-full items-center justify-between rounded-full border border-white/35 bg-black/15 px-5 py-3 text-xs font-semibold tracking-[0.14em] text-white transition hover:bg-black/25"
-              >
-                <span>전체 가격표 · 자세히 보기</span>
-                <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-              </button>
+              {!isMagazineTemplate && (
+                <button
+                  type="button"
+                  onClick={() => setDetail(true)}
+                  aria-label={`${campaign.title} 상세 가격표 보기`}
+                  className="absolute inset-0 hidden h-full w-full lg:block"
+                />
+              )}
             </div>
+            {!isMagazineTemplate && (
+              <div className={`shrink-0 border-t border-white/15 px-4 py-3 lg:hidden ${warm ? "bg-[#7e3b2b]" : "bg-[#3d55bb]"}`}>
+                <button
+                  type="button"
+                  onClick={() => setDetail(true)}
+                  className="group inline-flex w-full items-center justify-between rounded-full border border-white/35 bg-black/15 px-5 py-3 text-xs font-semibold tracking-[0.14em] text-white transition hover:bg-black/25"
+                >
+                  <span>전체 가격표 · 자세히 보기</span>
+                  <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+                </button>
+              </div>
+            )}
           </div>
 
           <div className={`${detail ? "flex" : "hidden"} min-h-0 flex-1 flex-col lg:flex`}>
