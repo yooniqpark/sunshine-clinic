@@ -82,7 +82,7 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
                 fill
                 priority
                 sizes="(min-width: 1024px) 440px, 100vw"
-                className="object-contain"
+                className={warm ? "object-contain" : "object-cover object-center"}
                 draggable={false}
               />
             </button>
