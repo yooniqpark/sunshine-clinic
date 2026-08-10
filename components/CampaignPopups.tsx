@@ -120,6 +120,7 @@ function SeasonalCampaignPopup({
                     <MagazineEventPoster
                       template={campaign.magazineTemplate}
                       className="h-full w-full lg:hidden"
+                      onOpenPriceList={() => setDetail(true)}
                     />
                   ) : (
                     <Image
