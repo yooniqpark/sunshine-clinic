@@ -21,6 +21,7 @@ export type Campaign = {
   id: Exclude<EventPresetId, "grand-open-2026">;
   popupId: string;
   posterUrl: string;
+  desktopImageUrl?: string;
   eyebrow: string;
   title: string;
   subtitle: string;
@@ -35,6 +36,7 @@ const FIRST_VISIT: Campaign = {
   id: "first-visit-2026",
   popupId: "first-visit-2026-v1",
   posterUrl: "/events/first-visit-2026.svg",
+  desktopImageUrl: "/events/first-visit-model-2026.svg",
   eyebrow: "SUNSHINE FIRST VISIT",
   title: "첫 방문 웰컴 메뉴",
   subtitle: "처음 만나는 선샤인, 나에게 꼭 필요한 시술부터.",
