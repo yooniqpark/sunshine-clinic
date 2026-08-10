@@ -3,9 +3,11 @@ import type { MagazineEventTemplate } from "@/lib/magazine-event-templates";
 export function MagazineEventPoster({
   template,
   className = "",
+  onOpenPriceList,
 }: {
   template: MagazineEventTemplate;
   className?: string;
+  onOpenPriceList?: () => void;
 }) {
   const { colors, header, hero, rightColumn, footer } = template;
   const id = template.id.replace(/[^a-zA-Z0-9_-]/g, "");
@@ -225,6 +227,31 @@ export function MagazineEventPoster({
         <PosterText x={94} y={1360} size={27} color={colors.ink} weight={700}>
           {footer.headline}
         </PosterText>
+        {footer.priceCta && (
+          <g
+            role={onOpenPriceList ? "button" : undefined}
+            tabIndex={onOpenPriceList ? 0 : undefined}
+            aria-label={onOpenPriceList ? `${footer.priceCta} 보기` : undefined}
+            onClick={onOpenPriceList}
+            onKeyDown={
+              onOpenPriceList
+                ? (event) => {
+                    if (event.key === "Enter" || event.key === " ") {
+                      event.preventDefault();
+                      onOpenPriceList();
+                    }
+                  }
+                : undefined
+            }
+            style={{ cursor: onOpenPriceList ? "pointer" : "default" }}
+          >
+            <rect x="756" y="1320" width="230" height="64" rx="32" fill={colors.accent} />
+            <PosterText x={784} y={1360} size={11} color="#fff" weight={700} spacing={1.2}>
+              {footer.priceCta}
+            </PosterText>
+            <path d="M948 1352h18m0 0-6-6m6 6-6 6" fill="none" stroke="#fff" strokeWidth="2" />
+          </g>
+        )}
         <PosterText x={94} y={1405} size={13} color={colors.muted}>
           {footer.description}
         </PosterText>
