@@ -4,11 +4,17 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
+import { EventPresetTabs } from "@/components/EventPresetRail";
 import { MagazineEventPoster } from "@/components/MagazineEventPoster";
 import { CAMPAIGNS, type Campaign, type CampaignCategory } from "@/lib/campaign-events";
 import type { EventPresetId } from "@/lib/event-presets";
 
 const KEY_PREFIX = "sunshine-popup:";
+type TabbedEventId = Extract<EventPresetId, "grand-open-2026" | "first-visit-magazine-2026">;
+type EventTabs = {
+  activePreset: TabbedEventId;
+  onSelect: (preset: TabbedEventId) => void;
+};
 
 function todayStr() {
   const d = new Date();
@@ -16,11 +22,33 @@ function todayStr() {
 }
 
 export function CampaignPopups({ activePreset }: { activePreset: EventPresetId }) {
+  const [selectedPreset, setSelectedPreset] = useState<TabbedEventId>(
+    activePreset === "first-visit-magazine-2026" ? activePreset : "grand-open-2026",
+  );
+  const tabbed = activePreset === "first-visit-magazine-2026";
+
+  useEffect(() => {
+    setSelectedPreset(tabbed ? "first-visit-magazine-2026" : "grand-open-2026");
+  }, [tabbed]);
+
+  const eventTabs: EventTabs | undefined = tabbed
+    ? { activePreset: selectedPreset, onSelect: setSelectedPreset }
+    : undefined;
+
+  if (tabbed && selectedPreset === "grand-open-2026") {
+    return <AnnouncementPopups eventTabs={eventTabs} />;
+  }
   if (activePreset === "grand-open-2026") return <AnnouncementPopups />;
-  return <SeasonalCampaignPopup campaign={CAMPAIGNS[activePreset]} />;
+  return <SeasonalCampaignPopup campaign={CAMPAIGNS[activePreset]} eventTabs={eventTabs} />;
 }
 
-function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
+function SeasonalCampaignPopup({
+  campaign,
+  eventTabs,
+}: {
+  campaign: Campaign;
+  eventTabs?: EventTabs;
+}) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
   const [detail, setDetail] = useState(false);
@@ -70,6 +98,17 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
         aria-label={campaign.title}
         className={`pointer-events-auto relative flex w-full max-w-md flex-col overflow-hidden rounded-[2rem] shadow-2xl shadow-black/35 sm:max-w-xl lg:max-w-[1120px] ${isMagazineTemplate ? "h-auto lg:h-[84vh] lg:max-h-[760px]" : "h-[84vh] max-h-[760px]"} ${shell}`}
       >
+        {eventTabs && (
+          <EventPresetTabs
+            activePreset={eventTabs.activePreset}
+            firstVisitPreset="first-visit-magazine-2026"
+            onSelect={(preset) => {
+              if (preset === "grand-open-2026" || preset === "first-visit-magazine-2026") {
+                eventTabs.onSelect(preset);
+              }
+            }}
+          />
+        )}
         <div className={`relative flex min-h-0 lg:flex-row ${isMagazineTemplate ? "aspect-[2/3] shrink-0 lg:aspect-auto lg:flex-1" : "flex-1"}`}>
           <div className={`${detail ? "hidden" : "flex"} min-h-0 flex-1 flex-col lg:flex lg:w-[440px] lg:flex-none`}>
             <div
