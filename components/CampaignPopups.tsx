@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { AnnouncementPopups } from "@/components/AnnouncementPopups";
+import { EventPresetRail } from "@/components/EventPresetRail";
 import { CAMPAIGNS, type Campaign, type CampaignCategory } from "@/lib/campaign-events";
 import type { EventPresetId } from "@/lib/event-presets";
 
@@ -15,11 +16,32 @@ function todayStr() {
 }
 
 export function CampaignPopups({ activePreset }: { activePreset: EventPresetId }) {
-  if (activePreset === "grand-open-2026") return <AnnouncementPopups />;
-  return <SeasonalCampaignPopup campaign={CAMPAIGNS[activePreset]} />;
+  const [selectedPreset, setSelectedPreset] = useState<EventPresetId>(activePreset);
+
+  useEffect(() => setSelectedPreset(activePreset), [activePreset]);
+
+  if (selectedPreset === "grand-open-2026") {
+    return <AnnouncementPopups onSelectPreset={setSelectedPreset} />;
+  }
+
+  return (
+    <SeasonalCampaignPopup
+      campaign={CAMPAIGNS[selectedPreset]}
+      onSelectPreset={setSelectedPreset}
+      showEventRail={selectedPreset === "first-visit-2026"}
+    />
+  );
 }
 
-function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
+function SeasonalCampaignPopup({
+  campaign,
+  onSelectPreset,
+  showEventRail,
+}: {
+  campaign: Campaign;
+  onSelectPreset: (preset: EventPresetId) => void;
+  showEventRail: boolean;
+}) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
   const [detail, setDetail] = useState(false);
@@ -64,12 +86,16 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
         className="absolute inset-0 h-full w-full cursor-default"
       />
 
+      <div className={`pointer-events-auto relative flex h-[92dvh] max-h-[900px] w-full ${showEventRail ? "max-w-[500px] lg:max-w-[1232px]" : "max-w-md sm:max-w-xl lg:max-w-[1120px]"}`}>
+        {showEventRail && (
+          <EventPresetRail activePreset="first-visit-2026" onSelect={onSelectPreset} />
+        )}
       <section
         aria-label={campaign.title}
-        className={`pointer-events-auto relative flex h-[84vh] max-h-[760px] w-full max-w-md flex-col overflow-hidden rounded-[2rem] shadow-2xl shadow-black/35 sm:max-w-xl lg:max-w-[1120px] ${shell}`}
+        className={`relative flex min-w-0 flex-1 flex-col overflow-hidden rounded-r-[2rem] shadow-2xl shadow-black/35 ${showEventRail ? "rounded-l-none" : "rounded-l-[2rem]"} ${shell}`}
       >
         <div className="relative flex min-h-0 flex-1 lg:flex-row">
-          <div className={`${detail ? "hidden" : "flex"} min-h-0 flex-1 flex-col lg:flex lg:w-[440px] lg:flex-none`}>
+          <div className={`${detail ? "hidden" : "flex"} min-h-0 flex-1 flex-col lg:flex lg:w-[500px] lg:flex-none`}>
             <button
               type="button"
               onClick={() => setDetail(true)}
@@ -92,7 +118,7 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
                     alt={`${campaign.title} 이벤트 모델`}
                     fill
                     priority
-                    sizes="440px"
+                    sizes="500px"
                     className="hidden object-cover object-center lg:block"
                     draggable={false}
                   />
@@ -135,6 +161,7 @@ function SeasonalCampaignPopup({ campaign }: { campaign: Campaign }) {
           </button>
         </div>
       </section>
+      </div>
     </div>
   );
 }
@@ -174,11 +201,11 @@ function CampaignPricePanel({
 
   return (
     <div className={`flex min-h-0 flex-1 flex-col ${colors.page}`}>
-      <header className={`shrink-0 border-b px-6 pb-5 pt-6 sm:px-8 ${colors.line}`}>
+      <header className={`shrink-0 border-b px-6 pb-3 pt-4 sm:px-8 ${colors.line}`}>
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className={`text-[9px] font-bold tracking-[0.24em] ${colors.accent}`}>{campaign.eyebrow}</p>
-            <h2 className="mt-2 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
+            <h2 className="mt-1.5 font-serif text-3xl font-semibold tracking-tight sm:text-4xl">
               {campaign.desktopTitle ? (
                 <>
                   <span className="lg:hidden">{campaign.title}</span>
@@ -197,14 +224,14 @@ function CampaignPricePanel({
             ← 포스터
           </button>
         </div>
-        <p className="mt-3 text-[12px] leading-relaxed text-current/65">{campaign.subtitle}</p>
-        <div className="mt-4 flex items-center justify-between text-[9px] font-semibold tracking-[0.16em] text-current/55">
+        <p className="mt-2 text-[12px] leading-relaxed text-current/65">{campaign.subtitle}</p>
+        <div className="mt-2.5 flex items-center justify-between text-[9px] font-semibold tracking-[0.16em] text-current/55">
           <span>{campaign.period}</span>
           <span>{campaign.vatNote}</span>
         </div>
       </header>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-6 py-6 sm:px-8">
+      <div className="min-h-0 flex-1 overflow-y-auto px-6 py-4 sm:px-8">
         <div className="flex items-start justify-between gap-5">
           <div>
             <p className={`text-[9px] font-bold tracking-[0.2em] ${colors.accent}`}>{category.kicker}</p>
@@ -216,7 +243,7 @@ function CampaignPricePanel({
         </div>
         <p className="mt-3 text-[11px] leading-relaxed text-current/60">{category.copy}</p>
 
-        <div className="mt-6">
+        <div className="mt-4">
           {category.columns ? (
             <MatrixPriceTable category={category} softClass={colors.soft} lineClass={colors.line} accentClass={colors.accent} />
           ) : (
@@ -224,7 +251,7 @@ function CampaignPricePanel({
           )}
         </div>
 
-        <p className={`mt-7 rounded-2xl px-4 py-3 text-[10px] leading-relaxed text-current/65 ${colors.soft}`}>
+        <p className={`mt-4 rounded-2xl px-4 py-2.5 text-[10px] leading-relaxed text-current/65 ${colors.soft}`}>
           {campaign.closingCopy}
         </p>
       </div>
@@ -235,7 +262,7 @@ function CampaignPricePanel({
             key={item.slug}
             type="button"
             onClick={() => setIndex(itemIndex)}
-            className={`border-r px-1.5 py-3 text-center last:border-r-0 ${colors.line} ${
+            className={`border-r px-1.5 py-2 text-center last:border-r-0 ${colors.line} ${
               index === itemIndex ? colors.active : "text-current/55 hover:bg-black/5"
             }`}
           >
@@ -247,7 +274,7 @@ function CampaignPricePanel({
 
       <Link
         href="/home#book"
-        className={`flex shrink-0 items-center justify-between px-6 py-3 text-[11px] font-semibold text-white sm:px-8 ${warm ? "bg-[#963e36]" : "bg-[#3856c6]"}`}
+        className={`flex shrink-0 items-center justify-between px-6 py-2.5 text-[11px] font-semibold text-white sm:px-8 ${warm ? "bg-[#963e36]" : "bg-[#3856c6]"}`}
       >
         <span>상담 · 예약하기</span>
         <span>02.421.7588 →</span>
