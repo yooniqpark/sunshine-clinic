@@ -2,7 +2,8 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
-import { AnnouncementPopups } from "@/components/AnnouncementPopups";
+import { CampaignPopups } from "@/components/CampaignPopups";
+import { getActiveEventPreset } from "@/lib/active-event-preset";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
@@ -12,6 +13,8 @@ import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } fr
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { pageSeo } from "@/lib/seo";
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({
   params,
@@ -31,6 +34,7 @@ export default async function PreviewHome({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("v2.home");
+  const activeEventPreset = await getActiveEventPreset();
 
   const STATS_KEYS = ["years", "devices", "languages", "personal"] as const;
   const DEVICES_KEYS = [
@@ -44,7 +48,7 @@ export default async function PreviewHome({
 
   return (
     <>
-      <AnnouncementPopups />
+      <CampaignPopups activePreset={activeEventPreset} />
 
       {/* ═══════ 1. HERO — 풀스크린 영상 ═══════ */}
       <section className="relative h-screen w-full overflow-hidden bg-ink text-cream">
