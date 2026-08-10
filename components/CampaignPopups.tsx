@@ -110,7 +110,7 @@ function SeasonalCampaignPopup({
                     fill
                     priority
                     sizes="100vw"
-                    className="object-cover object-center lg:hidden"
+                    className="object-cover object-left lg:hidden"
                     draggable={false}
                   />
                   <Image
