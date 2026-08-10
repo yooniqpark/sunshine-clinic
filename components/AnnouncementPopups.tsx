@@ -137,7 +137,7 @@ export function AnnouncementPopups({
   }
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-center justify-center px-1 py-2 sm:p-8">
+    <div className="fixed inset-0 z-[95] flex items-center justify-center px-3 py-4 sm:p-8">
       {/* backdrop click closes */}
       <button
         type="button"
@@ -146,7 +146,7 @@ export function AnnouncementPopups({
         className="absolute inset-0 h-full w-full cursor-default bg-transparent"
       />
       <div
-        className={`pointer-events-auto relative flex h-[96dvh] max-h-[940px] w-full max-w-[560px] transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-[632px] ${
+        className={`pointer-events-auto relative flex h-[78vh] max-h-[600px] w-full max-w-[500px] transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:h-[820px] sm:max-h-[88vh] sm:max-w-[632px] ${
           desktopDetail
             ? "lg:max-w-[1192px]"
             : pricingFallback
