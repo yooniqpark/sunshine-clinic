@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { MagazineEventPoster } from "@/components/MagazineEventPoster";
 import { getActiveEventPreset } from "@/lib/active-event-preset";
 import { EVENT_PRESETS } from "@/lib/event-presets";
+import { MAGAZINE_EVENT_TEMPLATES } from "@/lib/magazine-event-templates";
 import { setActiveEventPreset } from "./preset-actions";
 
 export async function EventPresetSelector() {
@@ -22,6 +24,9 @@ export async function EventPresetSelector() {
       <div className="mt-5 grid gap-4 md:grid-cols-3">
         {EVENT_PRESETS.map((preset) => {
           const active = preset.id === activePresetId;
+          const magazineTemplate = preset.magazineTemplateId
+            ? MAGAZINE_EVENT_TEMPLATES[preset.magazineTemplateId]
+            : null;
           return (
             <article
               key={preset.id}
@@ -30,7 +35,9 @@ export async function EventPresetSelector() {
               }`}
             >
               <div className="relative aspect-[16/9] overflow-hidden bg-gradient-to-br from-[#dfe8fb] to-[#eee8f6]">
-                {preset.imageUrl ? (
+                {magazineTemplate ? (
+                  <MagazineEventPoster template={magazineTemplate} className="h-full w-full" />
+                ) : preset.imageUrl ? (
                   <Image
                     src={preset.imageUrl}
                     alt={`${preset.title} 미리보기`}
