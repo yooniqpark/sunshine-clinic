@@ -301,23 +301,23 @@
             "href": "/treatments/anti-aging/juvelook"
           },
           {
-            "label": "엘라비에 리투오",
+            "label": "Elravie Re:tuo",
             "href": "/treatments/anti-aging/elravie-re20"
           },
           {
-            "label": "셀르디엠",
+            "label": "CellReDM",
             "href": "/treatments/anti-aging/cellredm"
           },
           {
-            "label": "스킨바이브",
+            "label": "SkinVive",
             "href": "/treatments/anti-aging/skinvive"
           },
           {
-            "label": "레디어스",
+            "label": "Radiesse",
             "href": "/treatments/anti-aging/radiesse"
           },
           {
-            "label": "보톡스",
+            "label": "Botox",
             "href": "/treatments/anti-aging/botox"
           },
           {
@@ -339,7 +339,7 @@
             "href": "/treatments/skin-disease/hair-loss"
           },
           {
-            "label": "대상포진 · 단순포진",
+            "label": "Shingles · Herpes Simplex",
             "href": "/treatments/skin-disease/herpes"
           },
           {
@@ -846,37 +846,37 @@
             },
             {
               "slug": "elravie-re20",
-              "name": "엘라비에 리투오",
-              "desc": "HA 필러 기반 재생·볼륨 솔루션 (엘라비에 리투오)",
+              "name": "Elravie Re:tuo",
+              "desc": "HA filler-based regeneration and volume solution (Elravie Re:tuo)",
               "image": "/devices/elravie-re20.jpg"
             },
             {
               "slug": "cellredm",
-              "name": "셀르디엠",
-              "desc": "엑소좀·성장인자 기반 세포 리모델링 부스터",
+              "name": "CellReDM",
+              "desc": "Cell-remodeling booster based on exosomes and growth factors",
               "image": "/devices/cellredm.jpg"
             },
             {
               "slug": "skinvive",
-              "name": "스킨바이브",
-              "desc": "주브덤 라인의 하이드로 부스터, 볼륨보다 결·수분에 집중",
+              "name": "SkinVive",
+              "desc": "Juvéderm-line hydro booster focused on texture and hydration over volume",
               "image": "/devices/skinvive.jpg"
             },
             {
               "slug": "mulgwang",
-              "name": "물광 주사",
-              "desc": "히알루론산 기반 수분 부스터로 얇고 촉촉한 결 만들기"
+              "name": "Glow Injection",
+              "desc": "Hyaluronic acid hydration booster for a thin, dewy texture"
             },
             {
               "slug": "radiesse",
-              "name": "레디어스",
-              "desc": "CaHA 성분으로 즉시 볼륨 + 지속적 콜라겐 생성",
+              "name": "Radiesse",
+              "desc": "CaHA for instant volume plus ongoing collagen production",
               "image": "/devices/radiesse.jpg"
             },
             {
               "slug": "botox",
-              "name": "보톡스",
-              "desc": "표정은 자연스럽게, 라인은 매끄럽게 다듬는 디테일 안티에이징"
+              "name": "Botox",
+              "desc": "Detail anti-aging that keeps expressions natural while smoothing lines"
             },
             {
               "slug": "filler",
@@ -974,8 +974,8 @@
             },
             {
               "slug": "herpes",
-              "name": "대상포진 · 단순포진",
-              "desc": "수포성 바이러스 피부 질환, 초기 항바이러스 치료가 핵심"
+              "name": "Shingles · Herpes Simplex",
+              "desc": "Blistering viral skin conditions — early antiviral treatment is key"
             },
             {
               "slug": "athletes-foot",

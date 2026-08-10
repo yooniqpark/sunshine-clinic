@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useLocale } from "next-intl";
 
 /**
  * OUR PHILOSOPHY — 스크롤 스크럽 단어 리빌.
@@ -9,23 +10,67 @@ import { useEffect, useRef } from "react";
  */
 type Token = { w: string; suffix?: string; accent?: boolean; br?: boolean };
 
-const TOKENS: Token[] = [
-  { w: "과잉" },
-  { w: "진료보다" },
-  { w: "필요한", accent: true },
-  { w: "진료", suffix: "를", accent: true, br: true },
-  { w: "화려한" },
-  { w: "광고보다" },
-  { w: "검증된", accent: true },
-  { w: "결과", suffix: "를", accent: true, br: true },
-  { w: "일시적" },
-  { w: "개선보다" },
-  { w: "건강한", accent: true },
-  { w: "변화", suffix: "를", accent: true },
-];
+const TOKENS_BY_LOCALE: Record<string, Token[]> = {
+  ko: [
+    { w: "과잉" },
+    { w: "진료보다" },
+    { w: "필요한", accent: true },
+    { w: "진료", suffix: "를", accent: true, br: true },
+    { w: "화려한" },
+    { w: "광고보다" },
+    { w: "검증된", accent: true },
+    { w: "결과", suffix: "를", accent: true, br: true },
+    { w: "일시적" },
+    { w: "개선보다" },
+    { w: "건강한", accent: true },
+    { w: "변화", suffix: "를", accent: true },
+  ],
+  en: [
+    { w: "Necessary", accent: true },
+    { w: "care", accent: true },
+    { w: "over" },
+    { w: "excess,", br: true },
+    { w: "proven", accent: true },
+    { w: "results", accent: true },
+    { w: "over" },
+    { w: "ads,", br: true },
+    { w: "healthy", accent: true },
+    { w: "change", accent: true },
+    { w: "over" },
+    { w: "quick" },
+    { w: "fixes" },
+  ],
+  ja: [
+    { w: "過剰な" },
+    { w: "診療より" },
+    { w: "必要な", accent: true },
+    { w: "診療", suffix: "を", accent: true, br: true },
+    { w: "派手な" },
+    { w: "広告より" },
+    { w: "確かな", accent: true },
+    { w: "結果", suffix: "を", accent: true, br: true },
+    { w: "一時的な" },
+    { w: "改善より" },
+    { w: "健やかな", accent: true },
+    { w: "変化", suffix: "を", accent: true },
+  ],
+  zh: [
+    { w: "不过度诊疗，" },
+    { w: "只做", },
+    { w: "必要的治疗", accent: true, br: true },
+    { w: "不靠华丽广告，" },
+    { w: "只凭" },
+    { w: "可靠结果", accent: true, br: true },
+    { w: "不求一时改善，" },
+    { w: "追求" },
+    { w: "健康改变", accent: true },
+  ],
+};
 
 export function PhilosophyLines() {
   const ref = useRef<HTMLHeadingElement>(null);
+  const locale = useLocale();
+  const TOKENS = TOKENS_BY_LOCALE[locale] ?? TOKENS_BY_LOCALE.ko;
 
   useEffect(() => {
     const root = ref.current;
@@ -60,7 +105,8 @@ export function PhilosophyLines() {
       window.removeEventListener("resize", onScroll);
       if (raf) cancelAnimationFrame(raf);
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
 
   return (
     <h2

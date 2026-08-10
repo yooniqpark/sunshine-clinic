@@ -1,10 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "next-intl";
 import {
   ChaptersRight,
   STD_CHAPTERS,
+  STD_SHORTS_BY_LOCALE,
 } from "./standard-variants/SharedChapters";
+
+// 피부 층 국문 라벨의 로케일 번역 (표피 · 진피 · 피하)
+const LAYER_SUBS_BY_LOCALE: Record<string, string[]> = {
+  ko: ["표피", "진피", "피하 · SMAS"],
+  en: ["Epidermis", "Dermis", "Subcutis · SMAS"],
+  ja: ["表皮", "真皮", "皮下 · SMAS"],
+  zh: ["表皮", "真皮", "皮下 · SMAS"],
+};
 
 /**
  * THE SUNSHINE STANDARD — Face × Layers × Waves 융합 버전
@@ -16,6 +26,9 @@ import {
 export function SunshineStandardSplit() {
   const [active, setActive] = useState(0);
   const c = STD_CHAPTERS[active];
+  const locale = useLocale();
+  const shorts = STD_SHORTS_BY_LOCALE[locale] ?? STD_SHORTS_BY_LOCALE.ko;
+  const layerSubs = LAYER_SUBS_BY_LOCALE[locale] ?? LAYER_SUBS_BY_LOCALE.ko;
 
   return (
     <section className="relative bg-[#f2ebde] text-ink">
@@ -48,9 +61,9 @@ export function SunshineStandardSplit() {
           {/* 피부 층 배경 밴드 (표피 · 진피 · SMAS) — 얼굴 뒤로 은은한 tint */}
           <div className="pointer-events-none absolute inset-0">
             {[
-              { top: 8, height: 15, tint: "rgba(255,240,220,0.06)", label: "EPIDERMIS", sub: "표피" },
-              { top: 23, height: 42, tint: "rgba(196,144,116,0.08)", label: "DERMIS", sub: "진피" },
-              { top: 65, height: 25, tint: "rgba(154,110,84,0.10)", label: "SUBCUTANEOUS · SMAS", sub: "피하 · SMAS" },
+              { top: 8, height: 15, tint: "rgba(255,240,220,0.06)", label: "EPIDERMIS", sub: layerSubs[0] },
+              { top: 23, height: 42, tint: "rgba(196,144,116,0.08)", label: "DERMIS", sub: layerSubs[1] },
+              { top: 65, height: 25, tint: "rgba(154,110,84,0.10)", label: "SUBCUTANEOUS · SMAS", sub: layerSubs[2] },
             ].map((l) => (
               <div key={l.label} className="absolute inset-x-0" style={{ top: `${l.top}%`, height: `${l.height}%` }}>
                 <span
@@ -141,14 +154,14 @@ export function SunshineStandardSplit() {
                       }`}
                       style={{ color: ch.color }}
                     >
-                      · {ch.short}
+                      · {shorts[i] ?? ch.short}
                     </span>
                     {/* 모바일: 국문 상시 노출, 활성 챕터만 컬러 */}
                     <span
                       className="whitespace-nowrap transition-colors duration-700 lg:hidden"
                       style={{ color: isActive ? ch.color : undefined }}
                     >
-                      {ch.short}
+                      {shorts[i] ?? ch.short}
                     </span>
                   </div>
                 </div>

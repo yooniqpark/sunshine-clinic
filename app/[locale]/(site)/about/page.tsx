@@ -33,14 +33,23 @@ export async function generateMetadata({
   });
 }
 
+const DEVICE_CATEGORY_LABELS: Record<
+  string,
+  Record<"lifting" | "anti-aging" | "whitening" | "acne", string>
+> = {
+  ko: { lifting: "리프팅", "anti-aging": "안티에이징", whitening: "화이트닝 · 홍조", acne: "여드름 · 흉터" },
+  en: { lifting: "Lifting", "anti-aging": "Anti-aging", whitening: "Whitening · Redness", acne: "Acne · Scars" },
+  ja: { lifting: "リフティング", "anti-aging": "アンチエイジング", whitening: "ホワイトニング · 赤み", acne: "ニキビ · 傷跡" },
+  zh: { lifting: "提升", "anti-aging": "抗衰老", whitening: "美白 · 泛红", acne: "痘痘 · 疤痕" },
+};
+
 const DEVICE_CATEGORIES: {
   slug: "lifting" | "anti-aging" | "whitening" | "acne";
-  labelKey: string;
 }[] = [
-  { slug: "lifting", labelKey: "리프팅" },
-  { slug: "anti-aging", labelKey: "안티에이징" },
-  { slug: "whitening", labelKey: "화이트닝 · 홍조" },
-  { slug: "acne", labelKey: "여드름 · 흉터" },
+  { slug: "lifting" },
+  { slug: "anti-aging" },
+  { slug: "whitening" },
+  { slug: "acne" },
 ];
 
 type HistoryItem = { year: string; event: string };
@@ -73,7 +82,7 @@ export default async function AboutPage({
       slug: d.slug,
       name: d.name,
       category: cat.slug,
-      categoryLabel: cat.labelKey,
+      categoryLabel: (DEVICE_CATEGORY_LABELS[locale] ?? DEVICE_CATEGORY_LABELS.ko)[cat.slug],
       image: getDeviceHeroMobileImage(d.slug),
     })),
   );

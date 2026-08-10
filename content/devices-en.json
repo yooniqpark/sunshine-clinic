@@ -986,163 +986,163 @@
   "rejuran": {
     "slug": "rejuran",
     "category": "anti-aging",
-    "name": "리쥬란",
-    "tagline": "연어 DNA(PDRN·PN)로 진피 재생·피부결 개선",
-    "intro": "A signature skin booster that uses PN\nto improve the skin's regenerative environment,\ncalming inflammation and building collagen",
+    "name": "Rejuran",
+    "tagline": "Salmon DNA (PDRN·PN) for dermal regeneration and smoother skin texture",
+    "intro": "A signature skin booster that uses PN\nto restore the skin's regenerative environment,\ncalm inflammation, and stimulate collagen",
     "manufacturer": "PharmaResearch (KR)",
     "tech": [
       "PN 2%",
-      "스킨부스터",
-      "진피 재생",
+      "Skin booster",
+      "Dermal regeneration",
       "2mL"
     ],
     "highlightStat": {
-      "value": "3~4회",
-      "label": "권장 시술"
+      "value": "3–4",
+      "label": "Recommended sessions"
     },
     "features": [
       {
-        "title": "진피 재생",
-        "body": "PN이 손상된 피부 조직의 자가 재생을 유도합니다."
+        "title": "Dermal regeneration",
+        "body": "PN stimulates the skin's own repair of damaged tissue."
       },
       {
-        "title": "결·탄력",
-        "body": "미세 주름·모공·탄력이 함께 개선됩니다."
+        "title": "Texture & elasticity",
+        "body": "Fine lines, pores, and firmness improve together."
       },
       {
-        "title": "피부 장벽",
-        "body": "예민·건조 피부의 장벽 회복을 돕습니다."
+        "title": "Skin barrier",
+        "body": "Helps restore the barrier of sensitive, dry skin."
       },
       {
-        "title": "자연스러움",
-        "body": "볼륨이 아닌 결·톤 개선으로 자연스럽습니다."
+        "title": "Natural finish",
+        "body": "Improves texture and tone rather than adding volume."
       }
     ],
-    "howItWorks": "진피 상부에 미세 주입 → PN이 조직 재생 신호 전달 → 콜라겐·엘라스틴 재구성.",
+    "howItWorks": "Micro-injected into the upper dermis → PN signals tissue regeneration → collagen and elastin are rebuilt.",
     "recommendedFor": [
-      "잔주름·모공·결",
-      "탄력 저하 초기",
-      "예민·건조 피부",
-      "레이저 후 회복"
+      "Fine lines · pores · texture",
+      "Early loss of elasticity",
+      "Sensitive, dry skin",
+      "Recovery after laser"
     ],
     "faq": [
       {
-        "q": "통증이 있나요?",
-        "a": "리도카인 크림 마취 후 시술하며, 시술 자체는 5~10분입니다."
+        "q": "Does it hurt?",
+        "a": "We apply lidocaine numbing cream first; the procedure itself takes 5–10 minutes."
       },
       {
-        "q": "부기·자국은?",
-        "a": "당일 미세 팽진·붉음이 있을 수 있고 대부분 하루 내 가라앉습니다."
+        "q": "Swelling or marks?",
+        "a": "Tiny bumps or redness may appear on the day and usually settle within a day."
       }
     ],
-    "introBody": "PN (polynucleotide) is injected into the dermis to improve a damaged skin environment and induce collagen production and ECM (extracellular matrix) recovery. By activating the skin's own regenerative capacity, it supports firmness, texture, and anti-aging."
+    "introBody": "A regenerative skin booster that injects PN (polynucleotide) into the dermis to restore a damaged skin environment and stimulate collagen production and ECM recovery. By reactivating the skin's own regenerative capacity, it improves elasticity and texture with an anti-aging effect."
   },
   "rejuran-i": {
     "slug": "rejuran-i",
     "category": "anti-aging",
-    "name": "리쥬란 아이",
-    "tagline": "눈가 전용 PN 스킨부스터로 잔주름·다크서클 개선",
-    "intro": "리쥬란 아이는 눈가에 특화된 저농도 PN 제형으로, 얇고 예민한 눈가 피부의 잔주름·탄력·다크서클을 부드럽게 개선합니다.",
+    "name": "Rejuran I",
+    "tagline": "Eye-area PN skin booster for fine lines and dark circles",
+    "intro": "Rejuran I is a low-concentration PN formula made for the eye area, gently improving fine lines, elasticity, and dark circles on thin, delicate skin.",
     "manufacturer": "PharmaResearch (KR)",
     "tech": [
-      "PN 저농도",
-      "눈가 전용",
-      "리도카인",
+      "Low-dose PN",
+      "Eye area only",
+      "Lidocaine",
       "1mL"
     ],
     "highlightStat": {
-      "value": "3~4회",
-      "label": "권장 시술"
+      "value": "3–4",
+      "label": "Recommended sessions"
     },
     "features": [
       {
-        "title": "눈가 특화",
-        "body": "얇은 눈가에 맞춘 부드러운 제형입니다."
+        "title": "Made for the eye area",
+        "body": "A gentle formula designed for thin under-eye skin."
       },
       {
-        "title": "잔주름",
-        "body": "눈가 잔주름·잔결을 정돈합니다."
+        "title": "Fine lines",
+        "body": "Smooths crow's feet and fine creases around the eyes."
       },
       {
-        "title": "다크서클",
-        "body": "혈행·피부결 개선으로 어두운 톤을 완화합니다."
+        "title": "Dark circles",
+        "body": "Better circulation and texture brighten dark tones."
       },
       {
-        "title": "빠른 회복",
-        "body": "다운타임이 짧아 일상 복귀가 빠릅니다."
+        "title": "Quick recovery",
+        "body": "Short downtime, so you can return to your day quickly."
       }
     ],
-    "howItWorks": "눈 밑·눈꼬리 진피에 미세 주입 → PN이 눈가 콜라겐 생성 촉진.",
+    "howItWorks": "Micro-injected into the dermis under the eyes and at the corners → PN stimulates collagen around the eye area.",
     "recommendedFor": [
-      "눈가 잔주름",
-      "눈 밑 다크서클",
-      "눈가 탄력 저하",
-      "예민한 눈가"
+      "Fine lines around the eyes",
+      "Under-eye dark circles",
+      "Loss of firmness around the eyes",
+      "Delicate eye-area skin"
     ],
     "faq": [
       {
-        "q": "부기는 얼마나?",
-        "a": "당일~하루 정도의 미세 부기가 있을 수 있습니다."
+        "q": "How much swelling?",
+        "a": "Mild swelling may last from the day of treatment up to about a day."
       },
       {
-        "q": "메이크업은 언제?",
-        "a": "다음날부터 가벼운 메이크업이 가능합니다."
+        "q": "When can I wear makeup?",
+        "a": "Light makeup is fine from the next day."
       }
     ]
   },
   "juvelook": {
     "slug": "juvelook",
     "category": "anti-aging",
-    "name": "쥬베룩",
-    "tagline": "PDLLA 콜라겐 부스터로 결·탄력·볼륨 개선",
-    "intro": "A collagen booster that stimulates\ncollagen with PDLLA, improving pores,\nfine lines, and skin firmness",
+    "name": "Juvelook",
+    "tagline": "PDLLA collagen booster for texture, firmness, and volume",
+    "intro": "A collagen booster that uses PDLLA\nto stimulate collagen production,\nimproving pores, fine lines,\nand skin elasticity",
     "manufacturer": "VAIM (KR)",
     "tech": [
       "PDLLA",
-      "콜라겐 부스터",
-      "HA 캐리어",
+      "Collagen booster",
+      "HA carrier",
       "2mL"
     ],
     "highlightStat": {
-      "value": "12~18개월",
-      "label": "지속력"
+      "value": "12–18 months",
+      "label": "Duration"
     },
     "features": [
       {
-        "title": "콜라겐 자극",
-        "body": "PDLLA가 자가 콜라겐 생성을 지속 유도합니다."
+        "title": "Collagen stimulation",
+        "body": "PDLLA keeps stimulating your own collagen production."
       },
       {
-        "title": "탄력 · 결",
-        "body": "얇아진 피부결과 탄력이 함께 개선됩니다."
+        "title": "Firmness & texture",
+        "body": "Thinning skin texture and elasticity improve together."
       },
       {
-        "title": "자연스러운 볼륨",
-        "body": "필러와 달리 서서히 채워져 자연스럽습니다."
+        "title": "Natural volume",
+        "body": "Unlike filler, it fills in gradually for a natural look."
       },
       {
-        "title": "장기 유지",
-        "body": "1회 시술 후에도 효과가 서서히 이어집니다."
+        "title": "Long lasting",
+        "body": "Results continue to build even after a single session."
       }
     ],
-    "howItWorks": "진피~피하층에 주입 → PDLLA가 콜라겐 리모델링 유도 → 결·탄력 회복.",
+    "howItWorks": "Injected into the dermis to subcutaneous layer → PDLLA drives collagen remodeling → texture and firmness recover.",
     "recommendedFor": [
-      "피부 얇음·결 저하",
-      "볼륨 저하 초기",
-      "탄력 저하",
-      "자연스러운 개선 원함"
+      "Thin skin · poor texture",
+      "Early volume loss",
+      "Loss of firmness",
+      "Those who want subtle improvement"
     ],
     "faq": [
       {
-        "q": "필러와 차이?",
-        "a": "필러는 즉시 볼륨, 쥬베룩은 자가 콜라겐 유도로 서서히 개선됩니다."
+        "q": "How is it different from filler?",
+        "a": "Filler adds volume instantly; Juvelook improves gradually by stimulating your own collagen."
       },
       {
-        "q": "몇 회 필요?",
-        "a": "일반적으로 4~6주 간격 2~3회 권장합니다."
+        "q": "How many sessions?",
+        "a": "Typically 2–3 sessions at 4–6 week intervals."
       }
     ],
-    "introBody": "A meeting of biodegradable PDLLA and hyaluronic acid (HA): PDLLA stimulates fibroblasts to induce collagen production, improving pores and fine lines while providing natural volume. Depending on how it is used, it is also applied in scar treatment."
+    "introBody": "A meeting of biodegradable PDLLA and hyaluronic acid (HA): PDLLA stimulates fibroblasts to produce collagen, improving pores and fine lines while adding natural volume. Depending on how it is used, this collagen booster is also applied to scar treatment."
   },
   "elravie-re20": {
     "slug": "elravie-re20",
@@ -1205,215 +1205,277 @@
   "cellredm": {
     "slug": "cellredm",
     "category": "anti-aging",
-    "name": "셀르디엠",
-    "tagline": "저분자 콜라겐·아미노산 복합 스킨부스터",
-    "intro": "A skin booster with human-derived\ndermal matrix (hADM) that improves the skin\nenvironment, fine lines, and inner dryness",
+    "name": "CellReDM",
+    "tagline": "Low-molecular collagen and amino-acid complex skin booster",
+    "intro": "A skin booster made with\nhuman-derived acellular dermal matrix (hADM)\nthat restores the skin environment,\neasing fine lines and inner dryness",
     "manufacturer": "Regen Biotech (KR)",
     "tech": [
-      "저분자 콜라겐",
-      "아미노산",
-      "스킨부스터",
+      "Low-molecular collagen",
+      "Amino acids",
+      "Skin booster",
       "2mL"
     ],
     "highlightStat": {
-      "value": "3회",
-      "label": "권장 시술"
+      "value": "3",
+      "label": "Recommended sessions"
     },
     "features": [
       {
-        "title": "콜라겐 공급",
-        "body": "저분자 콜라겐이 피부에 직접 흡수·활용됩니다."
+        "title": "Collagen supply",
+        "body": "Low-molecular collagen is absorbed and used directly by the skin."
       },
       {
-        "title": "결·탄력",
-        "body": "결 정돈과 탄력 개선을 함께 진행합니다."
+        "title": "Texture & firmness",
+        "body": "Refines texture while improving elasticity."
       },
       {
-        "title": "수분 공급",
-        "body": "속당김·건조함을 개선합니다."
+        "title": "Hydration",
+        "body": "Relieves inner tightness and dryness."
       },
       {
-        "title": "예민 완화",
-        "body": "장벽 회복으로 예민함을 완화합니다."
+        "title": "Calms sensitivity",
+        "body": "Barrier recovery soothes reactive skin."
       }
     ],
-    "howItWorks": "진피 상부 마이크로 주입 → 콜라겐·아미노산이 결·탄력 회복 유도.",
+    "howItWorks": "Micro-injected into the upper dermis → collagen and amino acids restore texture and firmness.",
     "recommendedFor": [
-      "건조 · 결 저하",
-      "예민 피부",
-      "톤 저하",
-      "탄력 저하 초기"
+      "Dryness · rough texture",
+      "Sensitive skin",
+      "Dull tone",
+      "Early loss of firmness"
     ],
     "faq": [
       {
-        "q": "다운타임?",
-        "a": "당일 미세 팽진, 하루 내 회복."
+        "q": "Downtime?",
+        "a": "Tiny bumps on the day; recovery within a day."
       },
       {
-        "q": "간격?",
-        "a": "2~3주 간격 3회 권장."
+        "q": "Interval?",
+        "a": "Three sessions at 2–3 week intervals are recommended."
       }
     ],
-    "introBody": "A treatment that helps rebuild the skin's ecosystem with low-molecular human-derived acellular dermal matrix (hADM). By directly replenishing the ECM, collagen, and elastin the skin needs, this premium skin booster eases fine lines and improves inner dryness."
+    "introBody": "A treatment that rebuilds the skin's ecosystem with low-molecular human-derived acellular dermal matrix (hADM). It directly replenishes the ECM, collagen, and elastin the skin needs — a premium skin booster that softens fine lines and relieves inner dryness."
   },
   "skinvive": {
     "slug": "skinvive",
     "category": "anti-aging",
-    "name": "스킨바이브",
-    "tagline": "볼 광채·수분 개선을 위한 HA 마이크로드롭",
-    "intro": "A skin booster with hyaluronic acid (HA)\nthat improves skin hydration,\nfor supple skin and a natural glow",
+    "name": "SkinVive",
+    "tagline": "HA microdroplets for cheek glow and hydration",
+    "intro": "A skin booster that improves\nthe skin's moisture environment\nwith hyaluronic acid (HA)\nfor dewy skin and a natural glow",
     "manufacturer": "Allergan (USA)",
     "tech": [
-      "HA 마이크로드롭",
+      "HA microdroplets",
       "VYCROSS",
-      "리도카인",
+      "Lidocaine",
       "1.5mL"
     ],
     "highlightStat": {
-      "value": "~6개월",
-      "label": "지속력"
+      "value": "~6 months",
+      "label": "Duration"
     },
     "features": [
       {
-        "title": "볼 광채",
-        "body": "촉촉한 볼 결과 자연스러운 광이 살아납니다."
+        "title": "Cheek glow",
+        "body": "Brings back dewy cheek texture and a natural sheen."
       },
       {
-        "title": "매끈한 결",
-        "body": "결이 매끄러워지고 만졌을 때 부드럽습니다."
+        "title": "Smooth texture",
+        "body": "Skin feels smoother and softer to the touch."
       },
       {
-        "title": "자연스러움",
-        "body": "볼륨을 채우는 필러와 달리 결을 개선합니다."
+        "title": "Natural finish",
+        "body": "Improves texture rather than adding volume like filler."
       },
       {
-        "title": "지속력",
-        "body": "1회 시술로 약 6개월 유지."
+        "title": "Lasting",
+        "body": "About six months from a single session."
       }
     ],
-    "howItWorks": "볼 진피 상부에 마이크로드롭 주입 → HA가 수분·결·광채 개선.",
+    "howItWorks": "Microdroplets injected into the upper cheek dermis → HA improves hydration, texture, and glow.",
     "recommendedFor": [
-      "볼 광채 · 결 개선",
-      "건조한 볼",
-      "결혼·행사 전",
-      "볼륨보다 결 개선"
+      "Cheek glow · texture",
+      "Dry cheeks",
+      "Before a wedding or event",
+      "Texture over volume"
     ],
     "faq": [
       {
-        "q": "부기?",
-        "a": "미세 팽진이 잠깐 있고 반나절 내 가라앉습니다."
+        "q": "Swelling?",
+        "a": "Brief tiny bumps that settle within half a day."
       },
       {
-        "q": "필러와 차이?",
-        "a": "필러는 볼륨, 스킨바이브는 결·수분·광채입니다."
+        "q": "Difference from filler?",
+        "a": "Filler adds volume; SkinVive targets texture, hydration, and glow."
       }
     ],
-    "introBody": "Cross-linked hyaluronic acid, finely bound in a mesh structure, delivers powerful hydration and improved retention. Providing moisture and a smooth skin texture, it is a premium skin booster for supple skin and a natural glow."
+    "introBody": "Cross-linked hyaluronic acid in a fine mesh structure delivers powerful hydration and retention. It charges the skin with moisture and smooths the surface — a premium skin booster for dewy skin and a natural glow."
   },
   "radiesse": {
     "slug": "radiesse",
     "category": "anti-aging",
-    "name": "레디어스",
-    "tagline": "CaHA 기반 콜라겐 부스터·리프팅 필러",
-    "intro": "레디어스는 CaHA(칼슘 하이드록시아파타이트) 성분의 콜라겐 부스터로, 즉각적인 볼륨과 함께 자가 콜라겐 생성을 유도해 리프팅 효과를 냅니다.",
+    "name": "Radiesse",
+    "tagline": "CaHA collagen booster and lifting filler",
+    "intro": "Radiesse is a CaHA (calcium hydroxylapatite) collagen booster that gives immediate volume while stimulating your own collagen for a lifting effect.",
     "manufacturer": "Merz (Germany)",
     "tech": [
       "CaHA",
-      "콜라겐 자극",
-      "리프팅",
+      "Collagen stimulation",
+      "Lifting",
       "1.5mL"
     ],
     "highlightStat": {
-      "value": "12~18개월",
-      "label": "지속력"
+      "value": "12–18 months",
+      "label": "Duration"
     },
     "features": [
       {
-        "title": "즉시 볼륨",
-        "body": "볼륨이 즉시 형성됩니다."
+        "title": "Instant volume",
+        "body": "Volume forms immediately after treatment."
       },
       {
-        "title": "콜라겐 자극",
-        "body": "CaHA가 자가 콜라겐 생성을 유도합니다."
+        "title": "Collagen stimulation",
+        "body": "CaHA induces your own collagen production."
       },
       {
-        "title": "리프팅",
-        "body": "얼굴 윤곽·처짐을 함께 개선합니다."
+        "title": "Lifting",
+        "body": "Improves facial contour and sagging together."
       },
       {
-        "title": "장기 유지",
-        "body": "12~18개월 유지."
+        "title": "Long lasting",
+        "body": "Maintained for 12–18 months."
       }
     ],
-    "howItWorks": "피하층 주입 → CaHA가 즉시 지지력을 주고 콜라겐 리모델링을 유도.",
+    "howItWorks": "Injected into the subcutaneous layer → CaHA provides immediate support and drives collagen remodeling.",
     "recommendedFor": [
-      "윤곽·리프팅 필요",
-      "볼륨 저하 중~후기",
-      "장기 유지 원함",
-      "자연스러운 볼륨"
+      "Contour · lifting needs",
+      "Mid-to-late volume loss",
+      "Those who want long duration",
+      "Natural-looking volume"
     ],
     "faq": [
       {
-        "q": "HA 필러와 차이?",
-        "a": "레디어스는 콜라겐 자극형으로 유지력이 길고 리프팅 효과가 있습니다."
+        "q": "Difference from HA filler?",
+        "a": "Radiesse is collagen-stimulating, so it lasts longer and adds a lifting effect."
       },
       {
-        "q": "회복 기간?",
-        "a": "당일 미세 부기, 대부분 2~3일 내 회복."
+        "q": "Recovery time?",
+        "a": "Mild swelling on the day; most recover within 2–3 days."
       }
     ]
   },
   "markview": {
     "slug": "markview",
     "category": "acne",
-    "name": "MARK-VU (마크뷰)",
-    "tagline": "AI 피부 분석 시스템 · 색소·모공·주름·유·수분을 정밀 측정",
-    "intro": "MARK-VU는 다중 파장 촬영과 AI 분석으로 피부 상태(색소·모공·주름·홍조·유수분·피부나이 등)를 정밀 측정해 시술 전후 변화를 시각적으로 확인할 수 있는 피부 분석 시스템입니다.",
+    "name": "MARK-VU",
+    "tagline": "AI skin analysis system · precise measurement of pigment, pores, wrinkles, oil and moisture",
+    "intro": "MARK-VU is a skin analysis system that uses multi-wavelength imaging and AI to precisely measure skin condition — pigment, pores, wrinkles, redness, oil/moisture, skin age and more — so you can see changes before and after treatment.",
     "manufacturer": "PSI Plus (KR)",
     "tech": [
-      "다중 파장 촬영",
-      "AI 분석",
-      "피부 진단",
-      "8가지 항목"
+      "Multi-wavelength imaging",
+      "AI analysis",
+      "Skin diagnostics",
+      "8 measurements"
     ],
     "highlightStat": {
       "value": "8+",
-      "label": "측정 항목"
+      "label": "Measurements"
     },
     "features": [
       {
-        "title": "정밀 진단",
-        "body": "다중 파장 촬영으로 육안으로 안 보이는 색소·모공까지 시각화."
+        "title": "Precise diagnosis",
+        "body": "Multi-wavelength imaging visualizes pigment and pores invisible to the naked eye."
       },
       {
-        "title": "AI 분석",
-        "body": "AI가 피부 상태를 정량 지표로 리포트."
+        "title": "AI analysis",
+        "body": "AI reports your skin condition as quantified metrics."
       },
       {
-        "title": "변화 추적",
-        "body": "시술 전후를 같은 조건에서 비교, 개선을 눈으로 확인."
+        "title": "Progress tracking",
+        "body": "Before/after comparisons under identical conditions make improvement visible."
       },
       {
-        "title": "상담 근거",
-        "body": "객관 데이터 기반으로 맞춤 시술 계획을 제안."
+        "title": "Consultation grounds",
+        "body": "Personalized treatment plans built on objective data."
       }
     ],
-    "howItWorks": "얼굴을 장비에 안착 → 다중 파장 촬영 → AI 분석 → 항목별 리포트 생성.",
+    "howItWorks": "Position your face in the device → multi-wavelength imaging → AI analysis → itemized report.",
     "recommendedFor": [
-      "첫 상담 · 피부 진단이 필요한 분",
-      "시술 전후 변화를 확인하고 싶은 분",
-      "정기 피부 관리 · 홈케어 방향 잡기",
-      "장기 관리 플랜을 세우는 분"
+      "First visits · skin diagnosis",
+      "Tracking before/after changes",
+      "Setting a skincare and home-care direction",
+      "Building a long-term care plan"
     ],
     "faq": [
       {
-        "q": "시간이 얼마나 걸리나요?",
-        "a": "촬영·분석 포함 5~10분 정도 소요됩니다."
+        "q": "How long does it take?",
+        "a": "About 5–10 minutes including imaging and analysis."
       },
       {
-        "q": "유료인가요?",
-        "a": "상담 시 안내드리며, 정기 관리 회원은 무료 진행합니다."
+        "q": "Is it paid?",
+        "a": "We'll guide you during consultation; it's free for regular-care members."
       }
     ]
+  },
+  "ellanse": {
+    "slug": "ellanse",
+    "category": "lifting",
+    "name": "Ellansé",
+    "tagline": "Premium collagen volume that builds from within your skin over time",
+    "intro": "Collagen volume lifting that stimulates\ncollagen production over time\nfor natural volume and firmness",
+    "manufacturer": "Sinclair Pharma",
+    "tech": [
+      "PCL",
+      "CMC 70% + PCL 30%",
+      "Autologous collagen"
+    ],
+    "highlightStat": {
+      "value": "1–2 yrs+",
+      "label": "Duration"
+    },
+    "features": [
+      {
+        "title": "Immediate volume",
+        "body": "The soluble gel carrier (CMC) creates instant volume right after treatment."
+      },
+      {
+        "title": "Collagen seeds",
+        "body": "PCL microspheres stimulate collagen that becomes genuinely your own."
+      },
+      {
+        "title": "Long-lasting hold",
+        "body": "Stays stable for about 1 year — often 2 years or more, longer than typical fillers."
+      },
+      {
+        "title": "Natural feel",
+        "body": "Filled with your own collagen, it feels natural with no foreign-body sensation."
+      }
+    ],
+    "howItWorks": "Ellansé's secret is the synergy of two key ingredients in a perfect ratio (CMC 70% + PCL 30%). CMC (a soluble gel carrier) completes immediate volume right after treatment, while PCL (polymer microspheres) stimulates collagen so your own tissue fills in naturally over time.",
+    "recommendedFor": [
+      "Those who dislike the artificial volume, show-through, or migration of fillers",
+      "Those who want overall skin firmness, beyond just filling sunken areas",
+      "Those who want a natural feel with no foreign-body sensation",
+      "Those seeking a long, stable duration of a year or more instead of quickly absorbed treatments",
+      "Those whose facial lines have softened and want refined, dimensional contouring"
+    ],
+    "faq": [
+      {
+        "q": "What's the biggest difference from regular hyaluronic acid (HA) fillers?",
+        "a": "Ellansé prompts your own skin to produce real collagen. Over time it fills in with your own tissue, looking far more natural."
+      },
+      {
+        "q": "Is it safe if the ingredient stays in the body?",
+        "a": "Both PCL and CMC are US FDA and European CE certified medical materials; after the designated duration they safely biodegrade and leave the body."
+      },
+      {
+        "q": "How is the pain? Will it affect daily life?",
+        "a": "Performed gently under local anesthesia. Slight swelling, stiffness, or minor bruising may follow but usually settles within a few days."
+      },
+      {
+        "q": "When do results appear and how long do they last?",
+        "a": "Immediate volume improvement is visible right after treatment, and from about a month later your own collagen builds for an even more natural look. Duration is about 1 year, often 2 years or more."
+      }
+    ],
+    "introBody": "A combination of polycaprolactone (PCL) and CMC gel: the CMC gel creates natural early volume and lift, while PCL stimulates fibroblasts to synthesize collagen. Collagen volume lifting that helps restore natural volume and elasticity."
   }
 }

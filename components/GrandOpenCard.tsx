@@ -1,7 +1,27 @@
 "use client";
 
+import { useLocale } from "next-intl";
 import type { GrandOpenCategory } from "@/lib/grand-open";
-import { GRAND_OPEN_META } from "@/lib/grand-open";
+import { getGrandOpenMeta } from "@/lib/grand-open";
+
+// 가격 렌더 — "n만원"이면 숫자 + 작은 '만원', 아니면(₩ 표기) 그대로
+function PriceText({ p }: { p: string }) {
+  if (p.includes("만원")) {
+    return (
+      <>
+        {p.replace("만원", "")}
+        <span className="ml-0.5 text-[10px] text-cream">만원</span>
+      </>
+    );
+  }
+  return <>{p}</>;
+}
+
+function priceLabels(locale: string) {
+  return locale === "ko"
+    ? { event: "이벤트가", regular: "정가" }
+    : { event: "Event", regular: "Regular" };
+}
 
 /**
  * Single-category card renderer used by:
@@ -22,6 +42,8 @@ export function GrandOpenCard({
   showHeader?: boolean;
   showDate?: boolean;
 }) {
+  const locale = useLocale();
+  const meta = getGrandOpenMeta(locale);
   const scale =
     variant === "compact"
       ? {
@@ -48,7 +70,7 @@ export function GrandOpenCard({
       {showHeader && (
         <header className="text-center">
           <p className="text-[10px] font-medium tracking-[0.28em] text-cream sm:text-[11px]">
-            {GRAND_OPEN_META.eyebrow}
+            {meta.eyebrow}
           </p>
           <h2
             className={`mt-2 whitespace-nowrap font-serif font-normal leading-none tracking-tight text-brand-soft ${scale.title}`}
@@ -69,12 +91,12 @@ export function GrandOpenCard({
                   variant === "compact" ? "lg:hidden" : ""
                 }`}
               >
-                {GRAND_OPEN_META.period} · {GRAND_OPEN_META.vatNote}
+                {meta.period} · {meta.vatNote}
               </p>
               {/* 데스크탑 compact: 기간은 숨기고 VAT 안내만 표시 */}
               {variant === "compact" && (
                 <p className="mt-2 hidden text-[10px] tracking-[0.18em] text-cream/70 lg:block">
-                  {GRAND_OPEN_META.vatNote}
+                  {meta.vatNote}
                 </p>
               )}
             </>
@@ -128,11 +150,12 @@ function LiftingBody({
   rowText: string;
   rowPrice: string;
 }) {
+  const L = priceLabels(useLocale());
   return (
     <>
       <div className="mb-0.5 flex items-center justify-end">
         <span className="rounded-full bg-ink/85 px-3 py-1 text-[10px] font-medium tracking-[0.1em] text-cream">
-          이벤트가
+          {L.event}
         </span>
       </div>
       {category.groups.map((g) => {
@@ -153,8 +176,7 @@ function LiftingBody({
               <li key={r.name} className="flex items-baseline justify-between gap-3">
                 <span className={`text-cream text-legible ${rowText}`}>{r.name}</span>
                 <span className={`font-serif tabular-nums text-cream text-legible ${rowPrice}`}>
-                  {r.price.replace("만원", "")}
-                  <span className="ml-1 text-[10px] text-cream">만원</span>
+                  <PriceText p={r.price} />
                 </span>
               </li>
             ))}
@@ -176,16 +198,17 @@ function WhiteningBody({
   rowPrice: string;
 }) {
   // grid: 이름/설명 | 정가(정렬 우측, 90px) | 이벤트가(우측, 92px)
+  const L = priceLabels(useLocale());
   const gridCls = "grid grid-cols-[1fr_82px_92px] items-baseline gap-3";
   return (
     <>
       <div className={`mb-1 ${gridCls}`}>
         <span />
         <span className="rounded-full bg-ink/50 px-2 py-1 text-center text-[10px] font-medium tracking-[0.1em] text-cream">
-          정가
+          {L.regular}
         </span>
         <span className="rounded-full bg-ink/85 px-2 py-1 text-center text-[10px] font-medium tracking-[0.1em] text-cream">
-          이벤트가
+          {L.event}
         </span>
       </div>
       {category.groups.map((g) => (
@@ -206,8 +229,7 @@ function WhiteningBody({
                   {r.original ?? ""}
                 </span>
                 <span className={`text-right font-serif tabular-nums text-cream text-legible ${rowPrice}`}>
-                  {r.event.replace("만원", "")}
-                  <span className="ml-0.5 text-[10px] text-cream">만원</span>
+                  <PriceText p={r.event} />
                 </span>
               </li>
             ))}
@@ -247,10 +269,7 @@ function SkinboosterBody({
               {r.original}
             </span>
             <span className={`text-right font-serif tabular-nums text-cream text-legible ${rowPrice}`}>
-              {r.event.replace("만원", "")}
-              {r.event.includes("만원") && (
-                <span className="ml-0.5 text-[10px] text-cream">만원</span>
-              )}
+              <PriceText p={r.event} />
             </span>
           </li>
         ))}
@@ -297,8 +316,7 @@ function BotoxBody({
                 key={i}
                 className={`text-center font-serif tabular-nums text-cream text-legible ${rowPrice}`}
               >
-                {p.replace("만원", "")}
-                <span className="ml-0.5 text-[10px] text-cream">만원</span>
+                <PriceText p={p} />
               </span>
             ))}
           </li>
