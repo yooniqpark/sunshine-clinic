@@ -2,8 +2,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
-import { CampaignPopups } from "@/components/CampaignPopups";
-import { getActiveEventPreset } from "@/lib/active-event-preset";
+import { FirstVisitPopup } from "@/components/FirstVisitPopup";
 import { LiftingDeviceSlider } from "../_components/LiftingDeviceSlider";
 import { SignatureShowcase } from "../_components/SignatureShowcase";
 import { SunshineStandardSplit } from "../_components/SunshineStandardSplit";
@@ -34,7 +33,6 @@ export default async function PreviewHome({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("v2.home");
-  const activeEventPreset = await getActiveEventPreset();
 
   const STATS_KEYS = ["years", "devices", "languages", "personal"] as const;
   const DEVICES_KEYS = [
@@ -48,7 +46,7 @@ export default async function PreviewHome({
 
   return (
     <>
-      <CampaignPopups activePreset={activeEventPreset} />
+      <FirstVisitPopup />
 
       {/* ═══════ 1. HERO — 풀스크린 영상 ═══════ */}
       <section className="relative h-screen w-full overflow-hidden bg-ink text-cream">
