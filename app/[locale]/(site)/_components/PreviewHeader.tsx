@@ -3,7 +3,7 @@
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
@@ -19,6 +19,12 @@ export function PreviewHeader() {
   const [mobileOpen, setMobileOpen] = useState<string | null>(null);
   const t = useTranslations("v2.header");
   const tBrand = useTranslations("brand");
+  const locale = useLocale();
+  // ko 외 로케일은 메뉴 라벨이 길어 데스크톱 네비를 축소해 겹침·줄바꿈 방지
+  const compact = locale !== "ko";
+  const navItemSize = compact
+    ? "px-2 py-2 text-[13px] xl:px-2.5 xl:text-[15px]"
+    : "px-4 py-2 text-base lg:text-lg";
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -104,7 +110,7 @@ export function PreviewHeader() {
         <Link
           href="/home"
           onClick={() => setOpen(false)}
-          className="group flex items-center gap-3"
+          className="group flex shrink-0 items-center gap-3"
         >
           <Image
             src="/logo-mark.svg"
@@ -138,14 +144,14 @@ export function PreviewHeader() {
             >
               {item.children ? (
                 <span
-                  className={`flex cursor-default items-center gap-1 rounded-full px-4 py-2 text-base font-medium lg:text-lg transition ${linkColor}`}
+                  className={`flex cursor-default items-center gap-1 whitespace-nowrap rounded-full font-medium transition ${navItemSize} ${linkColor}`}
                 >
                   {item.label}
                 </span>
               ) : (
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 rounded-full px-4 py-2 text-base font-medium lg:text-lg transition hover:text-brand-dark ${linkColor}`}
+                  className={`flex items-center gap-1 whitespace-nowrap rounded-full font-medium transition hover:text-brand-dark ${navItemSize} ${linkColor}`}
                 >
                   {item.label}
                 </Link>
@@ -185,11 +191,11 @@ export function PreviewHeader() {
               )}
             </div>
           ))}
-          <div className="ml-3 flex items-center gap-3">
+          <div className={`flex items-center ${compact ? "ml-1.5 gap-2" : "ml-3 gap-3"}`}>
             <LanguageSwitcher tone={solid ? "light" : "dark"} />
             <Link
               href="/home#book"
-              className="rounded-full bg-ink px-5 py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark"
+              className={`whitespace-nowrap rounded-full bg-ink py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark ${compact ? "px-3.5" : "px-5"}`}
             >
               {t("ctaBook")}
             </Link>
