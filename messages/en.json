@@ -650,6 +650,31 @@
       "ctaSeeMore": "View details",
       "items": [
         {
+          "tag": "WELCOME",
+          "slug": "first-visit-2026",
+          "date": "2026.08 –",
+          "title": "First Visit Welcome Event",
+          "excerpt": "Your first visit to Sunshine — starting with the treatments you truly need. Special benefits for first-time guests.",
+          "body": [
+            "We offer welcome benefits for guests visiting Sunshine Clinic for the first time — from Botox and fillers to lifting and collagen volume, start with what you truly need.",
+            "See the price guide below. The right treatment is recommended after a consultation with our medical staff. (Some treatments excluded · VAT excluded)"
+          ],
+          "images": [
+            {
+              "src": "/events/first-visit-welcome-2026.jpg",
+              "label": "First Visit Event",
+              "width": 1024,
+              "height": 1536
+            },
+            {
+              "src": "/events/first-visit-benefit-2026.jpg",
+              "label": "Welcome Benefit",
+              "width": 1024,
+              "height": 1536
+            }
+          ]
+        },
+        {
           "tag": "OPEN",
           "slug": "grand-open-2026-07",
           "date": "2026.07.13 – 2026.08.30",
@@ -660,20 +685,16 @@
           ],
           "images": [
             {
-              "src": "/events/grand-open/lifting.jpg",
-              "label": "Lifting"
+              "src": "/events/grand-open-welcome-2026.jpg",
+              "label": "Grand Open Event",
+              "width": 1024,
+              "height": 1536
             },
             {
-              "src": "/events/grand-open/whitening-acne.jpg",
-              "label": "Whitening & Acne"
-            },
-            {
-              "src": "/events/grand-open/skinbooster.jpg",
-              "label": "Skin Booster"
-            },
-            {
-              "src": "/events/grand-open/botox.jpg",
-              "label": "Botox"
+              "src": "/events/grand-open-benefit-2026.jpg",
+              "label": "Grand Open Price List",
+              "width": 1237,
+              "height": 1271
             }
           ]
         }

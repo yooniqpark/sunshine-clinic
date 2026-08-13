@@ -650,6 +650,31 @@
       "ctaSeeMore": "查看详情",
       "items": [
         {
+          "tag": "WELCOME",
+          "slug": "first-visit-2026",
+          "date": "2026.08 –",
+          "title": "首次到访欢迎活动",
+          "excerpt": "初次遇见阳光，从您真正需要的项目开始。为首次到访顾客准备的特别优惠。",
+          "body": [
+            "为首次到访阳光皮肤科的顾客准备了欢迎优惠——肉毒、填充、提升、胶原蛋白容量,从您需要的项目轻松开始。",
+            "详细价格请见下方指南。治疗前将由医疗团队面诊,根据您的肌肤状态推荐合适的项目。(部分项目除外 · 不含VAT)"
+          ],
+          "images": [
+            {
+              "src": "/events/first-visit-welcome-2026.jpg",
+              "label": "First Visit Event",
+              "width": 1024,
+              "height": 1536
+            },
+            {
+              "src": "/events/first-visit-benefit-2026.jpg",
+              "label": "Welcome Benefit",
+              "width": 1024,
+              "height": 1536
+            }
+          ]
+        },
+        {
           "tag": "OPEN",
           "slug": "grand-open-2026-07",
           "date": "2026.07.13 – 2026.08.30",
@@ -660,20 +685,16 @@
           ],
           "images": [
             {
-              "src": "/events/grand-open/lifting.jpg",
-              "label": "提升"
+              "src": "/events/grand-open-welcome-2026.jpg",
+              "label": "Grand Open Event",
+              "width": 1024,
+              "height": 1536
             },
             {
-              "src": "/events/grand-open/whitening-acne.jpg",
-              "label": "美白 & 痘痘"
-            },
-            {
-              "src": "/events/grand-open/skinbooster.jpg",
-              "label": "皮肤增强"
-            },
-            {
-              "src": "/events/grand-open/botox.jpg",
-              "label": "肉毒素"
+              "src": "/events/grand-open-benefit-2026.jpg",
+              "label": "Grand Open Price List",
+              "width": 1237,
+              "height": 1271
             }
           ]
         }
