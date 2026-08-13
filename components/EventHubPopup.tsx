@@ -93,7 +93,7 @@ export function EventHubPopup() {
         {/* ── 허브: 4개 이벤트 그리드 ── */}
         {view === "hub" && (
           <div className="min-h-0 overflow-y-auto px-4 pb-3 pt-5">
-            <p className="text-center text-[10px] font-semibold tracking-[0.3em] text-[#a08360]">
+            <p className="text-center text-[10px] font-semibold tracking-[0.3em] text-[#d95f26]">
               SUNSHINE SKIN CLINIC
             </p>
             <h2 className="mt-1.5 text-center font-serif text-2xl tracking-tight text-[#3d3129]">
@@ -108,20 +108,18 @@ export function EventHubPopup() {
               <button
                 type="button"
                 onClick={() => setView("first-visit")}
-                className="group overflow-hidden rounded-2xl border border-[#d95f26]/15 bg-white text-left shadow-sm transition hover:shadow-md"
+                className="group relative aspect-[3/4] overflow-hidden rounded-2xl text-left shadow-sm transition hover:shadow-md"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <Image
-                    src={IMAGE_EVENTS["first-visit"].cover}
-                    alt="첫 방문 이벤트"
-                    fill
-                    sizes="240px"
-                    className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div className="flex items-center justify-between px-3 py-2.5">
-                  <span className="text-[12px] font-bold text-[#3d3129]">첫 방문 이벤트</span>
-                  <span aria-hidden className="text-[#c65b22]">→</span>
+                <Image
+                  src={IMAGE_EVENTS["first-visit"].cover}
+                  alt="첫 방문 이벤트"
+                  fill
+                  sizes="240px"
+                  className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/55 via-black/25 to-transparent px-3 pb-2.5 pt-7">
+                  <span className="text-[12px] font-bold text-white drop-shadow">첫 방문 이벤트</span>
+                  <span aria-hidden className="text-white/90">→</span>
                 </div>
               </button>
 
@@ -129,20 +127,18 @@ export function EventHubPopup() {
               <button
                 type="button"
                 onClick={() => setView("grand-open")}
-                className="group overflow-hidden rounded-2xl border border-[#d95f26]/15 bg-white text-left shadow-sm transition hover:shadow-md"
+                className="group relative aspect-[3/4] overflow-hidden rounded-2xl text-left shadow-sm transition hover:shadow-md"
               >
-                <div className="relative aspect-[4/5] overflow-hidden">
-                  <Image
-                    src={IMAGE_EVENTS["grand-open"].cover}
-                    alt="그랜드 오픈 이벤트"
-                    fill
-                    sizes="240px"
-                    className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
-                  />
-                </div>
-                <div className="flex items-center justify-between px-3 py-2.5">
-                  <span className="text-[12px] font-bold text-[#3d3129]">그랜드 오픈</span>
-                  <span aria-hidden className="text-[#c65b22]">→</span>
+                <Image
+                  src={IMAGE_EVENTS["grand-open"].cover}
+                  alt="그랜드 오픈 이벤트"
+                  fill
+                  sizes="240px"
+                  className="object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-black/55 via-black/25 to-transparent px-3 pb-2.5 pt-7">
+                  <span className="text-[12px] font-bold text-white drop-shadow">그랜드 오픈</span>
+                  <span aria-hidden className="text-white/90">→</span>
                 </div>
               </button>
 
@@ -155,14 +151,16 @@ export function EventHubPopup() {
                 <div>
                   <p className="text-[9px] font-semibold tracking-[0.22em] text-[#d8b48c]">NOTICE</p>
                   <p className="mt-1.5 font-serif text-lg leading-snug text-[#f6ecdc]">
-                    8월 진료 안내
+                    8월 15일
+                    <br />
+                    정상 진료
                   </p>
                 </div>
                 <div className="mt-4 flex items-end justify-between">
                   <p className="text-[10px] leading-relaxed text-[#f6ecdc]/60">
-                    광복절 정상 진료
+                    광복절에도 진료
                     <br />
-                    8.17(월) 휴진
+                    8.17(월)만 휴진
                   </p>
                   <span aria-hidden className="text-[#d8b48c]">→</span>
                 </div>
@@ -265,38 +263,47 @@ function HolidayDetail() {
     hours?: string;
   }[];
 
+  const openDay = days.find((d) => d.status === "open");
+  const closedDay = days.find((d) => d.status === "closed");
+
   return (
-    <div className="min-h-0 overflow-y-auto px-6 pb-6 pt-7 text-center">
-      <p className="text-[10px] font-semibold tracking-[0.3em] text-[#a08360]">{t("brand")}</p>
-      <h2 className="mt-2 font-serif text-2xl tracking-tight text-[#3d3129]">{t("title")}</h2>
+    <div className="min-h-0 overflow-y-auto bg-[#fffdf9] px-6 pb-6 pt-7 text-center">
+      <p className="text-[10px] font-semibold tracking-[0.3em] text-[#d95f26]">{t("brand")}</p>
+      <h2 className="mt-2 font-serif text-[26px] tracking-tight text-[#3d3129]">{t("title")}</h2>
       <p className="mt-3 text-[13px] leading-relaxed text-[#6d5c4a]">
         {t("body1")}
         <br />
         {t("body2")}
       </p>
-      <div className="mt-5 grid grid-cols-2 gap-2.5">
-        {days.map((d) => (
-          <div
-            key={d.date}
-            className={`rounded-2xl px-3 py-4 ${
-              d.status === "closed"
-                ? "bg-[#3d3129] text-[#f6ecdc]"
-                : "bg-white text-[#3d3129] ring-1 ring-[#d95f26]/15"
-            }`}
-          >
-            <p className="text-[10px] opacity-70">
-              {d.date} ({d.weekday})
+
+      {/* 8/15 정상 진료 — 메인 강조 카드 */}
+      {openDay && (
+        <div className="mt-5 rounded-3xl bg-gradient-to-b from-[#fff3e6] to-[#ffe8d2] px-5 py-6 ring-2 ring-[#d95f26]/45 shadow-md shadow-[#d95f26]/10">
+          <p className="text-[12px] font-semibold text-[#8a5a34]">
+            {openDay.date} ({openDay.weekday}) · {openDay.label}
+          </p>
+          <p className="mt-1.5 font-serif text-4xl font-semibold text-[#d95f26]">
+            {t("openLabel")}
+          </p>
+          {openDay.hours && (
+            <p className="mt-2 inline-block rounded-full bg-white/80 px-4 py-1.5 text-[13px] font-semibold tabular-nums text-[#3d3129]">
+              {openDay.hours}
             </p>
-            <p className="mt-0.5 text-[10px] font-semibold tracking-[0.08em] text-[#c65b22]">
-              {d.label}
-            </p>
-            <p className="mt-2 font-serif text-xl">
-              {d.status === "closed" ? t("closedLabel") : t("openLabel")}
-            </p>
-            {d.hours && <p className="mt-1.5 text-[10px] opacity-70">{d.hours}</p>}
-          </div>
-        ))}
-      </div>
+          )}
+        </div>
+      )}
+
+      {/* 8/17 휴진 — 보조 안내 */}
+      {closedDay && (
+        <div className="mt-2.5 flex items-center justify-center gap-2 rounded-2xl bg-[#f2ece2] px-4 py-3 text-[12px] text-[#6d5c4a]">
+          <span className="font-semibold">
+            {closedDay.date} ({closedDay.weekday}) {closedDay.label}
+          </span>
+          <span aria-hidden className="text-[#b5a68f]">·</span>
+          <span>{t("closedLabel")}</span>
+        </div>
+      )}
+
       <p className="mt-5 text-[11px] leading-relaxed text-[#8a7660]">{t("footer")}</p>
     </div>
   );

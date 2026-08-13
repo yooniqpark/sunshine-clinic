@@ -1098,9 +1098,9 @@
       },
       "holiday": {
         "brand": "SUNSHINE CLINIC",
-        "title": "August Schedule",
-        "body1": "Aug 15 (Sat) — Liberation Day, open as usual",
-        "body2": "Aug 17 (Mon) — Substitute holiday, closed",
+        "title": "Open on August 15",
+        "body1": "We are open as usual on Sat, Aug 15 (Liberation Day).",
+        "body2": "Closed on Mon, Aug 17 (substitute holiday).",
         "openLabel": "Open",
         "closedLabel": "Closed",
         "days": [
