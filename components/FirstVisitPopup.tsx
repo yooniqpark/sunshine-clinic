@@ -19,27 +19,35 @@ function todayStr() {
  * 이미지를 누르면 가격표(WELCOME BENEFIT) 이미지로 전환된다.
  * 탭·프리셋 전환 없이 단일 팝업.
  */
-export function FirstVisitPopup() {
+export function FirstVisitPopup({ onClose }: { onClose?: () => void } = {}) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
   const [stage, setStage] = useState<0 | 1>(0);
 
   useEffect(() => {
     setMounted(true);
+    let hidden = false;
     try {
-      setOpen(localStorage.getItem(KEY) !== todayStr());
-    } catch {
-      setOpen(true);
-    }
+      hidden = localStorage.getItem(KEY) === todayStr();
+    } catch {}
+    setOpen(!hidden);
+    if (hidden) onClose?.();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  function dismiss() {
+    setOpen(false);
+    onClose?.();
+  }
 
   useEffect(() => {
     if (!open) return;
     const onKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setOpen(false);
+      if (event.key === "Escape") dismiss();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open]);
 
   if (!mounted || !open) return null;
@@ -48,7 +56,7 @@ export function FirstVisitPopup() {
     try {
       localStorage.setItem(KEY, todayStr());
     } catch {}
-    setOpen(false);
+    dismiss();
   }
 
   return (
@@ -56,7 +64,7 @@ export function FirstVisitPopup() {
       <button
         type="button"
         aria-label="팝업 닫기"
-        onClick={() => setOpen(false)}
+        onClick={dismiss}
         className="absolute inset-0 h-full w-full cursor-default"
       />
 
@@ -80,12 +88,21 @@ export function FirstVisitPopup() {
             className="object-contain"
             draggable={false}
           />
-          {stage === 0 && (
-            <span className="pointer-events-none absolute bottom-2 left-1/2 -translate-x-1/2 animate-pulse whitespace-nowrap rounded-full bg-[#3d3129]/65 px-3.5 py-1 text-[10px] font-semibold tracking-[0.06em] text-[#f6ecdc] backdrop-blur-sm">
-              이미지를 누르면 혜택이 열려요
-            </span>
-          )}
         </button>
+
+        {/* 명시적 CTA — 클릭하면 가격표(WELCOME BENEFIT)로 전환 */}
+        {stage === 0 && (
+          <div className="shrink-0 bg-[#f4efe7] px-4 pb-1 pt-0.5">
+            <button
+              type="button"
+              onClick={() => setStage(1)}
+              className="group flex w-full items-center justify-between rounded-full bg-[#c65b22] px-6 py-3 text-sm font-bold tracking-[0.04em] text-[#fdf4e8] shadow-md shadow-[#c65b22]/25 transition hover:bg-[#a94a18]"
+            >
+              <span>첫 방문 혜택 · 가격 보기</span>
+              <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+            </button>
+          </div>
+        )}
 
         <div className="flex shrink-0 items-center justify-between border-t border-[#d95f26]/20 bg-[#efe7da] px-5 py-2.5 text-xs text-[#5a4a3c]">
           <button type="button" onClick={closeToday} className="hover:text-[#3d3129]">
@@ -96,7 +113,7 @@ export function FirstVisitPopup() {
               ← 처음으로
             </button>
           )}
-          <button type="button" onClick={() => setOpen(false)} className="font-semibold hover:text-[#3d3129]">
+          <button type="button" onClick={dismiss} className="font-semibold hover:text-[#3d3129]">
             닫기
           </button>
         </div>
