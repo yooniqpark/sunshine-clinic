@@ -1,12 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
-import { useLocale } from "next-intl";
 import { ArrowUpRightIcon } from "@/components/icons";
-import { getGrandOpenCategories } from "@/lib/grand-open";
-import { GrandOpenCard } from "@/components/GrandOpenCard";
 
-export type EventImage = { src: string; label: string };
+export type EventImage = { src: string; label: string; width?: number; height?: number };
 export type EventEntry = {
   tag: string;
   slug: string;
@@ -24,7 +22,6 @@ export function EventsBoard({
   items: EventEntry[];
   openTag: string;
 }) {
-  const GRAND_OPEN_CATEGORIES = getGrandOpenCategories(useLocale());
   const [openSlug, setOpenSlug] = useState<string | null>(items[0]?.slug ?? null);
 
   if (items.length === 0) {
@@ -137,20 +134,23 @@ export function EventsBoard({
                     </div>
                   </div>
 
-                  {/* Grand Open card — 강조: 다크 프리미엄 카드 스택 */}
-                  {e.slug === "grand-open-2026-07" && (
-                    <div className="mt-10 space-y-4 md:ml-[110px]">
-                      {GRAND_OPEN_CATEGORIES.map((cat, i) => (
-                        <div
-                          key={cat.slug}
-                          className="overflow-hidden rounded-3xl bg-ink shadow-xl shadow-ink/15"
+                  {/* 이벤트 이미지 — 커버 · 가격표 포스터 */}
+                  {e.images && e.images.length > 0 && (
+                    <div className="mt-10 space-y-5 md:ml-[110px]">
+                      {e.images.map((img) => (
+                        <figure
+                          key={img.src}
+                          className="overflow-hidden rounded-3xl shadow-xl shadow-ink/10"
                         >
-                          <GrandOpenCard
-                            category={cat}
-                            variant="full"
-                            showHeader={i === 0}
+                          <Image
+                            src={img.src}
+                            alt={img.label}
+                            width={img.width ?? 1024}
+                            height={img.height ?? 1536}
+                            sizes="(min-width: 768px) 672px, 100vw"
+                            className="h-auto w-full max-w-2xl"
                           />
-                        </div>
+                        </figure>
                       ))}
                     </div>
                   )}

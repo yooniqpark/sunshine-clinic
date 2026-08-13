@@ -650,6 +650,31 @@
       "ctaSeeMore": "詳しく見る",
       "items": [
         {
+          "tag": "WELCOME",
+          "slug": "first-visit-2026",
+          "date": "2026.08 –",
+          "title": "初回来院ウェルカムイベント",
+          "excerpt": "はじめて出会うサンシャイン、本当に必要な施術から。初回来院の方への特別な特典。",
+          "body": [
+            "サンシャインクリニックに初めてご来院の方へウェルカム特典をご用意しました。ボトックス・フィラー・リフティング・コラーゲンボリュームまで、必要な施術から気軽に始めてください。",
+            "詳しい価格は下記のご案内をご確認ください。施術前に医療スタッフとのカウンセリングを行い、お肌の状態に合った施術をご案内します。（一部施術を除く・VAT別）"
+          ],
+          "images": [
+            {
+              "src": "/events/first-visit-welcome-2026.jpg",
+              "label": "First Visit Event",
+              "width": 1024,
+              "height": 1536
+            },
+            {
+              "src": "/events/first-visit-benefit-2026.jpg",
+              "label": "Welcome Benefit",
+              "width": 1024,
+              "height": 1536
+            }
+          ]
+        },
+        {
           "tag": "OPEN",
           "slug": "grand-open-2026-07",
           "date": "2026.07.13 – 2026.08.30",
@@ -660,20 +685,16 @@
           ],
           "images": [
             {
-              "src": "/events/grand-open/lifting.jpg",
-              "label": "リフティング"
+              "src": "/events/grand-open-welcome-2026.jpg",
+              "label": "Grand Open Event",
+              "width": 1024,
+              "height": 1536
             },
             {
-              "src": "/events/grand-open/whitening-acne.jpg",
-              "label": "ホワイトニング & ニキビ"
-            },
-            {
-              "src": "/events/grand-open/skinbooster.jpg",
-              "label": "スキンブースター"
-            },
-            {
-              "src": "/events/grand-open/botox.jpg",
-              "label": "ボトックス"
+              "src": "/events/grand-open-benefit-2026.jpg",
+              "label": "Grand Open Price List",
+              "width": 1237,
+              "height": 1271
             }
           ]
         }

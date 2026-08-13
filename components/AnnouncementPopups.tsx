@@ -38,7 +38,7 @@ type Popup = {
 };
 
 const POPUPS: Popup[] = [
-  { id: "grand-open-2026-07-v3", variant: "event" },
+  // 그랜드 오픈은 HomePopups의 이미지 팝업(grand-open-welcome-2026-v1)으로 이동
   { id: "aug-2026-holiday", variant: "holiday" },
   { id: "sedation-2026-07", variant: "sedation" },
 ];

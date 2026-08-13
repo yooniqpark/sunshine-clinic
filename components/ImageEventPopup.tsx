@@ -3,11 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-const POPUP_ID = "first-visit-welcome-2026-v1";
-const KEY = "sunshine-popup:" + POPUP_ID;
-
-const COVER = "/events/first-visit-welcome-2026.jpg";
-const PRICE = "/events/first-visit-benefit-2026.jpg";
+const KEY_PREFIX = "sunshine-popup:";
 
 function todayStr() {
   const d = new Date();
@@ -15,11 +11,33 @@ function todayStr() {
 }
 
 /**
- * 첫 방문 이벤트 팝업 — 웰컴 커버 이미지가 뜨고,
- * 이미지를 누르면 가격표(WELCOME BENEFIT) 이미지로 전환된다.
- * 탭·프리셋 전환 없이 단일 팝업.
+ * 이미지 2단 이벤트 팝업 — 커버 이미지가 뜨고,
+ * CTA 버튼(또는 이미지)을 누르면 가격표 이미지로 전환된다.
  */
-export function FirstVisitPopup({ onClose }: { onClose?: () => void } = {}) {
+export function ImageEventPopup({
+  popupId,
+  cover,
+  price,
+  coverAspect = "2 / 3",
+  priceAspect = "2 / 3",
+  ctaLabel,
+  ariaLabel,
+  coverAlt,
+  priceAlt,
+  onClose,
+}: {
+  popupId: string;
+  cover: string;
+  price: string;
+  coverAspect?: string;
+  priceAspect?: string;
+  ctaLabel: string;
+  ariaLabel: string;
+  coverAlt: string;
+  priceAlt: string;
+  onClose?: () => void;
+}) {
+  const KEY = KEY_PREFIX + popupId;
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
   const [stage, setStage] = useState<0 | 1>(0);
@@ -69,19 +87,19 @@ export function FirstVisitPopup({ onClose }: { onClose?: () => void } = {}) {
       />
 
       <section
-        aria-label="첫 방문 이벤트"
+        aria-label={ariaLabel}
         className="pointer-events-auto relative flex h-auto max-h-[92dvh] w-full max-w-[480px] flex-col overflow-hidden rounded-[1.5rem] bg-[#f4efe7] shadow-2xl shadow-black/35 sm:max-w-[520px]"
       >
         <button
           type="button"
           onClick={() => setStage(stage === 0 ? 1 : 0)}
-          aria-label={stage === 0 ? "첫 방문 혜택 가격표 보기" : "이벤트 첫 화면으로 돌아가기"}
+          aria-label={stage === 0 ? `${ariaLabel} 가격표 보기` : "이벤트 첫 화면으로 돌아가기"}
           className="relative block w-full shrink overflow-hidden"
-          style={{ aspectRatio: "2 / 3" }}
+          style={{ aspectRatio: stage === 0 ? coverAspect : priceAspect }}
         >
           <Image
-            src={stage === 0 ? COVER : PRICE}
-            alt={stage === 0 ? "선샤인의원 첫 방문 이벤트" : "첫 방문 웰컴 혜택 가격표"}
+            src={stage === 0 ? cover : price}
+            alt={stage === 0 ? coverAlt : priceAlt}
             fill
             priority
             sizes="(min-width: 640px) 520px, 100vw"
@@ -90,7 +108,7 @@ export function FirstVisitPopup({ onClose }: { onClose?: () => void } = {}) {
           />
         </button>
 
-        {/* 명시적 CTA — 클릭하면 가격표(WELCOME BENEFIT)로 전환 */}
+        {/* 명시적 CTA — 클릭하면 가격표로 전환 */}
         {stage === 0 && (
           <div className="shrink-0 bg-[#f4efe7] px-4 pb-1 pt-0.5">
             <button
@@ -98,7 +116,7 @@ export function FirstVisitPopup({ onClose }: { onClose?: () => void } = {}) {
               onClick={() => setStage(1)}
               className="group flex w-full items-center justify-between rounded-full bg-[#c65b22] px-6 py-3 text-sm font-bold tracking-[0.04em] text-[#fdf4e8] shadow-md shadow-[#c65b22]/25 transition hover:bg-[#a94a18]"
             >
-              <span>첫 방문 혜택 · 가격 보기</span>
+              <span>{ctaLabel}</span>
               <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
             </button>
           </div>
