@@ -117,14 +117,16 @@ export function EventsBoard({
             >
               <div className="min-h-0">
                 <div className="pb-10 md:pb-14">
+                  {/* 본문 카드 — 흰 배경으로 내용 영역을 분리 */}
+                  <div className="rounded-2xl border border-ink/10 bg-white px-6 py-7 shadow-sm shadow-ink/5 md:px-9 md:py-9">
                   {/* Mobile date */}
-                  <p className="mb-4 font-serif text-xs tabular-nums text-ink/50 md:hidden">
+                  <p className="mb-5 font-serif text-xs tabular-nums text-ink/45 md:hidden">
                     {e.date}
                   </p>
 
                   {/* Body copy */}
-                  <div className="grid gap-8 md:grid-cols-[110px_1fr]">
-                    <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/40 md:block">
+                  <div className="grid gap-6 md:grid-cols-[110px_1fr] md:gap-8">
+                    <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/35 md:block">
                       NOTES
                     </p>
                     <div className="max-w-2xl space-y-4 text-[15px] leading-[1.85] text-ink/70">
@@ -156,7 +158,7 @@ export function EventsBoard({
                   )}
 
                   {/* CTA — 얇은 라인 버튼 (피부과 톤) */}
-                  <div className="mt-10 flex flex-wrap items-center gap-3 md:ml-[110px]">
+                  <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-ink/10 pt-6 md:ml-[110px]">
                     <a
                       href="tel:024217588"
                       className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-cream transition hover:bg-brand-dark"
@@ -172,6 +174,7 @@ export function EventsBoard({
                       KakaoTalk
                       <ArrowUpRightIcon className="h-3.5 w-3.5" />
                     </a>
+                  </div>
                   </div>
                 </div>
               </div>

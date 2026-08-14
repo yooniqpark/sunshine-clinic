@@ -613,33 +613,58 @@
       "items": [
         {
           "tag": "Notice",
+          "slug": "sedation-2026-07",
           "date": "2026.07.28",
           "title": "Sedation monitoring system introduced",
-          "excerpt": "For safer, more comfortable care, we've introduced a sedation monitoring system. Vitals are continuously checked before, during, and after treatment. Use is decided in consultation with our staff based on the procedure and your condition."
+          "excerpt": "For safer, more comfortable care, we've introduced a sedation monitoring system. Vitals are continuously checked before, during, and after treatment. Use is decided in consultation with our staff based on the procedure and your condition.",
+          "body": [
+            "We have introduced a sedation (monitored anesthesia) system for safer, more comfortable treatment. After a pre-procedure interview and health check, blood pressure, oxygen saturation and heart rate are continuously monitored throughout.",
+            "Whether sedation is used is decided after consultation with our medical staff, based on the procedure and your health condition. You will be discharged only after recovery is confirmed. Driving on the same day is not recommended."
+          ]
         },
         {
           "tag": "OPEN",
+          "slug": "grand-open-2026-07",
           "date": "2026.07.15",
           "title": "Sunshine Clinic Grand Opening",
-          "excerpt": "Sunshine Clinic officially opens on Olympic-ro, Songpa-gu. A grand-opening consultation event is running alongside."
+          "excerpt": "Sunshine Clinic officially opens on Olympic-ro, Songpa-gu. A grand-opening consultation event is running alongside.",
+          "body": [
+            "Sunshine Clinic has officially opened on Olympic-ro, Songpa-gu. Dermatological care and aesthetic treatments in one place — with only what you actually need.",
+            "To celebrate the opening, special prices are running across four categories: Lifting, Skin Booster, Botox and Whitening. See the Events page for details."
+          ]
         },
         {
           "tag": "INFO",
+          "slug": "august-hours-2026",
           "date": "2026.07.10",
           "title": "August Hours and Holiday Schedule",
-          "excerpt": "The clinic will be closed on Liberation Day (Aug 15) and remains closed every Sunday and public holiday."
+          "excerpt": "We are open as usual on Sat, Aug 15 (Liberation Day). Closed on Mon, Aug 17 (substitute holiday).",
+          "body": [
+            "We are open as usual on Saturday, August 15 (Liberation Day), from 10:00 to 16:00 with no lunch break.",
+            "We are closed on Monday, August 17 (substitute holiday). We are also closed on Sundays and other public holidays. Please contact us in advance if you need to change an appointment."
+          ]
         },
         {
           "tag": "INFO",
+          "slug": "online-booking-2026",
           "date": "2026.07.03",
           "title": "Online Pre-Consultation Booking Opens",
-          "excerpt": "Please use Naver Booking for online consultations. Real-time confirmation minimizes waiting time."
+          "excerpt": "Please use Naver Booking for online consultations. Real-time confirmation minimizes waiting time.",
+          "body": [
+            "Online pre-consultation booking via Naver Reservation is now available. Choose your preferred date and time for instant confirmation and shorter waiting times.",
+            "For first visits, we review your skin condition during the consultation before recommending treatments. Walk-ins are welcome, but waiting time may occur."
+          ]
         },
         {
           "tag": "INFO",
+          "slug": "kakao-channel-2026",
           "date": "2026.06.28",
           "title": "KakaoTalk Channel Consultations",
-          "excerpt": "You can also reach us via KakaoTalk. Medical inquiries are answered during clinic hours."
+          "excerpt": "You can also reach us via KakaoTalk. Medical inquiries are answered during clinic hours.",
+          "body": [
+            "You can also reach us through our KakaoTalk channel for consultations and inquiries — treatment prices, available dates, and how to prepare before your visit.",
+            "Medical inquiries are answered in order during clinic hours. Messages received outside clinic hours are answered on the next business day."
+          ]
         }
       ]
     },
@@ -663,8 +688,8 @@
             {
               "src": "/events/first-visit-welcome-2026.jpg",
               "label": "First Visit Event",
-              "width": 1024,
-              "height": 1536
+              "width": 1080,
+              "height": 1750
             },
             {
               "src": "/events/first-visit-benefit-2026.jpg",
@@ -687,8 +712,8 @@
             {
               "src": "/events/grand-open-welcome-2026.jpg",
               "label": "Grand Open Event",
-              "width": 1024,
-              "height": 1536
+              "width": 1086,
+              "height": 1448
             },
             {
               "src": "/events/grand-open-benefit-2026.jpg",
