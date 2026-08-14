@@ -3,15 +3,10 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { POPUP_EVENTS, type PopupEvent, type PopupTheme } from "@/lib/event-popup";
+import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
 import type { CampaignCategory } from "@/lib/campaign-events";
 
 const POPUP_ID = "sunshine-events-2026-v1";
-const KEY = "sunshine-popup:" + POPUP_ID;
-
-function todayStr() {
-  const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-}
 
 /**
  * 이벤트 팝업 — 상단(모바일)·좌측(데스크톱) 탭으로 두 이벤트를 오가고,
@@ -30,10 +25,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
 
   useEffect(() => {
     setMounted(true);
-    let hidden = false;
-    try {
-      hidden = localStorage.getItem(KEY) === todayStr();
-    } catch {}
+    const hidden = isHiddenToday(POPUP_ID);
     setOpen(!hidden);
     if (hidden) onClose?.();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,10 +48,9 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
 
   if (!mounted || !open) return null;
 
+  // 뒤이어 뜰 안내 팝업까지 함께 숨긴다
   function closeToday() {
-    try {
-      localStorage.setItem(KEY, todayStr());
-    } catch {}
+    hideAllToday();
     dismiss();
   }
 
@@ -70,7 +61,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
   }
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/40 px-1.5 py-3 sm:p-8">
+    <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/40 px-7 py-3 sm:p-8">
       <button
         type="button"
         aria-label="팝업 닫기"

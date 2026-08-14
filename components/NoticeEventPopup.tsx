@@ -2,13 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-
-const KEY_PREFIX = "sunshine-popup:";
-
-function todayStr() {
-  const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-}
+import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
 
 /**
  * 안내형 팝업 (진료 안내 · 수면마취) — 배경이 비치는 유리(프로스티드) 셸에 안내 콘텐츠를 담는다.
@@ -24,16 +18,12 @@ export function NoticeEventPopup({
   variant: "holiday" | "sedation";
   onClose?: () => void;
 }) {
-  const KEY = KEY_PREFIX + popupId;
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
 
   useEffect(() => {
     setMounted(true);
-    let hidden = false;
-    try {
-      hidden = localStorage.getItem(KEY) === todayStr();
-    } catch {}
+    const hidden = isHiddenToday(popupId);
     setOpen(!hidden);
     if (hidden) onClose?.();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -56,15 +46,14 @@ export function NoticeEventPopup({
 
   if (!mounted || !open) return null;
 
+  // 남은 안내 팝업까지 함께 숨긴다
   function closeToday() {
-    try {
-      localStorage.setItem(KEY, todayStr());
-    } catch {}
+    hideAllToday();
     dismiss();
   }
 
   return (
-    <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/45 px-1.5 py-3 backdrop-blur-[2px] sm:p-8">
+    <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/45 px-7 py-3 backdrop-blur-[2px] sm:p-8">
       <button
         type="button"
         aria-label="팝업 닫기"
@@ -114,8 +103,8 @@ function HolidayDetail() {
   return (
     <div className="my-auto px-6 pb-6 pt-7 text-center [text-shadow:0_1px_6px_rgba(25,15,5,0.35)]">
       <p className="text-[10px] font-semibold tracking-[0.3em] text-[#ffb282]">{t("brand")}</p>
-      <h2 className="mt-2 font-serif text-[26px] tracking-tight text-white">{t("title")}</h2>
-      <p className="mt-3 text-[13px] leading-relaxed text-white/80">
+      <h2 className="mt-2 break-keep font-serif text-[26px] tracking-tight text-white">{t("title")}</h2>
+      <p className="mt-3 break-keep text-[13px] leading-relaxed text-white/80">
         {t("body1")}
         <br />
         {t("body2")}
@@ -149,7 +138,7 @@ function HolidayDetail() {
         </div>
       )}
 
-      <p className="mt-5 text-[11px] leading-relaxed text-white/60">{t("footer")}</p>
+      <p className="mt-5 break-keep text-[11px] leading-relaxed text-white/60">{t("footer")}</p>
     </div>
   );
 }
@@ -163,13 +152,13 @@ function SedationDetail() {
       <p className="text-center text-[10px] font-semibold tracking-[0.3em] text-[#ffb282]">
         {t("brand")} · {t("kicker")}
       </p>
-      <h2 className="mt-2 text-center font-serif text-2xl tracking-tight text-white">
+      <h2 className="mt-2 break-keep text-center font-serif text-2xl tracking-tight text-white">
         {t("title")}
       </h2>
-      <p className="mt-1.5 text-center font-serif text-[13px] italic text-[#ffa363]">
+      <p className="mt-1.5 break-keep text-center font-serif text-[13px] italic text-[#ffa363]">
         {t("subtitle")}
       </p>
-      <p className="mt-4 text-center text-[13px] leading-relaxed text-white/80">{t("lead")}</p>
+      <p className="mt-4 break-keep text-center text-[13px] leading-relaxed text-white/80">{t("lead")}</p>
       <ul className="mt-4 space-y-2.5">
         {points.map((p, i) => (
           <li
@@ -186,7 +175,7 @@ function SedationDetail() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 rounded-xl border border-white/20 bg-white/14 px-4 py-3 text-center text-[11px] leading-relaxed text-white/70">
+      <p className="mt-4 rounded-xl border border-white/20 bg-white/14 px-4 py-3 text-center text-[11px] leading-relaxed text-white/70 [word-break:keep-all]">
         {t("note")}
       </p>
     </div>
