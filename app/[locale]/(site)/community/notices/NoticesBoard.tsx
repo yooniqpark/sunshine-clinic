@@ -102,40 +102,43 @@ export function NoticesBoard({
             >
               <div className="min-h-0">
                 <div className="pb-10 md:pb-14">
-                  {/* Mobile date */}
-                  <p className="mb-4 font-serif text-xs tabular-nums text-ink/50 md:hidden">
-                    {n.date}
-                  </p>
-
-                  {/* Body copy */}
-                  <div className="grid gap-8 md:grid-cols-[110px_1fr]">
-                    <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/40 md:block">
-                      NOTES
+                  {/* 본문 카드 — 흰 배경으로 내용 영역을 분리 */}
+                  <div className="rounded-2xl border border-ink/10 bg-white px-6 py-7 shadow-sm shadow-ink/5 md:px-9 md:py-9">
+                    {/* Mobile date */}
+                    <p className="mb-5 font-serif text-xs tabular-nums text-ink/45 md:hidden">
+                      {n.date}
                     </p>
-                    <div className="max-w-2xl space-y-4 text-[15px] leading-[1.85] text-ink/70">
-                      {n.body.map((p, j) => (
-                        <p key={j}>{p}</p>
-                      ))}
-                    </div>
-                  </div>
 
-                  {/* CTA */}
-                  <div className="mt-10 flex flex-wrap items-center gap-3 md:ml-[110px]">
-                    <a
-                      href="tel:024217588"
-                      className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-cream transition hover:bg-brand-dark"
-                    >
-                      02-421-7588
-                    </a>
-                    <a
-                      href="https://pf.kakao.com/_xoVzwX"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-ink transition hover:border-ink hover:bg-ink/5"
-                    >
-                      KakaoTalk
-                      <ArrowUpRightIcon className="h-3.5 w-3.5" />
-                    </a>
+                    {/* Body copy */}
+                    <div className="grid gap-6 md:grid-cols-[110px_1fr] md:gap-8">
+                      <p className="hidden text-[10px] font-medium tracking-[0.32em] text-ink/35 md:block">
+                        NOTES
+                      </p>
+                      <div className="max-w-2xl space-y-4 text-[15px] leading-[1.85] text-ink/70">
+                        {n.body.map((p, j) => (
+                          <p key={j}>{p}</p>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* CTA */}
+                    <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-ink/10 pt-6 md:ml-[110px]">
+                      <a
+                        href="tel:024217588"
+                        className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-cream transition hover:bg-brand-dark"
+                      >
+                        02-421-7588
+                      </a>
+                      <a
+                        href="https://pf.kakao.com/_xoVzwX"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-ink transition hover:border-ink hover:bg-ink/5"
+                      >
+                        KakaoTalk
+                        <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
