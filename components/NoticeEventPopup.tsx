@@ -91,8 +91,8 @@ export function NoticeEventPopup({
 
         <section
           aria-label={ariaLabel}
-          // 모바일은 이벤트 팝업과 같은 크기, 데스크톱은 세로만 660px로 맞춘다
-          className="flex h-[70dvh] max-h-[590px] min-h-0 flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:flex-1"
+          // 모바일은 이벤트 팝업과 같은 크기(주소창 변화에 흔들리지 않도록 svh), 데스크톱은 세로 660px
+          className="flex h-[86svh] max-h-[620px] min-h-[420px] flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:min-h-0 lg:flex-1"
           style={{ background: PAPER }}
         >
           <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">

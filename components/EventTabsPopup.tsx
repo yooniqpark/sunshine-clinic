@@ -139,8 +139,10 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
           })}
         </nav>
 
-        {/* 모바일은 탭이 얹힌 지면처럼 위쪽 모서리를 직각으로 둔다 */}
-        <div className="relative flex h-[70dvh] max-h-[590px] w-full flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
+        {/* 모바일은 탭이 얹힌 지면처럼 위쪽 모서리를 직각으로 둔다.
+            높이는 dvh가 아니라 svh — dvh는 주소창이 접히고 펴질 때 값이 바뀌어
+            처음엔 작게 떴다가 스크롤하면 커지는 현상이 생긴다. */}
+        <div className="relative flex h-[86svh] max-h-[620px] min-h-[420px] w-full flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:min-h-0 lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
           {/* ── 포스터 (모바일: 가격표 보기 전 / 데스크톱: 항상) ── */}
           <div
             className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${showPrice ? "hidden lg:block" : "block"}`}
