@@ -131,8 +131,12 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               />
             </button>
 
-            {/* 포스터 위 볼록 유리 CTA — 모바일 전용 */}
-            <div className="absolute inset-x-4 bottom-4 lg:hidden">
+            {/* 포스터 위 볼록 유리 CTA — 모바일 전용.
+                ctaTopPct가 있으면 포스터 구도(화살표 등)에 맞춰 그 위치에, 없으면 하단에 둔다. */}
+            <div
+              className={`absolute inset-x-4 lg:hidden ${ev.ctaTopPct == null ? "bottom-4" : ""}`}
+              style={ev.ctaTopPct == null ? undefined : { top: `${ev.ctaTopPct}%` }}
+            >
               <button
                 type="button"
                 onClick={() => setShowPrice(true)}
