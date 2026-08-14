@@ -21,6 +21,7 @@ export function ImageEventPopup({
   coverAspect = "2 / 3",
   priceAspect = "2 / 3",
   ctaLabel,
+  ctaTone = "light",
   ariaLabel,
   coverAlt,
   priceAlt,
@@ -32,6 +33,8 @@ export function ImageEventPopup({
   coverAspect?: string;
   priceAspect?: string;
   ctaLabel: string;
+  /** light = 흰 유리(사진·어두운 포스터) · smoke = 스모크 유리(밝은 포스터) */
+  ctaTone?: "light" | "smoke";
   ariaLabel: string;
   coverAlt: string;
   priceAlt: string;
@@ -90,37 +93,43 @@ export function ImageEventPopup({
         aria-label={ariaLabel}
         className="pointer-events-auto relative flex h-auto max-h-[92dvh] w-full max-w-[480px] flex-col overflow-hidden rounded-[1.5rem] bg-[#f4efe7] shadow-2xl shadow-black/35 sm:max-w-[520px]"
       >
-        <button
-          type="button"
-          onClick={() => setStage(stage === 0 ? 1 : 0)}
-          aria-label={stage === 0 ? `${ariaLabel} 가격표 보기` : "이벤트 첫 화면으로 돌아가기"}
-          className="relative block w-full shrink overflow-hidden"
-          style={{ aspectRatio: stage === 0 ? coverAspect : priceAspect }}
-        >
-          <Image
-            src={stage === 0 ? cover : price}
-            alt={stage === 0 ? coverAlt : priceAlt}
-            fill
-            priority
-            sizes="(min-width: 640px) 520px, 100vw"
-            className="object-contain"
-            draggable={false}
-          />
-        </button>
+        <div className="relative shrink">
+          <button
+            type="button"
+            onClick={() => setStage(stage === 0 ? 1 : 0)}
+            aria-label={stage === 0 ? `${ariaLabel} 가격표 보기` : "이벤트 첫 화면으로 돌아가기"}
+            className="relative block w-full overflow-hidden"
+            style={{ aspectRatio: stage === 0 ? coverAspect : priceAspect }}
+          >
+            <Image
+              src={stage === 0 ? cover : price}
+              alt={stage === 0 ? coverAlt : priceAlt}
+              fill
+              priority
+              sizes="(min-width: 640px) 520px, 100vw"
+              className="object-contain"
+              draggable={false}
+            />
+          </button>
 
-        {/* 명시적 CTA — 클릭하면 가격표로 전환 */}
-        {stage === 0 && (
-          <div className="shrink-0 bg-[#f4efe7] px-4 pb-1 pt-0.5">
-            <button
-              type="button"
-              onClick={() => setStage(1)}
-              className="group flex w-full items-center justify-between rounded-full bg-[#c65b22] px-6 py-3 text-sm font-bold tracking-[0.04em] text-[#fdf4e8] shadow-md shadow-[#c65b22]/25 transition hover:bg-[#a94a18]"
-            >
-              <span>{ctaLabel}</span>
-              <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
-            </button>
-          </div>
-        )}
+          {/* CTA — 포스터 위에 얹히는 볼록 유리 버튼 */}
+          {stage === 0 && (
+            <div className="absolute inset-x-4 bottom-4">
+              <button
+                type="button"
+                onClick={() => setStage(1)}
+                className={`group flex w-full items-center justify-between rounded-full border border-white/60 px-6 py-3 text-sm font-bold tracking-[0.04em] text-white shadow-[inset_0_1.5px_0_rgba(255,255,255,0.6),0_10px_24px_rgba(40,30,15,0.28)] backdrop-blur-md transition [text-shadow:0_1px_4px_rgba(40,30,15,0.45)] ${
+                  ctaTone === "smoke"
+                    ? "bg-gradient-to-b from-[#3c3020]/55 via-[#3c3020]/38 to-[#3c3020]/50 hover:from-[#3c3020]/65 hover:to-[#3c3020]/60"
+                    : "bg-gradient-to-b from-white/35 via-white/10 to-white/25 hover:from-white/45 hover:to-white/30"
+                }`}
+              >
+                <span>{ctaLabel}</span>
+                <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+              </button>
+            </div>
+          )}
+        </div>
 
         <div className="flex shrink-0 items-center justify-between border-t border-[#d95f26]/20 bg-[#efe7da] px-5 py-2.5 text-xs text-[#5a4a3c]">
           <button type="button" onClick={closeToday} className="hover:text-[#3d3129]">
