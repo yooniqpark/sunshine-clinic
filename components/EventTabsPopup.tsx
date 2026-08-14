@@ -177,7 +177,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
             className={`flex min-h-0 min-w-0 flex-1 flex-col ${showPrice ? "flex" : "hidden lg:flex"}`}
             style={{ background: t.panel }}
           >
-            <PriceHeader ev={ev} onBack={() => setShowPrice(false)} />
+            <PriceHeader ev={ev} />
 
             <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-2 pt-3 sm:px-7 lg:px-9 lg:pt-5">
               <p
@@ -266,7 +266,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
   );
 }
 
-function PriceHeader({ ev, onBack }: { ev: PopupEvent; onBack: () => void }) {
+function PriceHeader({ ev }: { ev: PopupEvent }) {
   const t = ev.theme;
   return (
     <header
@@ -293,23 +293,12 @@ function PriceHeader({ ev, onBack }: { ev: PopupEvent; onBack: () => void }) {
       >
         {ev.title}
       </h2>
-      <p className="mt-1.5 text-[11.5px] lg:mt-2 lg:text-[13px]" style={{ color: t.sub }}>
-        {ev.subtitle}
-      </p>
       <div
-        className="mt-2 flex items-center gap-3 text-[9px] font-semibold tracking-[0.14em] lg:mt-2.5 lg:text-[10px]"
+        className="mt-2 flex items-center justify-between text-[9px] font-semibold tracking-[0.14em] lg:mt-2.5 lg:text-[10px]"
         style={{ color: t.meta }}
       >
-        <button
-          type="button"
-          onClick={onBack}
-          className="text-[10px] tracking-normal lg:hidden"
-          style={{ color: t.accent }}
-        >
-          ← 포스터
-        </button>
         <span>{ev.period}</span>
-        <span className="ml-auto">{ev.vatNote}</span>
+        <span>{ev.vatNote}</span>
       </div>
     </header>
   );

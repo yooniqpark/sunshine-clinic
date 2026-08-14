@@ -169,10 +169,10 @@ export const POPUP_EVENTS: PopupEvent[] = [
   {
     id: "grand-open",
     tabLabel: "OPEN EVENT",
-    poster: "/events/grand-open-welcome-2026-v3.jpg",
+    poster: "/events/grand-open-welcome-2026-v4.jpg",
     posterAlt: "선샤인의원 그랜드 오픈 이벤트",
-    // 포스터의 아래 화살표(70.6~75.8%) 바로 아래에 버튼을 둔다
-    ctaTopPct: 78,
+    // 포스터 텍스트 블록(~67.8%) 바로 아래에 버튼을 둔다
+    ctaTopPct: 72,
     ctaLabel: "오픈 기념 혜택 · 가격 보기",
     eyebrow: "SUNSHINE GRAND OPEN",
     title: "GRAND OPEN EVENT",
