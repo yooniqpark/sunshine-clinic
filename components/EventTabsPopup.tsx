@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { POPUP_EVENTS, type PopupEvent, type PopupTheme } from "@/lib/event-popup";
+import { POPUP_EVENTS, type PopupEvent } from "@/lib/event-popup";
+import { ListTable, MatrixTable } from "@/components/EventPriceTables";
 import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
-import type { CampaignCategory } from "@/lib/campaign-events";
 
 const POPUP_ID = "sunshine-events-2026-v1";
 
@@ -51,6 +51,15 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
   // 뒤이어 뜰 안내 팝업까지 함께 숨긴다
   function closeToday() {
     hideAllToday();
+    dismiss();
+  }
+
+  // 닫기 → 아직 못 본 이벤트가 있으면 그 이벤트를 먼저 보여준다
+  function nextOrClose() {
+    if (eventIdx < POPUP_EVENTS.length - 1) {
+      selectEvent(eventIdx + 1);
+      return;
+    }
     dismiss();
   }
 
@@ -185,7 +194,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               </button>
               <button
                 type="button"
-                onClick={dismiss}
+                onClick={nextOrClose}
                 className="font-semibold transition hover:opacity-80"
                 style={{ color: t.footStrong }}
               >
@@ -274,7 +283,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               </button>
               <button
                 type="button"
-                onClick={dismiss}
+                onClick={nextOrClose}
                 className="font-semibold transition hover:opacity-80"
                 style={{ color: t.footStrong }}
               >
@@ -303,113 +312,5 @@ function PriceHeader({ ev }: { ev: PopupEvent }) {
         <span>{ev.vatNote}</span>
       </div>
     </header>
-  );
-}
-
-function MatrixTable({ category, theme: t }: { category: CampaignCategory; theme: PopupTheme }) {
-  const columns = category.columns ?? [];
-  const template = `minmax(72px, 1.2fr) repeat(${columns.length}, minmax(0, 1fr))`;
-
-  return (
-    <div
-      className="overflow-hidden rounded-xl border lg:rounded-2xl"
-      style={{ background: t.tableBg, borderColor: t.tableLine }}
-    >
-      <div
-        className="grid items-center gap-1.5 px-2.5 py-2 sm:gap-2 sm:px-4 lg:py-3"
-        style={{ gridTemplateColumns: template, background: t.headBg }}
-      >
-        <span className="text-[9px] font-bold lg:text-[11px]" style={{ color: t.meta }}>
-          구분
-        </span>
-        {columns.map((c) => (
-          <span
-            key={c}
-            className="break-keep text-center text-[8px] font-bold leading-tight lg:text-[11px]"
-            style={{ color: t.headText }}
-          >
-            {c}
-          </span>
-        ))}
-      </div>
-      {category.rows.map((row) => (
-        <div
-          key={row.name}
-          className="grid items-center gap-1.5 border-t px-2.5 py-2.5 sm:gap-2 sm:px-4 lg:py-3"
-          style={{ gridTemplateColumns: template, borderColor: t.tableLine }}
-        >
-          <span
-            className="break-keep text-[10px] font-semibold leading-snug lg:text-[13px]"
-            style={{ color: t.ink }}
-          >
-            {row.name}
-          </span>
-          {(row.prices ?? []).map((p, i) => (
-            <span
-              key={`${row.name}-${i}`}
-              className="text-center text-[11px] font-bold tabular-nums lg:text-[13px]"
-              style={{ color: t.price }}
-            >
-              <Won value={p} unitColor={t.unit} />
-            </span>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function ListTable({ category, theme: t }: { category: CampaignCategory; theme: PopupTheme }) {
-  return (
-    <div
-      className="overflow-hidden rounded-xl border px-4 lg:rounded-2xl"
-      style={{ background: t.tableBg, borderColor: t.tableLine }}
-    >
-      {category.rows.map((row, i) => (
-        <div
-          key={row.name}
-          className="flex items-center justify-between gap-4 py-3 lg:py-3.5"
-          style={i > 0 ? { borderTop: `1px solid ${t.tableLine}` } : undefined}
-        >
-          <div className="min-w-0">
-            <p className="text-[11.5px] font-semibold lg:text-[13px]" style={{ color: t.ink }}>
-              {row.name}
-            </p>
-            {row.desc && (
-              <p className="mt-0.5 text-[9px] leading-relaxed lg:text-[10px]" style={{ color: t.meta }}>
-                {row.desc}
-              </p>
-            )}
-          </div>
-          <div className="shrink-0 text-right">
-            {row.original && (
-              <p className="text-[9px] line-through lg:text-[10px]" style={{ color: t.meta }}>
-                {row.original}
-              </p>
-            )}
-            <p
-              className="text-[13px] font-bold tabular-nums lg:text-[15px]"
-              style={{ color: t.price }}
-            >
-              <Won value={row.event ?? ""} unitColor={t.unit} />
-            </p>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/** "100만원" → 숫자는 강조, 만원 단위는 작게 */
-function Won({ value, unitColor }: { value: string; unitColor: string }) {
-  const m = value.match(/^([\d.]+)(.*)$/);
-  if (!m) return <>{value}</>;
-  return (
-    <>
-      {m[1]}
-      <em className="ml-0.5 text-[0.72em] font-semibold not-italic" style={{ color: unitColor }}>
-        {m[2]}
-      </em>
-    </>
   );
 }

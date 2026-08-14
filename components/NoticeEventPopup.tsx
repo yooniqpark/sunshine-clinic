@@ -78,11 +78,11 @@ export function NoticeEventPopup({
         className="absolute inset-0 h-full w-full cursor-default"
       />
 
-      <div className="pointer-events-auto relative flex w-full max-w-[480px] flex-col">
+      <div className="pointer-events-auto relative flex w-full max-w-[480px] flex-col lg:h-[660px]">
         {/* 지면 위로 솟은 인덱스 탭 */}
         <div className="flex pl-0">
           <span
-            className="rounded-t-[10px] px-[22px] pb-[7px] pt-2.5 text-[8.5px] font-bold tracking-[0.16em]"
+            className="rounded-t-[10px] px-[22px] pb-[7px] pt-4 text-[8.5px] font-bold tracking-[0.16em]"
             style={{ background: TAB, color: TAB_TEXT }}
           >
             {TAB_LABEL[variant]}
@@ -91,7 +91,8 @@ export function NoticeEventPopup({
 
         <section
           aria-label={ariaLabel}
-          className="flex max-h-[86dvh] flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-[600px] lg:max-h-none"
+          // 모바일은 이벤트 팝업과 같은 크기, 데스크톱은 세로만 660px로 맞춘다
+          className="flex h-[70dvh] max-h-[590px] min-h-0 flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:flex-1"
           style={{ background: PAPER }}
         >
           <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
