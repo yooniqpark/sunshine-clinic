@@ -72,14 +72,24 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
       <div className="pointer-events-auto relative flex w-full max-w-[480px] flex-col sm:max-w-[520px] lg:h-[660px] lg:max-w-[1180px] lg:flex-row lg:overflow-hidden lg:rounded-[1.5rem] lg:shadow-2xl lg:shadow-black/40">
         {/* ── 데스크톱: 좌측 세로 탭 레일 ── */}
         <nav aria-label="이벤트 전환" className="hidden w-[42px] shrink-0 flex-col lg:flex">
-          {POPUP_EVENTS.map((e, i) => (
+          {POPUP_EVENTS.map((e, i) => {
+            const on = i === eventIdx;
+            return (
             <button
               key={e.id}
               type="button"
               onClick={() => selectEvent(i)}
-              aria-current={i === eventIdx ? "true" : undefined}
-              className="flex flex-1 items-center justify-center rounded-l-[14px] text-[9px] font-bold tracking-[0.2em] transition"
-              style={{ background: e.theme.tab, color: e.theme.tabText }}
+              aria-current={on ? "true" : undefined}
+              className={`relative flex flex-1 items-center justify-center rounded-l-[14px] text-[9px] font-bold tracking-[0.2em] transition-all ${
+                on ? "shadow-[-3px_0_10px_rgba(20,14,8,0.3)]" : ""
+              }`}
+              style={{
+                background: e.theme.tab,
+                color: e.theme.tabText,
+                // 아래 탭이 위 탭에 물리도록 겹치고, 선택된 탭만 앞으로 올린다
+                marginTop: i === 0 ? 0 : -14,
+                zIndex: on ? 2 : 1,
+              }}
             >
               <span
                 className="flex items-center gap-2.5 whitespace-nowrap"
@@ -89,23 +99,35 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 {e.tabLabel}
               </span>
             </button>
-          ))}
+            );
+          })}
         </nav>
 
-        {/* ── 모바일: 지면 위로 솟은 매거진 인덱스 탭 ── */}
-        <nav aria-label="이벤트 전환" className="flex gap-[7px] pl-4 lg:hidden">
-          {POPUP_EVENTS.map((e, i) => (
-            <button
-              key={e.id}
-              type="button"
-              onClick={() => selectEvent(i)}
-              aria-current={i === eventIdx ? "true" : undefined}
-              className="rounded-t-[10px] px-[13px] pb-[7px] pt-2.5 text-[8.5px] font-bold tracking-[0.16em]"
-              style={{ background: e.theme.tab, color: e.theme.tabText }}
-            >
-              {String(i + 1).padStart(2, "0")} {e.tabLabel}
-            </button>
-          ))}
+        {/* ── 모바일: 지면 위로 솟은 매거진 인덱스 탭 (겹쳐 물리고 선택된 탭이 앞으로) ── */}
+        <nav aria-label="이벤트 전환" className="flex items-end pl-4 lg:hidden">
+          {POPUP_EVENTS.map((e, i) => {
+            const on = i === eventIdx;
+            return (
+              <button
+                key={e.id}
+                type="button"
+                onClick={() => selectEvent(i)}
+                aria-current={on ? "true" : undefined}
+                className={`relative rounded-t-[10px] px-[15px] pb-[7px] text-[8.5px] font-bold tracking-[0.16em] transition-all ${
+                  on ? "pt-4 shadow-[-3px_-2px_8px_rgba(20,14,8,0.28)]" : "pt-2"
+                }`}
+                style={{
+                  background: e.theme.tab,
+                  color: e.theme.tabText,
+                  // 뒤 탭이 앞 탭에 물리도록 겹치고, 선택된 탭만 위로 올린다
+                  marginLeft: i === 0 ? 0 : -11,
+                  zIndex: on ? 2 : 1,
+                }}
+              >
+                {String(i + 1).padStart(2, "0")} {e.tabLabel}
+              </button>
+            );
+          })}
         </nav>
 
         {/* 모바일은 탭이 얹힌 지면처럼 위쪽 모서리를 직각으로 둔다 */}
