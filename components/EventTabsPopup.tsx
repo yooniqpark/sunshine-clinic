@@ -104,7 +104,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
         </nav>
 
         {/* ── 모바일: 지면 위로 솟은 매거진 인덱스 탭 (겹쳐 물리고 선택된 탭이 앞으로) ── */}
-        <nav aria-label="이벤트 전환" className="flex items-end pl-4 lg:hidden">
+        <nav aria-label="이벤트 전환" className="flex items-end lg:hidden">
           {POPUP_EVENTS.map((e, i) => {
             const on = i === eventIdx;
             return (
@@ -113,14 +113,14 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 type="button"
                 onClick={() => selectEvent(i)}
                 aria-current={on ? "true" : undefined}
-                className={`relative rounded-t-[10px] px-[15px] pb-[7px] text-[8.5px] font-bold tracking-[0.16em] transition-all ${
+                className={`relative rounded-t-[10px] px-[22px] pb-[7px] text-[8.5px] font-bold tracking-[0.16em] transition-all ${
                   on ? "pt-4 shadow-[-3px_-2px_8px_rgba(20,14,8,0.28)]" : "pt-2"
                 }`}
                 style={{
                   background: e.theme.tab,
                   color: e.theme.tabText,
                   // 뒤 탭이 앞 탭에 물리도록 겹치고, 선택된 탭만 위로 올린다
-                  marginLeft: i === 0 ? 0 : -11,
+                  marginLeft: i === 0 ? 0 : -20,
                   zIndex: on ? 2 : 1,
                 }}
               >
@@ -309,12 +309,6 @@ function PriceHeader({ ev }: { ev: PopupEvent }) {
           {ev.pillLabel}
         </span>
       </div>
-      <h2
-        className="mt-1.5 font-serif text-[19px] leading-tight lg:mt-2 lg:text-[32px]"
-        style={{ color: t.ink }}
-      >
-        {ev.title}
-      </h2>
       <div
         className="mt-2 flex items-center justify-between text-[9px] font-semibold tracking-[0.14em] lg:mt-2.5 lg:text-[10px]"
         style={{ color: t.meta }}
