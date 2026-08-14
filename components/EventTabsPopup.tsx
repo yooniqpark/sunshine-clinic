@@ -92,24 +92,24 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
           ))}
         </nav>
 
-        <div className="relative flex h-[74dvh] max-h-[620px] w-full flex-col overflow-hidden rounded-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
-          {/* ── 모바일: 상단 매거진 북탭 ── */}
-          <nav aria-label="이벤트 전환" className="absolute left-4 top-0 z-20 flex gap-[7px] lg:hidden">
-            {POPUP_EVENTS.map((e, i) => (
-              <button
-                key={e.id}
-                type="button"
-                onClick={() => selectEvent(i)}
-                aria-current={i === eventIdx ? "true" : undefined}
-                // 배경이 비치므로 어두운 포스터 위에서도 읽히도록 옅은 후광만 준다
-                className="rounded-b-[10px] border border-t-0 px-[13px] pb-2.5 pt-[9px] text-[8.5px] font-bold tracking-[0.16em] backdrop-blur-sm [text-shadow:0_0_6px_rgba(255,255,255,0.9),0_0_2px_rgba(255,255,255,0.9)]"
-                style={{ borderColor: e.theme.accent, color: e.theme.accent }}
-              >
-                {String(i + 1).padStart(2, "0")} {e.tabLabel}
-              </button>
-            ))}
-          </nav>
+        {/* ── 모바일: 지면 위로 솟은 매거진 인덱스 탭 ── */}
+        <nav aria-label="이벤트 전환" className="flex gap-[7px] pl-4 lg:hidden">
+          {POPUP_EVENTS.map((e, i) => (
+            <button
+              key={e.id}
+              type="button"
+              onClick={() => selectEvent(i)}
+              aria-current={i === eventIdx ? "true" : undefined}
+              className="rounded-t-[10px] border border-b-0 px-[13px] pb-[7px] pt-2.5 text-[8.5px] font-bold tracking-[0.16em] backdrop-blur-sm"
+              style={{ borderColor: e.theme.accent, color: e.theme.accent }}
+            >
+              {String(i + 1).padStart(2, "0")} {e.tabLabel}
+            </button>
+          ))}
+        </nav>
 
+        {/* 모바일은 탭이 얹힌 지면처럼 위쪽 모서리를 직각으로 둔다 */}
+        <div className="relative flex h-[70dvh] max-h-[590px] w-full flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
           {/* ── 포스터 (모바일: 가격표 보기 전 / 데스크톱: 항상) ── */}
           <div
             className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${showPrice ? "hidden lg:block" : "block"}`}
@@ -270,21 +270,23 @@ function PriceHeader({ ev, onBack }: { ev: PopupEvent; onBack: () => void }) {
   const t = ev.theme;
   return (
     <header
-      className="relative shrink-0 border-b px-5 pb-3 pt-11 sm:px-7 lg:px-9 lg:pb-4 lg:pt-6"
+      className="relative shrink-0 border-b px-5 pb-3 pt-4 sm:px-7 lg:px-9 lg:pb-4 lg:pt-6"
       style={{ borderColor: t.line }}
     >
-      <p
-        className="text-[9.5px] font-bold tracking-[0.26em] lg:text-[11px]"
-        style={{ color: t.accent }}
-      >
-        {ev.eyebrow}
-      </p>
-      <span
-        className="absolute right-5 top-11 rounded-full px-3 py-1.5 text-[10px] font-bold lg:right-9 lg:top-6 lg:px-4 lg:py-2 lg:text-[11px]"
-        style={{ background: t.pill, color: t.pillText }}
-      >
-        {ev.pillLabel}
-      </span>
+      <div className="flex items-start justify-between gap-3">
+        <p
+          className="min-w-0 pt-1 text-[9.5px] font-bold tracking-[0.26em] lg:text-[11px]"
+          style={{ color: t.accent }}
+        >
+          {ev.eyebrow}
+        </p>
+        <span
+          className="shrink-0 rounded-full px-3 py-1.5 text-[10px] font-bold lg:px-4 lg:py-2 lg:text-[11px]"
+          style={{ background: t.pill, color: t.pillText }}
+        >
+          {ev.pillLabel}
+        </span>
+      </div>
       <h2
         className="mt-1.5 font-serif text-[19px] leading-tight lg:mt-2 lg:text-[32px]"
         style={{ color: t.ink }}
@@ -295,20 +297,20 @@ function PriceHeader({ ev, onBack }: { ev: PopupEvent; onBack: () => void }) {
         {ev.subtitle}
       </p>
       <div
-        className="mt-2 flex items-center justify-between text-[9px] font-semibold tracking-[0.14em] lg:mt-2.5 lg:text-[10px]"
+        className="mt-2 flex items-center gap-3 text-[9px] font-semibold tracking-[0.14em] lg:mt-2.5 lg:text-[10px]"
         style={{ color: t.meta }}
       >
+        <button
+          type="button"
+          onClick={onBack}
+          className="text-[10px] tracking-normal lg:hidden"
+          style={{ color: t.accent }}
+        >
+          ← 포스터
+        </button>
         <span>{ev.period}</span>
-        <span>{ev.vatNote}</span>
+        <span className="ml-auto">{ev.vatNote}</span>
       </div>
-      <button
-        type="button"
-        onClick={onBack}
-        className="absolute right-5 top-[76px] text-[10px] font-semibold lg:hidden"
-        style={{ color: t.meta }}
-      >
-        ← 포스터
-      </button>
     </header>
   );
 }
