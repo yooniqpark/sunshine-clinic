@@ -163,8 +163,8 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               <button
                 type="button"
                 onClick={() => setShowPrice(true)}
-                className="group mx-auto flex items-center gap-2.5 rounded-full border px-6 py-2.5 text-[12.5px] font-semibold tracking-[0.06em] transition"
-                style={{ borderColor: t.accent, color: t.ink }}
+                className="group mx-auto flex items-center gap-2.5 rounded-full border px-6 py-2.5 text-[12.5px] font-semibold tracking-[0.06em] backdrop-blur-[2px] transition"
+                style={{ borderColor: t.accent, color: t.ink, background: ev.ctaFill }}
               >
                 <span>{ev.ctaLabel}</span>
                 <span aria-hidden style={{ color: t.accent }}>
@@ -295,22 +295,8 @@ function PriceHeader({ ev }: { ev: PopupEvent }) {
       className="relative shrink-0 border-b px-5 pb-3 pt-4 sm:px-7 lg:px-9 lg:pb-4 lg:pt-6"
       style={{ borderColor: t.line }}
     >
-      <div className="flex items-start justify-between gap-3">
-        <p
-          className="min-w-0 pt-1 text-[9.5px] font-bold tracking-[0.26em] lg:text-[11px]"
-          style={{ color: t.accent }}
-        >
-          {ev.eyebrow}
-        </p>
-        <span
-          className="shrink-0 rounded-full px-3 py-1.5 text-[10px] font-bold lg:px-4 lg:py-2 lg:text-[11px]"
-          style={{ background: t.pill, color: t.pillText }}
-        >
-          {ev.pillLabel}
-        </span>
-      </div>
       <div
-        className="mt-2 flex items-center justify-between text-[9px] font-semibold tracking-[0.14em] lg:mt-2.5 lg:text-[10px]"
+        className="flex items-center justify-between text-[9px] font-semibold tracking-[0.14em] lg:text-[10px]"
         style={{ color: t.meta }}
       >
         <span>{ev.period}</span>

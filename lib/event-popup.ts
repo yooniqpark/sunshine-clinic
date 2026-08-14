@@ -37,6 +37,8 @@ export type PopupEvent = {
   posterAlt: string;
   /** 포스터 위 CTA 버튼의 세로 위치(%) — 없으면 하단 고정 */
   ctaTopPct?: number;
+  /** 포스터 위 CTA 버튼 배경 — 배경이 복잡한 포스터에서 가독성 확보용 */
+  ctaFill?: string;
   ctaLabel: string;
   eyebrow: string;
   title: string;
@@ -189,6 +191,8 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "FIRST VISIT",
     poster: "/events/first-visit-welcome-2026-v2.jpg",
     posterAlt: "선샤인의원 첫 방문 이벤트",
+    // 모델 사진 위라 배경이 비치면 잘 안 보여 아이보리 반투명을 깐다
+    ctaFill: "rgba(250,246,238,0.8)",
     ctaLabel: "첫 방문 혜택 · 가격 보기",
     eyebrow: "SUNSHINE FIRST VISIT",
     title: "FIRST VISIT WELCOME EVENT",
