@@ -78,8 +78,8 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               type="button"
               onClick={() => selectEvent(i)}
               aria-current={i === eventIdx ? "true" : undefined}
-              className="flex flex-1 items-center justify-center text-[9px] font-bold tracking-[0.2em] transition"
-              style={{ background: e.theme.tab, color: e.theme.tabText }}
+              className="flex flex-1 items-center justify-center rounded-l-[14px] border border-r-0 text-[9px] font-bold tracking-[0.2em] transition"
+              style={{ borderColor: e.theme.accent, color: e.theme.accent }}
             >
               <span
                 className="flex items-center gap-2.5 whitespace-nowrap"
@@ -101,8 +101,9 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 type="button"
                 onClick={() => selectEvent(i)}
                 aria-current={i === eventIdx ? "true" : undefined}
-                className="rounded-b-[10px] px-[13px] pb-2.5 pt-[9px] text-[8.5px] font-bold tracking-[0.16em] shadow-[0_4px_10px_rgba(30,22,12,0.16)]"
-                style={{ background: e.theme.tab, color: e.theme.tabText }}
+                // 배경이 비치므로 어두운 포스터 위에서도 읽히도록 옅은 후광만 준다
+                className="rounded-b-[10px] border border-t-0 px-[13px] pb-2.5 pt-[9px] text-[8.5px] font-bold tracking-[0.16em] backdrop-blur-sm [text-shadow:0_0_6px_rgba(255,255,255,0.9),0_0_2px_rgba(255,255,255,0.9)]"
+                style={{ borderColor: e.theme.accent, color: e.theme.accent }}
               >
                 {String(i + 1).padStart(2, "0")} {e.tabLabel}
               </button>
@@ -140,14 +141,13 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               <button
                 type="button"
                 onClick={() => setShowPrice(true)}
-                className={`group flex w-full items-center justify-between rounded-full border border-white/60 px-6 py-3 text-sm font-bold tracking-[0.04em] text-white shadow-[inset_0_1.5px_0_rgba(255,255,255,0.6),0_10px_24px_rgba(40,30,15,0.28)] backdrop-blur-md transition [text-shadow:0_1px_4px_rgba(40,30,15,0.45)] ${
-                  t.ctaTone === "smoke"
-                    ? "bg-gradient-to-b from-[#3c3020]/55 via-[#3c3020]/38 to-[#3c3020]/50"
-                    : "bg-gradient-to-b from-white/35 via-white/10 to-white/25"
-                }`}
+                className="group mx-auto flex items-center gap-2.5 rounded-full border px-6 py-2.5 text-[12.5px] font-semibold tracking-[0.06em] transition"
+                style={{ borderColor: t.accent, color: t.ink }}
               >
                 <span>{ev.ctaLabel}</span>
-                <span aria-hidden className="transition group-hover:translate-x-0.5">→</span>
+                <span aria-hidden style={{ color: t.accent }}>
+                  →
+                </span>
               </button>
             </div>
           </div>

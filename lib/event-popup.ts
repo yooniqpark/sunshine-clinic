@@ -28,8 +28,6 @@ export type PopupTheme = {
   footBg: string;
   footText: string;
   footStrong: string;
-  /** 포스터 위 CTA 유리 버튼 톤 */
-  ctaTone: "light" | "smoke";
 };
 
 export type PopupEvent = {
@@ -134,7 +132,6 @@ const GRAND_OPEN_THEME: PopupTheme = {
   footBg: "#1c1917",
   footText: "rgba(240,235,228,0.75)",
   footStrong: "#efe9e1",
-  ctaTone: "smoke",
 };
 
 /** 첫 방문 — 모델 포스터 · 브라운 & 테라코타 */
@@ -164,7 +161,6 @@ const FIRST_VISIT_THEME: PopupTheme = {
   footBg: "#2e241d",
   footText: "rgba(240,230,216,0.75)",
   footStrong: "#f0e6d8",
-  ctaTone: "light",
 };
 
 const FIRST_VISIT = CAMPAIGNS["first-visit-2026"];
