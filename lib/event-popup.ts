@@ -172,7 +172,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
   {
     id: "grand-open",
     tabLabel: "OPEN EVENT",
-    poster: "/events/grand-open-welcome-2026.jpg",
+    poster: "/events/grand-open-welcome-2026-v2.jpg",
     posterAspect: "3 / 4",
     posterAlt: "선샤인의원 그랜드 오픈 이벤트",
     ctaLabel: "오픈 기념 혜택 · 가격 보기",
@@ -189,7 +189,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
   {
     id: "first-visit",
     tabLabel: "FIRST VISIT",
-    poster: "/events/first-visit-welcome-2026.jpg",
+    poster: "/events/first-visit-welcome-2026-v2.jpg",
     posterAspect: "3 / 4",
     posterAlt: "선샤인의원 첫 방문 이벤트",
     ctaLabel: "첫 방문 혜택 · 가격 보기",
