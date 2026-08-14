@@ -28,16 +28,19 @@ export type PopupTheme = {
   footBg: string;
   footText: string;
   footStrong: string;
-  /** 포스터 위 CTA 유리 버튼 톤 */
-  ctaTone: "light" | "smoke";
 };
 
 export type PopupEvent = {
   id: string;
   tabLabel: string;
   poster: string;
-  posterAspect: string;
   posterAlt: string;
+  /** 포스터 위 CTA 버튼의 세로 위치(%) — 없으면 하단 고정 */
+  ctaTopPct?: number;
+  /** 포스터 위 CTA 버튼 배경 — 배경이 복잡한 포스터에서 가독성 확보용 */
+  ctaFill?: string;
+  /** 포스터 위 CTA 버튼 테두리 — 없으면 포인트 색 */
+  ctaBorder?: string;
   ctaLabel: string;
   eyebrow: string;
   title: string;
@@ -55,7 +58,7 @@ const GRAND_OPEN_CATEGORIES: CampaignCategory[] = [
     slug: "lifting",
     name: "리프팅",
     kicker: "01 / LIFTING",
-    copy: "울쎄라 · 써마지, 커스텀 스킨보톡스(얼굴 전체) 포함",
+    copy: "처진 자리를 끌어올리고, 탄력은 안에서부터",
     rows: [
       { name: "울쎄라피프라임 300샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "100만원" },
       { name: "울쎄라피프라임 400샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "140만원" },
@@ -106,34 +109,33 @@ const GRAND_OPEN_CATEGORIES: CampaignCategory[] = [
   },
 ];
 
-/** 그랜드 오픈 — 엠보스 페이퍼 포스터 · 다크브라운 & 골드 */
+/** 그랜드 오픈 — 페이퍼 포스터 · 잉크 블랙 & 더스티 로즈 */
 const GRAND_OPEN_THEME: PopupTheme = {
-  tab: "#3a2e26",
-  tabText: "#e0d3c4",
-  panel: "#f4f0e8",
-  line: "rgba(60,50,35,0.16)",
-  accent: "#a8894f",
-  ink: "#211d18",
-  sub: "#6b6257",
-  meta: "#9a9082",
-  pill: "#211d18",
-  pillText: "#f0ebe1",
-  tableBg: "#fbf9f3",
-  tableLine: "rgba(60,50,35,0.12)",
-  headBg: "#e9e2d2",
-  headText: "#5c5344",
-  price: "#211d18",
-  unit: "#a8894f",
-  noteBg: "#e9e2d2",
-  noteText: "#5c5344",
-  catBg: "#ece7da",
-  catText: "#7c7263",
-  catOnBg: "#211d18",
-  catOnText: "#f0ebe1",
-  footBg: "#16130f",
-  footText: "rgba(236,230,218,0.75)",
-  footStrong: "#ece6da",
-  ctaTone: "smoke",
+  tab: "#282422",
+  tabText: "#f0ece5",
+  panel: "#f6f3ed",
+  line: "rgba(45,35,33,0.15)",
+  accent: "#c98a8a",
+  ink: "#1f1c1a",
+  sub: "#6b625c",
+  meta: "#a3968f",
+  pill: "#1f1c1a",
+  pillText: "#f5f1ea",
+  tableBg: "#fffdf9",
+  tableLine: "rgba(45,35,33,0.1)",
+  headBg: "#f0e4e2",
+  headText: "#7a5f5f",
+  price: "#1f1c1a",
+  unit: "#c98a8a",
+  noteBg: "#f2e9e6",
+  noteText: "#6b5c58",
+  catBg: "#eee7e4",
+  catText: "#877773",
+  catOnBg: "#c98a8a",
+  catOnText: "#fff7f5",
+  footBg: "#1c1917",
+  footText: "rgba(240,235,228,0.75)",
+  footStrong: "#efe9e1",
 };
 
 /** 첫 방문 — 모델 포스터 · 브라운 & 테라코타 */
@@ -163,7 +165,6 @@ const FIRST_VISIT_THEME: PopupTheme = {
   footBg: "#2e241d",
   footText: "rgba(240,230,216,0.75)",
   footStrong: "#f0e6d8",
-  ctaTone: "light",
 };
 
 const FIRST_VISIT = CAMPAIGNS["first-visit-2026"];
@@ -172,9 +173,10 @@ export const POPUP_EVENTS: PopupEvent[] = [
   {
     id: "grand-open",
     tabLabel: "OPEN EVENT",
-    poster: "/events/grand-open-welcome-2026-v2.jpg",
-    posterAspect: "3 / 4",
+    poster: "/events/grand-open-welcome-2026-v4.jpg",
     posterAlt: "선샤인의원 그랜드 오픈 이벤트",
+    // 포스터 텍스트 블록(~67.8%) 바로 아래에 버튼을 둔다
+    ctaTopPct: 72,
     ctaLabel: "오픈 기념 혜택 · 가격 보기",
     eyebrow: "SUNSHINE GRAND OPEN",
     title: "GRAND OPEN EVENT",
@@ -190,8 +192,10 @@ export const POPUP_EVENTS: PopupEvent[] = [
     id: "first-visit",
     tabLabel: "FIRST VISIT",
     poster: "/events/first-visit-welcome-2026-v2.jpg",
-    posterAspect: "3 / 4",
     posterAlt: "선샤인의원 첫 방문 이벤트",
+    // 모델 사진 위라 배경이 비치면 잘 안 보여 흰색 반투명을 깐다 (테두리는 없이)
+    ctaFill: "rgba(255,255,255,0.85)",
+    ctaBorder: "transparent",
     ctaLabel: "첫 방문 혜택 · 가격 보기",
     eyebrow: "SUNSHINE FIRST VISIT",
     title: "FIRST VISIT WELCOME EVENT",

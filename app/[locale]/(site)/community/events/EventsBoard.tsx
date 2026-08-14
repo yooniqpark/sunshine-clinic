@@ -3,6 +3,14 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowUpRightIcon } from "@/components/icons";
+import { EventPriceSheet } from "@/components/EventPriceTables";
+import { POPUP_EVENTS } from "@/lib/event-popup";
+
+/** 게시판 항목 ↔ 팝업 이벤트 — 가격표를 팝업과 같은 데이터로 그린다 */
+const PRICE_SHEET_BY_SLUG: Record<string, string> = {
+  "grand-open-2026-07": "grand-open",
+  "first-visit-2026": "first-visit",
+};
 
 export type EventImage = { src: string; label: string; width?: number; height?: number };
 export type EventEntry = {
@@ -37,6 +45,11 @@ export function EventsBoard({
       {items.map((e) => {
         const isOpen = openSlug === e.slug;
         const isNew = e.tag === openTag;
+        const priceEvent = POPUP_EVENTS.find(
+          (p) => p.id === PRICE_SHEET_BY_SLUG[e.slug],
+        );
+        // 가격표를 실데이터로 그리는 항목은 커버 포스터만 이미지로 남긴다
+        const coverImages = priceEvent ? (e.images ?? []).slice(0, 1) : e.images ?? [];
         return (
           <li
             key={e.slug}
@@ -136,10 +149,10 @@ export function EventsBoard({
                     </div>
                   </div>
 
-                  {/* 이벤트 이미지 — 커버 · 가격표 포스터 */}
-                  {e.images && e.images.length > 0 && (
+                  {/* 이벤트 이미지 — 커버 포스터 (가격표는 아래에서 실데이터로 렌더) */}
+                  {coverImages.length > 0 && (
                     <div className="mt-10 space-y-5 md:ml-[110px]">
-                      {e.images.map((img) => (
+                      {coverImages.map((img) => (
                         <figure
                           key={img.src}
                           className="overflow-hidden rounded-3xl shadow-xl shadow-ink/10"
@@ -154,6 +167,13 @@ export function EventsBoard({
                           />
                         </figure>
                       ))}
+                    </div>
+                  )}
+
+                  {/* 가격표 — 팝업과 같은 데이터로 렌더해 내용이 어긋나지 않게 한다 */}
+                  {priceEvent && (
+                    <div className="mt-6 max-w-2xl md:ml-[110px]">
+                      <EventPriceSheet event={priceEvent} />
                     </div>
                   )}
 
