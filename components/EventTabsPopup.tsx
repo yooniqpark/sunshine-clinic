@@ -78,8 +78,8 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               type="button"
               onClick={() => selectEvent(i)}
               aria-current={i === eventIdx ? "true" : undefined}
-              className="flex flex-1 items-center justify-center rounded-l-[14px] border border-r-0 text-[9px] font-bold tracking-[0.2em] transition"
-              style={{ borderColor: e.theme.accent, color: e.theme.accent }}
+              className="flex flex-1 items-center justify-center rounded-l-[14px] text-[9px] font-bold tracking-[0.2em] transition"
+              style={{ background: e.theme.tab, color: e.theme.tabText }}
             >
               <span
                 className="flex items-center gap-2.5 whitespace-nowrap"
@@ -100,8 +100,8 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               type="button"
               onClick={() => selectEvent(i)}
               aria-current={i === eventIdx ? "true" : undefined}
-              className="rounded-t-[10px] border border-b-0 px-[13px] pb-[7px] pt-2.5 text-[8.5px] font-bold tracking-[0.16em] backdrop-blur-sm"
-              style={{ borderColor: e.theme.accent, color: e.theme.accent }}
+              className="rounded-t-[10px] px-[13px] pb-[7px] pt-2.5 text-[8.5px] font-bold tracking-[0.16em]"
+              style={{ background: e.theme.tab, color: e.theme.tabText }}
             >
               {String(i + 1).padStart(2, "0")} {e.tabLabel}
             </button>
