@@ -101,7 +101,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
           ))}
         </nav>
 
-        <div className="relative flex h-[84dvh] max-h-[700px] w-full flex-col overflow-hidden rounded-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
+        <div className="relative flex h-[74dvh] max-h-[620px] w-full flex-col overflow-hidden rounded-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
           {/* ── 모바일: 상단 매거진 북탭 ── */}
           <nav aria-label="이벤트 전환" className="absolute left-4 top-0 z-20 flex gap-[7px] lg:hidden">
             {POPUP_EVENTS.map((e, i) => (
@@ -179,7 +179,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
 
           {/* ── 가격 패널 ── */}
           <div
-            className={`flex min-w-0 flex-1 flex-col ${showPrice ? "flex" : "hidden lg:flex"}`}
+            className={`flex min-h-0 min-w-0 flex-1 flex-col ${showPrice ? "flex" : "hidden lg:flex"}`}
             style={{ background: t.panel }}
           >
             <PriceHeader ev={ev} onBack={() => setShowPrice(false)} />
