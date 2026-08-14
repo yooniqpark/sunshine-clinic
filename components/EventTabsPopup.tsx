@@ -164,7 +164,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 type="button"
                 onClick={() => setShowPrice(true)}
                 className="group mx-auto flex items-center gap-2.5 rounded-full border px-6 py-2.5 text-[12.5px] font-semibold tracking-[0.06em] backdrop-blur-[2px] transition"
-                style={{ borderColor: t.accent, color: t.ink, background: ev.ctaFill }}
+                style={{ borderColor: ev.ctaBorder ?? t.accent, color: t.ink, background: ev.ctaFill }}
               >
                 <span>{ev.ctaLabel}</span>
                 <span aria-hidden style={{ color: t.accent }}>
