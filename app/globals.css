@@ -12,8 +12,9 @@
   --color-line: #e8ddd0;
   --chat-header-tint: #f5cdb4;
 
-  --font-sans: "SUIT", "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
+  /* SUIT는 variable(SUIT Variable) · static(SUIT) 두 이름으로 배포돼 둘 다 지정한다 */
+  --font-sans: "SUIT Variable", "SUIT", "Pretendard Variable", Pretendard,
+    -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
   --font-serif: "Cormorant Garamond", "MaruBuri", "Noto Serif KR",
     "Nanum Myeongjo", Georgia, "Times New Roman", serif;
 
