@@ -191,8 +191,8 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "FIRST VISIT",
     poster: "/events/first-visit-welcome-2026-v2.jpg",
     posterAlt: "선샤인의원 첫 방문 이벤트",
-    // 모델 사진 위라 배경이 비치면 잘 안 보여 포인트 색을 옅게 깐다 (흰색 없이)
-    ctaFill: "rgba(196,101,47,0.28)",
+    // 모델 사진 위라 배경이 비치면 잘 안 보여 흰색 반투명을 깐다
+    ctaFill: "rgba(255,255,255,0.85)",
     ctaLabel: "첫 방문 혜택 · 가격 보기",
     eyebrow: "SUNSHINE FIRST VISIT",
     title: "FIRST VISIT WELCOME EVENT",
