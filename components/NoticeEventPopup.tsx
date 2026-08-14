@@ -74,11 +74,14 @@ export function NoticeEventPopup({
 
       <section
         aria-label={ariaLabel}
-        className="pointer-events-auto relative flex h-auto max-h-[92dvh] w-full max-w-[440px] flex-col overflow-hidden rounded-[1.5rem] border border-white/25 bg-white/12 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.45),0_24px_60px_rgba(20,12,4,0.5)] backdrop-blur-2xl sm:max-w-[480px]"
+        className="pointer-events-auto relative flex h-auto max-h-[92dvh] w-full max-w-[440px] flex-col overflow-hidden rounded-[1.5rem] border border-white/30 bg-white/22 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.45),0_24px_60px_rgba(20,12,4,0.5)] backdrop-blur-2xl sm:max-w-[480px] lg:h-[660px] lg:max-h-none"
       >
-        {variant === "holiday" ? <HolidayDetail /> : <SedationDetail />}
+        {/* 이벤트 팝업(660px)과 세로 높이를 맞추고 내용은 가운데 정렬 */}
+        <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+          {variant === "holiday" ? <HolidayDetail /> : <SedationDetail />}
+        </div>
 
-        <div className="flex shrink-0 items-center justify-between border-t border-white/20 bg-black/20 px-5 py-2.5 text-xs text-white/70">
+        <div className="flex shrink-0 items-center justify-between border-t border-white/20 bg-black/25 px-5 py-2.5 text-xs text-white/70">
           <button type="button" onClick={closeToday} className="transition hover:text-white">
             오늘 하루 보지 않기
           </button>
@@ -109,7 +112,7 @@ function HolidayDetail() {
   const closedDay = days.find((d) => d.status === "closed");
 
   return (
-    <div className="min-h-0 overflow-y-auto px-6 pb-6 pt-7 text-center [text-shadow:0_1px_6px_rgba(25,15,5,0.35)]">
+    <div className="my-auto px-6 pb-6 pt-7 text-center [text-shadow:0_1px_6px_rgba(25,15,5,0.35)]">
       <p className="text-[10px] font-semibold tracking-[0.3em] text-[#ffb282]">{t("brand")}</p>
       <h2 className="mt-2 font-serif text-[26px] tracking-tight text-white">{t("title")}</h2>
       <p className="mt-3 text-[13px] leading-relaxed text-white/80">
@@ -120,7 +123,7 @@ function HolidayDetail() {
 
       {/* 8/15 정상 진료 — 메인 강조 카드 */}
       {openDay && (
-        <div className="mt-5 rounded-3xl border border-white/35 bg-white/20 px-5 py-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-md">
+        <div className="mt-5 rounded-3xl border border-white/40 bg-white/28 px-5 py-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] backdrop-blur-md">
           <p className="text-[12px] font-semibold text-[#ffd2b0]">
             {openDay.date} ({openDay.weekday}) · {openDay.label}
           </p>
@@ -137,7 +140,7 @@ function HolidayDetail() {
 
       {/* 8/17 휴진 — 보조 안내 */}
       {closedDay && (
-        <div className="mt-2.5 flex items-center justify-center gap-2 rounded-2xl border border-white/15 bg-white/8 px-4 py-3 text-[12px] text-white/75">
+        <div className="mt-2.5 flex items-center justify-center gap-2 rounded-2xl border border-white/20 bg-white/14 px-4 py-3 text-[12px] text-white/75">
           <span className="font-semibold">
             {closedDay.date} ({closedDay.weekday}) {closedDay.label}
           </span>
@@ -156,7 +159,7 @@ function SedationDetail() {
   const points = t.raw("points") as string[];
 
   return (
-    <div className="min-h-0 overflow-y-auto px-6 pb-6 pt-7 [text-shadow:0_1px_6px_rgba(25,15,5,0.35)]">
+    <div className="my-auto px-6 pb-6 pt-7 [text-shadow:0_1px_6px_rgba(25,15,5,0.35)]">
       <p className="text-center text-[10px] font-semibold tracking-[0.3em] text-[#ffb282]">
         {t("brand")} · {t("kicker")}
       </p>
@@ -171,7 +174,7 @@ function SedationDetail() {
         {points.map((p, i) => (
           <li
             key={i}
-            className="flex items-start gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-[12px] leading-relaxed text-white/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
+            className="flex items-start gap-3 rounded-2xl border border-white/25 bg-white/16 px-4 py-3 text-[12px] leading-relaxed text-white/85 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
           >
             <span
               aria-hidden
@@ -183,7 +186,7 @@ function SedationDetail() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 rounded-xl border border-white/15 bg-white/8 px-4 py-3 text-center text-[11px] leading-relaxed text-white/70">
+      <p className="mt-4 rounded-xl border border-white/20 bg-white/14 px-4 py-3 text-center text-[11px] leading-relaxed text-white/70">
         {t("note")}
       </p>
     </div>
