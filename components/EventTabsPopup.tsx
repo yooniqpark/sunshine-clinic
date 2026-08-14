@@ -211,6 +211,9 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               <h3 className="mt-1 text-lg font-extrabold lg:text-2xl" style={{ color: t.ink }}>
                 {category.name}
               </h3>
+              <p className="mt-1 break-keep text-[10.5px] lg:text-xs" style={{ color: t.meta }}>
+                {category.copy}
+              </p>
 
               <div className="mt-3 lg:mt-4">
                 {category.columns ? (

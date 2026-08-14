@@ -56,7 +56,7 @@ const GRAND_OPEN_CATEGORIES: CampaignCategory[] = [
     slug: "lifting",
     name: "리프팅",
     kicker: "01 / LIFTING",
-    copy: "울쎄라 · 써마지, 커스텀 스킨보톡스(얼굴 전체) 포함",
+    copy: "처진 자리를 끌어올리고, 탄력은 안에서부터",
     rows: [
       { name: "울쎄라피프라임 300샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "100만원" },
       { name: "울쎄라피프라임 400샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "140만원" },
