@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useLocale } from "next-intl";
 import { POPUP_EVENTS, type PopupEvent } from "@/lib/event-popup";
 import { ListTable, MatrixTable } from "@/components/EventPriceTables";
+import { localizeEvent, tr } from "@/lib/event-popup-i18n";
 import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
 
 const POPUP_ID = "sunshine-events-2026-v1";
@@ -18,8 +20,14 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
   const [eventIdx, setEventIdx] = useState(0);
   const [showPrice, setShowPrice] = useState(false); // 모바일 전용
   const [catIdx, setCatIdx] = useState(0);
+  const locale = useLocale();
 
-  const ev = POPUP_EVENTS[eventIdx];
+  // 가격 숫자·표 구조는 그대로 두고 문구만 로케일에 맞춰 바꾼 사본을 쓴다
+  const events = useMemo(
+    () => POPUP_EVENTS.map((e) => localizeEvent(e, locale)),
+    [locale],
+  );
+  const ev = events[eventIdx];
   const t = ev.theme;
   const category = ev.categories[Math.min(catIdx, ev.categories.length - 1)];
 
@@ -56,7 +64,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
 
   // 닫기 → 아직 못 본 이벤트가 있으면 그 이벤트를 먼저 보여준다
   function nextOrClose() {
-    if (eventIdx < POPUP_EVENTS.length - 1) {
+    if (eventIdx < events.length - 1) {
       selectEvent(eventIdx + 1);
       return;
     }
@@ -81,7 +89,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
       <div className="pointer-events-auto relative flex w-full max-w-[480px] flex-col sm:max-w-[520px] lg:h-[660px] lg:max-w-[1180px] lg:flex-row lg:overflow-hidden lg:rounded-[1.5rem] lg:shadow-2xl lg:shadow-black/40">
         {/* ── 데스크톱: 좌측 세로 탭 레일 ── */}
         <nav aria-label="이벤트 전환" className="hidden w-[42px] shrink-0 flex-col lg:flex">
-          {POPUP_EVENTS.map((e, i) => {
+          {events.map((e, i) => {
             const on = i === eventIdx;
             return (
             <button
@@ -114,7 +122,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
 
         {/* ── 모바일: 지면 위로 솟은 매거진 인덱스 탭 (겹쳐 물리고 선택된 탭이 앞으로) ── */}
         <nav aria-label="이벤트 전환" className="flex items-end lg:hidden">
-          {POPUP_EVENTS.map((e, i) => {
+          {events.map((e, i) => {
             const on = i === eventIdx;
             return (
               <button
@@ -192,7 +200,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               style={{ background: t.footBg, color: t.footText }}
             >
               <button type="button" onClick={closeToday} className="transition hover:opacity-80">
-                오늘 하루 보지 않기
+                {tr("오늘 하루 보지 않기", locale)}
               </button>
               <button
                 type="button"
@@ -200,7 +208,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 className="font-semibold transition hover:opacity-80"
                 style={{ color: t.footStrong }}
               >
-                닫기
+                {tr("닫기", locale)}
               </button>
             </div>
           )}
@@ -281,7 +289,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               style={{ background: t.footBg, color: t.footText }}
             >
               <button type="button" onClick={closeToday} className="transition hover:opacity-80">
-                오늘 하루 보지 않기
+                {tr("오늘 하루 보지 않기", locale)}
               </button>
               <button
                 type="button"
@@ -289,7 +297,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 className="font-semibold transition hover:opacity-80"
                 style={{ color: t.footStrong }}
               >
-                닫기
+                {tr("닫기", locale)}
               </button>
             </div>
           </div>

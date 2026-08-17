@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
+import { tr } from "@/lib/event-popup-i18n";
 
 /** 이벤트 팝업(그랜드 오픈)과 같은 지면 톤 — 아이보리 종이 · 잉크 · 더스티 로즈 */
 const PAPER = "#f6f3ed";
@@ -37,6 +38,7 @@ export function NoticeEventPopup({
 }) {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
+  const locale = useLocale();
 
   useEffect(() => {
     setMounted(true);
@@ -104,7 +106,7 @@ export function NoticeEventPopup({
             style={{ background: FOOT, color: "rgba(240,235,228,0.75)" }}
           >
             <button type="button" onClick={closeToday} className="transition hover:opacity-80">
-              오늘 하루 보지 않기
+              {tr("오늘 하루 보지 않기", locale)}
             </button>
             <button
               type="button"
@@ -112,7 +114,7 @@ export function NoticeEventPopup({
               className="font-semibold transition hover:opacity-80"
               style={{ color: "#efe9e1" }}
             >
-              닫기
+              {tr("닫기", locale)}
             </button>
           </div>
         </section>

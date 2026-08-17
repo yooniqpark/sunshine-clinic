@@ -8,8 +8,11 @@ import { NoticeEventPopup } from "@/components/NoticeEventPopup";
 const GAP_MS = 450;
 
 /**
- * 홈 팝업 순서: 이벤트(그랜드 오픈 · 첫 방문 탭 전환) → 8월 진료 안내 → 안심 수면마취.
- * 각 팝업의 "오늘 하루 보지 않기"는 개별 기억한다.
+ * 홈 팝업 순서: 이벤트(그랜드 오픈 · 첫 방문 탭 전환) → 안심 수면마취.
+ *
+ * 8월 진료 안내(광복절)는 기간이 지나 노출에서 제외했다.
+ * NoticeEventPopup의 holiday 변형과 v2.popups.holiday 문구는 그대로 두었으니,
+ * 다음 연휴 안내가 필요하면 문구만 고쳐 이 목록에 다시 넣으면 된다.
  */
 export function HomePopups() {
   const [step, setStep] = useState(0);
@@ -37,18 +40,6 @@ export function HomePopups() {
   }
 
   if (step === 1) {
-    return (
-      <NoticeEventPopup
-        key="holiday"
-        popupId="aug-2026-holiday"
-        ariaLabel="8월 진료 안내"
-        variant="holiday"
-        onClose={next}
-      />
-    );
-  }
-
-  if (step === 2) {
     return (
       <NoticeEventPopup
         key="sedation"
