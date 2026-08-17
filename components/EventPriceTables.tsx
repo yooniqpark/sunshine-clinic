@@ -1,8 +1,13 @@
+"use client";
+
+import { useLocale } from "next-intl";
 import type { CampaignCategory } from "@/lib/campaign-events";
 import type { PopupEvent, PopupTheme } from "@/lib/event-popup";
+import { formatPrice, tr } from "@/lib/event-popup-i18n";
 
 /** 팝업과 커뮤니티 게시판이 같은 가격표를 쓰도록 분리한 표 컴포넌트 */
 export function MatrixTable({ category, theme: t }: { category: CampaignCategory; theme: PopupTheme }) {
+  const locale = useLocale();
   const columns = category.columns ?? [];
   const template = `minmax(72px, 1.2fr) repeat(${columns.length}, minmax(0, 1fr))`;
 
@@ -16,7 +21,7 @@ export function MatrixTable({ category, theme: t }: { category: CampaignCategory
         style={{ gridTemplateColumns: template, background: t.headBg }}
       >
         <span className="text-[9px] font-bold lg:text-[11px]" style={{ color: t.meta }}>
-          구분
+          {tr("구분", locale)}
         </span>
         {columns.map((c) => (
           <span
@@ -98,13 +103,14 @@ export function ListTable({ category, theme: t }: { category: CampaignCategory; 
 
 /** "100만원" → 숫자는 강조, 만원 단위는 작게 */
 export function Won({ value, unitColor }: { value: string; unitColor: string }) {
-  const m = value.match(/^([\d.]+)(.*)$/);
-  if (!m) return <>{value}</>;
+  const locale = useLocale();
+  const { num, unit } = formatPrice(value, locale);
+  if (!unit) return <>{num}</>;
   return (
     <>
-      {m[1]}
+      {num}
       <em className="ml-0.5 text-[0.72em] font-semibold not-italic" style={{ color: unitColor }}>
-        {m[2]}
+        {unit}
       </em>
     </>
   );
