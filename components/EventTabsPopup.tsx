@@ -141,7 +141,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                   zIndex: on ? 2 : 1,
                 }}
               >
-                {String(i + 1).padStart(2, "0")} {e.tabLabel}
+                {String(i + 1).padStart(2, "0")} {e.tabShort ?? e.tabLabel}
               </button>
             );
           })}
@@ -154,7 +154,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
           {/* ── 포스터 (모바일: 가격표 보기 전 / 데스크톱: 항상) ── */}
           <div
             className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${showPrice ? "hidden lg:block" : "block"}`}
-            style={{ background: t.panel }}
+            style={{ background: ev.posterBg ?? t.panel }}
           >
             <button
               type="button"
@@ -168,7 +168,11 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 fill
                 priority
                 sizes="(min-width: 1024px) 410px, 100vw"
-                className="object-cover object-center lg:object-top"
+                className={
+                  ev.posterFit === "contain"
+                    ? "object-contain object-center"
+                    : "object-cover object-center lg:object-top"
+                }
                 draggable={false}
               />
             </button>
