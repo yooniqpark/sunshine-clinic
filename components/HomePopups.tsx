@@ -8,10 +8,10 @@ import { NoticeEventPopup } from "@/components/NoticeEventPopup";
 const GAP_MS = 450;
 
 /**
- * 홈 팝업 순서: 추석 연휴 진료 안내 → 이벤트(9월·오픈·첫 방문 탭 전환) → 안심 수면마취.
+ * 홈 팝업 순서: 이벤트(9월·오픈·첫 방문 탭 전환) → 추석 연휴 진료 안내 → 안심 수면마취.
  *
- * 휴진 안내를 맨 앞에 둔다 — 모르고 방문하면 헛걸음이 되므로 이벤트보다 먼저 보여야 한다.
- * 연휴가 지나면 step 0을 빼고 문구(v2.popups.holiday)만 다음 안내로 교체하면 된다.
+ * 연휴가 지나면 추석 단계를 빼고, 다음 연휴 안내가 필요할 때
+ * 문구(v2.popups.holiday)만 교체해 다시 넣으면 된다.
  */
 export function HomePopups() {
   const [step, setStep] = useState(0);
@@ -35,6 +35,10 @@ export function HomePopups() {
   if (!visible) return null;
 
   if (step === 0) {
+    return <EventTabsPopup key="events" onClose={next} />;
+  }
+
+  if (step === 1) {
     return (
       <NoticeEventPopup
         key="chuseok"
@@ -44,10 +48,6 @@ export function HomePopups() {
         onClose={next}
       />
     );
-  }
-
-  if (step === 1) {
-    return <EventTabsPopup key="events" onClose={next} />;
   }
 
   if (step === 2) {
