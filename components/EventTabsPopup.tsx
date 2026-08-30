@@ -103,9 +103,9 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               style={{
                 background: e.theme.tab,
                 color: e.theme.tabText,
-                // 아래 탭이 위 탭에 물리도록 겹치고, 선택된 탭만 앞으로 올린다
+                // 위 탭이 아래 탭 위로 겹치도록 순서대로 쌓고, 선택된 탭만 맨 앞으로
                 marginTop: i === 0 ? 0 : -14,
-                zIndex: on ? 2 : 1,
+                zIndex: on ? events.length + 1 : events.length - i,
               }}
             >
               <span
@@ -136,9 +136,9 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 style={{
                   background: e.theme.tab,
                   color: e.theme.tabText,
-                  // 뒤 탭이 앞 탭에 물리도록 겹치고, 선택된 탭만 위로 올린다
+                  // 왼쪽 탭이 오른쪽 탭 위로 겹치도록 순서대로 쌓고, 선택된 탭만 맨 앞으로
                   marginLeft: i === 0 ? 0 : -20,
-                  zIndex: on ? 2 : 1,
+                  zIndex: on ? events.length + 1 : events.length - i,
                 }}
               >
                 {String(i + 1).padStart(2, "0")} {e.tabShort ?? e.tabLabel}
