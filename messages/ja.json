@@ -671,9 +671,28 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "イベント",
-      "tagOpen": "OPEN",
+      "tagOpen": "BEST",
       "ctaSeeMore": "詳しく見る",
       "items": [
+        {
+          "tag": "BEST",
+          "slug": "september-2026",
+          "date": "2026.09",
+          "title": "9月、また出会うサンシャイン ベストイベント",
+          "excerpt": "多くご要望をいただいた施術から新しく準備したプログラムまで。リフティングアンコール・目元リフティング・顔全体ほくろ除去・ゴールドPTT・スキンブースター＆ボリューム。",
+          "body": [
+            "9月の1ヶ月間、多くご要望をいただいた施術を再びご用意しました。新しく導入したゴールドPTTまで、5つのカテゴリを9月特別価格でご案内します。",
+            "詳しい価格は下記をご確認ください。やみくもに多くの施術より、今のお肌に必要な施術を。院長との十分な診療のうえで決定します。（VAT別途）"
+          ],
+          "images": [
+            {
+              "src": "/events/september-model-2026.jpg",
+              "label": "September Best Event",
+              "width": 1122,
+              "height": 1402
+            }
+          ]
+        },
         {
           "tag": "WELCOME",
           "slug": "first-visit-2026",

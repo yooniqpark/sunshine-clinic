@@ -103,9 +103,9 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               style={{
                 background: e.theme.tab,
                 color: e.theme.tabText,
-                // 아래 탭이 위 탭에 물리도록 겹치고, 선택된 탭만 앞으로 올린다
+                // 위 탭이 아래 탭 위로 겹치도록 순서대로 쌓고, 선택된 탭만 맨 앞으로
                 marginTop: i === 0 ? 0 : -14,
-                zIndex: on ? 2 : 1,
+                zIndex: on ? events.length + 1 : events.length - i,
               }}
             >
               <span
@@ -136,12 +136,12 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 style={{
                   background: e.theme.tab,
                   color: e.theme.tabText,
-                  // 뒤 탭이 앞 탭에 물리도록 겹치고, 선택된 탭만 위로 올린다
+                  // 왼쪽 탭이 오른쪽 탭 위로 겹치도록 순서대로 쌓고, 선택된 탭만 맨 앞으로
                   marginLeft: i === 0 ? 0 : -20,
-                  zIndex: on ? 2 : 1,
+                  zIndex: on ? events.length + 1 : events.length - i,
                 }}
               >
-                {String(i + 1).padStart(2, "0")} {e.tabLabel}
+                {String(i + 1).padStart(2, "0")} {e.tabShort ?? e.tabLabel}
               </button>
             );
           })}
@@ -154,7 +154,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
           {/* ── 포스터 (모바일: 가격표 보기 전 / 데스크톱: 항상) ── */}
           <div
             className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${showPrice ? "hidden lg:block" : "block"}`}
-            style={{ background: t.panel }}
+            style={{ background: ev.posterBg ?? t.panel }}
           >
             <button
               type="button"
@@ -168,10 +168,34 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 fill
                 priority
                 sizes="(min-width: 1024px) 410px, 100vw"
-                className="object-cover object-center lg:object-top"
+                className={
+                  ev.posterFit === "contain"
+                    ? "object-contain object-center"
+                    : "object-cover object-center lg:object-top"
+                }
                 draggable={false}
               />
             </button>
+
+            {/* 글자가 없는 사진 커버에는 타이틀을 화면에서 얹는다 */}
+            {ev.posterOverlay && (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#2a1c12]/85 via-[#2a1c12]/45 to-transparent px-6 pb-24 pt-16 lg:px-8 lg:pb-10 lg:pt-20">
+                <p className="text-[9px] font-bold tracking-[0.3em] text-white/65 lg:text-[10px]">
+                  {ev.posterOverlay.kicker}
+                </p>
+                {ev.posterOverlay.titleLines.map((line) => (
+                  <p
+                    key={line}
+                    className="mt-1.5 break-keep font-serif text-[25px] leading-tight text-white lg:text-[28px]"
+                  >
+                    {line}
+                  </p>
+                ))}
+                <p className="mt-2.5 text-[8.5px] font-semibold tracking-[0.28em] text-white/60 lg:text-[9.5px]">
+                  {ev.posterOverlay.sub}
+                </p>
+              </div>
+            )}
 
             {/* 포스터 위 볼록 유리 CTA — 모바일 전용.
                 ctaTopPct가 있으면 포스터 구도(화살표 등)에 맞춰 그 위치에, 없으면 하단에 둔다. */}

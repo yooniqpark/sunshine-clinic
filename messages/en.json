@@ -671,9 +671,28 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "Events",
-      "tagOpen": "OPEN",
+      "tagOpen": "BEST",
       "ctaSeeMore": "View details",
       "items": [
+        {
+          "tag": "BEST",
+          "slug": "september-2026",
+          "date": "2026.09",
+          "title": "September, Sunshine Best Event",
+          "excerpt": "From the treatments you asked for most to newly added programs — lifting encore, eye lifting, full-face mole removal, Gold PTT, and boosters & volume.",
+          "body": [
+            "Through September, we bring back the treatments you asked for most, along with the newly introduced Gold PTT. Five categories are running at special September prices.",
+            "Please see the price list below. Rather than more treatments, we start from what your skin needs now — the plan is decided with the doctor after a full consultation. (VAT not included)"
+          ],
+          "images": [
+            {
+              "src": "/events/september-model-2026.jpg",
+              "label": "September Best Event",
+              "width": 1122,
+              "height": 1402
+            }
+          ]
+        },
         {
           "tag": "WELCOME",
           "slug": "first-visit-2026",

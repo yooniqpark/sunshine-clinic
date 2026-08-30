@@ -8,6 +8,7 @@ import { POPUP_EVENTS } from "@/lib/event-popup";
 
 /** 게시판 항목 ↔ 팝업 이벤트 — 가격표를 팝업과 같은 데이터로 그린다 */
 const PRICE_SHEET_BY_SLUG: Record<string, string> = {
+  "september-2026": "september-best",
   "grand-open-2026-07": "grand-open",
   "first-visit-2026": "first-visit",
 };

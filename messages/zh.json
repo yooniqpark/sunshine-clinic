@@ -671,9 +671,28 @@
     "events": {
       "kicker": "COMMUNITY",
       "title": "活动",
-      "tagOpen": "OPEN",
+      "tagOpen": "BEST",
       "ctaSeeMore": "查看详情",
       "items": [
+        {
+          "tag": "BEST",
+          "slug": "september-2026",
+          "date": "2026.09",
+          "title": "九月，再次相遇的 Sunshine 精选活动",
+          "excerpt": "从最多人指名的项目到全新准备的疗程 — 提拉安可 · 眼周提拉 · 全脸祛痣 · 黄金PTT · 水光针与胶原填充。",
+          "body": [
+            "整个九月，我们把最多人指名的项目重新带回，并加上全新引进的黄金PTT。五个类别以九月特别价提供。",
+            "详细价格请见下方。比起做得多，更重要的是做现在肌肤真正需要的项目。与院长充分面诊后再决定方案。（不含增值税）"
+          ],
+          "images": [
+            {
+              "src": "/events/september-model-2026.jpg",
+              "label": "September Best Event",
+              "width": 1122,
+              "height": 1402
+            }
+          ]
+        },
         {
           "tag": "WELCOME",
           "slug": "first-visit-2026",
