@@ -47,6 +47,15 @@ export type PopupEvent = {
   posterBg?: string;
   /** 모바일 탭에 쓰는 짧은 라벨 — 탭이 3개 이상이면 가로가 모자란다 */
   tabShort?: string;
+  /**
+   * 글자가 들어 있지 않은 사진을 커버로 쓸 때 화면에서 얹는 타이틀.
+   * 이미지에 굽지 않으므로 폰트가 깨지지 않고 번역도 그대로 따라간다.
+   */
+  posterOverlay?: {
+    kicker: string;
+    titleLines: string[];
+    sub: string;
+  };
   ctaLabel: string;
   eyebrow: string;
   title: string;
@@ -144,33 +153,33 @@ const GRAND_OPEN_THEME: PopupTheme = {
   footStrong: "#efe9e1",
 };
 
-/** 9월 베스트 — 매거진 스프레드 포스터 · 와인 & 아이보리 */
+/** 9월 베스트 — 모델 사진 커버 · 코코아 & 카라멜 */
 const SEPTEMBER_THEME: PopupTheme = {
-  tab: "#823435",
-  tabText: "#fcf3e8",
-  panel: "#fcf6ee",
-  line: "rgba(60,30,28,0.15)",
-  accent: "#a5484a",
-  ink: "#241a18",
-  sub: "#6d5a55",
-  meta: "#a89490",
-  pill: "#823435",
-  pillText: "#fcf3e8",
-  tableBg: "#fffdf8",
-  tableLine: "rgba(60,30,28,0.1)",
-  headBg: "#f3e2dd",
-  headText: "#7d5450",
-  price: "#823435",
-  unit: "#c08e8a",
-  noteBg: "#f5e8e3",
-  noteText: "#6d5a55",
-  catBg: "#f3ebe4",
-  catText: "#8a7671",
-  catOnBg: "#823435",
-  catOnText: "#fcf3e8",
-  footBg: "#241416",
-  footText: "rgba(245,235,226,0.75)",
-  footStrong: "#f5ebe2",
+  tab: "#7b5138",
+  tabText: "#faf4ec",
+  panel: "#faf4ec",
+  line: "rgba(70,45,28,0.15)",
+  accent: "#b07a52",
+  ink: "#33241a",
+  sub: "#6f5c4c",
+  meta: "#a89583",
+  pill: "#7b5138",
+  pillText: "#faf4ec",
+  tableBg: "#fffdf7",
+  tableLine: "rgba(70,45,28,0.1)",
+  headBg: "#efe2d2",
+  headText: "#7a5f45",
+  price: "#7b5138",
+  unit: "#b8a086",
+  noteBg: "#f2e7d9",
+  noteText: "#6f5c4c",
+  catBg: "#f0e8dd",
+  catText: "#8a7867",
+  catOnBg: "#7b5138",
+  catOnText: "#faf4ec",
+  footBg: "#2a1c12",
+  footText: "rgba(245,238,228,0.75)",
+  footStrong: "#f5eee4",
 };
 
 const SEPTEMBER_CATEGORIES: CampaignCategory[] = [
@@ -268,12 +277,15 @@ export const POPUP_EVENTS: PopupEvent[] = [
     id: "september-best",
     tabLabel: "SEPT BEST",
     tabShort: "SEPT",
-    poster: "/events/september-best-2026.jpg",
+    poster: "/events/september-model-2026.jpg",
     posterAlt: "선샤인의원 9월 베스트 이벤트",
-    // 매거진 스프레드라 잘라내지 않고 전체를 보여준다
-    posterFit: "contain",
-    posterBg: "#2a1013",
-    ctaFill: "rgba(252,243,232,0.9)",
+    posterBg: "#7b5138",
+    posterOverlay: {
+      kicker: "SUNSHINE SKIN CLINIC",
+      titleLines: ["9월, 다시 만나는", "선샤인 베스트 이벤트"],
+      sub: "SEPTEMBER, YOUR SKIN MOMENT",
+    },
+    ctaFill: "rgba(250,244,236,0.92)",
     ctaBorder: "transparent",
     ctaLabel: "9월 베스트 혜택 · 가격 보기",
     eyebrow: "SEPTEMBER, YOUR SKIN MOMENT",

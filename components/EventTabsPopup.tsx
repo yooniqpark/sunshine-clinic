@@ -177,6 +177,26 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               />
             </button>
 
+            {/* 글자가 없는 사진 커버에는 타이틀을 화면에서 얹는다 */}
+            {ev.posterOverlay && (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#2a1c12]/85 via-[#2a1c12]/45 to-transparent px-6 pb-24 pt-16 lg:px-8 lg:pb-10 lg:pt-20">
+                <p className="text-[9px] font-bold tracking-[0.3em] text-white/65 lg:text-[10px]">
+                  {ev.posterOverlay.kicker}
+                </p>
+                {ev.posterOverlay.titleLines.map((line) => (
+                  <p
+                    key={line}
+                    className="mt-1.5 break-keep font-serif text-[25px] leading-tight text-white lg:text-[28px]"
+                  >
+                    {line}
+                  </p>
+                ))}
+                <p className="mt-2.5 text-[8.5px] font-semibold tracking-[0.28em] text-white/60 lg:text-[9.5px]">
+                  {ev.posterOverlay.sub}
+                </p>
+              </div>
+            )}
+
             {/* 포스터 위 볼록 유리 CTA — 모바일 전용.
                 ctaTopPct가 있으면 포스터 구도(화살표 등)에 맞춰 그 위치에, 없으면 하단에 둔다. */}
             <div
