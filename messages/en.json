@@ -613,6 +613,17 @@
       "items": [
         {
           "tag": "Notice",
+          "slug": "chuseok-2026",
+          "date": "2026.09.14",
+          "title": "Chuseok Holiday Hours",
+          "excerpt": "Open until 4:00 pm on Thu, Sep 24. Closed Fri, Sep 25 and Sat, Sep 26 for the Chuseok holiday.",
+          "body": [
+            "Here are our hours for the Chuseok holiday. On Thursday, September 24 we are open until 4:00 pm; we are closed on Friday, September 25 and Saturday, September 26. Regular hours resume on Monday, September 28.",
+            "If you would like to be seen before the holiday, please book before 4:00 pm on September 24. You can send questions by KakaoTalk during the holiday and we will reply in order once we reopen."
+          ]
+        },
+        {
+          "tag": "Notice",
           "slug": "sedation-2026-07",
           "date": "2026.07.28",
           "title": "Sedation monitoring system introduced",
@@ -1142,28 +1153,33 @@
       },
       "holiday": {
         "brand": "SUNSHINE CLINIC",
-        "title": "Open on August 15",
-        "body1": "We are open as usual on Sat, Aug 15 (Liberation Day).",
-        "body2": "Closed on Mon, Aug 17 (substitute holiday).",
+        "title": "Chuseok Holiday Hours",
+        "body1": "On Thu, Sep 24 we are open until 4:00 pm.",
+        "body2": "Closed on Fri, Sep 25 and Sat, Sep 26 for Chuseok.",
         "openLabel": "Open",
         "closedLabel": "Closed",
         "days": [
           {
-            "date": "8.15",
-            "weekday": "Sat",
-            "label": "Liberation Day",
+            "date": "9.24",
+            "weekday": "Thu",
+            "label": "Day before the holiday",
             "status": "open",
             "hours": "10:00 – 16:00"
           },
           {
-            "date": "8.17",
-            "weekday": "Mon",
-            "label": "Substitute Holiday",
-            "status": "closed",
-            "hours": "Closed all day"
+            "date": "9.25",
+            "weekday": "Fri",
+            "label": "Chuseok",
+            "status": "closed"
+          },
+          {
+            "date": "9.26",
+            "weekday": "Sat",
+            "label": "Chuseok holiday",
+            "status": "closed"
           }
         ],
-        "footer": "Please refer to this schedule for your visit. Thank you."
+        "footer": "If you would like to be seen before the holiday, please book before 4:00 pm on Sep 24. Thank you."
       },
       "sedation": {
         "brand": "SUNSHINE CLINIC",
