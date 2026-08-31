@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { useLocale } from "next-intl";
-import { POPUP_EVENTS, type PopupEvent } from "@/lib/event-popup";
+import { ACTIVE_POPUP_EVENTS, type PopupEvent } from "@/lib/event-popup";
 import { ListTable, MatrixTable } from "@/components/EventPriceTables";
 import { localizeEvent, tr } from "@/lib/event-popup-i18n";
 import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
@@ -24,7 +24,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
 
   // 가격 숫자·표 구조는 그대로 두고 문구만 로케일에 맞춰 바꾼 사본을 쓴다
   const events = useMemo(
-    () => POPUP_EVENTS.map((e) => localizeEvent(e, locale)),
+    () => ACTIVE_POPUP_EVENTS.map((e) => localizeEvent(e, locale)),
     [locale],
   );
   const ev = events[eventIdx];
