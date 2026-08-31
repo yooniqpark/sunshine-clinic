@@ -48,6 +48,12 @@ export type PopupEvent = {
   /** 모바일 탭에 쓰는 짧은 라벨 — 탭이 3개 이상이면 가로가 모자란다 */
   tabShort?: string;
   /**
+   * 홈 팝업 탭에 띄울지 여부. 기본 true.
+   * 종료된 이벤트는 false로 두면 팝업에서만 빠지고, 커뮤니티 게시판의
+   * 가격표는 계속 이 데이터로 렌더된다.
+   */
+  showInPopup?: boolean;
+  /**
    * 글자가 들어 있지 않은 사진을 커버로 쓸 때 화면에서 얹는 타이틀.
    * 이미지에 굽지 않으므로 폰트가 깨지지 않고 번역도 그대로 따라간다.
    */
@@ -272,6 +278,7 @@ const FIRST_VISIT_THEME: PopupTheme = {
 
 const FIRST_VISIT = CAMPAIGNS["first-visit-2026"];
 
+/** 팝업·게시판이 함께 참조하는 전체 이벤트 (종료분 포함) */
 export const POPUP_EVENTS: PopupEvent[] = [
   {
     id: "september-best",
@@ -303,6 +310,8 @@ export const POPUP_EVENTS: PopupEvent[] = [
     id: "grand-open",
     tabLabel: "OPEN EVENT",
     tabShort: "OPEN",
+    // 2026.08.30 종료 — 팝업에서는 내리고 커뮤니티 게시판 기록으로만 남긴다
+    showInPopup: false,
     poster: "/events/grand-open-welcome-2026-v4.jpg",
     posterAlt: "선샤인의원 그랜드 오픈 이벤트",
     // 포스터 텍스트 블록(~67.8%) 바로 아래에 버튼을 둔다
@@ -339,3 +348,8 @@ export const POPUP_EVENTS: PopupEvent[] = [
     theme: FIRST_VISIT_THEME,
   },
 ];
+
+/** 홈 팝업 탭에 실제로 노출되는 이벤트 */
+export const ACTIVE_POPUP_EVENTS: PopupEvent[] = POPUP_EVENTS.filter(
+  (e) => e.showInPopup !== false,
+);
