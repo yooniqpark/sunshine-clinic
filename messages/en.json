@@ -613,13 +613,13 @@
       "items": [
         {
           "tag": "Notice",
-          "slug": "chuseok-2026",
-          "date": "2026.09.14",
-          "title": "Chuseok Holiday Hours",
-          "excerpt": "Open until 4:00 pm on Thu, Sep 24. Closed Fri, Sep 25 and Sat, Sep 26 for the Chuseok holiday.",
+          "slug": "october-schedule-2026",
+          "date": "2026.09.28",
+          "title": "October Clinic Hours",
+          "excerpt": "Open until 4:00 pm on Sat, Oct 3 (National Foundation Day); closed Mon, Oct 5 (substitute holiday) and Fri, Oct 9 (Hangeul Day).",
           "body": [
-            "Here are our hours for the Chuseok holiday. On Thursday, September 24 we are open until 4:00 pm; we are closed on Friday, September 25 and Saturday, September 26. Regular hours resume on Monday, September 28.",
-            "If you would like to be seen before the holiday, please book before 4:00 pm on September 24. You can send questions by KakaoTalk during the holiday and we will reply in order once we reopen."
+            "Here is our October schedule. On Saturday, October 3 (National Foundation Day) we are open from 10:00 am to 4:00 pm. We are closed on Monday, October 5 (substitute holiday) and Friday, October 9 (Hangeul Day).",
+            "All other days follow our regular hours. Appointments tend to fill up just before and after the closed days, so please check the schedule before visiting or booking. Questions sent by KakaoTalk on closed days will be answered in order once we reopen."
           ]
         },
         {
@@ -1172,33 +1172,33 @@
       },
       "holiday": {
         "brand": "SUNSHINE CLINIC",
-        "title": "Chuseok Holiday Hours",
-        "body1": "On Thu, Sep 24 we are open until 4:00 pm.",
-        "body2": "Closed on Fri, Sep 25 and Sat, Sep 26 for Chuseok.",
+        "title": "October Clinic Hours",
+        "body1": "On Sat, Oct 3 (National Foundation Day) we are open until 4:00 pm.",
+        "body2": "Closed on Mon, Oct 5 (substitute holiday) and Fri, Oct 9 (Hangeul Day).",
         "openLabel": "Open",
         "closedLabel": "Closed",
         "days": [
           {
-            "date": "9.24",
-            "weekday": "Thu",
-            "label": "Day before the holiday",
+            "date": "10.03",
+            "weekday": "Sat",
+            "label": "National Foundation Day",
             "status": "open",
             "hours": "10:00 – 16:00"
           },
           {
-            "date": "9.25",
-            "weekday": "Fri",
-            "label": "Chuseok",
+            "date": "10.05",
+            "weekday": "Mon",
+            "label": "Substitute holiday",
             "status": "closed"
           },
           {
-            "date": "9.26",
-            "weekday": "Sat",
-            "label": "Chuseok holiday",
+            "date": "10.09",
+            "weekday": "Fri",
+            "label": "Hangeul Day",
             "status": "closed"
           }
         ],
-        "footer": "If you would like to be seen before the holiday, please book before 4:00 pm on Sep 24. Thank you."
+        "footer": "Appointments fill up around the closed days, so please check the schedule in advance. Thank you."
       },
       "sedation": {
         "brand": "SUNSHINE CLINIC",

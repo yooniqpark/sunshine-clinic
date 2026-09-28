@@ -39,7 +39,7 @@ export default async function PricesPage({
           <p className="text-[10px] font-bold tracking-[0.35em] text-brand-soft">
             {t("kicker")}
           </p>
-          <h1 className="mt-4 font-serif text-4xl leading-tight lg:text-5xl">
+          <h1 className="mt-4 font-title text-4xl leading-tight lg:text-5xl">
             {t("title")}
           </h1>
           <p className="mt-6 max-w-2xl text-sm leading-relaxed text-cream/60 lg:text-base">

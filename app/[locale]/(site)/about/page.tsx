@@ -124,7 +124,7 @@ export default async function AboutPage({
           <p className="text-[10px] font-bold tracking-[0.35em] text-brand-soft">
             {t("heroKicker")}
           </p>
-          <h1 className="mt-6 font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05]">
+          <h1 className="mt-6 font-title text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.05]">
             {t("heroTitleLine1")}
             <br />
             <span className="text-brand-soft">{t("heroTitleAccent")}</span>
