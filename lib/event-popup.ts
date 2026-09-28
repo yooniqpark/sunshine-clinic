@@ -159,8 +159,8 @@ const GRAND_OPEN_THEME: PopupTheme = {
   footStrong: "#efe9e1",
 };
 
-/** 9월 베스트 — 모델 사진 커버 · 코코아 & 카라멜 */
-const SEPTEMBER_THEME: PopupTheme = {
+/** 9월·10월 베스트가 함께 쓰는 지면 — 모델 사진 커버 · 코코아 & 카라멜 */
+const BEST_THEME: PopupTheme = {
   tab: "#7b5138",
   tabText: "#faf4ec",
   panel: "#faf4ec",
@@ -188,12 +188,13 @@ const SEPTEMBER_THEME: PopupTheme = {
   footStrong: "#f5eee4",
 };
 
-const SEPTEMBER_CATEGORIES: CampaignCategory[] = [
+const BEST_CATEGORIES: CampaignCategory[] = [
   {
     slug: "lifting-encore",
     name: "리프팅 앵콜",
     kicker: "01 / LIFTING ENCORE",
-    copy: "많이 찾아주셨던 리프팅 조합을 9월 한 달 다시 만나보세요",
+    // 9월·10월이 같은 표를 쓰므로 월 표기는 넣지 않는다
+    copy: "많이 찾아주셨던 리프팅 조합을 이번 달 다시 만나보세요",
     rows: [
       { name: "울쎄라 피프라임 300샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "100만원" },
       { name: "울쎄라 피프라임 400샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "150만원" },
@@ -281,9 +282,39 @@ const FIRST_VISIT = CAMPAIGNS["first-visit-2026"];
 /** 팝업·게시판이 함께 참조하는 전체 이벤트 (종료분 포함) */
 export const POPUP_EVENTS: PopupEvent[] = [
   {
+    id: "october-best",
+    tabLabel: "OCT BEST",
+    tabShort: "OCT",
+    // TODO: 10월 전용 모델 컷이 올라오면 이 경로만 새 파일명으로 교체한다
+    // (같은 경로에 덮어쓰면 이미지 캐시 때문에 옛날 사진이 계속 보인다)
+    poster: "/events/september-model-2026.jpg",
+    posterAlt: "선샤인의원 10월 베스트 이벤트",
+    posterBg: "#7b5138",
+    posterOverlay: {
+      kicker: "SUNSHINE SKIN CLINIC",
+      titleLines: ["10월, 다시 만나는", "선샤인 베스트 이벤트"],
+      sub: "OCTOBER, YOUR SKIN MOMENT",
+    },
+    ctaFill: "rgba(250,244,236,0.92)",
+    ctaBorder: "transparent",
+    ctaLabel: "10월 베스트 혜택 · 가격 보기",
+    eyebrow: "OCTOBER, YOUR SKIN MOMENT",
+    title: "10월, 다시 만나는 선샤인 베스트 이벤트",
+    subtitle: "많이 찾아주셨던 시술부터 새롭게 준비한 프로그램까지.",
+    period: "2026.10.01 – 10.31",
+    vatNote: "부가세(VAT) 별도",
+    pillLabel: "10월 한정",
+    closingCopy:
+      "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.",
+    categories: BEST_CATEGORIES,
+    theme: BEST_THEME,
+  },
+  {
     id: "september-best",
     tabLabel: "SEPT BEST",
     tabShort: "SEPT",
+    /** 9월 종료 — 팝업에서는 내리고 커뮤니티 게시판에만 남긴다 */
+    showInPopup: false,
     poster: "/events/september-model-2026.jpg",
     posterAlt: "선샤인의원 9월 베스트 이벤트",
     posterBg: "#7b5138",
@@ -303,8 +334,8 @@ export const POPUP_EVENTS: PopupEvent[] = [
     pillLabel: "9월 한정",
     closingCopy:
       "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.",
-    categories: SEPTEMBER_CATEGORIES,
-    theme: SEPTEMBER_THEME,
+    categories: BEST_CATEGORIES,
+    theme: BEST_THEME,
   },
   {
     id: "grand-open",
