@@ -111,7 +111,7 @@ export function PhilosophyLines() {
   return (
     <h2
       ref={ref}
-      className="mt-8 font-serif text-3xl font-normal leading-[1.35] tracking-tight lg:text-[3rem] lg:leading-[1.3]"
+      className="mt-8 font-title text-3xl font-normal leading-[1.35] tracking-tight lg:text-[3rem] lg:leading-[1.3]"
     >
       {TOKENS.map((tk, i) => (
         <span key={i}>

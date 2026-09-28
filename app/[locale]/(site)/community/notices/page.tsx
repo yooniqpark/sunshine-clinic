@@ -30,7 +30,7 @@ export default async function NoticesPage({
           <p className="text-[10px] font-bold tracking-[0.35em] text-brand-soft">
             {t("kicker")}
           </p>
-          <h1 className="mt-4 font-serif text-4xl leading-tight lg:text-6xl">
+          <h1 className="mt-4 font-title text-4xl leading-tight lg:text-6xl">
             {t("title")}
           </h1>
         </div>

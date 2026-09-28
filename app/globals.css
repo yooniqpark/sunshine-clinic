@@ -18,6 +18,10 @@
   --font-serif: "Cormorant Garamond", "MaruBuri", "Noto Serif KR",
     "Nanum Myeongjo", Georgia, "Times New Roman", serif;
 
+  /* 큰 헤드라인 전용 — 디펠리아는 장식 명조라 작은 글씨·숫자에는 쓰지 않는다 */
+  --font-title: "Diphylleia", "Cormorant Garamond", "MaruBuri", "Noto Serif KR",
+    "Nanum Myeongjo", Georgia, serif;
+
   --radius-xl: 1.5rem;
   --radius-2xl: 2rem;
 

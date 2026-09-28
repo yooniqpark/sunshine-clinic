@@ -8,10 +8,10 @@ import { NoticeEventPopup } from "@/components/NoticeEventPopup";
 const GAP_MS = 450;
 
 /**
- * 홈 팝업 순서: 이벤트(9월·오픈·첫 방문 탭 전환) → 추석 연휴 진료 안내 → 안심 수면마취.
+ * 홈 팝업 순서: 이벤트(10월 베스트·첫 방문 탭 전환) → 10월 진료 안내 → 안심 수면마취.
  *
- * 연휴가 지나면 추석 단계를 빼고, 다음 연휴 안내가 필요할 때
- * 문구(v2.popups.holiday)만 교체해 다시 넣으면 된다.
+ * 달이 바뀌면 문구(v2.popups.holiday)와 popupId만 새 달로 교체한다.
+ * popupId를 바꿔야 "오늘 하루 보지 않기"를 눌렀던 방문자에게도 새 안내가 뜬다.
  */
 export function HomePopups() {
   const [step, setStep] = useState(0);
@@ -41,9 +41,9 @@ export function HomePopups() {
   if (step === 1) {
     return (
       <NoticeEventPopup
-        key="chuseok"
-        popupId="chuseok-2026"
-        ariaLabel="추석 연휴 진료 안내"
+        key="october-schedule"
+        popupId="october-schedule-2026"
+        ariaLabel="10월 진료 안내"
         variant="holiday"
         onClose={next}
       />
