@@ -15,6 +15,47 @@ const EN: Record<string, string> = {
   "닫기": "Close",
   "구분": "Type",
   "부가세(VAT) 별도": "VAT not included",
+  // 10월 가을 이벤트
+  "10월 가을 이벤트 · 가격 보기": "See October autumn offers & prices",
+  "선샤인의원 10월 가을 이벤트": "Sunshine Clinic October Autumn Event",
+  "이중턱부터 얼굴 전체 탄력까지, 원하는 만큼 골라 받는 가을 리프팅":
+    "From a double chin to overall firmness — autumn lifting, as much or as little as you want",
+  "이중턱 삭제 · V라인 리프팅": "Double-chin removal & V-line lifting",
+  "울쎄라 400샷 + 인모드 Mini FX + 인모드 FORMA + 커스텀 스킨보톡스":
+    "Ulthera 400 shots + INMODE Mini FX + INMODE FORMA + custom skin botox",
+  "탄력 UP · V라인 리프팅": "Firmness up & V-line lifting",
+  "써마지 FLX 600샷 + 슈링크 유니버스 500샷 + 커스텀 스킨보톡스":
+    "Thermage FLX 600 shots + Shurink Universe 500 shots + custom skin botox",
+  "프리미엄 토탈 리프팅": "Premium total lifting",
+  "울쎄라 300샷 + 써마지 FLX 600샷 + 리쥬란 HB 2cc + 커스텀 스킨보톡스":
+    "Ulthera 300 shots + Thermage FLX 600 shots + Rejuran HB 2cc + custom skin botox",
+  "부담 없이 시작하는 부분 집중 리프팅": "An easy first step — targeted lifting",
+  "슈링크 유니버스 100샷": "Shurink Universe 100 shots",
+  "모공 & 흉터": "Pores & Scars",
+  "넓어진 모공과 남아 있는 여드름 흉터를 한 번에 정돈합니다":
+    "Enlarged pores and lingering acne scars, smoothed in one session",
+  "모공 · 피부결 집중 케어": "Pore & texture intensive care",
+  "시크릿 모공레이저 + 미라젯 + 쥬베룩 볼륨 3cc / 1회":
+    "Secret pore laser + Mirajet + Juvelook Volume 3cc / 1 session",
+  "여드름 흉터 패키지": "Acne scar package",
+  "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 서브시전 / 1회":
+    "Secret + Morpheus + Mirajet + Juvelook Volume + subcision / 1 session",
+  "색소": "Pigmentation",
+  "기미 · 잡티 · 색소를 열 번에 걸쳐 차분히 걷어냅니다":
+    "Melasma, dark spots and pigmentation lifted gradually over ten sessions",
+  "얼굴 전체 색소 트리플 패키지": "Full-face pigmentation triple package",
+  "색소레이저 3종 + GA 필링 + LDM 진정관리 / 10회":
+    "3 pigment lasers + GA peel + LDM soothing care / 10 sessions",
+  "수분 & 광채": "Hydration & Glow",
+  "건조해지는 계절, 속부터 채우는 수분과 맑은 광채":
+    "As the air turns dry — hydration from within, and a clear glow",
+  "가을 수분 · 탄력 충전": "Autumn hydration & firmness refill",
+  "스킨바이브 2cc + LDM 12분 진정관리": "SkinVive 2cc + LDM 12-minute soothing care",
+  "선샤인 글로우 부스터 3cc": "Sunshine Glow Booster 3cc",
+  "선샤인 글로우 부스터 6cc": "Sunshine Glow Booster 6cc",
+  "한 번에 차오르는 맑은 광채": "A clear glow that fills in, all at once",
+  "선샤인 커스텀 스킨보톡스": "Sunshine custom skin botox",
+  "한 번에 매끈하게 정돈하는 피부 컨디션 케어": "Skin-condition care that smooths everything in one go",
   // 월간 베스트
   "10월 베스트 혜택 · 가격 보기": "See October best offers & prices",
   "선샤인의원 10월 베스트 이벤트": "Sunshine Clinic October Best Event",
@@ -108,6 +149,47 @@ const JA: Record<string, string> = {
   "닫기": "閉じる",
   "구분": "区分",
   "부가세(VAT) 별도": "VAT別途",
+  // 10月 秋イベント
+  "10월 가을 이벤트 · 가격 보기": "10月秋イベント・価格を見る",
+  "선샤인의원 10월 가을 이벤트": "サンシャインクリニック 10月秋イベント",
+  "이중턱부터 얼굴 전체 탄력까지, 원하는 만큼 골라 받는 가을 리프팅":
+    "二重あごから顔全体のハリまで。必要な分だけ選べる秋のリフティング",
+  "이중턱 삭제 · V라인 리프팅": "二重あご解消・Vラインリフティング",
+  "울쎄라 400샷 + 인모드 Mini FX + 인모드 FORMA + 커스텀 스킨보톡스":
+    "ウルセラ400ショット + インモード Mini FX + インモード FORMA + カスタムスキンボトックス",
+  "탄력 UP · V라인 리프팅": "ハリUP・Vラインリフティング",
+  "써마지 FLX 600샷 + 슈링크 유니버스 500샷 + 커스텀 스킨보톡스":
+    "サーマジFLX 600ショット + シュリンクユニバース500ショット + カスタムスキンボトックス",
+  "프리미엄 토탈 리프팅": "プレミアム トータルリフティング",
+  "울쎄라 300샷 + 써마지 FLX 600샷 + 리쥬란 HB 2cc + 커스텀 스킨보톡스":
+    "ウルセラ300ショット + サーマジFLX 600ショット + リジュラン HB 2cc + カスタムスキンボトックス",
+  "부담 없이 시작하는 부분 집중 리프팅": "気軽に始める部分集中リフティング",
+  "슈링크 유니버스 100샷": "シュリンクユニバース100ショット",
+  "모공 & 흉터": "毛穴 & ニキビ跡",
+  "넓어진 모공과 남아 있는 여드름 흉터를 한 번에 정돈합니다":
+    "広がった毛穴と残ったニキビ跡を一度に整えます",
+  "모공 · 피부결 집중 케어": "毛穴・肌質集中ケア",
+  "시크릿 모공레이저 + 미라젯 + 쥬베룩 볼륨 3cc / 1회":
+    "シークレット毛穴レーザー + ミラジェット + ジュベルック ボリューム 3cc / 1回",
+  "여드름 흉터 패키지": "ニキビ跡パッケージ",
+  "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 서브시전 / 1회":
+    "シークレット + モーフィアス + ミラジェット + ジュベルック ボリューム + サブシジョン / 1回",
+  "색소": "色素",
+  "기미 · 잡티 · 색소를 열 번에 걸쳐 차분히 걷어냅니다":
+    "シミ・くすみ・色素を10回かけてじっくり取り除きます",
+  "얼굴 전체 색소 트리플 패키지": "顔全体 色素トリプルパッケージ",
+  "색소레이저 3종 + GA 필링 + LDM 진정관리 / 10회":
+    "色素レーザー3種 + GAピーリング + LDM鎮静ケア / 10回",
+  "수분 & 광채": "保湿 & ツヤ",
+  "건조해지는 계절, 속부터 채우는 수분과 맑은 광채":
+    "乾燥する季節に、内側から満たす保湿と澄んだツヤ",
+  "가을 수분 · 탄력 충전": "秋の保湿・ハリチャージ",
+  "스킨바이브 2cc + LDM 12분 진정관리": "スキンバイブ 2cc + LDM 12分鎮静ケア",
+  "선샤인 글로우 부스터 3cc": "サンシャイン グロウブースター 3cc",
+  "선샤인 글로우 부스터 6cc": "サンシャイン グロウブースター 6cc",
+  "한 번에 차오르는 맑은 광채": "一度で満ちる澄んだツヤ",
+  "선샤인 커스텀 스킨보톡스": "サンシャイン カスタムスキンボトックス",
+  "한 번에 매끈하게 정돈하는 피부 컨디션 케어": "一度でなめらかに整える肌コンディションケア",
   // 月間ベスト
   "10월 베스트 혜택 · 가격 보기": "10月ベスト特典・価格を見る",
   "선샤인의원 10월 베스트 이벤트": "サンシャインクリニック 10月ベストイベント",
@@ -197,6 +279,47 @@ const ZH: Record<string, string> = {
   "닫기": "关闭",
   "구분": "项目",
   "부가세(VAT) 별도": "不含增值税",
+  // 十月秋季活动
+  "10월 가을 이벤트 · 가격 보기": "查看十月秋季优惠及价格",
+  "선샤인의원 10월 가을 이벤트": "Sunshine 医院 十月秋季活动",
+  "이중턱부터 얼굴 전체 탄력까지, 원하는 만큼 골라 받는 가을 리프팅":
+    "从双下巴到全脸紧致，按需自选的秋季提拉",
+  "이중턱 삭제 · V라인 리프팅": "消除双下巴 · V线条提拉",
+  "울쎄라 400샷 + 인모드 Mini FX + 인모드 FORMA + 커스텀 스킨보톡스":
+    "超声刀400发 + INMODE Mini FX + INMODE FORMA + 定制水光肉毒",
+  "탄력 UP · V라인 리프팅": "紧致UP · V线条提拉",
+  "써마지 FLX 600샷 + 슈링크 유니버스 500샷 + 커스텀 스킨보톡스":
+    "热玛吉FLX 600发 + 超声炮Universe 500发 + 定制水光肉毒",
+  "프리미엄 토탈 리프팅": "高端全面提拉",
+  "울쎄라 300샷 + 써마지 FLX 600샷 + 리쥬란 HB 2cc + 커스텀 스킨보톡스":
+    "超声刀300发 + 热玛吉FLX 600发 + 丽珠兰 HB 2cc + 定制水光肉毒",
+  "부담 없이 시작하는 부분 집중 리프팅": "轻松入门的局部集中提拉",
+  "슈링크 유니버스 100샷": "超声炮Universe 100发",
+  "모공 & 흉터": "毛孔 & 痘疤",
+  "넓어진 모공과 남아 있는 여드름 흉터를 한 번에 정돈합니다":
+    "一次处理粗大毛孔与残留痘疤",
+  "모공 · 피부결 집중 케어": "毛孔 · 肤质集中护理",
+  "시크릿 모공레이저 + 미라젯 + 쥬베룩 볼륨 3cc / 1회":
+    "Secret 毛孔激光 + Mirajet + Juvelook Volume 3cc / 1次",
+  "여드름 흉터 패키지": "痘疤套餐",
+  "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 서브시전 / 1회":
+    "Secret + Morpheus + Mirajet + Juvelook Volume + 皮下剥离 / 1次",
+  "색소": "色素",
+  "기미 · 잡티 · 색소를 열 번에 걸쳐 차분히 걷어냅니다":
+    "黄褐斑 · 斑点 · 色素，分十次循序淡化",
+  "얼굴 전체 색소 트리플 패키지": "全脸色素三重套餐",
+  "색소레이저 3종 + GA 필링 + LDM 진정관리 / 10회":
+    "色素激光3种 + GA换肤 + LDM舒缓护理 / 10次",
+  "수분 & 광채": "补水 & 光泽",
+  "건조해지는 계절, 속부터 채우는 수분과 맑은 광채":
+    "在转干的季节，由内补足水分与通透光泽",
+  "가을 수분 · 탄력 충전": "秋季补水 · 紧致充能",
+  "스킨바이브 2cc + LDM 12분 진정관리": "SkinVive 2cc + LDM 12分钟舒缓护理",
+  "선샤인 글로우 부스터 3cc": "Sunshine 光采精华 3cc",
+  "선샤인 글로우 부스터 6cc": "Sunshine 光采精华 6cc",
+  "한 번에 차오르는 맑은 광채": "一次补足的通透光采",
+  "선샤인 커스텀 스킨보톡스": "Sunshine 定制水光肉毒",
+  "한 번에 매끈하게 정돈하는 피부 컨디션 케어": "一次抚平、整体调理的肌肤状态护理",
   // 每月精选
   "10월 베스트 혜택 · 가격 보기": "查看十月精选优惠及价格",
   "선샤인의원 10월 베스트 이벤트": "Sunshine 医院 十月精选活动",

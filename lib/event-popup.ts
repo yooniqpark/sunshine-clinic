@@ -159,8 +159,110 @@ const GRAND_OPEN_THEME: PopupTheme = {
   footStrong: "#efe9e1",
 };
 
-/** 9월·10월 베스트가 함께 쓰는 지면 — 모델 사진 커버 · 코코아 & 카라멜 */
-const BEST_THEME: PopupTheme = {
+/** 10월 가을 이벤트 — 리프팅 · 모공/흉터 · 색소 · 수분/광채 */
+const OCTOBER_CATEGORIES: CampaignCategory[] = [
+  {
+    slug: "lifting",
+    name: "리프팅",
+    kicker: "01 / LIFTING",
+    copy: "이중턱부터 얼굴 전체 탄력까지, 원하는 만큼 골라 받는 가을 리프팅",
+    rows: [
+      {
+        name: "이중턱 삭제 · V라인 리프팅",
+        desc: "울쎄라 400샷 + 인모드 Mini FX + 인모드 FORMA + 커스텀 스킨보톡스",
+        original: "193만원",
+        event: "150만원",
+      },
+      {
+        name: "탄력 UP · V라인 리프팅",
+        desc: "써마지 FLX 600샷 + 슈링크 유니버스 500샷 + 커스텀 스킨보톡스",
+        original: "250만원",
+        event: "190만원",
+      },
+      {
+        name: "프리미엄 토탈 리프팅",
+        desc: "울쎄라 300샷 + 써마지 FLX 600샷 + 리쥬란 HB 2cc + 커스텀 스킨보톡스",
+        original: "350만원",
+        event: "290만원",
+      },
+      {
+        name: "부담 없이 시작하는 부분 집중 리프팅",
+        desc: "슈링크 유니버스 100샷",
+        original: "9만원",
+        event: "3만원",
+      },
+    ],
+  },
+  {
+    slug: "pore-scar",
+    name: "모공 & 흉터",
+    kicker: "02 / PORE & SCAR",
+    copy: "넓어진 모공과 남아 있는 여드름 흉터를 한 번에 정돈합니다",
+    rows: [
+      {
+        name: "모공 · 피부결 집중 케어",
+        desc: "시크릿 모공레이저 + 미라젯 + 쥬베룩 볼륨 3cc / 1회",
+        original: "80만원",
+        event: "39만원",
+      },
+      {
+        name: "여드름 흉터 패키지",
+        desc: "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 서브시전 / 1회",
+        original: "100만원",
+        event: "49만원",
+      },
+    ],
+  },
+  {
+    slug: "pigment",
+    name: "색소",
+    kicker: "03 / PIGMENT",
+    copy: "기미 · 잡티 · 색소를 열 번에 걸쳐 차분히 걷어냅니다",
+    rows: [
+      {
+        name: "얼굴 전체 색소 트리플 패키지",
+        desc: "색소레이저 3종 + GA 필링 + LDM 진정관리 / 10회",
+        original: "250만원",
+        event: "150만원",
+      },
+    ],
+  },
+  {
+    slug: "glow",
+    name: "수분 & 광채",
+    kicker: "04 / GLOW",
+    copy: "건조해지는 계절, 속부터 채우는 수분과 맑은 광채",
+    rows: [
+      {
+        name: "가을 수분 · 탄력 충전",
+        desc: "스킨바이브 2cc + LDM 12분 진정관리",
+        original: "70만원",
+        event: "40만원",
+      },
+      {
+        name: "선샤인 글로우 부스터 3cc",
+        desc: "한 번에 차오르는 맑은 광채",
+        original: "30만원",
+        event: "10만원",
+      },
+      {
+        name: "선샤인 글로우 부스터 6cc",
+        desc: "한 번에 차오르는 맑은 광채",
+        original: "60만원",
+        event: "15만원",
+      },
+      {
+        name: "선샤인 커스텀 스킨보톡스",
+        desc: "한 번에 매끈하게 정돈하는 피부 컨디션 케어",
+        original: "20만원",
+        event: "15만원",
+      },
+    ],
+  },
+];
+
+/** 9월 베스트 — 모델 사진 커버 · 코코아 & 카라멜 */
+const SEPTEMBER_THEME: PopupTheme = {
   tab: "#7b5138",
   tabText: "#faf4ec",
   panel: "#faf4ec",
@@ -217,13 +319,12 @@ const OCTOBER_THEME: PopupTheme = {
   footStrong: "#f5e8e4",
 };
 
-const BEST_CATEGORIES: CampaignCategory[] = [
+const SEPTEMBER_CATEGORIES: CampaignCategory[] = [
   {
     slug: "lifting-encore",
     name: "리프팅 앵콜",
     kicker: "01 / LIFTING ENCORE",
-    // 9월·10월이 같은 표를 쓰므로 월 표기는 넣지 않는다
-    copy: "많이 찾아주셨던 리프팅 조합을 이번 달 다시 만나보세요",
+    copy: "많이 찾아주셨던 리프팅 조합을 9월 한 달 다시 만나보세요",
     rows: [
       { name: "울쎄라 피프라임 300샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "100만원" },
       { name: "울쎄라 피프라임 400샷", desc: "커스텀 스킨보톡스 얼굴 전체 포함", event: "150만원" },
@@ -312,32 +413,32 @@ const FIRST_VISIT = CAMPAIGNS["first-visit-2026"];
 export const POPUP_EVENTS: PopupEvent[] = [
   {
     id: "october-best",
-    tabLabel: "OCT BEST",
+    tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
     poster: "/events/october-model-2026-v1.jpg",
-    posterAlt: "선샤인의원 10월 베스트 이벤트",
+    posterAlt: "선샤인의원 10월 가을 이벤트",
     // 네 컷과 Sunshine 레터링이 잘리지 않도록 통째로 보여주고, 남는 자리는 배경 빨강으로 이어 붙인다
     posterFit: "contain",
     posterBg: "#6e1b1b",
     posterOverlay: {
       // 커버에 이미 Sunshine 레터링이 크게 들어가 있어 병원명을 다시 쓰지 않는다
       kicker: "2026 OCTOBER",
-      titleLines: ["10월, 다시 만나는", "선샤인 베스트 이벤트"],
-      sub: "OCTOBER, YOUR SKIN MOMENT",
+      titleLines: ["가을이 오면,", "선샤인 10월 이벤트"],
+      sub: "SUNSHINE OCTOBER, AUTUMN EVENT",
     },
     ctaFill: "rgba(251,244,239,0.94)",
     ctaBorder: "transparent",
-    ctaLabel: "10월 베스트 혜택 · 가격 보기",
-    eyebrow: "OCTOBER, YOUR SKIN MOMENT",
-    title: "10월, 다시 만나는 선샤인 베스트 이벤트",
-    subtitle: "많이 찾아주셨던 시술부터 새롭게 준비한 프로그램까지.",
+    ctaLabel: "10월 가을 이벤트 · 가격 보기",
+    eyebrow: "SUNSHINE OCTOBER, AUTUMN EVENT",
+    title: "가을이 오면, 선샤인 10월 이벤트",
+    subtitle: "리프팅부터 모공 · 흉터 · 색소 · 수분까지, 가을 피부에 필요한 것만.",
     period: "2026.10.01 – 10.31",
     vatNote: "부가세(VAT) 별도",
     pillLabel: "10월 한정",
     closingCopy:
       "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.",
-    categories: BEST_CATEGORIES,
+    categories: OCTOBER_CATEGORIES,
     theme: OCTOBER_THEME,
   },
   {
@@ -365,8 +466,8 @@ export const POPUP_EVENTS: PopupEvent[] = [
     pillLabel: "9월 한정",
     closingCopy:
       "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.",
-    categories: BEST_CATEGORIES,
-    theme: BEST_THEME,
+    categories: SEPTEMBER_CATEGORIES,
+    theme: SEPTEMBER_THEME,
   },
   {
     id: "grand-open",
