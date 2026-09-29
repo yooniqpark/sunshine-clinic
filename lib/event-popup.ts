@@ -285,9 +285,9 @@ export const POPUP_EVENTS: PopupEvent[] = [
     id: "october-best",
     tabLabel: "OCT BEST",
     tabShort: "OCT",
-    // TODO: 10월 전용 모델 컷이 올라오면 이 경로만 새 파일명으로 교체한다
-    // (같은 경로에 덮어쓰면 이미지 캐시 때문에 옛날 사진이 계속 보인다)
-    poster: "/events/september-model-2026.jpg",
+    // 모델 사진 대신 타이포 커버 — 헤드라인은 posterOverlay가 반응형으로 그린다
+    // (사진으로 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다)
+    poster: "/events/october-typo-2026-v2.jpg",
     posterAlt: "선샤인의원 10월 베스트 이벤트",
     posterBg: "#7b5138",
     posterOverlay: {
