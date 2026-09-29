@@ -16,7 +16,7 @@ const EN: Record<string, string> = {
   "구분": "Type",
   "부가세(VAT) 별도": "VAT not included",
   // 10월 가을 이벤트
-  "10월 가을 이벤트 · 가격 보기": "See October autumn offers & prices",
+  "10월 가을 이벤트 · 가격 보기": "See October offers & prices",
   "선샤인의원 10월 가을 이벤트": "Sunshine Clinic October Autumn Event",
   "이중턱부터 얼굴 전체 탄력까지, 원하는 만큼 골라 받는 가을 리프팅":
     "From a double chin to overall firmness — autumn lifting, as much or as little as you want",
@@ -56,6 +56,10 @@ const EN: Record<string, string> = {
   "한 번에 차오르는 맑은 광채": "A clear glow that fills in, all at once",
   "선샤인 커스텀 스킨보톡스": "Sunshine custom skin botox",
   "한 번에 매끈하게 정돈하는 피부 컨디션 케어": "Skin-condition care that smooths everything in one go",
+  "가을이 오면,": "When autumn comes,",
+  "선샤인 10월 이벤트": "Sunshine October Event",
+  "9월, 다시 만나는": "September, back again",
+  "선샤인 베스트 이벤트": "Sunshine Best Event",
   // 월간 베스트
   "10월 베스트 혜택 · 가격 보기": "See October best offers & prices",
   "선샤인의원 10월 베스트 이벤트": "Sunshine Clinic October Best Event",
@@ -190,6 +194,10 @@ const JA: Record<string, string> = {
   "한 번에 차오르는 맑은 광채": "一度で満ちる澄んだツヤ",
   "선샤인 커스텀 스킨보톡스": "サンシャイン カスタムスキンボトックス",
   "한 번에 매끈하게 정돈하는 피부 컨디션 케어": "一度でなめらかに整える肌コンディションケア",
+  "가을이 오면,": "秋が来たら、",
+  "선샤인 10월 이벤트": "サンシャイン10月イベント",
+  "9월, 다시 만나는": "9月、また出会う",
+  "선샤인 베스트 이벤트": "サンシャイン ベストイベント",
   // 月間ベスト
   "10월 베스트 혜택 · 가격 보기": "10月ベスト特典・価格を見る",
   "선샤인의원 10월 베스트 이벤트": "サンシャインクリニック 10月ベストイベント",
@@ -320,6 +328,10 @@ const ZH: Record<string, string> = {
   "한 번에 차오르는 맑은 광채": "一次补足的通透光采",
   "선샤인 커스텀 스킨보톡스": "Sunshine 定制水光肉毒",
   "한 번에 매끈하게 정돈하는 피부 컨디션 케어": "一次抚平、整体调理的肌肤状态护理",
+  "가을이 오면,": "秋天来了，",
+  "선샤인 10월 이벤트": "Sunshine 十月活动",
+  "9월, 다시 만나는": "九月，再次相遇的",
+  "선샤인 베스트 이벤트": "Sunshine 精选活动",
   // 每月精选
   "10월 베스트 혜택 · 가격 보기": "查看十月精选优惠及价格",
   "선샤인의원 10월 베스트 이벤트": "Sunshine 医院 十月精选活动",
@@ -452,6 +464,12 @@ export function localizeEvent(ev: PopupEvent, locale: string): PopupEvent {
     ...ev,
     ctaLabel: tr(ev.ctaLabel, locale),
     posterAlt: tr(ev.posterAlt, locale),
+    // 커버 위 타이틀도 화면에서 그리므로 함께 번역한다 (영문 줄은 사전에 없으면 그대로 통과)
+    posterOverlay: ev.posterOverlay && {
+      kicker: tr(ev.posterOverlay.kicker, locale),
+      titleLines: ev.posterOverlay.titleLines.map((line) => tr(line, locale)),
+      sub: tr(ev.posterOverlay.sub, locale),
+    },
     vatNote: tr(ev.vatNote, locale),
     closingCopy: tr(ev.closingCopy, locale),
     categories: ev.categories.map((c) => localizeCategory(c, locale)),
