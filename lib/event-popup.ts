@@ -188,6 +188,35 @@ const BEST_THEME: PopupTheme = {
   footStrong: "#f5eee4",
 };
 
+/** 10월 베스트 — 딥 레드 커버에 맞춘 지면 */
+const OCTOBER_THEME: PopupTheme = {
+  tab: "#7a1f1f",
+  tabText: "#fbeee6",
+  panel: "#fbf4ef",
+  line: "rgba(90,25,25,0.15)",
+  accent: "#a33a35",
+  ink: "#2b1a17",
+  sub: "#6b544e",
+  meta: "#a89490",
+  pill: "#7a1f1f",
+  pillText: "#fbeee6",
+  tableBg: "#fffaf7",
+  tableLine: "rgba(90,25,25,0.1)",
+  headBg: "#f2e0da",
+  headText: "#7a5049",
+  price: "#9c2b2b",
+  unit: "#b8a09b",
+  noteBg: "#f5e6e1",
+  noteText: "#6b544e",
+  catBg: "#f2e7e3",
+  catText: "#8a716b",
+  catOnBg: "#7a1f1f",
+  catOnText: "#fbeee6",
+  footBg: "#2a1210",
+  footText: "rgba(245,232,228,0.75)",
+  footStrong: "#f5e8e4",
+};
+
 const BEST_CATEGORIES: CampaignCategory[] = [
   {
     slug: "lifting-encore",
@@ -285,17 +314,19 @@ export const POPUP_EVENTS: PopupEvent[] = [
     id: "october-best",
     tabLabel: "OCT BEST",
     tabShort: "OCT",
-    // 모델 사진 대신 타이포 커버 — 헤드라인은 posterOverlay가 반응형으로 그린다
-    // (사진으로 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다)
-    poster: "/events/october-typo-2026-v2.jpg",
+    // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
+    poster: "/events/october-model-2026-v1.jpg",
     posterAlt: "선샤인의원 10월 베스트 이벤트",
-    posterBg: "#7b5138",
+    // 네 컷과 Sunshine 레터링이 잘리지 않도록 통째로 보여주고, 남는 자리는 배경 빨강으로 이어 붙인다
+    posterFit: "contain",
+    posterBg: "#6e1b1b",
     posterOverlay: {
-      kicker: "SUNSHINE SKIN CLINIC",
+      // 커버에 이미 Sunshine 레터링이 크게 들어가 있어 병원명을 다시 쓰지 않는다
+      kicker: "2026 OCTOBER",
       titleLines: ["10월, 다시 만나는", "선샤인 베스트 이벤트"],
       sub: "OCTOBER, YOUR SKIN MOMENT",
     },
-    ctaFill: "rgba(250,244,236,0.92)",
+    ctaFill: "rgba(251,244,239,0.94)",
     ctaBorder: "transparent",
     ctaLabel: "10월 베스트 혜택 · 가격 보기",
     eyebrow: "OCTOBER, YOUR SKIN MOMENT",
@@ -307,7 +338,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
     closingCopy:
       "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.",
     categories: BEST_CATEGORIES,
-    theme: BEST_THEME,
+    theme: OCTOBER_THEME,
   },
   {
     id: "september-best",

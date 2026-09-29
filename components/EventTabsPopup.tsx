@@ -170,7 +170,8 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 sizes="(min-width: 1024px) 410px, 100vw"
                 className={
                   ev.posterFit === "contain"
-                    ? "object-contain object-center"
+                    ? // 모바일은 위로 붙여 남는 여백이 아래 그라데이션·문구 쪽으로 가게 한다
+                      "object-contain object-top lg:object-center"
                     : "object-cover object-center lg:object-top"
                 }
                 draggable={false}
