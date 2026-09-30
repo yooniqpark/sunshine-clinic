@@ -159,6 +159,56 @@ const GRAND_OPEN_THEME: PopupTheme = {
   footStrong: "#efe9e1",
 };
 
+/** 수험생 SPECIAL — 교복 · 딥 네이비 & 골드 */
+const EXAM_THEME: PopupTheme = {
+  tab: "#27324f",
+  tabText: "#f4ead6",
+  panel: "#f8f5ef",
+  line: "rgba(35,45,70,0.15)",
+  accent: "#8a6a2f",
+  ink: "#22283a",
+  sub: "#5e6272",
+  meta: "#9a9aa6",
+  pill: "#27324f",
+  pillText: "#f4ead6",
+  tableBg: "#fffdf9",
+  tableLine: "rgba(35,45,70,0.1)",
+  headBg: "#e8e4da",
+  headText: "#5c5a4e",
+  price: "#8a6a2f",
+  unit: "#b0aa9c",
+  noteBg: "#eeeae0",
+  noteText: "#5e6272",
+  catBg: "#ecebe5",
+  catText: "#7b7a72",
+  catOnBg: "#27324f",
+  catOnText: "#f4ead6",
+  footBg: "#1a2033",
+  footText: "rgba(240,236,228,0.75)",
+  footStrong: "#f0ece4",
+};
+
+const EXAM_CATEGORIES: CampaignCategory[] = [
+  {
+    slug: "exam-discount",
+    name: "수험생 할인",
+    kicker: "EXAM SEASON SPECIAL",
+    copy: "수험생 본인과 가족까지, 수험표를 지참하시면 할인해 드립니다",
+    rows: [
+      {
+        name: "리프팅",
+        desc: "울쎄라 · 써마지 · 슈링크 등 리프팅 시술",
+        event: "10%",
+      },
+      {
+        name: "여드름 · 색소 · 홍조 · 흉터 · 모공",
+        desc: "레이저 · 필링 · 스킨부스터 등 해당 시술",
+        event: "20%",
+      },
+    ],
+  },
+];
+
 /** 10월 가을 이벤트 — 리프팅 · 모공/흉터 · 색소 · 수분/광채 */
 const OCTOBER_CATEGORIES: CampaignCategory[] = [
   {
@@ -436,6 +486,31 @@ export const POPUP_EVENTS: PopupEvent[] = [
       "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.",
     categories: OCTOBER_CATEGORIES,
     theme: OCTOBER_THEME,
+  },
+  {
+    id: "exam-special",
+    tabLabel: "EXAM SPECIAL",
+    tabShort: "EXAM",
+    // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
+    poster: "/events/exam-special-2026-v1.jpg",
+    posterAlt: "선샤인의원 수험생 SPECIAL EVENT",
+    // 병원명 · EXAM SEASON SPECIAL · 할인 문구가 이미지 가장자리에 들어가 있어 잘리면 안 된다
+    posterFit: "contain",
+    posterBg: "#1f1b22",
+    // 커버에 제목과 할인 내용이 모두 들어가 있어 화면에서 덧씌우지 않는다
+    ctaFill: "rgba(248,245,239,0.94)",
+    ctaBorder: "transparent",
+    ctaLabel: "수험생 할인 자세히 보기",
+    eyebrow: "EXAM SEASON SPECIAL",
+    title: "수고한 너를 위한, 수험생 할인 이벤트",
+    subtitle: "수험생 본인과 수험생 가족까지, 수험표 지참 시.",
+    period: "수험표 지참 시",
+    vatNote: "부가세(VAT) 별도",
+    pillLabel: "수험생 한정",
+    closingCopy:
+      "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.",
+    categories: EXAM_CATEGORIES,
+    theme: EXAM_THEME,
   },
   {
     id: "september-best",

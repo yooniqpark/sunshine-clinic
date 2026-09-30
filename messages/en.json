@@ -613,17 +613,6 @@
       "items": [
         {
           "tag": "Notice",
-          "slug": "exam-2026",
-          "date": "2026.09.30",
-          "title": "Exam Students Special Event",
-          "excerpt": "Exam students and their families get 10% off lifting and 20% off pigmentation, redness, acne, scars and pores — just show the exam admission ticket.",
-          "body": [
-            "We have prepared a special event for exam students and their families. Show your exam admission ticket and receive 10% off lifting treatments and 20% off pigmentation, redness, acne, scar and pore treatments.",
-            "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the October autumn event. Please contact the clinic for details."
-          ]
-        },
-        {
-          "tag": "Notice",
           "slug": "october-schedule-2026",
           "date": "2026.09.28",
           "title": "October Clinic Hours",
@@ -710,6 +699,25 @@
             {
               "src": "/events/october-autumn-2026-v1.jpg",
               "label": "Autumn Skin Care",
+              "width": 1122,
+              "height": 1700
+            }
+          ]
+        },
+        {
+          "tag": "EVENT",
+          "slug": "exam-2026",
+          "date": "2026.09.30",
+          "title": "Your Next Chapter — Exam Season Special",
+          "excerpt": "Exam students and their families get 10% off lifting and 20% off acne, pigmentation, redness, scars and pores — just show the exam admission ticket.",
+          "body": [
+            "A discount event for exam students and their families. Show your exam admission ticket and receive 10% off lifting treatments and 20% off acne, pigmentation, redness, scar and pore treatments.",
+            "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the October autumn event. Please contact the clinic for details."
+          ],
+          "images": [
+            {
+              "src": "/events/exam-special-2026-v1.jpg",
+              "label": "Exam Season Special",
               "width": 1122,
               "height": 1700
             }
@@ -1224,29 +1232,6 @@
         ],
         "note": "Whether sedation is used depends on the procedure and the patient's condition, decided after consultation with medical staff.",
         "footer": "For details, please contact the clinic — we're happy to help."
-      },
-      "exam": {
-        "brand": "SUNSHINE CLINIC",
-        "kicker": "SPECIAL FOR STUDENTS",
-        "title": "Exam Students Special Event",
-        "subtitle": "After all that work, time to reset your skin",
-        "lead": "For exam students and their families — show your exam admission ticket to receive the discount.",
-        "targetLabel": "Who",
-        "discounts": [
-          {
-            "rate": "10%",
-            "name": "Lifting"
-          },
-          {
-            "rate": "20%",
-            "name": "Pigmentation · Redness · Acne · Scars · Pores"
-          }
-        ],
-        "notes": [
-          "Anti-inflammatory injections, botox and insurance-covered care are excluded.",
-          "Cannot be combined with the October autumn event."
-        ],
-        "footer": "Please contact the clinic and we will be glad to walk you through the details."
       }
     }
   }
