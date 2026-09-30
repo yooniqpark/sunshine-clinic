@@ -466,7 +466,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
-    poster: "/events/october-autumn-2026-v5.jpg",
+    poster: "/events/october-autumn-2026-v6.jpg",
     posterAlt: "선샤인의원 10월 가을 이벤트",
     // 포스터 가장자리에 병원명과 문구가 들어가 있어 잘리면 안 된다.
     // 배경이 단색 빨강이라 남는 자리를 같은 빨강으로 채우면 이음새가 보이지 않는다.
