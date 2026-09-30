@@ -466,12 +466,12 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
-    poster: "/events/october-autumn-2026-v3.jpg",
+    poster: "/events/october-autumn-2026-v5.jpg",
     posterAlt: "선샤인의원 10월 가을 이벤트",
     // 포스터 가장자리에 병원명과 문구가 들어가 있어 잘리면 안 된다.
     // 배경이 단색 빨강이라 남는 자리를 같은 빨강으로 채우면 이음새가 보이지 않는다.
     posterFit: "contain",
-    posterBg: "#7c0d0a",
+    posterBg: "#53180f",
     // 커버에 제목과 카테고리가 모두 들어가 있어 화면에서 덧씌우지 않는다
     ctaFill: "rgba(251,244,238,0.94)",
     ctaBorder: "transparent",
@@ -496,7 +496,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
     // 원본 커버는 4:5라 팝업 포스터 프레임(0.57~0.64)에 넣으면 아래가 크게 비었다.
     // 글자가 구워진 위아래를 잘라내고 사진만 0.60으로 다시 잡아 꽉 채우고,
     // 문구는 posterOverlay로 화면에서 그린다 — 여백도 없고 번역도 따라간다.
-    poster: "/events/exam-special-2026-v2.jpg",
+    poster: "/events/exam-special-2026-v3.jpg",
     posterAlt: "선샤인의원 수험생 SPECIAL EVENT",
     posterOverlay: {
       kicker: "EXAM SEASON SPECIAL",

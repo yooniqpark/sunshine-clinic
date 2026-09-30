@@ -697,10 +697,10 @@
           ],
           "images": [
             {
-              "src": "/events/october-autumn-2026-v3.jpg",
+              "src": "/events/october-autumn-2026-v5.jpg",
               "label": "Autumn Promotion",
-              "width": 1024,
-              "height": 1535
+              "width": 1117,
+              "height": 1862
             }
           ]
         },
@@ -716,7 +716,7 @@
           ],
           "images": [
             {
-              "src": "/events/exam-special-2026-v2.jpg",
+              "src": "/events/exam-special-2026-v3.jpg",
               "label": "Exam Season Special",
               "width": 1080,
               "height": 1800
