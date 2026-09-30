@@ -340,33 +340,33 @@ const SEPTEMBER_THEME: PopupTheme = {
   footStrong: "#f5eee4",
 };
 
-/** 10월 가을 이벤트 — 단풍 커버에 맞춘 앰버 & 번트 오렌지 지면 */
+/** 10월 가을 이벤트 — 레드 포스터에 맞춘 딥 크림슨 & 크림 지면 */
 const OCTOBER_THEME: PopupTheme = {
-  tab: "#8a3a0a",
-  tabText: "#fff4e6",
-  panel: "#fdf6ee",
-  line: "rgba(110,55,20,0.15)",
-  accent: "#c2661a",
-  ink: "#2e1d12",
-  sub: "#6f5847",
-  meta: "#a99483",
-  pill: "#8a3a0a",
-  pillText: "#fff4e6",
-  tableBg: "#fffbf5",
-  tableLine: "rgba(110,55,20,0.1)",
-  headBg: "#f6e5d2",
-  headText: "#7d5636",
-  price: "#b6490e",
-  unit: "#bda691",
-  noteBg: "#f7eadc",
-  noteText: "#6f5847",
-  catBg: "#f4ebe1",
-  catText: "#8a7366",
-  catOnBg: "#8a3a0a",
-  catOnText: "#fff4e6",
-  footBg: "#2a1509",
-  footText: "rgba(248,238,228,0.75)",
-  footStrong: "#f8eee4",
+  tab: "#7c0d0a",
+  tabText: "#f5e9dd",
+  panel: "#fbf4ee",
+  line: "rgba(100,20,15,0.15)",
+  accent: "#a8332a",
+  ink: "#2b1715",
+  sub: "#6b514d",
+  meta: "#a89490",
+  pill: "#7c0d0a",
+  pillText: "#f5e9dd",
+  tableBg: "#fffaf6",
+  tableLine: "rgba(100,20,15,0.1)",
+  headBg: "#f3e0d8",
+  headText: "#7a4a44",
+  price: "#a8332a",
+  unit: "#bda39e",
+  noteBg: "#f6e7e1",
+  noteText: "#6b514d",
+  catBg: "#f3e9e5",
+  catText: "#8a716c",
+  catOnBg: "#7c0d0a",
+  catOnText: "#f5e9dd",
+  footBg: "#3a0806",
+  footText: "rgba(245,233,225,0.75)",
+  footStrong: "#f5e9e1",
 };
 
 const SEPTEMBER_CATEGORIES: CampaignCategory[] = [
@@ -466,14 +466,14 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
-    poster: "/events/october-autumn-2026-v2.jpg",
+    poster: "/events/october-autumn-2026-v3.jpg",
     posterAlt: "선샤인의원 10월 가을 이벤트",
-    // 병원명·AUTUMN EVENT·카테고리가 이미지 가장자리에 들어가 있어 잘리면 안 된다.
-    // 통째로 보여주고 남는 자리는 이미지 아래를 이어 붙인 어두운 갈색과 맞춘다.
+    // 포스터 가장자리에 병원명과 문구가 들어가 있어 잘리면 안 된다.
+    // 배경이 단색 빨강이라 남는 자리를 같은 빨강으로 채우면 이음새가 보이지 않는다.
     posterFit: "contain",
-    posterBg: "#241207",
+    posterBg: "#7c0d0a",
     // 커버에 제목과 카테고리가 모두 들어가 있어 화면에서 덧씌우지 않는다
-    ctaFill: "rgba(253,246,238,0.94)",
+    ctaFill: "rgba(251,244,238,0.94)",
     ctaBorder: "transparent",
     ctaLabel: "10월 가을 이벤트 · 가격 보기",
     eyebrow: "SUNSHINE OCTOBER, AUTUMN EVENT",
