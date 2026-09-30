@@ -697,7 +697,7 @@
           ],
           "images": [
             {
-              "src": "/events/october-autumn-2026-v1.jpg",
+              "src": "/events/october-autumn-2026-v2.jpg",
               "label": "Autumn Skin Care",
               "width": 1122,
               "height": 1700
@@ -716,10 +716,10 @@
           ],
           "images": [
             {
-              "src": "/events/exam-special-2026-v1.jpg",
+              "src": "/events/exam-special-2026-v2.jpg",
               "label": "Exam Season Special",
-              "width": 1122,
-              "height": 1700
+              "width": 1080,
+              "height": 1800
             }
           ]
         },

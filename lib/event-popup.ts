@@ -466,7 +466,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
-    poster: "/events/october-autumn-2026-v1.jpg",
+    poster: "/events/october-autumn-2026-v2.jpg",
     posterAlt: "선샤인의원 10월 가을 이벤트",
     // 병원명·AUTUMN EVENT·카테고리가 이미지 가장자리에 들어가 있어 잘리면 안 된다.
     // 통째로 보여주고 남는 자리는 이미지 아래를 이어 붙인 어두운 갈색과 맞춘다.
@@ -492,12 +492,17 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "EXAM SPECIAL",
     tabShort: "EXAM",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
-    poster: "/events/exam-special-2026-v1.jpg",
+    //
+    // 원본 커버는 4:5라 팝업 포스터 프레임(0.57~0.64)에 넣으면 아래가 크게 비었다.
+    // 글자가 구워진 위아래를 잘라내고 사진만 0.60으로 다시 잡아 꽉 채우고,
+    // 문구는 posterOverlay로 화면에서 그린다 — 여백도 없고 번역도 따라간다.
+    poster: "/events/exam-special-2026-v2.jpg",
     posterAlt: "선샤인의원 수험생 SPECIAL EVENT",
-    // 병원명 · EXAM SEASON SPECIAL · 할인 문구가 이미지 가장자리에 들어가 있어 잘리면 안 된다
-    posterFit: "contain",
-    posterBg: "#1f1b22",
-    // 커버에 제목과 할인 내용이 모두 들어가 있어 화면에서 덧씌우지 않는다
+    posterOverlay: {
+      kicker: "EXAM SEASON SPECIAL",
+      titleLines: ["수고한 너를 위한,", "수험생 할인 이벤트"],
+      sub: "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%",
+    },
     ctaFill: "rgba(248,245,239,0.94)",
     ctaBorder: "transparent",
     ctaLabel: "수험생 할인 자세히 보기",

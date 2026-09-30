@@ -16,6 +16,10 @@ const EN: Record<string, string> = {
   "구분": "Type",
   "부가세(VAT) 별도": "VAT not included",
   // 수험생 SPECIAL
+  "수고한 너를 위한,": "For all your hard work,",
+  "수험생 할인 이벤트": "the exam student discount",
+  "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%":
+    "LIFTING 10% · ACNE · PIGMENT · REDNESS · SCARS · PORES 20%",
   "수험생 할인 자세히 보기": "See the exam-season discount",
   "선샤인의원 수험생 SPECIAL EVENT": "Sunshine Clinic Exam Season Special",
   "수험생 할인": "Exam student discount",
@@ -168,6 +172,10 @@ const JA: Record<string, string> = {
   "구분": "区分",
   "부가세(VAT) 별도": "VAT別途",
   // 受験生 SPECIAL
+  "수고한 너를 위한,": "頑張ったあなたへ、",
+  "수험생 할인 이벤트": "受験生割引イベント",
+  "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%":
+    "リフティング 10% · ニキビ · 色素 · 赤ら顔 · 傷跡 · 毛穴 20%",
   "수험생 할인 자세히 보기": "受験生割引を詳しく見る",
   "선샤인의원 수험생 SPECIAL EVENT": "サンシャインクリニック 受験生SPECIAL EVENT",
   "수험생 할인": "受験生割引",
@@ -316,6 +324,10 @@ const ZH: Record<string, string> = {
   "구분": "项目",
   "부가세(VAT) 별도": "不含增值税",
   // 考生 SPECIAL
+  "수고한 너를 위한,": "致辛苦的你，",
+  "수험생 할인 이벤트": "考生折扣活动",
+  "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%":
+    "提拉 10% · 痘痘 · 色素 · 泛红 · 疤痕 · 毛孔 20%",
   "수험생 할인 자세히 보기": "查看考生折扣详情",
   "선샤인의원 수험생 SPECIAL EVENT": "Sunshine 医院 考生 SPECIAL EVENT",
   "수험생 할인": "考生折扣",
