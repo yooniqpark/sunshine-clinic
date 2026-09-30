@@ -8,7 +8,7 @@ import { NoticeEventPopup } from "@/components/NoticeEventPopup";
 const GAP_MS = 450;
 
 /**
- * 홈 팝업 순서: 이벤트(10월 베스트·첫 방문 탭 전환) → 10월 진료 안내 → 안심 수면마취.
+ * 홈 팝업 순서: 이벤트(10월 가을·수험생·첫 방문 탭 전환) → 10월 진료 안내 → 안심 수면마취.
  *
  * 달이 바뀌면 문구(v2.popups.holiday)와 popupId만 새 달로 교체한다.
  * popupId를 바꿔야 "오늘 하루 보지 않기"를 눌렀던 방문자에게도 새 안내가 뜬다.

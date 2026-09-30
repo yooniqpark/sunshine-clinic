@@ -159,6 +159,56 @@ const GRAND_OPEN_THEME: PopupTheme = {
   footStrong: "#efe9e1",
 };
 
+/** 수험생 SPECIAL — 교복 · 딥 네이비 & 골드 */
+const EXAM_THEME: PopupTheme = {
+  tab: "#27324f",
+  tabText: "#f4ead6",
+  panel: "#f8f5ef",
+  line: "rgba(35,45,70,0.15)",
+  accent: "#8a6a2f",
+  ink: "#22283a",
+  sub: "#5e6272",
+  meta: "#9a9aa6",
+  pill: "#27324f",
+  pillText: "#f4ead6",
+  tableBg: "#fffdf9",
+  tableLine: "rgba(35,45,70,0.1)",
+  headBg: "#e8e4da",
+  headText: "#5c5a4e",
+  price: "#8a6a2f",
+  unit: "#b0aa9c",
+  noteBg: "#eeeae0",
+  noteText: "#5e6272",
+  catBg: "#ecebe5",
+  catText: "#7b7a72",
+  catOnBg: "#27324f",
+  catOnText: "#f4ead6",
+  footBg: "#1a2033",
+  footText: "rgba(240,236,228,0.75)",
+  footStrong: "#f0ece4",
+};
+
+const EXAM_CATEGORIES: CampaignCategory[] = [
+  {
+    slug: "exam-discount",
+    name: "수험생 할인",
+    kicker: "EXAM SEASON SPECIAL",
+    copy: "수험생 본인과 가족까지, 수험표를 지참하시면 할인해 드립니다",
+    rows: [
+      {
+        name: "리프팅",
+        desc: "울쎄라 · 써마지 · 슈링크 등 리프팅 시술",
+        event: "10%",
+      },
+      {
+        name: "여드름 · 색소 · 홍조 · 흉터 · 모공",
+        desc: "레이저 · 필링 · 스킨부스터 등 해당 시술",
+        event: "20%",
+      },
+    ],
+  },
+];
+
 /** 10월 가을 이벤트 — 리프팅 · 모공/흉터 · 색소 · 수분/광채 */
 const OCTOBER_CATEGORIES: CampaignCategory[] = [
   {
@@ -290,33 +340,33 @@ const SEPTEMBER_THEME: PopupTheme = {
   footStrong: "#f5eee4",
 };
 
-/** 10월 가을 이벤트 — 단풍 커버에 맞춘 앰버 & 번트 오렌지 지면 */
+/** 10월 가을 이벤트 — 레드 포스터에 맞춘 딥 크림슨 & 크림 지면 */
 const OCTOBER_THEME: PopupTheme = {
-  tab: "#8a3a0a",
-  tabText: "#fff4e6",
-  panel: "#fdf6ee",
-  line: "rgba(110,55,20,0.15)",
-  accent: "#c2661a",
-  ink: "#2e1d12",
-  sub: "#6f5847",
-  meta: "#a99483",
-  pill: "#8a3a0a",
-  pillText: "#fff4e6",
-  tableBg: "#fffbf5",
-  tableLine: "rgba(110,55,20,0.1)",
-  headBg: "#f6e5d2",
-  headText: "#7d5636",
-  price: "#b6490e",
-  unit: "#bda691",
-  noteBg: "#f7eadc",
-  noteText: "#6f5847",
-  catBg: "#f4ebe1",
-  catText: "#8a7366",
-  catOnBg: "#8a3a0a",
-  catOnText: "#fff4e6",
-  footBg: "#2a1509",
-  footText: "rgba(248,238,228,0.75)",
-  footStrong: "#f8eee4",
+  tab: "#7c0d0a",
+  tabText: "#f5e9dd",
+  panel: "#fbf4ee",
+  line: "rgba(100,20,15,0.15)",
+  accent: "#a8332a",
+  ink: "#2b1715",
+  sub: "#6b514d",
+  meta: "#a89490",
+  pill: "#7c0d0a",
+  pillText: "#f5e9dd",
+  tableBg: "#fffaf6",
+  tableLine: "rgba(100,20,15,0.1)",
+  headBg: "#f3e0d8",
+  headText: "#7a4a44",
+  price: "#a8332a",
+  unit: "#bda39e",
+  noteBg: "#f6e7e1",
+  noteText: "#6b514d",
+  catBg: "#f3e9e5",
+  catText: "#8a716c",
+  catOnBg: "#7c0d0a",
+  catOnText: "#f5e9dd",
+  footBg: "#3a0806",
+  footText: "rgba(245,233,225,0.75)",
+  footStrong: "#f5e9e1",
 };
 
 const SEPTEMBER_CATEGORIES: CampaignCategory[] = [
@@ -416,14 +466,14 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
-    poster: "/events/october-autumn-2026-v1.jpg",
+    poster: "/events/october-autumn-2026-v8.jpg",
     posterAlt: "선샤인의원 10월 가을 이벤트",
-    // 병원명·AUTUMN EVENT·카테고리가 이미지 가장자리에 들어가 있어 잘리면 안 된다.
-    // 통째로 보여주고 남는 자리는 이미지 아래를 이어 붙인 어두운 갈색과 맞춘다.
+    // 포스터 가장자리에 병원명과 문구가 들어가 있어 잘리면 안 된다.
+    // 배경이 단색 빨강이라 남는 자리를 같은 빨강으로 채우면 이음새가 보이지 않는다.
     posterFit: "contain",
-    posterBg: "#241207",
+    posterBg: "#65190f",
     // 커버에 제목과 카테고리가 모두 들어가 있어 화면에서 덧씌우지 않는다
-    ctaFill: "rgba(253,246,238,0.94)",
+    ctaFill: "rgba(251,244,238,0.94)",
     ctaBorder: "transparent",
     ctaLabel: "10월 가을 이벤트 · 가격 보기",
     eyebrow: "SUNSHINE OCTOBER, AUTUMN EVENT",
@@ -436,6 +486,36 @@ export const POPUP_EVENTS: PopupEvent[] = [
       "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.",
     categories: OCTOBER_CATEGORIES,
     theme: OCTOBER_THEME,
+  },
+  {
+    id: "exam-special",
+    tabLabel: "EXAM SPECIAL",
+    tabShort: "EXAM",
+    // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
+    //
+    // 원본 커버는 4:5라 팝업 포스터 프레임(0.57~0.64)에 넣으면 아래가 크게 비었다.
+    // 글자가 구워진 위아래를 잘라내고 사진만 0.60으로 다시 잡아 꽉 채우고,
+    // 문구는 posterOverlay로 화면에서 그린다 — 여백도 없고 번역도 따라간다.
+    poster: "/events/exam-special-2026-v3.jpg",
+    posterAlt: "선샤인의원 수험생 SPECIAL EVENT",
+    posterOverlay: {
+      kicker: "EXAM SEASON SPECIAL",
+      titleLines: ["수고한 너를 위한,", "수험생 할인 이벤트"],
+      sub: "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%",
+    },
+    ctaFill: "rgba(248,245,239,0.94)",
+    ctaBorder: "transparent",
+    ctaLabel: "수험생 할인 자세히 보기",
+    eyebrow: "EXAM SEASON SPECIAL",
+    title: "수고한 너를 위한, 수험생 할인 이벤트",
+    subtitle: "수험생 본인과 수험생 가족까지, 수험표 지참 시.",
+    period: "수험표 지참 시",
+    vatNote: "부가세(VAT) 별도",
+    pillLabel: "수험생 한정",
+    closingCopy:
+      "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.",
+    categories: EXAM_CATEGORIES,
+    theme: EXAM_THEME,
   },
   {
     id: "september-best",

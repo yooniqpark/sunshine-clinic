@@ -16,7 +16,9 @@ const TAB = "#282422";
 const TAB_TEXT = "#f0ece5";
 const FOOT = "#1c1917";
 
-const TAB_LABEL: Record<"holiday" | "sedation", string> = {
+type NoticeVariant = "holiday" | "sedation";
+
+const TAB_LABEL: Record<NoticeVariant, string> = {
   holiday: "NOTICE",
   sedation: "SAFETY",
 };
@@ -33,7 +35,7 @@ export function NoticeEventPopup({
 }: {
   popupId: string;
   ariaLabel: string;
-  variant: "holiday" | "sedation";
+  variant: NoticeVariant;
   onClose?: () => void;
 }) {
   const [mounted, setMounted] = useState(false);

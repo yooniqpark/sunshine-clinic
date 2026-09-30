@@ -15,6 +15,24 @@ const EN: Record<string, string> = {
   "닫기": "Close",
   "구분": "Type",
   "부가세(VAT) 별도": "VAT not included",
+  // 수험생 SPECIAL
+  "수고한 너를 위한,": "For all your hard work,",
+  "수험생 할인 이벤트": "the exam student discount",
+  "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%":
+    "LIFTING 10% · ACNE · PIGMENT · REDNESS · SCARS · PORES 20%",
+  "수험생 할인 자세히 보기": "See the exam-season discount",
+  "선샤인의원 수험생 SPECIAL EVENT": "Sunshine Clinic Exam Season Special",
+  "수험생 할인": "Exam student discount",
+  "수험생 본인과 가족까지, 수험표를 지참하시면 할인해 드립니다":
+    "For exam students and their families — show your exam admission ticket",
+  "여드름 · 색소 · 홍조 · 흉터 · 모공": "Acne · Pigmentation · Redness · Scars · Pores",
+  "울쎄라 · 써마지 · 슈링크 등 리프팅 시술":
+    "Lifting treatments such as Ulthera, Thermage and Shurink",
+  "레이저 · 필링 · 스킨부스터 등 해당 시술":
+    "Related treatments such as lasers, peels and skin boosters",
+  "수험표 지참 시": "With your exam admission ticket",
+  "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.":
+    "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the October autumn event.",
   // 10월 가을 이벤트
   "10월 가을 이벤트 · 가격 보기": "See October offers & prices",
   "선샤인의원 10월 가을 이벤트": "Sunshine Clinic October Autumn Event",
@@ -153,6 +171,24 @@ const JA: Record<string, string> = {
   "닫기": "閉じる",
   "구분": "区分",
   "부가세(VAT) 별도": "VAT別途",
+  // 受験生 SPECIAL
+  "수고한 너를 위한,": "頑張ったあなたへ、",
+  "수험생 할인 이벤트": "受験生割引イベント",
+  "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%":
+    "リフティング 10% · ニキビ · 色素 · 赤ら顔 · 傷跡 · 毛穴 20%",
+  "수험생 할인 자세히 보기": "受験生割引を詳しく見る",
+  "선샤인의원 수험생 SPECIAL EVENT": "サンシャインクリニック 受験生SPECIAL EVENT",
+  "수험생 할인": "受験生割引",
+  "수험생 본인과 가족까지, 수험표를 지참하시면 할인해 드립니다":
+    "受験生ご本人とご家族まで。受験票のご提示で割引いたします",
+  "여드름 · 색소 · 홍조 · 흉터 · 모공": "ニキビ · 色素 · 赤ら顔 · 傷跡 · 毛穴",
+  "울쎄라 · 써마지 · 슈링크 등 리프팅 시술":
+    "ウルセラ · サーマジ · シュリンクなどのリフティング施術",
+  "레이저 · 필링 · 스킨부스터 등 해당 시술":
+    "レーザー · ピーリング · スキンブースターなどの該当施術",
+  "수험표 지참 시": "受験票ご提示で",
+  "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.":
+    "炎症注射・ボトックス・保険診療は割引対象外で、10月秋イベントとの併用はできません。",
   // 10月 秋イベント
   "10월 가을 이벤트 · 가격 보기": "10月秋イベント・価格を見る",
   "선샤인의원 10월 가을 이벤트": "サンシャインクリニック 10月秋イベント",
@@ -287,6 +323,24 @@ const ZH: Record<string, string> = {
   "닫기": "关闭",
   "구분": "项目",
   "부가세(VAT) 별도": "不含增值税",
+  // 考生 SPECIAL
+  "수고한 너를 위한,": "致辛苦的你，",
+  "수험생 할인 이벤트": "考生折扣活动",
+  "리프팅 10% · 여드름 색소 홍조 흉터 모공 20%":
+    "提拉 10% · 痘痘 · 色素 · 泛红 · 疤痕 · 毛孔 20%",
+  "수험생 할인 자세히 보기": "查看考生折扣详情",
+  "선샤인의원 수험생 SPECIAL EVENT": "Sunshine 医院 考生 SPECIAL EVENT",
+  "수험생 할인": "考生折扣",
+  "수험생 본인과 가족까지, 수험표를 지참하시면 할인해 드립니다":
+    "考生本人及家属，凭准考证即可享受折扣",
+  "여드름 · 색소 · 홍조 · 흉터 · 모공": "痘痘 · 色素 · 泛红 · 疤痕 · 毛孔",
+  "울쎄라 · 써마지 · 슈링크 등 리프팅 시술":
+    "超声刀 · 热玛吉 · 超声炮等提拉项目",
+  "레이저 · 필링 · 스킨부스터 등 해당 시술":
+    "激光 · 换肤 · 水光针等相关项目",
+  "수험표 지참 시": "凭准考证",
+  "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.":
+    "消炎针 · 肉毒 · 医保诊疗不在折扣范围内，且不可与十月秋季活动叠加使用。",
   // 十月秋季活动
   "10월 가을 이벤트 · 가격 보기": "查看十月秋季优惠及价格",
   "선샤인의원 10월 가을 이벤트": "Sunshine 医院 十月秋季活动",

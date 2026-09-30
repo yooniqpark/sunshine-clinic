@@ -275,7 +275,8 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
               </p>
             </div>
 
-            {/* 카테고리 탭 */}
+            {/* 카테고리 탭 — 하나뿐이면 고를 것이 없으므로 숨긴다 */}
+            {ev.categories.length > 1 && (
             <div
               className="grid shrink-0 border-t"
               style={{
@@ -307,6 +308,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
                 );
               })}
             </div>
+            )}
 
             {/* 하단 바 */}
             <div

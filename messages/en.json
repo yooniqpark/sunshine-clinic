@@ -697,10 +697,29 @@
           ],
           "images": [
             {
-              "src": "/events/october-autumn-2026-v1.jpg",
-              "label": "Autumn Skin Care",
-              "width": 1122,
-              "height": 1700
+              "src": "/events/october-autumn-2026-v8.jpg",
+              "label": "Autumn Promotion",
+              "width": 1117,
+              "height": 1862
+            }
+          ]
+        },
+        {
+          "tag": "EVENT",
+          "slug": "exam-2026",
+          "date": "2026.09.30",
+          "title": "Your Next Chapter — Exam Season Special",
+          "excerpt": "Exam students and their families get 10% off lifting and 20% off acne, pigmentation, redness, scars and pores — just show the exam admission ticket.",
+          "body": [
+            "A discount event for exam students and their families. Show your exam admission ticket and receive 10% off lifting treatments and 20% off acne, pigmentation, redness, scar and pore treatments.",
+            "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the October autumn event. Please contact the clinic for details."
+          ],
+          "images": [
+            {
+              "src": "/events/exam-special-2026-v3.jpg",
+              "label": "Exam Season Special",
+              "width": 1080,
+              "height": 1800
             }
           ]
         },

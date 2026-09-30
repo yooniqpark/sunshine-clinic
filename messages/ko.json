@@ -697,10 +697,29 @@
           ],
           "images": [
             {
-              "src": "/events/october-autumn-2026-v1.jpg",
-              "label": "Autumn Skin Care",
-              "width": 1122,
-              "height": 1700
+              "src": "/events/october-autumn-2026-v8.jpg",
+              "label": "Autumn Promotion",
+              "width": 1117,
+              "height": 1862
+            }
+          ]
+        },
+        {
+          "tag": "EVENT",
+          "slug": "exam-2026",
+          "date": "2026.09.30",
+          "title": "수고한 너를 위한, 수험생 할인 이벤트",
+          "excerpt": "수험생 본인 및 수험생 가족은 수험표 지참 시 리프팅 10%, 여드름 · 색소 · 홍조 · 흉터 · 모공 20% 할인해 드립니다.",
+          "body": [
+            "수험생 여러분과 가족분들을 위한 할인 이벤트입니다. 수험생 본인은 물론 수험생 가족까지, 수험표를 지참해 주시면 리프팅 시술은 10%, 여드름 · 색소 · 홍조 · 흉터 · 모공 시술은 20% 할인해 드립니다.",
+            "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다. 자세한 사항은 병원으로 문의해 주시면 친절하게 안내해 드리겠습니다."
+          ],
+          "images": [
+            {
+              "src": "/events/exam-special-2026-v3.jpg",
+              "label": "Exam Season Special",
+              "width": 1080,
+              "height": 1800
             }
           ]
         },

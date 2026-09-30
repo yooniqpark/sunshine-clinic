@@ -697,10 +697,29 @@
           ],
           "images": [
             {
-              "src": "/events/october-autumn-2026-v1.jpg",
-              "label": "Autumn Skin Care",
-              "width": 1122,
-              "height": 1700
+              "src": "/events/october-autumn-2026-v8.jpg",
+              "label": "Autumn Promotion",
+              "width": 1117,
+              "height": 1862
+            }
+          ]
+        },
+        {
+          "tag": "EVENT",
+          "slug": "exam-2026",
+          "date": "2026.09.30",
+          "title": "頑張ったあなたへ、受験生割引イベント",
+          "excerpt": "受験生ご本人とご家族は、受験票のご提示でリフティング10%、ニキビ・色素・赤ら顔・傷跡・毛穴20%割引となります。",
+          "body": [
+            "受験生の皆さまとご家族のための割引イベントです。受験生ご本人はもちろんご家族まで、受験票をご提示いただくとリフティング施術は10%、ニキビ・色素・赤ら顔・傷跡・毛穴の施術は20%割引いたします。",
+            "炎症注射・ボトックス・保険診療は割引対象外で、10月秋イベントとの併用はできません。詳しくは当院までお問い合わせください。"
+          ],
+          "images": [
+            {
+              "src": "/events/exam-special-2026-v3.jpg",
+              "label": "Exam Season Special",
+              "width": 1080,
+              "height": 1800
             }
           ]
         },

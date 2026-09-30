@@ -697,10 +697,29 @@
           ],
           "images": [
             {
-              "src": "/events/october-autumn-2026-v1.jpg",
-              "label": "Autumn Skin Care",
-              "width": 1122,
-              "height": 1700
+              "src": "/events/october-autumn-2026-v8.jpg",
+              "label": "Autumn Promotion",
+              "width": 1117,
+              "height": 1862
+            }
+          ]
+        },
+        {
+          "tag": "EVENT",
+          "slug": "exam-2026",
+          "date": "2026.09.30",
+          "title": "致辛苦的你，考生折扣活动",
+          "excerpt": "考生本人及家属凭准考证，提拉项目享9折，痘痘 · 色素 · 泛红 · 疤痕 · 毛孔项目享8折。",
+          "body": [
+            "这是为考生及其家属准备的折扣活动。考生本人及家属凭准考证，提拉类项目享9折，痘痘 · 色素 · 泛红 · 疤痕 · 毛孔类项目享8折。",
+            "消炎针 · 肉毒 · 医保诊疗不在折扣范围内，且不可与十月秋季活动叠加使用。详情请致电本院咨询。"
+          ],
+          "images": [
+            {
+              "src": "/events/exam-special-2026-v3.jpg",
+              "label": "Exam Season Special",
+              "width": 1080,
+              "height": 1800
             }
           ]
         },
