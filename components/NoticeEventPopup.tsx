@@ -16,9 +16,12 @@ const TAB = "#282422";
 const TAB_TEXT = "#f0ece5";
 const FOOT = "#1c1917";
 
-const TAB_LABEL: Record<"holiday" | "sedation", string> = {
+type NoticeVariant = "holiday" | "sedation" | "exam";
+
+const TAB_LABEL: Record<NoticeVariant, string> = {
   holiday: "NOTICE",
   sedation: "SAFETY",
+  exam: "SPECIAL",
 };
 
 /**
@@ -33,7 +36,7 @@ export function NoticeEventPopup({
 }: {
   popupId: string;
   ariaLabel: string;
-  variant: "holiday" | "sedation";
+  variant: NoticeVariant;
   onClose?: () => void;
 }) {
   const [mounted, setMounted] = useState(false);
@@ -98,7 +101,13 @@ export function NoticeEventPopup({
           style={{ background: PAPER }}
         >
           <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
-            {variant === "holiday" ? <HolidayDetail /> : <SedationDetail />}
+            {variant === "holiday" ? (
+              <HolidayDetail />
+            ) : variant === "exam" ? (
+              <ExamDetail />
+            ) : (
+              <SedationDetail />
+            )}
           </div>
 
           <div
@@ -194,6 +203,73 @@ function HolidayDetail() {
       </div>
 
       <p className="mt-5 break-keep text-[10.5px] leading-relaxed" style={{ color: META }}>
+        {t("footer")}
+      </p>
+    </div>
+  );
+}
+
+function ExamDetail() {
+  const t = useTranslations("v2.popups.exam");
+  const discounts = t.raw("discounts") as { rate: string; name: string }[];
+  const notes = t.raw("notes") as string[];
+
+  return (
+    <div className="my-auto px-7 pb-7 pt-8 lg:px-9">
+      <p className="text-[9.5px] font-bold tracking-[0.26em]" style={{ color: ROSE }}>
+        {t("kicker")}
+      </p>
+      <h2
+        className="mt-2.5 break-keep font-serif text-[26px] leading-tight lg:text-[30px]"
+        style={{ color: INK }}
+      >
+        {t("title")}
+      </h2>
+      <p className="mt-2 break-keep font-serif text-[13px] italic" style={{ color: ROSE }}>
+        {t("subtitle")}
+      </p>
+      <p className="mt-3 break-keep text-[12.5px] leading-relaxed" style={{ color: SUB }}>
+        {t("lead")}
+      </p>
+
+      {/* 할인율 — 진료 안내의 날짜 줄과 같은 문법 (큰 세리프 숫자 + 항목) */}
+      <div className="mt-6 border-t" style={{ borderColor: INK }}>
+        {discounts.map((d) => (
+          <div
+            key={d.rate + d.name}
+            className="flex items-center gap-4 border-b py-4"
+            style={{ borderColor: RULE }}
+          >
+            <span
+              className="w-[68px] shrink-0 font-serif text-[30px] leading-none tabular-nums"
+              style={{ color: ROSE }}
+            >
+              {d.rate}
+            </span>
+            <span
+              className="min-w-0 flex-1 break-keep text-[14px] font-semibold leading-snug"
+              style={{ color: INK }}
+            >
+              {d.name}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      <ul className="mt-5 space-y-1.5">
+        {notes.map((n) => (
+          <li
+            key={n}
+            className="flex gap-1.5 break-keep text-[10.5px] leading-relaxed"
+            style={{ color: META }}
+          >
+            <span aria-hidden>※</span>
+            <span>{n}</span>
+          </li>
+        ))}
+      </ul>
+
+      <p className="mt-4 break-keep text-[10.5px] leading-relaxed" style={{ color: META }}>
         {t("footer")}
       </p>
     </div>
