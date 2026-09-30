@@ -290,33 +290,33 @@ const SEPTEMBER_THEME: PopupTheme = {
   footStrong: "#f5eee4",
 };
 
-/** 10월 베스트 — 딥 레드 커버에 맞춘 지면 */
+/** 10월 가을 이벤트 — 단풍 커버에 맞춘 앰버 & 번트 오렌지 지면 */
 const OCTOBER_THEME: PopupTheme = {
-  tab: "#7a1f1f",
-  tabText: "#fbeee6",
-  panel: "#fbf4ef",
-  line: "rgba(90,25,25,0.15)",
-  accent: "#a33a35",
-  ink: "#2b1a17",
-  sub: "#6b544e",
-  meta: "#a89490",
-  pill: "#7a1f1f",
-  pillText: "#fbeee6",
-  tableBg: "#fffaf7",
-  tableLine: "rgba(90,25,25,0.1)",
-  headBg: "#f2e0da",
-  headText: "#7a5049",
-  price: "#9c2b2b",
-  unit: "#b8a09b",
-  noteBg: "#f5e6e1",
-  noteText: "#6b544e",
-  catBg: "#f2e7e3",
-  catText: "#8a716b",
-  catOnBg: "#7a1f1f",
-  catOnText: "#fbeee6",
-  footBg: "#2a1210",
-  footText: "rgba(245,232,228,0.75)",
-  footStrong: "#f5e8e4",
+  tab: "#8a3a0a",
+  tabText: "#fff4e6",
+  panel: "#fdf6ee",
+  line: "rgba(110,55,20,0.15)",
+  accent: "#c2661a",
+  ink: "#2e1d12",
+  sub: "#6f5847",
+  meta: "#a99483",
+  pill: "#8a3a0a",
+  pillText: "#fff4e6",
+  tableBg: "#fffbf5",
+  tableLine: "rgba(110,55,20,0.1)",
+  headBg: "#f6e5d2",
+  headText: "#7d5636",
+  price: "#b6490e",
+  unit: "#bda691",
+  noteBg: "#f7eadc",
+  noteText: "#6f5847",
+  catBg: "#f4ebe1",
+  catText: "#8a7366",
+  catOnBg: "#8a3a0a",
+  catOnText: "#fff4e6",
+  footBg: "#2a1509",
+  footText: "rgba(248,238,228,0.75)",
+  footStrong: "#f8eee4",
 };
 
 const SEPTEMBER_CATEGORIES: CampaignCategory[] = [
@@ -416,18 +416,14 @@ export const POPUP_EVENTS: PopupEvent[] = [
     tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
-    poster: "/events/october-model-2026-v1.jpg",
+    poster: "/events/october-autumn-2026-v1.jpg",
     posterAlt: "선샤인의원 10월 가을 이벤트",
-    // 네 컷과 Sunshine 레터링이 잘리지 않도록 통째로 보여주고, 남는 자리는 배경 빨강으로 이어 붙인다
+    // 병원명·AUTUMN EVENT·카테고리가 이미지 가장자리에 들어가 있어 잘리면 안 된다.
+    // 통째로 보여주고 남는 자리는 이미지 아래를 이어 붙인 어두운 갈색과 맞춘다.
     posterFit: "contain",
-    posterBg: "#6e1b1b",
-    posterOverlay: {
-      // 커버에 이미 Sunshine 레터링이 크게 들어가 있어 병원명을 다시 쓰지 않는다
-      kicker: "2026 OCTOBER",
-      titleLines: ["가을이 오면,", "선샤인 10월 이벤트"],
-      sub: "SUNSHINE OCTOBER, AUTUMN EVENT",
-    },
-    ctaFill: "rgba(251,244,239,0.94)",
+    posterBg: "#241207",
+    // 커버에 제목과 카테고리가 모두 들어가 있어 화면에서 덧씌우지 않는다
+    ctaFill: "rgba(253,246,238,0.94)",
     ctaBorder: "transparent",
     ctaLabel: "10월 가을 이벤트 · 가격 보기",
     eyebrow: "SUNSHINE OCTOBER, AUTUMN EVENT",
