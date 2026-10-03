@@ -6,7 +6,7 @@ export const EVENT_PRESETS = [
     eyebrow: "WELCOME EDIT",
     title: "첫 방문 이벤트",
     period: "첫 방문 고객 대상",
-    description: "보톡스·필러·리프팅·콜라겐 볼륨 첫 방문 특별가",
+    description: "보톡스 첫 방문 특별가",
     imageUrl: "/events/first-visit-2026.svg",
   },
   {

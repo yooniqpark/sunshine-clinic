@@ -68,39 +68,6 @@ const FIRST_VISIT: Campaign = {
         { name: "커스텀 스킨보톡스", prices: ["15만원", "20만원", "30만원", "60만원"] },
       ],
     },
-    {
-      slug: "lifting",
-      name: "리프팅",
-      kicker: "02 / LIFTING",
-      copy: "당기고 다듬어, 한층 또렷해지는 페이스 라인",
-      rows: [
-        { name: "STEP 2 · 슈링크 300샷", desc: "슬림윤곽주사 10cc 포함", original: "33만원", event: "15만원" },
-        { name: "STEP 2 · 인모드 miniFX", desc: "슬림윤곽주사 10cc 포함", original: "33만원", event: "25만원" },
-        { name: "STEP 3 · 인모드 miniFX + 슈링크 300샷", desc: "슬림윤곽주사 10cc 포함", original: "58만원", event: "35만원" },
-      ],
-    },
-    {
-      slug: "filler",
-      name: "필러",
-      kicker: "03 / FILLER",
-      copy: "과하지 않게 채우고, 본연의 균형은 더 아름답게",
-      rows: [
-        { name: "뉴라미스 · 입술 1cc", original: "25만원", event: "15만원" },
-        { name: "뉴라미스 · 애교 1cc", original: "25만원", event: "15만원" },
-        { name: "뉴라미스 · 턱 1cc", original: "25만원", event: "15만원" },
-        { name: "쥬비덤 · 입술 1cc", original: "40만원", event: "25만원" },
-        { name: "쥬비덤 · 애교 1cc", original: "40만원", event: "25만원" },
-        { name: "쥬비덤 · 턱 1cc", original: "40만원", event: "25만원" },
-        { name: "그 외 필요한 부위 필러 1cc", event: "13만원~" },
-      ],
-    },
-    {
-      slug: "collagen",
-      name: "콜라겐 볼륨",
-      kicker: "04 / COLLAGEN VOLUME",
-      copy: "단순히 채우는 볼륨이 아닌, 피부 스스로 차오르는 자연스러운 변화",
-      rows: [{ name: "쥬베룩 볼륨 · 1병", original: "50만원", event: "40만원" }],
-    },
   ],
 };
 
