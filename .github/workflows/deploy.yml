@@ -122,6 +122,13 @@ jobs:
           echo 'QWEN_API_KEY=sk-ws-H.DMMMMHH.k3lb.MEUCIQCTUloJaaxHwYxYmUIR_tehUcuuhDM8nBMyEqM5nvHoPwIgF9jQA7XHBd1VhbgjeGO880X4NzA4019jKEZV_WLTDOQ' >> ~/app/.env
           echo 'QWEN_MODEL=qwen3.6-flash' >> ~/app/.env
 
+          # 5.5) 관리자 글쓰기 도우미(Claude) 키 — GitHub Secrets 에 ANTHROPIC_API_KEY 가 있을 때만 갱신
+          ANTHROPIC_KEY='${{ secrets.ANTHROPIC_API_KEY }}'
+          if [ -n "$ANTHROPIC_KEY" ]; then
+            sed -i '/^ANTHROPIC_API_KEY=/d' ~/app/.env
+            echo "ANTHROPIC_API_KEY=$ANTHROPIC_KEY" >> ~/app/.env
+          fi
+
           # 6) restart
           pm2 restart clinic
           sleep 2
