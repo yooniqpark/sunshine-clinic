@@ -93,7 +93,7 @@ class AI:
         if missing:
             sys.exit(
                 f"❌ .env 파일에 {', '.join(missing)} 가 없습니다.\n"
-                "   README.md의 '2단계: API 키 넣기'를 확인해 주세요.\n"
+                "   README.md의 'API 키 받기'를 확인해 주세요.\n"
                 "   (키 없이 흐름만 보려면 끝에 --demo 를 붙여 실행하세요)"
             )
         import anthropic
