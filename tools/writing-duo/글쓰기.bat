@@ -12,18 +12,7 @@ if not defined PY (
   exit /b
 )
 
-if "%~1"=="" goto :demo
-%PY% duo.py "%~1"
-goto :done
-
-:demo
-echo.
-echo 의뢰서 파일^(.txt^)을 이 "글쓰기.bat" 아이콘 위로 끌어다 놓으면 실제로 글을 씁니다.
-echo 지금은 그냥 더블클릭하셨으니, API 키 없이 연습 모드로 흐름을 보여드릴게요.
-echo.
-pause
-%PY% duo.py briefs\youtube_example.txt --demo
-
-:done
-if exist output start "" output
+rem 새로 필요한 부품이 생겼을 수 있어 매번 조용히 확인합니다
+%PY% -m pip install --disable-pip-version-check -q -r requirements.txt
+%PY% app.py
 pause
