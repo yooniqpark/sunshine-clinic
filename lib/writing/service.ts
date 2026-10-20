@@ -111,6 +111,8 @@ export async function send(input: SendInput, userId?: string) {
     reference,
     original,
     instruction,
+    mode: s.mode,
+    debateRounds: s.debateRounds,
     writer: s.writer,
     targetScore: s.targetScore,
     maxRevisions: s.maxRevisions,

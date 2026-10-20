@@ -4,7 +4,7 @@ import { useCallback, useEffect, useRef, useState, useSyncExternalStore, type Re
 import s from "./writing.module.css";
 
 /* ────────────────────────────────────────────────────────────
-   글쓰기 도우미 채팅 화면 — Claude(작가)와 GPT(편집자)의 대화를 보여준다.
+   글쓰기 도우미 채팅 화면 — Claude와 GPT의 토론(또는 작가·편집자 대화)을 보여준다.
    ──────────────────────────────────────────────────────────── */
 
 type Agent = "claude" | "gpt";
@@ -14,17 +14,21 @@ type Conv = { id: string; title: string; kind: string; updatedAt: string };
 type Job = { status: "running" | "idle"; who: Agent | null; text: string };
 type Att = { as: "reference" | "original"; name: string; text: string };
 type Fb = {
+  comment?: string; label?: string;
   scores?: Record<string, number>; strengths?: string[]; fact_check?: string[];
   fixes?: { where?: string; why?: string; how?: string }[]; average?: number; version?: number;
 };
-type Opts = { demo: boolean; writer: Agent; targetScore: number; maxRevisions: number; claudeModel: string; gptModel: string };
+type Mode = "debate" | "loop";
+type Opts = { demo: boolean; mode: Mode; debateRounds: number; writer: Agent; targetScore: number; maxRevisions: number; claudeModel: string; gptModel: string };
 
 const API = "/api/admin/writing";
 const NAME: Record<Agent, string> = { claude: "Claude", gpt: "GPT" };
-const ROLE: Record<string, string> = { writer: "작가", editor: "편집자" };
+const ROLE: Record<string, string> = {
+  writer: "작가", editor: "편집자", debater: "토론", critic: "반론", synthesizer: "최종 정리", reviewer: "최종 검토",
+};
 const KIND: Record<string, string> = { youtube: "🎬 유튜브 대본", blog: "📝 블로그" };
 const EXAMPLES: { kind: Kind; label: string; text: string }[] = [
-  { kind: "youtube", label: "유튜브 대본", text: "아침에 일어나자마자 피곤한 이유 3가지와 해결법\n대상: 30~40대 직장인 / 분량: 8분 / 말투: 친근한 존댓말\n첫 문장은 질문으로 시작해줘" },
+  { kind: "youtube", label: "유튜브 대본", text: "보톡스 처음 맞기 전에 꼭 알아야 할 것들 (효과 기간, 주의사항, 부작용)\n대상: 시술이 처음인 20~30대 / 분량: 6분 / 말투: 원장님이 직접 설명하는 친근한 존댓말\n첫 문장은 질문으로 시작해줘" },
   { kind: "blog", label: "블로그", text: "처음 피부과 레이저 시술 받기 전에 알아야 할 5가지\n대상: 시술이 처음인 20~30대 / 2,000자 / 차분하고 신뢰감 있게\n검색 키워드: 레이저 시술 주의사항, 과장 표현 금지" },
   { kind: "blog", label: "블로그", text: "환절기 피부 건조, 집에서 할 수 있는 관리 4가지\n대상: 피부 고민 많은 30대 / 1,500자 / 밝고 친근하게" },
 ];
@@ -136,7 +140,8 @@ function FeedbackCard({ f, who }: { f: Fb; who: Agent }) {
   return (
     <div className={s.card}>
       <div className={s.fb}>
-        <div className={s.avg}><strong>{f.average}</strong><span>/ 10 · {f.version}번째 원고 평균</span></div>
+        {f.comment && <p className={s.memo}>“{f.comment}”</p>}
+        <div className={s.avg}><strong>{f.average}</strong><span>/ 10 · {f.label ?? `${f.version}번째 원고 평균`}</span></div>
         <div className={s.bars}>
           {Object.entries(f.scores ?? {}).map(([k, v]) => (
             <div key={k} className={s.bar}>
@@ -189,10 +194,11 @@ function MessageView({ m, convId, lastDraft }: { m: Msg; convId: string; lastDra
   if (m.type === "error") return <div className={s.errBox}>⚠️ {m.content}</div>;
   if (m.type === "done") {
     const scores = (m.meta.scores as number[] | undefined) ?? [];
+    const trajectory = m.meta.trajectory as string | undefined;
     return (
       <div className={s.done}>
         <strong>✅ 완성됐어요 · {m.content}</strong>
-        <div className={s.traj}>점수 {scores.join(" → ")}</div>
+        <div className={s.traj}>점수 {trajectory ?? scores.join(" → ")}</div>
         <div className={s.btns}>
           <a className={`${s.btn} ${s.btnDark}`} href={`${API}/${convId}/docx`}>📄 최종 원고 워드 받기</a>
           {lastDraft && <button className={s.btn} onClick={(e) => copyText(lastDraft.content, e.currentTarget)}>📋 최종 원고 복사</button>}
@@ -217,7 +223,7 @@ function MessageView({ m, convId, lastDraft }: { m: Msg; convId: string; lastDra
         <div className={s.body}>
           {head}
           {memo && memo !== "첫 초안" && <p className={s.memo}>{memo}</p>}
-          <DraftCard m={m} convId={convId} title={`${m.meta.version}번째 원고`} />
+          <DraftCard m={m} convId={convId} title={(m.meta.label as string | undefined) ?? `${m.meta.version}번째 원고`} />
         </div>
       </div>
     );
@@ -463,7 +469,11 @@ function Chat({ initialId, initialConvs, keys, defaults }: Props) {
             <div className={s.hero}>
               <div className={s.pair}><Avatar who="claude" /><Avatar who="gpt" /></div>
               <h3>무엇을 써드릴까요?</h3>
-              <p>{NAME[writer]}가 쓰고, {NAME[editor]}가 고칠 점을 짚어주며 함께 완성해요.</p>
+              <p>
+                {opts.mode === "debate"
+                  ? "Claude와 GPT가 각자 쓰고, 서로의 원고를 비판·반박하며 고친 뒤 하나로 합쳐 완성해요."
+                  : `${NAME[writer]}가 쓰고, ${NAME[editor]}가 고칠 점을 짚어주며 함께 완성해요.`}
+              </p>
               <div className={s.examples}>
                 {EXAMPLES.map((x, i) => (
                   <button key={i} className={s.ex} onClick={() => { setKind(x.kind); setInput(x.text); inputRef.current?.focus(); }}>
@@ -521,7 +531,7 @@ function Chat({ initialId, initialConvs, keys, defaults }: Props) {
               </button>
             </div>
           </div>
-          <div className={s.footNote}>Enter 보내기 · Shift+Enter 줄바꿈 · AI가 쓴 사실 정보와 의료 표현은 꼭 직접 확인하세요</div>
+          <div className={s.footNote}>Enter 보내기 · Shift+Enter 줄바꿈 · AI가 쓴 사실 정보와 의료광고 표현은 올리기 전에 꼭 직접 확인하세요</div>
         </div>
       </div>
 
@@ -556,10 +566,15 @@ function Chat({ initialId, initialConvs, keys, defaults }: Props) {
               <span><b>연습 모드</b><br /><span className={s.hint}>AI를 부르지 않아 비용 0원. 흐름만 확인해요</span></span>
               <input type="checkbox" checked={opts.demo} onChange={(e) => setOpts({ ...opts, demo: e.target.checked })} />
             </label>
-            <label htmlFor="optWriter">작가 역할</label>
+            <label htmlFor="optMode">진행 방식</label>
+            <select id="optMode" value={opts.mode} onChange={(e) => setOpts({ ...opts, mode: e.target.value as Mode })}>
+              <option value="debate">토론 — 둘이 각자 쓰고 서로 비판·반박한 뒤 합치기</option>
+              <option value="loop">작가·편집자 — 한쪽이 쓰고 한쪽이 채점</option>
+            </select>
+            <label htmlFor="optWriter">{opts.mode === "debate" ? "점수가 같을 때 최종 정리 담당" : "작가 역할"}</label>
             <select id="optWriter" value={opts.writer} onChange={(e) => setOpts({ ...opts, writer: e.target.value as Agent })}>
-              <option value="claude">Claude가 쓰고 GPT가 편집</option>
-              <option value="gpt">GPT가 쓰고 Claude가 편집</option>
+              <option value="claude">{opts.mode === "debate" ? "Claude" : "Claude가 쓰고 GPT가 편집"}</option>
+              <option value="gpt">{opts.mode === "debate" ? "GPT" : "GPT가 쓰고 Claude가 편집"}</option>
             </select>
             <div className={s.grid2}>
               <div>
@@ -567,11 +582,19 @@ function Chat({ initialId, initialConvs, keys, defaults }: Props) {
                 <input id="optTarget" type="number" min={5} max={10} step={0.1} value={opts.targetScore}
                   onChange={(e) => setOpts({ ...opts, targetScore: parseFloat(e.target.value) || 8.5 })} />
               </div>
-              <div>
-                <label htmlFor="optMax">최대 수정 횟수 <span className={s.hint}>많을수록 비용↑</span></label>
-                <input id="optMax" type="number" min={0} max={6} step={1} value={opts.maxRevisions}
-                  onChange={(e) => setOpts({ ...opts, maxRevisions: Math.max(0, Math.min(6, parseInt(e.target.value, 10) || 0)) })} />
-              </div>
+              {opts.mode === "debate" ? (
+                <div>
+                  <label htmlFor="optRounds">토론 라운드 <span className={s.hint}>많을수록 비용↑</span></label>
+                  <input id="optRounds" type="number" min={1} max={4} step={1} value={opts.debateRounds}
+                    onChange={(e) => setOpts({ ...opts, debateRounds: Math.max(1, Math.min(4, parseInt(e.target.value, 10) || 1)) })} />
+                </div>
+              ) : (
+                <div>
+                  <label htmlFor="optMax">최대 수정 횟수 <span className={s.hint}>많을수록 비용↑</span></label>
+                  <input id="optMax" type="number" min={0} max={6} step={1} value={opts.maxRevisions}
+                    onChange={(e) => setOpts({ ...opts, maxRevisions: Math.max(0, Math.min(6, parseInt(e.target.value, 10) || 0)) })} />
+                </div>
+              )}
             </div>
             <div className={s.grid2}>
               <div>
