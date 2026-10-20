@@ -92,6 +92,7 @@ export function PreviewHeader() {
             { label: t("items.notices"), href: "/community/notices" },
             { label: t("items.events"), href: "/community/events" },
             { label: t("items.prices"), href: "/community/prices" },
+            { label: t("items.blog"), href: "/community/blog" },
           ],
         },
       ],

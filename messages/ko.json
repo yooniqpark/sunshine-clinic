@@ -212,7 +212,8 @@
         "secretRf": "시크릿 RF",
         "carpriCo2": "카프리 CO2",
         "goldPtt": "골드 PTT",
-        "curejet": "큐라젯"
+        "curejet": "큐라젯",
+        "blog": "블로그"
       },
       "subMenus": {
         "lifting": [
@@ -1233,6 +1234,21 @@
         "note": "수면마취 적용 여부는 시술 종류와 환자 상태에 따라 의료진 상담 후 결정됩니다.",
         "footer": "자세한 사항은 병원으로 문의해 주시면 친절하게 안내해 드리겠습니다."
       }
+    },
+    "blog": {
+      "kicker": "SUNSHINE JOURNAL",
+      "title": "선샤인 블로그",
+      "desc": "진료실에서 자주 받는 질문과 피부 이야기를 선샤인의원 의료진이 차분히 정리합니다.",
+      "all": "전체",
+      "readMin": "{min}분 읽기",
+      "back": "블로그 목록",
+      "author": "선샤인의원 의료진",
+      "contents": "Contents",
+      "related": "관련 진료",
+      "ctaTitle": "내 피부에 맞는 방법이 궁금하다면",
+      "ctaDesc": "원장님이 직접 피부 상태를 보고 필요한 것만 안내해 드립니다.",
+      "more": "다른 글",
+      "viewAll": "전체 보기"
     }
   }
 }

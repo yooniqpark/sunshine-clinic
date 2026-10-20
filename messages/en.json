@@ -212,7 +212,8 @@
         "secretRf": "Secret RF",
         "carpriCo2": "CarPri CO2",
         "goldPtt": "Gold PTT",
-        "curejet": "CureJet"
+        "curejet": "CureJet",
+        "blog": "Blog"
       },
       "subMenus": {
         "lifting": [
@@ -1233,6 +1234,21 @@
         "note": "Whether sedation is used depends on the procedure and the patient's condition, decided after consultation with medical staff.",
         "footer": "For details, please contact the clinic — we're happy to help."
       }
+    },
+    "blog": {
+      "kicker": "SUNSHINE JOURNAL",
+      "title": "Sunshine Blog",
+      "desc": "Answers to the questions we hear most in the consultation room, written by the Sunshine Clinic medical team.",
+      "all": "All",
+      "readMin": "{min} min read",
+      "back": "All posts",
+      "author": "Sunshine Clinic medical team",
+      "contents": "Contents",
+      "related": "Related treatment",
+      "ctaTitle": "Wondering what suits your skin?",
+      "ctaDesc": "Our doctor will assess your skin in person and recommend only what you need.",
+      "more": "More posts",
+      "viewAll": "View all"
     }
   }
 }

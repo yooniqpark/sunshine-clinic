@@ -212,7 +212,8 @@
         "secretRf": "Secret RF",
         "carpriCo2": "CarPri CO2",
         "goldPtt": "Gold PTT",
-        "curejet": "CureJet"
+        "curejet": "CureJet",
+        "blog": "博客"
       },
       "subMenus": {
         "lifting": [
@@ -1233,6 +1234,21 @@
         "note": "是否使用睡眠麻醉需根据施术种类和患者状态,由医务人员咨询后决定。",
         "footer": "详情请咨询本院,我们将为您详细说明。"
       }
+    },
+    "blog": {
+      "kicker": "SUNSHINE JOURNAL",
+      "title": "阳光博客",
+      "desc": "由阳光皮肤科医疗团队整理诊室中常见的问题与皮肤知识。",
+      "all": "全部",
+      "readMin": "阅读约{min}分钟",
+      "back": "博客列表",
+      "author": "阳光皮肤科医疗团队",
+      "contents": "Contents",
+      "related": "相关项目",
+      "ctaTitle": "想了解适合自己皮肤的方案?",
+      "ctaDesc": "院长亲自评估皮肤状态,只推荐您需要的项目。",
+      "more": "更多文章",
+      "viewAll": "查看全部"
     }
   }
 }
