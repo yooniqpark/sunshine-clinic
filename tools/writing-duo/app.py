@@ -46,8 +46,7 @@ def start_job(cid: int, job: dict):
         try:
             duo.run_session(job, say, typing)
         except Exception as e:  # noqa: BLE001
-            msg = str(e) if isinstance(e, RuntimeError) else duo.friendly_error(e)
-            db.add_message(cid, "system", "error", msg)
+            db.add_message(cid, "system", "error", duo.friendly_error(e))
         finally:
             with LOCK:
                 state["status"], state["who"] = "idle", None
@@ -87,9 +86,11 @@ def handle_send(data: dict) -> dict:
 
     db.add_message(conv["id"], "user", "request", text, {"attachments": attach_meta})
     job.update({
+        "mode": opts.get("mode"),
         "writer": opts.get("writer"),
         "target_score": opts.get("target_score"),
         "max_revisions": opts.get("max_revisions"),
+        "debate_rounds": opts.get("debate_rounds"),
         "demo": bool(opts.get("demo")),
     })
     start_job(conv["id"], job)
@@ -134,7 +135,7 @@ class Handler(BaseHTTPRequestHandler):
         if path in ("/", "/index.html"):
             return self._send((WEB / "index.html").read_bytes(), "text/html; charset=utf-8")
         if path == "/api/status":
-            return self._json(duo.settings())
+            return self._json({**duo.settings(), "login": duo.login_status("refresh" in qs)})
         if path == "/api/conversations":
             return self._json(db.list_conversations())
 

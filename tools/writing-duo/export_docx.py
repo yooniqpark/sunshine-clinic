@@ -62,8 +62,9 @@ def build_docx(draft: str, summary: dict | None = None) -> bytes:
         table.style = "Light Grid Accent 1"
         for k, v in [
             ("글 종류", KIND_LABEL.get(summary.get("kind"), "")),
-            ("작가 / 편집자", f"{NAME.get(summary.get('writer'), '')} / {NAME.get(summary.get('editor'), '')}"),
-            ("점수 변화", " → ".join(str(s) for s in summary.get("scores", []))),
+            ("최종 정리 / 최종 검토" if summary.get("mode") == "debate" else "작가 / 편집자",
+             f"{NAME.get(summary.get('writer'), '')} / {NAME.get(summary.get('editor'), '')}"),
+            ("점수 변화", summary.get("trajectory") or " → ".join(str(s) for s in summary.get("scores", []))),
             ("종료 이유", summary.get("stop_reason", "")),
         ]:
             row = table.add_row().cells

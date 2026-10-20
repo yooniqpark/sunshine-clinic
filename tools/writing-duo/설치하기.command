@@ -24,11 +24,16 @@ echo "[2/3] 필요한 부품을 설치합니다..."
 "$PY" -m pip install --disable-pip-version-check -q -r requirements.txt || {
   echo "부품 설치 중 오류가 났습니다. 위 메시지를 복사해서 Claude에게 보여주세요."; read -r -p "엔터를 누르면 닫힙니다"; exit 1; }
 
-echo "[3/3] API 키 설정 파일을 준비합니다..."
-[ -f .env ] || cp .env.example .env
-echo "      텍스트 편집기가 열리면 API 키 두 개를 붙여넣고 저장(⌘S)한 뒤 닫아 주세요."
-open -e .env
-
+echo "[3/3] Claude Code 와 Codex 를 설치하고 구독 계정으로 로그인합니다..."
+if ! command -v npm >/dev/null 2>&1; then
+  echo "Node.js 가 필요합니다. https://nodejs.org 에서 LTS 버전을 설치한 뒤 다시 실행해 주세요."
+  open https://nodejs.org/; read -r -p "엔터를 누르면 닫힙니다"; exit 1
+fi
+npm install -g @anthropic-ai/claude-code @openai/codex || sudo npm install -g @anthropic-ai/claude-code @openai/codex
+echo "브라우저가 열리면 Claude Pro/Max 구독 계정으로 로그인해 주세요."
+claude auth login --claudeai
+echo "브라우저가 열리면 ChatGPT 구독 계정으로 'Sign in with ChatGPT' 를 눌러 주세요."
+codex login
 echo ""
 echo "설치 끝! 이제 '글쓰기.command' 를 더블클릭하면 웹페이지가 열립니다."
 read -r -p "엔터를 누르면 닫힙니다"
