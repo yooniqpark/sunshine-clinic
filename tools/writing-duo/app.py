@@ -17,6 +17,7 @@ from urllib.parse import parse_qs, quote, urlparse
 
 import db
 import duo
+import topics
 from export_docx import build_docx, read_docx_text
 
 HERE = Path(__file__).resolve().parent
@@ -79,6 +80,13 @@ def handle_send(data: dict) -> dict:
     else:
         kind = data.get("kind") if data.get("kind") in duo.RUBRICS else "blog"
         brief = f"글 종류: {duo.KIND_LABEL[kind]}\n{text}" if text else f"글 종류: {duo.KIND_LABEL[kind]}"
+        # 주제 중복 확인에서 "겹치지 않게 쓰기"를 골랐으면 새 각도와 이미 쓴 글 목록을 의뢰서에 덧붙임
+        angle = (data.get("angle") or "").strip()
+        if angle:
+            brief += f"\n\n[이번 글의 각도 - 이미 쓴 글과 겹치지 않도록 정한 방향]\n{angle}"
+        avoid = topics.avoid_block([str(k) for k in data.get("avoid") or []])
+        if avoid:
+            brief += f"\n\n{avoid}"
         title = make_title(text) if text else make_title(original)
         cid = db.create_conversation(title, kind, brief, reference)
         conv = db.get_conversation(cid)
@@ -138,6 +146,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._json({**duo.settings(), "login": duo.login_status("refresh" in qs)})
         if path == "/api/conversations":
             return self._json(db.list_conversations())
+        if path == "/api/published":
+            return self._json({"text": topics.load_published()})
 
         m = re.fullmatch(r"/api/conversations/(\d+)(/docx)?", path)
         if m:
@@ -174,6 +184,14 @@ class Handler(BaseHTTPRequestHandler):
         try:
             if self.path == "/api/send":
                 return self._json(handle_send(data))
+            if self.path == "/api/similar":
+                text = (data.get("text") or "").strip()
+                if not text:
+                    raise ValueError("주제를 적어 주세요.")
+                return self._json(topics.check(text, bool(data.get("demo"))))
+            if self.path == "/api/published":
+                topics.save_published(data.get("text") or "")
+                return self._json({"ok": True})
             if self.path == "/api/extract":
                 text = extract_text(data.get("name", ""), base64.b64decode(data.get("data", "")))
                 return self._json({"text": text})

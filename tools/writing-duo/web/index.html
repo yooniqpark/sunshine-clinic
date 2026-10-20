@@ -188,6 +188,13 @@
     .bar { grid-template-columns: 70px 1fr 28px; }
     .foot-note { display: none; }
   }
+  .dup-list { display: flex; flex-direction: column; gap: 8px; margin: 10px 0 4px; max-height: 260px; overflow: auto; }
+  .dup-item { display: block; width: 100%; text-align: left; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .dup-item:hover { background: var(--soft); }
+  .dup-item b { display: block; font-size: 14px; color: var(--ink); }
+  .dup-item small { color: var(--muted); display: block; }
+  .dup-lv { font-size: 11px; font-weight: 700; padding: 1px 7px; border-radius: 99px; margin-right: 6px; background: var(--warn-soft); color: var(--warn); }
+  .dup-lv.high { background: var(--err-soft); color: var(--err); }
 </style>
 </head>
 <body>
@@ -258,6 +265,19 @@
   </div>
 </div>
 
+<!-- 주제 중복 확인 모달 -->
+<div class="overlay hidden" id="dupModal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="dupTitle">
+    <h3 id="dupTitle">기존 글과 겹치는지 확인하는 중…</h3>
+    <div id="dupBody" class="hint">예전에 쓴 글 목록과 비교하고 있어요. 잠시만 기다려 주세요.</div>
+    <div class="row hidden" id="dupBtns">
+      <button class="btn" id="dupCancel" style="margin-right:auto">취소</button>
+      <button class="btn" id="dupAsIs">그대로 쓰기</button>
+      <button class="btn dark" id="dupAngle">겹치지 않게 쓰기</button>
+    </div>
+  </div>
+</div>
+
 <!-- 설정 모달 -->
 <div class="overlay hidden" id="setModal">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="setTitle">
@@ -272,6 +292,10 @@
       <div id="maxBox"><label for="optMax">최대 수정 횟수</label><input type="number" id="optMax" min="0" max="6" step="1"></div>
       <div id="roundBox"><label for="optRounds">토론 라운드 <span class="hint">많을수록 사용량↑</span></label><input type="number" id="optRounds" min="1" max="4" step="1"></div>
     </div>
+    <div class="toggle" style="margin-top:12px"><div><b>쓰기 전에 주제 중복 확인</b><div class="hint">새 글을 시작할 때 예전에 쓴 글과 겹치는지 먼저 확인해요</div></div><input type="checkbox" id="optDup"></div>
+    <label for="published">이미 올린 글 제목 <span class="hint">이 프로그램 밖에서 쓴 글도 중복 확인에 넣어요 · 한 줄에 하나</span></label>
+    <textarea id="published" style="min-height:90px" placeholder="예)&#10;보톡스 효과 기간, 얼마나 갈까?&#10;여름철 레이저 토닝 주의사항"></textarea>
+    <button class="btn" id="pubSave" style="margin-top:6px">목록 저장</button>
     <label>구독 계정 연결 상태 <span class="hint">로그인은 "로그인하기.bat"</span></label>
     <div class="keyrow" id="keyRow"></div>
     <button class="btn" id="recheck" style="margin-top:6px">↻ 다시 확인</button>
@@ -304,7 +328,7 @@ const EXAMPLES = [
 
 // ── 상태 ──
 let convId = null, lastMsgId = 0, polling = null, kind = "youtube", atts = [], attAs = "reference", currentConv = null;
-const opts = Object.assign({ demo: false, mode: null, writer: null, target_score: null, max_revisions: null, debate_rounds: null }, readLS("duo-opts") || {});
+const opts = Object.assign({ demo: false, dup_check: true, mode: null, writer: null, target_score: null, max_revisions: null, debate_rounds: null }, readLS("duo-opts") || {});
 let forcedDemo = false; // 로그인이 안 돼서 자동으로 켠 연습 모드 (저장하지 않음)
 function readLS(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } }
 function writeLS(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
@@ -340,6 +364,7 @@ function syncOpts() {
   const demo = !!opts.demo || forcedDemo;
   $("optDemo").checked = demo; $("optDemo").disabled = forcedDemo;
   $("optMode").value = opts.mode || "debate"; $("optWriter").value = opts.writer || "claude";
+  $("optDup").checked = opts.dup_check !== false;
   $("optTarget").value = opts.target_score ?? ""; $("optMax").value = opts.max_revisions ?? ""; $("optRounds").value = opts.debate_rounds ?? "";
   $("demoChip").classList.toggle("hidden", !demo);
   const debate = opts.mode !== "loop";
@@ -353,14 +378,23 @@ function syncOpts() {
     : `${NAME[w]}가 쓰고, ${NAME[w === "claude" ? "gpt" : "claude"]}가 고칠 점을 짚어주며 함께 완성해요.`;
   writeLS("duo-opts", opts);
 }
-["optDemo","optMode","optWriter","optTarget","optMax","optRounds"].forEach(id => $(id).addEventListener("change", () => {
+["optDemo","optDup","optMode","optWriter","optTarget","optMax","optRounds"].forEach(id => $(id).addEventListener("change", () => {
   if (!forcedDemo) opts.demo = $("optDemo").checked;
+  opts.dup_check = $("optDup").checked;
   opts.mode = $("optMode").value; opts.writer = $("optWriter").value;
   opts.target_score = parseFloat($("optTarget").value) || null;
   opts.max_revisions = $("optMax").value === "" ? null : parseInt($("optMax").value, 10);
   opts.debate_rounds = $("optRounds").value === "" ? null : Math.max(1, Math.min(4, parseInt($("optRounds").value, 10) || 1));
   syncOpts();
 }));
+$("setBtn").addEventListener("click", async () => {
+  try { $("published").value = (await api("/api/published")).text; } catch (e) {}
+});
+$("pubSave").addEventListener("click", async (e) => {
+  const b = e.currentTarget;
+  try { await api("/api/published", { text: $("published").value }); b.textContent = "✓ 저장됨"; setTimeout(() => b.textContent = "목록 저장", 1400); }
+  catch (err) { alert(err.message); }
+});
 $("recheck").addEventListener("click", async (e) => {
   const b = e.currentTarget; b.disabled = true; b.textContent = "확인 중…";
   try { await loadStatus(true); } catch (err) { alert(err.message); }
@@ -391,7 +425,7 @@ $("hist").addEventListener("click", async (e) => {
 
 // ── 대화 열기 / 새 대화 ──
 function newChat() {
-  convId = null; currentConv = null; lastMsgId = 0; clearTimeout(polling);
+  convId = null; currentConv = null; lastMsgId = 0; clearTimeout(polling); setBusy(false);
   $("thread").innerHTML = ""; $("thread").classList.add("hidden"); $("hero").classList.remove("hidden");
   $("title").textContent = "새 대화"; $("kindChip").classList.add("hidden");
   $("kindSeg").classList.remove("hidden");
@@ -518,12 +552,55 @@ $("sendBtn").addEventListener("click", send);
 async function send() {
   const text = input.value.trim();
   setBusy(true);
+  // 새 글이면 토론을 시작하기 전에 예전 글과 주제가 겹치는지 먼저 확인
+  let extra = {};
+  if (!convId && text && opts.dup_check !== false) {
+    extra = await checkDuplicate(text);
+    if (!extra) { setBusy(false); return; }  // 취소
+  }
   try {
-    const j = await api("/api/send", { conversation_id: convId, text, kind, attachments: atts, settings: { ...opts, demo: !!opts.demo || forcedDemo } });
+    const j = await api("/api/send", { conversation_id: convId, text, kind, attachments: atts, settings: { ...opts, demo: !!opts.demo || forcedDemo }, ...extra });
     input.value = ""; atts = []; renderAtts(); autosize();
     if (j.conversation_id !== convId) await openConv(j.conversation_id); else await poll(true);
     scrollDown(true);
   } catch (e) { alert(e.message); setBusy(false); }
+}
+
+// ── 주제 중복 확인 ──
+// 결과: {} = 그대로 쓰기, {avoid, angle} = 겹치지 않게 쓰기, null = 취소
+let dupPending = null;
+function checkDuplicate(text) {
+  return new Promise(async (resolve) => {
+    dupPending = resolve;
+    const done = (v) => { if (dupPending !== resolve) return; dupPending = null; closeModals(); resolve(v); };
+    $("dupTitle").textContent = "기존 글과 겹치는지 확인하는 중…";
+    $("dupBody").innerHTML = `<span class="hint">예전에 쓴 글 목록과 비교하고 있어요. 잠시만 기다려 주세요.</span>`;
+    $("dupBtns").classList.add("hidden");
+    openModal("dupModal");
+    let r;
+    try { r = await api("/api/similar", { text, demo: !!opts.demo || forcedDemo }); }
+    catch (e) { return done({}); }  // 확인이 안 되면 그냥 진행
+    if (dupPending !== resolve) return;  // 확인 중에 닫았으면 끝
+    if (!r.matches.length) return done({});
+
+    $("dupTitle").textContent = `비슷한 주제로 쓴 글이 ${r.matches.length}개 있어요`;
+    $("dupBody").innerHTML = `
+      <div class="dup-list">${r.matches.map(x => `
+        <button class="dup-item" ${x.id ? `data-open="${x.id}"` : "disabled"}>
+          <b><span class="dup-lv ${x.level === "높음" ? "high" : ""}">겹침 ${esc(x.level)}</span>${esc(x.title)}</b>
+          <small>${esc(x.source)}${x.date ? " · " + esc(x.date) : ""}${x.id ? " · 눌러서 열기" : ""}</small>
+          ${x.reason ? `<small>${esc(x.reason)}</small>` : ""}
+        </button>`).join("")}</div>
+      <label for="dupAngleText">이번 글의 각도 <span class="hint">겹치지 않게 쓸 방향 · 고쳐도 돼요</span></label>
+      <textarea id="dupAngleText" style="min-height:70px" placeholder="예) 이번에는 시술 후 관리와 주의사항 위주로">${esc(r.suggestion || "")}</textarea>
+      <div class="hint" style="margin-top:4px">${esc(r.method)}</div>`;
+    $("dupBtns").classList.remove("hidden");
+    const keys = r.matches.map(x => x.key);
+    $("dupCancel").onclick = () => done(null);
+    $("dupAsIs").onclick = () => done({});
+    $("dupAngle").onclick = () => done({ avoid: keys, angle: ($("dupAngleText")?.value || "").trim() });
+    $("dupBody").querySelectorAll("[data-open]").forEach(b => b.onclick = () => { done(null); openConv(+b.dataset.open); });
+  });
 }
 
 // ── 글 종류 ──
@@ -542,7 +619,10 @@ $("examples").addEventListener("click", (e) => {
 
 // ── 첨부 ──
 function openModal(id) { $(id).classList.remove("hidden"); }
-function closeModals() { document.querySelectorAll(".overlay").forEach(o => o.classList.add("hidden")); }
+function closeModals() {
+  document.querySelectorAll(".overlay").forEach(o => o.classList.add("hidden"));
+  if (dupPending) { const f = dupPending; dupPending = null; f(null); }  // 중복 확인 창을 닫으면 취소
+}
 document.querySelectorAll(".overlay").forEach(o => o.addEventListener("click", (e) => { if (e.target === o || e.target.closest("[data-close]")) closeModals(); }));
 document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModals(); });
 $("attBtn").addEventListener("click", () => { $("attText").value = ""; attFileName = ""; openModal("attModal"); $("attText").focus(); });

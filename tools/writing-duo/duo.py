@@ -220,7 +220,6 @@ class AI:
         self.calls = {"claude": 0, "gpt": 0}
         if demo:
             return
-        WORK.mkdir(parents=True, exist_ok=True)
         self.exe = {"claude": shutil.which("claude"), "gpt": shutil.which("codex")}
         missing = [n for n, w in (("Claude Code", "claude"), ("Codex", "gpt")) if not self.exe[w]]
         if missing:
@@ -246,6 +245,7 @@ class AI:
             raise AIError(f"{NAME[who]} 응답이 {CALL_TIMEOUT // 60}분 넘게 없어 멈췄습니다. 잠시 뒤 다시 시도해 주세요.")
 
     def _claude(self, system: str, user: str) -> str:
+        WORK.mkdir(parents=True, exist_ok=True)
         with tempfile.NamedTemporaryFile("w", suffix=".txt", encoding="utf-8", delete=False, dir=WORK) as f:
             f.write(system + TOOL_NOTE)
         try:
@@ -266,6 +266,7 @@ class AI:
         return str(data.get("result", ""))
 
     def _codex(self, system: str, user: str) -> str:
+        WORK.mkdir(parents=True, exist_ok=True)
         fd, out = tempfile.mkstemp(suffix=".txt", dir=WORK)
         os.close(fd)
         try:
