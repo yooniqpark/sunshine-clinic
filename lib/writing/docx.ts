@@ -35,7 +35,9 @@ export type Summary = {
   kind?: Kind;
   writer?: Agent;
   editor?: Agent;
+  mode?: string;
   scores?: number[];
+  trajectory?: string;
   stop_reason?: string;
   final_feedback?: Feedback;
 };
@@ -48,8 +50,11 @@ export async function buildDocx(draft: string, summary?: Summary | null): Promis
       new TableCell({ children: [new Paragraph({ children: [new TextRun({ text: t, bold })] })] });
     const rows: [string, string][] = [
       ["글 종류", summary.kind ? KIND_LABEL[summary.kind] : ""],
-      ["작가 / 편집자", `${summary.writer ? AGENT_NAME[summary.writer] : ""} / ${summary.editor ? AGENT_NAME[summary.editor] : ""}`],
-      ["점수 변화", (summary.scores ?? []).join(" → ")],
+      [
+        summary.mode === "debate" ? "최종 정리 / 최종 검토" : "작가 / 편집자",
+        `${summary.writer ? AGENT_NAME[summary.writer] : ""} / ${summary.editor ? AGENT_NAME[summary.editor] : ""}`,
+      ],
+      ["점수 변화", summary.trajectory ?? (summary.scores ?? []).join(" → ")],
       ["종료 이유", summary.stop_reason ?? ""],
     ];
     children.push(
