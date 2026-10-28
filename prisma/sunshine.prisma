@@ -1,0 +1,29 @@
+// 선샤인 전용 모델 (core 모델은 core.prisma — clinic-core sync 가 복사)
+
+// ===== Writing — 관리자 전용 글쓰기 도우미 (Claude 작가 × GPT 편집자) 대화 기록 =====
+model WritingConversation {
+  id        String           @id @default(cuid())
+  title     String
+  kind      String           // "youtube" | "blog"
+  brief     String           // 첫 요청 (이어서 수정할 때 다시 사용)
+  reference String           @default("") // 참고 예시 글
+  userId    String?
+  messages  WritingMessage[]
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+
+  @@index([updatedAt])
+}
+
+model WritingMessage {
+  id             Int                 @id @default(autoincrement())
+  conversationId String
+  conversation   WritingConversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role           String              // "user" | "claude" | "gpt" | "system"
+  type           String              // "request" | "draft" | "feedback" | "status" | "done" | "error"
+  content        String              @default("")
+  meta           String              @default("{}") // JSON
+  createdAt      DateTime            @default(now())
+
+  @@index([conversationId, id])
+}

@@ -1,13 +1,13 @@
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
-import { setRequestLocale, getTranslations } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 import {
   getDeviceImage,
   getDeviceMarketing,
   type DeviceDetail,
 } from "@/lib/devices";
-import { pageSeo, localeUrl } from "@/lib/seo";
-import { BreadcrumbJsonLd } from "@/components/JsonLd";
+import { pageSeo, localeUrl } from "@yooniqpark/clinic-core/lib/seo";
+import { BreadcrumbJsonLd } from "@yooniqpark/clinic-core/components/JsonLd";
 const FILLER_SLUGS = ["juvederm", "belotero"];
 
 const FILLER_SEO: Record<string, { title: string; description: string }> = {
@@ -33,6 +33,33 @@ const FILLER_SEO: Record<string, { title: string; description: string }> = {
   },
 };
 
+const FILLER_COPY: Record<string, { title: string; quote: string; detail: string; note: string }> = {
+  ko: {
+    title: "필러",
+    quote: "볼륨·윤곽·잔주름 개선을 위한 HA · CaHA 필러",
+    detail: "상세 보기",
+    note: "시술 전 상담을 통해 개인 얼굴 균형·연조직 상태를 반영해 필러 종류와 용량을 결정합니다.",
+  },
+  en: {
+    title: "Dermal Filler",
+    quote: "HA and CaHA fillers for volume, contour, and fine lines",
+    detail: "View details",
+    note: "After consultation, we select the filler type and amount based on your facial balance and soft-tissue condition.",
+  },
+  ja: {
+    title: "フィラー",
+    quote: "ボリューム・輪郭・小じわを整える HA・CaHA フィラー",
+    detail: "詳細を見る",
+    note: "施術前のカウンセリングで顔全体のバランスと軟部組織の状態を確認し、製剤と注入量を決定します。",
+  },
+  zh: {
+    title: "填充注射",
+    quote: "用于改善容量、轮廓与细纹的 HA · CaHA 填充剂",
+    detail: "查看详情",
+    note: "治疗前会通过面诊评估面部平衡和软组织状态，再确定填充剂类型与用量。",
+  },
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -55,6 +82,7 @@ export default async function FillerPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const copy = FILLER_COPY[locale] ?? FILLER_COPY.ko;
 
   const dict = (
     await import(`@/content/devices-${locale}.json`).catch(
@@ -70,7 +98,7 @@ export default async function FillerPage({
         items={[
           { name: "HOME", url: localeUrl(locale, "/home") },
           { name: "ANTI-AGING", url: localeUrl(locale, "/treatments/anti-aging") },
-          { name: "필러", url: localeUrl(locale, "/treatments/anti-aging/filler") },
+          { name: copy.title, url: localeUrl(locale, "/treatments/anti-aging/filler") },
         ]}
       />
       {/* Hero */}
@@ -83,17 +111,17 @@ export default async function FillerPage({
             <span>/</span>
             <span className="text-cream/80">ANTI-AGING</span>
             <span>/</span>
-            <span className="text-cream/70">필러</span>
+            <span className="text-cream/70">{copy.title}</span>
           </nav>
 
           <p className="mt-16 text-[11px] font-bold tracking-[0.4em] text-brand-soft">
             FILLER
           </p>
           <h1 className="mt-6 font-serif text-[clamp(3rem,8vw,6.5rem)] font-normal leading-[1.02] tracking-tight">
-            필러
+            {copy.title}
           </h1>
           <p className="mt-8 max-w-2xl font-serif text-lg leading-relaxed text-cream/75 lg:text-2xl">
-            &ldquo;볼륨·윤곽·잔주름 개선을 위한 HA · CaHA 필러&rdquo;
+            &ldquo;{copy.quote}&rdquo;
           </p>
           <p className="mt-12 text-[10px] tracking-[0.3em] text-cream/40">
             JUVÉDERM · BELOTERO
@@ -143,7 +171,7 @@ export default async function FillerPage({
                         </p>
                       )}
                       <span className="mt-5 inline-flex items-center gap-2 text-[11px] font-medium tracking-[0.18em] text-ink/70 transition group-hover:text-brand-dark">
-                        상세 보기
+                        {copy.detail}
                         <span aria-hidden className="text-brand-dark">↗</span>
                       </span>
                     </div>
@@ -154,8 +182,7 @@ export default async function FillerPage({
           </ul>
 
           <p className="mt-12 text-center text-[11px] tracking-[0.2em] text-ink/40">
-            시술 전 상담을 통해 개인 얼굴 균형 · 연조직 상태를 반영해 필러 종류와
-            용량을 결정합니다
+            {copy.note}
           </p>
         </div>
       </section>

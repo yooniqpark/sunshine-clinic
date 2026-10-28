@@ -16,6 +16,13 @@ const LAYER_SUBS_BY_LOCALE: Record<string, string[]> = {
   zh: ["表皮", "真皮", "皮下 · SMAS"],
 };
 
+const NEXT_CHAPTER_BY_LOCALE: Record<string, string> = {
+  ko: "다음 챕터",
+  en: "Next chapter",
+  ja: "次のチャプター",
+  zh: "下一章",
+};
+
 /**
  * THE SUNSHINE STANDARD — Face × Layers × Waves 융합 버전
  * · 얇은 여성 얼굴 실루엣 (line-art)
@@ -38,7 +45,7 @@ export function SunshineStandardSplit() {
           onClick={() =>
             setActive((a) => (a + 1) % STD_CHAPTERS.length)
           }
-          aria-label="다음 챕터"
+          aria-label={NEXT_CHAPTER_BY_LOCALE[locale] ?? NEXT_CHAPTER_BY_LOCALE.en}
           className="relative block aspect-[3/4] w-full cursor-pointer overflow-hidden bg-ink text-left lg:aspect-auto lg:min-h-[720px]"
         >
           {/* 시각화 패널 상단 텍스트 오버레이 — 키커만 남긴다.

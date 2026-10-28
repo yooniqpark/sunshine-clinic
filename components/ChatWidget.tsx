@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
-import { clinic as clinicFallback } from "@/lib/data";
+import { useClinicContact } from "@/components/ClinicContact";
 import {
   CalendarIcon,
   ChevronDownIcon,
@@ -19,13 +19,6 @@ import { LocalizedDatePicker } from "./LocalizedDatePicker";
    AI chatbot is intentionally hidden — will return in a later release.
    ──────────────────────────────────────────────────────────── */
 
-type ClinicLinks = {
-  kakaoHref?: string;
-  naverBookingHref?: string;
-  phoneHref?: string;
-  phone?: string;
-};
-
 type View = "actions" | "booking";
 
 const selectCls =
@@ -33,13 +26,8 @@ const selectCls =
 const selectChevronCls =
   "pointer-events-none absolute right-2.5 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-ink-soft";
 
-export function ChatWidget(props: ClinicLinks = {}) {
-  const clinic = {
-    kakaoHref: props.kakaoHref ?? clinicFallback.kakaoHref,
-    naverBookingHref: props.naverBookingHref ?? clinicFallback.naverBookingHref,
-    phoneHref: props.phoneHref ?? clinicFallback.phoneHref,
-    phone: props.phone ?? clinicFallback.phone,
-  };
+export function ChatWidget() {
+  const clinic = useClinicContact();
   const t = useTranslations("chatbot");
   const tBook = useTranslations("chatbot.booking");
   const tNav = useTranslations("nav");

@@ -13,6 +13,11 @@ const EN: Record<string, string> = {
   // 공통 UI
   "오늘 하루 보지 않기": "Don't show today",
   "닫기": "Close",
+  "팝업 닫기": "Close popup",
+  "이벤트 전환": "Switch event",
+  "가격표 보기": "View price list",
+  "10월 진료 안내": "October clinic schedule",
+  "안심 수면마취 안내": "Sedation safety information",
   "구분": "Type",
   "부가세(VAT) 별도": "VAT not included",
   // 수험생 SPECIAL
@@ -169,6 +174,11 @@ const EN: Record<string, string> = {
 const JA: Record<string, string> = {
   "오늘 하루 보지 않기": "今日は表示しない",
   "닫기": "閉じる",
+  "팝업 닫기": "ポップアップを閉じる",
+  "이벤트 전환": "イベントを切り替える",
+  "가격표 보기": "価格表を見る",
+  "10월 진료 안내": "10月の診療案内",
+  "안심 수면마취 안내": "静脈鎮静法の安全案内",
   "구분": "区分",
   "부가세(VAT) 별도": "VAT別途",
   // 受験生 SPECIAL
@@ -321,6 +331,11 @@ const JA: Record<string, string> = {
 const ZH: Record<string, string> = {
   "오늘 하루 보지 않기": "今天不再显示",
   "닫기": "关闭",
+  "팝업 닫기": "关闭弹窗",
+  "이벤트 전환": "切换活动",
+  "가격표 보기": "查看价格表",
+  "10월 진료 안내": "10月门诊安排",
+  "안심 수면마취 안내": "舒适镇静安全说明",
   "구분": "项目",
   "부가세(VAT) 별도": "不含增值税",
   // 考生 SPECIAL
@@ -516,6 +531,7 @@ export function localizeEvent(ev: PopupEvent, locale: string): PopupEvent {
   if (locale === "ko") return ev;
   return {
     ...ev,
+    period: tr(ev.period, locale),
     ctaLabel: tr(ev.ctaLabel, locale),
     posterAlt: tr(ev.posterAlt, locale),
     // 커버 위 타이틀도 화면에서 그리므로 함께 번역한다 (영문 줄은 사전에 없으면 그대로 통과)

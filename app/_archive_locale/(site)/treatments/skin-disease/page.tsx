@@ -14,7 +14,7 @@ import {
   getDeviceMarketing,
 } from "@/lib/devices";
 import { getSiteContent, type Locale } from "@/lib/site-content";
-import { MedicalProceduresJsonLd, FaqPageJsonLd } from "@/components/JsonLd";
+import { MedicalProceduresJsonLd, FaqPageJsonLd } from "@yooniqpark/clinic-core/components/JsonLd";
 
 type Props = { params: Promise<{ locale: Locale }> };
 

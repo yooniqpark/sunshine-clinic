@@ -1,5 +1,5 @@
-import { auth } from "@/auth";
-import { prisma } from "@/lib/prisma";
+import { auth } from "@yooniqpark/clinic-core/auth";
+import { prisma } from "@yooniqpark/clinic-core/lib/prisma";
 import { friendlyError, KIND_LABEL, runSession, type Agent, type Kind, type Options } from "./engine";
 
 /* ────────────────────────────────────────────────────────────

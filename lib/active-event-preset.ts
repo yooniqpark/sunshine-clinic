@@ -1,6 +1,6 @@
 import "server-only";
 
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@yooniqpark/clinic-core/lib/prisma";
 import {
   DEFAULT_EVENT_PRESET_ID,
   getEventPreset,

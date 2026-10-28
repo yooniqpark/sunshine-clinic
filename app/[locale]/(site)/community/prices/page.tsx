@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
-import { pageSeo, truncateDescription } from "@/lib/seo";
+import { pageSeo, truncateDescription } from "@yooniqpark/clinic-core/lib/seo";
 
 export async function generateMetadata({
   params,

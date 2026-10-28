@@ -1,3 +1,4 @@
+import { getSettings, phoneVars } from "@yooniqpark/clinic-core/lib/settings";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -18,12 +19,12 @@ import concernsKoData from "@/content/concerns-ko.json";
 import { getConcern, type Concern } from "@/lib/concerns";
 import type { DeviceDetail } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
-import { pageSeo, truncateDescription, localeUrl } from "@/lib/seo";
+import { pageSeo, truncateDescription, localeUrl } from "@yooniqpark/clinic-core/lib/seo";
 import {
   MedicalProcedureJsonLd,
   FaqPageJsonLd,
   BreadcrumbJsonLd,
-} from "@/components/JsonLd";
+} from "@yooniqpark/clinic-core/components/JsonLd";
 
 const ALL_DEVICES_KO = koData as Record<string, DeviceDetail>;
 const ALL_CONCERNS_KO = concernsKoData as Record<string, Concern>;
@@ -106,6 +107,7 @@ export default async function DevicePage({
   }
 
   const t = await getTranslations("v2.device");
+  const s = await getSettings();
   const catLabel = t(`categoryLabels.${category}` as never);
   const img = getDeviceImage(d.slug);
   const heroImg = getDeviceHeroImage(d.slug);
@@ -473,10 +475,10 @@ export default async function DevicePage({
                 <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="tel:024217588"
+                href={s.phoneHref}
                 className="rounded-full border border-cream/30 px-8 py-4 text-sm font-semibold text-cream hover:border-cream"
               >
-                {t("ctaPhone")}
+                {t("ctaPhone", phoneVars(s.phone))}
               </a>
             </div>
           </Reveal>
@@ -497,6 +499,7 @@ async function ConcernPage({
   concern: Concern;
 }) {
   const t = await getTranslations("v2.device");
+  const s = await getSettings();
   const catLabel = t(`categoryLabels.${category}` as never);
   const defaultProcess = t.raw("defaultProcess") as ProcessStep[];
   // concern이 자체 이미지 없을 때 모델(카테고리 대표) 사진 대신 은은한 다크 배경만 사용
@@ -792,10 +795,10 @@ async function ConcernPage({
                 <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="tel:024217588"
+                href={s.phoneHref}
                 className="rounded-full border border-cream/30 px-8 py-4 text-sm font-semibold text-cream hover:border-cream"
               >
-                {t("ctaPhone")}
+                {t("ctaPhone", phoneVars(s.phone))}
               </a>
             </div>
           </Reveal>

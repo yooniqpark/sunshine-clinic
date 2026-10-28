@@ -1,5 +1,7 @@
 "use client";
 
+import { useClinicContact } from "@/components/ClinicContact";
+
 import { useState } from "react";
 import { ArrowUpRightIcon } from "@/components/icons";
 
@@ -19,6 +21,7 @@ export function NoticesBoard({
   items: NoticeEntry[];
   openTag: string;
 }) {
+  const contact = useClinicContact();
   const [openSlug, setOpenSlug] = useState<string | null>(items[0]?.slug ?? null);
 
   if (items.length === 0) {
@@ -124,13 +127,13 @@ export function NoticesBoard({
                     {/* CTA */}
                     <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-ink/10 pt-6 md:ml-[110px]">
                       <a
-                        href="tel:024217588"
+                        href={contact.phoneHref}
                         className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-cream transition hover:bg-brand-dark"
                       >
-                        02-421-7588
+                        {contact.phone}
                       </a>
                       <a
-                        href="https://pf.kakao.com/_xoVzwX"
+                        href={contact.kakaoHref}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-ink transition hover:border-ink hover:bg-ink/5"

@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@clinic/app": ["./clinic/index.ts"]
     }
   },
   "include": [

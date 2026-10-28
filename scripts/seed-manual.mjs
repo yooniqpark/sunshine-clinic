@@ -1,6 +1,7 @@
 /**
- * 서버 배포 시 챗봇 매뉴얼(ManualSection)을 prisma/manual-sections.json 내용으로
- * 갱신한다. 제목 기준 upsert — 재실행해도 안전 (idempotent).
+ * 서버 배포 시 prisma/manual-sections.json 에 있지만 DB에 없는 챗봇 매뉴얼
+ * 섹션만 추가한다 (제목 기준). 이미 있는 섹션은 관리자가 고쳤을 수 있으므로
+ * 건드리지 않는다. 재실행해도 안전.
  *
  * Run with: node scripts/seed-manual.mjs  (앱 루트에서, @prisma/client 필요)
  */
@@ -10,7 +11,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 
 const prisma = new PrismaClient();
-const ADMIN_EMAIL = "admin@sunshine.local";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? "admin@sunshine.local";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const sections = JSON.parse(
@@ -23,27 +24,16 @@ async function main() {
   for (let i = 0; i < sections.length; i++) {
     const s = sections[i];
     const existing = await prisma.manualSection.findFirst({ where: { title: s.title } });
-    if (existing) {
-      await prisma.manualSection.update({
-        where: { id: existing.id },
-        data: {
-          body: s.body,
-          sortIndex: i + 1,
-          published: true,
-          authorId: admin?.id ?? null,
-        },
-      });
-    } else {
-      await prisma.manualSection.create({
-        data: {
-          title: s.title,
-          body: s.body,
-          sortIndex: i + 1,
-          published: true,
-          authorId: admin?.id ?? null,
-        },
-      });
-    }
+    if (existing) continue;
+    await prisma.manualSection.create({
+      data: {
+        title: s.title,
+        body: s.body,
+        sortIndex: i + 1,
+        published: true,
+        authorId: admin?.id ?? null,
+      },
+    });
     console.log(`✓ ${s.title}`);
   }
 }

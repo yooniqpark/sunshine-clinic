@@ -15,12 +15,12 @@ const POPUP_ID = "sunshine-events-2026-v1";
  * 포스터에서 CTA를 누르면 가격표로 전환된다. 데스크톱은 포스터·가격표 좌우 분할.
  */
 export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
+  const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
   const [eventIdx, setEventIdx] = useState(0);
-  const [showPrice, setShowPrice] = useState(false); // 모바일 전용
+  const [showPrice, setShowPrice] = useState(locale !== "ko"); // 모바일 전용
   const [catIdx, setCatIdx] = useState(0);
-  const locale = useLocale();
 
   // 가격 숫자·표 구조는 그대로 두고 문구만 로케일에 맞춰 바꾼 사본을 쓴다
   const events = useMemo(
@@ -74,21 +74,21 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
   function selectEvent(i: number) {
     setEventIdx(i);
     setCatIdx(0);
-    setShowPrice(false);
+    setShowPrice(locale !== "ko");
   }
 
   return (
     <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/40 px-7 py-3 sm:p-8">
       <button
         type="button"
-        aria-label="팝업 닫기"
+        aria-label={tr("팝업 닫기", locale)}
         onClick={dismiss}
         className="absolute inset-0 h-full w-full cursor-default"
       />
 
       <div className="pointer-events-auto relative flex w-full max-w-[480px] flex-col sm:max-w-[520px] lg:h-[660px] lg:max-w-[1180px] lg:flex-row lg:overflow-hidden lg:rounded-[1.5rem] lg:shadow-2xl lg:shadow-black/40">
         {/* ── 데스크톱: 좌측 세로 탭 레일 ── */}
-        <nav aria-label="이벤트 전환" className="hidden w-[42px] shrink-0 flex-col lg:flex">
+        <nav aria-label={tr("이벤트 전환", locale)} className="hidden w-[42px] shrink-0 flex-col lg:flex">
           {events.map((e, i) => {
             const on = i === eventIdx;
             return (
@@ -121,7 +121,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
         </nav>
 
         {/* ── 모바일: 지면 위로 솟은 매거진 인덱스 탭 (겹쳐 물리고 선택된 탭이 앞으로) ── */}
-        <nav aria-label="이벤트 전환" className="flex items-end lg:hidden">
+        <nav aria-label={tr("이벤트 전환", locale)} className="flex items-end lg:hidden">
           {events.map((e, i) => {
             const on = i === eventIdx;
             return (
@@ -153,13 +153,13 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
         <div className="relative flex h-[86svh] max-h-[620px] min-h-[420px] w-full flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:min-h-0 lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
           {/* ── 포스터 (모바일: 가격표 보기 전 / 데스크톱: 항상) ── */}
           <div
-            className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${showPrice ? "hidden lg:block" : "block"}`}
+            className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${locale !== "ko" ? "hidden" : showPrice ? "hidden lg:block" : "block"}`}
             style={{ background: ev.posterBg ?? t.panel }}
           >
             <button
               type="button"
               onClick={() => setShowPrice(true)}
-              aria-label={`${ev.tabLabel} 가격표 보기`}
+              aria-label={`${ev.tabLabel} ${tr("가격표 보기", locale)}`}
               className="relative block h-full w-full overflow-hidden lg:h-[660px] lg:cursor-default"
             >
               <Image
@@ -240,7 +240,7 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
 
           {/* ── 가격 패널 ── */}
           <div
-            className={`flex min-h-0 min-w-0 flex-1 flex-col ${showPrice ? "flex" : "hidden lg:flex"}`}
+            className={`flex min-h-0 min-w-0 flex-1 flex-col ${showPrice || locale !== "ko" ? "flex" : "hidden lg:flex"}`}
             style={{ background: t.panel }}
           >
             <PriceHeader ev={ev} />

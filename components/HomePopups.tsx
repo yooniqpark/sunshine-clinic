@@ -3,6 +3,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { EventTabsPopup } from "@/components/EventTabsPopup";
 import { NoticeEventPopup } from "@/components/NoticeEventPopup";
+import { useLocale } from "next-intl";
+import { tr } from "@/lib/event-popup-i18n";
 
 /** 앞 팝업을 닫은 직후 다음 팝업이 곧바로 겹쳐 뜨지 않도록 두는 간격 */
 const GAP_MS = 450;
@@ -14,6 +16,7 @@ const GAP_MS = 450;
  * popupId를 바꿔야 "오늘 하루 보지 않기"를 눌렀던 방문자에게도 새 안내가 뜬다.
  */
 export function HomePopups() {
+  const locale = useLocale();
   const [step, setStep] = useState(0);
   const [visible, setVisible] = useState(true);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -43,7 +46,7 @@ export function HomePopups() {
       <NoticeEventPopup
         key="october-schedule"
         popupId="october-schedule-2026"
-        ariaLabel="10월 진료 안내"
+        ariaLabel={tr("10월 진료 안내", locale)}
         variant="holiday"
         onClose={next}
       />
@@ -55,7 +58,7 @@ export function HomePopups() {
       <NoticeEventPopup
         key="sedation"
         popupId="sedation-2026-07"
-        ariaLabel="안심 수면마취 안내"
+        ariaLabel={tr("안심 수면마취 안내", locale)}
         variant="sedation"
         onClose={next}
       />

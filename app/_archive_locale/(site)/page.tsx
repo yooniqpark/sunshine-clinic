@@ -1,13 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import { HeroSlider } from "@/components/HeroSlider";
-import { ClinicJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import { ClinicJsonLd, WebSiteJsonLd } from "@yooniqpark/clinic-core/components/JsonLd";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { DeviceCarousel, type CarouselItem } from "@/components/DeviceCarousel";
 import { getDevicesByCategory, getDeviceImage, getDeviceMarketing } from "@/lib/devices";
 import { categories, clinic } from "@/lib/data";
-import { getPublishedEvents } from "@/lib/queries";
+import { getPublishedEvents } from "@yooniqpark/clinic-core/lib/queries";
 import { getSiteContent, type Locale } from "@/lib/site-content";
 import {
   ArrowIcon,

@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/Reveal";
 import { clinic } from "@/lib/data";
-import { getPublishedEvents } from "@/lib/queries";
+import { getPublishedEvents } from "@yooniqpark/clinic-core/lib/queries";
 import { getSiteContent, type Locale } from "@/lib/site-content";
 import { ArrowIcon, CalendarIcon, ClockIcon } from "@/components/icons";
 

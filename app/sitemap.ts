@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
-import { localeUrl } from "@/lib/seo";
+import { localeUrl } from "@yooniqpark/clinic-core/lib/seo";
 import { getConcernsByCategory } from "@/lib/concerns";
 import koDevices from "@/content/devices-ko.json";
 import type { DeviceDetail } from "@/lib/devices";

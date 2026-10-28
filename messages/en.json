@@ -494,7 +494,7 @@
       "ctaTitleAccent": "consultation",
       "ctaTitleTail": " today",
       "ctaDesc": "After a 1:1 consultation we'll recommend the treatment plan best suited to you.\nIn-person consultations are complimentary.",
-      "ctaPhone": "Call +82-2-421-7588",
+      "ctaPhone": "Call {phoneIntl}",
       "ctaNaver": "Book via Naver",
       "address": "10F Seoil Building, 102 Olympic-ro, Songpa-gu, Seoul\nWeekdays 10:00–20:00 · Saturday 10:00–16:00",
       "grandOpenBadge": "GRAND OPEN",
@@ -896,7 +896,7 @@
       "menuDesc": "Click any item to view the detail page for that device.",
       "ctaTitle": "Book a <accent>consultation</accent> for {label}.",
       "ctaOnline": "Book Online",
-      "ctaPhone": "+82-2-421-7588",
+      "ctaPhone": "{phoneIntl}",
       "categories": {
         "lifting": {
           "label": "Lifting",
@@ -1141,7 +1141,7 @@
       "faqTitle": "Frequently Asked Questions",
       "byPrefix": "BY",
       "ctaOnline": "Book Online",
-      "ctaPhone": "+82-2-421-7588",
+      "ctaPhone": "{phoneIntl}",
       "moreInPrefix": "MORE IN ",
       "siblingsTitle": "In the same category",
       "viewAllSiblings": "View all",

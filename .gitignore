@@ -54,3 +54,6 @@ public/uploads
 playwright-report/
 test-results/
 _demo-record.ts
+
+# clinic-core sync 가 복사하는 파일
+prisma/core.prisma
