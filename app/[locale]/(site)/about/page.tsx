@@ -450,7 +450,7 @@ export default async function AboutPage({
               <div className="overflow-hidden rounded-3xl border border-line">
                 <iframe
                   title={tLoc("mapTitle")}
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(clinicConfig.location.mapQuery)}&z=17&output=embed`}
+                  src={`https://www.google.com/maps?q=${clinicConfig.location.lat},${clinicConfig.location.lng}&z=18&output=embed`}
                   className="block h-[420px] w-full lg:h-[620px]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"

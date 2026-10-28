@@ -297,7 +297,7 @@ export default async function Home({
             <div className="overflow-hidden rounded-3xl border border-line">
               <iframe
                 title={t.mapTitle}
-                src={`https://www.google.com/maps?q=${encodeURIComponent("선샤인의원 서울특별시 송파구 잠실동 181-4")}&z=17&output=embed`}
+                src="https://www.google.com/maps?q=37.511497620407,127.08201406387&z=18&output=embed"
                 className="block h-[320px] w-full lg:h-[460px]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"

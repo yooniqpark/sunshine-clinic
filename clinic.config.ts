@@ -61,9 +61,9 @@ export const clinicConfig = {
     region: "서울특별시",
     postalCode: "05557",
     country: "KR",
-    lat: 37.5114976,
-    lng: 127.0820141,
-    mapQuery: "선샤인의원 서울특별시 송파구 잠실동 181-4",
+    lat: 37.511497620407,
+    lng: 127.08201406387,
+    mapQuery: "대한민국 서울특별시 송파구 잠실동 181-4 선샤인의원",
   },
   openingHours: [
     { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "20:00" },
