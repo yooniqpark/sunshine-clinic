@@ -16,7 +16,7 @@ const COL_B = [
 const STATS = [
   { value: 26, suffix: "종", label: "정품 본사 장비", sub: "울쎄라 · 써마지 · 슈링크 · 인모드…" },
   { value: 4, suffix: "개 국어", label: "진료 언어", sub: "한국어 · English · 日本語 · 中文" },
-  { value: 10, suffix: "F", label: "잠실새내역 도보 3분", sub: "올림픽로 102 서일빌딩" },
+  { value: 3, suffix: "분", label: "잠실새내역 도보", sub: "송파구 잠실동 181-4" },
   { value: 100, suffix: "%", label: "비급여 정찰 공개", sub: "의료법 제45조 기준 수가표 게시" },
 ];
 

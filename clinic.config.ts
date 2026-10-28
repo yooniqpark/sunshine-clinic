@@ -37,7 +37,7 @@ export const clinicConfig = {
     phone: "02-421-7588",
     kakaoHref: "https://pf.kakao.com/_xoVzwX",
     naverBookingHref: "https://m.booking.naver.com/booking/13/bizes/1698236?theme=place&lang=ko&area=pll",
-    address: "서울특별시 송파구 올림픽로 102, 서일빌딩 10층",
+    address: "서울특별시 송파구 잠실동 181-4",
     addressSub: "2호선 잠실새내역 4번 출구 도보 3분 · 건물 내 주차 가능",
     hours: [
       { day: "평일", time: "10:00 – 20:00" },
@@ -56,14 +56,14 @@ export const clinicConfig = {
 
   /** 구조화 데이터(JSON-LD) · 지도 */
   location: {
-    streetAddress: "올림픽로 102 서일빌딩 10층",
+    streetAddress: "잠실동 181-4",
     locality: "송파구",
     region: "서울특별시",
-    postalCode: "05540",
+    postalCode: "05557",
     country: "KR",
-    lat: 37.5115,
-    lng: 127.0821,
-    mapQuery: "서울특별시 송파구 올림픽로 102 서일빌딩",
+    lat: 37.5114976,
+    lng: 127.0820141,
+    mapQuery: "선샤인의원 서울특별시 송파구 잠실동 181-4",
   },
   openingHours: [
     { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "20:00" },
