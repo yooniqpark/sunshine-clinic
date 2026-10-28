@@ -5,6 +5,7 @@ import { EventTabsPopup } from "@/components/EventTabsPopup";
 import { NoticeEventPopup } from "@/components/NoticeEventPopup";
 import { useLocale } from "next-intl";
 import { tr } from "@/lib/event-popup-i18n";
+import type { PopupEvent } from "@/lib/event-popup";
 
 /** 앞 팝업을 닫은 직후 다음 팝업이 곧바로 겹쳐 뜨지 않도록 두는 간격 */
 const GAP_MS = 450;
@@ -15,7 +16,7 @@ const GAP_MS = 450;
  * 달이 바뀌면 문구(v2.popups.holiday)와 popupId만 새 달로 교체한다.
  * popupId를 바꿔야 "오늘 하루 보지 않기"를 눌렀던 방문자에게도 새 안내가 뜬다.
  */
-export function HomePopups() {
+export function HomePopups({ events }: { events?: PopupEvent[] }) {
   const locale = useLocale();
   const [step, setStep] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -38,7 +39,7 @@ export function HomePopups() {
   if (!visible) return null;
 
   if (step === 0) {
-    return <EventTabsPopup key="events" onClose={next} />;
+    return <EventTabsPopup key="events" onClose={next} events={events} localized={Boolean(events?.length)} />;
   }
 
   if (step === 1) {

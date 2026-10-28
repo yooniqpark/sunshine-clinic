@@ -7,10 +7,6 @@ import { routing } from "@/i18n/routing";
 import { getDevicesByCategory } from "@/lib/devices";
 import { getSiteContent, type Locale } from "@/lib/site-content";
 
-// 선샤인 전용 관리자 메뉴: 공통 메뉴에 글쓰기만 추가
-const nav = [...CORE_ADMIN_NAV];
-nav.splice(nav.findIndex((n) => n.href === "/admin/settings"), 0, { label: "글쓰기", href: "/admin/writing" });
-
 const contentCollections: ContentCollection[] = [
   {
     key: "device",
@@ -86,5 +82,5 @@ export default defineClinic({
   ],
   devicesByCategory: (locale, category) => getDevicesByCategory(locale as Locale, category),
   periodAlways: (locale) => getSiteContent(locale as Locale).common.always,
-  adminNav: nav,
+  adminNav: CORE_ADMIN_NAV,
 });

@@ -13,6 +13,7 @@ import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } fr
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { pageSeo } from "@yooniqpark/clinic-core/lib/seo";
+import { getManagedPopupEvents } from "@/lib/managed-events";
 
 export const dynamic = "force-dynamic";
 
@@ -35,6 +36,7 @@ export default async function PreviewHome({
   setRequestLocale(locale);
   const t = await getTranslations("v2.home");
   const s = await getSettings();
+  const managedEvents = await getManagedPopupEvents(locale);
 
   const STATS_KEYS = ["years", "devices", "languages", "personal"] as const;
   const DEVICES_KEYS = [
@@ -48,7 +50,7 @@ export default async function PreviewHome({
 
   return (
     <>
-      <HomePopups />
+      <HomePopups events={managedEvents} />
 
       {/* ═══════ 1. HERO — 풀스크린 영상 ═══════ */}
       <section className="relative h-screen w-full overflow-hidden bg-ink text-cream">
