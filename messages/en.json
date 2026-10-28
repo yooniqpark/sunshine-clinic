@@ -390,7 +390,7 @@
         "notices": "Notices",
         "prices": "Price List"
       },
-      "address1": "10F Seoil Building, 102 Olympic-ro",
+      "address1": "181-4 Jamsil-dong",
       "address2": "Songpa-gu, Seoul",
       "hoursWeekday": "Weekdays 10:00 – 20:00",
       "hoursSat": "Saturday 10:00 – 16:00",
@@ -496,7 +496,7 @@
       "ctaDesc": "After a 1:1 consultation we'll recommend the treatment plan best suited to you.\nIn-person consultations are complimentary.",
       "ctaPhone": "Call {phoneIntl}",
       "ctaNaver": "Book via Naver",
-      "address": "10F Seoil Building, 102 Olympic-ro, Songpa-gu, Seoul\nWeekdays 10:00–20:00 · Saturday 10:00–16:00",
+      "address": "181-4 Jamsil-dong, Songpa-gu, Seoul\nWeekdays 10:00–20:00 · Saturday 10:00–16:00",
       "grandOpenBadge": "GRAND OPEN",
       "grandOpenDate": "2026.07"
     },
@@ -638,9 +638,9 @@
           "slug": "grand-open-2026-07",
           "date": "2026.07.15",
           "title": "Sunshine Clinic Grand Opening",
-          "excerpt": "Sunshine Clinic officially opens on Olympic-ro, Songpa-gu. A grand-opening consultation event is running alongside.",
+          "excerpt": "Sunshine Clinic officially opens at 181-4 Jamsil-dong, Songpa-gu. A grand-opening consultation event is running alongside.",
           "body": [
-            "Sunshine Clinic has officially opened on Olympic-ro, Songpa-gu. Dermatological care and aesthetic treatments in one place — with only what you actually need.",
+            "Sunshine Clinic has officially opened at 181-4 Jamsil-dong, Songpa-gu. Dermatological care and aesthetic treatments in one place — with only what you actually need.",
             "To celebrate the opening, special prices are running across four categories: Lifting, Skin Booster, Botox and Whitening. See the Events page for details."
           ]
         },
@@ -774,7 +774,7 @@
           "title": "Sunshine Clinic GRAND OPEN Event",
           "excerpt": "Opening prices across Lifting · Whitening & Acne · Skin Booster · Botox. VAT excluded, limited quantities.",
           "body": [
-            "Sunshine Clinic has officially opened on the 10th floor of Seoil Bldg. in Jamsil, Songpa-gu. Complimentary skin diagnosis at in-person consultations, with opening prices across four signature categories."
+            "Sunshine Clinic has officially opened at 181-4 Jamsil-dong, Songpa-gu. Complimentary skin diagnosis at in-person consultations, with opening prices across four signature categories."
           ],
           "images": [
             {
@@ -1161,7 +1161,7 @@
       "kicker": "LOCATION",
       "title": "How to Find Us",
       "addressLabel": "Address",
-      "address": "Seoil Bldg. 10F, 102 Olympic-ro, Songpa-gu, Seoul",
+      "address": "181-4 Jamsil-dong, Songpa-gu, Seoul",
       "hoursLabel": "Opening Hours",
       "hoursLines": [
         "Weekdays  10:00 – 20:00",

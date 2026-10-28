@@ -27,7 +27,7 @@ export const DEFAULTS = {
 
 const CLINIC_PROFILE =
   process.env.WRITING_CLINIC_PROFILE ||
-  "선샤인의원 — 서울 송파구 잠실 서일빌딩 10층의 피부과 의원 (피부 시술·레이저·보톡스 등)";
+  "선샤인의원 — 서울특별시 송파구 잠실동 181-4의 피부과 의원 (피부 시술·레이저·보톡스 등)";
 
 /** 병원 홍보 글이 지켜야 할 의료광고 기준 (의료법 제56조 요지) */
 const MEDICAL_AD_RULES = `[병원 정보]

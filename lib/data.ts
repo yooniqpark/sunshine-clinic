@@ -15,7 +15,7 @@ export const clinic = {
     { day: "점심시간", time: "13:00 – 14:00" },
     { day: "일요일·공휴일", time: "휴진" },
   ],
-  address: "서울특별시 송파구 올림픽로 102, 서일빌딩 10층",
+  address: "서울특별시 송파구 잠실동 181-4",
   addressSub: "2호선 잠실새내역 4번 출구 도보 3분 · 건물 내 주차 가능",
   social: {
     blog: "https://blog.naver.com/",
