@@ -17,6 +17,22 @@ export const clinicConfig = {
   brand: "Sunshine Clinic",
   adminBrand: "SunShine",
 
+  adminLogin: {
+    pageTitle: "관리자 로그인 — Sunshine",
+    mark: "S",
+    brandTitle: "SUNSHINE",
+    brandSubtitle: "SKIN CLINIC",
+    contextLabel: "ADMIN CONSOLE",
+    heading: "관리자 로그인",
+    description: "선샤인의원 사이트 관리 전용 화면입니다.",
+    usernameLabel: "아이디",
+    passwordLabel: "비밀번호",
+    submitLabel: "로그인",
+    submittingLabel: "확인 중…",
+    invalidCredentialsMessage: "아이디 또는 비밀번호가 올바르지 않습니다.",
+    rateLimitMessage: "로그인 시도가 너무 많습니다. {minutes}분 후 다시 시도해주세요.",
+  },
+
   contact: {
     phone: "02-421-7588",
     kakaoHref: "https://pf.kakao.com/_xoVzwX",

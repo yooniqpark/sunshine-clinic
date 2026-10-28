@@ -43,7 +43,7 @@ jobs:
 
       - name: Verify package and locale content
         run: |
-          test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.0"
+          test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.1"
           npm run locale:check
 
       - name: Generate Prisma client
