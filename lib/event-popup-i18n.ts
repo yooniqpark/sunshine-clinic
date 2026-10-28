@@ -485,7 +485,146 @@ const ZH: Record<string, string> = {
   "쥬베룩 볼륨 · 1병": "Juvelook Volume · 1 瓶",
 };
 
-const DICTS: Record<string, Record<string, string>> = { en: EN, ja: JA, zh: ZH };
+/**
+ * 캠페인 데이터에서 새로 추가된 문구. 기존 대역표와 분리해 두면 이벤트를
+ * 교체할 때 번역 누락 검사를 쉽게 할 수 있다.
+ */
+const CAMPAIGN_SUPPLEMENT: Record<string, Record<string, string>> = {
+  en: {
+    "가을이 오면, 선샤인 10월 이벤트": "When autumn comes — Sunshine October Event",
+    "리프팅부터 모공 · 흉터 · 색소 · 수분까지, 가을 피부에 필요한 것만.":
+      "From lifting to pores, scars, pigmentation and hydration — only what autumn skin needs.",
+    "10월 한정": "October only",
+    "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.":
+      "Not more treatments, but the treatments your skin needs now. Your plan is decided with the doctor after a full consultation.",
+    "수고한 너를 위한, 수험생 할인 이벤트": "For all your hard work — Exam Student Discount Event",
+    "수험생 본인과 수험생 가족까지, 수험표 지참 시.":
+      "For exam students and their families, with an exam admission ticket.",
+    "수험생 한정": "Exam students only",
+    "9월, 다시 만나는 선샤인 베스트 이벤트": "September — Sunshine Best Event returns",
+    "많이 찾아주셨던 시술부터 새롭게 준비한 프로그램까지.":
+      "From our most requested treatments to newly prepared programs.",
+    "9월 한정": "September only",
+    "리프팅 앵콜": "Lifting Encore",
+    "많이 찾아주셨던 리프팅 조합을 9월 한 달 다시 만나보세요":
+      "Our most requested lifting combinations return throughout September",
+    "울쎄라 피프라임 300샷": "Ulthera Prime 300 shots",
+    "울쎄라 피프라임 400샷": "Ulthera Prime 400 shots",
+    "써마지 FLX 300샷": "Thermage FLX 300 shots",
+    "써마지 FLX 600샷": "Thermage FLX 600 shots",
+    "리쥬란 HB 2cc + 아이리쥬란 1cc 서비스": "Rejuran HB 2cc + Eye Rejuran 1cc included",
+    "눈가 리프팅": "Eye-area lifting",
+    "아이써마지 225샷": "Eye Thermage 225 shots",
+    "아이써마지 450샷": "Eye Thermage 450 shots",
+    "얼굴전체 지우개": "Full-face blemish removal",
+    "얼굴전체 100개 기준": "Full face, based on 100 lesions",
+    "부위는 목으로 변경 가능": "Treatment area may be changed to the neck",
+    "얼굴전체 50개 기준": "Full face, based on 50 lesions",
+    "골드PTT": "Gold PTT",
+    "골드PTT 3회": "Gold PTT, 3 sessions",
+    "아쿠아필 포함": "Includes Aqua Peel",
+    "스킨부스터 & 볼륨": "Skin Booster & Volume",
+    "스킨바이브 1cc": "SkinVive 1cc",
+    "엘란쎄 1cc": "Ellansé 1cc",
+    "리쥬란 힐러 2cc": "Rejuran Healer 2cc",
+    "오랜 준비 끝에, 선샤인의원이 문을 열었습니다.":
+      "After long preparation, Sunshine Clinic has opened its doors.",
+    "오픈 특별가": "Special opening price",
+    "처음 만나는 선샤인, 나에게 꼭 필요한 시술부터.":
+      "Your first visit to Sunshine starts with what you truly need.",
+    "첫 방문 혜택": "First-visit benefit",
+  },
+  ja: {
+    "가을이 오면, 선샤인 10월 이벤트": "秋が来たら、サンシャイン10月イベント",
+    "리프팅부터 모공 · 흉터 · 색소 · 수분까지, 가을 피부에 필요한 것만.":
+      "リフティングから毛穴・傷跡・色素・保湿まで、秋の肌に必要なものだけ。",
+    "10월 한정": "10月限定",
+    "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.":
+      "施術の多さではなく、今の肌に必要な施術を。院長との十分な診療のうえ、肌状態とご希望に合わせて決定します。",
+    "수고한 너를 위한, 수험생 할인 이벤트": "頑張ったあなたへ、受験生割引イベント",
+    "수험생 본인과 수험생 가족까지, 수험표 지참 시.": "受験生ご本人とご家族まで、受験票のご提示で。",
+    "수험생 한정": "受験生限定",
+    "9월, 다시 만나는 선샤인 베스트 이벤트": "9月、再び出会うサンシャインベストイベント",
+    "많이 찾아주셨던 시술부터 새롭게 준비한 프로그램까지.":
+      "人気の施術から新しくご用意したプログラムまで。",
+    "9월 한정": "9月限定",
+    "리프팅 앵콜": "リフティング アンコール",
+    "많이 찾아주셨던 리프팅 조합을 9월 한 달 다시 만나보세요":
+      "ご要望の多かったリフティングの組み合わせを9月限定で再びご用意しました",
+    "울쎄라 피프라임 300샷": "ウルセラプライム 300ショット",
+    "울쎄라 피프라임 400샷": "ウルセラプライム 400ショット",
+    "써마지 FLX 300샷": "サーマジFLX 300ショット",
+    "써마지 FLX 600샷": "サーマジFLX 600ショット",
+    "리쥬란 HB 2cc + 아이리쥬란 1cc 서비스": "リジュランHB 2cc + アイリジュラン1cc付き",
+    "눈가 리프팅": "目元リフティング",
+    "아이써마지 225샷": "アイサーマジ 225ショット",
+    "아이써마지 450샷": "アイサーマジ 450ショット",
+    "얼굴전체 지우개": "顔全体スポットケア",
+    "얼굴전체 100개 기준": "顔全体100個基準",
+    "부위는 목으로 변경 가능": "施術部位は首へ変更可能",
+    "얼굴전체 50개 기준": "顔全体50個基準",
+    "골드PTT": "ゴールドPTT",
+    "골드PTT 3회": "ゴールドPTT 3回",
+    "아쿠아필 포함": "アクアピール付き",
+    "스킨부스터 & 볼륨": "スキンブースター & ボリューム",
+    "스킨바이브 1cc": "スキンバイブ 1cc",
+    "엘란쎄 1cc": "エランセ 1cc",
+    "리쥬란 힐러 2cc": "リジュランヒーラー 2cc",
+    "오랜 준비 끝에, 선샤인의원이 문을 열었습니다.": "長い準備を経て、サンシャインクリニックが開院しました。",
+    "오픈 특별가": "オープン特別価格",
+    "처음 만나는 선샤인, 나에게 꼭 필요한 시술부터.":
+      "初めてのサンシャインでは、あなたに本当に必要な施術から。",
+    "첫 방문 혜택": "初回ご来院特典",
+  },
+  zh: {
+    "가을이 오면, 선샤인 10월 이벤트": "秋天来了，Sunshine 十月活动",
+    "리프팅부터 모공 · 흉터 · 색소 · 수분까지, 가을 피부에 필요한 것만.":
+      "从提拉到毛孔、疤痕、色素与补水，只选择秋季肌肤真正需要的。",
+    "10월 한정": "十月限定",
+    "무조건 많은 시술보다, 지금 내 피부에 필요한 시술을. 원장님과 충분한 진료 후 피부 상태와 원하는 방향에 맞춰 결정합니다.":
+      "不在于项目多，而在于选择肌肤当下真正需要的项目。与院长充分面诊后，根据肌肤状态与期望方向决定方案。",
+    "수고한 너를 위한, 수험생 할인 이벤트": "致辛苦的你，考生折扣活动",
+    "수험생 본인과 수험생 가족까지, 수험표 지참 시.": "考生本人及家属凭准考证即可参加。",
+    "수험생 한정": "考生限定",
+    "9월, 다시 만나는 선샤인 베스트 이벤트": "九月，再次相遇的 Sunshine 精选活动",
+    "많이 찾아주셨던 시술부터 새롭게 준비한 프로그램까지.":
+      "从备受欢迎的项目到全新准备的方案。",
+    "9월 한정": "九月限定",
+    "리프팅 앵콜": "提拉返场",
+    "많이 찾아주셨던 리프팅 조합을 9월 한 달 다시 만나보세요":
+      "广受欢迎的提拉组合于九月限时返场",
+    "울쎄라 피프라임 300샷": "Ulthera Prime 300发",
+    "울쎄라 피프라임 400샷": "Ulthera Prime 400发",
+    "써마지 FLX 300샷": "Thermage FLX 300发",
+    "써마지 FLX 600샷": "Thermage FLX 600发",
+    "리쥬란 HB 2cc + 아이리쥬란 1cc 서비스": "Rejuran HB 2cc + 眼周Rejuran 1cc赠送",
+    "눈가 리프팅": "眼周提拉",
+    "아이써마지 225샷": "眼周Thermage 225发",
+    "아이써마지 450샷": "眼周Thermage 450发",
+    "얼굴전체 지우개": "全脸斑点清除",
+    "얼굴전체 100개 기준": "全脸按100处计算",
+    "부위는 목으로 변경 가능": "治疗部位可更换为颈部",
+    "얼굴전체 50개 기준": "全脸按50处计算",
+    "골드PTT": "黄金PTT",
+    "골드PTT 3회": "黄金PTT 3次",
+    "아쿠아필 포함": "含Aqua Peel",
+    "스킨부스터 & 볼륨": "水光针 & 填充",
+    "스킨바이브 1cc": "SkinVive 1cc",
+    "엘란쎄 1cc": "Ellansé 1cc",
+    "리쥬란 힐러 2cc": "Rejuran Healer 2cc",
+    "오랜 준비 끝에, 선샤인의원이 문을 열었습니다.": "经过长时间准备，Sunshine 诊所正式开业。",
+    "오픈 특별가": "开业特价",
+    "처음 만나는 선샤인, 나에게 꼭 필요한 시술부터.":
+      "初次来到 Sunshine，从真正适合你的项目开始。",
+    "첫 방문 혜택": "初次到院优惠",
+  },
+};
+
+const DICTS: Record<string, Record<string, string>> = {
+  en: { ...EN, ...CAMPAIGN_SUPPLEMENT.en },
+  ja: { ...JA, ...CAMPAIGN_SUPPLEMENT.ja },
+  zh: { ...ZH, ...CAMPAIGN_SUPPLEMENT.zh },
+};
 
 /** 대역이 없으면 한국어 원문을 그대로 돌려준다 */
 export function tr(text: string, locale: string): string {
@@ -516,6 +655,7 @@ function localizeCategory(c: CampaignCategory, locale: string): CampaignCategory
   return {
     ...c,
     name: tr(c.name, locale),
+    kicker: tr(c.kicker, locale),
     copy: tr(c.copy, locale),
     columns: c.columns?.map((col) => tr(col, locale)),
     rows: c.rows.map((r) => ({
@@ -531,9 +671,15 @@ export function localizeEvent(ev: PopupEvent, locale: string): PopupEvent {
   if (locale === "ko") return ev;
   return {
     ...ev,
+    tabLabel: tr(ev.tabLabel, locale),
+    tabShort: ev.tabShort ? tr(ev.tabShort, locale) : ev.tabShort,
     period: tr(ev.period, locale),
     ctaLabel: tr(ev.ctaLabel, locale),
     posterAlt: tr(ev.posterAlt, locale),
+    eyebrow: tr(ev.eyebrow, locale),
+    title: tr(ev.title, locale),
+    subtitle: tr(ev.subtitle, locale),
+    pillLabel: tr(ev.pillLabel, locale),
     // 커버 위 타이틀도 화면에서 그리므로 함께 번역한다 (영문 줄은 사전에 없으면 그대로 통과)
     posterOverlay: ev.posterOverlay && {
       kicker: tr(ev.posterOverlay.kicker, locale),

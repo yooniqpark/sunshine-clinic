@@ -85,7 +85,7 @@ export function ListTable({ category, theme: t }: { category: CampaignCategory; 
           <div className="shrink-0 text-right">
             {row.original && (
               <p className="text-[9px] line-through lg:text-[10px]" style={{ color: t.meta }}>
-                {row.original}
+                <Won value={row.original} unitColor={t.unit} />
               </p>
             )}
             <p

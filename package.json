@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "locale:check": "node scripts/check-locales.mjs",
+    "locale:check": "node scripts/check-locales.mjs && tsx scripts/check-event-locales.ts",
     "postinstall": "clinic-core sync"
   },
   "dependencies": {
