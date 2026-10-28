@@ -1,3 +1,4 @@
+import { getSettings, phoneVars } from "@yooniqpark/clinic-core/lib/settings";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -11,7 +12,7 @@ import { GlassRise } from "@/components/GlassRise";
 import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
-import { pageSeo } from "@/lib/seo";
+import { pageSeo } from "@yooniqpark/clinic-core/lib/seo";
 
 export const dynamic = "force-dynamic";
 
@@ -33,6 +34,7 @@ export default async function PreviewHome({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("v2.home");
+  const s = await getSettings();
 
   const STATS_KEYS = ["years", "devices", "languages", "personal"] as const;
   const DEVICES_KEYS = [
@@ -204,13 +206,13 @@ export default async function PreviewHome({
           </p>
           <div className="mt-12 flex flex-wrap justify-center gap-4">
             <a
-              href="tel:024217588"
+              href={s.phoneHref}
               className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition hover:bg-brand-dark"
             >
-              {t("ctaPhone")}
+              {t("ctaPhone", phoneVars(s.phone))}
             </a>
             <a
-              href="https://m.booking.naver.com/booking/13/bizes/1698236"
+              href={s.naverBookingHref}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-white/10 px-8 py-4 text-sm font-semibold text-cream backdrop-blur transition hover:bg-white/20"

@@ -1,8 +1,8 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { auth } from "@/auth";
-import { prisma } from "@/lib/prisma";
+import { auth } from "@yooniqpark/clinic-core/auth";
+import { prisma } from "@yooniqpark/clinic-core/lib/prisma";
 import { ACTIVE_EVENT_PRESET_KEY } from "@/lib/active-event-preset";
 import { isEventPresetId } from "@/lib/event-presets";
 

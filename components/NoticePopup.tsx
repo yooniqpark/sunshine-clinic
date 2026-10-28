@@ -1,5 +1,7 @@
 "use client";
 
+import { useClinicContact } from "@/components/ClinicContact";
+
 import { useEffect, useState } from "react";
 
 // Bump this whenever the notice content changes so returning visitors see it.
@@ -19,6 +21,7 @@ const ITEMS: NoticeItem[] = [
 ];
 
 export function NoticePopup() {
+  const contact = useClinicContact();
   const [open, setOpen] = useState(false);
   const [entered, setEntered] = useState(false); // for slide-in animation
   const [hideToday, setHideToday] = useState(false);
@@ -127,10 +130,10 @@ export function NoticePopup() {
               오늘 하루 보지 않기
             </label>
             <a
-              href="tel:024217588"
+              href={contact.phoneHref}
               className="text-[11px] font-semibold text-brand hover:underline"
             >
-              02-421-7588
+              {contact.phone}
             </a>
           </div>
         </div>
@@ -208,8 +211,8 @@ export function NoticePopup() {
             ))}
             <p className="pt-2 text-center text-[11px] leading-relaxed text-ink-soft">
               문의는{" "}
-              <a href="tel:024217588" className="font-semibold text-brand hover:underline">
-                02-421-7588
+              <a href={contact.phoneHref} className="font-semibold text-brand hover:underline">
+                {contact.phone}
               </a>{" "}
               또는 카카오톡 채널로 연락해 주세요.
             </p>

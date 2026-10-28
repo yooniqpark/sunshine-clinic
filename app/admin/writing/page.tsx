@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@yooniqpark/clinic-core/lib/prisma";
 import { DEFAULTS, keyStatus } from "@/lib/writing/engine";
 import { requireAdmin } from "@/lib/writing/service";
 import WritingChat from "./WritingChat";

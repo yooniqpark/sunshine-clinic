@@ -1,3 +1,4 @@
+import { getSettings, phoneVars } from "@yooniqpark/clinic-core/lib/settings";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -11,12 +12,12 @@ import {
 } from "@/lib/devices";
 import { getConcernsByCategory, getConcern } from "@/lib/concerns";
 import type { AppLocale } from "@/i18n/routing";
-import { pageSeo, truncateDescription, localeUrl } from "@/lib/seo";
+import { pageSeo, truncateDescription, localeUrl } from "@yooniqpark/clinic-core/lib/seo";
 import {
   MedicalProceduresJsonLd,
   FaqPageJsonLd,
   BreadcrumbJsonLd,
-} from "@/components/JsonLd";
+} from "@yooniqpark/clinic-core/components/JsonLd";
 
 const CATEGORY_SLUGS = ["lifting", "anti-aging", "whitening", "acne", "skin-disease"] as const;
 
@@ -65,6 +66,7 @@ export default async function TreatmentCategoryPage({
   if (!image) notFound();
 
   const t = await getTranslations("v2.treatments");
+  const s = await getSettings();
   const tc = await getTranslations(`v2.treatments.categories.${category}`);
   const tHeader = await getTranslations("v2.header");
 
@@ -238,10 +240,10 @@ export default async function TreatmentCategoryPage({
               {t("ctaOnline")}
             </Link>
             <a
-              href="tel:024217588"
+              href={s.phoneHref}
               className="rounded-full border border-ink/20 px-8 py-4 text-sm font-semibold text-ink hover:border-ink"
             >
-              {t("ctaPhone")}
+              {t("ctaPhone", phoneVars(s.phone))}
             </a>
           </div>
         </div>

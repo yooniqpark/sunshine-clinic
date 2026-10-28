@@ -7,10 +7,12 @@ import { PreviewHeader } from "./(site)/_components/PreviewHeader";
 import { PreviewFooter } from "./(site)/_components/PreviewFooter";
 import { ChatWidget } from "@/components/ChatWidget";
 import { ScrollToTop } from "@/components/ScrollToTop";
-import { Analytics } from "@/components/Analytics";
+import { Analytics } from "@yooniqpark/clinic-core/components/Analytics";
 import { NoDownloadGuard } from "@/components/NoDownloadGuard";
-import { ClinicJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
-import { SITE_URL, seoAlternates, localeUrl } from "@/lib/seo";
+import { getSettings } from "@yooniqpark/clinic-core/lib/settings";
+import { ClinicContactProvider } from "@/components/ClinicContact";
+import { ClinicJsonLd, WebSiteJsonLd } from "@yooniqpark/clinic-core/components/JsonLd";
+import { SITE_URL, seoAlternates, localeUrl } from "@yooniqpark/clinic-core/lib/seo";
 
 const SEO_BY_LOCALE: Record<
   string,
@@ -103,9 +105,17 @@ export default async function PreviewLayout({
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
   const messages = await getMessages({ locale });
+  const st = await getSettings();
+  const contact = {
+    phone: st.phone,
+    phoneHref: st.phoneHref,
+    kakaoHref: st.kakaoHref,
+    naverBookingHref: st.naverBookingHref,
+  };
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      <ClinicContactProvider value={contact}>
       <div data-theme={locale} className={`theme-${locale} min-h-screen bg-cream text-ink antialiased`}>
         <ClinicJsonLd locale={locale} />
         <WebSiteJsonLd />
@@ -118,6 +128,7 @@ export default async function PreviewLayout({
         <Analytics />
         <NoDownloadGuard />
       </div>
+      </ClinicContactProvider>
     </NextIntlClientProvider>
   );
 }

@@ -1,3 +1,5 @@
+import { getSettings } from "@yooniqpark/clinic-core/lib/settings";
+import { clinicConfig } from "@/clinic.config";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -9,7 +11,7 @@ import { Reveal } from "@/components/Reveal";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { getDevicesByCategory, getDeviceHeroMobileImage } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
-import { pageSeo, truncateDescription } from "@/lib/seo";
+import { pageSeo, truncateDescription } from "@yooniqpark/clinic-core/lib/seo";
 
 const ABOUT_TITLE: Record<string, string> = {
   ko: "병원 소개",
@@ -73,6 +75,7 @@ export default async function AboutPage({
   setRequestLocale(locale);
   const t = await getTranslations("v2.about");
   const tLoc = await getTranslations("v2.location");
+  const s = await getSettings();
   const history = t.raw("history") as HistoryItem[];
   const spaces = t.raw("spaces") as SpaceItem[];
   const values = t.raw("values") as ValueItem[];
@@ -373,10 +376,10 @@ export default async function AboutPage({
                 <ArrowUpRightIcon className="h-4 w-4 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </Link>
               <a
-                href="tel:024217588"
+                href={s.phoneHref}
                 className="inline-flex items-center gap-2 rounded-full border border-ink/20 px-8 py-4 text-sm font-semibold text-ink hover:border-ink"
               >
-                02-421-7588
+                {s.phone}
               </a>
             </div>
           </Reveal>
@@ -421,10 +424,10 @@ export default async function AboutPage({
                     {tLoc("phoneLabel")}
                   </p>
                   <a
-                    href="tel:024217588"
+                    href={s.phoneHref}
                     className="mt-3 block font-serif text-2xl text-ink hover:text-brand-dark"
                   >
-                    02-421-7588
+                    {s.phone}
                   </a>
                 </div>
                 <div className="rounded-3xl border border-line bg-cream/40 p-6">
@@ -447,14 +450,14 @@ export default async function AboutPage({
               <div className="overflow-hidden rounded-3xl border border-line">
                 <iframe
                   title={tLoc("mapTitle")}
-                  src={`https://www.google.com/maps?q=${encodeURIComponent("서울특별시 송파구 올림픽로 102 서일빌딩")}&z=17&output=embed`}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(clinicConfig.location.mapQuery)}&z=17&output=embed`}
                   className="block h-[420px] w-full lg:h-[620px]"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
                 <div className="flex gap-2 border-t border-line bg-white p-3">
                   <a
-                    href="https://map.naver.com/p/search/서울특별시%20송파구%20올림픽로%20102%20서일빌딩"
+                    href={`https://map.naver.com/p/search/${encodeURIComponent(clinicConfig.location.mapQuery)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-1 items-center justify-center rounded-xl bg-sand/70 py-3 text-sm font-semibold text-ink hover:bg-blush"
@@ -462,7 +465,7 @@ export default async function AboutPage({
                     {tLoc("naverMap")}
                   </a>
                   <a
-                    href="https://map.kakao.com/?q=서울특별시%20송파구%20올림픽로%20102%20서일빌딩"
+                    href={`https://map.kakao.com/?q=${encodeURIComponent(clinicConfig.location.mapQuery)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-1 items-center justify-center rounded-xl bg-sand/70 py-3 text-sm font-semibold text-ink hover:bg-blush"

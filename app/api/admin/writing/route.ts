@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@yooniqpark/clinic-core/lib/prisma";
 import { DEFAULTS, keyStatus } from "@/lib/writing/engine";
 import { requireAdmin, send, type SendInput } from "@/lib/writing/service";
 

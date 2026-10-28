@@ -77,7 +77,7 @@ export function NoticeEventPopup({
     <div className="fixed inset-0 z-[95] flex items-center justify-center bg-black/45 px-7 py-3 sm:p-8">
       <button
         type="button"
-        aria-label="팝업 닫기"
+        aria-label={tr("팝업 닫기", locale)}
         onClick={dismiss}
         className="absolute inset-0 h-full w-full cursor-default"
       />

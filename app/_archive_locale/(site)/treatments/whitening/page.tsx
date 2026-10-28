@@ -10,7 +10,7 @@ import { clinic } from "@/lib/data";
 import { getConcernsByCategory } from "@/lib/concerns";
 import { getSiteContent, type Locale } from "@/lib/site-content";
 import { getDevicesByCategory } from "@/lib/devices";
-import { MedicalProceduresJsonLd, FaqPageJsonLd } from "@/components/JsonLd";
+import { MedicalProceduresJsonLd, FaqPageJsonLd } from "@yooniqpark/clinic-core/components/JsonLd";
 
 type Props = { params: Promise<{ locale: Locale }> };
 

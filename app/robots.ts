@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = "https://mysunshineclinic.com";
+import { SITE_URL } from "@yooniqpark/clinic-core/lib/seo";
+import { clinicConfig } from "@/clinic.config";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -19,10 +20,9 @@ export default function robots(): MetadataRoute.Robots {
     // Our main sitemap + inblog's per-locale blog sitemaps (served via rewrite)
     sitemap: [
       `${SITE_URL}/sitemap.xml`,
-      `${SITE_URL}/blog/sitemap.xml`,
-      `${SITE_URL}/en/blog/sitemap.xml`,
-      `${SITE_URL}/ja/blog/sitemap.xml`,
-      `${SITE_URL}/zh/blog/sitemap.xml`,
+      ...Object.keys(clinicConfig.integrations.inblog ?? {}).map(
+        (l) => `${SITE_URL}${l === "ko" ? "" : `/${l}`}/blog/sitemap.xml`
+      ),
     ],
     host: SITE_URL,
   };

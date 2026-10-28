@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { NoticesBoard, type NoticeEntry } from "./NoticesBoard";
-import { pageSeo } from "@/lib/seo";
+import { pageSeo } from "@yooniqpark/clinic-core/lib/seo";
 
 export async function generateMetadata({
   params,

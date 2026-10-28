@@ -1,10 +1,16 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import { clinicConfig } from "./clinic.config";
 
 const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // core 는 TS 소스로 배포된다. core 안의 "@clinic/app" 은 이 병원의 clinic/index.ts
+  transpilePackages: ["@yooniqpark/clinic-core"],
+  turbopack: {
+    resolveAlias: { "@clinic/app": "./clinic/index.ts" },
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30, // 30d
@@ -25,20 +31,13 @@ const nextConfig: NextConfig = {
       // Note: /robots.txt is intentionally NOT rewritten — we keep our own
       //   robots.ts (AI crawler allowlist) and instead add the inblog
       //   sitemap alongside our sitemap.xml. See app/robots.ts.
-      beforeFiles: [
-        // Korean (default locale, no prefix)
-        { source: "/blog", destination: "https://proxy.inblog.dev/sunshineclinic" },
-        { source: "/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic/:path*" },
-        // English
-        { source: "/en/blog", destination: "https://proxy.inblog.dev/sunshineclinic-en" },
-        { source: "/en/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic-en/:path*" },
-        // Japanese (inblog uses -jp not -ja)
-        { source: "/ja/blog", destination: "https://proxy.inblog.dev/sunshineclinic-jp" },
-        { source: "/ja/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic-jp/:path*" },
-        // Chinese (inblog uses -cn not -zh)
-        { source: "/zh/blog", destination: "https://proxy.inblog.dev/sunshineclinic-cn" },
-        { source: "/zh/blog/:path*", destination: "https://proxy.inblog.dev/sunshineclinic-cn/:path*" },
-      ],
+      beforeFiles: Object.entries(clinicConfig.integrations.inblog ?? {}).flatMap(([locale, sub]) => {
+        const prefix = locale === "ko" ? "" : `/${locale}`;
+        return [
+          { source: `${prefix}/blog`, destination: `https://proxy.inblog.dev/${sub}` },
+          { source: `${prefix}/blog/:path*`, destination: `https://proxy.inblog.dev/${sub}/:path*` },
+        ];
+      }),
       afterFiles: [],
       fallback: [],
     };

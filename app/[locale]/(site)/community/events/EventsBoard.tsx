@@ -1,10 +1,13 @@
 "use client";
 
+import { useClinicContact } from "@/components/ClinicContact";
+
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { EventPriceSheet } from "@/components/EventPriceTables";
 import { POPUP_EVENTS } from "@/lib/event-popup";
+import { useLocale } from "next-intl";
 
 /** 게시판 항목 ↔ 팝업 이벤트 — 가격표를 팝업과 같은 데이터로 그린다 */
 const PRICE_SHEET_BY_SLUG: Record<string, string> = {
@@ -33,6 +36,8 @@ export function EventsBoard({
   items: EventEntry[];
   openTag: string;
 }) {
+  const locale = useLocale();
+  const contact = useClinicContact();
   const [openSlug, setOpenSlug] = useState<string | null>(items[0]?.slug ?? null);
 
   if (items.length === 0) {
@@ -52,7 +57,9 @@ export function EventsBoard({
           (p) => p.id === PRICE_SHEET_BY_SLUG[e.slug],
         );
         // 가격표를 실데이터로 그리는 항목은 커버 포스터만 이미지로 남긴다
-        const coverImages = priceEvent ? (e.images ?? []).slice(0, 1) : e.images ?? [];
+        const coverImages = locale === "ko"
+          ? (priceEvent ? (e.images ?? []).slice(0, 1) : e.images ?? [])
+          : [];
         return (
           <li
             key={e.slug}
@@ -183,13 +190,13 @@ export function EventsBoard({
                   {/* CTA — 얇은 라인 버튼 (피부과 톤) */}
                   <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-ink/10 pt-6 md:ml-[110px]">
                     <a
-                      href="tel:024217588"
+                      href={contact.phoneHref}
                       className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-cream transition hover:bg-brand-dark"
                     >
-                      02-421-7588
+                      {contact.phone}
                     </a>
                     <a
-                      href="https://pf.kakao.com/_xoVzwX"
+                      href={contact.kakaoHref}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-2 rounded-full border border-ink/25 px-6 py-3 text-[11px] font-semibold tracking-[0.18em] text-ink transition hover:border-ink hover:bg-ink/5"

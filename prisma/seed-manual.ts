@@ -8,9 +8,10 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const ADMIN_EMAIL = "admin@sunshine.local";
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL ?? clinicConfig.adminEmail;
 
 import sectionsJson from "./manual-sections.json";
+import { clinicConfig } from "../clinic.config";
 
 const sections: { title: string; body: string }[] = sectionsJson;
 

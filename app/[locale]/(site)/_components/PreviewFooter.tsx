@@ -1,3 +1,4 @@
+import { getSettings } from "@yooniqpark/clinic-core/lib/settings";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -5,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 export async function PreviewFooter() {
   const t = await getTranslations("v2.footer");
   const tBrand = await getTranslations("brand");
+  const s = await getSettings();
 
   return (
     <footer className="border-t border-cream/10 bg-ink text-cream/70">
@@ -47,8 +49,8 @@ export async function PreviewFooter() {
           <p className="text-[10px] font-bold tracking-[0.24em] text-brand-soft">{t("contactHeading")}</p>
           <ul className="mt-5 space-y-3 text-sm">
             <li>
-              <a href="tel:024217588" className="block font-serif text-lg text-cream">
-                02-421-7588
+              <a href={s.phoneHref} className="block font-serif text-lg text-cream">
+                {s.phone}
               </a>
             </li>
             <li className="text-xs leading-relaxed">

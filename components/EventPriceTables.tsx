@@ -3,7 +3,7 @@
 import { useLocale } from "next-intl";
 import type { CampaignCategory } from "@/lib/campaign-events";
 import type { PopupEvent, PopupTheme } from "@/lib/event-popup";
-import { formatPrice, tr } from "@/lib/event-popup-i18n";
+import { formatPrice, localizeEvent, tr } from "@/lib/event-popup-i18n";
 
 /** 팝업과 커뮤니티 게시판이 같은 가격표를 쓰도록 분리한 표 컴포넌트 */
 export function MatrixTable({ category, theme: t }: { category: CampaignCategory; theme: PopupTheme }) {
@@ -85,7 +85,7 @@ export function ListTable({ category, theme: t }: { category: CampaignCategory; 
           <div className="shrink-0 text-right">
             {row.original && (
               <p className="text-[9px] line-through lg:text-[10px]" style={{ color: t.meta }}>
-                {row.original}
+                <Won value={row.original} unitColor={t.unit} />
               </p>
             )}
             <p
@@ -118,7 +118,9 @@ export function Won({ value, unitColor }: { value: string; unitColor: string }) 
 
 /** 커뮤니티 게시판용 — 한 이벤트의 모든 카테고리를 한 번에 펼쳐 보여준다 */
 export function EventPriceSheet({ event }: { event: PopupEvent }) {
-  const t = event.theme;
+  const locale = useLocale();
+  const localized = localizeEvent(event, locale);
+  const t = localized.theme;
   return (
     <div
       className="overflow-hidden rounded-3xl border p-5 md:p-7"
@@ -128,12 +130,12 @@ export function EventPriceSheet({ event }: { event: PopupEvent }) {
         className="flex items-center justify-between border-b pb-3 text-[10px] font-semibold tracking-[0.16em]"
         style={{ borderColor: t.line, color: t.meta }}
       >
-        <span>{event.period}</span>
-        <span>{event.vatNote}</span>
+        <span>{localized.period}</span>
+        <span>{localized.vatNote}</span>
       </div>
 
       <div className="mt-6 space-y-8">
-        {event.categories.map((category) => (
+        {localized.categories.map((category) => (
           <section key={category.slug}>
             <p className="text-[10px] font-bold tracking-[0.2em]" style={{ color: t.accent }}>
               {category.kicker}
@@ -159,7 +161,7 @@ export function EventPriceSheet({ event }: { event: PopupEvent }) {
         className="mt-6 rounded-xl px-4 py-3 text-[11px] leading-relaxed"
         style={{ background: t.noteBg, color: t.noteText }}
       >
-        {event.closingCopy}
+        {localized.closingCopy}
       </p>
     </div>
   );

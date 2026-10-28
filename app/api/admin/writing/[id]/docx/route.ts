@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@yooniqpark/clinic-core/lib/prisma";
 import { buildDocx, type Summary } from "@/lib/writing/docx";
 import { lastOfType, requireAdmin } from "@/lib/writing/service";
 

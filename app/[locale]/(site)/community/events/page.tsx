@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { EventsBoard, type EventEntry } from "./EventsBoard";
-import { pageSeo } from "@/lib/seo";
+import { pageSeo } from "@yooniqpark/clinic-core/lib/seo";
 
 export async function generateMetadata({
   params,
