@@ -43,7 +43,7 @@ jobs:
 
       - name: Verify package and locale content
         run: |
-          test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.1"
+          test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.2"
           npm run locale:check
 
       - name: Generate Prisma client
@@ -82,6 +82,8 @@ jobs:
           cp scripts/deploy-migrations.mjs release/scripts/
           cp scripts/migrate-content.mjs release/scripts/ || true
           cp scripts/seed-manual.mjs release/scripts/
+          cp scripts/seed-current-events.mjs release/scripts/
+          cp prisma/current-events.json release/prisma/current-events.json
           # 과거 macOS 복사 과정에서 생긴 AppleDouble 파일은 Prisma가
           # 스키마로 오인하므로 릴리스에 포함하지 않는다.
           find release -type f -name '._*' -delete
@@ -140,10 +142,12 @@ jobs:
           rm -rf ~/app/prisma/migrations
           cp -R release/prisma/migrations ~/app/prisma/migrations
           cp -f release/prisma/manual-sections.json ~/app/prisma/manual-sections.json
+          cp -f release/prisma/current-events.json ~/app/prisma/current-events.json
           mkdir -p ~/app/scripts
           cp -f release/scripts/deploy-migrations.mjs ~/app/scripts/deploy-migrations.mjs
           cp -f release/scripts/migrate-content.mjs ~/app/scripts/migrate-content.mjs 2>/dev/null || true
           cp -f release/scripts/seed-manual.mjs ~/app/scripts/seed-manual.mjs
+          cp -f release/scripts/seed-current-events.mjs ~/app/scripts/seed-current-events.mjs
 
           # 4) checked-in migrations apply (consumer owns migration history)
           cd ~/app
@@ -152,6 +156,10 @@ jobs:
 
           # 4.5) 챗봇 매뉴얼 — 새 섹션만 추가 (관리자 수정분 보존)
           node scripts/seed-manual.mjs
+
+          # 4.6) 기존 코드 고정 이벤트를 관리자 편집 데이터로 최초 1회 승계
+          #      같은 slug가 이미 있으면 관리자 수정값을 절대 덮어쓰지 않는다.
+          node scripts/seed-current-events.mjs
 
           # 5) 챗봇(Qwen) 키 — GitHub Secrets 에 QWEN_API_KEY 가 있을 때만 갱신
           touch ~/app/.env

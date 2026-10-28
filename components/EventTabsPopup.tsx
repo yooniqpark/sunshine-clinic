@@ -14,7 +14,15 @@ const POPUP_ID = "sunshine-events-2026-v1";
  * 이벤트 팝업 — 상단(모바일)·좌측(데스크톱) 탭으로 두 이벤트를 오가고,
  * 포스터에서 CTA를 누르면 가격표로 전환된다. 데스크톱은 포스터·가격표 좌우 분할.
  */
-export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
+export function EventTabsPopup({
+  onClose,
+  events: suppliedEvents,
+  localized = false,
+}: {
+  onClose?: () => void;
+  events?: PopupEvent[];
+  localized?: boolean;
+} = {}) {
   const locale = useLocale();
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
@@ -23,10 +31,10 @@ export function EventTabsPopup({ onClose }: { onClose?: () => void } = {}) {
   const [catIdx, setCatIdx] = useState(0);
 
   // 가격 숫자·표 구조는 그대로 두고 문구만 로케일에 맞춰 바꾼 사본을 쓴다
-  const events = useMemo(
-    () => ACTIVE_POPUP_EVENTS.map((e) => localizeEvent(e, locale)),
-    [locale],
-  );
+  const events = useMemo(() => {
+    const source = suppliedEvents?.length ? suppliedEvents : ACTIVE_POPUP_EVENTS;
+    return localized ? source : source.map((event) => localizeEvent(event, locale));
+  }, [locale, localized, suppliedEvents]);
   const ev = events[eventIdx];
   const t = ev.theme;
   const category = ev.categories[Math.min(catIdx, ev.categories.length - 1)];

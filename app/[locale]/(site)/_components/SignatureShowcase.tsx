@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useRef, useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 
 type Item = {
   slug: string;
@@ -24,6 +25,9 @@ type Item = {
  * · 스크롤 스냅으로 부드럽게 이동, 데스크톱은 좌우 버튼
  */
 export function SignatureShowcase({ items }: { items: Item[] }) {
+  const locale = useLocale();
+  const previousLabel = locale === "en" ? "Previous" : locale === "ja" ? "前へ" : locale === "zh" ? "上一个" : "이전";
+  const nextLabel = locale === "en" ? "Next" : locale === "ja" ? "次へ" : locale === "zh" ? "下一个" : "다음";
   const scrollerRef = useRef<HTMLUListElement | null>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
@@ -185,7 +189,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           type="button"
           onClick={() => scrollByCard(-1)}
           disabled={!canPrev}
-          aria-label="이전"
+          aria-label={previousLabel}
           className="absolute left-4 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-transparent bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
         >
           ←
@@ -194,7 +198,7 @@ export function SignatureShowcase({ items }: { items: Item[] }) {
           type="button"
           onClick={() => scrollByCard(1)}
           disabled={!canNext}
-          aria-label="다음"
+          aria-label={nextLabel}
           className="absolute right-4 top-1/2 z-20 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full border border-transparent bg-white/25 text-ink shadow-md shadow-ink/10 backdrop-blur-md transition hover:border-ink hover:bg-white/70 disabled:opacity-0 disabled:pointer-events-none lg:h-12 lg:w-12 "
         >
           →
