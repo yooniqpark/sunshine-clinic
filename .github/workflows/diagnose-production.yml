@@ -1,0 +1,43 @@
+name: Diagnose production
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: diagnose-production
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    environment: production
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    steps:
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.LIGHTSAIL_SSH_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          ssh-keyscan -H ${{ secrets.LIGHTSAIL_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Check runtime and sanitized errors
+        run: |
+          ssh -i ~/.ssh/id_deploy -o StrictHostKeyChecking=no \
+            ${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }} \
+            'bash -s' <<'REMOTE'
+          set -uo pipefail
+          pm2 status
+          printf '%-54s %s\n' ROUTE HTTP
+          for route in / /ko /ko/home /en/home /ja/home /zh/home /ko/about /admin/login; do
+            code=$(curl -sS --max-time 15 -H 'Host: mysunshineclinic.com' -o /dev/null -w '%{http_code}' "http://localhost:3000$route" || true)
+            printf '%-54s %s\n' "$route" "$code"
+          done
+          echo '--- sanitized application errors ---'
+          tail -n 240 ~/.pm2/logs/clinic-error.log 2>/dev/null \
+            | grep -E '(^| )(Error|TypeError|ReferenceError|PrismaClient|ENOENT|Cannot find|Invalid|at .+\.(js|mjs|ts):)' \
+            | tail -n 120 \
+            || true
+          REMOTE
