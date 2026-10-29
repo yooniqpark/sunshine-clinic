@@ -71,6 +71,14 @@ jobs:
         run: |
           mkdir -p release/.next
           cp -R .next/standalone/. release/
+          # Next standalone tracing can omit Sharp's platform-specific optional
+          # packages when the module is loaded lazily by the upload adapter.
+          # Ship the Linux packages installed on this Actions runner explicitly.
+          rm -rf release/node_modules/sharp release/node_modules/@img
+          cp -R node_modules/sharp release/node_modules/sharp
+          cp -R node_modules/@img release/node_modules/@img
+          test -d release/node_modules/@img/sharp-linux-x64
+          test -d release/node_modules/@img/sharp-libvips-linux-x64
           cp -R .next/static release/.next/static
           cp -R public release/public
           cp -R content release/content
@@ -155,6 +163,16 @@ jobs:
           cp -f release/scripts/seed-manual.mjs ~/app/scripts/seed-manual.mjs
           cp -f release/scripts/seed-current-events.mjs ~/app/scripts/seed-current-events.mjs
 
+          # SQLite URL is absolute so immutable runtime directories and Prisma
+          # migration scripts always open the same clinic-owned database.
+          mkdir -p ~/app/prisma
+          touch ~/app/prisma/dev.db ~/app/.env
+          database_path="$HOME/app/prisma/dev.db"
+          sed -i '/^DATABASE_URL=/d' ~/app/.env
+          echo "DATABASE_URL=file:$database_path" >> ~/app/.env
+          test -r "$database_path"
+          test -w "$database_path"
+
           # 4) checked-in migrations apply (consumer owns migration history)
           cd ~/app
           ./node_modules/.bin/prisma generate --schema=./prisma
@@ -172,7 +190,6 @@ jobs:
           node scripts/migrate-content.mjs
 
           # 5) 챗봇(Qwen) 키 — GitHub Secrets 에 QWEN_API_KEY 가 있을 때만 갱신
-          touch ~/app/.env
           sed -i '/^CLINIC_UPLOAD_DIR=/d;/^CLINIC_UPLOAD_PUBLIC_PREFIX=/d' ~/app/.env
           echo "CLINIC_UPLOAD_DIR=$upload_root" >> ~/app/.env
           echo 'CLINIC_UPLOAD_PUBLIC_PREFIX=/uploads' >> ~/app/.env
@@ -222,7 +239,10 @@ jobs:
           sleep 5
 
           # 내부 스모크 테스트가 실패하면 직전 불변 릴리스로 자동 복구한다.
-          if ! curl -fsS --max-time 15 http://localhost:3000/ko/home >/dev/null; then
+          if ! curl -fsS --max-time 15 \
+            -H 'Host: mysunshineclinic.com' \
+            -H 'x-forwarded-proto: https' \
+            http://localhost:3000/en/home >/dev/null; then
             pm2 logs clinic --lines 120 --nostream || true
             if [ -n "$previous_runtime" ] && [ -f "$previous_runtime/server.js" ]; then
               ln -sfn "$previous_runtime" ~/app/runtime-current
