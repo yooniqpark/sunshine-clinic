@@ -23,19 +23,49 @@ jobs:
           chmod 600 ~/.ssh/id_deploy
           ssh-keyscan -H ${{ secrets.LIGHTSAIL_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Check runtime and sanitized errors
+      - name: Check runtime, database, and native modules
         run: |
           ssh -i ~/.ssh/id_deploy -o StrictHostKeyChecking=no \
             ${{ secrets.LIGHTSAIL_USER }}@${{ secrets.LIGHTSAIL_HOST }} \
             'bash -s' <<'REMOTE'
-          set -uo pipefail
+          set -euo pipefail
           pm2 status
+          runtime_dir=$(readlink -f ~/app/runtime-current)
+          test -f "$runtime_dir/server.js"
+          echo "runtime release: $(basename "$runtime_dir")"
+
+          database_url=$(sed -n 's/^DATABASE_URL=//p' ~/app/.env | tail -n 1)
+          case "$database_url" in
+            file:/*) ;;
+            *) echo 'DATABASE_URL must use an absolute SQLite path' >&2; exit 1 ;;
+          esac
+          database_path=${database_url#file:}
+          test -r "$database_path"
+          test -w "$database_path"
+
+          cd "$runtime_dir"
+          DATABASE_URL="$database_url" node <<'NODE'
+          const { PrismaClient } = require('@prisma/client');
+          const prisma = new PrismaClient();
+          Promise.all([prisma.event.count(), prisma.manualSection.count()])
+            .then(([events, manualSections]) => {
+              console.log(`database readable: events=${events}, manualSections=${manualSections}`);
+            })
+            .finally(() => prisma.$disconnect());
+          NODE
+          node -e "require('sharp'); console.log('sharp native runtime: ready')"
+
           printf '%-54s %s\n' ROUTE HTTP
-          for route in / /ko /ko/home /en/home /ja/home /zh/home /ko/about /admin/login; do
-            code=$(curl -sS --max-time 15 -H 'Host: mysunshineclinic.com' -o /dev/null -w '%{http_code}' "http://localhost:3000$route" || true)
+          for route in / /home /en/home /ja/home /zh/home /about /admin/login; do
+            code=$(curl -sS --max-time 15 \
+              -H 'Host: mysunshineclinic.com' \
+              -H 'x-forwarded-proto: https' \
+              -o /dev/null -w '%{http_code}' \
+              "http://localhost:3000$route" || true)
             printf '%-54s %s\n' "$route" "$code"
+            test "$code" = 200
           done
-          echo '--- sanitized application errors ---'
+          echo '--- historical error tail (may predate current release) ---'
           tail -n 240 ~/.pm2/logs/clinic-error.log 2>/dev/null \
             | grep -E '(^| )(Error|TypeError|ReferenceError|PrismaClient|ENOENT|Cannot find|Invalid|at .+\.(js|mjs|ts):)' \
             | tail -n 120 \
