@@ -86,6 +86,7 @@ jobs:
           cp scripts/seed-manual.mjs release/scripts/
           cp scripts/seed-current-events.mjs release/scripts/
           cp prisma/current-events.json release/prisma/current-events.json
+          rm -f release/prisma/dev.db
           # 과거 macOS 복사 과정에서 생긴 AppleDouble 파일은 Prisma가
           # 스키마로 오인하므로 릴리스에 포함하지 않는다.
           find release -type f -name '._*' -delete
@@ -114,6 +115,7 @@ jobs:
           set -euo pipefail
           cd ~
           upload_root="$PWD/app-data/uploads"
+          release_id='${{ github.sha }}'
 
           # 0) preserve the current database before the first migration-based deploy
           if [ -f ~/app/prisma/dev.db ]; then
@@ -127,24 +129,12 @@ jobs:
           tar -xzf /tmp/release.tar.gz -C release
           rm -f /tmp/release.tar.gz
 
-          # 2) swap server.js + .next + public (keep .env, node_modules, prisma/dev.db)
-          #    관리자 업로드는 릴리스 밖에 보존한다. 기존 public/uploads가 있으면 최초 1회 승계한다.
+          # 2) 관리자 업로드는 불변 릴리스 밖에 보존한다.
+          #    기존 public/uploads가 있으면 최초 1회 승계한다.
           mkdir -p "$upload_root"
           if [ -d ~/app/public/uploads ] && [ ! -L ~/app/public/uploads ]; then
             cp -a ~/app/public/uploads/. "$upload_root"/
           fi
-          cp -f release/server.js ~/app/server.js
-          # 실행 중인 앱이 ISR 캐시를 쓰는 동안 rm이 레이스로 실패할 수 있어 재시도
-          rm -rf ~/app/.next || { sleep 3; rm -rf ~/app/.next; }
-          mkdir -p ~/app/.next
-          cp -R release/.next/* ~/app/.next/
-          rm -rf ~/app/public
-          cp -R release/public ~/app/public
-          rm -rf ~/app/public/uploads
-          ln -s "$upload_root" ~/app/public/uploads
-          rm -rf ~/app/content ~/app/messages
-          cp -R release/content ~/app/content
-          cp -R release/messages ~/app/messages
 
           # 3) sync prisma schema + scripts (no db destructive)
           #    예전 단일 schema.prisma 가 남아 있으면 모델이 중복되므로 지우고 새 파일로 교체.
@@ -156,6 +146,9 @@ jobs:
           cp -R release/prisma/migrations ~/app/prisma/migrations
           cp -f release/prisma/manual-sections.json ~/app/prisma/manual-sections.json
           cp -f release/prisma/current-events.json ~/app/prisma/current-events.json
+          rm -rf ~/app/content ~/app/messages
+          cp -R release/content ~/app/content
+          cp -R release/messages ~/app/messages
           mkdir -p ~/app/scripts
           cp -f release/scripts/deploy-migrations.mjs ~/app/scripts/deploy-migrations.mjs
           cp -f release/scripts/migrate-content.mjs ~/app/scripts/migrate-content.mjs 2>/dev/null || true
@@ -204,9 +197,42 @@ jobs:
             echo "OPENAI_API_KEY=$OPENAI_KEY" >> ~/app/.env
           fi
 
-          # 6) restart
-          pm2 restart clinic
-          sleep 2
+          # 6) standalone 전체를 버전별 불변 릴리스로 승격한다.
+          #    server.js와 node_modules를 같은 빌드에서 사용해야 프레임워크 업그레이드가 안전하다.
+          mkdir -p ~/app/releases
+          runtime_dir="$HOME/app/releases/$release_id"
+          rm -rf "$runtime_dir"
+          mv ~/release "$runtime_dir"
+          ln -sfn ~/app/.env "$runtime_dir/.env"
+          rm -f "$runtime_dir/prisma/dev.db"
+          ln -s ~/app/prisma/dev.db "$runtime_dir/prisma/dev.db"
+          rm -rf "$runtime_dir/public/uploads"
+          ln -s "$upload_root" "$runtime_dir/public/uploads"
+
+          previous_runtime=""
+          if [ -L ~/app/runtime-current ]; then
+            previous_runtime=$(readlink -f ~/app/runtime-current)
+          fi
+          ln -sfn "$runtime_dir" ~/app/runtime-current
+
+          pm2 delete clinic || true
+          cd "$runtime_dir"
+          pm2 start server.js --name clinic --update-env
+          pm2 save
+          sleep 5
+
+          # 내부 스모크 테스트가 실패하면 직전 불변 릴리스로 자동 복구한다.
+          if ! curl -fsS --max-time 15 http://localhost:3000/ko/home >/dev/null; then
+            pm2 logs clinic --lines 120 --nostream || true
+            if [ -n "$previous_runtime" ] && [ -f "$previous_runtime/server.js" ]; then
+              ln -sfn "$previous_runtime" ~/app/runtime-current
+              pm2 delete clinic || true
+              cd "$previous_runtime"
+              pm2 start server.js --name clinic --update-env
+              pm2 save
+            fi
+            exit 1
+          fi
           pm2 status
 
           # 6.5) 챗봇 스모크 테스트 — Qwen 연동 + 오프토픽 차단 확인 (실패해도 배포는 유지)
@@ -236,8 +262,9 @@ jobs:
             --max-time 60 || true
           echo
 
-          # 7) cleanup
-          rm -rf ~/release
+          # 7) 최근 릴리스 3개만 유지한다. 현재/직전 릴리스는 삭제하지 않는다.
+          cd ~/app/releases
+          ls -1dt */ 2>/dev/null | tail -n +4 | xargs -r rm -rf
           REMOTE
 
       - name: Smoke test
