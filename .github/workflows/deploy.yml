@@ -43,7 +43,7 @@ jobs:
 
       - name: Verify package and locale content
         run: |
-          test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.2"
+          test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.3"
           npm run locale:check
 
       - name: Generate Prisma client
@@ -73,6 +73,8 @@ jobs:
           cp -R .next/standalone/. release/
           cp -R .next/static release/.next/static
           cp -R public release/public
+          cp -R content release/content
+          cp -R messages release/messages
           mkdir -p release/prisma
           # 스키마는 prisma/*.prisma 여러 파일 (core.prisma + main/sunshine.prisma)
           cp prisma/*.prisma release/prisma/
@@ -111,6 +113,7 @@ jobs:
             'bash -s' <<'REMOTE'
           set -euo pipefail
           cd ~
+          upload_root="$PWD/app-data/uploads"
 
           # 0) preserve the current database before the first migration-based deploy
           if [ -f ~/app/prisma/dev.db ]; then
@@ -125,6 +128,11 @@ jobs:
           rm -f /tmp/release.tar.gz
 
           # 2) swap server.js + .next + public (keep .env, node_modules, prisma/dev.db)
+          #    관리자 업로드는 릴리스 밖에 보존한다. 기존 public/uploads가 있으면 최초 1회 승계한다.
+          mkdir -p "$upload_root"
+          if [ -d ~/app/public/uploads ] && [ ! -L ~/app/public/uploads ]; then
+            cp -a ~/app/public/uploads/. "$upload_root"/
+          fi
           cp -f release/server.js ~/app/server.js
           # 실행 중인 앱이 ISR 캐시를 쓰는 동안 rm이 레이스로 실패할 수 있어 재시도
           rm -rf ~/app/.next || { sleep 3; rm -rf ~/app/.next; }
@@ -132,6 +140,11 @@ jobs:
           cp -R release/.next/* ~/app/.next/
           rm -rf ~/app/public
           cp -R release/public ~/app/public
+          rm -rf ~/app/public/uploads
+          ln -s "$upload_root" ~/app/public/uploads
+          rm -rf ~/app/content ~/app/messages
+          cp -R release/content ~/app/content
+          cp -R release/messages ~/app/messages
 
           # 3) sync prisma schema + scripts (no db destructive)
           #    예전 단일 schema.prisma 가 남아 있으면 모델이 중복되므로 지우고 새 파일로 교체.
@@ -161,8 +174,15 @@ jobs:
           #      같은 slug가 이미 있으면 관리자 수정값을 절대 덮어쓰지 않는다.
           node scripts/seed-current-events.mjs
 
+          # 4.7) 공개 페이지 콘텐츠 — 없는 행만 최초 생성
+          #      관리자에서 수정한 기존 값은 migrate-content가 덮어쓰지 않는다.
+          node scripts/migrate-content.mjs
+
           # 5) 챗봇(Qwen) 키 — GitHub Secrets 에 QWEN_API_KEY 가 있을 때만 갱신
           touch ~/app/.env
+          sed -i '/^CLINIC_UPLOAD_DIR=/d;/^CLINIC_UPLOAD_PUBLIC_PREFIX=/d' ~/app/.env
+          echo "CLINIC_UPLOAD_DIR=$upload_root" >> ~/app/.env
+          echo 'CLINIC_UPLOAD_PUBLIC_PREFIX=/uploads' >> ~/app/.env
           QWEN_KEY='${{ secrets.QWEN_API_KEY }}'
           if [ -n "$QWEN_KEY" ]; then
             sed -i '/^QWEN_API_KEY=/d' ~/app/.env

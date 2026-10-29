@@ -287,6 +287,17 @@ const BY_LOCALE: Record<Locale, Record<string, DeviceDetail>> = {
   zh: zhData as Record<string, DeviceDetail>,
 };
 
+export function getDevice(locale: Locale, slug: string): DeviceDetail | null {
+  return BY_LOCALE[locale]?.[slug] ?? null;
+}
+
+export function getAllDeviceParams(): Array<{ category: string; device: string }> {
+  return Object.values(BY_LOCALE.ko).map((device) => ({
+    category: device.category,
+    device: device.slug,
+  }));
+}
+
 const ORDER_BY_CATEGORY: Record<string, string[]> = {
   lifting: ["ulthera-prime", "thermage-flx", "shurink-universe", "inmode"],
   whitening: ["clarity-ii", "fotona-starwalker", "vbeam"],
