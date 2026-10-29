@@ -1,7 +1,6 @@
 import crypto from "node:crypto";
 import { mkdir, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
-import sharp from "sharp";
 import type { ContentImageAdapter } from "@yooniqpark/clinic-core/content-types";
 
 const MAX_BYTES = 12 * 1024 * 1024;
@@ -31,6 +30,9 @@ export const contentImageAdapter: ContentImageAdapter = {
     if (file.size > MAX_BYTES) throw new Error("이미지는 12MB 이하만 업로드할 수 있습니다.");
 
     const source = Buffer.from(await file.arrayBuffer());
+    // Keep the native image codec out of public-page startup. It is loaded only
+    // when an administrator actually uploads an image.
+    const { default: sharp } = await import("sharp");
     const pipeline = sharp(source, { failOn: "error", limitInputPixels: 40_000_000 });
     const metadata = await pipeline.metadata();
     if (!metadata.format || !ALLOWED_FORMAT.has(metadata.format)) throw new Error("지원하지 않는 이미지 형식입니다.");
