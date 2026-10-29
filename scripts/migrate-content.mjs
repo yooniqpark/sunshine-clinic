@@ -1,5 +1,5 @@
-// One-shot: migrate content/{devices,concerns,site}-*.json + messages/*.json into SiteContent DB rows.
-// Idempotent: re-runs simply upsert.
+// Seed missing content/{devices,concerns,site}-*.json + messages/*.json rows.
+// Idempotent and non-destructive: existing admin-edited values are never overwritten.
 import { PrismaClient } from "@prisma/client";
 import fs from "node:fs";
 import path from "node:path";
@@ -23,7 +23,7 @@ async function migrate() {
         where: {
           group_slug_locale_field: { group, slug, locale, field },
         },
-        update: { value: v },
+        update: {},
         create: { group, slug, locale, field, value: v },
       })
     );

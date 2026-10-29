@@ -4,9 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Reveal } from "@/components/Reveal";
-import { ArrowUpRightIcon, ArrowIcon } from "@/components/icons";
+import { ArrowUpRightIcon } from "@/components/icons";
 import {
-  getDevicesByCategory,
   getDeviceImage,
   getDeviceHeroImage,
   getDeviceHeroMobileImage,
@@ -14,6 +13,7 @@ import {
   getDeviceDetailMobileImage,
   getDeviceMarketing,
 } from "@/lib/devices";
+import { getEditableDeviceContent } from "@/lib/device-content";
 import koData from "@/content/devices-ko.json";
 import concernsKoData from "@/content/concerns-ko.json";
 import { getConcern, type Concern } from "@/lib/concerns";
@@ -32,13 +32,7 @@ const ALL_CONCERNS_KO = concernsKoData as Record<string, Concern>;
 const CATEGORY_KEYS = ["lifting", "anti-aging", "whitening", "acne", "skin-disease"];
 const CONCERN_CATEGORY_KEYS = ["anti-aging", "skin-disease"];
 
-const CATEGORY_FALLBACK_IMAGE: Record<string, string> = {
-  lifting: "/models/lifting.png",
-  "anti-aging": "/models/anti-aging.jpg",
-  whitening: "/models/whitening.png",
-  acne: "/models/acne.png",
-  "skin-disease": "/models/skin-disease.png",
-};
+export const dynamic = "force-dynamic";
 
 type ProcessStep = { step: string; title: string; body: string };
 
@@ -59,10 +53,7 @@ export async function generateMetadata({
 }) {
   const { locale, category, device } = await params;
   const path = `/treatments/${category}/${device}`;
-  const dict = (
-    await import(`@/content/devices-${locale}.json`).catch(() => ({ default: ALL_DEVICES_KO }))
-  ).default as Record<string, DeviceDetail>;
-  const d = dict[device] ?? ALL_DEVICES_KO[device];
+  const d = await getEditableDeviceContent(locale as AppLocale, device);
   if (d) {
     return pageSeo({
       locale,
@@ -91,11 +82,7 @@ export default async function DevicePage({
   const { locale, category, device } = await params;
   setRequestLocale(locale);
 
-  // Load the localized device dict
-  const dict = (
-    await import(`@/content/devices-${locale}.json`).catch(() => ({ default: ALL_DEVICES_KO }))
-  ).default as Record<string, DeviceDetail>;
-  const d = dict[device] ?? ALL_DEVICES_KO[device];
+  const d = await getEditableDeviceContent(locale as AppLocale, device);
 
   // If no device matches, try to resolve as a concern (anti-aging / skin-disease).
   if (!d || d.category !== category) {
@@ -110,14 +97,11 @@ export default async function DevicePage({
   const s = await getSettings();
   const catLabel = t(`categoryLabels.${category}` as never);
   const img = getDeviceImage(d.slug);
-  const heroImg = getDeviceHeroImage(d.slug);
-  const heroImgMobile = getDeviceHeroMobileImage(d.slug);
-  const detailImg = getDeviceDetailImage(d.slug);
-  const detailImgMobile = getDeviceDetailMobileImage(d.slug);
+  const heroImg = d.heroImage ?? getDeviceHeroImage(d.slug);
+  const heroImgMobile = d.heroImageMobile ?? getDeviceHeroMobileImage(d.slug);
+  const detailImg = d.detailImage ?? getDeviceDetailImage(d.slug);
+  const detailImgMobile = d.detailImageMobile ?? getDeviceDetailMobileImage(d.slug);
   const meta = getDeviceMarketing(d.slug);
-  const siblings = getDevicesByCategory(locale as AppLocale, category).filter(
-    (x) => x.slug !== d.slug,
-  );
   const defaultProcess = t.raw("defaultProcess") as ProcessStep[];
   const pageUrl = localeUrl(locale, `/treatments/${category}/${d.slug}`);
 
@@ -504,16 +488,6 @@ async function ConcernPage({
   const defaultProcess = t.raw("defaultProcess") as ProcessStep[];
   // concern이 자체 이미지 없을 때 모델(카테고리 대표) 사진 대신 은은한 다크 배경만 사용
   const heroBg = concern.heroImage ?? concern.image ?? undefined;
-
-  // Localized concerns for siblings.
-  const localizedConcerns = (
-    await import(`@/content/concerns-${locale}.json`).catch(() => ({
-      default: ALL_CONCERNS_KO,
-    }))
-  ).default as Record<string, Concern>;
-  const siblings = Object.values(localizedConcerns)
-    .filter((c) => c.category === category && c.slug !== concern.slug)
-    .slice(0, 3);
 
   const introParagraphs = concern.intro.split(/\n\n+/).filter(Boolean);
   const pageUrl = localeUrl(locale, `/treatments/${category}/${concern.slug}`);

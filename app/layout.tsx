@@ -16,7 +16,7 @@ export default async function RootLayout({
   // admin 등 intl 미들웨어 밖 경로는 getLocale이 실패할 수 있어 ko로 폴백
   const locale = await getLocale().catch(() => "ko");
   return (
-    <html lang={locale} className="h-full">
+    <html lang={locale} className="h-full" data-scroll-behavior="smooth">
       <head>
         {/* SUIT — 본문 기본 서체.
             구글 폰트는 SUIT를 제공하지 않아(요청해도 조용히 무시됨) 배포처 CDN에서 직접 받는다.

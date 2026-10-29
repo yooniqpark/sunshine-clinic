@@ -90,6 +90,7 @@ export const clinicConfig = {
 
   translateRules: [
     "DO NOT translate device names: Ulthera, Thermage FLX, Shurink, InMode, Fotona StarWalker, Clarity, VBeam, Rejuran, Ellanse, Juvelook, Exosomes, HIFU, RF, PDL, SMAS, PDT.",
+    "Do not translate URL/path values, model identifiers, step numbers, relatedDeviceSlugs, heroImage, heroImageMobile, detailImage, or detailImageMobile.",
     '"Sunshine 피부과" → "Sunshine Clinic" (en) / "Sunshine 皮膚科" (ja) / "Sunshine 皮肤科" (zh).',
   ],
 
