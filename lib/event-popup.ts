@@ -595,7 +595,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
     eyebrow: "SUNSHINE NOVEMBER",
     title: "11월 프로모션",
     subtitle: "리프팅 · 콜라겐 스킨/볼륨 부스터 · 모공/흉터 · 색소 · 제모",
-    period: "2026.10.30 – 11.30",
+    period: "2026.11.01 – 11.30",
     vatNote: "부가세(VAT) 별도",
     pillLabel: "11월",
     closingCopy: "부가세(VAT) 별도",
