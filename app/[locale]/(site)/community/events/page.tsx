@@ -20,7 +20,7 @@ export default async function EventsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("v2.events");
-  const items = t.raw("items") as EventEntry[];
+  const items = (t.raw("items") as EventEntry[]).filter((item) => item.published !== false);
   const openTag = t("tagOpen");
 
   return (

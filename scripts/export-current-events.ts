@@ -45,8 +45,8 @@ function toTemplate(event: PopupEvent) {
 }
 
 const periods: Record<string, { startsAt: string | null; endsAt: string | null }> = {
-  "november-2026": { startsAt: "2026-11-01T00:00:00.000Z", endsAt: "2026-11-30T23:59:59.999Z" },
-  "october-best": { startsAt: "2026-10-01T00:00:00.000Z", endsAt: "2026-10-31T23:59:59.999Z" },
+  "november-2026": { startsAt: "2026-10-30T00:00:00.000+09:00", endsAt: "2026-11-30T23:59:59.999+09:00" },
+  "october-best": { startsAt: "2026-10-01T00:00:00.000Z", endsAt: "2026-10-29T23:59:59.999+09:00" },
   "exam-special": { startsAt: "2026-10-01T00:00:00.000Z", endsAt: null },
   "september-best": { startsAt: "2026-09-01T00:00:00.000Z", endsAt: "2026-09-30T23:59:59.999Z" },
   "grand-open": { startsAt: "2026-07-13T00:00:00.000Z", endsAt: "2026-08-30T23:59:59.999Z" },
@@ -68,7 +68,7 @@ const rows = POPUP_EVENTS.map((event, sortIndex) => {
     bannerFocus: "center",
     imageUrl: null,
     templateData: JSON.stringify(toTemplate(event)),
-    published: true,
+    published: event.id !== "october-best",
     startsAt: periods[event.id]?.startsAt ?? null,
     endsAt: periods[event.id]?.endsAt ?? null,
     sortIndex,

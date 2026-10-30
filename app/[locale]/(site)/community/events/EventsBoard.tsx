@@ -21,6 +21,7 @@ const PRICE_SHEET_BY_SLUG: Record<string, string> = {
 
 export type EventImage = { src: string; label: string; width?: number; height?: number };
 export type EventEntry = {
+  published?: boolean;
   tag: string;
   slug: string;
   date: string;

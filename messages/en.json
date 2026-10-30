@@ -692,7 +692,7 @@
           "title": "November Promotion",
           "excerpt": "Lifting · Collagen skin/volume boosters · Pores/scars · Pigmentation · Hair removal",
           "body": [
-            "2026.11.01 – 11.30",
+            "2026.10.30 – 11.30",
             "VAT not included"
           ],
           "images": [
@@ -707,6 +707,7 @@
         {
           "tag": "BEST",
           "slug": "october-2026",
+          "published": false,
           "date": "2026.10",
           "title": "Sunshine October, Autumn Event",
           "excerpt": "Lifting, pores and acne scars, pigmentation, hydration and glow — only what autumn skin needs.",
