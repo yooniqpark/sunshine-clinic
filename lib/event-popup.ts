@@ -209,6 +209,97 @@ const EXAM_CATEGORIES: CampaignCategory[] = [
   },
 ];
 
+/** 11월 프로모션 — 전달받은 이벤트 가격표를 카테고리별로 정리 */
+const NOVEMBER_CATEGORIES: CampaignCategory[] = [
+  {
+    slug: "lifting",
+    name: "리프팅",
+    kicker: "01 / LIFTING",
+    copy: "",
+    rows: [
+      {
+        name: "울쎄라 400샷",
+        desc: "셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택",
+        original: "140만원",
+        event: "150만원",
+      },
+      {
+        name: "써마지 600샷",
+        desc: "셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택",
+        original: "200만원",
+        event: "190만원",
+      },
+      {
+        name: "슈링크 유니버스 100샷",
+        original: "9만원",
+        event: "3만원",
+      },
+    ],
+  },
+  {
+    slug: "collagen-volume",
+    name: "콜라겐 스킨 / 볼륨 부스터",
+    kicker: "02 / COLLAGEN & VOLUME",
+    copy: "",
+    rows: [
+      { name: "레디어스 1병", original: "80만원", event: "60만원" },
+      {
+        name: "스킨바이브 2cc + LDM 수분관리",
+        original: "70만원",
+        event: "40만원",
+      },
+      { name: "쥬베룩 볼륨 3cc", original: "30만원", event: "20만원" },
+      { name: "쥬베룩 볼륨 1병", original: "50만원", event: "40만원" },
+    ],
+  },
+  {
+    slug: "pore-scar",
+    name: "모공 & 흉터",
+    kicker: "03 / PORE & SCAR",
+    copy: "",
+    rows: [
+      {
+        name: "여드름 흉터 패키지",
+        desc: "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 시너지필 + 서브시전",
+        original: "100만원",
+        event: "49만원",
+      },
+      {
+        name: "여드름 모공 패키지",
+        desc: "시크릿 + 미라젯 + 쥬베룩 볼륨",
+        original: "80만원",
+        event: "39만원",
+      },
+    ],
+  },
+  {
+    slug: "pigment",
+    name: "색소",
+    kicker: "04 / PIGMENT",
+    copy: "",
+    rows: [
+      {
+        name: "색소 트리플 패키지 10회",
+        desc: "스타워커 + 클라리티 + 브이빔 + GA 필링 + LDM",
+        original: "250만원",
+        event: "150만원",
+      },
+    ],
+  },
+  {
+    slug: "hair-removal",
+    name: "제모 무제한",
+    kicker: "05 / HAIR REMOVAL",
+    copy: "",
+    rows: [
+      { name: "얼굴 전체 제모 · 1년 무제한", event: "40만원" },
+      { name: "인중 제모 · 1년 무제한", event: "15만원" },
+      { name: "인중 / 앞턱 제모 · 1년 무제한", event: "20만원" },
+      { name: "겨드랑이 제모 · 1년 무제한", event: "20만원" },
+    ],
+  },
+];
+
 /** 10월 가을 이벤트 — 리프팅 · 모공/흉터 · 색소 · 수분/광채 */
 const OCTOBER_CATEGORIES: CampaignCategory[] = [
   {
@@ -369,6 +460,35 @@ const OCTOBER_THEME: PopupTheme = {
   footStrong: "#f5e9e1",
 };
 
+/** 11월 프로모션 — 앰버 포스터와 맞춘 코코아 & 웜 크림 */
+const NOVEMBER_THEME: PopupTheme = {
+  tab: "#4b2b20",
+  tabText: "#fff5e9",
+  panel: "#fbf4eb",
+  line: "rgba(82,47,34,0.16)",
+  accent: "#a55f38",
+  ink: "#2e1c16",
+  sub: "#725a4d",
+  meta: "#9b8375",
+  pill: "#4b2b20",
+  pillText: "#fff5e9",
+  tableBg: "#fffaf3",
+  tableLine: "rgba(82,47,34,0.1)",
+  headBg: "#f0dfd0",
+  headText: "#6d4938",
+  price: "#9a4f2c",
+  unit: "#b89b8a",
+  noteBg: "#f2e4d8",
+  noteText: "#6f5548",
+  catBg: "#f0e6dc",
+  catText: "#856f63",
+  catOnBg: "#4b2b20",
+  catOnText: "#fff5e9",
+  footBg: "#2b1812",
+  footText: "rgba(255,245,233,0.74)",
+  footStrong: "#fff5e9",
+};
+
 const SEPTEMBER_CATEGORIES: CampaignCategory[] = [
   {
     slug: "lifting-encore",
@@ -462,9 +582,32 @@ const FIRST_VISIT = CAMPAIGNS["first-visit-2026"];
 /** 팝업·게시판이 함께 참조하는 전체 이벤트 (종료분 포함) */
 export const POPUP_EVENTS: PopupEvent[] = [
   {
+    id: "november-2026",
+    tabLabel: "NOVEMBER",
+    tabShort: "NOV",
+    poster: "/events/november-promotion-2026.png",
+    posterAlt: "선샤인의원 11월 프로모션",
+    posterFit: "contain",
+    posterBg: "#8b4d2d",
+    ctaFill: "rgba(255,248,239,0.94)",
+    ctaBorder: "transparent",
+    ctaLabel: "11월 프로모션 · 가격 보기",
+    eyebrow: "SUNSHINE NOVEMBER",
+    title: "11월 프로모션",
+    subtitle: "리프팅 · 콜라겐 스킨/볼륨 부스터 · 모공/흉터 · 색소 · 제모",
+    period: "2026.11.01 – 11.30",
+    vatNote: "부가세(VAT) 별도",
+    pillLabel: "11월",
+    closingCopy: "부가세(VAT) 별도",
+    categories: NOVEMBER_CATEGORIES,
+    theme: NOVEMBER_THEME,
+  },
+  {
     id: "october-best",
     tabLabel: "OCT AUTUMN",
     tabShort: "OCT",
+    /** 10월 종료 — 팝업에서는 내리고 커뮤니티 게시판에만 남긴다 */
+    showInPopup: false,
     // 이미지를 교체할 때는 반드시 새 파일명으로. 같은 경로에 덮어쓰면 캐시 때문에 옛 이미지가 남는다
     poster: "/events/october-autumn-2026-v9.jpg",
     posterAlt: "선샤인의원 10월 가을 이벤트",
@@ -513,7 +656,7 @@ export const POPUP_EVENTS: PopupEvent[] = [
     vatNote: "부가세(VAT) 별도",
     pillLabel: "수험생 한정",
     closingCopy:
-      "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.",
+      "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 11월 프로모션과 중복 적용은 불가합니다.",
     categories: EXAM_CATEGORIES,
     theme: EXAM_THEME,
   },

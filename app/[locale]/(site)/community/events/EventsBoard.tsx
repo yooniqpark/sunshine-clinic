@@ -11,6 +11,7 @@ import { useLocale } from "next-intl";
 
 /** 게시판 항목 ↔ 팝업 이벤트 — 가격표를 팝업과 같은 데이터로 그린다 */
 const PRICE_SHEET_BY_SLUG: Record<string, string> = {
+  "november-2026": "november-2026",
   "october-2026": "october-best",
   "exam-2026": "exam-special",
   "september-2026": "september-best",
