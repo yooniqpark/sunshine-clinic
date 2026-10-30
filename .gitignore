@@ -43,6 +43,8 @@ next-env.d.ts
 # local dev DB + user uploads
 prisma/dev.db
 prisma/dev.db-journal
+prisma/blog-test.db*
+.blog-source/
 prisma/prisma/
 public/uploads
 

@@ -4,6 +4,8 @@ import { localeUrl } from "@yooniqpark/clinic-core/lib/seo";
 import { getConcernsByCategory } from "@/lib/concerns";
 import koDevices from "@/content/devices-ko.json";
 import type { DeviceDetail } from "@/lib/devices";
+import { listBlogPosts } from '@/lib/blog';
+export const dynamic = 'force-dynamic';
 
 const CATEGORIES = ["lifting", "anti-aging", "whitening", "acne", "skin-disease"];
 
@@ -36,7 +38,7 @@ function treatmentPaths(): { path: string; changeFrequency: "monthly"; priority:
   return paths;
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
@@ -54,5 +56,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  entries.push({url:localeUrl('ko','/journal'),lastModified,changeFrequency:'weekly',priority:0.6});
+  for(const post of await listBlogPosts()) entries.push({url:localeUrl('ko',`/journal/${post.id}`),lastModified:new Date(post.updatedAt),changeFrequency:'monthly',priority:0.5});
   return entries;
 }
