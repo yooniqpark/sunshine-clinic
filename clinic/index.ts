@@ -114,5 +114,5 @@ export default defineClinic({
   ],
   devicesByCategory: (locale, category) => getDevicesByCategory(locale as Locale, category),
   periodAlways: (locale) => getSiteContent(locale as Locale).common.always,
-  adminNav: CORE_ADMIN_NAV,
+  adminNav: [...CORE_ADMIN_NAV, { href: '/admin/blog', label: '블로그' }],
 });

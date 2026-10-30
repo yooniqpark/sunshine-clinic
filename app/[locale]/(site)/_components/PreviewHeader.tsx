@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
+import { usePathname } from 'next/navigation';
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
@@ -36,7 +37,8 @@ export function PreviewHeader() {
   }, []);
 
   // 최상단: 투명 + 크림 텍스트 / 스크롤 후: 크림 배경 + 다크 텍스트
-  const solid = scrolled || open;
+  const pathname = usePathname();
+  const solid = scrolled || open || pathname.includes('/journal');
   const nameColor = solid ? "text-ink" : "text-cream drop-shadow-md";
   const subColor = solid ? "text-ink-soft/80" : "text-cream/80 drop-shadow";
   const linkColor = solid ? "text-ink" : "text-cream drop-shadow-md";
@@ -89,6 +91,7 @@ export function PreviewHeader() {
         {
           title: t("cols.community"),
           items: [
+            ...(locale === 'ko' ? [{ label: '닥터스 노트', href: '/journal' }] : []),
             { label: t("items.notices"), href: "/community/notices" },
             { label: t("items.events"), href: "/community/events" },
             { label: t("items.prices"), href: "/community/prices" },
