@@ -21,7 +21,7 @@ export default async function Journal({ params }: { params: Promise<{ locale: st
     {featured ? <>
       <Link href={`/journal/${featured.id}`} className={s.featured}><span className={s.eyebrow}>{featured.category || "진료 이야기"}</span><h2>{featured.title}</h2><p className={s.excerpt}>{featured.excerpt}</p><p className={s.meta}>{date(featured.createdAt)}</p><span className={s.read}>원장 노트 읽기 →</span></Link>
       <div className={s.sectionLabel}><span>FROM THE NOTEBOOK</span><span>{posts.length}개의 이야기</span></div>
-      {posts.map((post, i) => <Link key={post.id} className={s.row} href={`/journal/${post.id}`}><span className={s.number}>{String(i + 1).padStart(2, "0")}</span><div><h2>{post.title}</h2><p className={s.meta}>{post.category} · {date(post.createdAt)}</p></div><span aria-hidden="true">↗</span></Link>)}
+      {posts.map((post, i) => <Link key={post.id} className={s.row} href={`/journal/${post.id}`}><span className={s.number}>{String(posts.length - i).padStart(2, "0")}</span><div><h2>{post.title}</h2><p className={s.meta}>{post.category} · {date(post.createdAt)}</p></div><span aria-hidden="true">↗</span></Link>)}
     </> : <div className={s.empty}>선샤인의 이야기를 준비하고 있습니다.<br />새로운 노트로 곧 찾아뵙겠습니다.</div>}
   </main></div></section>;
 }
