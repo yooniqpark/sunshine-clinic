@@ -1,5 +1,43 @@
 [
   {
+    "slug": "managed-november-2026",
+    "tag": "SUNSHINE NOVEMBER",
+    "title": "11월 프로모션",
+    "period": "2026.11.01 – 11.30",
+    "desc": "리프팅 · 콜라겐 스킨/볼륨 부스터 · 모공/흉터 · 색소 · 제모",
+    "body": "부가세(VAT) 별도",
+    "bgColor": "#8b4d2d",
+    "photoUrl": "/events/november-promotion-2026.png",
+    "bannerUrl": null,
+    "bannerFocus": "center",
+    "imageUrl": null,
+    "templateData": "{\"version\":1,\"template\":\"price-list\",\"tabLabel\":{\"ko\":\"NOVEMBER\",\"en\":\"NOVEMBER\",\"ja\":\"NOVEMBER\",\"zh\":\"NOVEMBER\"},\"ctaLabel\":{\"ko\":\"11월 프로모션 · 가격 보기\",\"en\":\"See November offers & prices\",\"ja\":\"11月プロモーション・価格を見る\",\"zh\":\"查看11月优惠与价格\"},\"vatNote\":{\"ko\":\"부가세(VAT) 별도\",\"en\":\"VAT not included\",\"ja\":\"VAT別途\",\"zh\":\"不含增值税\"},\"closingCopy\":{\"ko\":\"부가세(VAT) 별도\",\"en\":\"VAT not included\",\"ja\":\"VAT別途\",\"zh\":\"不含增值税\"},\"posterFit\":\"contain\",\"theme\":{\"accent\":\"#a55f38\",\"background\":\"#8b4d2d\",\"panel\":\"#fbf4eb\",\"text\":\"#2e1c16\"},\"sections\":[{\"id\":\"section-lifting\",\"layout\":\"list\",\"menuLabel\":{\"ko\":\"리프팅\",\"en\":\"Lifting\",\"ja\":\"リフティング\",\"zh\":\"提拉\"},\"kicker\":{\"ko\":\"01 / LIFTING\",\"en\":\"01 / LIFTING\",\"ja\":\"01 / LIFTING\",\"zh\":\"01 / LIFTING\"},\"title\":{\"ko\":\"리프팅\",\"en\":\"Lifting\",\"ja\":\"リフティング\",\"zh\":\"提拉\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"columns\":[],\"rows\":[{\"id\":\"row-lifting-1\",\"name\":{\"ko\":\"울쎄라 400샷\",\"en\":\"Ulthera 400 shots\",\"ja\":\"ウルセラ 400ショット\",\"zh\":\"Ulthera 400发\"},\"description\":{\"ko\":\"셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택\",\"en\":\"Choose one: Cell DM · Rituo · Juvelook Volume\",\"ja\":\"セルDM · リトゥオ · ジュベルックボリュームから1つ選択\",\"zh\":\"Cell DM · Rituo · Juvelook Volume 三选一\"},\"originalPrice\":\"140만원\",\"eventPrice\":\"150만원\",\"prices\":[]},{\"id\":\"row-lifting-2\",\"name\":{\"ko\":\"써마지 600샷\",\"en\":\"Thermage 600 shots\",\"ja\":\"サーマジ 600ショット\",\"zh\":\"Thermage 600发\"},\"description\":{\"ko\":\"셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택\",\"en\":\"Choose one: Cell DM · Rituo · Juvelook Volume\",\"ja\":\"セルDM · リトゥオ · ジュベルックボリュームから1つ選択\",\"zh\":\"Cell DM · Rituo · Juvelook Volume 三选一\"},\"originalPrice\":\"200만원\",\"eventPrice\":\"190만원\",\"prices\":[]},{\"id\":\"row-lifting-3\",\"name\":{\"ko\":\"슈링크 유니버스 100샷\",\"en\":\"Shurink Universe 100 shots\",\"ja\":\"シュリンクユニバース100ショット\",\"zh\":\"超声炮Universe 100发\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"9만원\",\"eventPrice\":\"3만원\",\"prices\":[]}]},{\"id\":\"section-collagen-volume\",\"layout\":\"list\",\"menuLabel\":{\"ko\":\"콜라겐 스킨 / 볼륨 부스터\",\"en\":\"Collagen Skin / Volume Booster\",\"ja\":\"コラーゲンスキン / ボリュームブースター\",\"zh\":\"胶原肌肤 / 丰盈针\"},\"kicker\":{\"ko\":\"02 / COLLAGEN & VOLUME\",\"en\":\"02 / COLLAGEN & VOLUME\",\"ja\":\"02 / COLLAGEN & VOLUME\",\"zh\":\"02 / COLLAGEN & VOLUME\"},\"title\":{\"ko\":\"콜라겐 스킨 / 볼륨 부스터\",\"en\":\"Collagen Skin / Volume Booster\",\"ja\":\"コラーゲンスキン / ボリュームブースター\",\"zh\":\"胶原肌肤 / 丰盈针\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"columns\":[],\"rows\":[{\"id\":\"row-collagen-volume-1\",\"name\":{\"ko\":\"레디어스 1병\",\"en\":\"Radiesse 1 vial\",\"ja\":\"レディエッセ 1本\",\"zh\":\"Radiesse 1瓶\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"80만원\",\"eventPrice\":\"60만원\",\"prices\":[]},{\"id\":\"row-collagen-volume-2\",\"name\":{\"ko\":\"스킨바이브 2cc + LDM 수분관리\",\"en\":\"SkinVive 2cc + LDM hydration care\",\"ja\":\"スキンバイブ 2cc + LDM保湿ケア\",\"zh\":\"SkinVive 2cc + LDM补水护理\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"70만원\",\"eventPrice\":\"40만원\",\"prices\":[]},{\"id\":\"row-collagen-volume-3\",\"name\":{\"ko\":\"쥬베룩 볼륨 3cc\",\"en\":\"Juvelook Volume 3cc\",\"ja\":\"ジュベルックボリューム 3cc\",\"zh\":\"Juvelook Volume 3cc\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"30만원\",\"eventPrice\":\"20만원\",\"prices\":[]},{\"id\":\"row-collagen-volume-4\",\"name\":{\"ko\":\"쥬베룩 볼륨 1병\",\"en\":\"Juvelook Volume 1 vial\",\"ja\":\"ジュベルックボリューム 1本\",\"zh\":\"Juvelook Volume 1瓶\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"50만원\",\"eventPrice\":\"40만원\",\"prices\":[]}]},{\"id\":\"section-pore-scar\",\"layout\":\"list\",\"menuLabel\":{\"ko\":\"모공 & 흉터\",\"en\":\"Pores & Scars\",\"ja\":\"毛穴 & ニキビ跡\",\"zh\":\"毛孔 & 痘疤\"},\"kicker\":{\"ko\":\"03 / PORE & SCAR\",\"en\":\"03 / PORE & SCAR\",\"ja\":\"03 / PORE & SCAR\",\"zh\":\"03 / PORE & SCAR\"},\"title\":{\"ko\":\"모공 & 흉터\",\"en\":\"Pores & Scars\",\"ja\":\"毛穴 & ニキビ跡\",\"zh\":\"毛孔 & 痘疤\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"columns\":[],\"rows\":[{\"id\":\"row-pore-scar-1\",\"name\":{\"ko\":\"여드름 흉터 패키지\",\"en\":\"Acne scar package\",\"ja\":\"ニキビ跡パッケージ\",\"zh\":\"痘疤套餐\"},\"description\":{\"ko\":\"시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 시너지필 + 서브시전\",\"en\":\"Secret + Morpheus + Mirajet + Juvelook Volume + Synergy Peel + subcision\",\"ja\":\"シークレット + モーフィアス + ミラジェット + ジュベルックボリューム + シナジーピール + サブシジョン\",\"zh\":\"Secret + Morpheus + Mirajet + Juvelook Volume + Synergy Peel + 皮下松解\"},\"originalPrice\":\"100만원\",\"eventPrice\":\"49만원\",\"prices\":[]},{\"id\":\"row-pore-scar-2\",\"name\":{\"ko\":\"여드름 모공 패키지\",\"en\":\"Acne pore package\",\"ja\":\"ニキビ毛穴パッケージ\",\"zh\":\"痘痘毛孔套餐\"},\"description\":{\"ko\":\"시크릿 + 미라젯 + 쥬베룩 볼륨\",\"en\":\"Secret + Mirajet + Juvelook Volume\",\"ja\":\"シークレット + ミラジェット + ジュベルックボリューム\",\"zh\":\"Secret + Mirajet + Juvelook Volume\"},\"originalPrice\":\"80만원\",\"eventPrice\":\"39만원\",\"prices\":[]}]},{\"id\":\"section-pigment\",\"layout\":\"list\",\"menuLabel\":{\"ko\":\"색소\",\"en\":\"Pigmentation\",\"ja\":\"色素\",\"zh\":\"色素\"},\"kicker\":{\"ko\":\"04 / PIGMENT\",\"en\":\"04 / PIGMENT\",\"ja\":\"04 / PIGMENT\",\"zh\":\"04 / PIGMENT\"},\"title\":{\"ko\":\"색소\",\"en\":\"Pigmentation\",\"ja\":\"色素\",\"zh\":\"色素\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"columns\":[],\"rows\":[{\"id\":\"row-pigment-1\",\"name\":{\"ko\":\"색소 트리플 패키지 10회\",\"en\":\"Pigmentation triple package, 10 sessions\",\"ja\":\"色素トリプルパッケージ 10回\",\"zh\":\"色素三重套餐 10次\"},\"description\":{\"ko\":\"스타워커 + 클라리티 + 브이빔 + GA 필링 + LDM\",\"en\":\"StarWalker + Clarity + Vbeam + GA peel + LDM\",\"ja\":\"スタ－ウォーカー + クラリティ + Vビーム + GAピーリング + LDM\",\"zh\":\"StarWalker + Clarity + Vbeam + GA焕肤 + LDM\"},\"originalPrice\":\"250만원\",\"eventPrice\":\"150만원\",\"prices\":[]}]},{\"id\":\"section-hair-removal\",\"layout\":\"list\",\"menuLabel\":{\"ko\":\"제모 무제한\",\"en\":\"Unlimited Hair Removal\",\"ja\":\"脱毛無制限\",\"zh\":\"无限次脱毛\"},\"kicker\":{\"ko\":\"05 / HAIR REMOVAL\",\"en\":\"05 / HAIR REMOVAL\",\"ja\":\"05 / HAIR REMOVAL\",\"zh\":\"05 / HAIR REMOVAL\"},\"title\":{\"ko\":\"제모 무제한\",\"en\":\"Unlimited Hair Removal\",\"ja\":\"脱毛無制限\",\"zh\":\"无限次脱毛\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"columns\":[],\"rows\":[{\"id\":\"row-hair-removal-1\",\"name\":{\"ko\":\"얼굴 전체 제모 · 1년 무제한\",\"en\":\"Full-face hair removal · unlimited for 1 year\",\"ja\":\"顔全体脱毛 · 1年間無制限\",\"zh\":\"全脸脱毛 · 1年无限次\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"40만원\",\"prices\":[]},{\"id\":\"row-hair-removal-2\",\"name\":{\"ko\":\"인중 제모 · 1년 무제한\",\"en\":\"Upper-lip hair removal · unlimited for 1 year\",\"ja\":\"鼻下脱毛 · 1年間無制限\",\"zh\":\"上唇脱毛 · 1年无限次\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"15만원\",\"prices\":[]},{\"id\":\"row-hair-removal-3\",\"name\":{\"ko\":\"인중 / 앞턱 제모 · 1년 무제한\",\"en\":\"Upper-lip / front-chin hair removal · unlimited for 1 year\",\"ja\":\"鼻下 / あご先脱毛 · 1年間無制限\",\"zh\":\"上唇 / 下巴前侧脱毛 · 1年无限次\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"20만원\",\"prices\":[]},{\"id\":\"row-hair-removal-4\",\"name\":{\"ko\":\"겨드랑이 제모 · 1년 무제한\",\"en\":\"Underarm hair removal · unlimited for 1 year\",\"ja\":\"ワキ脱毛 · 1年間無制限\",\"zh\":\"腋下脱毛 · 1年无限次\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"20만원\",\"prices\":[]}]}]}",
+    "published": true,
+    "startsAt": "2026-11-01T00:00:00.000Z",
+    "endsAt": "2026-11-30T23:59:59.999Z",
+    "sortIndex": 0,
+    "translations": [
+      {
+        "locale": "en",
+        "title": "November Promotion",
+        "desc": "Lifting · Collagen skin/volume boosters · Pores/scars · Pigmentation · Hair removal",
+        "body": "VAT not included"
+      },
+      {
+        "locale": "ja",
+        "title": "11月プロモーション",
+        "desc": "リフティング · コラーゲンスキン/ボリュームブースター · 毛穴/ニキビ跡 · 色素 · 脱毛",
+        "body": "VAT別途"
+      },
+      {
+        "locale": "zh",
+        "title": "11月优惠活动",
+        "desc": "提拉 · 胶原肌肤/丰盈针 · 毛孔/痘疤 · 色素 · 脱毛",
+        "body": "不含增值税"
+      }
+    ]
+  },
+  {
     "slug": "managed-october-best",
     "tag": "SUNSHINE OCTOBER, AUTUMN EVENT",
     "title": "가을이 오면, 선샤인 10월 이벤트",
@@ -15,7 +53,7 @@
     "published": true,
     "startsAt": "2026-10-01T00:00:00.000Z",
     "endsAt": "2026-10-31T23:59:59.999Z",
-    "sortIndex": 0,
+    "sortIndex": 1,
     "translations": [
       {
         "locale": "en",
@@ -43,35 +81,35 @@
     "title": "수고한 너를 위한, 수험생 할인 이벤트",
     "period": "수험표 지참 시",
     "desc": "수험생 본인과 수험생 가족까지, 수험표 지참 시.",
-    "body": "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.",
+    "body": "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 11월 프로모션과 중복 적용은 불가합니다.",
     "bgColor": "#f8f5ef",
     "photoUrl": "/events/exam-special-2026-v3.jpg",
     "bannerUrl": null,
     "bannerFocus": "center",
     "imageUrl": null,
-    "templateData": "{\"version\":1,\"template\":\"price-list\",\"tabLabel\":{\"ko\":\"EXAM SPECIAL\",\"en\":\"EXAM SPECIAL\",\"ja\":\"EXAM SPECIAL\",\"zh\":\"EXAM SPECIAL\"},\"ctaLabel\":{\"ko\":\"수험생 할인 자세히 보기\",\"en\":\"See the exam-season discount\",\"ja\":\"受験生割引を詳しく見る\",\"zh\":\"查看考生折扣详情\"},\"vatNote\":{\"ko\":\"부가세(VAT) 별도\",\"en\":\"VAT not included\",\"ja\":\"VAT別途\",\"zh\":\"不含增值税\"},\"closingCopy\":{\"ko\":\"염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 10월 가을 이벤트와 중복 적용은 불가합니다.\",\"en\":\"Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the October autumn event.\",\"ja\":\"炎症注射・ボトックス・保険診療は割引対象外で、10月秋イベントとの併用はできません。\",\"zh\":\"消炎针 · 肉毒 · 医保诊疗不在折扣范围内，且不可与十月秋季活动叠加使用。\"},\"posterFit\":\"cover\",\"theme\":{\"accent\":\"#8a6a2f\",\"background\":\"#f8f5ef\",\"panel\":\"#f8f5ef\",\"text\":\"#22283a\"},\"sections\":[{\"id\":\"section-exam-discount\",\"layout\":\"list\",\"menuLabel\":{\"ko\":\"수험생 할인\",\"en\":\"Exam student discount\",\"ja\":\"受験生割引\",\"zh\":\"考生折扣\"},\"kicker\":{\"ko\":\"EXAM SEASON SPECIAL\",\"en\":\"EXAM SEASON SPECIAL\",\"ja\":\"EXAM SEASON SPECIAL\",\"zh\":\"EXAM SEASON SPECIAL\"},\"title\":{\"ko\":\"수험생 할인\",\"en\":\"Exam student discount\",\"ja\":\"受験生割引\",\"zh\":\"考生折扣\"},\"description\":{\"ko\":\"수험생 본인과 가족까지, 수험표를 지참하시면 할인해 드립니다\",\"en\":\"For exam students and their families — show your exam admission ticket\",\"ja\":\"受験生ご本人とご家族まで。受験票のご提示で割引いたします\",\"zh\":\"考生本人及家属，凭准考证即可享受折扣\"},\"columns\":[],\"rows\":[{\"id\":\"row-exam-discount-1\",\"name\":{\"ko\":\"리프팅\",\"en\":\"Lifting\",\"ja\":\"リフティング\",\"zh\":\"提拉\"},\"description\":{\"ko\":\"울쎄라 · 써마지 · 슈링크 등 리프팅 시술\",\"en\":\"Lifting treatments such as Ulthera, Thermage and Shurink\",\"ja\":\"ウルセラ · サーマジ · シュリンクなどのリフティング施術\",\"zh\":\"超声刀 · 热玛吉 · 超声炮等提拉项目\"},\"originalPrice\":\"\",\"eventPrice\":\"10%\",\"prices\":[]},{\"id\":\"row-exam-discount-2\",\"name\":{\"ko\":\"여드름 · 색소 · 홍조 · 흉터 · 모공\",\"en\":\"Acne · Pigmentation · Redness · Scars · Pores\",\"ja\":\"ニキビ · 色素 · 赤ら顔 · 傷跡 · 毛穴\",\"zh\":\"痘痘 · 色素 · 泛红 · 疤痕 · 毛孔\"},\"description\":{\"ko\":\"레이저 · 필링 · 스킨부스터 등 해당 시술\",\"en\":\"Related treatments such as lasers, peels and skin boosters\",\"ja\":\"レーザー · ピーリング · スキンブースターなどの該当施術\",\"zh\":\"激光 · 换肤 · 水光针等相关项目\"},\"originalPrice\":\"\",\"eventPrice\":\"20%\",\"prices\":[]}]}]}",
+    "templateData": "{\"version\":1,\"template\":\"price-list\",\"tabLabel\":{\"ko\":\"EXAM SPECIAL\",\"en\":\"EXAM SPECIAL\",\"ja\":\"EXAM SPECIAL\",\"zh\":\"EXAM SPECIAL\"},\"ctaLabel\":{\"ko\":\"수험생 할인 자세히 보기\",\"en\":\"See the exam-season discount\",\"ja\":\"受験生割引を詳しく見る\",\"zh\":\"查看考生折扣详情\"},\"vatNote\":{\"ko\":\"부가세(VAT) 별도\",\"en\":\"VAT not included\",\"ja\":\"VAT別途\",\"zh\":\"不含增值税\"},\"closingCopy\":{\"ko\":\"염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 11월 프로모션과 중복 적용은 불가합니다.\",\"en\":\"Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the November promotion.\",\"ja\":\"炎症注射・ボトックス・保険診療は割引対象外で、11月プロモーションとの併用はできません。\",\"zh\":\"消炎针、肉毒及医保诊疗不在折扣范围内，且不可与11月优惠活动叠加使用。\"},\"posterFit\":\"cover\",\"theme\":{\"accent\":\"#8a6a2f\",\"background\":\"#f8f5ef\",\"panel\":\"#f8f5ef\",\"text\":\"#22283a\"},\"sections\":[{\"id\":\"section-exam-discount\",\"layout\":\"list\",\"menuLabel\":{\"ko\":\"수험생 할인\",\"en\":\"Exam student discount\",\"ja\":\"受験生割引\",\"zh\":\"考生折扣\"},\"kicker\":{\"ko\":\"EXAM SEASON SPECIAL\",\"en\":\"EXAM SEASON SPECIAL\",\"ja\":\"EXAM SEASON SPECIAL\",\"zh\":\"EXAM SEASON SPECIAL\"},\"title\":{\"ko\":\"수험생 할인\",\"en\":\"Exam student discount\",\"ja\":\"受験生割引\",\"zh\":\"考生折扣\"},\"description\":{\"ko\":\"수험생 본인과 가족까지, 수험표를 지참하시면 할인해 드립니다\",\"en\":\"For exam students and their families — show your exam admission ticket\",\"ja\":\"受験生ご本人とご家族まで。受験票のご提示で割引いたします\",\"zh\":\"考生本人及家属，凭准考证即可享受折扣\"},\"columns\":[],\"rows\":[{\"id\":\"row-exam-discount-1\",\"name\":{\"ko\":\"리프팅\",\"en\":\"Lifting\",\"ja\":\"リフティング\",\"zh\":\"提拉\"},\"description\":{\"ko\":\"울쎄라 · 써마지 · 슈링크 등 리프팅 시술\",\"en\":\"Lifting treatments such as Ulthera, Thermage and Shurink\",\"ja\":\"ウルセラ · サーマジ · シュリンクなどのリフティング施術\",\"zh\":\"超声刀 · 热玛吉 · 超声炮等提拉项目\"},\"originalPrice\":\"\",\"eventPrice\":\"10%\",\"prices\":[]},{\"id\":\"row-exam-discount-2\",\"name\":{\"ko\":\"여드름 · 색소 · 홍조 · 흉터 · 모공\",\"en\":\"Acne · Pigmentation · Redness · Scars · Pores\",\"ja\":\"ニキビ · 色素 · 赤ら顔 · 傷跡 · 毛穴\",\"zh\":\"痘痘 · 色素 · 泛红 · 疤痕 · 毛孔\"},\"description\":{\"ko\":\"레이저 · 필링 · 스킨부스터 등 해당 시술\",\"en\":\"Related treatments such as lasers, peels and skin boosters\",\"ja\":\"レーザー · ピーリング · スキンブースターなどの該当施術\",\"zh\":\"激光 · 换肤 · 水光针等相关项目\"},\"originalPrice\":\"\",\"eventPrice\":\"20%\",\"prices\":[]}]}]}",
     "published": true,
     "startsAt": "2026-10-01T00:00:00.000Z",
     "endsAt": null,
-    "sortIndex": 1,
+    "sortIndex": 2,
     "translations": [
       {
         "locale": "en",
         "title": "For all your hard work — Exam Student Discount Event",
         "desc": "For exam students and their families, with an exam admission ticket.",
-        "body": "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the October autumn event."
+        "body": "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the November promotion."
       },
       {
         "locale": "ja",
         "title": "頑張ったあなたへ、受験生割引イベント",
         "desc": "受験生ご本人とご家族まで、受験票のご提示で。",
-        "body": "炎症注射・ボトックス・保険診療は割引対象外で、10月秋イベントとの併用はできません。"
+        "body": "炎症注射・ボトックス・保険診療は割引対象外で、11月プロモーションとの併用はできません。"
       },
       {
         "locale": "zh",
         "title": "致辛苦的你，考生折扣活动",
         "desc": "考生本人及家属凭准考证即可参加。",
-        "body": "消炎针 · 肉毒 · 医保诊疗不在折扣范围内，且不可与十月秋季活动叠加使用。"
+        "body": "消炎针、肉毒及医保诊疗不在折扣范围内，且不可与11月优惠活动叠加使用。"
       }
     ]
   },
@@ -91,7 +129,7 @@
     "published": true,
     "startsAt": "2026-09-01T00:00:00.000Z",
     "endsAt": "2026-09-30T23:59:59.999Z",
-    "sortIndex": 2,
+    "sortIndex": 3,
     "translations": [
       {
         "locale": "en",
@@ -129,7 +167,7 @@
     "published": true,
     "startsAt": "2026-07-13T00:00:00.000Z",
     "endsAt": "2026-08-30T23:59:59.999Z",
-    "sortIndex": 3,
+    "sortIndex": 4,
     "translations": [
       {
         "locale": "en",
@@ -163,11 +201,11 @@
     "bannerUrl": null,
     "bannerFocus": "center",
     "imageUrl": null,
-    "templateData": "{\"version\":1,\"template\":\"price-list\",\"tabLabel\":{\"ko\":\"FIRST VISIT\",\"en\":\"FIRST VISIT\",\"ja\":\"FIRST VISIT\",\"zh\":\"FIRST VISIT\"},\"ctaLabel\":{\"ko\":\"첫 방문 혜택 · 가격 보기\",\"en\":\"See first-visit offers & prices\",\"ja\":\"初回来院特典・価格を見る\",\"zh\":\"查看首次到院优惠及价格\"},\"vatNote\":{\"ko\":\"부가세(VAT) 별도\",\"en\":\"VAT not included\",\"ja\":\"VAT別途\",\"zh\":\"不含增值税\"},\"closingCopy\":{\"ko\":\"처음이기에 더 세심하게. 현재 피부와 얼굴에 필요한 시술부터 제안합니다.\",\"en\":\"Extra care for a first visit — we start from what your skin actually needs.\",\"ja\":\"初めてだからこそ、より丁寧に。今の肌と顔に必要な施術からご提案します。\",\"zh\":\"正因为是第一次，更加用心。我们会从您当下肌肤与面部真正需要的项目开始建议。\"},\"posterFit\":\"cover\",\"theme\":{\"accent\":\"#c4652f\",\"background\":\"#faf6ee\",\"panel\":\"#faf6ee\",\"text\":\"#33261d\"},\"sections\":[{\"id\":\"section-botox\",\"layout\":\"matrix\",\"menuLabel\":{\"ko\":\"보톡스\",\"en\":\"Botox\",\"ja\":\"ボトックス\",\"zh\":\"肉毒素\"},\"kicker\":{\"ko\":\"01 / BOTOX\",\"en\":\"01 / BOTOX\",\"ja\":\"01 / BOTOX\",\"zh\":\"01 / BOTOX\"},\"title\":{\"ko\":\"보톡스\",\"en\":\"Botox\",\"ja\":\"ボトックス\",\"zh\":\"肉毒素\"},\"description\":{\"ko\":\"필요한 부위만 섬세하게, 자연스러운 인상의 변화\",\"en\":\"Only where it's needed, for a naturally softened impression\",\"ja\":\"必要な部位だけ繊細に、自然な印象の変化\",\"zh\":\"只在需要的部位精细处理，自然改变印象\"},\"columns\":[{\"ko\":\"국산 하이톡스\",\"en\":\"Domestic Hutox\",\"ja\":\"国産ハイトックス\",\"zh\":\"国产 Hutox\"},{\"ko\":\"프리미엄 코어톡스\",\"en\":\"Premium Coretox\",\"ja\":\"プレミアム コアトックス\",\"zh\":\"高端 Coretox\"},{\"ko\":\"외산 제오민\",\"en\":\"Imported Xeomin\",\"ja\":\"輸入ゼオミン\",\"zh\":\"进口 Xeomin\"},{\"ko\":\"오리지널 앨러간\",\"en\":\"Original Allergan\",\"ja\":\"オリジナル アラガン\",\"zh\":\"原装 Allergan\"}],\"rows\":[{\"id\":\"row-botox-1\",\"name\":{\"ko\":\"주름 1부위\",\"en\":\"Wrinkles, 1 area\",\"ja\":\"しわ 1部位\",\"zh\":\"皱纹 1 个部位\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"1.5만원\",\"2만원\",\"6만원\",\"20만원\"]},{\"id\":\"row-botox-2\",\"name\":{\"ko\":\"주름 3부위\",\"en\":\"Wrinkles, 3 areas\",\"ja\":\"しわ 3部位\",\"zh\":\"皱纹 3 个部位\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"3만원\",\"4만원\",\"15만원\",\"55만원\"]},{\"id\":\"row-botox-3\",\"name\":{\"ko\":\"턱 · 측두근 · 침샘\",\"en\":\"Jaw · Temporalis · Salivary gland\",\"ja\":\"あご・側頭筋・唾液腺\",\"zh\":\"下颌 · 颞肌 · 唾液腺\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"4만원\",\"5만원\",\"13만원\",\"50만원\"]},{\"id\":\"row-botox-4\",\"name\":{\"ko\":\"승모근 · 종아리\",\"en\":\"Trapezius · Calf\",\"ja\":\"僧帽筋・ふくらはぎ\",\"zh\":\"斜方肌 · 小腿\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"18만원\",\"20만원\",\"30만원\",\"80만원\"]},{\"id\":\"row-botox-5\",\"name\":{\"ko\":\"다한증\",\"en\":\"Hyperhidrosis\",\"ja\":\"多汗症\",\"zh\":\"多汗症\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"18만원\",\"20만원\",\"30만원\",\"60만원\"]},{\"id\":\"row-botox-6\",\"name\":{\"ko\":\"목주름\",\"en\":\"Neck lines\",\"ja\":\"首のしわ\",\"zh\":\"颈纹\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"15만원\",\"20만원\",\"30만원\",\"60만원\"]},{\"id\":\"row-botox-7\",\"name\":{\"ko\":\"커스텀 스킨보톡스\",\"en\":\"Custom skin botox\",\"ja\":\"カスタムスキンボトックス\",\"zh\":\"定制水光肉毒\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"15만원\",\"20만원\",\"30만원\",\"60만원\"]}]}]}",
+    "templateData": "{\"version\":1,\"template\":\"price-list\",\"tabLabel\":{\"ko\":\"FIRST VISIT\",\"en\":\"FIRST VISIT\",\"ja\":\"FIRST VISIT\",\"zh\":\"FIRST VISIT\"},\"ctaLabel\":{\"ko\":\"첫 방문 혜택 · 가격 보기\",\"en\":\"See first-visit offers & prices\",\"ja\":\"初回来院特典・価格を見る\",\"zh\":\"查看首次到院优惠及价格\"},\"vatNote\":{\"ko\":\"부가세(VAT) 별도\",\"en\":\"VAT not included\",\"ja\":\"VAT別途\",\"zh\":\"不含增值税\"},\"closingCopy\":{\"ko\":\"처음이기에 더 세심하게. 현재 피부와 얼굴에 필요한 시술부터 제안합니다.\",\"en\":\"Extra care for a first visit — we start from what your skin actually needs.\",\"ja\":\"初めてだからこそ、より丁寧に。今の肌と顔に必要な施術からご提案します。\",\"zh\":\"正因为是第一次，更加用心。我们会从您当下肌肤与面部真正需要的项目开始建议。\"},\"posterFit\":\"cover\",\"theme\":{\"accent\":\"#c4652f\",\"background\":\"#faf6ee\",\"panel\":\"#faf6ee\",\"text\":\"#33261d\"},\"sections\":[{\"id\":\"section-botox\",\"layout\":\"matrix\",\"menuLabel\":{\"ko\":\"보톡스\",\"en\":\"Botox\",\"ja\":\"ボトックス\",\"zh\":\"肉毒素\"},\"kicker\":{\"ko\":\"01 / BOTOX\",\"en\":\"01 / BOTOX\",\"ja\":\"01 / BOTOX\",\"zh\":\"01 / BOTOX\"},\"title\":{\"ko\":\"보톡스\",\"en\":\"Botox\",\"ja\":\"ボトックス\",\"zh\":\"肉毒素\"},\"description\":{\"ko\":\"필요한 부위만 섬세하게, 자연스러운 인상의 변화\",\"en\":\"Only where it's needed, for a naturally softened impression\",\"ja\":\"必要な部位だけ繊細に、自然な印象の変化\",\"zh\":\"只在需要的部位精细处理，自然改变印象\"},\"columns\":[{\"ko\":\"국산 하이톡스\",\"en\":\"Domestic Hutox\",\"ja\":\"国産ハイトックス\",\"zh\":\"国产 Hutox\"},{\"ko\":\"프리미엄 코어톡스\",\"en\":\"Premium Coretox\",\"ja\":\"プレミアム コアトックス\",\"zh\":\"高端 Coretox\"},{\"ko\":\"외산 제오민\",\"en\":\"Imported Xeomin\",\"ja\":\"輸入ゼオミン\",\"zh\":\"进口 Xeomin\"},{\"ko\":\"오리지널 앨러간\",\"en\":\"Original Allergan\",\"ja\":\"オリジナル アラガン\",\"zh\":\"原装 Allergan\"}],\"rows\":[{\"id\":\"row-botox-1\",\"name\":{\"ko\":\"주름 1부위\",\"en\":\"Wrinkles, 1 area\",\"ja\":\"しわ 1部位\",\"zh\":\"皱纹 1 个部位\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"1.5만원\",\"2만원\",\"6만원\",\"20만원\"]},{\"id\":\"row-botox-2\",\"name\":{\"ko\":\"주름 3부위\",\"en\":\"Wrinkles, 3 areas\",\"ja\":\"しわ 3部位\",\"zh\":\"皱纹 3 个部位\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"3만원\",\"4만원\",\"15만원\",\"55만원\"]},{\"id\":\"row-botox-3\",\"name\":{\"ko\":\"턱 · 측두근 · 침샘\",\"en\":\"Jaw · Temporalis · Salivary gland\",\"ja\":\"あご・側頭筋・唾液腺\",\"zh\":\"下颌 · 颞肌 · 唾液腺\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"4만원\",\"5만원\",\"13만원\",\"50만원\"]},{\"id\":\"row-botox-4\",\"name\":{\"ko\":\"승모근 · 종아리\",\"en\":\"Trapezius · Calf\",\"ja\":\"僧帽筋・ふくらはぎ\",\"zh\":\"斜方肌 · 小腿\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"18만원\",\"20만원\",\"30만원\",\"80만원\"]},{\"id\":\"row-botox-5\",\"name\":{\"ko\":\"다한증\",\"en\":\"Hyperhidrosis\",\"ja\":\"多汗症\",\"zh\":\"多汗症\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"18만원\",\"20만원\",\"30만원\",\"60만원\"]},{\"id\":\"row-botox-6\",\"name\":{\"ko\":\"목주름\",\"en\":\"Neck lines\",\"ja\":\"首のしわ\",\"zh\":\"颈纹\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"15만원\",\"20만원\",\"30만원\",\"60만원\"]},{\"id\":\"row-botox-7\",\"name\":{\"ko\":\"커스텀 스킨보톡스\",\"en\":\"Custom skin botox\",\"ja\":\"カスタムスキンボトックス\",\"zh\":\"定制水光肉毒\"},\"description\":{\"ko\":\"\",\"en\":\"\",\"ja\":\"\",\"zh\":\"\"},\"originalPrice\":\"\",\"eventPrice\":\"\",\"prices\":[\"15만원\",\"15만원\",\"25만원\",\"60만원\"]}]}]}",
     "published": true,
     "startsAt": null,
     "endsAt": null,
-    "sortIndex": 4,
+    "sortIndex": 5,
     "translations": [
       {
         "locale": "en",

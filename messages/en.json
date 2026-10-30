@@ -687,6 +687,25 @@
       "items": [
         {
           "tag": "BEST",
+          "slug": "november-2026",
+          "date": "2026.11",
+          "title": "November Promotion",
+          "excerpt": "Lifting · Collagen skin/volume boosters · Pores/scars · Pigmentation · Hair removal",
+          "body": [
+            "2026.11.01 – 11.30",
+            "VAT not included"
+          ],
+          "images": [
+            {
+              "src": "/events/november-promotion-2026.png",
+              "label": "November Promotion",
+              "width": 1122,
+              "height": 1402
+            }
+          ]
+        },
+        {
+          "tag": "BEST",
           "slug": "october-2026",
           "date": "2026.10",
           "title": "Sunshine October, Autumn Event",
@@ -712,7 +731,7 @@
           "excerpt": "Exam students and their families get 10% off lifting and 20% off acne, pigmentation, redness, scars and pores — just show the exam admission ticket.",
           "body": [
             "A discount event for exam students and their families. Show your exam admission ticket and receive 10% off lifting treatments and 20% off acne, pigmentation, redness, scar and pore treatments.",
-            "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the October autumn event. Please contact the clinic for details."
+            "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the November promotion. Please contact the clinic for details."
           ],
           "images": [
             {

@@ -491,6 +491,36 @@ const ZH: Record<string, string> = {
  */
 const CAMPAIGN_SUPPLEMENT: Record<string, Record<string, string>> = {
   en: {
+    "11월 프로모션 · 가격 보기": "See November offers & prices",
+    "선샤인의원 11월 프로모션": "Sunshine Clinic November Promotion",
+    "11월 프로모션": "November Promotion",
+    "리프팅 · 콜라겐 스킨/볼륨 부스터 · 모공/흉터 · 색소 · 제모":
+      "Lifting · Collagen skin/volume boosters · Pores/scars · Pigmentation · Hair removal",
+    "11월": "November",
+    "울쎄라 400샷": "Ulthera 400 shots",
+    "써마지 600샷": "Thermage 600 shots",
+    "셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택":
+      "Choose one: Cell DM · Rituo · Juvelook Volume",
+    "콜라겐 스킨 / 볼륨 부스터": "Collagen Skin / Volume Booster",
+    "레디어스 1병": "Radiesse 1 vial",
+    "스킨바이브 2cc + LDM 수분관리": "SkinVive 2cc + LDM hydration care",
+    "쥬베룩 볼륨 3cc": "Juvelook Volume 3cc",
+    "쥬베룩 볼륨 1병": "Juvelook Volume 1 vial",
+    "여드름 모공 패키지": "Acne pore package",
+    "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 시너지필 + 서브시전":
+      "Secret + Morpheus + Mirajet + Juvelook Volume + Synergy Peel + subcision",
+    "시크릿 + 미라젯 + 쥬베룩 볼륨": "Secret + Mirajet + Juvelook Volume",
+    "색소 트리플 패키지 10회": "Pigmentation triple package, 10 sessions",
+    "스타워커 + 클라리티 + 브이빔 + GA 필링 + LDM":
+      "StarWalker + Clarity + Vbeam + GA peel + LDM",
+    "제모 무제한": "Unlimited Hair Removal",
+    "얼굴 전체 제모 · 1년 무제한": "Full-face hair removal · unlimited for 1 year",
+    "인중 제모 · 1년 무제한": "Upper-lip hair removal · unlimited for 1 year",
+    "인중 / 앞턱 제모 · 1년 무제한":
+      "Upper-lip / front-chin hair removal · unlimited for 1 year",
+    "겨드랑이 제모 · 1년 무제한": "Underarm hair removal · unlimited for 1 year",
+    "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 11월 프로모션과 중복 적용은 불가합니다.":
+      "Anti-inflammatory injections, botox and insurance-covered care are excluded, and this cannot be combined with the November promotion.",
     "가을이 오면, 선샤인 10월 이벤트": "When autumn comes — Sunshine October Event",
     "리프팅부터 모공 · 흉터 · 색소 · 수분까지, 가을 피부에 필요한 것만.":
       "From lifting to pores, scars, pigmentation and hydration — only what autumn skin needs.",
@@ -535,6 +565,36 @@ const CAMPAIGN_SUPPLEMENT: Record<string, Record<string, string>> = {
     "첫 방문 혜택": "First-visit benefit",
   },
   ja: {
+    "11월 프로모션 · 가격 보기": "11月プロモーション・価格を見る",
+    "선샤인의원 11월 프로모션": "サンシャインクリニック 11月プロモーション",
+    "11월 프로모션": "11月プロモーション",
+    "리프팅 · 콜라겐 스킨/볼륨 부스터 · 모공/흉터 · 색소 · 제모":
+      "リフティング · コラーゲンスキン/ボリュームブースター · 毛穴/ニキビ跡 · 色素 · 脱毛",
+    "11월": "11月",
+    "울쎄라 400샷": "ウルセラ 400ショット",
+    "써마지 600샷": "サーマジ 600ショット",
+    "셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택":
+      "セルDM · リトゥオ · ジュベルックボリュームから1つ選択",
+    "콜라겐 스킨 / 볼륨 부스터": "コラーゲンスキン / ボリュームブースター",
+    "레디어스 1병": "レディエッセ 1本",
+    "스킨바이브 2cc + LDM 수분관리": "スキンバイブ 2cc + LDM保湿ケア",
+    "쥬베룩 볼륨 3cc": "ジュベルックボリューム 3cc",
+    "쥬베룩 볼륨 1병": "ジュベルックボリューム 1本",
+    "여드름 모공 패키지": "ニキビ毛穴パッケージ",
+    "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 시너지필 + 서브시전":
+      "シークレット + モーフィアス + ミラジェット + ジュベルックボリューム + シナジーピール + サブシジョン",
+    "시크릿 + 미라젯 + 쥬베룩 볼륨":
+      "シークレット + ミラジェット + ジュベルックボリューム",
+    "색소 트리플 패키지 10회": "色素トリプルパッケージ 10回",
+    "스타워커 + 클라리티 + 브이빔 + GA 필링 + LDM":
+      "スタ－ウォーカー + クラリティ + Vビーム + GAピーリング + LDM",
+    "제모 무제한": "脱毛無制限",
+    "얼굴 전체 제모 · 1년 무제한": "顔全体脱毛 · 1年間無制限",
+    "인중 제모 · 1년 무제한": "鼻下脱毛 · 1年間無制限",
+    "인중 / 앞턱 제모 · 1년 무제한": "鼻下 / あご先脱毛 · 1年間無制限",
+    "겨드랑이 제모 · 1년 무제한": "ワキ脱毛 · 1年間無制限",
+    "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 11월 프로모션과 중복 적용은 불가합니다.":
+      "炎症注射・ボトックス・保険診療は割引対象外で、11月プロモーションとの併用はできません。",
     "가을이 오면, 선샤인 10월 이벤트": "秋が来たら、サンシャイン10月イベント",
     "리프팅부터 모공 · 흉터 · 색소 · 수분까지, 가을 피부에 필요한 것만.":
       "リフティングから毛穴・傷跡・色素・保湿まで、秋の肌に必要なものだけ。",
@@ -577,6 +637,35 @@ const CAMPAIGN_SUPPLEMENT: Record<string, Record<string, string>> = {
     "첫 방문 혜택": "初回ご来院特典",
   },
   zh: {
+    "11월 프로모션 · 가격 보기": "查看11月优惠与价格",
+    "선샤인의원 11월 프로모션": "Sunshine诊所11月优惠活动",
+    "11월 프로모션": "11月优惠活动",
+    "리프팅 · 콜라겐 스킨/볼륨 부스터 · 모공/흉터 · 색소 · 제모":
+      "提拉 · 胶原肌肤/丰盈针 · 毛孔/痘疤 · 色素 · 脱毛",
+    "11월": "11月",
+    "울쎄라 400샷": "Ulthera 400发",
+    "써마지 600샷": "Thermage 600发",
+    "셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택":
+      "Cell DM · Rituo · Juvelook Volume 三选一",
+    "콜라겐 스킨 / 볼륨 부스터": "胶原肌肤 / 丰盈针",
+    "레디어스 1병": "Radiesse 1瓶",
+    "스킨바이브 2cc + LDM 수분관리": "SkinVive 2cc + LDM补水护理",
+    "쥬베룩 볼륨 3cc": "Juvelook Volume 3cc",
+    "쥬베룩 볼륨 1병": "Juvelook Volume 1瓶",
+    "여드름 모공 패키지": "痘痘毛孔套餐",
+    "시크릿 + 모피우스 + 미라젯 + 쥬베룩 볼륨 + 시너지필 + 서브시전":
+      "Secret + Morpheus + Mirajet + Juvelook Volume + Synergy Peel + 皮下松解",
+    "시크릿 + 미라젯 + 쥬베룩 볼륨": "Secret + Mirajet + Juvelook Volume",
+    "색소 트리플 패키지 10회": "色素三重套餐 10次",
+    "스타워커 + 클라리티 + 브이빔 + GA 필링 + LDM":
+      "StarWalker + Clarity + Vbeam + GA焕肤 + LDM",
+    "제모 무제한": "无限次脱毛",
+    "얼굴 전체 제모 · 1년 무제한": "全脸脱毛 · 1年无限次",
+    "인중 제모 · 1년 무제한": "上唇脱毛 · 1年无限次",
+    "인중 / 앞턱 제모 · 1년 무제한": "上唇 / 下巴前侧脱毛 · 1年无限次",
+    "겨드랑이 제모 · 1년 무제한": "腋下脱毛 · 1年无限次",
+    "염증주사 · 보톡스 · 보험진료는 할인 대상에서 제외되며, 11월 프로모션과 중복 적용은 불가합니다.":
+      "消炎针、肉毒及医保诊疗不在折扣范围内，且不可与11月优惠活动叠加使用。",
     "가을이 오면, 선샤인 10월 이벤트": "秋天来了，Sunshine 十月活动",
     "리프팅부터 모공 · 흉터 · 색소 · 수분까지, 가을 피부에 필요한 것만.":
       "从提拉到毛孔、疤痕、色素与补水，只选择秋季肌肤真正需要的。",

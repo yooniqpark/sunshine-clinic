@@ -8,7 +8,7 @@ import { ListTable, MatrixTable } from "@/components/EventPriceTables";
 import { localizeEvent, tr } from "@/lib/event-popup-i18n";
 import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
 
-const POPUP_ID = "sunshine-events-2026-v1";
+const POPUP_ID = "sunshine-events-2026-v3";
 
 /**
  * 이벤트 팝업 — 상단(모바일)·좌측(데스크톱) 탭으로 두 이벤트를 오가고,
