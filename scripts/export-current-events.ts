@@ -45,6 +45,7 @@ function toTemplate(event: PopupEvent) {
 }
 
 const periods: Record<string, { startsAt: string | null; endsAt: string | null }> = {
+  "november-2026": { startsAt: "2026-11-01T00:00:00.000Z", endsAt: "2026-11-30T23:59:59.999Z" },
   "october-best": { startsAt: "2026-10-01T00:00:00.000Z", endsAt: "2026-10-31T23:59:59.999Z" },
   "exam-special": { startsAt: "2026-10-01T00:00:00.000Z", endsAt: null },
   "september-best": { startsAt: "2026-09-01T00:00:00.000Z", endsAt: "2026-09-30T23:59:59.999Z" },
