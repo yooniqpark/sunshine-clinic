@@ -91,7 +91,7 @@ export function PreviewHeader() {
         {
           title: t("cols.community"),
           items: [
-            ...(locale === 'ko' ? [{ label: '닥터스 노트', href: '/journal' }] : []),
+            ...(locale === 'ko' ? [{ label: '닥터스 블로그', href: '/journal' }] : []),
             { label: t("items.notices"), href: "/community/notices" },
             { label: t("items.events"), href: "/community/events" },
             { label: t("items.prices"), href: "/community/prices" },
