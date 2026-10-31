@@ -2,3 +2,12 @@
 .journal{padding-top:160px}.title{font-family:var(--font-serif,Georgia,serif)}.featured h2,.director h2,.articleHeader h1{font-family:var(--font-serif,Georgia,serif)}.body :global(.docx-center){text-align:center}.body :global(.docx-color-ff0010){color:#ff0010}.body :global(.docx-color-004e82){color:#004e82}.body :global(.docx-color-666666){color:#666}.body :global(.docx-color-999999){color:#999}.body :global(.docx-color-333333){color:#333}
 @media(max-width:800px){.layout{grid-template-columns:170px minmax(0,1fr);gap:32px}.director{padding-right:22px}.title{font-size:49px}.featured{padding:25px}.featured h2{font-size:24px}.articleHeader h1{font-size:28px}}
 @media(max-width:600px){.journal{padding:120px 22px 55px}.layout{display:block}.director{display:grid;grid-template-columns:70px 1fr;column-gap:18px;align-items:center;border-right:0;border-bottom:1px solid #e3d9cc;padding:0 0 25px;margin-bottom:30px}.portrait{width:70px;height:95px;margin:0;grid-row:1/4;aspect-ratio:auto}.director .eyebrow{font-size:9px;letter-spacing:1px}.director h2{font-size:17px;margin:3px 0}.director p{font-size:12px}.directorNote{display:none}.title{font-size:46px}.featured{padding:24px 21px;margin-top:25px}.featured h2{font-size:24px}.row{grid-template-columns:28px minmax(0,1fr) 15px;gap:11px}.row h2{font-size:15px}.articleHeader h1{font-size:26px}.body{font-size:15px;line-height:2}.body h2{font-size:21px}.body h3{font-size:18px}.body table{font-size:13px}.body td,.body th{padding:13px}}
+
+.featured{display:grid;grid-template-columns:180px minmax(0,1fr);gap:28px;align-items:center}
+.featuredImage,.thumbnail{display:block;width:100%;aspect-ratio:1;height:auto;object-fit:contain;background:#fbf8f3;border:1px solid #e3d9cc}
+.featuredImage{max-width:180px}
+.featuredText,.rowText{min-width:0}
+.row{grid-template-columns:36px 104px minmax(0,1fr) 18px;gap:18px}
+.imagePlaceholder{display:grid;place-items:center;color:#a0795e;font-family:Georgia,serif;font-size:48px}
+@media(max-width:800px){.featured{grid-template-columns:130px minmax(0,1fr);gap:20px}.featuredImage{max-width:130px}.featured h2{font-size:22px}.row{grid-template-columns:28px 88px minmax(0,1fr) 15px;gap:14px}}
+@media(max-width:600px){.featured{grid-template-columns:1fr;gap:20px}.featuredImage{width:100%;max-width:none;max-height:240px;aspect-ratio:auto;height:240px}.featured h2{font-size:23px;margin-top:10px}.row{grid-template-columns:24px 72px minmax(0,1fr) 12px;gap:10px}.row h2{font-size:14px}.row .meta{font-size:11px}.number{font-size:23px}}

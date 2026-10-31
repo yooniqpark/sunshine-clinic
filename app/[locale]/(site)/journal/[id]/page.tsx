@@ -45,9 +45,9 @@ export default async function JournalPost({ params }: { params: Params }) {
   return <section className={s.journal}><div className={s.layout}><Director /><main>
     <Link className={s.back} href="/journal">← 이야기 목록으로</Link>
     {!post.published && <div className={s.draft}>초안 미리보기입니다. 관리자에게만 표시되며 방문자에게 공개되지 않습니다. <Link href={`/admin/blog/${post.id}`}>편집으로 돌아가기 →</Link></div>}
-    <header className={s.articleHeader}><span className={s.eyebrow}>DOCTOR’S NOTES · {post.category}</span><h1>{post.title}</h1><p className={s.meta}>선샤인의원 김병현 대표원장 · {new Date(post.createdAt).toLocaleDateString("ko-KR", { timeZone: "Asia/Seoul" })}</p></header>
+    <header className={s.articleHeader}><span className={s.eyebrow}>DOCTOR’S BLOG · {post.category}</span><h1>{post.title}</h1><p className={s.meta}>선샤인의원 김병현 대표원장 · {new Date(post.createdAt).toLocaleDateString("ko-KR", { timeZone: "Asia/Seoul" })}</p></header>
     <article className={s.body} dangerouslySetInnerHTML={{ __html: articleBody(post.html, post.title) }} />
     <style>{colors.map(color => `.${s.body} span.docx-color-${color}{color:#${color}}`).join("")}</style>
-    <footer className={s.footer}><Link href="/journal">← 닥터스 노트 전체 보기</Link></footer>
+    <footer className={s.footer}><Link href="/journal">← 닥터스 블로그 전체 보기</Link></footer>
   </main></div></section>;
 }
