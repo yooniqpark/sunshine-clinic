@@ -46,6 +46,12 @@ jobs:
           test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.3"
           npm run locale:check
 
+      - name: Verify AI access aggregation
+        run: |
+          python3 scripts/test-ai-access.py
+          npx tsx scripts/check-ai-access.mts
+          npx tsx scripts/check-ai-analytics.mts
+
       - name: Generate Prisma client
         run: npx prisma generate
 
@@ -93,6 +99,9 @@ jobs:
           cp scripts/migrate-content.mjs release/scripts/ || true
           cp scripts/seed-manual.mjs release/scripts/
           cp scripts/seed-current-events.mjs release/scripts/
+          cp scripts/collect-ai-access.py release/scripts/
+          mkdir -p release/deployment
+          cp deployment/sunshine-ai-access.service deployment/sunshine-ai-access.timer release/deployment/
           cp prisma/current-events.json release/prisma/current-events.json
           rm -f release/prisma/dev.db
           # 과거 macOS 복사 과정에서 생긴 AppleDouble 파일은 Prisma가
@@ -254,6 +263,15 @@ jobs:
             exit 1
           fi
           pm2 status
+
+          # Root reads nginx logs; the web app reads only IP-free summaries.
+          sudo install -d -o ubuntu -g ubuntu -m 750 /home/ubuntu/app-data/analytics
+          sudo install -m 644 "$runtime_dir/deployment/sunshine-ai-access.service" /etc/systemd/system/sunshine-ai-access.service
+          sudo install -m 644 "$runtime_dir/deployment/sunshine-ai-access.timer" /etc/systemd/system/sunshine-ai-access.timer
+          sudo systemctl daemon-reload
+          sudo systemctl enable --now sunshine-ai-access.timer
+          sudo systemctl start sunshine-ai-access.service
+          test -s /home/ubuntu/app-data/analytics/ai-access.json
 
           # 6.5) 챗봇 스모크 테스트 — Qwen 연동 + 오프토픽 차단 확인 (실패해도 배포는 유지)
           sleep 5

@@ -1,0 +1,20 @@
+[Unit]
+Description=Summarize Sunshine AI crawler and fetcher access
+After=network-online.target nginx.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+ExecStart=/usr/bin/python3 /home/ubuntu/app/runtime-current/scripts/collect-ai-access.py --log-dir /var/log/nginx --output /home/ubuntu/app-data/analytics/ai-access.json --owner ubuntu
+TimeoutStartSec=120
+MemoryMax=192M
+CPUQuota=25%
+Nice=10
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/ubuntu/app-data/analytics
+UMask=0027
+

@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import clinic from "@clinic/app";
 import { getStats } from "@/lib/clinic-analytics";
 import { AI_SERVICES } from "@/lib/traffic-sources";
+import AiAccessPanel from "./AiAccessPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -128,8 +129,10 @@ export default async function AnalyticsPage() {
         </div>
       </section>
 
+      <AiAccessPanel stats={stats.aiAccess} />
+
       <section className="mt-10 rounded-2xl border border-line bg-white p-6" aria-labelledby="ai-referrals-heading">
-        <h2 id="ai-referrals-heading" className="text-lg font-bold">AI 서비스 유입</h2>
+        <h2 id="ai-referrals-heading" className="text-lg font-bold">AI 서비스에서 넘어온 방문</h2>
         <p className="mt-2 text-sm leading-relaxed text-ink-soft">
           출처 주소 또는 UTM 태그가 남은 방문 기록을 집계합니다. UTM 태그가 있으면 해당 출처를 우선 적용하며, 출처가 없는 방문은 AI 유입 여부를 알 수 없습니다.
         </p>

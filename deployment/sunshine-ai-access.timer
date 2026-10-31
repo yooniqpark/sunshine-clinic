@@ -1,0 +1,11 @@
+[Unit]
+Description=Refresh Sunshine AI access statistics every 15 minutes
+
+[Timer]
+OnCalendar=*:0/15
+Persistent=true
+AccuracySec=30s
+Unit=sunshine-ai-access.service
+
+[Install]
+WantedBy=timers.target
