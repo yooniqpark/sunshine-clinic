@@ -1,4 +1,3 @@
-import { getSettings, phoneVars } from "@yooniqpark/clinic-core/lib/settings";
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -35,7 +34,6 @@ export default async function PreviewHome({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("v2.home");
-  const s = await getSettings();
   const managedEvents = await getManagedPopupEvents(locale);
 
   const STATS_KEYS = ["years", "devices", "languages", "personal"] as const;
@@ -194,39 +192,7 @@ export default async function PreviewHome({
         </div>
       </GlassRise>
 
-      {/* ═══════ 7. CTA / LOCATION ═══════ */}
-      <section id="book" className="bg-ink py-24 text-cream lg:py-32">
-        <div className="mx-auto max-w-7xl px-5 text-center lg:px-8">
-          <p className="text-[10px] font-bold tracking-[0.28em] text-brand-soft">{t("ctaKicker")}</p>
-          <h2 className="mt-4 font-serif text-4xl font-normal leading-tight tracking-tight lg:text-6xl">
-            {t("ctaTitleLead")}
-            <span className="text-brand-soft">{t("ctaTitleAccent")}</span>
-            {t("ctaTitleTail")}
-          </h2>
-          <p className="mx-auto mt-6 max-w-md whitespace-pre-line break-keep text-[13px] text-cream/70 lg:text-sm">
-            {t("ctaDesc")}
-          </p>
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <a
-              href={s.phoneHref}
-              className="inline-flex items-center gap-2 rounded-full bg-brand px-8 py-4 text-sm font-semibold text-white transition hover:bg-brand-dark"
-            >
-              {t("ctaPhone", phoneVars(s.phone))}
-            </a>
-            <a
-              href={s.naverBookingHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-cream/30 bg-white/10 px-8 py-4 text-sm font-semibold text-cream backdrop-blur transition hover:bg-white/20"
-            >
-              {t("ctaNaver")}
-            </a>
-          </div>
-          <p className="mt-16 whitespace-pre-line text-[11px] leading-relaxed tracking-[0.2em] text-cream/50">
-            {t("address")}
-          </p>
-        </div>
-      </section>
+      {/* The home-only treatment / contact ending is composed outside main in the locale shell. */}
     </>
   );
 }

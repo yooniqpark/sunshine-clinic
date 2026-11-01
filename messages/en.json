@@ -1,4 +1,15 @@
 {
+  "homeClosing": {
+    "careNote": "From your skin concerns\nto the little changes in daily life,\nwe are here to listen",
+    "treatmentNavigation": "Explore our treatment areas",
+    "contactTitle": "Your first conversation\nabout your skin starts here",
+    "footerNavigation": "Clinic information and contact channels",
+    "clinicInformation": "Sunshine information",
+    "newsTitle": "The latest from Sunshine",
+    "visitTitle": "Visit Sunshine",
+    "mapLabel": "View on map",
+    "kakaoLabel": "Contact us on KakaoTalk"
+  },
   "brand": {
     "name": "SUNSHINE",
     "label": "Skin Clinic"

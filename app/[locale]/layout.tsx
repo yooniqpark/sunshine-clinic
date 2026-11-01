@@ -5,6 +5,8 @@ import { setRequestLocale, getMessages } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { PreviewHeader } from "./(site)/_components/PreviewHeader";
 import { PreviewFooter } from "./(site)/_components/PreviewFooter";
+import { HomeClosing } from "./(site)/_components/HomeClosing";
+import { SiteFooter } from "./(site)/_components/SiteFooter";
 import { ChatWidget } from "@/components/ChatWidget";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Analytics } from "@yooniqpark/clinic-core/components/Analytics";
@@ -121,7 +123,9 @@ export default async function PreviewLayout({
         <WebSiteJsonLd />
         <PreviewHeader />
         <main>{children}</main>
-        <PreviewFooter />
+        <SiteFooter home={<HomeClosing contact={contact} />}>
+          <PreviewFooter />
+        </SiteFooter>
 
         <ChatWidget />
         <ScrollToTop />

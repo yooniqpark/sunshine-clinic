@@ -1,4 +1,15 @@
 {
+  "homeClosing": {
+    "careNote": "肌のお悩みから\n日々の小さな変化まで\nあなたのお話を伺います",
+    "treatmentNavigation": "診療分野を見る",
+    "contactTitle": "あなたの肌のための\n最初のご相談をここから",
+    "footerNavigation": "クリニック情報とお問い合わせ",
+    "clinicInformation": "Sunshineのご案内",
+    "newsTitle": "Sunshineからのお知らせ",
+    "visitTitle": "Sunshineへのアクセス",
+    "mapLabel": "地図を見る",
+    "kakaoLabel": "カカオトークで相談"
+  },
   "brand": {
     "name": "SUNSHINE",
     "label": "Skin Clinic"

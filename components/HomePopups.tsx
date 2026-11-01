@@ -1,55 +1,14 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { EventTabsPopup } from "@/components/EventTabsPopup";
-import { NoticeEventPopup } from "@/components/NoticeEventPopup";
-import { useLocale } from "next-intl";
-import { tr } from "@/lib/event-popup-i18n";
 import type { PopupEvent } from "@/lib/event-popup";
 
-/** 앞 팝업을 닫은 직후 다음 팝업이 곧바로 겹쳐 뜨지 않도록 두는 간격 */
-const GAP_MS = 450;
-
-/**
- * 홈 팝업 순서: 이벤트(11월·수험생·첫 방문 탭 전환) → 안심 수면마취.
- */
+/** Show promotional events only; informational notices remain outside the popup flow. */
 export function HomePopups({ events }: { events?: PopupEvent[] }) {
-  const locale = useLocale();
-  const [step, setStep] = useState(0);
   const [visible, setVisible] = useState(true);
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => () => {
-    if (timer.current) clearTimeout(timer.current);
-  }, []);
-
-  // 다음 팝업으로 넘어가되, 잠깐 비운 뒤 노출해 오조작(연속 닫기)을 막는다
-  const next = useCallback(() => {
-    setVisible(false);
-    if (timer.current) clearTimeout(timer.current);
-    timer.current = setTimeout(() => {
-      setStep((s) => s + 1);
-      setVisible(true);
-    }, GAP_MS);
-  }, []);
 
   if (!visible) return null;
 
-  if (step === 0) {
-    return <EventTabsPopup key="events" onClose={next} events={events} localized={Boolean(events?.length)} />;
-  }
-
-  if (step === 1) {
-    return (
-      <NoticeEventPopup
-        key="sedation"
-        popupId="sedation-2026-07"
-        ariaLabel={tr("안심 수면마취 안내", locale)}
-        variant="sedation"
-        onClose={next}
-      />
-    );
-  }
-
-  return null;
+  return <EventTabsPopup onClose={() => setVisible(false)} events={events} localized={Boolean(events?.length)} />;
 }

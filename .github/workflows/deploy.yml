@@ -24,6 +24,21 @@ jobs:
       packages: read
 
     steps:
+      - name: Verify current production target
+        env:
+          DEPLOY_HOST: ${{ secrets.LIGHTSAIL_HOST }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://mysunshineclinic.com' }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { lookup } from 'node:dns/promises';
+          const live = await lookup(new URL(process.env.SITE_URL).hostname, { family: 4 });
+          const target = await lookup(process.env.DEPLOY_HOST, { family: 4 });
+          if (live.address !== target.address) {
+            throw new Error('Deployment target differs from current public DNS; verify the production connection before deploying.');
+          }
+          console.log('Deployment target matches current production DNS.');
+          NODE
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -45,6 +60,7 @@ jobs:
         run: |
           test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.3"
           npm run locale:check
+          npx tsx --test scripts/home-closing.test.ts
 
       - name: Verify AI access aggregation
         run: |
@@ -198,30 +214,14 @@ jobs:
           #      관리자에서 수정한 기존 값은 migrate-content가 덮어쓰지 않는다.
           node scripts/migrate-content.mjs
 
-          # 5) 챗봇(Qwen) 키 — GitHub Secrets 에 QWEN_API_KEY 가 있을 때만 갱신
+          # 5) UI releases preserve server-owned runtime secrets unchanged.
+          #    Rotate API keys separately through protected server-side secret management;
+          #    never interpolate their values into the remote shell script.
           sed -i '/^CLINIC_UPLOAD_DIR=/d;/^CLINIC_UPLOAD_PUBLIC_PREFIX=/d' ~/app/.env
           echo "CLINIC_UPLOAD_DIR=$upload_root" >> ~/app/.env
           echo 'CLINIC_UPLOAD_PUBLIC_PREFIX=/uploads' >> ~/app/.env
-          QWEN_KEY='${{ secrets.QWEN_API_KEY }}'
-          if [ -n "$QWEN_KEY" ]; then
-            sed -i '/^QWEN_API_KEY=/d' ~/app/.env
-            echo "QWEN_API_KEY=$QWEN_KEY" >> ~/app/.env
-          fi
           grep -q '^QWEN_MODEL=' ~/app/.env || echo 'QWEN_MODEL=qwen3.6-flash' >> ~/app/.env
-
-          # 5.5) 관리자 글쓰기 도우미(Claude) 키 — GitHub Secrets 에 ANTHROPIC_API_KEY 가 있을 때만 갱신
-          ANTHROPIC_KEY='${{ secrets.ANTHROPIC_API_KEY }}'
-          if [ -n "$ANTHROPIC_KEY" ]; then
-            sed -i '/^ANTHROPIC_API_KEY=/d' ~/app/.env
-            echo "ANTHROPIC_API_KEY=$ANTHROPIC_KEY" >> ~/app/.env
-          fi
-
-          # 5.6) Core 관리자 번역 키 — secret이 없으면 서버의 기존 값 보존
-          OPENAI_KEY='${{ secrets.OPENAI_API_KEY }}'
-          if [ -n "$OPENAI_KEY" ]; then
-            sed -i '/^OPENAI_API_KEY=/d' ~/app/.env
-            echo "OPENAI_API_KEY=$OPENAI_KEY" >> ~/app/.env
-          fi
+          chmod 600 ~/app/.env
 
           # 6) standalone 전체를 버전별 불변 릴리스로 승격한다.
           #    server.js와 node_modules를 같은 빌드에서 사용해야 프레임워크 업그레이드가 안전하다.

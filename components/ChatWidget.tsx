@@ -531,6 +531,7 @@ export function ChatWidget() {
       <div className="pointer-events-none fixed bottom-7 right-6 z-50 hidden flex-col items-end gap-2 lg:flex">
         {/* Action chips (visible by default; hidden when chat is activated) */}
         <div
+          data-contact-speed-dial
           className={`flex flex-col items-end gap-2 transition-all duration-300 ${
             desktopOpen && !chatOpen
               ? "pointer-events-auto translate-y-0 opacity-100"
