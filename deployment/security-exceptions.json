@@ -1,0 +1,20 @@
+{
+  "reviewedOn": "2026-11-02",
+  "reviewedBy": "Codex deployment preflight",
+  "timeZone": "Asia/Seoul",
+  "exceptions": [
+    {
+      "packages": ["prisma", "@prisma/config", "deepmerge-ts"],
+      "severity": "high",
+      "decision": "Defer the existing Prisma 6 CLI/config advisory chain for this UI-only release",
+      "expiresOn": "2026-11-16",
+      "owner": "repository-owner",
+      "constraints": [
+        "Prisma CLI and configuration loading run only on repository-controlled deployment inputs",
+        "Untrusted HTTP requests cannot supply Prisma configuration or migration code",
+        "This release changes no dependencies, database schema or migration files"
+      ],
+      "followUp": "Validate clinic-core compatibility with Prisma 7, then upgrade the Prisma CLI/config dependency chain in a separate release before expiry"
+    }
+  ]
+}

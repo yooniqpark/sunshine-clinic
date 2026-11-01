@@ -353,3 +353,10 @@ body {
   -webkit-user-select: none;
   -webkit-touch-callout: none;
 }
+
+/* The home ending already contains these actions; keep its information unobscured. */
+@media (min-width: 1101px) and (min-height: 640px) {
+  body:has([data-home-closing][data-phase="contact"]) [data-contact-speed-dial] {
+    display: none;
+  }
+}

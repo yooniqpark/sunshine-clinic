@@ -1,4 +1,15 @@
 {
+  "homeClosing": {
+    "careNote": "从肌肤困扰\n到日常的细微变化\n我们愿意倾听您的故事",
+    "treatmentNavigation": "了解诊疗项目",
+    "contactTitle": "关于肌肤的第一次咨询\n从这里开始",
+    "footerNavigation": "诊所信息与咨询渠道",
+    "clinicInformation": "Sunshine指南",
+    "newsTitle": "Sunshine最新动态",
+    "visitTitle": "前往Sunshine",
+    "mapLabel": "查看地图",
+    "kakaoLabel": "通过KakaoTalk咨询"
+  },
   "brand": {
     "name": "SUNSHINE",
     "label": "Skin Clinic"

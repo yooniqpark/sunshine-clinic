@@ -1,0 +1,153 @@
+.scene {
+  --closing-bg: var(--closing-paper);
+  --closing-ink: #483b30;
+  --closing-line: rgb(72 59 48 / 24%);
+  --closing-gutter: clamp(20px, 4.2vw, 72px);
+  --closing-header-gap: 104px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) clamp(216px, 18vw, 280px);
+  column-gap: 24px;
+  padding: 48px 24px 0 var(--closing-gutter);
+  background-color: var(--closing-bg);
+  color: var(--closing-ink);
+  transition: background-color 650ms ease, color 450ms ease;
+}
+
+.scene[data-phase="care"] {
+  --closing-bg: var(--closing-care);
+  --closing-ink: var(--closing-light);
+  --closing-line: rgb(247 241 232 / 25%);
+}
+
+.scene[data-phase="contact"] {
+  --closing-bg: var(--closing-dark);
+  --closing-ink: var(--closing-light);
+  --closing-line: rgb(247 241 232 / 22%);
+}
+
+.care, .contact { min-width: 0; grid-column: 1; scroll-margin-top: 128px; }
+.care { padding-bottom: 88px; }
+.careFrame, .contactFrame { container-type: inline-size; min-width: 0; border: 1px solid var(--closing-line); }
+.careFrame { padding: 28px 0 0; }
+.eyebrow { font-size: 10px; line-height: 1.5; font-weight: 500; letter-spacing: .16em; }
+.careFrame > .eyebrow { padding-inline: 24px; }
+.display { margin-top: 48px; font-family: var(--font-serif); font-size: min(14.5cqw, 144px); font-weight: 400; line-height: .81; letter-spacing: -.055em; }
+.display > span { display: block; white-space: nowrap; }
+.display > span + span { margin-top: .1em; }
+.careContent { display: grid; grid-template-columns: .8fr 1.2fr; gap: 36px; margin-top: 80px; padding: 0 28px 48px; }
+.careNote { align-self: end; padding-bottom: 10px; }
+.careNote p { margin-top: 20px; max-width: 210px; white-space: pre-line; font-size: 15px; line-height: 1.85; word-break: keep-all; }
+.treatments { min-width: 0; }
+.treatments > a { display: flex; align-items: center; gap: 18px; min-height: 82px; padding: 20px 0; border-top: 1px solid var(--closing-line); font-size: 25px; font-weight: 400; letter-spacing: -.04em; line-height: 1.45; word-break: keep-all; }
+.treatments > a:last-child { border-bottom: 1px solid var(--closing-line); }
+.number { align-self: flex-start; margin-top: 7px; font-size: 10px; letter-spacing: .04em; }
+.treatments svg { width: 24px; height: 24px; flex-shrink: 0; margin-left: auto; transition: transform 250ms ease; }
+.treatments a:hover svg { transform: translate(3px, -3px); }
+.scene a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+
+.contact { color: var(--closing-light); padding: 36px 0 28px; }
+.contactFrame { display: flex; flex-direction: column; border-color: rgb(247 241 232 / 22%); background: var(--closing-dark); padding-bottom: 28px; }
+.contactIntro { width: 56%; margin-left: 44%; padding: 56px 28px 70px 0; }
+.contactCopy, .contactLinks { min-width: 0; }
+.contactIntro h2 { margin-top: 24px; font-size: 28px; line-height: 1.6; font-weight: 400; letter-spacing: -.045em; word-break: keep-all; white-space: pre-line; }
+.contactDescription { margin-top: 18px; font-size: 14px; line-height: 1.9; color: rgb(247 241 232 / 74%); white-space: pre-line; word-break: keep-all; }
+.actions { display: flex; flex-wrap: wrap; gap: 24px 30px; margin-top: 36px; }
+.actions > a { display: inline-flex; align-items: center; gap: 12px; font-size: 13px; }
+.actions > a > svg { width: 16px; height: 16px; }
+.icon { display: grid; place-items: center; width: 32px; height: 32px; flex-shrink: 0; background: var(--closing-light); color: var(--closing-dark); border-radius: 2px; }
+.icon svg { width: 17px; height: 17px; }
+.hours { margin-top: 30px; font-size: 11px; line-height: 1.8; color: rgb(247 241 232 / 72%); }
+.contactDisplay { font-family: var(--font-serif); font-size: min(12cqw, 144px); font-weight: 400; letter-spacing: -.055em; line-height: 1; white-space: nowrap; margin: auto 0 56px -2px; }
+.bottom { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; padding-inline: 28px; }
+.wordmark { display: flex; flex-direction: column; font-family: var(--font-serif); font-size: 24px; line-height: 1; letter-spacing: .06em; }
+.wordmark small { font-family: var(--font-sans); margin-top: 8px; font-size: 8px; letter-spacing: .3em; }
+.bottom nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 14px 24px; max-width: 65%; font-size: 12px; }
+.bottom nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.business { padding: 32px 28px 0; font-size: 10px; line-height: 1.9; color: rgb(247 241 232 / 65%); word-break: keep-all; }
+
+.rail { grid-column: 2; grid-row: 2; min-width: 0; padding: 36px 0 28px; }
+.railInner { display: flex; flex-direction: column; gap: 12px; max-height: calc(100svh - var(--closing-header-gap) - 28px); overflow-y: auto; transform: translateY(var(--closing-rail-shift, 0px)); scrollbar-width: thin; scrollbar-color: var(--closing-line) transparent; }
+.railLink, .railCard { border: 1px solid var(--closing-line); padding: 18px; }
+.railLink { display: flex; align-items: center; gap: 14px; }
+.railLink strong { display: block; font-size: 15px; line-height: 1.5; font-weight: 500; }
+.railLink small { display: block; margin-top: 5px; font-size: 8px; line-height: 1.6; letter-spacing: .12em; }
+.railCard h3 { margin-top: 16px; margin-bottom: 20px; font-size: 16px; font-weight: 400; line-height: 1.6; word-break: keep-all; }
+.railCard > .eyebrow { font-size: 8px; letter-spacing: .12em; }
+.railAction { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 42px; padding: 10px 0; border-top: 1px solid var(--closing-line); font-size: 12px; }
+.railAction svg { width: 17px; height: 17px; flex-shrink: 0; }
+.address { margin-top: -8px; margin-bottom: 16px; font-size: 12px; line-height: 1.8; word-break: keep-all; }
+.railChannels { display: flex; gap: 16px; padding: 10px 4px 0; }
+.railChannels a { display: grid; place-items: center; width: 36px; height: 36px; }
+.railChannels svg { width: 20px; height: 20px; }
+
+@media (min-width: 1101px) and (min-height: 640px) {
+  /* Fit the full ending at normal page zoom; never crop or scale its contents. */
+  .contactFrame { min-height: calc(100svh - var(--closing-header-gap) - 28px); padding-bottom: 24px; }
+  .contactIntro { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 24px; width: auto; margin: 0; padding: clamp(24px, 4svh, 40px) 24px clamp(20px, 3svh, 28px); }
+  .contactIntro h2 { margin-top: 16px; font-size: clamp(22px, 3svh, 28px); line-height: 1.4; }
+  .contactDescription { margin-top: 12px; font-size: 13px; line-height: 1.65; white-space: normal; }
+  .contactLinks { align-self: end; }
+  .actions { gap: 14px; margin-top: 0; }
+  .actions > a { min-height: 40px; }
+  .hours { margin-top: 18px; line-height: 1.65; }
+  .contactDisplay { font-size: clamp(64px, min(12cqw, 14svh), 124px); margin: auto 24px 24px; }
+  .bottom { gap: 20px; padding-inline: 24px; }
+  .wordmark { font-size: 22px; }
+  .bottom nav { gap: 12px 20px; font-size: 11px; }
+  .business { padding: 20px 24px 0; line-height: 1.6; }
+  .railInner { gap: 8px; }
+  .railLink, .railCard { padding: 12px; }
+  .railLink { gap: 12px; }
+  .railLink strong { font-size: 14px; line-height: 1.4; }
+  .railLink small { margin-top: 4px; }
+  .railCard h3 { margin-block: 10px; font-size: 14px; line-height: 1.45; }
+  .railAction { min-height: 36px; padding-block: 8px; }
+  .address { margin: 0 0 10px; line-height: 1.65; }
+  .railChannels { gap: 12px; padding: 4px 2px 0; }
+  .scene[data-phase="care"] .railAddress { display: none; }
+}
+
+@media (min-width: 1280px) {
+  .scene { --closing-header-gap: 136px; }
+}
+
+@media (max-width: 1100px), (max-height: 639px) {
+  .scene { grid-template-columns: minmax(0, 1fr); padding-inline: var(--closing-gutter); }
+  .careContent { grid-template-columns: .7fr 1.3fr; }
+  .rail { grid-column: 1; grid-row: auto; padding: 0 0 52px; }
+  .railInner { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; max-height: none; overflow: visible; transform: none; }
+  .railLink { align-self: stretch; }
+  .railChannels { grid-column: 1 / -1; }
+}
+
+@media (max-width: 760px) {
+  .scene { padding-top: 28px; }
+  .care, .contact { scroll-margin-top: 100px; }
+  .care { padding-bottom: 40px; }
+  .careFrame { padding-top: 22px; }
+  .careFrame > .eyebrow { padding-inline: 18px; font-size: 9px; }
+  .display { margin-top: 38px; }
+  .careContent { grid-template-columns: minmax(0, 1fr); gap: 36px; padding: 0 18px 32px; margin-top: 42px; }
+  .careNote { padding: 0; }
+  .careNote p { max-width: none; font-size: 14px; margin-top: 12px; white-space: normal; }
+  .eyebrow { font-size: 9px; }
+  .treatments > a { font-size: 23px; min-height: 76px; gap: 16px; }
+  .contact { padding-top: 16px; padding-bottom: 20px; }
+  .contactIntro { width: auto; margin: 0; padding: 36px 20px 44px; }
+  .contactIntro h2 { font-size: 25px; margin-top: 22px; }
+  .contactDescription { font-size: 13px; }
+  .actions { gap: 22px; }
+  .contactDisplay { margin-bottom: 38px; }
+  .bottom { flex-direction: column; padding-inline: 20px; gap: 30px; }
+  .bottom nav { justify-content: flex-start; max-width: none; gap: 16px 20px; font-size: 12px; }
+  .business { padding: 26px 20px 0; }
+  .rail { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+  .railInner { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .railCard, .railLink { padding: 20px; }
+  .railCard h3 { margin-block: 12px 18px; }
+  .railChannels { padding-top: 8px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene, .treatments svg { transition: none; }
+}

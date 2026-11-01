@@ -1,4 +1,15 @@
 {
+  "homeClosing": {
+    "careNote": "피부의 고민부터\n일상의 작은 변화까지\n당신의 이야기를 듣습니다",
+    "treatmentNavigation": "진료 분야 둘러보기",
+    "contactTitle": "당신의 피부를 위한\n첫 상담을 시작해 보세요",
+    "footerNavigation": "병원 정보와 상담 채널",
+    "clinicInformation": "선샤인 안내",
+    "newsTitle": "선샤인의 새로운 소식",
+    "visitTitle": "선샤인 오시는 길",
+    "mapLabel": "지도에서 보기",
+    "kakaoLabel": "카카오톡 상담"
+  },
   "brand": {
     "name": "SUNSHINE",
     "label": "Skin Clinic"

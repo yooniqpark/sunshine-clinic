@@ -7,6 +7,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from 'next/navigation';
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { HOME_CLOSING_COLORS, HOME_CLOSING_EVENT, type HomeClosingPhase } from "@/lib/home-closing";
 
 type SubItem = { label: string; href: string; sub?: string };
 type Column = { title: string; href?: string; items: SubItem[] };
@@ -24,10 +25,11 @@ export function PreviewHeader() {
   // ko 외 로케일은 메뉴 라벨이 길어 데스크톱 네비를 축소해 겹침·줄바꿈 방지
   const compact = locale !== "ko";
   const navItemSize = compact
-    ? "px-2 py-2 text-[13px] xl:px-2.5 xl:text-[15px]"
-    : "px-4 py-2 text-base lg:text-lg";
+    ? "px-2 py-2 text-[13px]"
+    : "px-2.5 py-2 text-[15px]";
 
   const [scrolled, setScrolled] = useState(false);
+  const [closingPhase, setClosingPhase] = useState<HomeClosingPhase>("paper");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -36,12 +38,23 @@ export function PreviewHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const onPhase = (event: Event) => {
+      const phase = (event as CustomEvent<HomeClosingPhase>).detail;
+      if (phase === "paper" || phase === "care" || phase === "contact") setClosingPhase(phase);
+    };
+    window.addEventListener(HOME_CLOSING_EVENT, onPhase);
+    return () => window.removeEventListener(HOME_CLOSING_EVENT, onPhase);
+  }, []);
+
   // 최상단: 투명 + 크림 텍스트 / 스크롤 후: 크림 배경 + 다크 텍스트
   const pathname = usePathname();
   const solid = scrolled || open || pathname.includes('/journal');
-  const nameColor = solid ? "text-ink" : "text-cream drop-shadow-md";
-  const subColor = solid ? "text-ink-soft/80" : "text-cream/80 drop-shadow";
-  const linkColor = solid ? "text-ink" : "text-cream drop-shadow-md";
+  const closing = /\/home\/?$/.test(pathname) && closingPhase !== "paper" && !open;
+  const lightText = closing || !solid;
+  const nameColor = lightText ? "text-cream drop-shadow-md" : "text-ink";
+  const subColor = lightText ? "text-cream/80 drop-shadow" : "text-ink-soft/80";
+  const linkColor = lightText ? "text-cream drop-shadow-md" : "text-ink";
 
   const subMenu = (slug: string) =>
     (t.raw(`subMenus.${slug}`) as SubItem[]) ?? [];
@@ -103,13 +116,16 @@ export function PreviewHeader() {
 
   return (
     <header
+      data-site-header
+      data-closing-tone={closing ? closingPhase : undefined}
+      style={closing ? { backgroundColor: HOME_CLOSING_COLORS[closingPhase] } : undefined}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         solid
           ? "bg-cream/85 backdrop-blur-lg after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-y-50 after:bg-ink/15"
           : "bg-transparent after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-y-50 after:bg-cream/25"
       }`}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 lg:h-28 lg:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 xl:h-28 xl:px-8">
         <Link
           href="/home"
           onClick={() => setOpen(false)}
@@ -120,16 +136,16 @@ export function PreviewHeader() {
             alt=""
             width={64}
             height={64}
-            className="h-12 w-12 -translate-y-[3px] object-contain lg:h-16 lg:w-16"
+            className={`h-12 w-12 -translate-y-[3px] object-contain xl:h-16 xl:w-16 ${closing ? "brightness-0 invert" : ""}`}
           />
           <div className="flex flex-col leading-none">
             <span
-              className={`font-serif text-xl font-normal tracking-tight transition lg:text-[26px] ${nameColor}`}
+              className={`font-serif text-xl font-normal tracking-tight transition xl:text-[26px] ${nameColor}`}
             >
               {tBrand("name")}
             </span>
             <span
-              className={`-mt-1 pl-[0.24em] text-center font-serif text-[11px] font-normal uppercase tracking-[0.24em] transition lg:-mt-1.5 lg:text-[13px] ${subColor}`}
+              className={`-mt-1 pl-[0.24em] text-center font-serif text-[11px] font-normal uppercase tracking-[0.24em] transition xl:-mt-1.5 xl:text-[13px] ${subColor}`}
             >
               {tBrand("label")}
             </span>
@@ -137,7 +153,7 @@ export function PreviewHeader() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-1 lg:flex">
+        <nav className="hidden items-center gap-1 xl:flex">
           {NAV.map((item) => (
             <div
               key={item.key}
@@ -195,10 +211,10 @@ export function PreviewHeader() {
             </div>
           ))}
           <div className={`flex items-center ${compact ? "ml-1.5 gap-2" : "ml-3 gap-3"}`}>
-            <LanguageSwitcher tone={solid ? "light" : "dark"} />
+            <LanguageSwitcher tone={lightText ? "dark" : "light"} />
             <Link
               href="/home#book"
-              className={`whitespace-nowrap rounded-full bg-ink py-2 text-xs font-semibold text-cream transition hover:bg-brand-dark ${compact ? "px-3.5" : "px-5"}`}
+              className={`whitespace-nowrap rounded-full py-2 text-xs font-semibold transition ${closing ? "bg-cream text-ink hover:bg-brand-soft" : "bg-ink text-cream hover:bg-brand-dark"} ${compact ? "px-3.5" : "px-5"}`}
             >
               {t("ctaBook")}
             </Link>
@@ -206,13 +222,13 @@ export function PreviewHeader() {
         </nav>
 
         {/* Mobile: language + toggle */}
-        <div className="flex items-center gap-3 lg:hidden">
-          <LanguageSwitcher variant="compact" tone={solid ? "light" : "dark"} />
+        <div className="flex items-center gap-3 xl:hidden">
+          <LanguageSwitcher variant="compact" tone={lightText ? "dark" : "light"} />
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             className={`grid h-11 w-11 place-items-center rounded-full border transition ${
-              solid ? "border-line text-ink" : "border-cream/40 text-cream"
+              lightText ? "border-cream/40 text-cream" : "border-line text-ink"
             }`}
             aria-label={open ? t("menuClose") : t("menuOpen")}
           >
@@ -225,10 +241,10 @@ export function PreviewHeader() {
       {open && (
         <>
           <div
-            className="fixed inset-0 top-20 z-30 bg-ink/50 backdrop-blur-sm lg:hidden"
+            className="fixed inset-0 top-20 z-30 bg-ink/50 backdrop-blur-sm xl:hidden"
             onClick={() => setOpen(false)}
           />
-          <div className="fixed inset-x-0 top-20 z-40 max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 lg:hidden">
+          <div className="fixed inset-x-0 top-20 z-40 max-h-[calc(100vh-5rem)] overflow-y-auto border-b border-line bg-cream shadow-xl shadow-ink/15 xl:hidden">
             <nav className="mx-auto max-w-7xl px-5 py-3">
               {NAV.map((item) => {
                 const isExpanded = mobileOpen === item.key;
