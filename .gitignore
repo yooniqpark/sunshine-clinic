@@ -60,3 +60,6 @@ _demo-record.ts
 
 # clinic-core sync 가 복사하는 파일
 prisma/core.prisma
+
+# blog-pipeline 스킬 작업 폴더 (원고·이미지·ChatGPT 피드백)
+/blog-work/
