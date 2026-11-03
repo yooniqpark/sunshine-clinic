@@ -13,6 +13,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { pageSeo } from "@yooniqpark/clinic-core/lib/seo";
 import { getManagedPopupEvents } from "@/lib/managed-events";
+import { ChineseAiConcierge } from "../_components/ChineseAiConcierge";
 
 export const dynamic = "force-dynamic";
 
@@ -191,6 +192,8 @@ export default async function PreviewHome({
           </Link>
         </div>
       </GlassRise>
+
+      <ChineseAiConcierge locale={locale} />
 
       {/* The home-only treatment / contact ending is composed outside main in the locale shell. */}
     </>
