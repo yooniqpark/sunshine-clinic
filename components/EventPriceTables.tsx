@@ -84,8 +84,8 @@ export function ListTable({ category, theme: t }: { category: CampaignCategory; 
           </div>
           <div className="shrink-0 text-right">
             {row.original && (
-              <p className="text-[9px] line-through lg:text-[10px]" style={{ color: t.meta }}>
-                <Won value={row.original} unitColor={t.unit} />
+              <p className="text-[9px] lg:text-[10px]" style={{ color: t.meta }}>
+                <Won value={row.original} unitColor={t.unit} strikeNumber />
               </p>
             )}
             <p
@@ -102,16 +102,21 @@ export function ListTable({ category, theme: t }: { category: CampaignCategory; 
 }
 
 /** "100만원" → 숫자는 강조, 만원 단위는 작게 */
-export function Won({ value, unitColor }: { value: string; unitColor: string }) {
+export function Won({ value, unitColor, strikeNumber = false }: {
+  value: string;
+  unitColor: string;
+  strikeNumber?: boolean;
+}) {
   const locale = useLocale();
   const { num, unit } = formatPrice(value, locale);
-  if (!unit) return <>{num}</>;
   return (
     <>
-      {num}
-      <em className="ml-0.5 text-[0.72em] font-semibold not-italic" style={{ color: unitColor }}>
-        {unit}
-      </em>
+      {strikeNumber ? <span className="line-through">{num}</span> : num}
+      {unit && (
+        <em className="ml-0.5 text-[0.72em] font-semibold not-italic" style={{ color: unitColor }}>
+          {unit}
+        </em>
+      )}
     </>
   );
 }
