@@ -1,9 +1,42 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {execFileSync} from 'node:child_process';
+import {createRequire} from 'node:module';
 import test from 'node:test';
+import {createElement} from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {ListTable, Won} from '../components/EventPriceTables.tsx';
 import {POPUP_EVENTS} from '../lib/event-popup.ts';
 import {formatPrice} from '../lib/event-popup-i18n.ts';
+
+// TSX loads app components through CJS in this repository. Match its provider
+// resolution so ESM/CJS exports do not create two separate intl contexts.
+const {NextIntlClientProvider}=createRequire(import.meta.url)('next-intl');
+
+function renderPrice(locale, component) {
+  return renderToStaticMarkup(createElement(NextIntlClientProvider,
+    {locale,messages:{},timeZone:'Asia/Seoul'},component));
+}
+
+test('original-price strike applies only to numeric text, never the currency unit or parent', () => {
+  const event=POPUP_EVENTS.find(event=>event.id==='november-2026');
+  const category={...event.categories[0],rows:[event.categories[0].rows[0]]};
+  for (const locale of ['ko','en','ja','zh']) {
+    const expected=formatPrice('190~200만원',locale);
+    const html=renderPrice(locale,createElement(ListTable,{category,theme:event.theme}));
+    assert.doesNotMatch(html,/<p[^>]*line-through/);
+    assert.deepEqual([...html.matchAll(/<span class="line-through">([^<]*)<\/span>/g)].map(match=>match[1]),[expected.num]);
+    assert(html.includes(`${expected.unit}</em>`));
+    assert(html.includes(formatPrice('150만원',locale).num));
+  }
+});
+
+test('normal event prices have no strike decoration', () => {
+  const html=renderPrice('ko',createElement(Won,{value:'150만원',unitColor:'#333333'}));
+  assert.doesNotMatch(html,/line-through/);
+  assert(html.includes('150'));
+  assert(html.includes('만원</em>'));
+});
 
 test('base-price ranges localize both endpoints without Korean leaking into other locales', () => {
   for (const separator of ['~', '-', '–']) {
