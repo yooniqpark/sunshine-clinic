@@ -13,7 +13,7 @@ import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { pageSeo } from "@yooniqpark/clinic-core/lib/seo";
 import { getManagedPopupEvents } from "@/lib/managed-events";
-import { ChineseAiConcierge } from "../_components/ChineseAiConcierge";
+import { AiConcierge } from "../_components/AiConcierge";
 
 export const dynamic = "force-dynamic";
 
@@ -123,6 +123,11 @@ export default async function PreviewHome({
       </section>
       )}
 
+      {/* Keep a brand-colored overlap beneath the equipment panel's rounded edge. */}
+      <div data-ai-before-equipment className="bg-[var(--ai-concierge-surface)] pb-10 lg:pb-14">
+        <AiConcierge locale={locale} />
+      </div>
+
       {/* ═══════ 5. SIGNATURE SELECTION — 유리 패널로 떠오르는 제품 슬라이드 ═══════ */}
       <GlassRise className="relative z-10 -mt-10 overflow-hidden rounded-t-[2.25rem] border-t border-white/50 bg-[#e9e0d5]/80 py-14 text-ink backdrop-blur-xl lg:-mt-14 lg:py-32">
         <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
@@ -192,8 +197,6 @@ export default async function PreviewHome({
           </Link>
         </div>
       </GlassRise>
-
-      <ChineseAiConcierge locale={locale} />
 
       {/* The home-only treatment / contact ending is composed outside main in the locale shell. */}
     </>

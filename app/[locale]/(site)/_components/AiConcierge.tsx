@@ -1,24 +1,24 @@
 import { OpenClinicChatButton } from "@/components/OpenClinicChatButton";
 import { ArrowUpRightIcon } from "@/components/icons";
-import {
-  CHINESE_AI_CONCIERGE_COPY,
-  shouldShowChineseAiConcierge,
-} from "@/lib/chinese-ai-concierge";
-import styles from "./ChineseAiConcierge.module.css";
+import { getAiConciergeCopy } from "@/lib/ai-concierge";
+import { AiConversationPreview } from "./AiConversationPreview";
+import styles from "./AiConcierge.module.css";
 
-/** Chinese landing-only introduction to the clinic's existing AI concierge. */
-export function ChineseAiConcierge({ locale }: { locale: string }) {
-  if (!shouldShowChineseAiConcierge(locale)) return null;
-
-  const copy = CHINESE_AI_CONCIERGE_COPY;
+/** Localized introduction to the shared chat; model attribution is Chinese-only. */
+export function AiConcierge({ locale }: { locale: string }) {
+  const copy = getAiConciergeCopy(locale);
+  if (!copy) return null;
 
   return (
     <section
-      id="chinese-ai-concierge"
-      aria-labelledby="chinese-ai-concierge-title"
-      lang="zh-CN"
+      id="ai-concierge"
+      data-ai-concierge
+      data-locale={locale}
+      aria-labelledby="ai-concierge-title"
+      lang={locale === "zh" ? "zh-CN" : locale}
       className={styles.section}
     >
+      {locale === "zh" && <span id="chinese-ai-concierge" className={styles.legacyAnchor} aria-hidden="true" />}
       <div className={styles.container}>
         <div className={styles.context}>
           <span>{copy.context}</span>
@@ -26,19 +26,9 @@ export function ChineseAiConcierge({ locale }: { locale: string }) {
         </div>
 
         <div className={styles.hero}>
-          <div className={styles.orbArea} aria-hidden="true">
-            <div className={styles.outerOrbit} />
-            <div className={styles.innerOrbit} />
-            <div className={styles.orb} />
-            <div className={styles.orbCaption}>
-              <span>{copy.orbTitle}</span>
-              <span>{copy.orbSubtitle}</span>
-            </div>
-          </div>
-
           <div className={styles.copy}>
             <p className={styles.eyebrow}>{copy.eyebrow}</p>
-            <h2 id="chinese-ai-concierge-title" className={styles.title}>
+            <h2 id="ai-concierge-title" className={styles.title}>
               {copy.title.map((line) => <span key={line}>{line}</span>)}
             </h2>
             <p className={styles.description}>
@@ -48,11 +38,20 @@ export function ChineseAiConcierge({ locale }: { locale: string }) {
               {copy.action}
               <ArrowUpRightIcon aria-hidden="true" className={styles.actionIcon} />
             </OpenClinicChatButton>
-            <div className={styles.model}>
-              <span className={styles.modelLabel}>{copy.modelLabel}</span>
-              <span className={styles.modelProvider}>{copy.modelProvider}</span>
-            </div>
+            <p className={styles.previewHint}>{copy.preview.hint}</p>
+            {locale === "zh" && copy.provider && (
+              <div className={styles.model}>
+                <span className={styles.modelLabel}>{copy.provider.label}</span>
+                <span className={styles.modelProvider}>{copy.provider.name}</span>
+              </div>
+            )}
           </div>
+
+          <AiConversationPreview
+            key={locale}
+            copy={copy.preview}
+            brandTitle={copy.orbTitle}
+          />
         </div>
 
         <ol className={styles.steps}>
@@ -66,7 +65,7 @@ export function ChineseAiConcierge({ locale }: { locale: string }) {
 
         <div className={styles.notes}>
           <p>{copy.disclaimer}</p>
-          <p>{copy.providerNote}</p>
+          {locale === "zh" && copy.provider && <p>{copy.provider.note}</p>}
         </div>
       </div>
     </section>

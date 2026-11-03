@@ -44,6 +44,13 @@
 :root {
   --background: var(--color-cream);
   --foreground: var(--color-ink);
+  /* Capture the clinic's original palette here, before locale overrides. */
+  --sunshine-cream: var(--color-cream);
+  --sunshine-ink: var(--color-ink);
+  --sunshine-ink-soft: var(--color-ink-soft);
+  --sunshine-brand: var(--color-brand);
+  --sunshine-brand-dark: var(--color-brand-dark);
+  --sunshine-brand-soft: var(--color-brand-soft);
 }
 
 /* ===== Locale-specific themes ===== */
@@ -97,6 +104,13 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+/* This section and its matching header always use the Sunshine clinic palette.
+   Other sections retain their existing locale-specific theme. */
+[data-theme] {
+  --ai-concierge-surface: var(--sunshine-cream);
+  --ai-concierge-foreground: var(--sunshine-ink);
 }
 
 body {
