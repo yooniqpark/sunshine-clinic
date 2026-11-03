@@ -7,7 +7,7 @@ const hangul = /[가-힣]/;
 function collectHangul(value: unknown, path = "events", found: string[] = []): string[] {
   if (typeof value === "string") {
     // Price strings are localized at render time by formatPrice().
-    if (hangul.test(value) && !/^[\d.]+만원/.test(value)) {
+    if (hangul.test(value) && !/^[\d.]+(?:\s*[~–-]\s*[\d.]+)?만원/.test(value)) {
       found.push(`${path}: ${value}`);
     }
     return found;

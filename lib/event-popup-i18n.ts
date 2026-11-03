@@ -727,13 +727,14 @@ export function tr(text: string, locale: string): string {
  * ko/ja/zh는 만 단위를 그대로 쓰고, en만 실제 금액으로 환산한다.
  */
 export function formatPrice(value: string, locale: string) {
-  const m = value.match(/^([\d.]+)만원(.*)$/);
+  const m = value.match(/^(\d+(?:\.\d+)?)(?:\s*[~–-]\s*(\d+(?:\.\d+)?))?만원(.*)$/);
   if (!m) return { num: value, unit: "" };
-  const [, digits, tail] = m;
+  const [, lower, upper, tail] = m;
+  const digits = upper ? `${lower}–${upper}` : lower;
 
   if (locale === "en") {
-    const won = Math.round(parseFloat(digits) * 10000);
-    return { num: won.toLocaleString("en-US"), unit: ` KRW${tail}` };
+    const won = (amount: string) => Math.round(Number(amount) * 10000).toLocaleString("en-US");
+    return { num: upper ? `${won(lower)}–${won(upper)}` : won(lower), unit: ` KRW${tail}` };
   }
   if (locale === "ja") return { num: digits, unit: `万ウォン${tail}` };
   if (locale === "zh") return { num: digits, unit: `万韩元${tail}` };
