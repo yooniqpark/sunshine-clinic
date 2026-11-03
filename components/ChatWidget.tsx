@@ -13,10 +13,10 @@ import {
   SparkleIcon,
 } from "./icons";
 import { LocalizedDatePicker } from "./LocalizedDatePicker";
+import { OPEN_CLINIC_CHAT_EVENT } from "@/lib/clinic-chat-events";
 
 /* ────────────────────────────────────────────────────────────
-   Quick-action launcher (booking · KakaoTalk · phone · Naver).
-   AI chatbot is intentionally hidden — will return in a later release.
+   Quick-action launcher and the shared AI conversation / booking panel.
    ──────────────────────────────────────────────────────────── */
 
 type View = "actions" | "booking";
@@ -61,6 +61,27 @@ export function ChatWidget() {
   // closing: 닫는 중 — 대화창이 먼저 내려가고 이어서 좌우로 줄어든 뒤 언마운트
   const [panelIn, setPanelIn] = useState(false);
   const [closing, setClosing] = useState(false);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    function openChat() {
+      if (closeTimerRef.current !== null) {
+        clearTimeout(closeTimerRef.current);
+        closeTimerRef.current = null;
+      }
+      setClosing(false);
+      setChatMinimized(false);
+      setDesktopOpen(true);
+      setView("actions");
+      setChatOpen(true);
+    }
+    window.addEventListener(OPEN_CLINIC_CHAT_EVENT, openChat);
+    return () => {
+      window.removeEventListener(OPEN_CLINIC_CHAT_EVENT, openChat);
+      if (closeTimerRef.current !== null) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
   useEffect(() => {
     if (chatOpen) {
       setClosing(false);
@@ -86,10 +107,12 @@ export function ChatWidget() {
 
   function closeChat() {
     // 위쪽(대화창·입력박스) 먼저 하강 → 좌우 축소(550ms 지연) → 언마운트
+    if (closeTimerRef.current !== null) clearTimeout(closeTimerRef.current);
     setClosing(true);
-    setTimeout(() => {
+    closeTimerRef.current = setTimeout(() => {
       setChatOpen(false);
       setClosing(false);
+      closeTimerRef.current = null;
     }, 1050);
   }
 
