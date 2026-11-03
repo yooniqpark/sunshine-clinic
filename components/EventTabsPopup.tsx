@@ -11,7 +11,7 @@ import { hideAllToday, isHiddenToday } from "@/lib/popup-prefs";
 const POPUP_ID = "sunshine-events-2026-v4";
 
 /**
- * 이벤트 팝업 — 상단(모바일)·좌측(데스크톱) 탭으로 두 이벤트를 오가고,
+ * 이벤트 팝업 — 상단(모바일)·좌측(데스크톱) 탭으로 이벤트를 오가고,
  * 포스터에서 CTA를 누르면 가격표로 전환된다. 데스크톱은 포스터·가격표 좌우 분할.
  */
 export function EventTabsPopup({
@@ -27,7 +27,7 @@ export function EventTabsPopup({
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(true);
   const [eventIdx, setEventIdx] = useState(0);
-  const [showPrice, setShowPrice] = useState(locale !== "ko"); // 모바일 전용
+  const [showPrice, setShowPrice] = useState(false); // 모바일은 모든 언어에서 사진부터 표시
   const [catIdx, setCatIdx] = useState(0);
 
   // 가격 숫자·표 구조는 그대로 두고 문구만 로케일에 맞춰 바꾼 사본을 쓴다
@@ -82,7 +82,7 @@ export function EventTabsPopup({
   function selectEvent(i: number) {
     setEventIdx(i);
     setCatIdx(0);
-    setShowPrice(locale !== "ko");
+    setShowPrice(false);
   }
 
   return (
@@ -161,7 +161,8 @@ export function EventTabsPopup({
         <div className="relative flex h-[86svh] max-h-[620px] min-h-[420px] w-full flex-col overflow-hidden rounded-b-[1.5rem] shadow-2xl shadow-black/35 lg:h-auto lg:max-h-none lg:min-h-0 lg:flex-1 lg:flex-row lg:rounded-none lg:shadow-none">
           {/* ── 포스터 (모바일: 가격표 보기 전 / 데스크톱: 항상) ── */}
           <div
-            className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${locale !== "ko" ? "hidden" : showPrice ? "hidden lg:block" : "block"}`}
+            data-event-poster
+            className={`relative min-h-0 flex-1 lg:w-[410px] lg:flex-none ${showPrice ? "hidden lg:block" : "block"}`}
             style={{ background: ev.posterBg ?? t.panel }}
           >
             <button
@@ -248,7 +249,8 @@ export function EventTabsPopup({
 
           {/* ── 가격 패널 ── */}
           <div
-            className={`flex min-h-0 min-w-0 flex-1 flex-col ${showPrice || locale !== "ko" ? "flex" : "hidden lg:flex"}`}
+            data-event-price-panel
+            className={`flex min-h-0 min-w-0 flex-1 flex-col ${showPrice ? "flex" : "hidden lg:flex"}`}
             style={{ background: t.panel }}
           >
             <PriceHeader ev={ev} />

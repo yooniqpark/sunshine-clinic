@@ -7,7 +7,6 @@ import { useState } from "react";
 import { ArrowUpRightIcon } from "@/components/icons";
 import { EventPriceSheet } from "@/components/EventPriceTables";
 import { POPUP_EVENTS } from "@/lib/event-popup";
-import { useLocale } from "next-intl";
 
 /** 게시판 항목 ↔ 팝업 이벤트 — 가격표를 팝업과 같은 데이터로 그린다 */
 const PRICE_SHEET_BY_SLUG: Record<string, string> = {
@@ -38,7 +37,6 @@ export function EventsBoard({
   items: EventEntry[];
   openTag: string;
 }) {
-  const locale = useLocale();
   const contact = useClinicContact();
   const [openSlug, setOpenSlug] = useState<string | null>(items[0]?.slug ?? null);
 
@@ -59,9 +57,9 @@ export function EventsBoard({
           (p) => p.id === PRICE_SHEET_BY_SLUG[e.slug],
         );
         // 가격표를 실데이터로 그리는 항목은 커버 포스터만 이미지로 남긴다
-        const coverImages = locale === "ko"
-          ? (priceEvent ? (e.images ?? []).slice(0, 1) : e.images ?? [])
-          : [];
+        const coverImages = priceEvent
+          ? (e.images ?? []).slice(0, 1)
+          : e.images ?? [];
         return (
           <li
             key={e.slug}

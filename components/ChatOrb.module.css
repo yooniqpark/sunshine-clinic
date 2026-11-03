@@ -1,0 +1,25 @@
+.root {
+  position: relative;
+  display: block;
+  width: var(--chat-orb-size, 64px);
+  height: var(--chat-orb-size, 64px);
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.glyph {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(var(--chat-orb-scale, 1));
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root * {
+    animation: none !important;
+  }
+}

@@ -2,12 +2,13 @@
 
 import { Link } from "@/i18n/navigation";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from 'next/navigation';
 import { MenuIcon, CloseIcon, ChevronDownIcon } from "@/components/icons";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { HOME_CLOSING_COLORS, HOME_CLOSING_EVENT, type HomeClosingPhase } from "@/lib/home-closing";
+import { conciergeIntersectsHeader, resolveHomeHeaderSurface } from "@/lib/ai-concierge-header";
 
 type SubItem = { label: string; href: string; sub?: string };
 type Column = { title: string; href?: string; items: SubItem[] };
@@ -22,6 +23,8 @@ export function PreviewHeader() {
   const t = useTranslations("v2.header");
   const tBrand = useTranslations("brand");
   const locale = useLocale();
+  const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
   // ko 외 로케일은 메뉴 라벨이 길어 데스크톱 네비를 축소해 겹침·줄바꿈 방지
   const compact = locale !== "ko";
   const navItemSize = compact
@@ -30,6 +33,7 @@ export function PreviewHeader() {
 
   const [scrolled, setScrolled] = useState(false);
   const [closingPhase, setClosingPhase] = useState<HomeClosingPhase>("paper");
+  const [conciergeAtHeader, setConciergeAtHeader] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -47,11 +51,49 @@ export function PreviewHeader() {
     return () => window.removeEventListener(HOME_CLOSING_EVENT, onPhase);
   }, []);
 
+  useEffect(() => {
+    const section = document.querySelector<HTMLElement>("[data-ai-concierge]");
+    const header = headerRef.current;
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const rect = section?.getBoundingClientRect();
+      setConciergeAtHeader(Boolean(rect && header && conciergeIntersectsHeader({
+        sectionTop: rect.top,
+        sectionBottom: rect.bottom,
+        headerBottom: header.getBoundingClientRect().bottom,
+      })));
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+    const observer = new ResizeObserver(schedule);
+    if (section) observer.observe(section);
+    if (header) observer.observe(header);
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    window.addEventListener("pageshow", schedule);
+    window.addEventListener("hashchange", schedule);
+    update();
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      window.removeEventListener("pageshow", schedule);
+      window.removeEventListener("hashchange", schedule);
+    };
+  }, [pathname]);
+
   // 최상단: 투명 + 크림 텍스트 / 스크롤 후: 크림 배경 + 다크 텍스트
-  const pathname = usePathname();
   const solid = scrolled || open || pathname.includes('/journal');
-  const closing = /\/home\/?$/.test(pathname) && closingPhase !== "paper" && !open;
-  const lightText = closing || !solid;
+  const surface = resolveHomeHeaderSurface({
+    pathname, menuOpen: open, conciergeAtHeader, closingPhase,
+  });
+  const concierge = surface === "concierge";
+  const closing = surface === "care" || surface === "contact";
+  const darkSurface = closing;
+  const lightText = !concierge && (darkSurface || !solid);
   const nameColor = lightText ? "text-cream drop-shadow-md" : "text-ink";
   const subColor = lightText ? "text-cream/80 drop-shadow" : "text-ink-soft/80";
   const linkColor = lightText ? "text-cream drop-shadow-md" : "text-ink";
@@ -116,11 +158,26 @@ export function PreviewHeader() {
 
   return (
     <header
+      ref={headerRef}
       data-site-header
-      data-closing-tone={closing ? closingPhase : undefined}
-      style={closing ? { backgroundColor: HOME_CLOSING_COLORS[closingPhase] } : undefined}
+      data-concierge-tone={concierge ? locale : undefined}
+      data-closing-tone={closing ? surface : undefined}
+      style={concierge
+        ? {
+            backgroundColor: "var(--ai-concierge-surface)",
+            color: "var(--ai-concierge-foreground)",
+            "--color-cream": "var(--sunshine-cream)",
+            "--color-ink": "var(--sunshine-ink)",
+            "--color-ink-soft": "var(--sunshine-ink-soft)",
+            "--color-brand": "var(--sunshine-brand)",
+            "--color-brand-dark": "var(--sunshine-brand-dark)",
+            "--color-brand-soft": "var(--sunshine-brand-soft)",
+          } as CSSProperties
+        : closing ? { backgroundColor: HOME_CLOSING_COLORS[surface] } : undefined}
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        solid
+        darkSurface
+          ? "after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-y-50 after:bg-cream/15"
+          : solid
           ? "bg-cream/85 backdrop-blur-lg after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-y-50 after:bg-ink/15"
           : "bg-transparent after:absolute after:inset-x-0 after:bottom-0 after:h-px after:origin-center after:scale-y-50 after:bg-cream/25"
       }`}
@@ -136,7 +193,7 @@ export function PreviewHeader() {
             alt=""
             width={64}
             height={64}
-            className={`h-12 w-12 -translate-y-[3px] object-contain xl:h-16 xl:w-16 ${closing ? "brightness-0 invert" : ""}`}
+            className={`h-12 w-12 -translate-y-[3px] object-contain xl:h-16 xl:w-16 ${darkSurface ? "brightness-0 invert" : ""}`}
           />
           <div className="flex flex-col leading-none">
             <span
@@ -170,7 +227,7 @@ export function PreviewHeader() {
               ) : (
                 <Link
                   href={item.href}
-                  className={`flex items-center gap-1 whitespace-nowrap rounded-full font-medium transition hover:text-brand-dark ${navItemSize} ${linkColor}`}
+                  className={`flex items-center gap-1 whitespace-nowrap rounded-full font-medium transition ${lightText ? "hover:text-cream/80" : "hover:text-brand-dark"} ${navItemSize} ${linkColor}`}
                 >
                   {item.label}
                 </Link>
@@ -214,7 +271,7 @@ export function PreviewHeader() {
             <LanguageSwitcher tone={lightText ? "dark" : "light"} />
             <Link
               href="/home#book"
-              className={`whitespace-nowrap rounded-full py-2 text-xs font-semibold transition ${closing ? "bg-cream text-ink hover:bg-brand-soft" : "bg-ink text-cream hover:bg-brand-dark"} ${compact ? "px-3.5" : "px-5"}`}
+              className={`whitespace-nowrap rounded-full py-2 text-xs font-semibold transition ${darkSurface ? "bg-cream text-ink hover:bg-brand-soft" : "bg-ink text-cream hover:bg-brand-dark"} ${compact ? "px-3.5" : "px-5"}`}
             >
               {t("ctaBook")}
             </Link>

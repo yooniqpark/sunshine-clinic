@@ -6,6 +6,7 @@ import test from 'node:test';
 import {createElement} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 import {ListTable, Won} from '../components/EventPriceTables.tsx';
+import {EventsBoard} from '../app/[locale]/(site)/community/events/EventsBoard.tsx';
 import {POPUP_EVENTS} from '../lib/event-popup.ts';
 import {formatPrice} from '../lib/event-popup-i18n.ts';
 
@@ -17,6 +18,30 @@ function renderPrice(locale, component) {
   return renderToStaticMarkup(createElement(NextIntlClientProvider,
     {locale,messages:{},timeZone:'Asia/Seoul'},component));
 }
+
+test('every locale keeps its event cover beside the localized price sheet', () => {
+  for (const locale of ['ko','en','ja','zh']) {
+    const messages=JSON.parse(readFileSync(new URL(`../messages/${locale}.json`,import.meta.url),'utf8'));
+    const item=messages.v2.events.items.find(event=>event.slug==='november-2026');
+    assert.ok(item.images?.length, `${locale}: cover image is configured`);
+    const html=renderPrice(locale,createElement(EventsBoard,{items:[item],openTag:item.tag}));
+    assert.match(html, /<figure/);
+    assert.ok(html.includes(encodeURIComponent(item.images[0].src)), `${locale}: existing cover is rendered`);
+    assert.ok(html.includes(formatPrice('150만원',locale).num), `${locale}: translated prices remain`);
+  }
+});
+
+test('mobile event popups start on the photo for every locale and reset it on tab changes', () => {
+  const source=readFileSync(new URL('../components/EventTabsPopup.tsx',import.meta.url),'utf8');
+  assert.match(source, /\[showPrice, setShowPrice\] = useState\(false\)/);
+  assert.match(source, /function selectEvent\(i: number\)\s*\{[^}]*setShowPrice\(false\)/);
+  assert.match(source, /onClick=\{\(\) => setShowPrice\(true\)\}/);
+  const poster=source.slice(source.indexOf('data-event-poster'),source.indexOf('data-event-price-panel'));
+  const price=source.slice(source.indexOf('data-event-price-panel'));
+  assert.match(poster, /showPrice \? "hidden lg:block" : "block"/);
+  assert.match(price, /showPrice \? "flex" : "hidden lg:flex"/);
+  assert.doesNotMatch(source, /locale\s*[!=]==?\s*["']ko["']/);
+});
 
 test('original-price strike applies only to numeric text, never the currency unit or parent', () => {
   const event=POPUP_EVENTS.find(event=>event.id==='november-2026');
