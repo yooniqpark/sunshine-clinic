@@ -41,7 +41,7 @@ export const AI_CONCIERGE_COPY = {
   ko: {
     ...identity,
     eyebrow: "SUNSHINE AI CONCIERGE",
-    title: ["내원 전 궁금함을,", "대화로 가볍게."],
+    title: ["내원 전 궁금함을", "대화로 가볍게"],
     description: [
       "병원 이용 안내부터 방문 예약까지,",
       "선샤인 AI가 차근차근 도와드립니다.",

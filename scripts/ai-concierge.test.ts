@@ -43,6 +43,10 @@ test("the preview keeps the original icon small with a thin rim without changing
   assert.doesNotMatch(widget, /--chat-orb-rim-width|--chat-orb-rim-filter/);
 });
 
+test("the Korean concierge heading has no comma or trailing period", () => {
+  assert.deepEqual(AI_CONCIERGE_COPY.ko.title, ["내원 전 궁금함을", "대화로 가볍게"]);
+});
+
 test("all supported languages have an introduction without an implicit fallback", () => {
   for (const locale of AI_CONCIERGE_LOCALES) assert.ok(getAiConciergeCopy(locale), locale);
   for (const locale of ["", "ZH", "zh-CN", "fr", "constructor", "__proto__"]) {
