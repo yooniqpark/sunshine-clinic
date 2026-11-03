@@ -220,13 +220,13 @@ const NOVEMBER_CATEGORIES: CampaignCategory[] = [
       {
         name: "울쎄라 400샷",
         desc: "셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택",
-        original: "140만원",
+        original: "190~200만원",
         event: "150만원",
       },
       {
         name: "써마지 600샷",
         desc: "셀르디엠 · 리투오 · 쥬베룩 볼륨 중 1개 선택",
-        original: "200만원",
+        original: "250~270만원",
         event: "190만원",
       },
       {

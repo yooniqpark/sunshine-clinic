@@ -61,6 +61,7 @@ jobs:
           test "$(node -p "require('./node_modules/@yooniqpark/clinic-core/package.json').version")" = "0.2.3"
           npm run locale:check
           npx tsx --test scripts/home-closing.test.ts
+          npx tsx --test scripts/event-prices.test.mjs
 
       - name: Verify AI access aggregation
         run: |
