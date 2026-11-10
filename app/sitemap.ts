@@ -5,12 +5,12 @@ import { getConcernsByCategory } from "@/lib/concerns";
 import koDevices from "@/content/devices-ko.json";
 import type { DeviceDetail } from "@/lib/devices";
 import { listBlogPosts } from '@/lib/blog';
+import { journalPostPath, publicJournalPosts } from '@/lib/blog-seo';
 export const dynamic = 'force-dynamic';
 
 const CATEGORIES = ["lifting", "anti-aging", "whitening", "acne", "skin-disease"];
 
 const STATIC_PATHS: { path: string; changeFrequency: "weekly" | "monthly"; priority: number }[] = [
-  { path: "", changeFrequency: "weekly", priority: 1 },
   { path: "/home", changeFrequency: "weekly", priority: 1 },
   { path: "/about", changeFrequency: "monthly", priority: 0.8 },
   { path: "/community/events", changeFrequency: "weekly", priority: 0.6 },
@@ -39,7 +39,6 @@ function treatmentPaths(): { path: string; changeFrequency: "monthly"; priority:
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const lastModified = new Date();
   const entries: MetadataRoute.Sitemap = [];
 
   for (const { path, changeFrequency, priority } of [...STATIC_PATHS, ...treatmentPaths()]) {
@@ -49,14 +48,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     entries.push({
       url: localeUrl(routing.defaultLocale, path),
-      lastModified,
       changeFrequency,
       priority,
       alternates: { languages },
     });
   }
 
-  entries.push({url:localeUrl('ko','/journal'),lastModified,changeFrequency:'weekly',priority:0.6});
-  for(const post of await listBlogPosts()) entries.push({url:localeUrl('ko',`/journal/${post.id}`),lastModified:new Date(post.updatedAt),changeFrequency:'monthly',priority:0.5});
+  const journalPosts = publicJournalPosts(await listBlogPosts());
+  const lastJournalEdit = journalPosts.reduce((latest, post) => Math.max(latest, Date.parse(post.updatedAt) || 0), 0);
+  entries.push({ url: localeUrl("ko", "/journal"), lastModified: lastJournalEdit ? new Date(lastJournalEdit) : undefined, changeFrequency: "weekly", priority: 0.6 });
+  for (const post of journalPosts) {
+    entries.push({ url: localeUrl("ko", journalPostPath(post.id)), lastModified: new Date(post.updatedAt), changeFrequency: "monthly", priority: 0.5 });
+  }
   return entries;
 }

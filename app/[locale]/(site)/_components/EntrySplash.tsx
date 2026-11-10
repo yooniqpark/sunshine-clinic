@@ -1,16 +1,7 @@
-"use client";
-
-import { useRouter } from "@/i18n/navigation";
+import { Link } from "@/i18n/navigation";
+import type { AppLocale } from "@/i18n/routing";
 
 export function EntrySplash({ locale }: { locale: string }) {
-  const router = useRouter();
-
-  function enter() {
-    router.push("/home", {
-      locale: locale as "ko" | "en" | "ja" | "zh",
-    });
-  }
-
   return (
     <div
       className="fixed inset-0 z-[100] overflow-hidden"
@@ -66,9 +57,10 @@ export function EntrySplash({ locale }: { locale: string }) {
         </p>
       </div>
 
-      <button
-        type="button"
-        onClick={enter}
+      <Link
+        href="/home"
+        locale={locale as AppLocale}
+        prefetch={false}
         aria-label="Enter Sunshine"
         className="absolute inset-0 h-full w-full cursor-pointer bg-transparent"
       />

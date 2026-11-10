@@ -63,6 +63,7 @@ jobs:
           npx tsx --test scripts/home-closing.test.ts scripts/ai-concierge.test.ts scripts/ai-concierge-header.test.ts
           npx tsx --test scripts/event-prices.test.mjs
           npx tsx --test scripts/clinic-chat.test.ts
+          npx tsx --test scripts/blog-seo.test.ts
 
       - name: Verify AI access aggregation
         run: |

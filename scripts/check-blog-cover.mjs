@@ -24,8 +24,9 @@ await call('/api/auth/callback/credentials', {
 response = await call('/api/admin/blog');
 assert.equal(response.status, 200, 'Local administrator must authenticate');
 const { posts } = await response.json();
-assert.ok(posts.length >= 2, 'Use a local fixture with two posts to verify stable order');
-const original = posts.at(-1), endpoint = `/api/admin/blog/${original.id}/cover`;
+const published = posts.filter(post => post.published);
+assert.ok(published.length >= 2, 'Use a local fixture with two distinct published posts to verify stable order');
+const original = published.at(-1), endpoint = `/api/admin/blog/${original.id}/cover`;
 const firstImage = original.html.match(/<img[^>]*src="([^"]+)"/)?.[1] || '';
 assert.equal(original.coverUrl, firstImage, 'Use a disposable local fixture with its default cover');
 
@@ -58,12 +59,20 @@ try {
   assert.deepEqual(refreshed.map(p => p.id), posts.map(p => p.id), 'Cover editing must preserve list order');
   assert.equal(refreshed.find(p => p.id === post.id).coverUrl, post.coverUrl, 'Cover must persist');
   const publicPage = await call('/journal', {}, false);
-  assert.ok((await publicPage.text()).includes(post.coverUrl), 'Public list must display the uploaded cover');
+  const publicCover = `/journal/${post.id}/cover?v=${encodeURIComponent(post.updatedAt)}`;
+  assert.ok((await publicPage.text()).includes(publicCover), 'Public list must display the uploaded cover URL');
+  const publishedImage = await call(publicCover, {}, false);
+  assert.equal(publishedImage.status, 200);
+  assert.equal(publishedImage.headers.get('content-type'), 'image/jpeg');
+  const sharedCover = await sharp(Buffer.from(await publishedImage.arrayBuffer())).metadata();
+  assert.equal(sharedCover.width, decoded.width);
+  assert.equal(sharedCover.height, decoded.height);
   await call(`/api/admin/blog/${post.id}`, { method: 'PATCH', headers: { 'content-type': 'application/json', origin }, body: JSON.stringify({ published: false }) });
   const draftUpload = await call(endpoint, { method: 'POST', body: form(), headers: { origin } });
   assert.equal(draftUpload.status, 200);
   assert.equal((await draftUpload.json()).post.published, false, 'Uploading a cover must not publish a draft');
   assert.equal((await call(`/journal/${post.id}`, {}, false)).status, 404);
+  assert.equal((await call(publicCover, {}, false)).status, 404, 'Draft cover must not be public');
 } finally {
   await call(`/api/admin/blog/${original.id}`, { method: 'PATCH', headers: { 'content-type': 'application/json', origin }, body: JSON.stringify({ published: original.published }) });
   response = await call(endpoint, { method: 'DELETE', headers: { origin } });

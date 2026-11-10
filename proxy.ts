@@ -1,7 +1,29 @@
 import { NextResponse, type NextRequest } from "next/server";
 import coreProxy from "@yooniqpark/clinic-core/proxy";
+import createIntlMiddleware from "next-intl/middleware";
+import { routing } from "@/i18n/routing";
+
+const koreanJournal = createIntlMiddleware({
+  locales: ["ko"],
+  defaultLocale: "ko",
+  localePrefix: routing.localePrefix,
+  localeDetection: false,
+  localeCookie: false,
+  alternateLinks: false,
+});
 
 export default function proxy(req: NextRequest) {
+  const pathname = req.nextUrl.pathname;
+  const journalAlias = pathname.match(/^\/(?:ko|en|ja|zh)(\/journal(?:\/.*)?)$/);
+  if (journalAlias) {
+    const target = req.nextUrl.clone();
+    target.pathname = journalAlias[1];
+    return NextResponse.redirect(target, 308);
+  }
+  if (pathname === "/journal" || pathname.startsWith("/journal/")) {
+    return koreanJournal(req);
+  }
+
   const response = coreProxy(req);
 
   // Auth.js requests a JSON redirect envelope for client-side signIn().
