@@ -7,11 +7,14 @@
 // next.config.ts 도 이 파일을 읽으므로 core 는 타입만 가져온다
 import type { ClinicConfig } from "@yooniqpark/clinic-core/clinic";
 
+const streetAddress = "올림픽로 102, 서일빌딩 10층";
+const clinicAddress = `서울특별시 송파구 ${streetAddress}`;
+
 export const clinicConfig = {
   slug: "sunshine",
   siteUrl: "https://mysunshineclinic.com",
 
-  name: "선샤인 클리닉",
+  name: "선샤인의원",
   nameEn: "SUNSHINE CLINIC",
   /** 브라우저 탭·OG siteName 등 영문 표기 */
   brand: "Sunshine Clinic",
@@ -37,7 +40,7 @@ export const clinicConfig = {
     phone: "02-421-7588",
     kakaoHref: "https://pf.kakao.com/_xoVzwX",
     naverBookingHref: "https://m.booking.naver.com/booking/13/bizes/1698236?theme=place&lang=ko&area=pll",
-    address: "서울특별시 송파구 잠실동 181-4",
+    address: clinicAddress,
     addressSub: "2호선 잠실새내역 4번 출구 도보 3분 · 건물 내 주차 가능",
     hours: [
       { day: "평일", time: "10:00 – 20:00" },
@@ -56,21 +59,21 @@ export const clinicConfig = {
 
   /** 구조화 데이터(JSON-LD) · 지도 */
   location: {
-    streetAddress: "잠실동 181-4",
+    streetAddress,
     locality: "송파구",
     region: "서울특별시",
     postalCode: "05557",
     country: "KR",
     lat: 37.511497620407,
     lng: 127.08201406387,
-    mapQuery: "대한민국 서울특별시 송파구 잠실동 181-4 선샤인의원",
+    mapQuery: `대한민국 ${clinicAddress} 선샤인의원`,
   },
   openingHours: [
     { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "20:00" },
     { days: ["Saturday"], opens: "10:00", closes: "16:00" },
   ],
   priceRange: "₩₩",
-  jsonLdDescription: "선샤인 클리닉 · 리프팅 · 안티에이징 · 화이트닝 · 여드름 · 피부질환을 진료합니다.",
+  jsonLdDescription: "잠실새내 선샤인의원 · 리프팅 · 안티에이징 · 색소 · 여드름 · 피부질환 진료 안내.",
   specialties: [
     { name: "리프팅", en: "Skin Lifting" },
     { name: "안티에이징", en: "Anti-aging Treatment" },

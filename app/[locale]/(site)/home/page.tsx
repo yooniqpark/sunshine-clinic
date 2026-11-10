@@ -11,7 +11,7 @@ import { GlassRise } from "@/components/GlassRise";
 import { getDevicesByCategory, getDeviceHeroMobileImage, getDeviceMarketing } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
 import { ArrowUpRightIcon } from "@/components/icons";
-import { pageSeo } from "@yooniqpark/clinic-core/lib/seo";
+import { homeCopy, homeMetadata } from "@/lib/home-seo";
 import { getManagedPopupEvents } from "@/lib/managed-events";
 import { AiConcierge } from "../_components/AiConcierge";
 
@@ -23,8 +23,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-  // title/description은 레이아웃 기본값 상속, canonical/hreflang/OG url만 페이지 경로로
-  return pageSeo({ locale, path: "/home" });
+  return homeMetadata(locale);
 }
 
 export default async function PreviewHome({
@@ -72,7 +71,7 @@ export default async function PreviewHome({
 
         <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center justify-center px-5 text-center lg:px-8">
           <p className="mb-6 text-[10px] font-medium tracking-[0.36em] text-cream/70 lg:text-[11px]">
-            SUNSHINE CLINIC
+            {homeCopy(locale).label}
           </p>
           <Reveal>
             <h1 className="font-serif text-[clamp(2.5rem,6vw,5rem)] font-normal leading-[1.1] tracking-tight text-cream">

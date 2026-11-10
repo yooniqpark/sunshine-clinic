@@ -8,6 +8,9 @@ import {
 } from "@/lib/devices";
 import { pageSeo, localeUrl } from "@yooniqpark/clinic-core/lib/seo";
 import { BreadcrumbJsonLd } from "@yooniqpark/clinic-core/components/JsonLd";
+import { RelatedJournal } from "../../../_components/RelatedJournal";
+
+export const dynamic = "force-dynamic";
 const FILLER_SLUGS = ["juvederm", "belotero"];
 
 const FILLER_SEO: Record<string, { title: string; description: string }> = {
@@ -186,6 +189,7 @@ export default async function FillerPage({
           </p>
         </div>
       </section>
+      <RelatedJournal locale={locale} treatmentPath="/treatments/anti-aging/filler" />
     </div>
   );
 }

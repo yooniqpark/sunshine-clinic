@@ -1,9 +1,9 @@
-# 선샤인 클리닉 (SUNSHINE CLINIC)
+# 선샤인의원 (SUNSHINE CLINIC)
 
 > 리프팅·안티에이징·화이트닝·홍조·여드름·피부질환을 진료합니다.
 > 정품 본사 장비와 공식 컨센서스 프로토콜에 기반한 근거 중심 진료를 제공.
 
-- 주소: 서울특별시 송파구 잠실동 181-4
+- 주소: 서울특별시 송파구 올림픽로 102, 서일빌딩 10층
 - 전화: 02-421-7588
 - 진료시간: 평일 10:00-20:00, 토요일 10:00-16:00, 일요일·공휴일 휴진
 - 언어: 한국어(기본), 영어, 일본어, 중국어 지원
@@ -23,12 +23,14 @@
 
 ## 커뮤니티
 
+- [닥터스 블로그](https://mysunshineclinic.com/journal): 김병현 대표원장의 한국어 진료 칼럼과 시술 안내
+
 - [이벤트](https://mysunshineclinic.com/community/events): 진행 중 프로그램·패키지·상담 프로모션
 - [비급여 수가표](https://mysunshineclinic.com/community/prices): 의료법 제45조에 따른 비급여 진료 항목 및 상한금액
 
 ## 다국어
 
-- 한국어(기본): https://mysunshineclinic.com/
-- English: https://mysunshineclinic.com/en
-- 日本語: https://mysunshineclinic.com/ja
-- 中文: https://mysunshineclinic.com/zh
+- 한국어(기본): https://mysunshineclinic.com/home
+- English: https://mysunshineclinic.com/en/home
+- 日本語: https://mysunshineclinic.com/ja/home
+- 中文: https://mysunshineclinic.com/zh/home

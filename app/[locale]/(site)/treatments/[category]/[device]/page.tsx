@@ -19,6 +19,7 @@ import concernsKoData from "@/content/concerns-ko.json";
 import { getConcern, type Concern } from "@/lib/concerns";
 import type { DeviceDetail } from "@/lib/devices";
 import type { AppLocale } from "@/i18n/routing";
+import { RelatedJournal } from "../../../_components/RelatedJournal";
 import { pageSeo, truncateDescription, localeUrl } from "@yooniqpark/clinic-core/lib/seo";
 import {
   MedicalProcedureJsonLd,
@@ -439,6 +440,8 @@ export default async function DevicePage({
         </section>
       )}
 
+      <RelatedJournal locale={locale} treatmentPath={`/treatments/${category}/${d.slug}`} />
+
       {/* CTA */}
       <section className="bg-ink py-24 text-cream lg:py-32">
         <div className="mx-auto max-w-5xl px-5 text-center lg:px-8">
@@ -748,6 +751,8 @@ async function ConcernPage({
           </div>
         </section>
       )}
+
+      <RelatedJournal locale={locale} treatmentPath={`/treatments/${category}/${concern.slug}`} />
 
       {/* CTA */}
       <section className="bg-ink py-24 text-cream lg:py-32">
