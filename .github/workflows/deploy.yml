@@ -65,6 +65,9 @@ jobs:
           npx tsx --test scripts/clinic-chat.test.ts
           npx tsx --test scripts/blog-seo.test.ts
 
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
       - name: Verify AI access aggregation
         run: |
           python3 scripts/test-ai-access.py
@@ -96,6 +99,7 @@ jobs:
         run: |
           mkdir -p release/.next
           cp -R .next/standalone/. release/
+          node scripts/package-prisma-cli.mjs release
           # Next standalone tracing can omit Sharp's platform-specific optional
           # packages when the module is loaded lazily by the upload adapter.
           # Ship the Linux packages installed on this Actions runner explicitly.
@@ -123,6 +127,11 @@ jobs:
           cp deployment/sunshine-ai-access.service deployment/sunshine-ai-access.timer release/deployment/
           cp prisma/current-events.json release/prisma/current-events.json
           rm -f release/prisma/dev.db
+          (
+            cd release
+            DATABASE_URL="file:$PWD/prisma/package-smoke.db" node scripts/deploy-migrations.mjs
+          )
+          rm -f release/prisma/package-smoke.db
           # 과거 macOS 복사 과정에서 생긴 AppleDouble 파일은 Prisma가
           # 스키마로 오인하므로 릴리스에 포함하지 않는다.
           find release -type f -name '._*' -delete
@@ -202,8 +211,9 @@ jobs:
           test -w "$database_path"
 
           # 4) checked-in migrations apply (consumer owns migration history)
-          cd ~/app
-          ./node_modules/.bin/prisma generate --schema=./prisma
+          cd ~/release
+          ln -s "$HOME/app/.env" .env
+          export DATABASE_URL="file:$database_path"
           node scripts/deploy-migrations.mjs
 
           # 4.5) 챗봇 매뉴얼 — 새 섹션만 추가 (관리자 수정분 보존)
