@@ -9,6 +9,7 @@ import { clinicConfig } from "@/clinic.config";
 import { SITE_URL } from "@yooniqpark/clinic-core/lib/seo";
 import { isJournalAlias, JOURNAL_ALIAS, JOURNAL_AUTHOR, journalArticleData, journalJsonLd, journalMetadata, journalPostPath } from "@/lib/blog-seo";
 import { journalTopicForPost } from "@/lib/journal-topics";
+import { separateJournalBodyImages } from "@/lib/journal-body-images";
 import Director from "../Director";
 import s from "../journal.module.css";
 
@@ -50,6 +51,7 @@ export default async function JournalPost({ params }: { params: Params }) {
   const { locale, id } = await params;
   const post = await visiblePost(locale, id);
   const topic = post.published ? journalTopicForPost(post.id) : undefined;
+  const body = articleBody(post.published ? separateJournalBodyImages(post.html, post.id) : post.html, post.title);
   setRequestLocale("ko");
   const colors = Array.from(new Set(Array.from(post.html.matchAll(/docx-color-([a-f0-9]{6})/gi), match => match[1].toLowerCase())));
   return <section className={s.journal}><div className={s.layout}><Director /><main>
@@ -57,7 +59,7 @@ export default async function JournalPost({ params }: { params: Params }) {
     <Link className={s.back} href="/journal">← 이야기 목록으로</Link>
     {!post.published && <div className={s.draft}>초안 미리보기입니다. 관리자에게만 표시되며 방문자에게 공개되지 않습니다. <Link href={`/admin/blog/${post.id}`}>편집으로 돌아가기 →</Link></div>}
     <header className={s.articleHeader}><span className={s.eyebrow}>DOCTOR’S BLOG · {post.category}</span><h1>{post.title}</h1><p className={s.meta}><Link href={JOURNAL_AUTHOR.path}>선샤인의원 {JOURNAL_AUTHOR.name} {JOURNAL_AUTHOR.jobTitle}</Link> · <time dateTime={post.createdAt}>{new Date(post.createdAt).toLocaleDateString("ko-KR", { timeZone: "Asia/Seoul" })}</time></p></header>
-    <article className={s.body} dangerouslySetInnerHTML={{ __html: articleBody(post.html, post.title) }} />
+    <article className={s.body} dangerouslySetInnerHTML={{ __html: body }} />
     <style>{colors.map(color => `.${s.body} span.docx-color-${color}{color:#${color}}`).join("")}</style>
     <footer className={s.footer}>
       {topic && <p className="mb-4"><Link href={topic.path}>{topic.label} 시술 안내 →</Link></p>}

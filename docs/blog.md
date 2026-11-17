@@ -15,6 +15,8 @@ Published journal posts have their own canonical URL, social sharing metadata, a
 
 Journal URLs always show the Korean original regardless of language preferences. A language-prefixed journal link redirects to the corresponding unprefixed URL without changing the visitor's language preference for the rest of the site. Selected published columns and matching Korean treatment pages link to one another.
 
+Public journal detail pages replace supported embedded raster image data with lazy-loaded, content-versioned same-origin media links. The endpoint serves the original image bytes only while the post is public; draft previews keep their original embedded images. Stored HTML, cover images, and the private DOCX files are unchanged. No migration is needed.
+
 On a disposable local fixture with two distinct published posts and the local test administrator, run `node scripts/check-blog-cover.mjs` against a running app on port 8097 to verify upload, invalid files, authorization, persistence, public display, stable order, and reset. The script refuses production hosts.
 
 Verification: production build, TypeScript, scoped ESLint, locale checks, and authenticated upload/publish/unpublish integration checks. The sample document preserved all text (ignoring whitespace), nine images, four tables, and seven headings.

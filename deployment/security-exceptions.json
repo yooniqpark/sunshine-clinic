@@ -1,13 +1,16 @@
 {
-  "reviewedOn": "2026-11-02",
+  "reviewedOn": "2026-11-17",
   "reviewedBy": "Codex deployment preflight",
   "timeZone": "Asia/Seoul",
-  "exceptions": [
+  "exceptions": [],
+  "resolved": [
     {
       "packages": ["prisma", "@prisma/config", "deepmerge-ts"],
       "severity": "high",
       "decision": "Defer the existing Prisma 6 CLI/config advisory chain for this UI-only release",
       "expiresOn": "2026-11-16",
+      "resolvedOn": "2026-11-17",
+      "resolution": "Pin deepmerge-ts 8.0.0 for Prisma config and ship the audited CLI in the release.",
       "owner": "repository-owner",
       "constraints": [
         "Prisma CLI and configuration loading run only on repository-controlled deployment inputs",
